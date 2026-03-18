@@ -1,0 +1,20 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/aw-command-panel-section.directive"
+    ],
+
+    "actions": {},
+    "data": {
+    },
+    "onEvent": [
+    ],
+    "i18n": {
+        "configure": [ "ConfiguratorMessages" ],
+        "ConfigureVariant": [ "Att1AttrMappingMessages" ],
+        "variantSectionTitle": [ "OccurrenceManagementConstants" ]
+    }
+}

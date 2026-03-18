@@ -1,0 +1,23 @@
+{
+    "cancel": "キャンセル",
+    "submit": "送信",
+    "continue": "継続",
+    "reviseCmdTitle": "リビジョンアップ",
+    "workflowTemplatesLabel": "ワークフローテンプレート",
+    "workflowNameLabel": "ワークフロー名",
+    "workflowDescriptionLabel": "説明",
+    "noWorkflowTemplatesMsg": "選択したオブジェクトに対してワークフローテンプレートが見つかりませんでした.",
+    "submitToWorkflowCmdTitle": "ワークフローに送信",
+    "submitToWorkflowTooltipMsg": "{0}をワークフローに送信します。",
+    "submitToWorkflowInformationMsg": "{0}プロセスの削除が保留中です。 この削除を含む、アクティビティコンテンツをリリースするには、ワークフローテンプレート\"NGP_ReleasePendingDeletions\"を使用している間に、アクティビティをワークフローに送信します。",
+    "successfullySubmitToWorkflowSingle": "\"{0}\"はワークフローに送信されました。",
+    "successfullySubmitToWorkflowMultiple": "{0}オブジェクトはワークフローに送信されました。",
+    "parentAutoReviseSingleConfirmation": "\"{0}\"をリビジョンアップすると、\"{1}\"もリビジョンアップすることになります。 継続しますか?",
+    "parentAutoReviseMultipleConfirmation": "選択したオペレーションをリビジョンアップすると、\"{0}\"もリビジョンアップすることになります。 継続しますか?",
+    "successfulReviseAction": "新規リビジョンが、\"{0}\"に対して正常に作成されました。",
+    "submitSelectedToWorkflow": "選択した要素をワークフローへサブミットします。",
+    "singleDeleteMessage": "削除してよろしいですか \"{0}\"?",
+    "multipleDeleteMessage": "これらの{0}オブジェクトを本当に削除しますか?",
+    "deleteTooltipMsg": "削除",
+    "deleteSelectedObjectsCmdDescription": "選択したオブジェクトを削除"    
+}

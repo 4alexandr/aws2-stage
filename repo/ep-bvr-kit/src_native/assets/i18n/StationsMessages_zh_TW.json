@@ -1,0 +1,10 @@
+{
+    "StationWorkInstructionsTitle": "工作指導",
+    "processTitle": "工藝",
+    "editorTitle": "編輯器",
+    "noAssemblyStructure": "沒有參考組立件結構。",
+    "GraphicVisibilityColumnName": "圖形可見性",
+    "syncedToViewer": "已與檢視器同步。 {@msgTxtLink0}",
+    "syncedToEditor": "已與文字編輯器同步。 {@msgTxtLink0}",
+    "switchMode": "切換"
+}

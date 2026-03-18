@@ -1,0 +1,3854 @@
+{
+  "name": "validationcontract",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "themeExtensions": [
+    "customColorsTheme"
+  ],
+  "aliasRegistry": {
+    "typeContractDefinition48": [
+      "Crt0VCDefnRevision",
+      "Crt0VCDefn"
+    ],
+    "typeVerificationRequest48": [
+      "Crt0VldnContract",
+      "Crt0VldnContractRevision"
+    ],
+    "typeSimulationTestRequest48": [
+      "Crt0Study",
+      "Crt0StudyRevision"
+    ],
+    "typeSimulationTestRun48": [
+      "Crt0RunRevision"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "Crt1CreateStudy": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.CreateStudyTitle}}",
+        "description": "{{i18n.Crt1CreateStudyDesc}}"
+      },
+      "Crt1CreateValidationContract": {
+        "iconId": "cmdCreateAnalysisRequest",
+        "title": "{{i18n.CreateARTitle}}",
+        "description": "{{i18n.Crt1CreateValidationContractDesc}}"
+      },
+      "StudyFilterToggleCmd": {
+        "iconId": "cmdFilterAnalysisRequest",
+        "isGroup": false,
+        "title": "{{i18n.HideOccurenceFilterToggleCommandTitle}}",
+        "selected": {
+          "iconId": "cmdFilterAnalysisRequest",
+          "title": "{{i18n.ShowOccurenceFilterToggleCommandTitle}}"
+        },
+        "description": "{{i18n.StudyFilterToggleCmdDesc}}"
+      },
+      "ARFilterToggleCmd": {
+        "iconId": "cmdFilterAnalysisRequest",
+        "isGroup": false,
+        "title": "{{i18n.HideOccurenceFilterToggleCommandTitle}}",
+        "selected": {
+          "iconId": "cmdFilterAnalysisRequest",
+          "title": "{{i18n.ShowOccurenceFilterToggleCommandTitle}}"
+        },
+        "description": "{{i18n.StudyFilterToggleCmdDesc}}"
+      },
+      "RemoveStudyFromVC": {
+        "iconId": "cmdDelete",
+        "title": "{{i18n.RemoveStudyFromVCTitle}}",
+        "description": "{{i18n.RemoveStudyFromVCDesc}}"
+      },
+      "Crt1Delete": {
+        "iconId": "cmdDelete",
+        "title": "{{i18n.Delete}}"
+      },
+      "AddToAR": {
+        "iconId": "cmdAddToAnalysisRequest",
+        "title": "{{i18n.AddToAnalysisRequestCommandTitle}}",
+        "description": "{{i18n.AddToARDesc}}"
+      },
+      "AddToARFromProject": {
+        "iconId": "cmdAddToAnalysisRequest",
+        "title": "{{i18n.AddToAnalysisRequestCommandTitle}}"
+      },
+      "AddToStudy": {
+        "iconId": "cmdAddtoStudy",
+        "title": "{{i18n.AddToStudyTitle}}",
+        "description": "{{i18n.AddToStudyDesc}}"
+      },
+      "AddToTestRequest": {
+        "iconId": "cmdAddToAnalysisRequest",
+        "title": "{{i18n.AddToTestRequestTitle}}"
+      },
+      "AddToRun": {
+        "iconId": "cmdAddToAnalysisRequest",
+        "title": "{{i18n.AddToRunTitle}}"
+      },
+      "AddToTestEvent": {
+        "iconId": "cmdAddToAnalysisRequest",
+        "title": "{{i18n.AddToTestEventTitle}}"
+      },
+      "RemoveFromAR": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveFromARTitle}}",
+        "description": "{{i18n.RemoveFromARDesc}}"
+      },
+      "RemoveFromARForContentTable": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveFromARTitle}}",
+        "description": "{{i18n.RemoveFromARDesc}}"
+      },
+      "RemoveFromARProject": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveFromARTitle}}"
+      },
+      "RemoveFromStudy": {
+        "iconId": "cmdRemoveFromStudy",
+        "title": "{{i18n.RemoveFromStudyTitle}}",
+        "description": "{{i18n.RemoveFromStudyDesc}}"
+      },
+      "RemoveFromStudyForContentTable": {
+        "iconId": "cmdRemoveFromStudy",
+        "title": "{{i18n.RemoveFromStudyTitle}}",
+        "description": "{{i18n.RemoveFromStudyDesc}}"
+      },
+      "RemoveFromTestRequest": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveFromTestRequestTitle}}"
+      },
+      "RemoveFromTestRequestForContentTable": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveFromTestRequestTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "RemoveFromRun": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveFromRunTitle}}"
+      },
+      "RemoveFromRunForContentTable": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveFromRunTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "RemoveFromTestEvent": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveFromTestEventTitle}}"
+      },
+      "RemoveFromTestEventForContentTable": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveFromTestEventTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ARCompareReport": {
+        "iconId": "cmdGenerateReport",
+        "title": "{{i18n.ARCompareReportTitle}}",
+        "description": "{{i18n.ARCompareReportDesc}}"
+      },
+      "Crt1AddObjectToResultPanel": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.AddObjectToResultCommandTitle}}",
+        "description": "{{i18n.Crt1AddObjectToResultPanelDesc}}"
+      },
+      "Crt1RemoveAROutput": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "isGroup": false,
+        "title": "{{i18n.RemoveFromARTitle}}",
+        "description": "{{i18n.Crt1RemoveAROutputDesc}}"
+      },
+      "Crt1RemoveStudyOutput": {
+        "iconId": "cmdDelete",
+        "isGroup": false,
+        "title": "{{i18n.Delete}}",
+        "description": "{{i18n.Crt1RemoveStudyOutputDesc}}"
+      },
+      "Crt1AddContentTableGroupCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": true,
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddWSOToContentTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "Crt1AddOccurenceToContentTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.addFromContent}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "OpenContent": {
+        "iconId": "cmdOpen",
+        "title": "{{i18n.OpenObjectCommandTitle}}",
+        "description": "{{i18n.OpenContentDesc}}"
+      },
+      "ToggleInOutForProxyTable": {
+        "iconId": "cmdSetMeasurableAttributeInputOutput",
+        "title": "{{i18n.toggleInputOutputTitle}}",
+        "description": "{{i18n.ToggleInOutForTableDesc}}"
+      },
+      "ToggleInOutForStudyForProxyTable": {
+        "iconId": "cmdSetMeasurableAttributeInputOutput",
+        "title": "{{i18n.toggleInputOutputTitle}}",
+        "description": "{{i18n.ToggleInOutForTableDesc}}"
+      },
+      "UnuseAttrForProxyTable": {
+        "iconId": "cmdRemoveAttribute",
+        "title": "{{i18n.UnuseCommandTitle}}",
+        "description": "{{i18n.UnuseAttrForTableDesc}}"
+      },
+      "UnuseAttrForStudyForProxyTable": {
+        "iconId": "cmdRemoveAttribute",
+        "title": "{{i18n.UnuseCommandTitle}}",
+        "description": "{{i18n.UnuseAttrForStudyForTableDesc}}"
+      },
+      "Crt1SyncMeasurableAttr": {
+        "iconId": "cmdRefresh",
+        "title": "{{i18n.SynchronizeTitle}}",
+        "description": "{{i18n.Crt1SyncMeasurableAttrDesc}}"
+      },
+      "Crt1PublishMeasurableAttr": {
+        "iconId": "cmdPublish",
+        "title": "{{i18n.PublishTitle}}",
+        "description": "{{i18n.Crt1PublishMeasurableAttrDesc}}"
+      },
+      "ToggleInOutForMappedTable": {
+        "iconId": "cmdSetMeasurableAttributeInputOutput",
+        "title": "{{i18n.toggleInputOutputTitle}}",
+        "description": "{{i18n.ToggleInOutForTableDesc}}"
+      },
+      "ToggleInOutForInDefTable": {
+        "iconId": "cmdSetMeasurableAttributeInputOutput",
+        "title": "{{i18n.toggleInputOutputTitle}}",
+        "description": "{{i18n.ToggleInOutForTableDesc}}"
+      },
+      "ToggleInOutForStudyForMappedTable": {
+        "iconId": "cmdSetMeasurableAttributeInputOutput",
+        "title": "{{i18n.toggleInputOutputTitle}}",
+        "description": "{{i18n.ToggleInOutForTableDesc}}"
+      },
+      "FilterUnusedAttrForMappedTable": {
+        "iconId": "cmdfilter",
+        "isGroup": false,
+        "title": "{{i18n.ShowUnusedCommandTitle}}",
+        "selected": {
+          "iconId": "cmdfilter",
+          "title": "{{i18n.HideUnusedCommandTitle}}"
+        },
+        "description": "{{i18n.FilterUnusedAttrForMappedTableDesc}}"
+      },
+      "FilterUnusedAttrForProxyTable": {
+        "iconId": "cmdfilter",
+        "isGroup": false,
+        "title": "{{i18n.ShowUnusedCommandTitle}}",
+        "selected": {
+          "iconId": "cmdfilter",
+          "title": "{{i18n.HideUnusedCommandTitle}}"
+        },
+        "description": "{{i18n.FilterUnusedAttrForMappedTableDesc}}"
+      },
+      "FilterUnusedAttrForInDefTable": {
+        "iconId": "cmdfilter",
+        "isGroup": false,
+        "title": "{{i18n.ShowUnusedCommandTitle}}",
+        "selected": {
+          "iconId": "cmdfilter",
+          "title": "{{i18n.HideUnusedCommandTitle}}"
+        },
+        "description": "{{i18n.FilterUnusedAttrForMappedTableDesc}}"
+      },
+      "UnuseAttrForMappedTable": {
+        "iconId": "cmdRemoveAttribute",
+        "title": "{{i18n.UnuseCommandTitle}}",
+        "description": "{{i18n.UnuseAttrForMappedTableDesc}}"
+      },
+      "UnuseAttrForInDefTable": {
+        "iconId": "cmdRemoveAttribute",
+        "title": "{{i18n.UnuseCommandTitle}}",
+        "description": "{{i18n.UnuseAttrForMappedTableDesc}}"
+      },
+      "UnuseAttrForStudyForMappedTable": {
+        "iconId": "cmdRemoveAttribute",
+        "title": "{{i18n.UnuseCommandTitle}}",
+        "description": "{{i18n.UnuseAttrForStudyForMappedTableDesc}}"
+      },
+      "Crt1SetParameterUsage": {
+        "iconId": "",
+        "isGroup": true,
+        "title": "{{i18n.Crt1SetUsageTitle}}",
+        "description": "{{i18n.Crt1SetUsageDesc}}"
+      },
+      "Crt1SetInputUsage": {
+        "iconId": "",
+        "isGroup": false,
+        "title": "{{i18n.Crt1SetInputUsageTitle}}",
+        "description": "{{i18n.Crt1SetInputUsageDesc}}"
+      },
+      "Crt1SetOutputUsage": {
+        "iconId": "",
+        "isGroup": false,
+        "title": "{{i18n.Crt1SetOutputUsageTitle}}",
+        "description": "{{i18n.Crt1SetOutputUsageDesc}}"
+      },
+      "Crt1SetUnusedUsage": {
+        "iconId": "",
+        "isGroup": false,
+        "title": "{{i18n.Crt1SetUnusedUsageTitle}}",
+        "description": "{{i18n.Crt1SetUnusedUsageDesc}}"
+      },
+      "Crt1CloseAddOccurenceToContentTablePopup": {
+        "iconId": "cmdClosePanel",
+        "isGroup": false,
+        "title": "{{i18n.closeTitle}}"
+      }
+    },
+    "commandHandlers": {
+      "Crt1CloseAddOccurenceToContentTablePopupHandler": {
+        "id": "Crt1CloseAddOccurenceToContentTablePopup",
+        "action": "CloseAddOccurenceToContentTablePopupAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Crt1AddContentTableGroupCmdCommandHandler": {
+        "id": "Crt1AddContentTableGroupCmd",
+        "activeWhen": true
+      },
+      "cutObjectCommandHandler": {
+        "id": "Awp0Cut",
+        "action": "performCutOperation",
+        "enableWhen": false,
+        "activeWhen": {
+          "condition": "conditions.isCutCommandActiveForAR"
+        }
+      },
+      "cutCtxMenuObjectCommandHandler": {
+        "id": "Awp0CutContextMenu",
+        "visibleWhen": false,
+        "activeWhen": {
+          "condition": "conditions.isCutCommandActiveForAR"
+        }
+      },
+      "CreateStudyCommandHandler": {
+        "id": "Crt1CreateStudy",
+        "action": "activateCreateStudyPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.createStudyVisibleCond"
+        }
+      },
+      "CreateARCommandHandler": {
+        "id": "Crt1CreateValidationContract",
+        "action": "activateCreateARPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.createARVisibleCond"
+        }
+      },
+      "StudyFilterToggle": {
+        "id": "StudyFilterToggleCmd",
+        "action": "performStudyFiltering",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.studyOccurenceFilterToggleVisibleCond"
+        },
+        "selectWhen": {
+          "condition": "conditions.isFilterCommandHighlighted"
+        }
+      },
+      "ARFilterToggle": {
+        "id": "ARFilterToggleCmd",
+        "action": "performARFiltering",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.arOccurenceFilterToggleVisibleCond"
+        },
+        "selectWhen": {
+          "condition": "conditions.isFilterCommandHighlighted"
+        }
+      },
+      "RemoveStudyFromVCCommandHandler": {
+        "id": "RemoveStudyFromVC",
+        "action": "removeStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeStudyFromVCVisibleCond"
+        }
+      },
+      "Crt1DeleteCommandHandler": {
+        "id": "Crt1Delete",
+        "action": "removeStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Crt1DeleteVisibleCond"
+        }
+      },
+      "AddToARCommandHandler": {
+        "id": "AddToAR",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.addToARVisibleCond"
+        }
+      },
+      "AddToARFromProjectCommandHandler": {
+        "id": "AddToARFromProject",
+        "action": "addToARFromProjectAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.addToARFromProjectVisibleCond"
+        }
+      },
+      "AddToStudyCommandHandler": {
+        "id": "AddToStudy",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.addToStudyVisibleCond"
+        }
+      },
+      "AddToTestRequestCommandHandler": {
+        "id": "AddToTestRequest",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.AddToTestRequestVisibleCond"
+        }
+      },
+      "AddToRunCommandHandler": {
+        "id": "AddToRun",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.AddToRunVisibleCond"
+        }
+      },
+      "AddToTestEventCommandHandler": {
+        "id": "AddToTestEvent",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.AddToTestEventVisibleCond"
+        }
+      },
+      "RemoveFromARCommandHandler": {
+        "id": "RemoveFromAR",
+        "action": "removeFromARConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromARVisibleCond"
+        }
+      },
+      "RemoveFromARForContentTableCommandHandler": {
+        "id": "RemoveFromARForContentTable",
+        "action": "removeFromARConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromARForContentTableVisibleCond"
+        }
+      },
+      "RemoveFromARProjectCommandHandler": {
+        "id": "RemoveFromARProject",
+        "action": "removeFromARForProjectConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromARProjectVisibleCond"
+        }
+      },
+      "RemoveFromStudyCommandHandler": {
+        "id": "RemoveFromStudy",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromStudyVisibleCond"
+        }
+      },
+      "RemoveFromStudyForContentTableCommandHandler": {
+        "id": "RemoveFromStudyForContentTable",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.RemoveFromStudyForContentTableVisibleCond"
+        }
+      },
+      "RemoveFromTestRequestCommandHandler": {
+        "id": "RemoveFromTestRequest",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromTestRequestVisibleCond"
+        }
+      },
+      "RemoveFromTestRequestForContentTableCommandHandler": {
+        "id": "RemoveFromTestRequestForContentTable",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.RemoveFromTestRequestForContentTableVisibleCond"
+        }
+      },
+      "RemoveFromRunCommandHandler": {
+        "id": "RemoveFromRun",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromRunVisibleCond"
+        }
+      },
+      "RemoveFromRunForContentTableCommandHandler": {
+        "id": "RemoveFromRunForContentTable",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.RemoveFromRunForContentTableVisibleCond"
+        }
+      },
+      "RemoveFromTestEventCommandHandler": {
+        "id": "RemoveFromTestEvent",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromTestEventVisibleCond"
+        }
+      },
+      "RemoveFromTestEventForContentTableCommandHandler": {
+        "id": "RemoveFromTestEventForContentTable",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.RemoveFromTestEventForContentTableVisibleCond"
+        }
+      },
+      "ARCompareReportCommandHandler": {
+        "id": "ARCompareReport",
+        "action": "filterStudiesFromAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.ARCompareReportVisibleCond"
+        }
+      },
+      "ValidationContractShowObjectCommandHandler": {
+        "id": "Awp0ShowObject",
+        "action": "ValidationContractShowDelegatedObject",
+        "activeWhen": {
+          "condition": "conditions.ValidationContractOpenConditionActive"
+        },
+        "visibleWhen": {
+          "condition": "conditions.ValidationContractOpenConditionActive"
+        }
+      },
+      "ValidationContractCellShowObjectCommandHandler": {
+        "id": "Awp0ShowObjectCell",
+        "action": "ValidationContractCellShowDelegatedObject",
+        "activeWhen": {
+          "condition": "conditions.ValidationContractCellOpenConditionActive"
+        },
+        "visibleWhen": {
+          "condition": "conditions.cmdAwp0ShowObjectCellBaseVisibleCondition"
+        }
+      },
+      "Crt1AddObjectToResultPanelHandler": {
+        "id": "Crt1AddObjectToResultPanel",
+        "action": "setVCTargetObject",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.AddObjectToResultVisibleCond"
+        }
+      },
+      "Crt1RemoveAROutputHandler": {
+        "id": "Crt1RemoveAROutput",
+        "action": "removeOutput",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Crt1RemoveAROutputVisibleCond"
+        }
+      },
+      "Crt1RemoveStudyOutputHandler": {
+        "id": "Crt1RemoveStudyOutput",
+        "action": "removeOutput",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Crt1RemoveStudyOutputVisibleCond"
+        }
+      },
+      "Crt1SaveAsReviseParamInARHandlerDelegate": {
+        "id": "Awp0ShowSaveAs",
+        "activeWhen": {
+          "condition": "conditions.crt1SaveAsOrReviseVisibility"
+        },
+        "visibleWhen": false
+      },
+      "IAV1AddWSOToContentTableHandler": {
+        "id": "IAV1AddWSOToContentTable",
+        "action": "IAV1AddWSOToContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddWSOToContentTableCondition"
+        }
+      },
+      "Crt1AddOccurenceToContentTableHandler": {
+        "id": "Crt1AddOccurenceToContentTable",
+        "action": "Crt1AddOccurrenceToContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Crt1AddOccurenceToContentTableCondition"
+        }
+      },
+      "OpenContentCommandHandler": {
+        "id": "OpenContent",
+        "action": "getContents",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "crt1OpenContentInNewTABCommandHandler": {
+        "id": "Awp0OpenInNewTab",
+        "action": "openContentInNewTAB",
+        "activeWhen": {
+          "condition": "conditions.crt1OpenContentInNewTABCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.crt1OpenContentInNewTABCommandVisibility"
+        }
+      },
+      "crt1OpenContentInNewWindowCommandHandler": {
+        "id": "Awp0OpenInNewWindow",
+        "action": "openContentInNewWindow",
+        "activeWhen": {
+          "condition": "conditions.crt1OpenContentInNewWindowCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.crt1OpenContentInNewWindowCommandVisibility"
+        }
+      },
+      "crt11OpenContentInRACCommandHandler": {
+        "id": "Awp0OpenInRAC",
+        "action": "openContentInRAC",
+        "activeWhen": {
+          "condition": "conditions.crt11OpenContentInRACCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.crt11OpenContentInRACCommandVisibility"
+        }
+      },
+      "ToggleInOutForProxyTableCommandHandler": {
+        "id": "ToggleInOutForProxyTable",
+        "action": "toggleInOutForProxyTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.toggleInOutForProxyTableVisibleBeforeTC131"
+        }
+      },
+      "ToggleInOutForStudyForProxyTableCommandHandler": {
+        "id": "ToggleInOutForStudyForProxyTable",
+        "action": "toggleInOutForProxyTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.toggleInOutForStudyForProxyTableVisibleBeforeTC131"
+        }
+      },
+      "UnuseAttrForProxyTableCommandHandler": {
+        "id": "UnuseAttrForProxyTable",
+        "action": "unuseAttrForProxyTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.unuseAttrForProxyTableVisibleBeforeTC131"
+        }
+      },
+      "UnuseAttrForStudyForProxyTableCommandHandler": {
+        "id": "UnuseAttrForStudyForProxyTable",
+        "action": "unuseAttrForStudyForProxyTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.unuseAttrForStudyForProxyTableVisibleBeforeTC131"
+        }
+      },
+      "Crt1SyncMeasurableAttrCommandHandler": {
+        "id": "Crt1SyncMeasurableAttr",
+        "action": "syncAttrConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.crt1SyncMeasurableAttrVisibility"
+        }
+      },
+      "Crt1PublishMeasurableAttrHandler": {
+        "id": "Crt1PublishMeasurableAttr",
+        "action": "publishAttrConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.crt1PublishMeasurableAttrVisibility"
+        }
+      },
+      "ToggleInOutForMappedTableCommandHandler": {
+        "id": "ToggleInOutForMappedTable",
+        "action": "toggleInOutForMappedTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.toggleInOutForMappedTableVisibleBeforeTC131"
+        }
+      },
+      "ToggleInOutForInDefTableCommandHandler": {
+        "id": "ToggleInOutForInDefTable",
+        "action": "toggleInOutForInDefTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.toggleInOutForInDefTableVisibleBefore131"
+        }
+      },
+      "ToggleInOutForStudyCommandHandler": {
+        "id": "ToggleInOutForStudyForMappedTable",
+        "action": "toggleInOutForMappedTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.toggleInOutForStudyForMappedTableVisibleBeforeTC131"
+        }
+      },
+      "UnuseAttrForMappedTableCommandHandler": {
+        "id": "UnuseAttrForMappedTable",
+        "action": "unuseAttrForMappedTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.unuseAttrForMappedTableVisibleBeforeTC131"
+        }
+      },
+      "UnuseAttrForInDefTableCommandHandler": {
+        "id": "UnuseAttrForInDefTable",
+        "action": "unuseAttrForInDefTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.unuseAttrForInDefTableVisibleBeforeTC131"
+        }
+      },
+      "UnuseAttrForStudyCommandHandler": {
+        "id": "UnuseAttrForStudyForMappedTable",
+        "action": "unuseAttrForStudyForMappedTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.unuseAttrForStudyForMappedTableVisibleBeforeTC131"
+        }
+      },
+      "FilterUnusedAttrForMappedTableCommandHandler": {
+        "id": "FilterUnusedAttrForMappedTable",
+        "action": "filterUnusedAttrForMappedTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.unusedAttrFilterForMappedTableVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.isUnusedAttrFilterForMappedTableHighlighted"
+        }
+      },
+      "FilterUnusedAttrForProxyTableCommandHandler": {
+        "id": "FilterUnusedAttrForProxyTable",
+        "action": "filterUnusedAttrForProxyTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.unusedAttrFilterForProxyTableVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.isUnusedAttrFilterForProxyTableHighlighted"
+        }
+      },
+      "FilterUnusedAttrForInDefTable": {
+        "id": "FilterUnusedAttrForInDefTable",
+        "action": "filterUnusedAttrForInDefTable",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.unusedAttrFilterForInDefTableVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.isUnusedAttrFilterForInDefTableHighlighted"
+        }
+      },
+      "Crt1SetInputUsageCommandHandler": {
+        "id": "Crt1SetInputUsage",
+        "action": "Crt1SetParametersUsageInput",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.setInputUsageVisibleCondition"
+        }
+      },
+      "Crt1SetOutputUsageCommandHandler": {
+        "id": "Crt1SetOutputUsage",
+        "action": "Crt1SetParametersUsageOutput",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.setOutputUsageVisibleCondition"
+        }
+      },
+      "Crt1SetUnusedUsageCommandHandler": {
+        "id": "Crt1SetUnusedUsage",
+        "action": "Crt1SetParametersUsageUnused",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.setUnuseUsageVisibleCondition"
+        }
+      }
+    },
+    "commandPlacements": {
+      "Crt1CloseAddOccurenceToContentTablePopupPlacement": {
+        "id": "Crt1CloseAddOccurenceToContentTablePopup",
+        "uiAnchor": "crt1_stickyPanel_popup",
+        "priority": 100
+      },
+      "CreateARCmdPlacement": {
+        "id": "Crt1CreateValidationContract",
+        "uiAnchor": "aw_rightWall",
+        "priority": 350,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "StudyOccMgmtDisplay": {
+        "id": "StudyFilterToggleCmd",
+        "uiAnchor": "aw_primaryWorkArea",
+        "priority": 170
+      },
+      "AROccMgmtDisplay": {
+        "id": "ARFilterToggleCmd",
+        "uiAnchor": "aw_primaryWorkArea",
+        "priority": 160
+      },
+      "RemoveStudyFromVC": {
+        "id": "RemoveStudyFromVC",
+        "uiAnchor": "aw_rightWall",
+        "priority": 555,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "AddToAR": {
+        "id": "AddToAR",
+        "uiAnchor": "aw_rightWall",
+        "priority": 300,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "AddToARFromProjectCmdPlacement": {
+        "id": "AddToARFromProject",
+        "uiAnchor": "aw_rightWall",
+        "priority": 300,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "AddToStudy": {
+        "id": "AddToStudy",
+        "uiAnchor": "aw_rightWall",
+        "priority": 320,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "AddToTestRequest": {
+        "id": "AddToTestRequest",
+        "uiAnchor": "aw_rightWall",
+        "priority": 320,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "AddToRun": {
+        "id": "AddToRun",
+        "uiAnchor": "aw_rightWall",
+        "priority": 320,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "AddToTestEvent": {
+        "id": "AddToTestEvent",
+        "uiAnchor": "aw_rightWall",
+        "priority": 320,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "RemoveFromAR": {
+        "id": "RemoveFromAR",
+        "uiAnchor": "aw_rightWall",
+        "priority": 316,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "RemoveFromARForContentTableCmdPlacement": {
+        "id": "RemoveFromARForContentTable",
+        "uiAnchor": "aw_addContentCommandbar",
+        "priority": 100
+      },
+      "RemoveFromARProjectCmdPlacement": {
+        "id": "RemoveFromARProject",
+        "uiAnchor": "aw_rightWall",
+        "priority": 316,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "RemoveFromStudy": {
+        "id": "RemoveFromStudy",
+        "uiAnchor": "aw_rightWall",
+        "priority": 318,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "RemoveFromStudyForContentTableCmdPlacement": {
+        "id": "RemoveFromStudyForContentTable",
+        "uiAnchor": "aw_addContentCommandbar",
+        "priority": 100
+      },
+      "RemoveFromTestRequest": {
+        "id": "RemoveFromTestRequest",
+        "uiAnchor": "aw_rightWall",
+        "priority": 318,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "RemoveFromTestRequestForContentTableCmdPlacement": {
+        "id": "RemoveFromTestRequestForContentTable",
+        "uiAnchor": "aw_addContentCommandbar",
+        "priority": 100
+      },
+      "RemoveFromRun": {
+        "id": "RemoveFromRun",
+        "uiAnchor": "aw_rightWall",
+        "priority": 318,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "RemoveFromRunForContentTableCmdPlacement": {
+        "id": "RemoveFromRunForContentTable",
+        "uiAnchor": "aw_addContentCommandbar",
+        "priority": 100
+      },
+      "RemoveFromTestEvent": {
+        "id": "RemoveFromTestEvent",
+        "uiAnchor": "aw_rightWall",
+        "priority": 318,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "RemoveFromTestEventForContentTableCmdPlacement": {
+        "id": "RemoveFromTestEventForContentTable",
+        "uiAnchor": "aw_addContentCommandbar",
+        "priority": 100
+      },
+      "ARCompareReport": {
+        "id": "ARCompareReport",
+        "uiAnchor": "aw_rightWall",
+        "priority": 20,
+        "parentGroupId": "Awp0ViewGroup"
+      },
+      "Crt1RemoveAROutputPlacement": {
+        "id": "Crt1RemoveAROutput",
+        "uiAnchor": "aw_rightWall",
+        "priority": 315,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "IAV1AddWSOToContentTableCmdPlacement": {
+        "id": "IAV1AddWSOToContentTable",
+        "uiAnchor": "aw_addContentCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1AddContentTableGroupCmd"
+      },
+      "Crt1AddOccurenceToContentTableCmdPlacement": {
+        "id": "Crt1AddOccurenceToContentTable",
+        "uiAnchor": "aw_addContentCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1AddContentTableGroupCmd"
+      },
+      "Crt1AddContentTableGroupCmdPlacement": {
+        "id": "Crt1AddContentTableGroupCmd",
+        "uiAnchor": "aw_addContentCommandbar",
+        "priority": 1
+      },
+      "ShowContentPlacement": {
+        "id": "OpenContent",
+        "uiAnchor": "Open_Content_command",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "ToggleInOutForProxyTableCommandPlacement": {
+        "id": "ToggleInOutForProxyTable",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100
+      },
+      "ToggleInOutForStudyForProxyTableCommandPlacement": {
+        "id": "ToggleInOutForStudyForProxyTable",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100
+      },
+      "UnuseAttrForProxyTableCommandPlacement": {
+        "id": "UnuseAttrForProxyTable",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100
+      },
+      "UnuseAttrForStudyForProxyTableCommandPlacement": {
+        "id": "UnuseAttrForStudyForProxyTable",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100
+      },
+      "Crt1SyncMeasurableAttrPlacement": {
+        "id": "Crt1SyncMeasurableAttr",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100
+      },
+      "Crt1PublishMeasurableAttrPlacement": {
+        "id": "Crt1PublishMeasurableAttr",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100
+      },
+      "ToggleInOutForMappedTableCommandPlacement": {
+        "id": "ToggleInOutForMappedTable",
+        "uiAnchor": "aw_attributeMappingCommandbar",
+        "priority": 100
+      },
+      "ToggleInOutForStudyForMappedTableCommandPlacement": {
+        "id": "ToggleInOutForStudyForMappedTable",
+        "uiAnchor": "aw_attributeMappingCommandbar",
+        "priority": 100
+      },
+      "ToggleInOutForInDefTableCommandPlacement": {
+        "id": "ToggleInOutForInDefTable",
+        "uiAnchor": "aw_InDefAttributeCommandbar",
+        "priority": 100
+      },
+      "FilterUnusedAttrForMappedTableCommandPlacement": {
+        "id": "FilterUnusedAttrForMappedTable",
+        "uiAnchor": "aw_attributeMappingViewCommandBar",
+        "priority": 10
+      },
+      "FilterUnusedAttrForProxyTableCommandPlacement": {
+        "id": "FilterUnusedAttrForProxyTable",
+        "uiAnchor": "aw_attributeViewCommandBar",
+        "priority": 10
+      },
+      "FilterUnusedAttrForInDefTableCommandPlacement": {
+        "id": "FilterUnusedAttrForInDefTable",
+        "uiAnchor": "aw_InDefAttributeViewCommandBar",
+        "priority": 10
+      },
+      "UnuseAttrForMappedTableCommandPlacement": {
+        "id": "UnuseAttrForMappedTable",
+        "uiAnchor": "aw_attributeMappingCommandbar",
+        "priority": 100
+      },
+      "UnuseAttrForStudyForMappedTableCommandPlacement": {
+        "id": "UnuseAttrForStudyForMappedTable",
+        "uiAnchor": "aw_attributeMappingCommandbar",
+        "priority": 100
+      },
+      "UnuseAttrForInDefTableCommandPlacement": {
+        "id": "UnuseAttrForInDefTable",
+        "uiAnchor": "aw_InDefAttributeCommandbar",
+        "priority": 100
+      },
+      "Crt1SetParameterUsageCommandPlacement": {
+        "id": "Crt1SetParameterUsage",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100
+      },
+      "Crt1SetInputUsageCommandPlacement": {
+        "id": "Crt1SetInputUsage",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1SetParameterUsage"
+      },
+      "Crt1SetOutputUsageCommandPlacement": {
+        "id": "Crt1SetOutputUsage",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1SetParameterUsage"
+      },
+      "Crt1SetUnusedUsageCommandPlacement": {
+        "id": "Crt1SetUnusedUsage",
+        "uiAnchor": "aw_attributeCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1SetParameterUsage"
+      },
+      "Crt1SetParameterUsageCommandPlacementForMappedTable": {
+        "id": "Crt1SetParameterUsage",
+        "uiAnchor": "aw_attributeMappingCommandbar",
+        "priority": 100
+      },
+      "Crt1SetInputUsageCommandPlacementForMappedTable": {
+        "id": "Crt1SetInputUsage",
+        "uiAnchor": "aw_attributeMappingCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1SetParameterUsage"
+      },
+      "Crt1SetOutputUsageCommandPlacementForMappedTable": {
+        "id": "Crt1SetOutputUsage",
+        "uiAnchor": "aw_attributeMappingCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1SetParameterUsage"
+      },
+      "Crt1SetUnusedUsageCommandPlacementForMappedTable": {
+        "id": "Crt1SetUnusedUsage",
+        "uiAnchor": "aw_attributeMappingCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1SetParameterUsage"
+      },
+      "Crt1SetParameterUsageCommandPlacementForInDefTable": {
+        "id": "Crt1SetParameterUsage",
+        "uiAnchor": "aw_InDefAttributeCommandbar",
+        "priority": 100
+      },
+      "Crt1SetInputUsageCommandPlacementForInDefTable": {
+        "id": "Crt1SetInputUsage",
+        "uiAnchor": "aw_InDefAttributeCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1SetParameterUsage"
+      },
+      "Crt1SetOutputUsageCommandPlacementForInDefTable": {
+        "id": "Crt1SetOutputUsage",
+        "uiAnchor": "aw_InDefAttributeCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1SetParameterUsage"
+      },
+      "Crt1SetUnusedUsageCommandPlacementForInDefTable": {
+        "id": "Crt1SetUnusedUsage",
+        "uiAnchor": "aw_InDefAttributeCommandbar",
+        "priority": 100,
+        "parentGroupId": "Crt1SetParameterUsage"
+      }
+    },
+    "actions": {
+      "activateExportPanel": {
+        "actionType": "JSFunction",
+        "method": "exportToExcel",
+        "deps": "js/analysisRequestUtils"
+      },
+      "activateCreateStudyPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Crt1CreateStudy",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateCreateARPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Crt1CreateValidationContract",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "performStudyFiltering": {
+        "actionType": "JSFunction",
+        "method": "studyOccurenceFilter",
+        "deps": "js/analysisRequestUtils"
+      },
+      "performARFiltering": {
+        "actionType": "JSFunction",
+        "method": "arOccurenceFilter",
+        "deps": "js/analysisRequestUtils"
+      },
+      "removeStudyConfirmation": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "study.removeStudy",
+              "condition": ""
+            }
+          ]
+        }
+      },
+      "getItemsTag": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "getProperties",
+        "inputData": {
+          "objects": "{{ctx.mselected}}",
+          "attributes": [
+            "items_tag"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "removeStudy"
+            }
+          ]
+        }
+      },
+      "removeStudy": {
+        "actionType": "JSFunction",
+        "method": "removeStudy",
+        "deps": "js/deleteStudy",
+        "outputData": {
+          "studyObjects": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "removeStudySoaCall"
+            },
+            {
+              "name": "drawBarChart"
+            }
+          ]
+        }
+      },
+      "removeStudySoaCall": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteObjects",
+        "inputData": {
+          "objects": "{{data.studyObjects}}"
+        },
+        "outputData": {
+          "removeStudySoaResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "data.removeStudySoaResponse.partialErrors === undefined",
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ],
+                "refreshLocationFlag": true
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "condition": "data.removeStudySoaResponse.partialErrors.length>0",
+              "message": "deleteStudyPartialError"
+            }
+          ]
+        }
+      },
+      "addToARFromProjectAction": {
+        "actionType": "JSFunction",
+        "method": "getSelectedParamInput",
+        "inputData": {
+          "openedARObject": "{{ctx.openedARObject}}",
+          "actionElem": "add"
+        },
+        "deps": "js/addRemoveFromAR",
+        "outputData": {
+          "manageARInput": ""
+        }
+      },
+      "addToAR": {
+        "actionType": "JSFunction",
+        "method": "getManageARInput",
+        "inputData": {
+          "manageAction": "addObject"
+        },
+        "deps": "js/addRemoveFromAR",
+        "outputData": {
+          "manageARInput": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "manageAnalysisRequests"
+            }
+          ]
+        }
+      },
+      "unRegisterVRTableSelection": {
+        "actionType": "JSFunction",
+        "method": "unRegisterVRTableSelection",
+        "deps": "js/addRemoveFromAR"
+      },
+      "manageAnalysisRequests": {
+        "actionType": "JSFunction",
+        "method": "callManageVerificationSOA",
+        "inputData": {
+          "input": "{{data.manageARInput.input}}",
+          "pref": "{{data.manageARInput.pref}}",
+          "data": "{{data}}",
+          "tableContext": "removeFromAR"
+        },
+        "deps": "js/manageVerificationService",
+        "events": {
+          "success": [
+            {
+              "name": "closePanel"
+            },
+            {
+              "name": "updateTMTPSelection"
+            }
+          ]
+        }
+      },
+      "removeFromARConfirmation": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "ar.removeFromAR",
+              "condition": ""
+            }
+          ]
+        }
+      },
+      "removeFromARForProjectConfirmation": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "ar.removeFromARForProject",
+              "condition": ""
+            }
+          ]
+        }
+      },
+      "removeFromStudyConfirmation": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "study.removeFromStudy",
+              "condition": ""
+            }
+          ]
+        }
+      },
+      "removeFromARandStudy": {
+        "actionType": "JSFunction",
+        "method": "getManageARInput",
+        "inputData": {
+          "manageAction": "removeObject"
+        },
+        "deps": "js/addRemoveFromAR",
+        "outputData": {
+          "manageARInput": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "manageAnalysisRequests"
+            }
+          ]
+        }
+      },
+      "removeFromARForProject": {
+        "actionType": "JSFunction",
+        "method": "getSelectedParamInput",
+        "inputData": {
+          "openedARObject": "{{ctx.openedARObject}}",
+          "actionElem": "remove"
+        },
+        "deps": "js/addRemoveFromAR",
+        "outputData": {
+          "manageARInput": ""
+        }
+      },
+      "getVCObject": {
+        "actionType": "JSFunction",
+        "method": "getVCObject",
+        "deps": "js/removeFromARStudy",
+        "outputData": {
+          "vcObject": ""
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "data.vcObject.modelType.typeHierarchyArray.indexOf('Crt0StudyRevision') > -1 && ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Content'",
+              "name": "loadPropertiesOnTraceLinks"
+            },
+            {
+              "condition": "data.vcObject.modelType.typeHierarchyArray.indexOf('Crt0StudyRevision') === -1",
+              "name": "getChildrenStudies"
+            },
+            {
+              "condition": "data.vcObject.modelType.typeHierarchyArray.indexOf('Crt0StudyRevision') > -1 && (ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Input' || ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_InputForDCP')",
+              "name": "removeFromARStudyInput"
+            }
+          ]
+        }
+      },
+      "getChildrenStudies": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "getProperties",
+        "inputData": {
+          "objects": [
+            "{{data.vcObject}}"
+          ],
+          "attributes": [
+            "crt0ChildrenStudies"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "removeOperation",
+              "condition": "ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Content'"
+            },
+            {
+              "name": "removeFromARStudyInput",
+              "condition": "ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Input' || ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_InputForDCP'"
+            }
+          ]
+        }
+      },
+      "removeOperation": {
+        "actionType": "JSFunction",
+        "method": "removeOperation",
+        "deps": "js/removeFromARStudy",
+        "outputData": {
+          "rret": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "checkObjectsAddedToAR",
+              "condition": "data.rret.studiesForAR.length > 0"
+            },
+            {
+              "name": "loadPropertiesOnTraceLinks",
+              "condition": "data.rret.studiesForAR.length < 1"
+            }
+          ]
+        }
+      },
+      "removeFromARStudyInput": {
+        "actionType": "JSFunction",
+        "method": "removeFromARStudyInput",
+        "deps": "js/removeFromARStudy",
+        "outputData": {
+          "rret": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "checkObjectsAddedToAR"
+            }
+          ]
+        }
+      },
+      "checkObjectsAddedToAR": {
+        "actionType": "TcSoaService",
+        "serviceName": "ValidationContractAW-2015-10-VCManagement",
+        "method": "areObjectsAddedToAnalysisRequest",
+        "inputData": {
+          "input": "{{data.rret.input}}"
+        },
+        "outputData": {
+          "checkObjectsAddedToAROutput": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "getTraceLinks"
+            }
+          ]
+        }
+      },
+      "getTraceLinks": {
+        "actionType": "JSFunction",
+        "method": "getTraceLinks",
+        "deps": "js/removeFromARStudy",
+        "inputData": {
+          "response": "{{data.checkObjectsAddedToAROutput}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "loadPropertiesOnTraceLinks"
+            }
+          ]
+        }
+      },
+      "loadPropertiesOnTraceLinks": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "getProperties",
+        "inputData": {
+          "objects": "{{ctx.traceLinks}}",
+          "attributes": [
+            "primary_object",
+            "secondary_object"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "deleteTraceLinkInput"
+            }
+          ]
+        }
+      },
+      "deleteTraceLinkInput": {
+        "actionType": "JSFunction",
+        "method": "deleteTraceLinkInput",
+        "deps": "js/removeFromARStudy",
+        "outputData": {
+          "deleteTraceLinkSoaInput": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "validationlink.delete"
+            }
+          ]
+        }
+      },
+      "deleteValidationLink": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteRelations",
+        "inputData": {
+          "input": "{{data.deleteTraceLinkSoaInput}}"
+        },
+        "outputData": {
+          "deleteTraceLinkSoaResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "data.deleteTraceLinkSoaResponse.partialErrors === undefined",
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{data.vcObject}}"
+                ],
+                "refreshLocationFlag": true
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "condition": "data.deleteTraceLinkSoaResponse.partialErrors.length>0",
+              "message": "deleteTraceLinkPartialError"
+            }
+          ]
+        }
+      },
+      "filterStudiesFromAR": {
+        "actionType": "JSFunction",
+        "method": "filterStudiesFromAR",
+        "deps": "js/analysisRequestUtils",
+        "inputData": {
+          "data": "{{data}}"
+        },
+        "outputData": {
+          "generateObj": ""
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "data.generateObj !== '' && data.generateObj !== undefined && data.generateObj !== null",
+              "name": "getReportDefinitionsSoaCall"
+            }
+          ]
+        }
+      },
+      "getReportDefinitionsSoaCall": {
+        "actionType": "TcSoaService",
+        "serviceName": "Reports-2008-06-CrfReports",
+        "method": "getReportDefinitions",
+        "inputData": {
+          "inputCriteria": [
+            {
+              "reportDefinitionId": "crf_ar_compare_rpt_id1",
+              "source": "Teamcenter"
+            }
+          ]
+        },
+        "outputData": {
+          "getReportDefinitionsResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "data.getReportDefinitionsResponse.reportdefinitions != undefined || data.getReportDefinitionsResponse.reportdefinitions != null && data.getReportDefinitionsResponse.reportdefinitions.length>0",
+              "name": "getGenerateChangeReportsInput"
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "condition": "data.getReportDefinitionsResponse.reportdefinitions === undefined || data.getReportDefinitionsResponse.reportdefinitions === null ||  data.getReportDefinitionsResponse.reportdefinitions.length===0",
+              "message": "noReportDefinitionsMessage"
+            }
+          ],
+          "failure": [
+            {
+              "condition": "data.getReportDefinitionsResponse.partialErrors.length>0",
+              "message": "getReportDefinitionsPartialError"
+            }
+          ]
+        }
+      },
+      "getGenerateChangeReportsInput": {
+        "actionType": "JSFunction",
+        "method": "getGenerateChangeReportsInput",
+        "deps": "js/analysisRequestUtils",
+        "inputData": {
+          "reportdefinitions": "{{data.getReportDefinitionsResponse.reportdefinitions}}",
+          "selections": "{{data.generateObj}}"
+        },
+        "outputData": {
+          "generateReportSoaInput": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "generateReportSoaCall"
+            }
+          ]
+        }
+      },
+      "generateReportSoaCall": {
+        "actionType": "TcSoaService",
+        "serviceName": "Reports-2015-03-CrfReports",
+        "method": "generateReport",
+        "inputData": {
+          "inputs": "{{data.generateReportSoaInput}}"
+        },
+        "outputData": {
+          "generateReportResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "data.generateReportResponse !== null || data.generateReportResponse !== ''",
+              "name": "processGenerateResponse"
+            }
+          ]
+        }
+      },
+      "processGenerateResponse": {
+        "actionType": "JSFunction",
+        "method": "processGenerateResponse",
+        "deps": "js/analysisRequestUtils",
+        "inputData": {
+          "response": "{{data.generateReportResponse}}",
+          "data": "{{data}}"
+        }
+      },
+      "ValidationContractShowDelegatedObject": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": "{{ctx.selected.props.awb0UnderlyingObject.dbValues[0]}}"
+        }
+      },
+      "ValidationContractCellShowDelegatedObject": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": "{{commandContext.vmo.props.awb0UnderlyingObject.dbValues[0]}}"
+        }
+      },
+      "setVCTargetObject": {
+        "actionType": "JSFunction",
+        "method": "setVCTargetObject",
+        "deps": "js/analysisRequestUtils",
+        "events": {
+          "success": [
+            {
+              "name": "openAddObjectToResultPanel"
+            }
+          ]
+        }
+      },
+      "openAddObjectToResultPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Crt1AddObjectToResultPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "removeOutput": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {}
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "removeOutputConfirmationMsg"
+            }
+          ]
+        }
+      },
+      "deleteOutputTraceLinkInput": {
+        "actionType": "JSFunction",
+        "method": "deleteOutputTraceLinkInput",
+        "deps": "js/removeOutput",
+        "outputData": {
+          "deleteRelationsInput": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "deleteRelationsSoa"
+            }
+          ]
+        }
+      },
+      "deleteRelationsSoa": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteRelations",
+        "inputData": {
+          "input": "{{data.deleteRelationsInput}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "IAV1AddWSOToContentTableAction": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Crt1AddWSOToContentTable",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "Crt1AddOccurrenceToContentTableAction": {
+        "actionType": "JSFunction",
+        "method": "RegisterOriginalPageId",
+        "deps": "js/stickyPanelService",
+        "inputData": {},
+        "events": {
+          "success": [
+            {
+              "name": "MoveToContentPage"
+            }
+          ]
+        }
+      },
+      "MoveToContentPage": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": "{{ctx.xrtSummaryContextObject.uid}}",
+          "pageId": "tc_xrt_Content"
+        },
+        "options": {
+          "top": 10,
+          "left": 10
+        },
+        "events": {
+          "success": [
+            {
+              "name": "showStickyPanel"
+            }
+          ]
+        }
+      },
+      "showStickyPanel": {
+        "actionType": "JSFunction",
+        "method": "showStickyPanel",
+        "deps": "js/stickyPanelService",
+        "inputData": {
+          "data": {
+            "declView": "Crt1AddToVR",
+            "locals": {
+              "anchor": "crt1_stickyPanel_popup"
+            },
+            "options": {
+              "reference": ".aw-layout-infoCommandbar",
+              "isModal": false,
+              "placement": "left-end",
+              "width": 320,
+              "height": 622,
+              "draggable": true,
+              "detachMode": true,
+              "disableClose": true
+            }
+          }
+        }
+      },
+      "CloseAddOccurenceToContentTablePopupAction": {
+        "actionType": "JSFunction",
+        "method": "unRegisterLocalStorageAndClosePopup",
+        "deps": "js/stickyPanelService",
+        "inputData": {}
+      },
+      "getContents": {
+        "actionType": "JSFunction",
+        "method": "getContentObject",
+        "inputData": {
+          "obj": "{{commandContext.vmo}}"
+        },
+        "outputData": {
+          "content": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "showContentObject"
+            }
+          ]
+        },
+        "deps": "js/createAnalysisRequest"
+      },
+      "showContentObject": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "inputData": {
+          "vmo": "{{data.content}}"
+        },
+        "deps": "js/showObjectCommandHandler"
+      },
+      "openContentInNewTAB": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": "{{ctx.newContextUid}}"
+        },
+        "navigateIn": "newTab"
+      },
+      "openContentInNewWindow": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": "{{ctx.newContextUid}}"
+        },
+        "navigateIn": "newWindow",
+        "options": {
+          "top": 10,
+          "left": 10
+        }
+      },
+      "openContentInRAC": {
+        "actionType": "Navigate",
+        "navigateTo": "launcher/openinrac",
+        "navigationParams": {
+          "-s": "226TCSession",
+          "-o": "{{ctx.newContextUid}}",
+          "-attach": "true"
+        },
+        "navigateIn": "newTab"
+      },
+      "toggleInOutForProxyTable": {
+        "actionType": "JSFunction",
+        "method": "performToggleOperationForProxyTable",
+        "deps": "js/toggleUnuse",
+        "inputData": {
+          "data": "{{data}}",
+          "ctx": "{{ctx}}",
+          "refreshEvent": "Att1ShowAttrProxyTable.refreshTable"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified2",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ]
+              }
+            },
+            {
+              "name": "chart.dataUpdated"
+            }
+          ]
+        }
+      },
+      "unuseAttrForProxyTable": {
+        "actionType": "JSFunction",
+        "method": "unusedAttrsOperationForProxyTable",
+        "inputData": {
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/toggleUnuse",
+        "events": {
+          "success": [
+            {
+              "name": "unuseAttrForProxyTableEvent"
+            },
+            {
+              "name": "chart.dataUpdated"
+            }
+          ]
+        }
+      },
+      "unsetAttrsForProxyTable": {
+        "actionType": "JSFunction",
+        "method": "unsetAttributesForProxyTable",
+        "inputData": {
+          "data": "{{data}}",
+          "refreshEvent": "Att1ShowAttrProxyTable.refreshTable"
+        },
+        "deps": "js/toggleUnuse"
+      },
+      "unuseAttrForStudyForProxyTable": {
+        "actionType": "JSFunction",
+        "method": "unusedAttrsOperationForProxyTable",
+        "inputData": {
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/toggleUnuse",
+        "events": {
+          "success": [
+            {
+              "name": "unuseAttrForStudyForProxyTableEvent"
+            },
+            {
+              "name": "chart.dataUpdated"
+            }
+          ]
+        }
+      },
+      "syncAttrConfirmation": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {}
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "syncAttrConfirmation"
+            }
+          ]
+        }
+      },
+      "getInputForSync": {
+        "actionType": "JSFunction",
+        "method": "getSynchronizeMeasurableAttributesInput",
+        "deps": "js/syncPublish",
+        "inputData": {
+          "operation": "Sync"
+        },
+        "outputData": {
+          "synchronizeMeasurableAttributesSoaInput": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "synchronizeMeasurableAttributesSoaCall"
+            }
+          ]
+        }
+      },
+      "synchronizeMeasurableAttributesSoaCall": {
+        "actionType": "TcSoaService",
+        "serviceName": "Internal-ValidationContractAW-2018-12-VCManagement",
+        "method": "syncPublishMeasurableAttributes",
+        "inputData": {
+          "input": "{{data.synchronizeMeasurableAttributesSoaInput.input}}"
+        },
+        "outputData": {
+          "SyncPublishAttrResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "refreshTable"
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "syncDone",
+              "condition": "data.synchronizeMeasurableAttributesSoaInput.pref.direction === 'SyncFromSource'"
+            },
+            {
+              "message": "publishDone",
+              "condition": "data.synchronizeMeasurableAttributesSoaInput.pref.direction === 'PublishToSource'"
+            }
+          ]
+        }
+      },
+      "refreshTable": {
+        "actionType": "JSFunction",
+        "method": "refreshTable",
+        "deps": "js/syncPublish"
+      },
+      "publishAttrConfirmation": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {}
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "publishAttrConfirmation"
+            }
+          ]
+        }
+      },
+      "getInputForPublish": {
+        "actionType": "JSFunction",
+        "method": "getSynchronizeMeasurableAttributesInput",
+        "deps": "js/syncPublish",
+        "inputData": {
+          "operation": "Publish"
+        },
+        "outputData": {
+          "synchronizeMeasurableAttributesSoaInput": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "synchronizeMeasurableAttributesSoaCall"
+            }
+          ]
+        }
+      },
+      "toggleInOutForMappedTable": {
+        "actionType": "JSFunction",
+        "method": "performToggleOperationForMappedTable",
+        "deps": "js/toggleUnuse",
+        "inputData": {
+          "data": "{{data}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "toggleInOutForInDefTable": {
+        "actionType": "JSFunction",
+        "method": "performToggleOperationForProxyTable",
+        "deps": "js/toggleUnuse",
+        "inputData": {
+          "data": "{{data}}",
+          "ctx": "{{ctx}}",
+          "refreshEvent": "Att1ShowInterfaceDefAttrsTable.refreshTable"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified2",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "filterUnusedAttrForMappedTable": {
+        "actionType": "JSFunction",
+        "method": "unusedAttrsFilterForMappedTable",
+        "deps": "js/toggleUnuse"
+      },
+      "filterUnusedAttrForProxyTable": {
+        "actionType": "JSFunction",
+        "method": "unusedAttrsFilterForProxyTable",
+        "inputData": {
+          "params": "{{data.params}}",
+          "showUnusedAttrs": "Att1ShowAttrProxyTableShowUnusedAttrs"
+        },
+        "deps": "js/toggleUnuse"
+      },
+      "filterUnusedAttrForInDefTable": {
+        "actionType": "JSFunction",
+        "method": "unusedAttrsFilterForProxyTable",
+        "inputData": {
+          "params": "{{data.params}}",
+          "showUnusedAttrs": "Att1ShowInterfaceDefAttrsTableShowUnusedAttrs"
+        },
+        "deps": "js/toggleUnuse"
+      },
+      "unuseAttrForMappedTable": {
+        "actionType": "JSFunction",
+        "method": "unusedAttrsOperationForMappedTable",
+        "deps": "js/toggleUnuse",
+        "events": {
+          "success": [
+            {
+              "name": "unuseAttrForMappedTableEvent"
+            }
+          ]
+        }
+      },
+      "unuseAttrForInDefTable": {
+        "actionType": "JSFunction",
+        "method": "unusedAttrsOperationForProxyTable",
+        "inputData": {
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/toggleUnuse",
+        "events": {
+          "success": [
+            {
+              "name": "unuseAttrForInDefTableEvent"
+            }
+          ]
+        }
+      },
+      "unuseAttrForStudyForMappedTable": {
+        "actionType": "JSFunction",
+        "method": "unusedAttrsOperationForMappedTable",
+        "deps": "js/toggleUnuse",
+        "events": {
+          "success": [
+            {
+              "name": "unuseAttrForStudyForMappedTableEvent"
+            }
+          ]
+        }
+      },
+      "unsetAttrsForMappedTable": {
+        "actionType": "JSFunction",
+        "method": "unsetAttributesForMappedTable",
+        "inputData": {
+          "data": "{{data}}"
+        },
+        "deps": "js/toggleUnuse"
+      },
+      "unsetAttrsForInDefTable": {
+        "actionType": "JSFunction",
+        "method": "unsetAttributesForProxyTable",
+        "inputData": {
+          "data": "{{data}}",
+          "refreshEvent": "Att1ShowInterfaceDefAttrsTable.refreshTable"
+        },
+        "deps": "js/toggleUnuse"
+      },
+      "closePanel": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "complete",
+              "eventData": {
+                "source": "toolAndInfoPanel"
+              }
+            }
+          ]
+        }
+      },
+      "Crt1SetParametersUsageInput": {
+        "actionType": "JSFunction",
+        "method": "performSetUsageOperationForProxyTable",
+        "deps": "js/toggleUnuse",
+        "inputData": {
+          "data": "{{data}}",
+          "ctx": "{{ctx}}",
+          "usage": "input"
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "ctx.pramTableCategory === 'PARAM_PROXY_TABLE' || ctx.pramTableCategory === 'PARAM_INDEF_TABLE'",
+              "name": "cdm.relatedModified2",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ]
+              }
+            },
+            {
+              "condition": "ctx.pramTableCategory === 'PARAM_PROXY_TABLE'",
+              "name": "chart.dataUpdated"
+            },
+            {
+              "condition": "ctx.pramTableCategory === 'PARAM_MAPPED_TABLE'",
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "Crt1SetParametersUsageOutput": {
+        "actionType": "JSFunction",
+        "method": "performSetUsageOperationForProxyTable",
+        "deps": "js/toggleUnuse",
+        "inputData": {
+          "data": "{{data}}",
+          "ctx": "{{ctx}}",
+          "usage": "output",
+          "refreshEvent": "Att1ShowAttrProxyTable.refreshTable"
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "ctx.pramTableCategory === 'PARAM_PROXY_TABLE' || ctx.pramTableCategory === 'PARAM_INDEF_TABLE'",
+              "name": "cdm.relatedModified2",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ]
+              }
+            },
+            {
+              "condition": "ctx.pramTableCategory === 'PARAM_PROXY_TABLE'",
+              "name": "chart.dataUpdated"
+            },
+            {
+              "condition": "ctx.pramTableCategory === 'PARAM_MAPPED_TABLE'",
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "Crt1SetParametersUsageUnused": {
+        "actionType": "JSFunction",
+        "method": "performSetUsageOperationForProxyTable",
+        "deps": "js/toggleUnuse",
+        "inputData": {
+          "data": "{{data}}",
+          "ctx": "{{ctx}}",
+          "usage": "unuse",
+          "refreshEvent": "Att1ShowAttrProxyTable.refreshTable"
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "ctx.pramTableCategory === 'PARAM_PROXY_TABLE' || ctx.pramTableCategory === 'PARAM_INDEF_TABLE'",
+              "name": "cdm.relatedModified2",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ]
+              }
+            },
+            {
+              "condition": "ctx.pramTableCategory === 'PARAM_PROXY_TABLE'",
+              "name": "chart.dataUpdated"
+            },
+            {
+              "condition": "ctx.pramTableCategory === 'PARAM_MAPPED_TABLE'",
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "updateTMTPSelection": {
+        "actionType": "JSFunction",
+        "method": "updateTMTPSelection",
+        "deps": "js/Crt1SelectionService"
+      }
+    },
+    "messages": {
+      "deleteStudyPartialError": {
+        "messageType": "ERROR",
+        "messageText": "{{i18n.PartialError}}",
+        "messageTextParams": [
+          "{{data.removeStudySoaResponse.partialErrors[0].errorValues[0].message}}"
+        ]
+      },
+      "removeStudyMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.DeleteStudyConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.Cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.Delete}}",
+            "action": "getItemsTag"
+          }
+        ]
+      },
+      "addedToAR": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.AddedElementToVC}}",
+        "messageTextParams": [
+          "{{data.manageARInput.succMsg}}"
+        ]
+      },
+      "removeFromARconfirmationMsg": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.RemoveARAndStudyInputConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.Cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.Remove}}",
+            "action": "removeFromARandStudy"
+          }
+        ]
+      },
+      "removeFromARForProjectconfirmationMsg": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.RemoveARForProjectConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.Cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.Remove}}",
+            "action": "removeFromARForProject"
+          }
+        ]
+      },
+      "removeFromStudyconfirmationMsg": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.RemoveARAndStudyInputConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.Cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.Remove}}",
+            "action": "removeFromARandStudy"
+          }
+        ]
+      },
+      "deleteTraceLinkPartialError": {
+        "messageType": "ERROR",
+        "messageText": "{{i18n.PartialError}}",
+        "messageTextParams": [
+          "{{data.deleteTraceLinkSoaResponse.partialErrors[0].errorValues[0].message}}"
+        ]
+      },
+      "getReportDefinitionsPartialError": {
+        "messageType": "ERROR",
+        "messageText": "{{i18n.PartialError}}",
+        "messageTextParams": [
+          "{{data.getReportDefinitionsResponse.partialErrors[0].errorValues[0].message}}"
+        ]
+      },
+      "noReportDefinitionsMessage": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.NoReportDefinitionFoundWarning}}"
+      },
+      "removeOutputConfirmationMsg": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.RemoveARAndStudyInputConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.Cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.Remove}}",
+            "action": "deleteOutputTraceLinkInput"
+          }
+        ]
+      },
+      "syncAttrConfirmation": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.syncMeasurableAttrConfirmation}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.Cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Ok",
+            "text": "{{i18n.SynchronizeTitle}}",
+            "action": "getInputForSync"
+          }
+        ]
+      },
+      "syncDone": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.syncMeasurableAttrInformation}}"
+      },
+      "publishAttrConfirmation": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.publishMeasurableAttrConfirmation}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.Cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Ok",
+            "text": "{{i18n.PublishTitle}}",
+            "action": "getInputForPublish"
+          }
+        ]
+      },
+      "publishDone": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.publishMeasurableAttrInformation}}"
+      }
+    },
+    "onEvent": [
+      {
+        "eventId": "showStickyPanel",
+        "action": "showStickyPanel"
+      },
+      {
+        "eventId": "MoveToContentPage",
+        "action": "MoveToContentPage"
+      },
+      {
+        "eventId": "study.removeStudy",
+        "message": "removeStudyMessage"
+      },
+      {
+        "eventId": "removeStudySoaCall",
+        "action": "removeStudySoaCall"
+      },
+      {
+        "eventId": "removeStudy",
+        "action": "removeStudy"
+      },
+      {
+        "eventId": "manageAnalysisRequests",
+        "action": "manageAnalysisRequests"
+      },
+      {
+        "eventId": "unRegisterVRTableSelection",
+        "action": "unRegisterVRTableSelection"
+      },
+      {
+        "eventId": "ar.removeFromAR",
+        "message": "removeFromARconfirmationMsg"
+      },
+      {
+        "eventId": "ar.removeFromARForProject",
+        "message": "removeFromARForProjectconfirmationMsg"
+      },
+      {
+        "eventId": "study.removeFromStudy",
+        "message": "removeFromStudyconfirmationMsg"
+      },
+      {
+        "eventId": "removeOperation",
+        "action": "removeOperation"
+      },
+      {
+        "eventId": "removeFromARStudyInput",
+        "action": "removeFromARStudyInput"
+      },
+      {
+        "eventId": "getChildrenStudies",
+        "action": "getChildrenStudies"
+      },
+      {
+        "eventId": "checkObjectsAddedToAR",
+        "action": "checkObjectsAddedToAR"
+      },
+      {
+        "eventId": "getTraceLinks",
+        "action": "getTraceLinks"
+      },
+      {
+        "eventId": "loadPropertiesOnTraceLinks",
+        "action": "loadPropertiesOnTraceLinks"
+      },
+      {
+        "eventId": "validationlink.delete",
+        "action": "deleteValidationLink"
+      },
+      {
+        "eventId": "deleteTraceLinkInput",
+        "action": "deleteTraceLinkInput"
+      },
+      {
+        "eventId": "getReportDefinitionsSoaCall",
+        "action": "getReportDefinitionsSoaCall"
+      },
+      {
+        "eventId": "getGenerateChangeReportsInput",
+        "action": "getGenerateChangeReportsInput"
+      },
+      {
+        "eventId": "generateReportSoaCall",
+        "action": "generateReportSoaCall"
+      },
+      {
+        "eventId": "processGenerateResponse",
+        "action": "processGenerateResponse"
+      },
+      {
+        "eventId": "openAddObjectToResultPanel",
+        "action": "openAddObjectToResultPanel"
+      },
+      {
+        "eventId": "awCrt1CreateAR.activatePanel",
+        "action": "activateCreateARPanel"
+      },
+      {
+        "eventId": "deleteRelationsSoa",
+        "action": "deleteRelationsSoa"
+      },
+      {
+        "eventId": "showContentObject",
+        "action": "showContentObject"
+      },
+      {
+        "eventId": "unuseAttrForMappedTableEvent",
+        "action": "unsetAttrsForMappedTable"
+      },
+      {
+        "eventId": "unuseAttrForProxyTableEvent",
+        "action": "unsetAttrsForProxyTable"
+      },
+      {
+        "eventId": "unuseAttrForInDefTableEvent",
+        "action": "unsetAttrsForInDefTable"
+      },
+      {
+        "eventId": "unuseAttrForStudyForMappedTableEvent",
+        "action": "unsetAttrsForMappedTable"
+      },
+      {
+        "eventId": "unuseAttrForStudyForProxyTableEvent",
+        "action": "unsetAttrsForProxyTable"
+      },
+      {
+        "eventId": "synchronizeMeasurableAttributesSoaCall",
+        "action": "synchronizeMeasurableAttributesSoaCall"
+      },
+      {
+        "eventId": "refreshTable",
+        "action": "refreshTable"
+      },
+      {
+        "eventId": "closePanel",
+        "action": "closePanel"
+      },
+      {
+        "eventId": "updateTMTPSelection",
+        "action": "updateTMTPSelection"
+      }
+    ],
+    "conditions": {
+      "arVersionCondition11": {
+        "expression": "ctx.tcSessionData.tcMajorVersion === 11 && ctx.tcSessionData.tcMinorVersion === 2 && ctx.tcSessionData.tcQRMNumber >= 7"
+      },
+      "arVersionCondition12": {
+        "expression": "ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion >= 1"
+      },
+      "arVersionCondition13": {
+        "expression": "ctx.tcSessionData.tcMajorVersion >= 13"
+      },
+      "arVersionCondition": {
+        "expression": "conditions.arVersionCondition11 || conditions.arVersionCondition12 || conditions.arVersionCondition13"
+      },
+      "isAttachmentTABCond": {
+        "expression": "ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_attachments' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_attachments'"
+      },
+      "isCutCommandActiveForAR": {
+        "expression": "conditions.cutVisibility && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) > -1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1"
+      },
+      "createStudyVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && conditions.arVersionCondition && commandContext.objectSetSource === 'crt0ChildrenStudies.Crt0StudyRevision' && conditions.Crt1IsAROpenCond ===  true"
+      },
+      "createARVisibleCond0": {
+        "expression": "((conditions.createARVisibleCond1 === true || conditions.createARVisibleCond2 === true || conditions.createARVisibleCond3 === true || conditions.createARVisibleCond4 === true || conditions.createARVisibleCond3 === true ) && ctx.xrtSummaryContextObject.type !== 'Fnd0SearchRecipe') || conditions.createARVisibleCond5 === true || conditions.createARVisibleCond6 === false"
+      },
+      "createARVisibleCond1": {
+        "expression": "conditions.crt1CreateARIsAROpen === true && conditions.arVersionCondition && ctx.visibleServerCommands.Crt1CreateValidationContract && (ctx.aceActiveContext || ctx.locationContext.modelObject.modelType.typeHierarchyArray.indexOf('Awb0SavedBookmark') > -1 || ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0SavedBookmark') > -1 || ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Element') > -1) && !ctx.selected.uid.endsWith('AWB4GD')"
+      },
+      "createARVisibleCond2": {
+        "expression": "(ctx.selected.type === 'Att0ParamProject' && (ctx.mselected.length === 1 && ctx.mselected[0].type === 'Att0ParamProject'))"
+      },
+      "createARVisibleCond3": {
+        "expression": "( ctx.pselected.type === 'Att0ParamProject' && ( ctx.selected.type === 'Att1AttributeAlignmentProxy' ) )"
+      },
+      "createARVisibleCond4": {
+        "expression": "( ctx.pselected.type === 'Att0ParamProject' && ( ctx.selected.modelType.typeHierarchyArray.indexOf( 'Att0MeasurableAttribute' ) > -1) )"
+      },
+      "createARVisibleCond5": {
+        "expression": "ctx.xrtSummaryContextObject.type === 'Fnd0SearchRecipe' && ((ctx.selected.type === 'Evm1RecipeResultProxy' && ctx.pselected.type === 'Fnd0SearchRecipe') || (ctx.selected.type === 'Fnd0SearchRecipe' && ctx.pselected === undefined))"
+      },
+      "createARVisibleCond6": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0ContractRevision' ) > -1 || ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'Crt0ContractRevision' ) > -1"
+      },
+      "createARVisibleCond7": {
+        "expression": "ctx.mselected && ctx.mselected.length !== 0 && ctx.mselected[0].modelType !== undefined"
+      },
+      "createARVisibleCond8": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Folder') > -1 && ctx.selected && ctx.selected.modelType && ctx.locationContext && ctx.locationContext.modelObject && (ctx.selected.uid === ctx.locationContext.modelObject.uid)"
+      },
+      "createARVisibleCond9": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Att0ParamProject') > -1 && ctx.selected && ctx.selected.modelType && ctx.locationContext && ctx.locationContext.modelObject && (ctx.selected.uid === ctx.locationContext.modelObject.uid)"
+      },
+      "createARVisibleCond10": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('AW2_ace_4GD_container') > -1 && ctx.selected && ctx.selected.modelType && ctx.locationContext && ctx.locationContext.modelObject && (ctx.selected.uid === ctx.locationContext.modelObject.uid)"
+      },
+      "createARVisibleCond11": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Att0MeasurableAttribute') > -1 && ctx.locationContext.modelObject.modelType.typeHierarchyArray.indexOf('Att0ParamProject') > -1"
+      },
+      "createARVisibleCond": {
+        "expression": {
+          "$or": [
+            {
+              "$query": {
+                "$and": [
+                  {
+                    "$source": "ctx.mselected",
+                    "$query": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$notin": "{{ctx.preferences.PLE_AddObjectsNotAllowedTypes}}"
+                      }
+                    }
+                  },
+                  {
+                    "$source": "conditions.createARVisibleCond0",
+                    "$query": {
+                      "$eq": true
+                    }
+                  },
+                  {
+                    "$source": "conditions.createARVisibleCond7",
+                    "$query": {
+                      "$eq": true
+                    }
+                  },
+                  {
+                    "$source": "ctx.mselected",
+                    "$query": {
+                      "$source": "modelType",
+                      "$query": {
+                        "$notin": "{{ctx.preferences.PLE_AddObjectsNotAllowedTypes}}"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "$source": "conditions.createARVisibleCond8",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.createARVisibleCond9",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.createARVisibleCond10",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.createARVisibleCond11",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "studyOccurenceFilterToggleVisibleCond": {
+        "expression": "ctx.sublocation.nameToken==='com.siemens.splm.client.occmgmt:OccurrenceManagementSubLocation' && ctx.openedARObject.modelType.typeHierarchyArray.indexOf('Crt0StudyRevision') > -1 && conditions.Crt1CheckOccMgmtOpenedElement === true"
+      },
+      "arOccurenceFilterToggleVisibleCond": {
+        "expression": "ctx.sublocation.nameToken==='com.siemens.splm.client.occmgmt:OccurrenceManagementSubLocation' && ctx.openedARObject.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') > -1 && ctx.openedARObject.modelType.typeHierarchyArray.indexOf('Crt0StudyRevision') === -1 && conditions.Crt1CheckOccMgmtOpenedElement === true"
+      },
+      "isFilterCommandHighlighted": {
+        "expression": "ctx.selectFilter === true"
+      },
+      "removeStudyFromVCVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1DeleteVerificationRequest && ctx.mselected[0]!==null && ctx.pselected!== null && ctx.mselected[0].type==='Crt0StudyRevision' && ctx.pselected.type==='Crt0VldnContractRevision' && ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion < 4"
+      },
+      "Crt1DeleteVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1DeleteVerificationRequest && ctx.mselected[0]!==null && ctx.pselected!== null && ctx.pselected !== undefined && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1"
+      },
+      "addToStudyVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && conditions.arVersionCondition && ctx.addToStudyVisibility!==null && ctx.addToStudyVisibility === true && (conditions.Crt1IsStudyOpenCond === true || conditions.Crt1IsStudyOpenedObjectCond === true) && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0  && conditions.studyVisiblity === true && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '0'"
+      },
+      "studyVisiblity": {
+        "expression": "ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1 && !(ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'Crt0RunRevision' ) > -1) && !(ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1) && !(ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1)"
+      },
+      "studyVisiblityForInputPage": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1 && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0RunRevision' ) > -1) && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1) && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1)"
+      },
+      "AddToTestRequestVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && conditions.arVersionCondition && ctx.addToStudyVisibility!==null && ctx.addToStudyVisibility === true && (conditions.Crt1IsStudyOpenCond === true || conditions.Crt1IsStudyOpenedObjectCond === true) && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && conditions.testRequestVisiblity === true && conditions.isPhysicalBOMSelected === false && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '0'"
+      },
+      "testRequestVisiblity": {
+        "expression": "ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 && !(ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'Crt0RunRevision' ) > -1) && !(ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1)"
+      },
+      "testRequestVisiblityForInputPage": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0RunRevision' ) > -1) && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1)"
+      },
+      "AddToTestEventVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && conditions.arVersionCondition && ctx.addToStudyVisibility!==null && ctx.addToStudyVisibility === true && (conditions.Crt1IsStudyOpenCond === true || conditions.Crt1IsStudyOpenedObjectCond === true) && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && conditions.testEventVisiblity === true && conditions.isPhysicalBOMSelected === false && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '0'"
+      },
+      "testEventVisiblity": {
+        "expression": "ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1 "
+      },
+      "AddToRunVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && conditions.arVersionCondition && ctx.addToStudyVisibility!==null && ctx.addToStudyVisibility === true && (conditions.Crt1IsStudyOpenCond === true || conditions.Crt1IsStudyOpenedObjectCond === true) && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && conditions.runVisiblity === true && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '0'"
+      },
+      "runVisiblity": {
+        "expression": "(ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'Crt0RunRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0RunRevision' ) > -1) && !(ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1)"
+      },
+      "removeFromARVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && conditions.arVersionCondition && (conditions.removeFromARFromContentTabVisibleCond===true || conditions.removeFromARFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Content' && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "removeFromARForContentTableVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.vrContentTableSelection.length > 0 && conditions.arVersionCondition && (conditions.removeFromARFromContentTabVisibleCond===true || conditions.removeFromARFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0"
+      },
+      "removeFromARFromContentTabVisibleCond": {
+        "expression": "conditions.Crt1IsAROpenedObjectCond===true && conditions.Crt1IsStudyOpenedObjectCond===false"
+      },
+      "removeFromARFromInputTabVisibleCond": {
+        "expression": "conditions.Crt1IsAROpenCond===true && conditions.Crt1IsStudyOpenCond===false"
+      },
+      "removeFromStudyVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && conditions.arVersionCondition && (conditions.removeFromStudyFromContentTabVisibleCond===true || conditions.removeFromStudyFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && (conditions.studyVisiblityForInputPage === true || conditions.studyVisiblity === true  ) && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Awb0Element' ) > -1 && ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Content' && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "RemoveFromStudyForContentTableVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.vrContentTableSelection.length > 0 && conditions.arVersionCondition && (conditions.removeFromStudyFromContentTabVisibleCond===true || conditions.removeFromStudyFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && (conditions.studyVisiblityForInputPage === true || conditions.studyVisiblity === true  )"
+      },
+      "removeFromTestRequestVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && conditions.arVersionCondition && (conditions.removeFromStudyFromContentTabVisibleCond===true || conditions.removeFromStudyFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && (conditions.testRequestVisiblity === true || conditions.testRequestVisiblityForInputPage === true) && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Awb0Element' ) > -1 && ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Content' && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "RemoveFromTestRequestForContentTableVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.vrContentTableSelection.length > 0 && conditions.arVersionCondition && (conditions.removeFromStudyFromContentTabVisibleCond===true || conditions.removeFromStudyFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && (conditions.testRequestVisiblity === true || conditions.testRequestVisiblityForInputPage === true)"
+      },
+      "removeFromTestEventVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && conditions.arVersionCondition && (conditions.removeFromStudyFromContentTabVisibleCond===true || conditions.removeFromStudyFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && conditions.testEventVisiblity === true && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Awb0Element' ) > -1 && ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Content' && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "RemoveFromTestEventForContentTableVisibleCond": {
+        "expression": "ctx.vrContentTableSelection.length > 0 && ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && conditions.arVersionCondition && (conditions.removeFromStudyFromContentTabVisibleCond===true || conditions.removeFromStudyFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && conditions.testEventVisiblity === true "
+      },
+      "removeFromRunVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && conditions.arVersionCondition && (conditions.removeFromStudyFromContentTabVisibleCond===true || conditions.removeFromStudyFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && conditions.runVisiblity === true && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Awb0Element' ) > -1 && ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Content' && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "RemoveFromRunForContentTableVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.vrContentTableSelection.length > 0 && conditions.arVersionCondition && (conditions.removeFromStudyFromContentTabVisibleCond===true || conditions.removeFromStudyFromInputTabVisibleCond===true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && conditions.runVisiblity === true"
+      },
+      "removeFromStudyFromContentTabVisibleCond": {
+        "expression": "conditions.Crt1IsStudyOpenedObjectCond=== true"
+      },
+      "removeFromStudyFromInputTabVisibleCond": {
+        "expression": "conditions.Crt1IsStudyOpenCond === true"
+      },
+      "canAROrStudyCompare": {
+        "expression": " ctx.mselected.length > 1 && !ctx.aceActiveContext.context.isDuplicateEnabled"
+      },
+      "addToARVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && conditions.arVersionCondition && ctx.addToARVisibility!==null && ctx.addToARVisibility === true && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true) && conditions.Crt1IsStudyOpenCond === false && conditions.Crt1IsStudyOpenedObjectCond === false && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && conditions.isPhysicalBOMSelected === false && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '0'"
+      },
+      "addToARFromProjectVisibleCond2": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && ctx.openedARObject && ctx.openedARObject.type === 'Crt0VldnContractRevision' && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true) && conditions.Crt1IsStudyOpenCond === false && conditions.Crt1IsStudyOpenedObjectCond === false"
+      },
+      "removeFromARProjectVisibleCond2": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest"
+      },
+      "removeFromARProjectVisibleCond": {
+        "expression": {
+          "$and": [
+            {
+              "$all": {
+                "$source": "ctx.parammgmtctx.mselected",
+                "$query": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$in": [
+                      "Att0MeasurableAttribute"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$all": {
+                "$source": "ctx.parammgmtctx.selectedProxyParams",
+                "$query": {
+                  "$source": "props.crt1IsAddedToVR.dbValues",
+                  "$query": {
+                    "$in": [
+                      "1"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "conditions.removeFromARProjectVisibleCond2",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.arVersionCondition",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "addToARFromProjectVisibleCond": {
+        "expression": {
+          "$and": [
+            {
+              "$all": {
+                "$source": "ctx.parammgmtctx.mselected",
+                "$query": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$in": [
+                      "Att0MeasurableAttribute"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$all": {
+                "$source": "ctx.parammgmtctx.selectedProxyParams",
+                "$query": {
+                  "$source": "props.crt1IsAddedToVR.dbValues",
+                  "$query": {
+                    "$in": [
+                      "0"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "conditions.addToARFromProjectVisibleCond2",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.arVersionCondition",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "ARCompareReportVisibleCond": {
+        "expression": {
+          "$and": [
+            {
+              "$all": {
+                "$source": "ctx.mselected",
+                "$query": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$in": [
+                      "Crt0VldnContractRevision"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "conditions.canAROrStudyCompare",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "ValidationContractOpenConditionActive": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.pselected",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": [
+                    "Crt0VldnContractRevision"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "ctx.selected",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": [
+                    "Awb0Element"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "ValidationContractCellOpenConditionActive": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.cmdAwp0ShowObjectCellBaseVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "ctx.selected",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": [
+                    "Crt0VldnContractRevision"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "commandContext.vmo",
+              "$query": {
+                "$source": "props.awb0UnderlyingObject.dbValues.length",
+                "$query": {
+                  "$gt": 0
+                }
+              }
+            }
+          ]
+        }
+      },
+      "AddObjectToResultVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddObjectToResultPanel && ctx.visibleServerCommands.Crt1AddObjectToResultPanel === true && commandContext.objectSetSource === 'Crt1AnalysisRequestOutProvider.DocumentRevision'"
+      },
+      "Crt1RemoveAROutputVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveAROutput && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) > -1 && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) === -1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'ItemRevision' ) > -1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) === -1 && conditions.isAttachmentTABCond === false"
+      },
+      "Crt1RemoveStudyOutputVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'ItemRevision' ) > -1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) === -1 && conditions.isAttachmentTABCond === true"
+      },
+      "Crt1IsAROpenCond": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) > -1"
+      },
+      "Crt1IsAROpenedObjectCond": {
+        "expression": "ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) > -1"
+      },
+      "Crt1IsStudyOpenCond": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1"
+      },
+      "Crt1IsStudyOpenedObjectCond": {
+        "expression": "ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1"
+      },
+      "Crt1CheckOccMgmtOpenedElement": {
+        "expression": "(ctx.occmgmtContext.openedElement.modelType.typeHierarchyArray.indexOf('Awb0Element') > -1 || ctx.occmgmtContext.openedElement.modelType.typeHierarchyArray.indexOf('Awb0SavedBookmark') > -1 || ctx.ViewModeContext.ViewModeContext === 'TreeView' || ctx.ViewModeContext.ViewModeContext === 'TreeSummaryView')"
+      },
+      "crt1CreateARIsAROpen1": {
+        "expression": "ctx.selected && ctx.selected.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') === -1 && ctx.selected.modelType.typeHierarchyArray.indexOf('Cpd0WorksetRevision') === -1 && ctx.selected.modelType.typeHierarchyArray.indexOf('Att0MeasurableAttribute') === -1"
+      },
+      "crt1CreateARIsAROpen2": {
+        "expression": "ctx.pselected && ctx.pselected.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') === -1 && ctx.pselected.modelType.typeHierarchyArray.indexOf('Cpd0WorksetRevision') === -1"
+      },
+      "crt1CreateARIsAROpen3": {
+        "expression": "ctx.pselected !== null && ctx.pselected !== undefined && ctx.pselected !== ''"
+      },
+      "crt1CreateARIsAROpen4": {
+        "expression": "ctx.openedARObject.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') === -1 && ctx.openedARObject.modelType.typeHierarchyArray.indexOf('Cpd0WorksetRevision') === -1"
+      },
+      "crt1CreateARIsAROpen5": {
+        "expression": "ctx.openedARObject !== null && ctx.openedARObject !== undefined && ctx.openedARObject !== ''"
+      },
+      "crt1CreateARIsAROpen": {
+        "expression": "conditions.crt1CreateARIsAROpen1 === true && ( conditions.crt1CreateARIsAROpen3 === false || conditions.crt1CreateARIsAROpen2 === true) && (conditions.crt1CreateARIsAROpen5 === false || conditions.crt1CreateARIsAROpen4 === true)"
+      },
+      "crt1SaveAsOrReviseVisibility": {
+        "expression": "conditions.saveAsorRevise && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Att0MeasurableAttribute' ) > -1  && conditions.crt1IsInContextOfAR"
+      },
+      "crt1IsInContextOfAR": {
+        "expression": "ctx.pselected.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') > -1 || ctx.locationContext.modelObject.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') > -1 || ctx.openedARObject.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') > -1"
+      },
+      "isPhysicalBOMSelected": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Sam1AsMaintainedElement') > -1"
+      },
+      "IAV1TROrTESelectedCondition": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 || ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1"
+      },
+      "IAV1TROrTEOpenedCondition": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1"
+      },
+      "IAV1VRSelectedOrOpenedCondition": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) > -1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) > -1"
+      },
+      "IAV1AddWSOToContentTableCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && (conditions.IAV1VRSelectedOrOpenedCondition === true || (conditions.IAV1TROrTESelectedCondition === true && conditions.IAV1TROrTEOpenedCondition === true))"
+      },
+      "Crt1AddOccurenceToContentTableCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && ctx.xrtSummaryContextObject.props.crt0Domain.dbValue !== null && (conditions.IAV1VRSelectedOrOpenedCondition === true || (conditions.IAV1TROrTESelectedCondition === true && conditions.IAV1TROrTEOpenedCondition === true))"
+      },
+      "toggleInOutForProxyTableVisible": {
+        "expression": "ctx.visibleServerCommands.Crt1ToggleInOutForProxyTable && ctx.selectedAttrProxyObjects.length > 0 && ctx.selected.modelType.typeHierarchyArray.indexOf('Att0MeasurableAttribute') > -1 && ctx.editInProgress !== true && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true) && conditions.Crt1IsStudyOpenCond === false"
+      },
+      "toggleInOutForProxyTableVisibleBeforeTC131": {
+        "expression": "conditions.toggleInOutForProxyTableVisible && conditions.isTcReleaseAtLeast131 === false"
+      },
+      "setInputUsageVisibleCondition": {
+        "expression": {
+          "$or": [
+            {
+              "$source": "conditions.setInputUsageForVRProxyTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setInputUsageForStudyProxyTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setInputUsageForVRMappedTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setInputUsageForStudyMappedTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setInputUsageForInDefTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "setOutputUsageVisibleCondition": {
+        "expression": {
+          "$or": [
+            {
+              "$source": "conditions.setOutputUsageForVRProxyTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setOutputUsageForStudyProxyTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setOutputUsageForVRMappedTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setOutputUsageForStudyMappedTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setOutputUsageForInDefTableVisibleCondition",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "setInputUsageForVRProxyTableVisibleCondition": {
+        "expression": "conditions.toggleInOutForProxyTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setInputUsageValidSelection"
+      },
+      "setOutputUsageForVRProxyTableVisibleCondition": {
+        "expression": "conditions.toggleInOutForProxyTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setOutputUsageValidSelection"
+      },
+      "setInputUsageForStudyProxyTableVisibleCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.toggleInOutForStudyForProxyTableVisible",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isTcReleaseAtLeast131",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setInputUsageValidSelection",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "setOutputUsageForStudyProxyTableVisibleCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.toggleInOutForStudyForProxyTableVisible",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isTcReleaseAtLeast131",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.setOutputUsageValidSelection",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "toggleInOutForStudyForProxyTableVisibleBeforeTC131": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.toggleInOutForStudyForProxyTableVisible",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isTcReleaseAtLeast131",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "toggleInOutForStudyForProxyTableVisible": {
+        "expression": {
+          "$and": [
+            {
+              "$all": {
+                "$source": "ctx.mselected",
+                "$query": {
+                  "$source": "props.att0Overridable.dbValues",
+                  "$query": {
+                    "$in": [
+                      "1"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "conditions.toggleStudy",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "toggleStudy": {
+        "expression": "ctx.visibleServerCommands.Crt1ToggleInOutForProxyTable && ctx.selectedAttrProxyObjects.length > 0 && ctx.editInProgress !== true && ctx.selected.modelType.typeHierarchyArray.indexOf('Att0MeasurableAttribute') > -1 && conditions.Crt1IsStudyOpenCond === true"
+      },
+      "unuseAttrForProxyTableVisible": {
+        "expression": "ctx.visibleServerCommands.Crt1UnuseParameter && ctx.editInProgress !== true && ctx.selectedAttrProxyObjects.length > 0 && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true) && conditions.Crt1IsStudyOpenCond === false && conditions.Crt1IsStudyOpenedObjectCond === false && ctx.selected.modelType.typeHierarchyArray.indexOf('Att0MeasurableAttribute') > -1"
+      },
+      "unuseAttrForProxyTableVisibleBeforeTC131": {
+        "expression": "conditions.unuseAttrForProxyTableVisible && ctx.unusedCommandVisibility === true && conditions.isTcReleaseAtLeast131 === false"
+      },
+      "setUnuseUsageVisibleCondition": {
+        "expression": "conditions.setUnuseUsageForVRProxyTableVisibleCondition || conditions.setUnuseUsageForStudyProxyTableVisibleCondition || conditions.setUnuseUsageForVRMappedTableVisibleCondition || conditions.setUnuseUsageForStudyMappedTableVisibleCondition || conditions.setUnuseUsageForInDefTableVisibleCondition"
+      },
+      "setUnuseUsageForVRProxyTableVisibleCondition": {
+        "expression": "conditions.unuseAttrForProxyTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setUnuseUsageValidSelection"
+      },
+      "setUnuseUsageForStudyProxyTableVisibleCondition": {
+        "expression": "conditions.unuseAttrForStudyForProxyTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setUnuseUsageValidSelection"
+      },
+      "unuseAttrForStudyForProxyTableVisibleBeforeTC131": {
+        "expression": "conditions.unuseAttrForStudyForProxyTableVisible && ctx.unusedCommandVisibility === true && conditions.isTcReleaseAtLeast131 === false"
+      },
+      "unuseAttrForStudyForProxyTableVisible": {
+        "expression": "ctx.visibleServerCommands.Crt1UnuseParameter && ctx.editInProgress !== true && ctx.selectedAttrProxyObjects.length > 0 && (conditions.Crt1IsStudyOpenCond === true || conditions.Crt1IsStudyOpenedObjectCond === true) && ctx.selected.modelType.typeHierarchyArray.indexOf('Att0MeasurableAttribute') > -1"
+      },
+      "crt1SyncMeasurableAttrVisibility": {
+        "expression": "(ctx.xrtSummaryContextObject.props.crt0State.dbValues[0] === '' || ctx.xrtSummaryContextObject.props.crt0State.dbValues[0] === 'Authoring' || ctx.xrtSummaryContextObject.props.crt0State.dbValues[0] === 'Submitted' || ctx.xrtSummaryContextObject.props.crt0State.dbValues[0] === 'Analyzing') && ctx.syncCandidates.length > 0 && conditions.Crt1IsAROpenCond === true && conditions.Crt1IsStudyOpenCond === false && conditions.crt1IsVRCreatedByProjectCond === false && ctx.xrtSummaryContextObject.props.is_modifiable.dbValues[0] === '1'"
+      },
+      "crt1PublishMeasurableAttrVisibility": {
+        "expression": "ctx.visibleServerCommands.Crt1PublishMeasurableAttr && ctx.publishCandidates.length > 0 && conditions.Crt1IsAROpenCond === true && conditions.Crt1IsStudyOpenCond === false && conditions.crt1IsVRCreatedByProjectCond === false"
+      },
+      "crt1IsVRCreatedByProjectCond": {
+        "expression": "ctx.xrtSummaryContextObject !== undefined  && (ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) > -1 && ctx.xrtSummaryContextObject.props.crt0VerificationType !== undefined && ctx.xrtSummaryContextObject.props.crt0VerificationType.dbValues[0] === 'Project')|| ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0ParamGroup' ) > -1"
+      },
+      "setInputUsageForVRMappedTableVisibleCondition": {
+        "expression": "conditions.toggleInOutForMappedTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setInputUsageValidSelectionMappedTable"
+      },
+      "setOutputUsageForVRMappedTableVisibleCondition": {
+        "expression": "conditions.toggleInOutForMappedTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setOutputUsageValidSelectionMappedTable"
+      },
+      "toggleInOutForMappedTableVisibleBeforeTC131": {
+        "expression": "conditions.toggleInOutForMappedTableVisible && conditions.isTcReleaseAtLeast131 === false"
+      },
+      "toggleInOutForMappedTableVisible": {
+        "expression": "ctx.visibleServerCommands.Crt1ToggleInOutForProxyTable && ctx.selectedProxyObjects.length > 0 && ctx.isMappingTableEditing === false && (ctx.isARAttrSelected === true || ctx.isUnuseAttrSelected === true) && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true) && conditions.Crt1IsStudyOpenCond === false && conditions.Crt1IsStudyOpenedObjectCond === false"
+      },
+      "setInputUsageForInDefTableVisibleCondition": {
+        "expression": "conditions.toggleInOutForInDefTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setInputUsageValidSelection"
+      },
+      "setOutputUsageForInDefTableVisibleCondition": {
+        "expression": "conditions.toggleInOutForInDefTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setOutputUsageValidSelection"
+      },
+      "toggleInOutForInDefTableVisibleBefore131": {
+        "expression": "conditions.toggleInOutForInDefTableVisible && conditions.isTcReleaseAtLeast131 === false"
+      },
+      "toggleInOutForInDefTableVisible": {
+        "expression": "ctx.visibleServerCommands.Crt1ToggleInOutForProxyTable && ctx.selectedAttrProxyObjects.length > 0 && ctx.selected.modelType.typeHierarchyArray.indexOf('Att0MeasurableAttribute') > -1 && ctx.ATTRIBUTE_TABLE_CONTEXT._editing !== true && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true) && conditions.Crt1IsStudyOpenCond === false && ctx.selectedAttrProxyObjects[0].props.att1AttrInOut.dbValue !== 'not_available'"
+      },
+      "setInputUsageForStudyMappedTableVisibleCondition": {
+        "expression": "conditions.toggleInOutForStudyForMappedTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setInputUsageValidSelectionMappedTable"
+      },
+      "setOutputUsageForStudyMappedTableVisibleCondition": {
+        "expression": "conditions.toggleInOutForStudyForMappedTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setOutputUsageValidSelectionMappedTable"
+      },
+      "toggleInOutForStudyForMappedTableVisibleBeforeTC131": {
+        "expression": "conditions.toggleInOutForStudyForMappedTableVisible &&  isTcReleaseAtLeast131 === false"
+      },
+      "toggleInOutForStudyForMappedTableVisible": {
+        "expression": "ctx.visibleServerCommands.Crt1ToggleInOutForProxyTable && ctx.selectedProxyObjects.length > 0 && ctx.isMappingTableEditing === false && (conditions.Crt1IsStudyOpenCond === true || conditions.Crt1IsStudyOpenedObjectCond === true)"
+      },
+      "isUnusedAttrFilterForMappedTableHighlighted": {
+        "expression": "ctx.selectUnusedAttrsFilter === 'true'"
+      },
+      "isUnusedAttrFilterForProxyTableHighlighted": {
+        "expression": "ctx.Att1ShowAttrProxyTableShowUnusedAttrs === 'true'"
+      },
+      "isUnusedAttrFilterForInDefTableHighlighted": {
+        "expression": "ctx.Att1ShowInterfaceDefAttrsTableShowUnusedAttrs === 'true'"
+      },
+      "setUnuseUsageForVRMappedTableVisibleCondition": {
+        "expression": "conditions.unuseAttrForMappedTableVisible  && (ctx.isARAttrSelected === true || ctx.isUnuseAttrSelected === true) && conditions.isTcReleaseAtLeast131 === true && conditions.setUnuseUsageValidSelectionMappedTable"
+      },
+      "unuseAttrForMappedTableVisibleBeforeTC131": {
+        "expression": "conditions.unuseAttrForMappedTableVisible  && ctx.isARAttrSelected === true && conditions.isTcReleaseAtLeast131 === false"
+      },
+      "unuseAttrForMappedTableVisible": {
+        "expression": "ctx.visibleServerCommands.Crt1UnuseParameter && ctx.isMappingTableEditing === false && ctx.selectedProxyObjects.length > 0 && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true) && conditions.Crt1IsStudyOpenCond === false && conditions.Crt1IsStudyOpenedObjectCond === false"
+      },
+      "setUnuseUsageForInDefTableVisibleCondition": {
+        "expression": "conditions.unuseAttrForInDefTableVisible && conditions.isTcReleaseAtLeast131 === true && conditions.setUnuseUsageValidSelection"
+      },
+      "unuseAttrForInDefTableVisibleBeforeTC131": {
+        "expression": "conditions.unuseAttrForInDefTableVisible &&  isTcReleaseAtLeast131 === false"
+      },
+      "unuseAttrForInDefTableVisible": {
+        "expression": "ctx.visibleServerCommands.Crt1UnuseParameter && ctx.ATTRIBUTE_TABLE_CONTEXT._editing !== true && ctx.selectedAttrProxyObjects.length > 0 && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true) && conditions.Crt1IsStudyOpenCond === false && conditions.Crt1IsStudyOpenedObjectCond === false && ctx.selected.modelType.typeHierarchyArray.indexOf('Att0MeasurableAttribute') > -1 && ctx.selectedAttrProxyObjects[0].props.att1AttrInOut.dbValue !== 'unused' && ctx.selectedAttrProxyObjects[0].props.att1AttrInOut.dbValue !== 'not_available'"
+      },
+      "setUnuseUsageForStudyMappedTableVisibleCondition": {
+        "expression": "conditions.unuseAttrForStudyForMappedTableVisible && (ctx.isARAttrSelected === true || ctx.isUnuseAttrSelected === true) && conditions.isTcReleaseAtLeast131 === true && conditions.setUnuseUsageValidSelectionMappedTable"
+      },
+      "unuseAttrForStudyForMappedTableVisibleBeforeTC131": {
+        "expression": "conditions.unuseAttrForStudyForMappedTableVisible && ctx.isARAttrSelected === true && isTcReleaseAtLeast131 === false"
+      },
+      "unuseAttrForStudyForMappedTableVisible": {
+        "expression": "ctx.visibleServerCommands.Crt1UnuseParameter && ctx.isMappingTableEditing === false && ctx.selectedProxyObjects.length > 0 && (conditions.Crt1IsStudyOpenCond === true || conditions.Crt1IsStudyOpenedObjectCond === true)"
+      },
+      "unusedAttrFilterForMappedTableVisible": {
+        "expression": "ctx.selected && ctx.isMappingTableEditing === false && ctx.xrtPageContext.secondaryXrtPageID !== 'tc_xrt_AttributesForDCP' && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true)"
+      },
+      "unusedAttrFilterForProxyTableVisible": {
+        "expression": "ctx.selected && ctx.editInProgress !== true && conditions.crt1IsVRCreatedByProjectCond === false && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true)"
+      },
+      "unusedAttrFilterForInDefTableVisible": {
+        "expression": "ctx.selected && ctx.ATTRIBUTE_TABLE_CONTEXT._editing !== true && ctx.xrtPageContext.secondaryXrtPageID !== 'tc_xrt_AttributesForDCP' && (conditions.Crt1IsAROpenCond === true || conditions.Crt1IsAROpenedObjectCond === true)"
+      },
+      "isTcReleaseAtLeast131": {
+        "expression": "ctx.tcSessionData.tcMajorVersion > 13 || ctx.tcSessionData.tcMajorVersion === 13 && ctx.tcSessionData.tcMinorVersion >= 1"
+      },
+      "setInputUsageValidSelection": {
+        "expression": "(ctx.selectedAttrProxyObjects.length > 1) || (ctx.selectedAttrProxyObjects.length === 1 && ctx.selectedAttrProxyObjects[0].props.att1AttrInOut.dbValue != 'input')"
+      },
+      "setOutputUsageValidSelection": {
+        "expression": "(ctx.selectedAttrProxyObjects.length > 1) || (ctx.selectedAttrProxyObjects.length === 1 && ctx.selectedAttrProxyObjects[0].props.att1AttrInOut.dbValue != 'output')"
+      },
+      "setUnuseUsageValidSelection": {
+        "expression": "(ctx.selectedAttrProxyObjects.length > 1) || (ctx.selectedAttrProxyObjects.length === 1 && ctx.selectedAttrProxyObjects[0].props.att1AttrInOut.dbValue != 'unused')"
+      },
+      "setInputUsageValidSelectionMappedTable": {
+        "expression": "(ctx.selectedProxyObjects.length > 1) || (ctx.selectedProxyObjects.length === 1 && ctx.selectedProxyObjects[0].props.att1AttrInOut.dbValue != 'input')"
+      },
+      "setOutputUsageValidSelectionMappedTable": {
+        "expression": "(ctx.selectedProxyObjects.length > 1) || (ctx.selectedProxyObjects.length === 1 && ctx.selectedProxyObjects[0].props.att1AttrInOut.dbValue != 'output')"
+      },
+      "setUnuseUsageValidSelectionMappedTable": {
+        "expression": "(ctx.selectedProxyObjects.length > 1) || (ctx.selectedProxyObjects.length === 1 && ctx.selectedProxyObjects[0].props.att1AttrInOut.dbValue != 'unused')"
+      },
+      "crt1OpenContentInNewTABCommandVisibility": {
+        "expression": "conditions.cmdOpenInNewTabCommandActive && ctx.vrContentTableSelection && ctx.vrContentTableSelection.length > 0"
+      },
+      "crt1OpenContentInNewWindowCommandVisibility": {
+        "expression": "conditions.cmdOpenInNewWindowCommandActive && ctx.vrContentTableSelection && ctx.vrContentTableSelection.length > 0"
+      },
+      "crt11OpenContentInRACCommandVisibility": {
+        "expression": "conditions.awp0OpenInRACCommandCondition && ctx.vrContentTableSelection && ctx.vrContentTableSelection.length > 0"
+      }
+    },
+    "i18n": {
+      "ExportToExcelCommandTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "CreateStudyTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "HideOccurenceFilterToggleCommandTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "ShowOccurenceFilterToggleCommandTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "PartialError": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveStudyFromVCTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Cancel": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Delete": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "DeleteStudyConfirmation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "AddToAnalysisRequestCommandTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "AddedElementToVC": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "AddToStudyTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "AddToTestRequestTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "AddToRunTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "AddToTestEventTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveFromARTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveFromStudyTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveFromTestRequestTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveFromRunTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveFromTestEventTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveARAndStudyInputConfirmation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveARForProjectConfirmation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveElementsConfirmation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Add": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "ARCompareReportTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "CompareReportNotCreatedErr": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "IgnoreARMsg": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "IgnoreStudyMsg": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "NoReportDefinitionFoundWarning": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "ArChangeReportWarning": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "InvalidComparisonWarning": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "AddObjectToResultCommandTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "CreateARTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1CreateStudyDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1CreateValidationContractDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "StudyFilterToggleCmdDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveStudyFromVCDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "AddToARDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "AddToStudyDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveFromARDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "RemoveFromStudyDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "ARCompareReportDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1AddObjectToResultPanelDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1RemoveAROutputDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1RemoveStudyOutputDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "OpenObjectCommandTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "OpenContentDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "toggleInputOutputTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "addFromContent": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "ToggleInOutForTableDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "UnuseCommandTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "UnuseAttrForTableDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "UnuseAttributeConfirmation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "UnuseAttrForStudyForTableDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "UnuseAttributeForStudyConfirmation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "SynchronizeTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1SyncMeasurableAttrDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "syncMeasurableAttrConfirmation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "syncMeasurableAttrInformation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "PublishTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1PublishMeasurableAttrDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "publishMeasurableAttrConfirmation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "publishMeasurableAttrInformation": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "FilterUnusedAttrForMappedTableDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "UnuseAttrForMappedTableDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "UnuseAttrForStudyForMappedTableDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "HideUnusedCommandTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "ShowUnusedCommandTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1SetUsageTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1SetInputUsageTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1SetOutputUsageTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1SetUnusedUsageTitle": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1SetUsageDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1SetInputUsageDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1SetOutputUsageDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ],
+      "Crt1SetUnusedUsageDesc": [
+        "AnalysisRequestCommandPanelsMessages"
+      ]
+    }
+  },
+  "contributions": {
+    "archModelerSecondaryPanelKey": [
+      "js/Crt1InterfacesDetailsPanel.archModelerSecondaryPanelKey"
+    ]
+  },
+  "decorators": {
+    "arAssignedElementsColorDecorator": {
+      "cellClassName": "aw-border-chartColor1",
+      "gridClassName": "aw-charts-chartColor1",
+      "subLocationName": "com.siemens.splm.client.occmgmt:OccurrenceManagementSubLocation",
+      "modelTypes": [
+        "Awb0ConditionalElement"
+      ],
+      "method": "isElementAddedToAR",
+      "deps": "js/analysisRequestUtils"
+    },
+    "arParameterInputOutputColorDecorator": {
+      "cellClassName": "aw-border-chartColor1",
+      "gridClassName": "aw-charts-chartColor1",
+      "modelTypes": [
+        "Att1AttributeAlignmentProxy"
+      ],
+      "subLocationName": "com.siemens.splm.client.attrtarget.paramProjectSubLocation:Att1ParamProjectSubLocation",
+      "method": "isParameterSetInputOrOutput",
+      "deps": "js/analysisRequestUtils"
+    },
+    "vrAssignedTableElementsColorDecorator": {
+      "cellClassName": "aw-border-chartColor1",
+      "gridClassName": "aw-charts-chartColor1",
+      "subLocationName": "com.siemens.splm.clientfx.tcui.xrt.showObjectSubLocation",
+      "modelTypes": [
+        "Awb0ConditionalElement"
+      ],
+      "method": "isElementAddedToVR",
+      "deps": "js/analysisRequestUtils"
+    }
+  },
+  "paste": {
+    "schemaVersion": "1.0.0",
+    "pasteHandlers": {
+      "pasteHandlerForStickyPanelAwb0Element": {
+        "action": "actionForCreateStickyPanel",
+        "activeWhen": {
+          "condition": "conditions.isPasteHandlerActiveForStickyPanelAwb0Element"
+        }
+      }
+    },
+    "actions": {
+      "actionForCreateStickyPanel": {
+        "actionType": "JSFunction",
+        "method": "pasteObjectsInList",
+        "deps": "js/stickyPanelService",
+        "inputData": {
+          "targetObject": "{{pasteContext.targetObject}}",
+          "sourceObject": "{{pasteContext.sourceObject}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "dragDrop.success",
+              "condition": "pasteContext.isDragDropIntent",
+              "eventData": {
+                "sourceObjects": "{{pasteContext.sourceObject}}",
+                "targetObject": "{{pasteContext.targetObject}}"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "conditions": {
+      "isPasteHandlerActiveForStickyPanelAwb0Element": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "pasteContext.targetObject",
+              "$query": {
+                "$typeOf": "stickyPanelList"
+              }
+            },
+            {
+              "$source": "pasteContext.sourceObject",
+              "$query": {
+                "$typeOf": "Awb0Element"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "propertyRendererTemplates": {
+    "parameter_result_template": {
+      "grids": [],
+      "columns": [
+        "att1Result"
+      ],
+      "template": "",
+      "templateUrl": "",
+      "renderFunction": "parameterResultStatusFn",
+      "deps": "propRenderTemplates/Crt1ParameterResultStatus",
+      "dependentServices": [
+        "soa/kernel/clientDataModel"
+      ]
+    },
+    "result_template": {
+      "grids": [],
+      "columns": [
+        "crt1Result",
+        "crt0Result"
+      ],
+      "template": "",
+      "templateUrl": "",
+      "renderFunction": "resultStatusFn",
+      "deps": "propRenderTemplates/Crt1ParameterResultStatus",
+      "dependentServices": [
+        "soa/kernel/clientDataModel"
+      ]
+    },
+    "measured_value_template": {
+      "grids": [],
+      "columns": [
+        "REF(att1SourceAttribute,Att0MeasurableAttributeDbl).REF(att0CurrentValue,Att0MeasureValueDbl).att0Value"
+      ],
+      "template": "",
+      "templateUrl": "",
+      "renderFunction": "measuredValFn",
+      "deps": "propRenderTemplates/Crt1ParameterResultStatus",
+      "dependentServices": [
+        "soa/kernel/clientDataModel"
+      ]
+    }
+  },
+  "states": {
+    "com_siemens_splm_clientfx_tcui_xrt_showObject": {
+      "params": {
+        "ARFilterMode": null
+      },
+      "type": "parameter"
+    }
+  },
+  "typeIconsRegistry": [
+    {
+      "type": {
+        "names": [
+          "Crt1VRContentProxy"
+        ],
+        "prop": {
+          "names": [
+            "crt1UnderlyingObject"
+          ],
+          "type": {
+            "names": [
+              "BusinessObject"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "typeProperties": {
+    "typeProperties": {
+      "Awb0ConditionalElement": {
+        "additionalProperties": [
+          {
+            "name": "crt1AddedToAnalysisRequest"
+          },
+          {
+            "name": "awb0NumberOfChildren"
+          }
+        ]
+      },
+      "Crt0VldnContractRevision": {
+        "additionalProperties": [
+          {
+            "name": "Att0HasConfigurationContext",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          },
+          {
+            "name": "crt0Configuration"
+          },
+          {
+            "name": "crt0State"
+          },
+          {
+            "name": "crt0Domain"
+          },
+          {
+            "name": "crt0VerificationType"
+          }
+        ]
+      },
+      "Att1AttributeAlignmentProxy": {
+        "additionalProperties": [
+          {
+            "name": "crt1IsAddedToVR"
+          }
+        ]
+      },
+      "Evm1RecipeResultProxy": {
+        "additionalProperties": [
+          {
+            "name": "evm1SourceObject"
+          }
+        ]
+      },
+      "Crt0AttributeElement": {
+        "additionalProperties": [
+          {
+            "name": "crt0Result"
+          }
+        ]
+      },
+      "Crt1VRContentProxy": {
+        "additionalProperties": [
+          {
+            "name": "crt1UnderlyingObject"
+          }
+        ]
+      }
+    }
+  },
+  "dragAndDrop": {
+    "actions": {
+      "dragOverCustomHighlight1": {
+        "actionType": "syncFunction",
+        "method": "dragOverCustomHighlight",
+        "deps": "js/stickyPanelService"
+      },
+      "dropCustomHighlight1": {
+        "actionType": "syncFunction",
+        "method": "dropCustomHighlight",
+        "deps": "js/stickyPanelService"
+      }
+    },
+    "dropHandlers": {
+      "dropHandlerForCustomTableHighlight1": {
+        "views": [
+          "Crt1ObjectListToAddInVR"
+        ],
+        "dropActions": {
+          "dragOver": "dragOverCustomHighlight1",
+          "drop": "dropCustomHighlight1"
+        }
+      }
+    }
+  }
+}

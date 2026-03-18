@@ -1,0 +1,163 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-form.directive",
+        "js/visible-when.directive",
+        "js/aw-add.directive"
+    ],
+
+    "actions": 
+    {
+        "createAndAddDRI": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-Core-2012-10-DataManagement",
+            "method": "createRelateAndSubmitObjects",
+            "inputData": 
+            {
+                "inputs": "{{function:getDRICreateInput}}"
+            },
+
+            "outputData": 
+            {
+                "createdMainObject": "output[0].objects[0]",
+                "createdObject": "output[0].objects[2]"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "assignProjectsToCreatedObject",
+                        "condition": "data.dataProviders.getAssignedProjectsProvider.viewModelCollection.loadedVMObjects.length>0"
+                    },
+
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": 
+                        {
+                            "relations": "",
+                            "relatedModified": 
+                            [
+                                "{{ctx.selected}}"
+                            ],
+
+                            "isPinnedFlag": "data.unpinnedToForm.dbValue"
+                        }
+                    },
+
+                    {
+                        "name": "complete",
+                        "condition": "data.pinnedToForm.dbValue",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    },
+
+                    {
+                        "name": "awPanel.loadNextValues",
+                        "condition": "data.unpinnedToForm.dbValue"
+                    }
+                ],
+
+                "failure": 
+                [
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+
+            "deps": "js/Cdm1AddDRIService"
+        },
+
+        "assignProjectsToCreatedObject": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-09-ProjectLevelSecurity",
+            "method": "assignOrRemoveObjects",
+            "inputData": 
+            {
+                "assignedOrRemovedobjects": 
+                [
+                    {
+                        "projects": "{{data.dataProviders.getAssignedProjectsProvider.viewModelCollection.loadedVMObjects}}",
+                        "objectToAssign": 
+                        [
+                            "{{data.copiedSchedule}}"
+                        ],
+
+                        "objectToRemove": 
+                        [
+                            
+                        ]
+                    }
+                ]
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": 
+                        {
+                            "relatedModified": 
+                            [
+                                "{{ctx.selected}}"
+                            ]
+                        }
+                    },
+
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "functions": 
+    {
+        "getDRICreateInput": 
+        {
+            "functionName": "getDRICreateInput",
+            "parameters": 
+            [
+                "{{data}}"
+            ]
+        }
+    },
+
+    "i18n": 
+    {
+        "add": 
+        [
+            "contractmanagementMessages"
+        ]
+    },
+
+    "onEvent": 
+    [
+        {
+            "eventId": "assignProjectsToCreatedObject",
+            "action": "assignProjectsToCreatedObject"
+        }
+    ]
+}

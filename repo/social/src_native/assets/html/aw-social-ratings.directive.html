@@ -1,0 +1,11 @@
+<div class="aw-social-starPanel">
+    <table ng-init="initializeRatings(ratings)">
+        <tr>
+            <td ng-repeat="x in ratingStars track by $index">
+                <button type="button" class="aw-base-iconButton aw-social-star" ng-click="isEditable ? updateRating($index + 1) : angular.noop">
+                    <aw-icon class="aw-base-iconButton" icon-id={{x}}></aw-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>

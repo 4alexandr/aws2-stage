@@ -1,0 +1,16 @@
+{
+    "LoadButton": "서류 가방 로드",
+    "loadstatus": "로드 중...",
+    "compare": "내용 비교",
+    "locationClickViewerHeaderTitle": "뷰어",
+    "locationOneClickViewerSubTitle": "뷰어",
+    "pickTOSPanel": "서류 가방 미리보기",
+    "pickTOSPanelCompare": "서류 가방 비교",
+    "transferOptionSet": "전송 옵션 집합 선택",
+    "tosPanelSourceBCZ": "소스 서류 가방",
+    "tosPanelTargetBCZ": "타겟 서류 가방",
+    "tosSourceLabel": "소스 전송 옵션 집합 적용됨",
+    "tosTargetLabel": "타겟 전송 옵션 집합 적용됨",
+    "bbrowserCompareViewerDesc": "서류 가방 파일들 간의 차이점을 봅니다.",
+    "bbrowserOneClickViewerDesc": "서류 가방 파일을 가져오기 전에 서류 가방 파일의 내용을 검토합니다."
+}

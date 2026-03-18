@@ -1,0 +1,9 @@
+{
+  "name": "hosted-mentor",
+  "description": "",
+  "modules": [
+    "hosted-mentor"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

@@ -1,0 +1,6 @@
+{
+    "moveModeCommandTitle":"Mover Modo",
+    "moveModeCommandDescription":"Quando o modo estiver ligado, clique e arraste para mover uma caixa.",
+    "editModeCommandTitle":"Modo de criação de fluxo",
+    "editModeCommandDescription":"Quando o modo estiver ligado, clique e arraste para conectar um processo a um processo sucessor."  
+}

@@ -1,0 +1,19 @@
+{
+    "Awv0PmiCommandTitle": "PMI",
+    "operationName": "Mostra pannello PMI",
+    "modelViewsTabTitle": "Viste modello",
+    "pmiEntitiesTabTitle": "Tipi",
+    "PmiPanelTitle": "PMI",
+    "stepThroughLabel": "Passa attraverso",
+    "reorientText": "Riorienta testo",
+    "stepThroughNext": "Successivo",
+    "stepThroughPrev": "Precedente",
+    "toolPanelTitle": "PMI",
+    "showingPmiFor": "Mostra PMI per:",
+    "notCurrentlyVisible": "{0} non è completamente visibile.",
+    "hasNoPmi": "{0} non ha PMI. Selezionare un altro elemento della struttura.",
+    "pmiStepCmdsAnchor": "Aggancio dei comandi del passaggio",
+    "Awv0PmiToolDesc": "Visualizzare o nascondere una specifica informazione PMI o applicare viste modello.",
+    "PmiStepThroughPrevCommandDesc": "Passare al precedente item nell'elenco.",
+    "PmiStepThroughNextCommandDesc": "Passare al successivo item nell'elenco."
+}

@@ -1,0 +1,55 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+
+    "data": {
+        "preferenceName": "EP_ProcessPageTabProcessAssignedDocumentsAreaColumnConfiguration",
+        "relationName": "mbc0AssignedDocuments",
+        "loadInputObject": {
+            "loadType": "getProperties",
+            "propertiesToLoad": [ "mbc0AssignedDocuments" ]
+        },
+        "messages": {
+            "noElementSelected": [{
+                "text": "{{i18n.selectProcessOrOperation}}",
+                "textParams": [
+                    "{{i18n.documents}}"
+                ]
+            }],
+            "noAssigned": [
+                {
+                    "text": "{{i18n.noAssigned}}",
+                    "textParams": [
+                        "{{i18n.documents}}"
+                    ]
+                }
+            ]
+        }
+    },
+
+    "actions": {
+        "getTabContext": {
+            "actionType": "JSFunction",
+            "method": "getTabContext",
+            "inputData": {
+                "tabData": "{{subPanelContext}}"
+            },
+            "outputData": {
+                "tabContext": ""
+            },
+            "deps": "js/epTableService"
+        }
+    },
+
+    "lifecycleHooks": {
+        "onMount": "getTabContext"
+    },
+
+    "i18n": {
+        "documents": ["DetailsMessages"],
+        "noAssigned": [ "DetailsMessages" ],
+        "selectProcessOrOperation": [ "DetailsMessages" ]
+    }
+}

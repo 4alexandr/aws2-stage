@@ -1,0 +1,15 @@
+{
+    "assemblyPmiTitle": "PMI 어셈블리 수준",
+    "assemblyPmiTitleWithSelection": "{0}에 대한 PMI 어셈블리 수준",
+    "assignedPmiTitle": "PMI",
+    "name": "이름",
+    "id": "ID",
+    "nominalValue": "명목값",
+    "uom": "UOM",
+    "selectProcessOrOperation": "프로세스 또는 오퍼레이션을 선택하십시오.",
+    "selectProcessOrOperationForPMIs": "할당된 PMI를 보려면 프로세스 또는 오퍼레이션을 선택합니다.",
+    "noAssociatedPMIs": "선택한 프로세스\/오퍼레이션에 관련된 PMI가 없습니다.",
+    "noAssignedPMIs": "할당된 PMI가 없습니다.",
+    "connectedParts" : "연결된 파트",
+    "more" : "더 많이"
+}

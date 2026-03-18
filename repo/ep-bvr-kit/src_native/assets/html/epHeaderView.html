@@ -1,0 +1,54 @@
+<aw-flex-row>
+    <aw-flex-column width="12">
+        <aw-flex-row exist-when="conditions.isReadOnlyMode">
+            <aw-guidance-message message="{{ctx.mfgReadOnlyMode.readOnlyMessage}}" closable="false" banner-style="false" show-icon="false" show-type="false"></aw-guidance-message>
+        </aw-flex-row>
+        <aw-flex-row height="8f">
+            <aw-flex-column align-content="start">
+                <aw-flex-row align-content="center" justify="left">
+                    <aw-flex-column width="4f" offset-right="1f" exist-when="ctx.ep.scopeObject">
+                        <aw-model-icon class="aw-epHeader-icon" exist-when="ctx.ep.scopeObject.props" vmo="ctx.ep.scopeObject"></aw-model-icon>
+                    </aw-flex-column>
+                    <aw-flex-column width="fill">
+                        <aw-flex-row exist-when="ctx.ep.scopeObject">
+                            <span class="aw-epHeader-title">
+                            {{ctx.ep.scopeObject.props.bl_rev_object_name?ctx.ep.scopeObject.props.bl_rev_object_name.displayValues[0]:ctx['location.titles'].headerTitle}}
+                            </span>
+                        </aw-flex-row>
+                        <aw-flex-row exist-when="!ctx.ep.scopeObject">
+                            <span class="aw-epHeader-title">
+                                <aw-i18n>i18n.headerTitle</aw-i18n>
+                            </span>
+                        </aw-flex-row>
+                        <aw-flex-row visible-when="conditions.showWorkPackageAndUnitChips" align-content="center">
+                            <aw-link prop="data.workPackageLink" action="navigateToManagePage" class="aw-epHeader-workpackageLink"></aw-link>
+                            <aw-separator is-vertical="true" class="aw-epHeader-separator"></aw-separator>
+                            <aw-navigate-breadcrumb provider="data.epBreadcrumbDataProvider" breadcrumb-config="data.breadcrumb.navigationBreadcrumbConfig" class="aw-epHeader-breadCrumb">
+                            </aw-navigate-breadcrumb>
+                        </aw-flex-row>
+                    </aw-flex-column>
+                </aw-flex-row>
+            </aw-flex-column>
+            <aw-flex-column align-content="end">
+                <aw-flex-row justify="right" align-content="center">
+                    <aw-global-search></aw-global-search>
+                    <aw-separator is-vertical="true" class="aw-epHeader-separator"></aw-separator>
+                    <aw-icon icon-id="indicatorChipCheckedOut" visible-when="conditions.isCheckedOutBySameUser" class="aw-epHeader-marginRight" title="{{i18n.checkedOutByYou}}"></aw-icon>
+                    <aw-i18n visible-when="conditions.showWorkPackageAndUnitChips" class="aw-epHeader-marginLeft">
+                        {{i18n.timeUnitLinkLabel}}:&nbsp</aw-i18n>
+                    <aw-link prop="data.timeUnitLink" action="showAvailableTimeUnitsList" class="aw-mfe-epTimeUnitsLink" visible-when="conditions.showWorkPackageAndUnitChips"></aw-link>
+                    <aw-flex-column width="16f" extended-tooltip="epMcnTrackingToolTip" visible-when="ctx.state.params.mcn">
+                        <aw-flex-row justify="space-evenly" align-content="center">
+                            <aw-flex-column width="2f" offset="1f">
+                                <aw-icon icon-id="indicatorChipTrackingChanges"></aw-icon>
+                            </aw-flex-column>
+                            <span>{{ctx.ep.mcnObject.props.object_string.uiValues[0]}}</span>
+                        </aw-flex-row>
+                    </aw-flex-column>
+                    <aw-logo></aw-logo>
+                    <aw-layout-slot name="ep_additionalLogos" context="data" ></aw-layout-slot>
+                </aw-flex-row>
+            </aw-flex-column>
+        </aw-flex-row>
+    </aw-flex-column>
+</aw-flex-row>

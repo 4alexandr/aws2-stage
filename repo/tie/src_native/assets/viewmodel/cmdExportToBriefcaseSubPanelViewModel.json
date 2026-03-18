@@ -1,0 +1,692 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-listbox.directive",
+        "js/aw-list.directive",
+        "js/aw-radiobutton.directive",
+        "js/aw-textarea.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-icon.directive",
+        "js/aw-icon-button.directive",
+        "js/aw-label.directive",
+        "js/aw-widget.directive",
+        "js/visible-when.directive"
+    ],
+    "data": {
+        "TOSCommandAnchor": "tos_section_anchor",
+        "xferOptionAnchor": "xferOptionAnchor_panel",
+
+        "isContentLoaded": {
+            "dbValue": false,
+            "type": "BOOLEAN"
+        },
+        "removeOptCommand": {
+            "action": "remoteOverrideOpt",
+            "iconName": "Remove",
+            "tooltip": "Remove"
+        },
+        "tagetSites": [],
+        "variantRuleListLoaded": false,
+        "siteTypeRadioButton": {
+            "displayName": "{{i18n.targetType}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": true,
+            "vertical": false,
+            "labelPosition": "NO_PROPERTY_LABEL",
+            "propertyRadioTrueText": "{{i18n.Teamcenter}}",
+            "propertyRadioFalseText": "{{i18n.BriefcaseBrowser}}"
+        },
+        "targetSitesListBox": {
+            "displayName": "{{i18n.targetSites}}",
+            "type": "STRING",
+            "hasLov": true,
+            "dbValue": "",
+            "dispValue": "",
+            "isRequired": "true"
+        },
+        "transferOptionSetListBox": {
+            "displayName": "{{i18n.transferOptionSet}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": "",
+            "propDisplayDescription": ""
+        },
+        "briefcaseName": {
+            "displayName": "{{i18n.briefcaseName}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "maxLength": 128,
+            "dispValue": ""
+        },
+        "revisionRuleListBox": {
+            "displayName": "{{i18n.revisionRule}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "variantRuleListBox": {
+            "displayName": "{{i18n.variantRule}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "deltaExportRadio": {
+            "displayName": "{{i18n.deltaExport}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": false,
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE",
+            "propertyRadioTrueText": "{{i18n.Yes}}",
+            "propertyRadioFalseText": "{{i18n.No}}"
+        },
+        "forceReExportRadio": {
+            "displayName": "{{i18n.forceReExport}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": false,
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE",
+            "propertyRadioTrueText": "{{i18n.Yes}}",
+            "propertyRadioFalseText": "{{i18n.No}}"
+        },
+        "validateRadio": {
+            "displayName": "{{i18n.validate}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": false,
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE",
+            "propertyRadioTrueText": "{{i18n.Yes}}",
+            "propertyRadioFalseText": "{{i18n.No}}"
+        },
+        "partialExportLabel": {
+            "displayName": "{{i18n.partialExport}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": false,
+            "dbValue": false,
+            "dispValue": "{{i18n.No}}"
+        }
+    },
+    "dataProviders": {
+        "overrideOpt" : {
+            "action": "loadOverrideOpt",
+            "response": "{{data.overrideSearchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "none",
+            "commandsAnchor": "aw_tie_override_cmd_anchor"
+        }
+    },
+    "actions": {
+        "loadOverrideOpt":
+        {
+            "actionType": "JSFunction",
+            "method": "loadOverrideDataProvider",
+            "outputData":
+            {
+                "overrideSearchResults": ""
+            },
+            "deps": "js/exportToBriefcase"
+        },
+        "remoteOverrideOpt": {
+            "actionType": "JSFunction",
+            "method": "remoteOverrideOptionFromList",
+            "deps": "js/exportToBriefcase",
+            "inputData": {
+                "data": "{{data}}"
+            }
+        },
+        "validateOptChanged": {
+            "actionType": "JSFunction",
+            "method": "updateOverrideContext",
+            "deps": "js/exportToBriefcase",
+            "inputData": {
+                "data": "{{data}}"
+            }
+        },
+        "transferOptionChanged": {
+            "actionType": "JSFunction",
+            "method": "saveTransferOptionSetContext",
+            "deps": "js/exportToBriefcase",
+            "inputData": {
+                "data": "{{data}}",
+                "isCalledFromExport" : true
+            }
+        },
+        "getPref": {
+            "actionType": "JSFunction",
+            "method": "getPreferenceContinueOnError",
+            "deps": "js/exportToBriefcase",
+            "inputData": {
+                "pref": "{{data.preferences}}"
+            }
+        },
+        "validateBriefcase": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-TCXMLImportExport-2020-12-Briefcase",
+            "method": "exportObjectsToBriefcase",
+            "inputData": {
+                "input": "{{function:getSOAInputForValidateOnly}}"
+            },
+            "outputData":
+            {
+                "validatePartialErrors": "partialErrors"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "condition": "ctx.mselected.length === 1",
+                        "message": "singleSelectionBriefcaseValidateStarted"
+                    },
+                    {
+                        "condition": "ctx.mselected.length > 1",
+                        "message": "multipleSelectionBriefcaseValidateStarted"
+                    }
+                ],
+                "failure":
+                [
+                    {
+                        "condition": "ctx.mselected.length === 1 && data.validatePartialErrors.length > 0",
+                        "message": "singleSelectionBriefcaseValidateFailed"
+                    },
+                    {
+                        "condition": "ctx.mselected.length > 1 && data.validatePartialErrors.length > 0",
+                        "message": "multipleSelectionBriefcaseValidateFailed"
+                    }
+                ]
+            },
+            "deps": "js/exportToBriefcase"
+        },
+        "startBriefcaseExport": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-TCXMLImportExport-2020-12-Briefcase",
+            "method": "exportObjectsToBriefcase",
+            "inputData": {
+                "input": "{{function:getSOAInputForExport}}"
+            },
+            "outputData":
+            {
+                "exportPartialErrors": "partialErrors"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "condition": "ctx.mselected.length === 1 && !data.validateRadio.dbValue",
+                        "message": "singleSelectionBriefcaseExportStarted"
+                    },
+                    {
+                        "condition": "ctx.mselected.length > 1 && !data.validateRadio.dbValue",
+                        "message": "multipleSelectionBriefcaseExportStarted"
+                    },
+                    {
+                        "condition": "ctx.mselected.length === 1 && data.validateRadio.dbValue",
+                        "message": "singleSelectionBriefcaseValidateAndExportStarted"
+                    },
+                    {
+                        "condition": "ctx.mselected.length > 1 && data.validateRadio.dbValue",
+                        "message": "multipleSelectionBriefcaseValidateAndExportStarted"
+                    }
+                ],
+                "failure":
+                [
+                    {
+                        "condition": "ctx.mselected.length === 1 && !data.validateRadio.dbValue && data.exportPartialErrors.length > 0",
+                        "message": "singleSelectionBriefcaseExportFailed"
+                    },
+                    {
+                        "condition": "ctx.mselected.length > 1 && !data.validateRadio.dbValue && data.exportPartialErrors.length > 0",
+                        "message": "multipleSelectionBriefcaseExportFailed"
+                    },
+                    {
+                        "condition": "ctx.mselected.length === 1 && data.validateRadio.dbValue && data.exportPartialErrors.length > 0",
+                        "message": "singleSelectionBriefcaseValidateAndExportFailed"
+                    },
+                    {
+                        "condition": "ctx.mselected.length > 1 && data.validateRadio.dbValue && data.exportPartialErrors.length > 0",
+                        "message": "multipleSelectionBriefcaseValidateAndExportFailed"
+                    }
+                ]
+            },
+            "deps": "js/exportToBriefcase"
+        },
+        "getTargetSite": {
+            "actionType": "TcSoaService",
+            "serviceName": "GlobalMultiSite-2007-12-ImportExport",
+            "method": "getRemoteSites",
+            "inputData": {
+                "siteType": "OfflineGMS"
+            },
+            "policy": {
+                "types": [
+                    {
+                        "name": "POM_imc",
+                        "properties": [
+                            {
+                                "name": "name"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "targetSitesListBoxValues": "{{function:getTargetSitesForExport}}"
+            },
+            "deps": "js/exportToBriefcase",
+            "events": {
+                "success": [
+                    {
+                        "name": "ExportToBriefcase.TargetSitesLoaded"
+                    }
+                ]
+            }
+        },
+        "targetSiteSelectionChange": {
+            "actionType": "JSFunction",
+            "method": "getTransferOptionSets",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}",
+                "isExport":true
+            },
+            "deps": "js/exportToBriefcase",
+            "events": {
+                "success": [
+                    {
+                        "name": "ExportToBriefcase.TransferOptionsLoaded"
+                    }
+                ]
+            }
+        },
+        "changeSiteType": {
+            "actionType": "JSFunction",
+            "method": "changeSiteTypeSelection",
+            "inputData": {
+                "data": "{{data}}",
+                "isExportPanel":true
+            },
+            "deps": "js/exportToBriefcase"
+        },
+        "refreshOverrideDataProvider": {
+            "actionType": "dataProvider",
+            "method": "overrideOpt"
+        },
+
+        "getObjectsMarkedForOT": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-GlobalMultiSite-2020-01-Briefcase",
+            "method": "queryMarkOT",
+            "inputData": {
+                "objects": [],
+                "userId": "{{ctx.user.props.userid.dbValue}}",
+                "targetSiteId": 0,
+                "needHelperObjects": false,
+                "appId": "BC"
+            },
+            "outputData": {
+                "markedOTObjects": "{{function:getMarkedOTObjects}}"
+            },
+            "deps": "js/exportToBriefcase"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "action": "getTargetSite",
+            "condition": "conditions.isContentLoaded"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "action": "getPref"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "action": "getObjectsMarkedForOT"
+        },
+        {
+            "eventId": "transferOptionSet.ReloadProvider",
+            "action": "refreshOverrideDataProvider"
+        }
+    ],
+    "functions": {
+        "getTargetSitesForExport": {
+            "functionName": "getTargetSitesForExport",
+            "parameters": [
+                "{{data}}",
+                "{{response}}"
+            ]
+        },
+        "getSOAInputForExport": {
+            "functionName": "getSOAInputForExport",
+            "parameters": [
+                "{{data}}",
+                "{{ctx}}",
+                "false"
+            ]
+        },
+        "getSOAInputForValidateOnly": {
+            "functionName": "getSOAInputForExport",
+            "parameters": [
+                "{{data}}",
+                "{{ctx}}",
+                "true"
+            ]
+        },
+
+        "getMarkedOTObjects": {
+            "functionName": "getMarkedOTObjects",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "conditions": {
+        "validateLength": {
+            "expression": "data.briefcaseName.dbValue.length > 128"
+        },
+        "validateLetterDigitUnderScore": {
+            "expression": {
+                "$source": "data.briefcaseName.dbValue",
+                "$query": {
+                    "$notinregexp": "[a-zA-Z0-9_]*$"
+                }
+            }
+        },
+        "isTargetSiteSelected": {
+            "expression": "data.targetSitesListBox.dbValue"
+        },
+        "isContentLoaded": {
+            "expression": "data.isContentLoaded.dbValue === false"
+        },
+        "readyToGenerateBriefcaseName": {
+            "expression": "data.targetSitesListBox.dbValue && data.transferOptionSetListBox.dbValue"
+        },
+        "isTransferOptionSetSelected": {
+            "expression": "data.targetSitesListBox.dbValue && data.transferOptionSetListBox.dbValue && data.briefcaseName.dbValue"
+        },
+        "isDeltaExportYes": {
+            "expression": "data.deltaExportRadio.dbValue === true"
+        },
+        "isForceReExportYes": {
+            "expression": "data.forceReExportRadio.dbValue === true"
+        },
+        "isValidateYes": {
+            "expression": "data.validateRadio.dbValue === true"
+        },
+        "isLLExport": {
+            "expression": "conditions.isTransferOptionSetSelected && data.isLowLevel"
+        },
+        "isConfiguredExport": {
+            "expression": "conditions.isTransferOptionSetSelected && data.isConfigured"
+        },
+        "hasVariantRules": {
+            "expression": "conditions.isConfiguredExport && data.variantRuleListBoxValues.length > 0"
+        },
+        "isExportReady": {
+            "expression": "( conditions.isTransferOptionSetSelected &&  !data.isConfigured ) || ( conditions.isTransferOptionSetSelected &&  data.isConfigured && data.revisionRuleListBox.uiValue.length > 0 && (ctx.selected.modelType.typeHierarchyArray.indexOf( 'Folder' ) == -1) )"
+        },
+
+        "isValidateButtonVisible":{
+        "expression": "( conditions.isTransferOptionSetSelected && conditions.isLLExport && conditions.isValidateYes &&  !data.isConfigured ) || ( conditions.isTransferOptionSetSelected && conditions.isLLExport && conditions.isValidateYes &&  data.isConfigured && data.revisionRuleListBox.uiValue.length > 0 && (ctx.selected.modelType.typeHierarchyArray.indexOf( 'Folder' ) == -1))"
+        }
+    },
+    "messages": {
+        "singleSelectionBriefcaseValidateStarted":
+        {
+            "messageType": "INFO",
+            "messageText": "{{i18n.singleSelectionBriefcaseValidateStartedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected[0].props.object_string.uiValues[0]}}"
+                ]
+        },
+        "multipleSelectionBriefcaseValidateStarted":
+        {
+            "messageType": "INFO",
+            "messageText": "{{i18n.multipleSelectionBriefcaseValidateStartedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected.length}}"
+                ]
+        },
+        "singleSelectionBriefcaseValidateFailed":
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.singleSelectionBriefcaseValidateFailedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected[0].props.object_string.uiValues[0]}}",
+                "{{data.validatePartialErrors[0].errorValues[0].message}}"
+                ]
+        },
+        "multipleSelectionBriefcaseValidateFailed":
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.multipleSelectionBriefcaseValidateFailedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected.length}}",
+                "{{data.validatePartialErrors[0].errorValues[0].message}}"
+                ]
+        },
+        "singleSelectionBriefcaseExportStarted":
+        {
+            "messageType": "INFO",
+            "messageText": "{{i18n.singleSelectionBriefcaseExportStartedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected[0].props.object_string.uiValues[0]}}",
+                "{{data.briefcaseName.dbValue}}"
+                ]
+        },
+        "multipleSelectionBriefcaseExportStarted":
+        {
+            "messageType": "INFO",
+            "messageText": "{{i18n.multipleSelectionBriefcaseExportStartedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected.length}}",
+                "{{data.briefcaseName.dbValue}}"
+                ]
+        },
+        "singleSelectionBriefcaseExportFailed":
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.singleSelectionBriefcaseExportFailedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected[0].props.object_string.uiValues[0]}}",
+                "{{data.briefcaseName.dbValue}}",
+                "{{data.exportPartialErrors[0].errorValues[0].message}}"
+                ]
+        },
+        "multipleSelectionBriefcaseExportFailed":
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.multipleSelectionBriefcaseExportFailedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected.length}}",
+                "{{data.briefcaseName.dbValue}}",
+                "{{data.exportPartialErrors[0].errorValues[0].message}}"
+                ]
+        },
+        "singleSelectionBriefcaseValidateAndExportStarted":
+        {
+            "messageType": "INFO",
+            "messageText": "{{i18n.singleSelectionBriefcaseValidateAndExportStartedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected[0].props.object_string.uiValues[0]}}",
+                "{{data.briefcaseName.dbValue}}"
+                ]
+        },
+        "multipleSelectionBriefcaseValidateAndExportStarted":
+        {
+            "messageType": "INFO",
+            "messageText": "{{i18n.multipleSelectionBriefcaseValidateAndExportStartedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected.length}}",
+                "{{data.briefcaseName.dbValue}}"
+                ]
+        },
+        "singleSelectionBriefcaseValidateAndExportFailed":
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.singleSelectionBriefcaseValidateAndExportFailedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected[0].props.object_string.uiValues[0]}}",
+                "{{data.briefcaseName.dbValue}}",
+                "{{data.exportPartialErrors[0].errorValues[0].message}}"
+                ]
+        },
+        "multipleSelectionBriefcaseValidateAndExportFailed":
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.multipleSelectionBriefcaseValidateAndExportFailedMessage}}",
+            "messageTextParams": [
+                "{{ctx.mselected.length}}",
+                "{{data.briefcaseName.dbValue}}",
+                "{{data.exportPartialErrors[0].errorValues[0].message}}"
+                ]
+        }
+    },
+    "i18n": {
+        "properties": [
+            "tieMessages"
+        ],
+        "optionOverrides": [
+            "tieMessages"
+        ],
+        "targetType":[
+            "tieMessages"
+        ],
+        "targetSites": [
+            "tieMessages"
+        ],
+        "transferOptionSet": [
+            "tieMessages"
+        ],
+        "briefcaseName": [
+            "tieMessages"
+        ],
+        "partialExport": [
+            "tieMessages"
+        ],
+        "deltaExport": [
+            "tieMessages"
+        ],
+        "forceReExport": [
+            "tieMessages"
+        ],
+        "validate": [
+            "tieMessages"
+        ],
+        "revisionRule": [
+            "tieMessages"
+        ],
+        "variantRule": [
+            "tieMessages"
+        ],
+        "cmdValidateButton": [
+            "tieMessages"
+        ],
+        "cmdExportButton": [
+            "tieMessages"
+        ],
+        "singleSelectionBriefcaseValidateStartedMessage": [
+            "tieMessages"
+        ],
+        "multipleSelectionBriefcaseValidateStartedMessage": [
+            "tieMessages"
+        ],
+        "singleSelectionBriefcaseValidateFailedMessage": [
+            "tieMessages"
+        ],
+        "multipleSelectionBriefcaseValidateFailedMessage": [
+            "tieMessages"
+        ],
+        "singleSelectionBriefcaseExportStartedMessage": [
+            "tieMessages"
+        ],
+        "multipleSelectionBriefcaseExportStartedMessage": [
+            "tieMessages"
+        ],
+        "singleSelectionBriefcaseExportFailedMessage": [
+            "tieMessages"
+        ],
+        "multipleSelectionBriefcaseExportFailedMessage": [
+            "tieMessages"
+        ],
+        "singleSelectionBriefcaseValidateAndExportStartedMessage": [
+            "tieMessages"
+        ],
+        "multipleSelectionBriefcaseValidateAndExportStartedMessage": [
+            "tieMessages"
+        ],
+        "singleSelectionBriefcaseValidateAndExportFailedMessage": [
+            "tieMessages"
+        ],
+        "multipleSelectionBriefcaseValidateAndExportFailedMessage": [
+            "tieMessages"
+        ],
+        "allitemrevisions": [
+            "tieMessages"
+        ],
+        "selectedrevisionsonly": [
+            "tieMessages"
+        ],
+        "latestrevisiononly": [
+            "tieMessages"
+        ],
+        "latestworkingrevisiononly": [
+            "tieMessages"
+        ],
+        "latestworkinganyonly": [
+            "tieMessages"
+        ],
+        "latestreleaserevisiononly": [
+            "tieMessages"
+        ],
+        "Yes":[
+            "tieMessages"
+        ],
+
+        "No":[
+            "tieMessages"
+        ],
+        "Teamcenter":[
+            "tieMessages"
+        ],
+        "BriefcaseBrowser":[
+            "tieMessages"
+        ]
+    }
+}

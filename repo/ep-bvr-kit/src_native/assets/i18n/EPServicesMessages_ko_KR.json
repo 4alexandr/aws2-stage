@@ -1,0 +1,6 @@
+{
+    "objectDoesNotExist": "요청한 개체가 존재하지 않습니다.",
+    "confirmButton": "예, 수정",
+    "cancelButton": "취소",
+    "reviseMessage": "작업을 완료하려면 다음 개체를 수정해야 합니다.\n{0}\n지금 수정하시겠습니까?"
+}

@@ -1,0 +1,229 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":[
+        "js/aw-repeat.directive",
+        "js/aw-popup2.directive",
+        "js/aw-include.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-button.directive",
+        "js/aw-list.directive",
+        "js/aw-type-cell.directive",
+        "js/aw-xrt.directive",
+        "js/aw-form.directive",
+        "js/aw-label.directive",
+        "js/aw-link.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive"
+
+     ],
+     "dataProviders": {
+        "allowedTypesToCreateDataProvider": {
+            "action" :  "getAlowedTypeFromPreferenceValues",
+            "response": "{{data.allowedTypes}}",
+            "totalFound": "{{data.allowedTypes.length}}",
+            "selectionModelMode": "single"
+        }
+    },
+      "data":{
+        "selectedMode" : "loading",
+        "selectTypeLabel" :{
+            "displayName":"{{i18n.selectType}}"
+        },
+        "previousButtonTitle" :{
+            "displayName":"{{i18n.previous}}"
+        },
+
+        "messages": {
+            "creatingObjectMessage": [ {
+                    "text": "{{i18n.creatingObjectMessage}}",
+                    "textParams": [ "{{vmo.props.object_name.dbValues[0]}}" ]
+                }
+            ]
+        }
+    },
+    "conditions": {
+        "showList": {
+            "expression": "data.selectedMode === 'list'"
+        },
+        "showXrt": {
+            "expression": "data.selectedMode === 'xrt'"
+        },
+        "showCreating":{
+            "expression": "data.selectedMode === 'creating'"
+        },
+        "showLoading":{
+            "expression": "data.selectedMode === 'loading'"
+        },
+        "enableNextButton":{
+            "expression": "data.XRTFormsInfo.length>1 && !conditions.isDisplayingLastXRTForm"
+        },
+        "isDisplayingLastXRTForm":{
+            "expression": "data.XRTFormsInfo[data.XRTFormsInfo.length-1].showXrt"
+        }
+    },
+    "actions":{
+        "initListOfAllowedTypesToCreate": {
+            "actionType": "dataProvider",
+            "method": "allowedTypesToCreateDataProvider"
+        },
+        "handleTypeSelection":{
+            "actionType": "JSFunction",
+            "method": "handleTypeSelection",
+            "inputData": {
+                "data": "{{data}}",
+                "selectedObject":"{{data.eventMap['allowedTypesToCreateDataProvider.selectionChangeEvent'].selectedObjects[0]}}"
+            },
+            "deps": "js/services/ngpCreateObjectService"
+        },
+        "closeCreateObjectDialog":{
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+        "showNextXRTForm":{
+            "actionType": "JSFunction",
+            "method": "showNextXRTForm",
+            "inputData": {
+                "viewModelData": "{{data}}"
+            },
+            "deps":  "js/services/ngpCreateObjectService"
+        },
+        "showPreviousForm":{
+            "actionType": "JSFunction",
+            "method": "showPreviousForm",
+            "inputData": {
+                "viewModelData": "{{data}}"
+            },
+            "deps":  "js/services/ngpCreateObjectService"
+        },
+        "getAlowedTypeFromPreferenceValues":
+        {
+            "actionType": "JSFunctionAsync",
+            "method": "getCreatableItemTypes",
+            "inputData":
+            {
+                "name": "{{subPanelContext.preference}}",
+                "objectBaseType":"{{subPanelContext.baseType}}"
+            },
+            "outputData":
+            {
+                "allowedTypes":""
+            },
+             "deps": "js/services/ngpCreateObjectService"
+        },
+        "setShowCreating":{
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "data": "{{data}}",
+                "key":"selectedMode",
+                "mode":"creating"
+            },
+            "deps": "js/mfeViewModelUtils"
+        },
+        "checkIfSingleResultAndSelectionStatus":{
+            "actionType": "JSFunction",
+            "method": "checkIfSingleResultAndSelectionStatus",
+            "inputData": {
+                "viewModelData": "{{data}}"
+            },
+            "deps": "js/services/ngpCreateObjectService"
+        },
+        "updateXrtAfterLoading":{
+            "actionType": "JSFunction",
+            "method": "updateXrtAfterLoading",
+            "inputData": {
+                "viewModelData": "{{data}}"
+            },
+            "deps": "js/services/ngpCreateObjectService"
+        },
+        "creataObjectAndAddMore":{
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "setShowCreating"
+                },
+                {
+                    "action": "callCreateObject"
+                },
+                {
+                    "action": "checkIfSingleResultAndSelectionStatus"
+                }
+            ]
+        },
+        "creataObject":{
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "setShowCreating"
+                },
+                {
+                    "action": "callCreateObject"
+                },
+                {
+                    "action": "closeCreateObjectDialog"
+                }
+            ]
+        },
+        "callCreateObject":{
+            "actionType": "JSFunction",
+            "method": "callCreateObject",
+            "inputData": {
+                "pageSelection": "{{subPanelContext.pageSelection}}",
+                "pageContext":"{{subPanelContext.pageContext}}",
+                "createSibling":"{{subPanelContext.createSibling}}",
+                "viewModelData" : "{{data}}"
+            },
+            "deps": "js/services/ngpCreateObjectService"
+        },
+        "initDataProviderUponEventDataAction": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [{
+                    "name":"initDataProviderUponEventData",
+                    "condition":"!data.eventData"
+                }]
+            }
+        }
+     },
+    "lifecycleHooks": {
+        "onInit":"initDataProviderUponEventDataAction"
+    },
+    "onEvent": [
+        {
+            "eventId":"initDataProviderUponEventData",
+            "action":"initListOfAllowedTypesToCreate",
+            "cacheEventData": true
+        },
+        {
+            "eventId":"allowedTypesToCreateDataProvider.modelObjectsUpdated",
+            "action":"checkIfSingleResultAndSelectionStatus",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "allowedTypesToCreateDataProvider.selectionChangeEvent",
+            "action": "handleTypeSelection",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "awXRT.contentLoaded",
+            "action": "updateXrtAfterLoading"
+        }
+   ],
+     "i18n":{
+         "cancel":["NgpCreateObjectMessages"],
+         "select":["NgpCreateObjectMessages"],
+         "selectType":["NgpCreateObjectMessages"],
+         "creataAndAddMore":["NgpCreateObjectMessages"],
+         "create":["NgpCreateObjectMessages"],
+         "creatingObjectMessage": [ "NgpCreateObjectMessages" ],
+         "next": [ "NgpCreateObjectMessages" ],
+         "previous": [ "NgpCreateObjectMessages" ]
+     }
+
+}

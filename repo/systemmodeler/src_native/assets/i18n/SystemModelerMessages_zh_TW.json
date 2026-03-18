@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "「{0}」和相應的屬性映射將被刪除。",
+    "removeSingleElementConfirmation": "「{0}」將被移除。",
+    "removeMultipleElementsConfirmation": "{0} 個選定物件將被移除。",
+    "removeMeasurableAttributeMessage": "「{0}」將被刪除。",
+    "syncSingleConectionMessage": "正在同步「{0}」並更新互動。動作完成時，您將收到通知。",
+    "syncMultipleConectionsMessage": "正在同步 \"{0}\" 個選定物件並更新互動。動作完成時，您將收到通知。",
+    "exportInterfaceTitle": "匯出介面",
+    "aw_interfaceTableCommandbar": "介面表指令列",
+    "aw_interactionTableCommandbar": "互動表指令列",
+    "aw_attributesTableCommandbar": "屬性工作表指令列",
+    "aw_interfacesViewer": "介面檢視器",
+    "table_cell_commands": "表儲存格指令",
+    "Ase1ExportInterfaceElementDesc": "刪除選定的介面詳細資訊。"
+}

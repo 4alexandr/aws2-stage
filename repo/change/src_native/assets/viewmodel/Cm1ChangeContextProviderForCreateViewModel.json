@@ -1,0 +1,29 @@
+{
+    "schemaVersion" : "1.0.0",   
+    "actions": 
+    {
+        "validateChangeContextData": {
+            "actionType": "JSFunction",
+            "method": "getChangeContextProviderForCreate",
+            "inputData": {                
+                "data": "{{data}}"
+            },
+            "deps": "js/Cm1CreateChangeService"
+        }
+    },       
+    "onEvent": 
+    [
+        {
+           "eventId": "Cm1ChangeContextProviderForCreate.contentLoaded",
+           "action": "validateChangeContextData"
+        }
+    ],
+    "data": 
+    {
+        "revision__fnd0ContextProvider":
+        {
+            "type": "STRING",
+            "dbValue": "{{ctx.selected.props.items_tag.dbValues[0]}}"
+        }
+    }
+}

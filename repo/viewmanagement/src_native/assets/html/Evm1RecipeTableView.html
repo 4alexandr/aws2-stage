@@ -1,0 +1,8 @@
+<aw-panel-section exist-when="data.showTable">
+    <aw-toolbar first-anchor="RecipeTableTreeAnchor" second-anchor="evm1ExportToExcelAnchor" context="data"></aw-toolbar>
+    <aw-include name="Evm1RecipeResultsTable" exist-when="data.currentDisplay === 'tableView'"></aw-include>
+    <aw-include name="Evm1RecipeResultsTree" exist-when="data.currentDisplay === 'treeView'"></aw-include>
+</aw-panel-section>
+<aw-panel-section exist-when="data.totalFound === 0">
+    <aw-i18n>i18n.NoResults</aw-i18n>
+</aw-panel-section>

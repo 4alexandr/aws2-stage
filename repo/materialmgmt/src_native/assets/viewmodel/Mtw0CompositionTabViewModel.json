@@ -1,0 +1,431 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-radiobutton.directive",
+        "js/aw-splm-table.directive",
+        "js/exist-when.directive" 
+    ],
+    "actions":
+    {
+        "dispalyCompositionView":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+                {
+                    "events":
+                    [
+                        {
+                            "name": "compositionTabView.getBOMView",
+                            "condition": "data.compositionViewType.dbValue=== true"
+                        },
+                        {
+                            "name": "compositionTabView.getBOSView", 
+                            "condition": "data.compositionViewType.dbValue=== false"
+                        }
+                    ]
+                }
+        },
+        "loadBOMInfoResults":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "BillOfMaterialColConfig"
+                },
+                "searchInput": {
+                    "searchCriteria":
+                    {
+                        "parentUid": "{{ctx.selected.uid}}",
+                        "viewType": "BillOfMaterial"
+                    },
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Mtw0CompositionProvider",
+                    "startIndex": "{{data.dataProviders.performBOMInfoSearch.startIndex}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{function:prepareMaterialSubstanceList}}",
+                "dataProviders.performBOMInfoSearch.columnConfig": "columnConfig"    
+            },
+
+            "deps": "js/Mtw0CompositionInfoService",
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "Mtw0BillOfMaterialInfo",
+                        "properties":
+                        [
+                            {
+                                "name": "mtw0MaterialMassInGram"
+                            },
+
+                            {
+                                "name": "mtw0Material"
+                            },
+
+                            {
+                                "name": "mtw0SubstanceMassInGram"
+                            },
+
+                            {
+                                "name": "mtw0Substance"
+                            },
+
+                            {
+                                "name": "mtw0MaterialComposition"
+                            },
+
+                            {
+                                "name": "mtw0SubstanceComposition"
+                            },
+
+                            {
+                                "name": "mtw0Parts"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "loadBOSInfoResults":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "BillOfSubstanceColConfig"
+                },
+                "searchInput": {
+                    "searchCriteria":
+                    {
+                        "parentUid": "{{ctx.selected.uid}}",
+                        "viewType": "BillOfSubstance"
+                    },
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Mtw0CompositionProvider",
+                    "columnFilters": "{{data.columnProviders.BOSColumnProvider.columnFilters}}",
+                    "searchFilterFieldSortType": "{{ctx.search.sortType}}",
+                    "searchFilterMap6": "{{ctx.search.activeFilterMap}}",
+                    "searchSortCriteria": "{{data.columnProviders.BOSColumnProvider.sortCriteria}}",
+                    "startIndex": "{{data.dataProviders.performBOSInfoSearch.startIndex}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.performBOSInfoSearch.columnConfig": "columnConfig"            
+            },
+            "deps": "js/Mtw0CompositionInfoService",
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "Mtw0BillOfSubstanceInfo",
+                        "properties":
+                        [
+                            {
+                                "name": "mtw0Substance"
+                            },
+
+                            {
+                                "name": "mtw0Materials"
+                            },
+
+                            {
+                                "name": "mtw0SubstanceMassInGram"
+                            },
+
+                            {
+                                "name": "mtw0SubstanceComposition"
+                            },
+                            {
+                                "name": "mtw0Parts"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "resetBOMColumnConfig": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "inputData": {
+                "getOrResetUiConfigsIn": [ {
+                    "scope": "LoginUser",
+                    "scopeName": "",
+                    "clientName": "AWClient",
+                    "resetColumnConfig": true,
+                    "columnConfigQueryInfos": [ {
+                        "clientScopeURI": "BillOfMaterialColConfig",
+                        "operationType": "configured",
+                        "typeNames": [ "WorkspaceObject" ],
+                        "columnsToExclude": []
+                    } ],
+                    "businessObjects": [ {} ]
+                } ]
+            },
+            "outputData": {
+                "dataProviders.performBOMInfoSearch.resetColumnConfigs": "columnConfigurations"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "billOFMaterialTableView.plTable.reload"                      
+                    }
+                ]
+            }
+        },
+        "resetBOSColumnConfig": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "inputData": {
+                "getOrResetUiConfigsIn": [ {
+                    "scope": "LoginUser",
+                    "scopeName": "",
+                    "clientName": "AWClient",
+                    "resetColumnConfig": true,
+                    "columnConfigQueryInfos": [ {
+                        "clientScopeURI": "BillOfSubstanceColConfig",
+                        "operationType": "configured",
+                        "typeNames": [ "WorkspaceObject" ],
+                        "columnsToExclude": []
+                    } ],
+                    "businessObjects": [ {} ]
+                } ]
+            },
+            "outputData": {
+                "dataProviders.performBOSInfoSearch.resetColumnConfigs": "columnConfigurations"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "billOFSubstanceTableView.plTable.reload"                      
+                    }
+                ]
+            }
+        },
+        "saveBOSColumnConfigLoadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "operationType": "as_arranged",
+                    "clientScopeURI": "BillOfSubstanceColConfig"
+                },
+                "saveColumnConfigData": {
+                    "clientScopeURI": "BillOfSubstanceColConfig",
+                    "columnConfigId": "{{data.dataProviders.performBOSInfoSearch.columnConfig.columnConfigId}}",
+                    "columns": "{{data.dataProviders.performBOSInfoSearch.newColumns}}",
+                    "scope": "LoginUser",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "columnFilters": "{{data.columnProviders.BOSColumnProvider.columnFilters}}",
+                    "providerName": "Mtw0CompositionProvider",
+                    "searchCriteria":
+                    {
+                        "parentUid": "{{ctx.selected.uid}}",
+                        "viewType": "BillOfSubstance"
+                    },
+                    "searchFilterFieldSortType": "{{ctx.search.sortType}}",
+                    "searchSortCriteria": "{{data.columnProviders.BOSColumnProvider.sortCriteria}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.performBOSInfoSearch.columnConfig": "columnConfig"
+            }
+        },
+        "saveColumnConfigLoadDataForBOM": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "operationType": "as_arranged",
+                    "clientScopeURI": "BillOfMaterialColConfig"
+                },
+                "saveColumnConfigData": {
+                    "clientScopeURI": "BillOfMaterialColConfig",
+                    "columnConfigId": "{{data.dataProviders.performBOMInfoSearch.columnConfig.columnConfigId}}",
+                    "columns": "{{data.dataProviders.performBOMInfoSearch.newColumns}}",
+                    "scope": "LoginUser",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "columnFilters": "{{data.columnProviders.clientScopeUI.columnFilters}}",
+                    "providerName": "Mtw0CompositionProvider",
+                    "searchCriteria":
+                    {
+                        "parentUid": "{{ctx.selected.uid}}",
+                        "viewType": "BillOfMaterial"
+                    }                 
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{function:prepareMaterialSubstanceList}}",
+                "dataProviders.performBOMInfoSearch.columnConfig": "columnConfig"
+            }
+        },
+       "getFilterFacets": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-12-Finder",
+            "method": "getFilterValues",
+            "inputData": {
+                "filterFacetInput": {
+                    "columnFilters": "{{filterFacetInput.columnFilters}}",
+                    "columnName": "{{filterFacetInput.column.field}}",
+                    "maxToReturn": "{{filterFacetInput.maxToReturn}}",
+                    "providerName": "Mtw0CompositionProvider",
+                    "searchCriteria":
+                    {
+                        "parentUid": "{{ctx.selected.uid}}",
+                        "viewType": "BillOfSubstance"
+                    },
+                    "searchFilterMap":  "{{ctx.search.activeFilterMap}}",
+                    "startIndex": "{{filterFacetInput.startIndex}}"
+                }
+            },
+            "outputData": {
+                "filterFacetResults": "{{json:facetValues}}"
+            }
+        },
+        "doArrangeEvent": {
+            "actionType": "JSFunctionAsync",
+            "method": "arrangeColumns",
+            "inputData": {
+                "declViewModel": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/columnArrangeService"
+        }
+    },
+    "onEvent":
+    [
+        {
+             "eventId":"compositionTabView.getBOMView",
+             "action":"billOFMaterialTableView"
+        },
+        {
+             "eventId": "compositionTabView.getBOSView",
+             "action": "billOFSubstanceTableView"
+        },
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "doArrangeEvent"
+         }
+    ],
+    "data": {
+        "compositionViewType": {
+            "displayName": "{{i18n.view}}",
+            "type": "BOOLEAN",
+            "dbValue": true,
+            "labelPosition": "PROPERTY_LABEL_AT_TOP",
+            "propertyRadioTrueText": "{{i18n.billOfMaterials}}",
+            "propertyRadioFalseText": "{{i18n.billOfSubstances}}"
+        }
+    },
+    "grids":
+    {
+        "billOFMaterialTableView":
+        {
+            "dataProvider": "performBOMInfoSearch",
+            "columnProvider": "BOMColumnProvider",
+            "addIconColumn": false,
+            "enableArrangeMenu": true,
+            "gridOptions":
+            {
+                "enablePinning": true,
+                "enableSorting": false
+            }
+        },
+        "billOFSubstanceTableView":
+        {
+            "dataProvider": "performBOSInfoSearch",
+            "columnProvider": "BOSColumnProvider",
+            "addIconColumn": false,
+            "enableArrangeMenu": true,
+            "gridOptions": {
+                "enableSorting": true,
+                "enablePinning": true,
+                "isFilteringEnabled": true
+            }
+        }
+    },
+    "columnProviders": {
+        "BOMColumnProvider": {
+            "saveColumnAndLoadAction": "saveColumnConfigLoadDataForBOM",
+            "resetColumnAction": "resetColumnConfig",
+            "columns":[]
+        },
+        "BOSColumnProvider": {
+            "saveColumnAndLoadAction": "saveBOSColumnConfigLoadData",
+            "resetColumnAction": "resetBOSColumnConfig",
+            "columns":[]
+        }
+    },
+    "dataProviders":
+    {
+        "performBOMInfoSearch":
+        {
+            "action": "loadBOMInfoResults", 
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single"
+        },
+        "performBOSInfoSearch":
+        {
+            "action": "loadBOSInfoResults",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single",
+            "filterFacetAction": "getFilterFacets",
+            "filterFacetResults": "{{data.filterFacetResults}}"
+        }       
+    },
+
+    "i18n": 
+    {
+        "view": 
+        [
+            "MaterialMgmtMessages"
+        ],
+        "billOfMaterials":
+        [
+            "MaterialMgmtMessages"
+        ],  
+        "billOfSubstances":    
+        [
+            "MaterialMgmtMessages"
+        ]  
+    }
+}

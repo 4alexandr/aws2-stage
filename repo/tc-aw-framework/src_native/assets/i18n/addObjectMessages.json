@@ -1,0 +1,4 @@
+{
+    "invalidObjectWarning": "\"{0}\" is not a valid file for object set \"{1}\". Newly created object will not appear in object set.",
+    "addedObjectIsNotUnique": "The object \"{1}-{0}\" is not saved because \"ID = {1}\" is not unique."
+}

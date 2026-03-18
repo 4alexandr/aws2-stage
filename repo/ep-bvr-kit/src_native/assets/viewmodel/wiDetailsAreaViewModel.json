@@ -1,0 +1,163 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+
+    "ports": {
+        "wiDetailsArea_inputObjects": {
+            "onChangeAction": "handleInputToWiDetailsArea",
+            "syncObject": {}
+        }
+    },
+
+    "data": {
+        "contentPanelData": {
+            "tabs": [ {
+                    "name": "{{i18n.partTitle}}",
+                    "namePrefix": "{{i18n.partTitle}}",
+                    "tabKey": "wiPartsTable",
+                    "loadInputObject":{
+                        "propertiesToLoad": [ "Mfg0consumed_material" ]
+                    }
+                },
+                {
+                    "name": "{{i18n.resourcesTitle}}",
+                    "namePrefix": "{{i18n.resourcesTitle}}",
+                    "tabKey": "wiResourcesTable",
+                    "loadInputObject":{
+                        "propertiesToLoad": [ "Mfg0used_equipment" ]
+                    }
+                },
+                {
+                    "name": "{{i18n.workareaTitle}}",
+                    "namePrefix": "{{i18n.workareaTitle}}",
+                    "tabKey": "epWorkareaTable",
+                    "loadInputObject":{
+                        "propertiesToLoad": [ "Mfg0assigned_workarea" ]
+                    }
+                },
+                {
+                    "name": "{{i18n.summaryTitle}}",
+                    "tabKey": "epInformation",
+                    "xrtType": "SUMMARY",
+                    "noElementSelectedMessageForXRT": {
+                        "text": "{{i18n.epInformationNoSelectionMessage}}"
+                    }
+                },
+                {
+                    "name": "{{i18n.filesTitle}}",
+                    "namePrefix": "{{i18n.filesTitle}}",
+                    "tabKey": "epFiles",
+                    "xrtType": "SUMMARY",
+                    "loadInputObject":{
+                        "propertiesToLoad": [ "mbc0AttachedFiles" ]
+                    }
+                },
+                {
+                    "name": "{{i18n.documentsTitle}}",
+                    "namePrefix": "{{i18n.documentsTitle}}",
+                    "tabKey": "epDocuments",
+                    "xrtType":"SUMMARY",
+                    "loadInputObject":{
+                        "propertiesToLoad": [ "mbc0AssignedDocuments" ]
+                    }
+                },
+                {
+                    "name": "{{i18n.assignedPmiTitle}}",
+                    "tabKey": "wiAssignedPmiTable"
+                }
+            ],
+            "removeHiddenTabs": true
+        }
+    },
+
+    "actions": {
+        "initDisplayNameWithQuantityData": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "getListOfTabsToDisplayNameWithQuantity"
+                },
+                {
+                    "action": "getAllPropertiesToLoad"
+                }
+            ]
+        },
+
+        "getListOfTabsToDisplayNameWithQuantity": {
+            "actionType": "JSFunction",
+            "method": "getListOfTabsToDisplayNameWithQuantity",
+            "inputData": {
+                "tabsData": "{{data.contentPanelData}}"
+            },
+            "deps": "js/epTabsService"
+        },
+
+        "getAllPropertiesToLoad": {
+            "actionType": "JSFunction",
+            "method": "getAllPropertiesToLoad",
+            "inputData": {
+                "tabsData": "{{data.contentPanelData}}"
+            },
+            "deps": "js/epTabsService"
+        },
+
+        "handleInputToWiDetailsArea": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "getSingleInputObj"
+                },
+                {
+                    "action": "calculateContentCountForEachTab",
+                    "condition": "conditions.isInputObjectUpdated"
+                }
+            ]
+        },
+
+        "getSingleInputObj": {
+            "actionType": "JSFunction",
+            "method": "handleNewInputForSingleObject",
+            "inputData": {
+                "data": "{{data}}",
+                "input": "{{ports.wiDetailsArea_inputObjects.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+
+        "calculateContentCountForEachTab": {
+            "actionType": "JSFunction",
+            "method": "calculateContentCountForEachTab",
+            "inputData": {
+                "objUid": "{{data.inputObject.uid}}",
+                "tabsData": "{{data.contentPanelData}}"
+            },
+            "deps": "js/epTabsService"
+        }
+    },
+    "conditions": {
+        "isInputObjectUpdated": {
+            "expression": {
+                "$source": "data.isInputObjectUpdated",
+                "$query": {
+                    "$eq": true
+                }
+            }
+        }
+    },
+    "i18n": {
+        "partTitle": [ "DetailsMessages" ],
+        "resourcesTitle": [ "DetailsMessages" ],
+        "workareaTitle": [ "DetailsMessages" ],
+        "summaryTitle": [ "DetailsMessages" ],
+        "filesTitle": [ "DetailsMessages" ],
+        "documentsTitle": [ "DetailsMessages" ],
+        "assignedPmiTitle": [ "wiPmiMessages" ],
+        "epInformationNoSelectionMessage": [ "DetailsMessages" ]
+    },
+
+    "lifecycleHooks": {
+        "onMount": "initDisplayNameWithQuantityData"
+    }
+}

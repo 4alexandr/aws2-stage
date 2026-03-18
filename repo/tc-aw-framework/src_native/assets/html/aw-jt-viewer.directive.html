@@ -1,0 +1,8 @@
+<div id="aw-jt-viewer">
+    <div ng-if="viewerHeaderProperties && enableHeader !== 'false'" class="aw-viewerjs-header">
+        <aw-viewer-header data="viewerHeaderProperties"></aw-viewer-header>
+    </div>
+    <div ng-if="loading"  class="aw-jswidgets-text">{{$parent.loadingMsg}}</div>
+    <div ng-if="!loading">
+    </div>
+</div>

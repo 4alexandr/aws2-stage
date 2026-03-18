@@ -1,0 +1,9 @@
+{
+  "name": "2d-viewer",
+  "description": "",
+  "modules": [
+    "2d-viewer"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

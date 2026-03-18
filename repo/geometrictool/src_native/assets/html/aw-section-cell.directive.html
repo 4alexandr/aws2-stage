@@ -1,0 +1,40 @@
+<div class="aw-geometrictool-sectionCellContent">
+    <div class="aw-geometrictool-sectionCellItem" ng-show="vmo.selected">
+        <div class="aw-geometrictool-toggleButtonDiv">
+            <div class="aw-geometrictool-toggleButton aw-geometrictool-toggleButtonIe">
+                <aw-togglebutton prop="sectionToggle"></aw-togglebutton>
+            </div>
+            <div class="aw-geometrictool-toggleButtonLabels">
+                <label>{{offToggleButtonLabel}}</label>
+                <label class="aw-geometrictool-on-button-label">{{onToggleButtonLabel}}</label>
+            </div>
+        </div>
+        <div class="aw-geometrictool-offset">
+            <aw-listbox prop="sectionPanelData" list="sectionPlanes.dbValue" title="{{sectionPlaneTooltip}}" action="viewerSectionPlaneChanged" is-select-only="true"></aw-listbox>
+        </div>
+        <div class="aw-geometrictool-offset">
+            <aw-listbox prop="clipStateData" list="clipStateProps.dbValue" title="{{clipStateTooltip}}" action="sectionClipStateChanged" is-select-only="true"></aw-listbox>
+        </div>
+    </div>
+    <div class="aw-geometrictool-sectionCellItem aw-geometrictool-cutLineDiv" ng-show="vmo.selected">
+        <div class="aw-geometrictool-cutlines">
+            <aw-checkbox prop="cutLineLabel" action="showCutLinesPerSection"></aw-checkbox>
+        </div>
+        <div class="aw-geometrictool-editableOffset">
+            <aw-numeric ng-show="vmo.selected" aw-enter="offsetWidgetBlured();" ng-click="offsetWidgetClicked($event);" prop="sectionPanelOffsetProp"></aw-numeric>
+        </div>
+    </div>
+    <div class="aw-geometrictool-sectionCellItem aw-geometrictool-sliderDiv">
+        <div class="aw-geometrictool-sectionCellSliderItem" ng-show="vmo.selected">
+            <aw-slider class="aw-geometrictool-slider" ng-show="vmo.selected" ng-click="offsetSliderClicked($event);" prop="sectionPanelOffsetSliderProp"></aw-slider>
+        </div>
+        <div class="aw-geometrictool-sectionCellSliderItem" ng-hide="vmo.selected">
+            <div class="aw-geometrictool-state">
+                <aw-icon icon-id="{{sectionCellThumbnail}}"></aw-icon>
+            </div>
+            <div title="{{currentSelectionDisplayName}}" class="aw-widgets-textStyle aw-geometrictool-planeDropDown aw-geometrictool-label" >{{currentSelectionDisplayName}}</div>
+            <div class="aw-geometrictool-sliderValue">{{sectionPanelOffsetTextProp}}</div>
+        </div>
+
+    </div>
+</div>

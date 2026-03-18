@@ -1,0 +1,17 @@
+<aw-command-panel caption="i18n.replaceRevisionTitle">
+    <aw-panel-body>
+        <aw-panel-section caption="{{ctx.selected.props.object_string.dbValues[0]}}">
+            <aw-list dataprovider="data.dataProviders.paramRevisionListProvider">
+                <aw-parameter-cell vmo="item"></aw-parameter-cell>
+            </aw-list>
+            <div exist-when="data.totalFound === 0">
+                <aw-i18n>i18n.noParameterRevisionFound</aw-i18n>
+            </div>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="ReplaceParameterSOA" visible-when="conditions.isReplaceButtonVisible">
+            <aw-i18n>i18n.replaceRevisionTitle</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

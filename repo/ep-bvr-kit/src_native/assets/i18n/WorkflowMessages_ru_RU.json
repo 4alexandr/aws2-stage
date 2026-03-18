@@ -1,0 +1,15 @@
+{
+    "submitToWorkflowTitle": "Передать в рабочий процесс",
+    "submitToWorkflowDescription": "Отправьте выбранное в рабочий процесс.",
+    "submit": "Передать",
+    "workflowName": "Имя рабочего процесса",
+    "workflowDescription": "Описание",  
+    "cancel": "Отмена",
+    "InWorkflowTooltip" : "Шаблон рабочего процесса:",
+    "inWorkflowPropertyTitle" : "В рабочем наборе",
+    "ReleasedStatusTooltip" : "Статус выпуска:",
+    "ReleasedStatusTitle": "Утверждено",
+    "submittedToWorkflowInfo": "\"{0}\" передано в рабочий процесс.",
+    "all": "Все",
+    "assigned": "Назначенные"  
+}

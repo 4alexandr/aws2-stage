@@ -1,0 +1,9 @@
+{
+    "noVisuals": "이 요소 아래에는 시각적 개체가 없습니다.",
+    "selectElement": "요소를 선택하여 해당 비주얼 보기.",
+    "capture2DImage": "2D 이미지 캡처",
+    "capture2DImagesSuccess": "2D 이미지가 캡처되어 \"{0}\"에 첨부되었습니다.",
+    "epManageProductViewsCommandTitle":"Teamcenter Visualization에서 제품 뷰 관리",
+    "3DView": "3D 뷰",
+    "openInTeamcenterVis":"Teamcenter Visualization에서 열기"
+}

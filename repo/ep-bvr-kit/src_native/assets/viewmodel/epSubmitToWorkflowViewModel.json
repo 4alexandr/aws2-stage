@@ -1,0 +1,138 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/aw-textbox.directive",
+        "js/aw-textarea.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/enable-when.directive",
+        "js/aw-listbox.directive",
+        "js/aw-radiobutton.directive"
+    ],
+    "actions": {
+        "submitToWorkflowAndClosePopup": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "submitToWorkflow"
+                },
+                {
+                    "action": "closePopup"
+                }
+            ]
+        },
+        "submitToWorkflow": {
+            "actionType": "JSFunction",
+            "method": "submitToWorkflow",
+            "inputData": {
+                "selectedObjects": "{{subPanelContext.selection}}",
+                "workflowTemplate": "{{data.workflowsListBox.dbValue}}",
+                "workflowName": "{{data.workflowName.dbValue}}",
+                "workflowDescription": "{{data.workflowDescription.dbValue}}"
+            },
+            "deps": "js/epSubmitToWorkflowService"
+        },
+        "closePopup": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "submitToWorkflow"
+            },
+            "deps": "js/popupService"
+        },
+        "getValidTemplates": {
+            "actionType": "JSFunction",
+            "method": "getValidTemplates",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/epSubmitToWorkflowService"
+        },
+        "initWorkflowData": {
+            "actionType": "JSFunction",
+            "method": "getWorkflowTemplatesList",
+            "inputData": {
+                "selection": "{{subPanelContext.selection}}",
+                "data": "{{data}}"
+            },
+            "deps": "js/epSubmitToWorkflowService"
+        }
+    },
+    "data": {
+        "workflowName": {
+            "displayName": "{{i18n.workflowName}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "{{subPanelContext.selection[0].props.bl_rev_object_name.dbValues[0]}}",
+            "dispValue": "{{subPanelContext.selection[0].props.bl_rev_object_name.dbValues[0]}}"
+        },
+        "workflowsListBox": {
+            "displayName": "Workflow Template",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "workflowDescription": {
+            "displayName": "{{i18n.workflowDescription}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": "",
+            "numberOfLines": 6
+        },
+        "allowAlternateProcedures":
+        {
+            "displayName": "",
+            "type": "BOOLEAN",
+            "propertyRadioTrueText": "{{i18n.all}}",
+            "propertyRadioFalseText": "{{i18n.assigned}}",
+            "dbValue": true,
+            "labelPosition": "PROPERTY_LABEL_AT_RIGHT"
+        },
+        "isAllowAlternateProcedures": {
+            "displayName": "",
+            "type": "BOOLEAN",
+            "dbValue": false
+        }
+    },
+    "conditions":
+    {
+        "isAllowAlternateProcedures":
+        {
+            "expression": "data.isAllowAlternateProcedures.dbValue"
+        }
+    },
+    "i18n": {
+        "workflowDescription": [
+            "WorkflowMessages"
+        ],
+        "submit": [
+            "WorkflowMessages"
+        ],
+        "submitToWorkflowTitle": [
+            "WorkflowMessages"
+        ],
+        "workflowName": [
+            "WorkflowMessages"
+        ],
+        "cancel": [
+            "WorkflowMessages"
+        ],
+        "all": [
+            "WorkflowMessages"
+        ],
+        "assigned": [
+            "WorkflowMessages"
+        ]
+    },
+    "lifecycleHooks": {
+        "onInit": "initWorkflowData"
+    }
+}

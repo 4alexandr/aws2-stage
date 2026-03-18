@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"삭제",
+    "pertDeleteDesc": "선택된 노드 삭제",
+    "deleteConfirmationMessage": "선택한 Pert 노드를 영구적으로 삭제하시겠습니까?",
+    "missingProcessElements": "프로세스를 생성합니다.",
+    "openPertNodeTitle": "열기",
+    "resetLayoutTitle": "레이아웃 재설정",
+    "resetLayoutDescription": "PERT 노드를 기본 레이아웃으로 재설정합니다."
+}

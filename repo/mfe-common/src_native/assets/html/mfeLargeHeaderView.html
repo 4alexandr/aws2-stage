@@ -1,0 +1,15 @@
+<aw-flex-row height="6f" justify="space-between" align-content="start" offset-bottom="1f">
+    <aw-flex-column width="6f" height="fill" offset-right="1f">
+        <aw-icon icon-id="{{subPanelContext.iconName}}"></aw-icon>
+    </aw-flex-column>
+    <aw-flex-column height="fill" width="fill" class="aw-mfe-largeHeader">
+        <aw-flex-row class="aw-mfe-largeHeaderTitle" align-content="center">
+            <span>{{subPanelContext.title}}</span>
+            <span exist-when="subPanelContext.scopeName" class="aw-mfe-largeHeaderSeparator">|</span>
+            <span exist-when="subPanelContext.scopeName">{{subPanelContext.scopeName}}</span>
+        </aw-flex-row>
+        <aw-flex-row exist-when="subPanelContext.subtitle" class="aw-mfe-largeHeaderSubtitle">
+            <span>{{subPanelContext.subtitle}}</span>
+        </aw-flex-row>
+    </aw-flex-column>
+</aw-flex-row>

@@ -1,0 +1,47 @@
+<div class="aw-cls-fullViewVerticalFlexBox"  ng-if="!(ctx.pasteInProgress || ctx.pasteIsClicked)">
+    <div class="aw-cls-fullViewColumnFlexContainer" exist-when="data.panelMode!== -1 && !data.editPropInProgress && data.suggestedClasses && data.suggestedClasses.length >= 1" visible-when="conditions.createMode || conditions.editMode">
+        <div class="aw-cls-suggestedCommandPanel">
+            <aw-command-sub-panel panel-id="Awp0SuggestedClassificationVNCs" class="aw-cls-suggestion"></aw-command-sub-panel>
+        </div>
+    </div>
+    <div class="aw-cls-fullViewFlexContainer aw-cls-fullViewColumnFlexContainer"
+        ng-class="{'aw-cls-locationTab': ctx.clsLocation}">
+        <aw-column ng-if="data && ((ctx.clsTab.classifyImageMaximize === true || ctx.clsTabGlobal.classifyShowImages==true && data.clsImgAvailable==true) || (ctx.clsTabGlobal.classifyShowPropGroups ==true && data.hasBlocks === true))"
+            class="aw-cls-fullViewImage" ng-style="{'height': getClsImgContainerHeight()}">
+            <div ng-class="{'aw-cls-fullViewFlexBox aw-cls-fullViewImageSection': data.attr_anno && data.imageURLs.length>= 1, 'hidden': data.attr_anno == null && data.imageURLs == null}"
+                    ng-if="ctx.clsTab.classifyImageMaximize===true || (ctx.clsTabGlobal.classifyShowImages==true && data.clsImgAvailable==true)">
+                <aw-command-sub-panel class="aw-cls-images" panel-id="Awp0ClassificationImagesFull" ></aw-command-sub-panel>
+            </div>
+            <div class="aw-cls-fullViewFlexBox aw-cls-fullViewPropGrpSection" ng-if="data && (ctx.clsTabGlobal.classifyShowPropGroups === true && data.hasBlocks === true) && (!ctx.clsTab.classifyImageMaximize || ctx.clsTab.classifyImageMaximize === false)">
+                <aw-command-sub-panel class="aw-cls-fullview-container-propertyGroups" panel-id="Awp0ClassificationPropertyGroupTreeFull" ></aw-command-sub-panel>
+            </div>
+        </aw-column>
+        <aw-column class="aw-cls-fullViewPropSection" ng-style="{'height': getClsPropContainerHeight()}"
+            ng-if="(data.attr_anno === null && ctx.clsTab.classifyImageMaximize === true) || !ctx.clsTab.classifyImageMaximize || ctx.clsTab.classifyImageMaximize === false">
+            <aw-panel-body>
+                <div class="aw-xrt-columnContentPanel" width="fill"
+                        ng-if="(data.editClass || (data.editClassInProgress && data.attr_anno === null) ||
+                               (data.attr_anno && (!data.editClass || data.isPanel)) || (data.panelMode !== -1 && data.attr_anno === null))">
+                    <div class="aw-cls-fullViewFlexBox aw-cls-fullViewPropertySection" exist-when="data.attr_anno || data.isPanel">
+                        <aw-command-sub-panel class="aw-cls-fullview-container-propertiesFullPanel" panel-id="Awp0ClassificationPropertiesFull"></aw-command-sub-panel>
+                    </div>
+                    <div class="aw-cls-fullViewVncFlexBox" ng-if="data.panelMode !== -1 && data.attr_anno === null">
+                        <aw-command-sub-panel panel-id="Awp0ClassificationVncsFull" visible-when="conditions.createMode || conditions.editMode"></aw-command-sub-panel>
+                    </div>
+                </div>
+            </aw-panel-body>
+            <div class="aw-cls-classifyCreateFooter" ng-if="data.panelMode===0 || data.editClassInProgress===true">
+                <aw-panel-footer visible-when="conditions.createMode || conditions.editMode && ctx.classifyEdit.vmo">
+                    <aw-button class="aw-cls-classifyButton" button-type="negative" action="cancelEditOperation" default="false"
+                        ng-if="data.panelMode !== -1">
+                        <aw-i18n>i18n.cancel</aw-i18n>
+                    </aw-button>
+                    <aw-button class="aw-cls-classifyButton aw-cls-classifyButtonLast" action="saveExit"
+                        ng-if="conditions.showClassifyButtonCreate || conditions.showClassifyButtonEdit">
+                        <aw-i18n>i18n.Classify</aw-i18n>
+                    </aw-button>
+                </aw-panel-footer>
+            </div>
+        </aw-column>
+    </div>
+</div>

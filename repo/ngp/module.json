@@ -1,0 +1,3428 @@
+{
+  "name": "ngp",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "aliasRegistry": {
+    "typeActivity48": [
+      "Mpr0Activity"
+    ],
+    "typeBuildElement48": [
+      "Mpr0BuildElement"
+    ],
+    "typeMEOperationRevision48": [
+      "Mpr0BaseOperation"
+    ],
+    "typeMEProcessRevision48": [
+      "Mpr0ProcessElementBase"
+    ],
+    "typeManufacturingElement48": [
+      "Mpr0ManufacturingElement"
+    ]
+  },
+  "commandsViewModel": {
+    "commandHandlers": {
+      "openNGPObjectOneStepCmdHandler": {
+        "id": "Awp0ShowObject",
+        "action": "openSelectedObjectInNGP",
+        "activeWhen": {
+          "condition": "conditions.applicableToOpenSelectedInNGP"
+        },
+        "visibleWhen": {
+          "condition": "conditions.applicableToOpenSelectedInNGP"
+        }
+      },
+      "openNGPObjectInNewTabCmdHandler": {
+        "id": "Awp0OpenInNewTab",
+        "action": "openSelectedObjectInNGPInNewTab",
+        "activeWhen": {
+          "condition": "conditions.applicableToOpenSelectedInNGP"
+        },
+        "visibleWhen": {
+          "condition": "conditions.applicableToOpenSelectedInNGP"
+        }
+      },
+      "openNGPObjectInNewWindowCmdHandler": {
+        "id": "Awp0OpenInNewWindow",
+        "action": "openSelectedObjectInNGPInNewWindow",
+        "activeWhen": {
+          "condition": "conditions.applicableToOpenSelectedInNGP"
+        },
+        "visibleWhen": {
+          "condition": "conditions.applicableToOpenSelectedInNGP"
+        }
+      },
+      "openNGPObjectCellCmdHandler": {
+        "id": "Awp0ShowObjectCell",
+        "action": "openNGPObjectCell",
+        "activeWhen": {
+          "condition": "conditions.ngpOpenObjectCellCmdVisible"
+        },
+        "visibleWhen": {
+          "condition": "conditions.ngpOpenObjectCellCmdVisible"
+        }
+      },
+      "openNGPObjectCellForObjectNavigationCmdHandler": {
+        "id": "Awp0ShowObjectCellForObjectNavigation",
+        "action": "openNGPObjectCell",
+        "activeWhen": {
+          "condition": "conditions.ngpOpenObjectCellForObjectNavigationCmdVisible"
+        },
+        "visibleWhen": {
+          "condition": "conditions.ngpOpenObjectCellForObjectNavigationCmdVisible"
+        }
+      },
+      "openNGPObjectCellFromNGPCmdHandler": {
+        "id": "Awp0ShowObjectCell",
+        "action": "openNGPObjectCellInNgpPage",
+        "activeWhen": {
+          "condition": "conditions.ngpOpenObjectCellFromNGPCmdVisible"
+        },
+        "visibleWhen": {
+          "condition": "conditions.ngpOpenObjectCellFromNGPCmdVisible"
+        }
+      },
+      "ngpObjectCellNavigationCommandHandler": {
+        "id": "Awp0ShowObjectCell",
+        "action": "openXrtNGPObjectInNGPAction",
+        "activeWhen": {
+          "condition": "conditions.ngpObjectCellNavigationActionVisibleCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.ngpObjectCellNavigationActionVisibleCondition"
+        }
+      },
+      "ngpAwp0PinObjectToHomeCmdHandler": {
+        "id": "Awp0PinObject",
+        "action": "ngpAwp0PinObjectToHome",
+        "activeWhen": {
+          "condition": "conditions.canPinNgpObjectToHome"
+        },
+        "visibleWhen": {
+          "condition": "conditions.canPinNgpObjectToHome"
+        }
+      },
+      "ngpAwp0UnpinObjectToHomeCmdHandler": {
+        "id": "Awp0UnPinObject",
+        "action": "ngpAwp0UnPinObjectFromHome",
+        "activeWhen": {
+          "condition": "conditions.canUnpinNgpObjectFromHome"
+        },
+        "visibleWhen": {
+          "condition": "conditions.canUnpinNgpObjectFromHome"
+        }
+      },
+      "ngpAddToFavoritesCmdHandler": {
+        "id": "ngpAddToFavorites",
+        "action": "addNgpObjectToFavorites",
+        "activeWhen": {
+          "condition": "conditions.isNgpObjectNotInFavorites"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isNgpObjectNotInFavorites"
+        }
+      },
+      "ngpRemoveFromFavoritesCmdHandler": {
+        "id": "ngpRemoveFromFavorites",
+        "action": "removeNgpObjectFromFavorites",
+        "activeWhen": {
+          "condition": "conditions.isNgpObjectInFavorites"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isNgpObjectInFavorites"
+        }
+      },
+      "ngpPinToHomeCmdHandler": {
+        "id": "ngpPinToHome",
+        "action": "pinNgpObjectToHome",
+        "activeWhen": {
+          "condition": "conditions.isNgpObjectNotPinnedToHome"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isNgpObjectNotPinnedToHome"
+        }
+      },
+      "ngpUnpinFromHomeCmdHandler": {
+        "id": "ngpUnpinFromHome",
+        "action": "unpinNgpObjectFromHome",
+        "activeWhen": {
+          "condition": "conditions.isNgpObjectPinnedToHome"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isNgpObjectPinnedToHome"
+        }
+      },
+      "ngpReleasedIndicationCmdHandler": {
+        "id": "ngpReleasedIndication",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isNgpObjectReleased"
+        },
+        "enableWhen": false
+      },
+      "ngpMoreActionsCmdHandler": {
+        "id": "ngpMoreActions",
+        "visibleWhen": true,
+        "activeWhen": true
+      },
+      "ngpCheckOutCmdHandler": {
+        "id": "ngpCheckOut",
+        "action": "checkOutNgpObject",
+        "visibleWhen": {
+          "condition": "conditions.canCheckOut"
+        },
+        "activeWhen": {
+          "condition": "conditions.canCheckOut"
+        }
+      },
+      "ngpCheckInCmdHandler": {
+        "id": "ngpCheckIn",
+        "action": "checkInNgpObject",
+        "visibleWhen": {
+          "condition": "conditions.canCheckIn"
+        },
+        "activeWhen": {
+          "condition": "conditions.canCheckIn"
+        }
+      },
+      "ngpSetMoveCandidateCmdHandler": {
+        "id": "ngpSetMoveCandidates",
+        "action": "setMoveCandidates",
+        "visibleWhen": {
+          "condition": "conditions.canSetAsMoveCandidates"
+        },
+        "activeWhen": true
+      },
+      "ngpMoveCandidatesCmdHandler": {
+        "id": "ngpMoveCandidates",
+        "action": "moveCandidates",
+        "visibleWhen": {
+          "condition": "conditions.canMoveCandidatesHere"
+        },
+        "activeWhen": true
+      },
+      "ngpDeleteSelectedInBuildStrategyCmdHandler": {
+        "id": "ngpDeleteSelectedObjects",
+        "action": "deleteSelectedObjectsAction",
+        "visibleWhen": {
+          "condition": "conditions.canDeleteSelectedObjectsInBuildStrategy"
+        },
+        "activeWhen": true
+      },
+      "ngpSubmitSelectedInBuildStrategyCmdHandler": {
+        "id": "ngpDisplaySubmitSelectedToWorkflowDialog",
+        "action": "onSubmitToWorkflowClick",
+        "visibleWhen": {
+          "condition": "conditions.canSubmitSelectedInBuildStrategyToWorkflow"
+        },
+        "activeWhen": true
+      },
+      "ngpSetSelectedAsCloneCandidateInBuildStrategyCmdHandler": {
+        "id": "ngpSetSelectedAsCloneCandidateInBuildStrategy",
+        "action": "setCloneCandidates",
+        "visibleWhen": {
+          "condition": "conditions.cloneGroupCmdVisibilityCondition"
+        },
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.canBeCandidateForClone"
+        }
+      },
+      "ngpCloneWithoutTraceabilityCmdHandler": {
+        "id": "ngpCloneWithoutTraceability",
+        "action": "ngpCloneWithoutTraceabilityAction",
+        "visibleWhen": {
+          "condition": "conditions.cloneGroupCmdVisibilityCondition"
+        },
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.canPasteWithoutTraceability"
+        }
+      },
+      "ngpCloneWithTraceabilityCmdHandler": {
+        "id": "ngpCloneWithTraceability",
+        "action": "ngpCloneWithTraceabilityAction",
+        "visibleWhen": {
+          "condition": "conditions.cloneGroupCmdVisibilityCondition"
+        },
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.canPasteWithTraceability"
+        }
+      },
+      "ngpDisplayCreateActivityDialogCmdHandler": {
+        "id": "ngpCreateActivity",
+        "action": "ngpDisplayCreateActivityDialog",
+        "visibleWhen": {
+          "condition": "conditions.canCreateActivityOrBuildElement"
+        },
+        "activeWhen": true
+      },
+      "ngpDisplayCreateBuildElementDialogCmdHandler": {
+        "id": "ngpCreateBuildElement",
+        "action": "ngpDisplayCreateBuildElementDialog",
+        "visibleWhen": {
+          "condition": "conditions.canCreateActivityOrBuildElement"
+        },
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.checkNoSelectionAndContextIsBuildElemnt"
+        }
+      },
+      "ngpDisplayCreateBuildElementAfterDialogCmdHandler": {
+        "id": "ngpCreateBuildElementAfter",
+        "action": "ngpDisplayCreateBuildElementAfterDialog",
+        "visibleWhen": {
+          "condition": "conditions.canCreateActivityOrBuildElement"
+        },
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.checkSelectedOnlyOneBuildElemnt"
+        }
+      },
+      "ngpDisplayCreateBuildElementAsChildDialogCmdHandler": {
+        "id": "ngpCreateBuildElementAsChild",
+        "action": "ngpDisplayCreateBuildElementAsChildDialog",
+        "visibleWhen": {
+          "condition": "conditions.canCreateActivityOrBuildElement"
+        },
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.checkSelectedOnlyOneBuildElemnt"
+        }
+      },
+      "ngpSetScopeAsCloneCandidateCmdHandler": {
+        "id": "ngpSetScopeAsCloneCandidate",
+        "action": "setCloneCandidates",
+        "activeWhen": {
+          "condition": "conditions.canHaveACloneStatus"
+        },
+        "visibleWhen": {
+          "condition": "conditions.canHaveACloneStatus"
+        }
+      },
+      "ngpMasterIndicationCmdHandler": {
+        "id": "ngpMasterIndication",
+        "action": "displayFindOrNavigateToCloneCmdList",
+        "activeWhen": {
+          "condition": "conditions.isScopeAMaster"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isScopeAMaster"
+        }
+      },
+      "ngpCloneIndicationCmdHandler": {
+        "id": "ngpCloneIndication",
+        "activeWhen": {
+          "condition": "conditions.isScopeAClone"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isScopeAClone"
+        }
+      },
+      "ngpCloneOutOfDateIndicationCmdHandler": {
+        "id": "ngpCloneOutOfDateIndication",
+        "activeWhen": {
+          "condition": "conditions.isScopeACloneOutOfDate"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isScopeACloneOutOfDate"
+        }
+      },
+      "ngpCloneWithDeletedMasterIndicationCmdHandler": {
+        "id": "ngpCloneWithDeletedMasterIndication",
+        "activeWhen": {
+          "condition": "conditions.isScopeACloneWithDeletedMaster"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isScopeACloneWithDeletedMaster"
+        }
+      },
+      "ngpFindMasterCmdHandler": {
+        "id": "ngpFindMaster",
+        "action": "navigateToMaster",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "ngpUpdateCloneCmdHandler": {
+        "id": "ngpUpdateClone",
+        "action": "confirmUpdateClone",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.canUpdateClone"
+        }
+      },
+      "ngpUnlinkCloneCmdHandler": {
+        "id": "ngpUnlinkClone",
+        "action": "confirmUnlinkClone",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "ngpFindOrNavigateToCloneCmdHandler": {
+        "id": "ngpFindOrNavigateToClone",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "ngpDisplaySubmitToWorkflowDialogCmdHandler": {
+        "id": "ngpDisplaySubmitToWorkflowDialog",
+        "action": "onSubmitToWorkflowClick",
+        "visibleWhen": {
+          "condition": "conditions.canSubmitToWorkflow"
+        },
+        "activeWhen": true
+      },
+      "ngpReviseScopeObjectCmdHandler": {
+        "id": "ngpReviseScopeObject",
+        "action": "reviseScopeObject",
+        "visibleWhen": {
+          "condition": "conditions.canReviseScopeObject"
+        },
+        "activeWhen": true
+      },
+      "ngpDisplayChangeHistoryDialogCmdHandler": {
+        "id": "ngpDisplayChangeHistoryDialog",
+        "action": "fetchPreviousMcnsAndDisplayDialog",
+        "activeWhen": {
+          "condition": "conditions.hasChangeHistory"
+        },
+        "visibleWhen": {
+          "condition": "conditions.hasChangeHistory"
+        }
+      },
+      "ngpDisplayNoChangeHistoryMsgCmdHandler": {
+        "id": "ngpDisplayChangeHistoryDialog",
+        "action": "showNoChangeHistoryMsg",
+        "activeWhen": {
+          "condition": "conditions.hasNoChangeHistory"
+        },
+        "visibleWhen": {
+          "condition": "conditions.hasNoChangeHistory"
+        }
+      },
+      "ngpOpenChangeManagementObjectCmdHandler": {
+        "id": "ngpOpenChangeManagementObject",
+        "action": "ngpOpenChangeManagementObject",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "closeActiveMcnPopupCmdHandler": {
+        "id": "closeActiveMcnPopup",
+        "action": "closeActiveMcnPopup",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "ngpDisplayImpactAnalysisDialogCmdHandler": {
+        "id": "ngpDisplayImpactAnalysisDialog",
+        "action": "ngpDisplayImpactAnalysisDialog",
+        "activeWhen": {
+          "condition": "conditions.canDisplayImpactAnalysisDialog"
+        },
+        "visibleWhen": {
+          "condition": "conditions.canDisplayImpactAnalysisDialog"
+        }
+      },
+      "ngpDisplayImpactAnalysisDialogFromEcnTileCmdHandler": {
+        "id": "ngpDisplayImpactAnalysisDialog",
+        "action": "ngpDisplayImpactAnalysisDialog",
+        "activeWhen": {
+          "condition": "conditions.isTileContextEcnObject"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isTileContextEcnObject"
+        }
+      },
+      "ngpSendToViewMakerCmdHandler": {
+        "id": "ngpSendToViewMaker",
+        "action": "sendToViewMaker",
+        "visibleWhen": {
+          "condition": "condition.objectTypeCanBeSentToViewMaker"
+        },
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.canSendToViewMaker"
+        }
+      },
+      "ngpSetInEditModeCmdHandler": {
+        "id": "ngpSetInEditMode",
+        "action": "startEditSummary",
+        "visibleWhen": {
+          "condition": "conditions.ngpCanEditObject"
+        },
+        "activeWhen": true
+      },
+      "ngpSaveEditsInformationCommandHandler": {
+        "id": "ngpSaveEditsInformation",
+        "action": "saveEdits",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.ngpCanSaveOrCancelEdit"
+        }
+      },
+      "ngpCancelEditsInformationCommandHandler": {
+        "id": "ngpCancelEditsInformation",
+        "action": "isDirtyOnCancelEdits",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.ngpCanSaveOrCancelEdit"
+        }
+      },
+      "ngpDisplayCreateAgsDialogCmdHandler": {
+        "id": "ngpDisplayCreateAgsDialog",
+        "visibleWhen": true,
+        "activeWhen": true
+      },
+      "ngpDisplayAttachFileDialogCmdHandler": {
+        "id": "ngpDisplayAttachFileDialog",
+        "visibleWhen": true,
+        "activeWhen": true
+      },
+      "ngpDeleteAttachmentsAgsCmdHandler": {
+        "id": "ngpDeleteAttachmentsAgs",
+        "action": "ngpDeleteAttachmentsAgsAction",
+        "visibleWhen": {
+          "condition": "conditions.ngpCanDeleteAttachmentsAgs"
+        },
+        "activeWhen": true
+      },
+      "ngpDownloadAttachmentCmdHandler": {
+        "id": "ngpDownloadAttachment",
+        "action": "ngpDownloadAttachment",
+        "visibleWhen": {
+          "condition": "conditions.ngpCanDownloadAttachment"
+        },
+        "activeWhen": true
+      }
+    },
+    "conditions": {
+      "isCurrentPageInNGP": {
+        "expression": "ctx.locationContext['ActiveWorkspace:Location'] === 'com.siemens.splm.client.mfg.ngp'"
+      },
+      "isNGPPlanningWorkspace": {
+        "expression": "ctx.workspace.workspaceId === 'PlanningWorkspace'"
+      },
+      "applicableToOpenSelectedInNGP": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.selected.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BOPElement",
+                  "Mpr0ManufacturingElement"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.mselected.length",
+              "$query": {
+                "$eq": 1
+              }
+            }
+          ]
+        }
+      },
+      "ngpOpenObjectCellCmdVisible": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.cmdAwp0ShowObjectCellBaseVisibleCondition",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "commandContext.vmo.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BOPElement",
+                  "Mpr0ManufacturingElement"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "ngpOpenObjectCellFromNGPCmdVisible": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.ngpOpenObjectCellCmdVisible",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "conditions.isCurrentPageInNGP",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      },
+      "ngpOpenObjectCellForObjectNavigationCmdVisible": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.cmdAwp0ShowObjectCellForObjectNavigationBaseVisibleCondition",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "commandContext.vmo.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BOPElement",
+                  "Mpr0ManufacturingElement"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "ngpObjectCellNavigationActionVisibleCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.cmdAwp0ShowObjectCellBaseVisibleCondition",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "commandContext.vmo.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Awp0XRTObjectSetRow"
+                ]
+              }
+            },
+            {
+              "$source": {
+                "$adapt": "commandContext.vmo"
+              },
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": [
+                    "Mpr0BOPElement",
+                    "Mpr0ManufacturingElement"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "canPinNgpObjectToHome": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.visibleServerCommands.Awp0PinObject",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "ctx.selected.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BOPElement",
+                  "Mpr0ManufacturingElement"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.mselected.length",
+              "$query": {
+                "$eq": 1
+              }
+            }
+          ]
+        }
+      },
+      "canUnpinNgpObjectFromHome": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.visibleServerCommands.Awp0UnPinObject",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "ctx.selected.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BOPElement",
+                  "Mpr0ManufacturingElement"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.mselected.length",
+              "$query": {
+                "$eq": 1
+              }
+            }
+          ]
+        }
+      },
+      "isNgpObjectInFavorites": {
+        "expression": "commandContext.cmdObjects[0].status.isInFavorites === true"
+      },
+      "isNgpObjectNotInFavorites": {
+        "expression": "commandContext.cmdObjects[0].status.isInFavorites === false"
+      },
+      "isNgpObjectPinnedToHome": {
+        "expression": "commandContext.cmdObjects[0].status.isPinnedToHome === true"
+      },
+      "isNgpObjectNotPinnedToHome": {
+        "expression": "commandContext.cmdObjects[0].status.isPinnedToHome === false"
+      },
+      "isNgpObjectReleased": {
+        "expression": "commandContext.cmdObjects[0].props.last_release_status.dbValues[0] !== ''"
+      },
+      "isModifiable": {
+        "expression": "commandContext.cmdObjects[0].props.is_modifiable.dbValues[0] === '1'"
+      },
+      "isCheckoutable": {
+        "expression": "commandContext.cmdObjects[0].props.fnd0IsCheckoutable.dbValues[0] === '1'"
+      },
+      "isCheckoutByCurrentUser": {
+        "expression": "commandContext.cmdObjects[0].props.checked_out_user.dbValues[0] === ctx.userSession.props.user.dbValue"
+      },
+      "canCheckOut": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isCheckoutable",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isModifiable",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "canCheckIn": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isCheckoutByCurrentUser",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isModifiable",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "cloneGroupCmdVisibilityCondition": {
+        "expression": {
+          "$or": [
+            {
+              "$source": "conditions.canBeCandidateForClone",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.canPasteWithoutTraceability",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.canPasteWithTraceability",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "canMoveCandidatesHere": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.ngp.buildStrategyState.moveCandidates.length",
+              "$query": {
+                "$gt": 0
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects.length",
+              "$query": {
+                "$eq": 1
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BuildElement"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "canSetAsMoveCandidates": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.cmdObjects.length",
+              "$query": {
+                "$gt": 0
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$in": [
+                      "Mpr0Activity",
+                      "Mpr0BuildElement"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "canSubmitSelectedInBuildStrategyToWorkflow": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isScopeObjectABuildElement",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.canSubmitSelectedToWorkflow",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "canDeleteSelectedObjectsInBuildStrategy": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.cmdObjects.length",
+              "$query": {
+                "$eq": 1
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$in": [
+                      "Mpr0Activity",
+                      "Mpr0BuildElement"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$or": [
+                {
+                  "$and": [
+                    {
+                      "$source": "commandContext.cmdObjects[0].props.mpr0hasSubBuildElements.dbValues[0]",
+                      "$query": {
+                        "$eq": "0"
+                      }
+                    },
+                    {
+                      "$source": "commandContext.cmdObjects[0].props.mpr0hasActivities.dbValues[0]",
+                      "$query": {
+                        "$eq": "0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$source": "commandContext.cmdObjects[0].props.mpr0hasProcessElements.dbValues[0]",
+                  "$query": {
+                    "$eq": "0"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "canPasteWithoutTraceability": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.additionalData.cloneCandidatesAreFromSameHull",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "commandContext.additionalData.cloneCandidatesTypeName",
+              "$query": {
+                "$in": [
+                  "Mpr0Activity",
+                  "Mpr0BuildElement"
+                ]
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects.length",
+              "$query": {
+                "$eq": 1
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BuildElement"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "checkNoSelectionAndContextIsBuildElemnt": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.cmdObjects.length",
+              "$query": {
+                "$eq": 0
+              }
+            },
+            {
+              "$source": "conditions.isScopeObjectABuildElement",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "checkSelectedOnlyOneBuildElemnt": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.cmdObjects.length",
+              "$query": {
+                "$eq": 1
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BuildElement"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "canCreateActivityOrBuildElement": {
+        "expression": {
+          "$or": [
+            {
+              "$source": "conditions.checkNoSelectionAndContextIsBuildElemnt",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.checkSelectedOnlyOneBuildElemnt",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "canPasteWithTraceability": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.additionalData.cloneCandidatesAreFromSameHull",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "commandContext.additionalData.cloneCandidatesTypeName",
+              "$query": {
+                "$in": [
+                  "Mpr0Activity",
+                  "Mpr0BuildElement"
+                ]
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects.length",
+              "$query": {
+                "$eq": 1
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BuildElement"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "canBeCandidateForClone": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.cmdObjects.length",
+              "$query": {
+                "$eq": 1
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0Activity",
+                  "Mpr0BuildElement"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "isScopeObjectABuildElement": {
+        "expression": {
+          "$source": "commandContext.input.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mpr0BuildElement"
+            ]
+          }
+        }
+      },
+      "canHaveACloneStatus": {
+        "expression": {
+          "$source": "commandContext.cmdObjects",
+          "$query": {
+            "$all": {
+              "$source": "modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0ProcessElementBase",
+                  "Mpr0Activity",
+                  "Mpr0BuildElement"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "canUpdateClone": {
+        "expression": {
+          "$source": "commandContext.cmdObjects",
+          "$query": {
+            "$all": {
+              "$source": "modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0ProcessElementBase",
+                  "Mpr0Activity"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isScopeAMaster": {
+        "expression": {
+          "$source": "commandContext.cmdObjects[0].status.cloneStatus",
+          "$query": {
+            "$in": [
+              "MASTER",
+              "MASTER_AND_CLONE",
+              "MASTER_AND_CLONE_MASTER_DELETED",
+              "MASTER_AND_CLONE_OUT_OF_DATE"
+            ]
+          }
+        }
+      },
+      "isScopeAClone": {
+        "expression": {
+          "$source": "commandContext.cmdObjects[0].status.cloneStatus",
+          "$query": {
+            "$in": [
+              "CLONE",
+              "MASTER_AND_CLONE"
+            ]
+          }
+        }
+      },
+      "isScopeACloneWithDeletedMaster": {
+        "expression": {
+          "$source": "commandContext.cmdObjects[0].status.cloneStatus",
+          "$query": {
+            "$in": [
+              "CLONE_MASTER_DELETED",
+              "MASTER_AND_CLONE_MASTER_DELETED"
+            ]
+          }
+        }
+      },
+      "isScopeACloneOutOfDate": {
+        "expression": {
+          "$source": "commandContext.cmdObjects[0].status.cloneStatus",
+          "$query": {
+            "$in": [
+              "CLONE_OUT_OF_DATE",
+              "MASTER_AND_CLONE_OUT_OF_DATE"
+            ]
+          }
+        }
+      },
+      "canSubmitToWorkflow": {
+        "expression": {
+          "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mpr0BOPElement"
+            ]
+          }
+        }
+      },
+      "canReviseScopeObject": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0ProcessElementBase",
+                  "Mpr0BaseOperation"
+                ]
+              }
+            },
+            {
+              "$source": "conditions.hasReleaseStatus",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      },
+      "hasReleaseStatus": {
+        "expression": "commandContext.cmdObjects[0].props.last_release_status.dbValues[0] !== ''"
+      },
+      "hasWorkflowTemplates": {
+        "expression": {
+          "$source": "response.actionData.availableWorkflows.length",
+          "$query": {
+            "$gt": 0
+          }
+        }
+      },
+      "doesnotHaveWorkflowTemplates": {
+        "expression": {
+          "$source": "response.actionData.availableWorkflows.length",
+          "$query": {
+            "$eq": 0
+          }
+        }
+      },
+      "canSubmitSelectedToWorkflow": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.cmdObjects.length",
+              "$query": {
+                "$gt": 0
+              }
+            },
+            {
+              "$or": [
+                {
+                  "$source": "commandContext.cmdObjects",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$in": [
+                          "Mpr0BuildElement"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$source": "commandContext.cmdObjects",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$in": [
+                          "Mpr0Activity"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$source": "commandContext.cmdObjects",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$in": [
+                          "Mpr0ProcessElementBase"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$source": "commandContext.cmdObjects",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$in": [
+                          "Mpr0BaseOperation"
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "canHaveChangeHistory": {
+        "expression": {
+          "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mpr0Activity"
+            ]
+          }
+        }
+      },
+      "hasChangeHistory": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.canHaveChangeHistory",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$or": [
+                {
+                  "$source": "commandContext.cmdObjects[0].props.mpc0associatedMCNs.dbValues.length",
+                  "$query": {
+                    "$gt": 1
+                  }
+                },
+                {
+                  "$and": [
+                    {
+                      "$source": "commandContext.cmdObjects[0].props.mpc0associatedMCNs.dbValues.length",
+                      "$query": {
+                        "$eq": 1
+                      }
+                    },
+                    {
+                      "$source": "commandContext.cmdObjects[0].props.mpc0activeMCN.dbValues.0",
+                      "$query": {
+                        "$eq": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "hasNoChangeHistory": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.canHaveChangeHistory",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.hasChangeHistory",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "canDisplayImpactAnalysisDialog": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isNGPPlanningWorkspace",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "ctx.selected.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "ChangeNoticeRevision"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.selected.modelType.typeHierarchyArray",
+              "$query": {
+                "$notin": [
+                  "Mpc0MfgCNRevision"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "isTileContextEcnObject": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.vmo.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "ChangeNoticeRevision"
+                ]
+              }
+            },
+            {
+              "$source": "commandContext.vmo.modelType.typeHierarchyArray",
+              "$query": {
+                "$notin": [
+                  "Mpc0MfgBaseCNRevision"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "objectTypeCanBeSentToViewMaker": {
+        "expression": {
+          "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mpr0ProcessElementBase"
+            ]
+          }
+        }
+      },
+      "canSendToViewMaker": {
+        "expression": "commandContext.cmdObjects[0].props.mpr0numberOfAssignedParts.dbValues[0] > 0 || commandContext.cmdObjects[0].props.mpr0numberOfAssignedFeatures.dbValues[0] > 0 || commandContext.cmdObjects[0].props.mpr0predecessors.dbValues.length > 0 || commandContext.cmdObjects[0].status.hasBackgroundElements"
+      },
+      "ngpIsStartEditCommandNotInEditMode": {
+        "expression": "ctx.editInProgress === undefined || !ctx.editInProgress"
+      },
+      "ngpCanEditObject": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.ngpIsStartEditCommandNotInEditMode",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects[0].props.is_modifiable.dbValue",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0BOPElement",
+                  "Mpr0ManufacturingElement",
+                  "Mdl0AttributeGroup"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "ngpCanSaveOrCancelEdit": {
+        "expression": "ctx.editInProgress"
+      },
+      "ngpCanDeleteAttachmentsAgs": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.ngpIsStartEditCommandNotInEditMode",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Dataset",
+                  "Mdl0AttributeGroup"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "ngpCanDownloadAttachment": {
+        "expression": {
+          "$source": "commandContext.cmdObjects[0].modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Dataset"
+            ]
+          }
+        }
+      }
+    },
+    "actions": {
+      "openSelectedObjectInNGP": {
+        "actionType": "JSFunction",
+        "method": "navigateToNGPFromAWPage",
+        "inputData": {
+          "modelObject": "{{ctx.selected}}"
+        },
+        "deps": "js/services/ngpNavigationService"
+      },
+      "openNGPObjectCell": {
+        "actionType": "JSFunction",
+        "method": "navigateToNGPFromAWPage",
+        "inputData": {
+          "modelObject": "{{commandContext.vmo}}"
+        },
+        "deps": "js/services/ngpNavigationService"
+      },
+      "openNGPObjectCellInNgpPage": {
+        "actionType": "JSFunction",
+        "method": "navigateWithInNgp",
+        "inputData": {
+          "modelObject": "{{commandContext.vmo.uid}}"
+        },
+        "deps": "js/services/ngpNavigationService"
+      },
+      "openSelectedObjectInNGPInNewTab": {
+        "actionType": "JSFunction",
+        "method": "navigateToNGPFromAWPage",
+        "inputData": {
+          "modelObject": "{{ctx.selected}}",
+          "navigateIn": "newTab"
+        },
+        "deps": "js/services/ngpNavigationService"
+      },
+      "openSelectedObjectInNGPInNewWindow": {
+        "actionType": "JSFunction",
+        "method": "navigateToNGPFromAWPage",
+        "inputData": {
+          "modelObject": "{{ctx.selected}}",
+          "navigateIn": "newWindow"
+        },
+        "deps": "js/services/ngpNavigationService"
+      },
+      "openXrtNGPObjectInNGPAction": {
+        "actionType": "JSFunction",
+        "method": "navigateToNGPFromAWPage",
+        "inputData": {
+          "modelObject": {
+            "$adapt": "{{commandContext.vmo}}"
+          }
+        },
+        "deps": "js/services/ngpNavigationService"
+      },
+      "ngpAwp0PinObjectToHome": {
+        "actionType": "JSFunctionAsync",
+        "method": "pinNgpObjectToHome",
+        "inputData": {
+          "modelObject": "{{ctx.selected}}"
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullyPinnedSelectedToHomeMsg"
+            }
+          ]
+        },
+        "deps": "js/services/ngpPinService"
+      },
+      "ngpAwp0UnPinObjectFromHome": {
+        "actionType": "JSFunctionAsync",
+        "method": "unpinNgpObjectFromHome",
+        "inputData": {
+          "modelObject": "{{ctx.selected}}"
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullyUnpinnedSelectedFromHomeMsg"
+            }
+          ]
+        },
+        "deps": "js/services/ngpPinService"
+      },
+      "addNgpObjectToFavorites": {
+        "actionType": "JSFunctionAsync",
+        "method": "addNgpObjectToFavorites",
+        "inputData": {
+          "modelObject": "{{commandContext.cmdObjects[0]}}"
+        },
+        "outputData": {
+          "ctx.ngp.scopeObject.status.isInFavorites": ""
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullyAddedToFavoritesMsg"
+            }
+          ]
+        },
+        "deps": "js/services/ngpFavoritesService"
+      },
+      "removeNgpObjectFromFavorites": {
+        "actionType": "JSFunctionAsync",
+        "method": "removeNgpObjectFromFavorites",
+        "inputData": {
+          "modelObject": "{{commandContext.cmdObjects[0]}}"
+        },
+        "outputData": {
+          "ctx.ngp.scopeObject.status.isInFavorites": ""
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullyRemovedFromFavoritesMsg"
+            }
+          ]
+        },
+        "deps": "js/services/ngpFavoritesService"
+      },
+      "pinNgpObjectToHome": {
+        "actionType": "JSFunctionAsync",
+        "method": "pinNgpObjectToHome",
+        "inputData": {
+          "modelObject": "{{commandContext.cmdObjects[0]}}"
+        },
+        "outputData": {
+          "ctx.ngp.scopeObject.status.isPinnedToHome": ""
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullyPinnedToHomeMsg"
+            }
+          ]
+        },
+        "deps": "js/services/ngpPinService"
+      },
+      "unpinNgpObjectFromHome": {
+        "actionType": "JSFunctionAsync",
+        "method": "unpinNgpObjectFromHome",
+        "inputData": {
+          "modelObject": "{{commandContext.cmdObjects[0]}}"
+        },
+        "outputData": {
+          "ctx.ngp.scopeObject.status.isPinnedToHome": ""
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullyUnpinnedFromHomeMsg"
+            }
+          ]
+        },
+        "deps": "js/services/ngpPinService"
+      },
+      "checkOutNgpObject": {
+        "actionType": "JSFunctionAsync",
+        "method": "checkOut",
+        "inputData": {
+          "modelObject": "{{commandContext.cmdObjects[0]}}"
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullyCheckedOutMsg"
+            }
+          ]
+        },
+        "deps": "js/utils/ngpModelUtils"
+      },
+      "checkInNgpObject": {
+        "actionType": "JSFunctionAsync",
+        "method": "checkIn",
+        "inputData": {
+          "modelObject": "{{commandContext.cmdObjects[0]}}"
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullyCheckedInMsg"
+            }
+          ]
+        },
+        "deps": "js/utils/ngpModelUtils"
+      },
+      "setMoveCandidates": {
+        "actionType": "JSFunction",
+        "method": "registerPartialCtx",
+        "inputData": {
+          "path": "ngp.buildStrategyState.moveCandidates",
+          "value": "{{commandContext.cmdObjects}}"
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullySetSingleMoveCandidate",
+              "condition": "ctx.ngp.buildStrategyState.moveCandidates.length === 1"
+            },
+            {
+              "message": "successfullySetMultipleMoveCandidates",
+              "condition": "ctx.ngp.buildStrategyState.moveCandidates.length > 1"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "ngp.moveCandidatesHaveBeenSet",
+              "eventData": {
+                "moveCandidates": "{{ctx.ngp.buildStrategyState.moveCandidates}}"
+              },
+              "excludeLocalDataCtx": true
+            }
+          ]
+        },
+        "deps": "js/appCtxService"
+      },
+      "moveCandidates": {
+        "actionType": "JSFunction",
+        "method": "restructure",
+        "inputData": {
+          "toBeMoved": "{{ctx.ngp.buildStrategyState.moveCandidates}}",
+          "newParent": "{{commandContext.cmdObjects[0]}}"
+        },
+        "deps": "js/services/ngpRestructureService"
+      },
+      "ngpDisplayCreateActivityDialog": {
+        "actionType": "JSFunction",
+        "method": "displayCreateObjectDialog",
+        "inputData": {
+          "dialogTitle": "{{i18n.createActivity}}",
+          "baseType": "Mpr0Activity",
+          "allowedTypesToCreatePreference": "NGP_Activity_AllowedTypesToCreate",
+          "pageSelection": "{{commandContext.cmdObjects}}",
+          "pageContext": "{{commandContext.input}}"
+        },
+        "deps": "js/services/ngpCreateObjectService"
+      },
+      "ngpDisplayCreateBuildElementDialog": {
+        "actionType": "JSFunction",
+        "method": "displayCreateObjectDialog",
+        "inputData": {
+          "dialogTitle": "{{i18n.createBuildElement}}",
+          "baseType": "Mpr0BuildElement",
+          "allowedTypesToCreatePreference": "NGP_BuildElement_AllowedTypesToCreate",
+          "pageSelection": null,
+          "pageContext": "{{commandContext.input}}"
+        },
+        "deps": "js/services/ngpCreateObjectService"
+      },
+      "ngpDisplayCreateBuildElementAfterDialog": {
+        "actionType": "JSFunction",
+        "method": "displayCreateObjectDialog",
+        "inputData": {
+          "dialogTitle": "{{i18n.createBuildElement}}",
+          "baseType": "Mpr0BuildElement",
+          "allowedTypesToCreatePreference": "NGP_BuildElement_AllowedTypesToCreate",
+          "pageSelection": "{{commandContext.cmdObjects}}",
+          "pageContext": null,
+          "createSibling": true
+        },
+        "deps": "js/services/ngpCreateObjectService"
+      },
+      "ngpDisplayCreateBuildElementAsChildDialog": {
+        "actionType": "JSFunction",
+        "method": "displayCreateObjectDialog",
+        "inputData": {
+          "dialogTitle": "{{i18n.createBuildElement}}",
+          "baseType": "Mpr0BuildElement",
+          "allowedTypesToCreatePreference": "NGP_BuildElement_AllowedTypesToCreate",
+          "pageSelection": "{{commandContext.cmdObjects}}",
+          "pageContext": null
+        },
+        "deps": "js/services/ngpCreateObjectService"
+      },
+      "setCloneCandidates": {
+        "actionType": "JSFunction",
+        "method": "setCloneCandidates",
+        "inputData": {
+          "modelObjects": "{{commandContext.cmdObjects}}",
+          "revisionRule": "{{ctx.userSession.props.awp0RevRule.dbValue}}"
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successfullySetCloneCandidates"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "ngp.successfullySetCloneCandidates"
+            }
+          ]
+        },
+        "deps": "js/services/ngpCloneService"
+      },
+      "navigateToMaster": {
+        "actionType": "JSFunction",
+        "method": "navigateToMaster",
+        "inputData": {
+          "clone": "{{commandContext.cmdObjects[0]}}"
+        },
+        "deps": "js/services/ngpCloneService"
+      },
+      "confirmUpdateClone": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": []
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "confirmUpdateClonedProcessMsg",
+              "condition": "ctx.ngp.scopeObject.modelType.typeHierarchyArray.indexOf( 'Mpr0ProcessElementBase' ) > -1"
+            },
+            {
+              "message": "confirmUpdateClonedActivityMsg",
+              "condition": "ctx.ngp.scopeObject.modelType.typeHierarchyArray.indexOf( 'Mpr0Activity' ) > -1"
+            }
+          ]
+        }
+      },
+      "updateClones": {
+        "actionType": "JSFunction",
+        "method": "preUpdateClone",
+        "inputData": {
+          "cloneObjects": "{{commandContext.cmdObjects}}"
+        },
+        "deps": "js/services/ngpCloneService"
+      },
+      "confirmUnlinkClone": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": []
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "confirmUnlinkCloneMsg"
+            }
+          ]
+        }
+      },
+      "unlinkClone": {
+        "actionType": "JSFunctionAsync",
+        "method": "unlinkClones",
+        "inputData": {
+          "cloneObjects": "{{commandContext.cmdObjects}}"
+        },
+        "outputData": {
+          "ctx.ngp.scopeObject.status.cloneStatus": ""
+        },
+        "deps": "js/services/ngpCloneService"
+      },
+      "displayFindOrNavigateToCloneCmdList": {
+        "actionType": "JSFunction",
+        "method": "displayFindOrNavigateToCloneCmdList",
+        "inputData": {
+          "masterModelObject": "{{commandContext.cmdObjects[0]}}",
+          "elementRefId": "button[button-id='ngpMasterIndication']"
+        },
+        "deps": "js/services/ngpCloneService"
+      },
+      "ngpCloneWithTraceabilityAction": {
+        "actionType": "JSFunction",
+        "method": "pasteCloneCandidates",
+        "inputData": {
+          "pasteContext": "{{commandContext.cmdObjects[0]}}",
+          "createLink": true
+        },
+        "deps": "js/services/ngpCloneService"
+      },
+      "ngpCloneWithoutTraceabilityAction": {
+        "actionType": "JSFunction",
+        "method": "pasteCloneCandidates",
+        "inputData": {
+          "pasteContext": "{{commandContext.cmdObjects[0]}}",
+          "createLink": false
+        },
+        "deps": "js/services/ngpCloneService"
+      },
+      "onSubmitToWorkflowClick": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "loadWorkflowTemplates",
+            "outputArg": [
+              "availableWorkflows"
+            ]
+          },
+          {
+            "action": "displaySubmitToWorkflowDialog",
+            "condition": "conditions.hasWorkflowTemplates",
+            "inputArg": {
+              "availableWorkflows": "{{actionData.availableWorkflows}}"
+            }
+          },
+          {
+            "action": "displayNoWorkflowTemplatesMsg",
+            "condition": "conditions.doesnotHaveWorkflowTemplates"
+          }
+        ]
+      },
+      "loadWorkflowTemplates": {
+        "actionType": "JSFunctionAsync",
+        "method": "getWorkflowTemplates",
+        "inputData": {
+          "modelObjects": "{{commandContext.cmdObjects}}",
+          "allowAlternateProceduresPreference": "{{data.preferences.CR_allow_alternate_procedures}}"
+        },
+        "outputData": {
+          "availableWorkflows": ""
+        },
+        "deps": "js/services/ngpWorkflowService"
+      },
+      "displaySubmitToWorkflowDialog": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "ngpSubmitToWorkflowDialog",
+            "options": {
+              "height": "500",
+              "width": "400"
+            },
+            "subPanelContext": {
+              "workflowTemplates": "{{parameters.availableWorkflows}}",
+              "workflowCandidates": "{{commandContext.cmdObjects}}"
+            }
+          }
+        },
+        "deps": "js/popupService"
+      },
+      "displayNoWorkflowTemplatesMsg": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": []
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "noWorkflowTemplates"
+            }
+          ]
+        }
+      },
+      "reviseScopeObject": {
+        "actionType": "JSFunction",
+        "method": "reviseScopeObject",
+        "inputData": {
+          "modelObjects": "{{commandContext.cmdObjects[0]}}"
+        },
+        "deps": "js/services/ngpWorkflowService"
+      },
+      "deleteSelectedObjectsAction": {
+        "actionType": "JSFunction",
+        "method": "deleteObjects",
+        "inputData": {
+          "objectsToDelete": "{{commandContext.cmdObjects}}"
+        },
+        "deps": "js/services/ngpRelationService"
+      },
+      "ngpOpenChangeManagementObject": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": "{{commandContext.vmo.uid}}"
+        }
+      },
+      "fetchPreviousMcnsAndDisplayDialog": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "getPreviousMcnUids",
+            "outputArg": [
+              "previousMcnUids"
+            ]
+          },
+          {
+            "action": "displayChangeHistoryDialog",
+            "inputArg": {
+              "previousMcnUids": "{{actionData.previousMcnUids}}"
+            }
+          }
+        ]
+      },
+      "getPreviousMcnUids": {
+        "actionType": "JSFunction",
+        "method": "getPreviousMcnUids",
+        "inputData": {
+          "modelObject": "{{commandContext.cmdObjects[0]}}"
+        },
+        "outputData": {
+          "previousMcnUids": ""
+        },
+        "deps": "js/services/ngpChangeManagementService"
+      },
+      "displayChangeHistoryDialog": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "ngpHistoryOfChangeDialog",
+            "locals": {
+              "caption": "History of Change"
+            },
+            "options": {
+              "height": "650",
+              "width": "500"
+            },
+            "subPanelContext": {
+              "previousMcnUids": "{{parameters.previousMcnUids}}"
+            }
+          }
+        },
+        "deps": "js/popupService"
+      },
+      "showNoChangeHistoryMsg": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": []
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "noChangeHistoryMessage"
+            }
+          ]
+        }
+      },
+      "closeActiveMcnPopup": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "ngp.closeActiveMcnPopup"
+            }
+          ]
+        }
+      },
+      "ngpDisplayImpactAnalysisDialog": {
+        "actionType": "JSFunctionAsync",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "ngpChangeManagmentDialog",
+            "options": {
+              "customClass": "aw-ngp-impactAnalysisDialog",
+              "isModal": true,
+              "clickOutsideToClose": false
+            },
+            "subPanelContext": {
+              "modelObject": "{{commandContext.vmo}}"
+            }
+          }
+        },
+        "outputData": {
+          "popupId": "id"
+        },
+        "deps": "js/popupService"
+      },
+      "sendToViewMaker": {
+        "actionType": "JSFunction",
+        "method": "sendToViewMaker",
+        "inputData": {
+          "modelObject": "{{commandContext.cmdObjects[0]}}"
+        },
+        "deps": "js/services/ngpModelViewsService"
+      },
+      "ngpDeleteAttachmentsAgsAction": {
+        "actionType": "JSFunction",
+        "method": "deleteAttachmentsAgs",
+        "inputData": {
+          "objectsToDelete": "{{commandContext.cmdObjects}}",
+          "contextObj": "{{commandContext.input}}"
+        },
+        "deps": "js/services/ngpInformationService"
+      },
+      "ngpDownloadAttachment": {
+        "actionType": "JSFunction",
+        "method": "downloadAttachment",
+        "inputData": {
+          "files": "{{commandContext.cmdObjects}}"
+        },
+        "deps": "js/services/ngpInformationService"
+      }
+    },
+    "commands": {
+      "ngpAddToFavorites": {
+        "iconId": "cmdEmptyStar",
+        "title": "{{i18n.addToFavoritesCommandTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpRemoveFromFavorites": {
+        "iconId": "cmdFilledStar",
+        "title": "{{i18n.removeFromFavoritesCommandTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpPinToHome": {
+        "iconId": "cmdPin",
+        "title": "{{i18n.pinObjectCommandTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpUnpinFromHome": {
+        "iconId": "cmdUnpin",
+        "title": "{{i18n.unPinObjectCommandTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpReleasedIndication": {
+        "iconId": "indicatorChipReleased",
+        "extendedTooltip": {
+          "view": "ngpReleaseIndicationTooltip",
+          "scopeObject": "{{ctx.ngp.scopeObject}}"
+        }
+      },
+      "ngpMoreActions": {
+        "iconId": "cmdMenu",
+        "isRibbon": true,
+        "template": "<div class='aw-ngp-discontinuedSubElementsBadge' visible-when=\"ctx.ngp.scopeObject.status.amountOfDiscontinuedSubElements > 0\" >{{ctx.ngp.scopeObject.status.amountOfDiscontinuedSubElements}}</div>",
+        "title": {
+          "text": "{{i18n.moreActionsCmdTooltip}}",
+          "params": [
+            "{{ctx.ngp.scopeObject.modelType.uiDisplayName.capital}}"
+          ]
+        },
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpCheckOut": {
+        "iconId": "cmdCheckout",
+        "title": "{{i18n.checkOutCmdTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpCheckIn": {
+        "iconId": "cmdCheckin",
+        "title": "{{i18n.checkInCmdTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpSetMoveCandidates": {
+        "iconId": "cmdMoveTo",
+        "title": "{{i18n.moveCandidateCmdTitle}}",
+        "description": "{{i18n.moveCandidateCmdDescription}}"
+      },
+      "ngpMoveCandidates": {
+        "iconId": "cmdMoveHere",
+        "extendedTooltip": {
+          "view": "ngpMoveCandidatesHereTooltip",
+          "moveCandidates": "{{ctx.ngp.buildStrategyState.moveCandidates}}"
+        }
+      },
+      "ngpSetSelectedAsCloneCandidateInBuildStrategy": {
+        "iconId": "cmdDuplicate",
+        "title": "{{i18n.copy}}"
+      },
+      "ngpCreateActivity": {
+        "iconId": "cmdNewActivity",
+        "title": "{{i18n.createActivity}}"
+      },
+      "ngpCreateBuildElementGroup": {
+        "iconId": "cmdNewBuildElement",
+        "isGroup": true,
+        "title": "{{i18n.createBuildElement}}"
+      },
+      "ngpCreateBuildElement": {
+        "iconId": "cmdNewBuildElement",
+        "title": "{{i18n.createBuildElement}}"
+      },
+      "ngpCreateBuildElementAfter": {
+        "iconId": "cmdNewBuildElement",
+        "title": "{{i18n.createBuildElementAfter}}"
+      },
+      "ngpCreateBuildElementAsChild": {
+        "iconId": "cmdNewBuildElement",
+        "title": "{{i18n.createBuildElementAsChild}}"
+      },
+      "ngpSetScopeAsCloneCandidate": {
+        "iconId": "cmdDuplicate",
+        "title": "{{i18n.copy}}"
+      },
+      "ngpCloneGroup": {
+        "iconId": "cmdDuplicate",
+        "isGroup": true,
+        "title": "{{i18n.ngpCloneGroup}}",
+        "description": "{{i18n.ngpCloneGroupDesc}}"
+      },
+      "ngpCloneWithTraceability": {
+        "iconId": "cmdPasteWithTraceability",
+        "title": "{{i18n.ngpCloneWithTraceability}}"
+      },
+      "ngpCloneWithoutTraceability": {
+        "iconId": "cmdPaste",
+        "title": "{{i18n.ngpCloneWithoutTraceability}}"
+      },
+      "ngpMasterIndication": {
+        "iconId": "indicatorChipMasterOfClone",
+        "extendedTooltip": {
+          "view": "mfeGenericTooltip",
+          "title": {
+            "text": "{{i18n.masterStatusTooltip}}",
+            "params": [
+              "{{ctx.ngp.scopeObject.modelType.uiDisplayName.capital}}"
+            ]
+          },
+          "instruction": "{{i18n.masterTooltipInstruction}}"
+        }
+      },
+      "ngpCloneIndication": {
+        "iconId": "indicatorChipClone",
+        "isRibbon": true,
+        "extendedTooltip": {
+          "view": "mfeGenericTooltip",
+          "title": {
+            "text": "{{i18n.cloneStatusTooltip}}",
+            "params": [
+              "{{ctx.ngp.scopeObject.modelType.uiDisplayName.capital}}"
+            ]
+          },
+          "instruction": "{{i18n.cloneTooltipInstruction}}"
+        }
+      },
+      "ngpCloneOutOfDateIndication": {
+        "iconId": "indicatorChipCloneOutOfDate",
+        "isRibbon": true,
+        "extendedTooltip": {
+          "view": "mfeGenericTooltip",
+          "title": {
+            "text": "{{i18n.cloneStatusTooltip}}",
+            "params": [
+              "{{ctx.ngp.scopeObject.modelType.uiDisplayName.capital}}"
+            ]
+          },
+          "instruction": "{{i18n.cloneTooltipInstruction}}",
+          "information": "{{i18n.cloneOutOfDateTooltipInformation}}"
+        }
+      },
+      "ngpCloneWithDeletedMasterIndication": {
+        "iconId": "indicatorChipCloneMissingMaster",
+        "isRibbon": true,
+        "extendedTooltip": {
+          "view": "mfeGenericTooltip",
+          "title": {
+            "text": "{{i18n.cloneStatusTooltip}}",
+            "params": [
+              "{{ctx.ngp.scopeObject.modelType.uiDisplayName.capital}}"
+            ]
+          },
+          "instruction": "{{i18n.cloneWithDeletedMasterTooltipInsturction}}",
+          "information": "{{i18n.cloneWithDeletedMasterTooltipInformation}}"
+        }
+      },
+      "ngpFindMaster": {
+        "iconId": "cmdOpen",
+        "title": "{{i18n.findMasterTooltip}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpUpdateClone": {
+        "iconId": "cmdRefresh",
+        "title": "{{i18n.updateCloneTooltip}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpUnlinkClone": {
+        "iconId": "cmdUnlink",
+        "title": "{{i18n.unlinkFromMasterCmdTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpFindOrNavigateToClone": {
+        "iconId": "cmdOpen",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpDisplaySubmitToWorkflowDialog": {
+        "iconId": "cmdSubmitToWorkflow",
+        "title": "{{i18n.submitToWorkflowCmdTitle}}",
+        "template": "<div class='aw-ngp-discontinuedSubElementsBadge' visible-when=\"ctx.ngp.scopeObject.status.amountOfDiscontinuedSubElements > 0\" >{{ctx.ngp.scopeObject.status.amountOfDiscontinuedSubElements}}</div>",
+        "extendedTooltip": {
+          "view": "ngpSubmitToWorkflowTooltip",
+          "scopeObject": "{{ctx.ngp.scopeObject}}"
+        }
+      },
+      "ngpReviseScopeObject": {
+        "iconId": "cmdRevise",
+        "title": "{{i18n.reviseCmdTitle}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "ngpDisplaySubmitSelectedToWorkflowDialog": {
+        "iconId": "cmdSubmitToWorkflow",
+        "title": "{{i18n.submitToWorkflowCmdTitle}}",
+        "description": "{{i18n.submitSelectedToWorkflow}}"
+      },
+      "ngpDeleteSelectedObjects": {
+        "iconId": "miscDeleteMarkup",
+        "title": "{{i18n.deleteTooltipMsg}}",
+        "description": "{{i18n.deleteSelectedObjectsCmdDescription}}"
+      },
+      "ngpDisplayChangeHistoryDialog": {
+        "iconId": "cmdHistory",
+        "title": "{{i18n.historyOfChangeCmdTitle}}"
+      },
+      "ngpOpenChangeManagementObject": {
+        "iconId": "cmdOpen",
+        "title": "{{i18n.open}}"
+      },
+      "closeActiveMcnPopup": {
+        "iconId": "cmdClosePanel",
+        "title": "{{i18n.close}}"
+      },
+      "ngpDisplayImpactAnalysisDialog": {
+        "iconId": "cmdShowImpactOfChange",
+        "title": "{{i18n.mfgImpactCommandTitle}}"
+      },
+      "ngpSendToViewMaker": {
+        "iconId": "cmdModelViewPalette",
+        "extendedTooltip": {
+          "view": "ngpSendToViewMakerTooltip",
+          "context": "{{ctx.ngp.scopeObject}}"
+        }
+      },
+      "ngpSetInEditMode": {
+        "iconId": "cmdEdit",
+        "title": "{{i18n.editSelectedItem}}"
+      },
+      "ngpSaveEditsInformation": {
+        "iconId": "cmdSave",
+        "title": "{{i18n.saveEditsTitle}}"
+      },
+      "ngpCancelEditsInformation": {
+        "iconId": "cmdCancelEdit",
+        "isGroup": false,
+        "title": "{{i18n.cancelEditsTitle}}"
+      },
+      "ngpDisplayCreateAgsDialog": {
+        "iconId": "cmdCreateAttributeGroup",
+        "title": "{{i18n.createAgs}}"
+      },
+      "ngpDisplayAttachFileDialog": {
+        "iconId": "cmdAttach",
+        "title": "{{i18n.attachFile}}"
+      },
+      "ngpDeleteAttachmentsAgs": {
+        "iconId": "miscDeleteMarkup",
+        "title": "{{i18n.deleteTooltipMsg}}",
+        "description": "{{i18n.deleteSelectedObjectsCmdDescription}}"
+      },
+      "ngpDownloadAttachment": {
+        "iconId": "cmdDownload",
+        "title": "{{i18n.downloadAttachment}}",
+        "description": "{{i18n.downloadAttachment}}"
+      }
+    },
+    "commandPlacements": {
+      "releaseIndication_ngpMainHeader": {
+        "id": "ngpReleasedIndication",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 1
+      },
+      "addToFavorites_ngpMainHeader": {
+        "id": "ngpAddToFavorites",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 3
+      },
+      "removeFromFavorites_ngpMainHeader": {
+        "id": "ngpRemoveFromFavorites",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 3
+      },
+      "pinToHome_ngpMainHeader": {
+        "id": "ngpPinToHome",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 4
+      },
+      "unpinFromHome_ngpMainHeader": {
+        "id": "ngpUnpinFromHome",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 4
+      },
+      "moreActions_ngpMainHeader": {
+        "id": "ngpMoreActions",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 6
+      },
+      "checkOut_moreActions_ngpMainHeader": {
+        "id": "ngpCheckOut",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 2,
+        "parentGroupId": "ngpMoreActions"
+      },
+      "checkIn_moreActions_ngpMainHeader": {
+        "id": "ngpCheckIn",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 2,
+        "parentGroupId": "ngpMoreActions"
+      },
+      "setMoveCandidates_ngpBuildStrategyTable": {
+        "id": "ngpSetMoveCandidates",
+        "uiAnchor": "ngpBuildStrategyTable_uiAnchor",
+        "priority": 4
+      },
+      "moveCandidates_ngpBuildStrategyTable": {
+        "id": "ngpMoveCandidates",
+        "uiAnchor": "ngpBuildStrategyTable_uiAnchor",
+        "priority": 5
+      },
+      "submitToWorkflow_ngpBuildStrategyTable": {
+        "id": "ngpDisplaySubmitSelectedToWorkflowDialog",
+        "uiAnchor": "ngpBuildStrategyTable_uiAnchor",
+        "priority": 1
+      },
+      "deleteSelected_ngpBuildStrategyTable": {
+        "id": "ngpDeleteSelectedObjects",
+        "uiAnchor": "ngpBuildStrategyTable_uiAnchor",
+        "priority": 3
+      },
+      "ngpCreateActivity_commandPlacements": {
+        "id": "ngpCreateActivity",
+        "uiAnchor": "ngpBuildStrategyTable_uiAnchor",
+        "priority": 7
+      },
+      "ngpCloneGroup_commandPlacements": {
+        "id": "ngpCloneGroup",
+        "uiAnchor": "ngpBuildStrategyTable_uiAnchor",
+        "priority": 2
+      },
+      "ngpCreateBuildElementGroup__commandPlacement": {
+        "id": "ngpCreateBuildElementGroup",
+        "uiAnchor": "ngpBuildStrategyTable_uiAnchor",
+        "priority": 6
+      },
+      "ngpCopy_commandPlacements": {
+        "id": "ngpSetSelectedAsCloneCandidateInBuildStrategy",
+        "priority": 1,
+        "parentGroupId": "ngpCloneGroup"
+      },
+      "ngpCloneWithTraceability_commandPlacements": {
+        "id": "ngpCloneWithTraceability",
+        "priority": 3,
+        "parentGroupId": "ngpCloneGroup"
+      },
+      "ngpCloneWithoutTraceability_commandPlacements": {
+        "id": "ngpCloneWithoutTraceability",
+        "priority": 2,
+        "parentGroupId": "ngpCloneGroup"
+      },
+      "ngpCreateBuildElement_commandPlacements": {
+        "id": "ngpCreateBuildElement",
+        "priority": 1,
+        "parentGroupId": "ngpCreateBuildElementGroup"
+      },
+      "ngpCreateBuildElementAfter_commandPlacements": {
+        "id": "ngpCreateBuildElementAfter",
+        "priority": 2,
+        "parentGroupId": "ngpCreateBuildElementGroup"
+      },
+      "ngpCreateBuildElementAsChild_commandPlacements": {
+        "id": "ngpCreateBuildElementAsChild",
+        "priority": 3,
+        "parentGroupId": "ngpCreateBuildElementGroup"
+      },
+      "setScopeAsCloneCandidate_moreActions_ngpMainHeader": {
+        "id": "ngpSetScopeAsCloneCandidate",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 4,
+        "parentGroupId": "ngpMoreActions"
+      },
+      "masterIndication_ngpMainHeader": {
+        "id": "ngpMasterIndication",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 1
+      },
+      "cloneIndication_ngpMainHeader": {
+        "id": "ngpCloneIndication",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 2
+      },
+      "cloneOutOfDateIndication_ngpMainHeader": {
+        "id": "ngpCloneOutOfDateIndication",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 2
+      },
+      "cloneWithDeletedMasterIndication_ngpMainHeader": {
+        "id": "ngpCloneWithDeletedMasterIndication",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 2
+      },
+      "findMaster_cloneIndication_ngpMainHeader": {
+        "id": "ngpFindMaster",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 1,
+        "parentGroupId": "ngpCloneIndication"
+      },
+      "findMaster_cloneOutOfDateIndication_ngpMainHeader": {
+        "id": "ngpFindMaster",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 1,
+        "parentGroupId": "ngpCloneOutOfDateIndication"
+      },
+      "updateClone_cloneIndication_ngpMainHeader": {
+        "id": "ngpUpdateClone",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 2,
+        "parentGroupId": "ngpCloneIndication"
+      },
+      "updateClone_cloneOutOfDateIndication_ngpMainHeader": {
+        "id": "ngpUpdateClone",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 2,
+        "parentGroupId": "ngpCloneOutOfDateIndication"
+      },
+      "unlinkClone_cloneIndication_ngpMainHeader": {
+        "id": "ngpUnlinkClone",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 3,
+        "parentGroupId": "ngpCloneIndication"
+      },
+      "unlinkClone_cloneOutOfDateIndication_ngpMainHeader": {
+        "id": "ngpUnlinkClone",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 3,
+        "parentGroupId": "ngpCloneOutOfDateIndication"
+      },
+      "unlinkClone_cloneWithDeletedMasterIndication_ngpMainHeader": {
+        "id": "ngpUnlinkClone",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 1,
+        "parentGroupId": "ngpCloneWithDeletedMasterIndication"
+      },
+      "dispalySubmitToWorkflow_moreActions_ngpMainHeader": {
+        "id": "ngpDisplaySubmitToWorkflowDialog",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 1,
+        "parentGroupId": "ngpMoreActions"
+      },
+      "revise_moreActions_ngpMainHeader": {
+        "id": "ngpReviseScopeObject",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 2,
+        "parentGroupId": "ngpMoreActions"
+      },
+      "displayChangeHistoryDialog_moreActions_ngpMainHeader": {
+        "id": "ngpDisplayChangeHistoryDialog",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 3,
+        "parentGroupId": "ngpMoreActions"
+      },
+      "open_changeManagementTile_ngp": {
+        "id": "ngpOpenChangeManagementObject",
+        "uiAnchor": "ngp_changeManagementTile",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT"
+        }
+      },
+      "closePopup_activeMcnPopup": {
+        "id": "closeActiveMcnPopup",
+        "uiAnchor": "ngp_activeMcnPopupCommandBar"
+      },
+      "displayImpactAnalysisDialog_aw_rightWall": {
+        "id": "ngpDisplayImpactAnalysisDialog",
+        "uiAnchor": "aw_rightWall",
+        "priority": 10000
+      },
+      "displayImpactAnalysisDialog_changeManagementTile_ngp": {
+        "id": "ngpDisplayImpactAnalysisDialog",
+        "uiAnchor": "ngp_changeManagementTile",
+        "priority": 2,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT"
+        }
+      },
+      "sendToViewMaker_ngpMainHeader": {
+        "id": "ngpSendToViewMaker",
+        "uiAnchor": "ngp_commandBarRightSlot",
+        "priority": 5
+      },
+      "ngpSetInEditMode_ngpInformationDetails": {
+        "id": "ngpSetInEditMode",
+        "uiAnchor": "ngp_informationDetails",
+        "priority": 40
+      },
+      "ngpSaveEditsInformation_ngpInformationDetails": {
+        "id": "ngpSaveEditsInformation",
+        "uiAnchor": "ngp_informationDetails",
+        "priority": 50
+      },
+      "ngpCancelEditsInformation_ngpInformationDetails": {
+        "id": "ngpCancelEditsInformation",
+        "uiAnchor": "ngp_informationDetails",
+        "priority": 60
+      },
+      "ngpDisplayCreateAgsDialog_ngpAttachmentsAgsFormsLists": {
+        "id": "ngpDisplayCreateAgsDialog",
+        "uiAnchor": "ngpAttachmentsAgsFormsLists_uiAnchor",
+        "priority": 1
+      },
+      "ngpDisplayAttachFileDialog_ngpAttachmentsAgsFormsLists": {
+        "id": "ngpDisplayAttachFileDialog",
+        "uiAnchor": "ngpAttachmentsAgsFormsLists_uiAnchor",
+        "priority": 2
+      },
+      "ngpDeleteAttachmentsAgs_ngpInformationDetails": {
+        "id": "ngpDeleteAttachmentsAgs",
+        "uiAnchor": "ngp_informationDetails",
+        "priority": 20
+      },
+      "ngpDownloadAttachment_ngpInformationDetails": {
+        "id": "ngpDownloadAttachment",
+        "uiAnchor": "ngp_informationDetails",
+        "priority": 30
+      }
+    },
+    "messages": {
+      "successfullyPinnedSelectedToHomeMsg": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.pinnedToHome}}",
+        "messageTextParams": [
+          "{{ctx.selected.props.object_string.dbValues[0]}}"
+        ]
+      },
+      "successfullyUnpinnedSelectedFromHomeMsg": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.unpinnedFromHome}}",
+        "messageTextParams": [
+          "{{ctx.selected.object_string.dbValues[0]}}"
+        ]
+      },
+      "successfullyAddedToFavoritesMsg": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.addedToFavorites}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].props.object_string.dbValues[0]}}"
+        ]
+      },
+      "successfullyRemovedFromFavoritesMsg": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.removedFromFavorites}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].props.object_string.dbValues[0]}}"
+        ]
+      },
+      "successfullyPinnedToHomeMsg": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.pinnedToHome}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].props.object_string.dbValues[0]}}"
+        ]
+      },
+      "successfullyUnpinnedFromHomeMsg": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.unpinnedFromHome}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].props.object_string.dbValues[0]}}"
+        ]
+      },
+      "successfullyCheckedOutMsg": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.checkoutSuccessful}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].props.object_string.dbValues[0]}}"
+        ]
+      },
+      "successfullyCheckedInMsg": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.checkinSuccessful}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].props.object_string.dbValues[0]}}"
+        ]
+      },
+      "successfullySetSingleMoveCandidate": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.successfullySetSingleMoveCandidate}}",
+        "messageTextParams": [
+          "{{ctx.ngp.buildStrategyState.moveCandidates[0].props.object_string.dbValue}}"
+        ]
+      },
+      "successfullySetMultipleMoveCandidates": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.successfullySetMultipleMoveCandidates}}",
+        "messageTextParams": [
+          "{{ctx.ngp.buildStrategyState.moveCandidates.length}}"
+        ]
+      },
+      "successfullySetCloneCandidates": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.successfulSavedCandidateForCloning}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].props.object_string.dbValues[0]}}"
+        ]
+      },
+      "confirmUpdateClonedProcessMsg": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.updateClonedProcessConfirmationMsg}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].modelType.uiDisplayName.lowerCase}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "update",
+            "text": "{{i18n.update}}",
+            "action": "updateClones"
+          }
+        ]
+      },
+      "confirmUpdateClonedActivityMsg": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.updateClonedActivityConfirmationMsg}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].modelType.uiDisplayName.lowerCase}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "update",
+            "text": "{{i18n.update}}",
+            "action": "updateClones"
+          }
+        ]
+      },
+      "confirmUnlinkCloneMsg": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.unlinkFromMasterMsg}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].props.object_string.dbValues[0]}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "unlink",
+            "text": "{{i18n.unlink}}",
+            "action": "unlinkClone"
+          }
+        ]
+      },
+      "noWorkflowTemplates": {
+        "messageType": "ERROR",
+        "messageText": "{{i18n.noWorkflowTemplatesMsg}}"
+      },
+      "noChangeHistoryMessage": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.noChangeHistoryMsg}}",
+        "messageTextParams": [
+          "{{commandContext.cmdObjects[0].props.object_string.dbValues[0]}}"
+        ]
+      }
+    },
+    "i18n": {
+      "pinnedToHome": [
+        "NgpHeaderMessages",
+        "NgpHeaderMessages"
+      ],
+      "unpinnedFromHome": [
+        "NgpHeaderMessages",
+        "NgpHeaderMessages"
+      ],
+      "processDisplayName": [
+        "NgpBaseMessages"
+      ],
+      "addedToFavorites": [
+        "NgpHeaderMessages"
+      ],
+      "removedFromFavorites": [
+        "NgpHeaderMessages"
+      ],
+      "moreActionsCmdTooltip": [
+        "NgpHeaderMessages"
+      ],
+      "checkInCmdTitle": [
+        "NgpHeaderMessages"
+      ],
+      "checkOutCmdTitle": [
+        "NgpHeaderMessages"
+      ],
+      "checkoutSuccessful": [
+        "NgpHeaderMessages"
+      ],
+      "checkinSuccessful": [
+        "NgpHeaderMessages"
+      ],
+      "moveCandidateCmdTitle": [
+        "NgpBuildStrategyMessages"
+      ],
+      "moveCandidateCmdDescription": [
+        "NgpBuildStrategyMessages"
+      ],
+      "successfullySetSingleMoveCandidate": [
+        "NgpBuildStrategyMessages"
+      ],
+      "successfullySetMultipleMoveCandidates": [
+        "NgpBuildStrategyMessages"
+      ],
+      "copy": [
+        "NgpCloneMgmtMessages",
+        "NgpCloneMgmtMessages"
+      ],
+      "createActivity": [
+        "NgpCreateObjectMessages"
+      ],
+      "createBuildElement": [
+        "NgpCreateObjectMessages"
+      ],
+      "createBuildElementAfter": [
+        "NgpBuildStrategyMessages"
+      ],
+      "createBuildElementAsChild": [
+        "NgpBuildStrategyMessages"
+      ],
+      "successfulSavedCandidateForCloning": [
+        "NgpCloneMgmtMessages"
+      ],
+      "cloneStatusTooltip": [
+        "NgpCloneMgmtMessages"
+      ],
+      "findMasterTooltip": [
+        "NgpCloneMgmtMessages"
+      ],
+      "unlinkFromMasterCmdTitle": [
+        "NgpCloneMgmtMessages"
+      ],
+      "unlinkFromMasterMsg": [
+        "NgpCloneMgmtMessages"
+      ],
+      "cancel": [
+        "NgpCloneMgmtMessages"
+      ],
+      "unlink": [
+        "NgpCloneMgmtMessages"
+      ],
+      "update": [
+        "NgpCloneMgmtMessages"
+      ],
+      "updateCloneTooltip": [
+        "NgpCloneMgmtMessages"
+      ],
+      "updateClonedProcessConfirmationMsg": [
+        "NgpCloneMgmtMessages"
+      ],
+      "updateClonedActivityConfirmationMsg": [
+        "NgpCloneMgmtMessages"
+      ],
+      "masterStatusTooltip": [
+        "NgpCloneMgmtMessages"
+      ],
+      "cloneOutOfDateTooltip": [
+        "NgpCloneMgmtMessages"
+      ],
+      "cloneWithDeletedMasterTooltip": [
+        "NgpCloneMgmtMessages"
+      ],
+      "masterTooltipInstruction": [
+        "NgpCloneMgmtMessages"
+      ],
+      "cloneTooltipInstruction": [
+        "NgpCloneMgmtMessages"
+      ],
+      "cloneOutOfDateTooltipInformation": [
+        "NgpCloneMgmtMessages"
+      ],
+      "cloneWithDeletedMasterTooltipInsturction": [
+        "NgpCloneMgmtMessages"
+      ],
+      "cloneWithDeletedMasterTooltipInformation": [
+        "NgpCloneMgmtMessages"
+      ],
+      "ngpCloneGroup": [
+        "NgpCloneMgmtMessages"
+      ],
+      "ngpCopy": [
+        "NgpCloneMgmtMessages"
+      ],
+      "ngpCloneGroupDesc": [
+        "NgpCloneMgmtMessages"
+      ],
+      "ngpCloneWithTraceability": [
+        "NgpCloneMgmtMessages"
+      ],
+      "ngpCloneWithoutTraceability": [
+        "NgpCloneMgmtMessages"
+      ],
+      "noWorkflowTemplatesMsg": [
+        "NgpDataMgmtMessages"
+      ],
+      "submitToWorkflowCmdTitle": [
+        "NgpDataMgmtMessages"
+      ],
+      "reviseCmdTitle": [
+        "NgpDataMgmtMessages"
+      ],
+      "submitSelectedToWorkflow": [
+        "NgpDataMgmtMessages"
+      ],
+      "deleteTooltipMsg": [
+        "NgpDataMgmtMessages"
+      ],
+      "deleteSelectedObjectsCmdDescription": [
+        "NgpDataMgmtMessages"
+      ],
+      "historyOfChangeCmdTitle": [
+        "NgpChangeMgmtMessages"
+      ],
+      "historyOfChangeDialogTitle": [
+        "NgpChangeMgmtMessages"
+      ],
+      "noChangeHistoryMsg": [
+        "NgpChangeMgmtMessages"
+      ],
+      "open": [
+        "NgpChangeMgmtMessages"
+      ],
+      "close": [
+        "NgpChangeMgmtMessages"
+      ],
+      "mfgImpactCommandTitle": [
+        "NgpChangeMgmtMessages"
+      ],
+      "sendToViewMakerCmdTitle": [
+        "NgpModelViewsMessages"
+      ],
+      "sendToViewMakerTooltipMsg": [
+        "NgpModelViewsMessages"
+      ],
+      "editSelectedItem": [
+        "ngpInformationMessages"
+      ],
+      "attachFile": [
+        "ngpInformationMessages"
+      ],
+      "createAgs": [
+        "ngpInformationMessages"
+      ],
+      "downloadAttachment": [
+        "ngpInformationMessages"
+      ]
+    },
+    "preferences": [
+      "CR_allow_alternate_procedures"
+    ]
+  },
+  "layoutSlots": {
+    "slots": {
+      "mfeNgpHeaderSlot": {
+        "name": "mfe_header",
+        "view": "ngpHeader",
+        "activeWhen": {
+          "condition": "conditions.isOnNGPPage"
+        }
+      },
+      "mfeNgpTaskBarSlot": {
+        "name": "mfe_taskBar",
+        "view": "mfeOldTaskbar",
+        "activeWhen": {
+          "condition": "conditions.isOnNGPPage"
+        }
+      },
+      "mfeNgpToolbarRightSlot": {
+        "name": "mfe_toolbar",
+        "view": "ngpToolBar",
+        "activeWhen": {
+          "condition": "conditions.isOnNGPPage"
+        }
+      },
+      "ngpEwiHeaderSlot": {
+        "name": "aw_header",
+        "view": "ngpEwiHeader",
+        "activeWhen": {
+          "condition": "conditions.isOnNGPEwiPage"
+        }
+      },
+      "ngpEwiGlobalNavigationSlot": {
+        "name": "aw_globalNavigation",
+        "view": "commonGlobalNavigation",
+        "activeWhen": {
+          "condition": "conditions.notInNGPEwiPage"
+        }
+      },
+      "ngpEwiGlobalNavigationBarSlot": {
+        "name": "aw_globalNavigationBar",
+        "view": "commonGlobalNavigationBar",
+        "activeWhen": {
+          "condition": "conditions.notInNGPEwiPage"
+        }
+      },
+      "ngpEwiAvatarSlot": {
+        "name": "aw_avatar",
+        "view": "commonAvatar",
+        "activeWhen": {
+          "condition": "conditions.notInNGPEwiPage"
+        }
+      },
+      "ngpEwiRightEdge": {
+        "name": "aw_rightEdge",
+        "view": "commonRightEdge",
+        "activeWhen": {
+          "condition": "conditions.notInNGPEwiPage"
+        }
+      }
+    },
+    "conditions": {
+      "isOnNGPPage": {
+        "expression": "ctx.locationContext['ActiveWorkspace:Location'] === 'com.siemens.splm.client.mfg.ngp' || ctx.locationContext['ActiveWorkspace:Location'] === 'root' && ctx.locationContext['ActiveWorkspace:SubLocation'] === 'com.siemens.splm.client.mfg.ngp'"
+      },
+      "isOnNGPEwiPage": {
+        "expression": "ctx.locationContext['ActiveWorkspace:Location'] === 'com.siemens.splm.client.mfg.ngp.ewi' || ctx.locationContext[ 'ActiveWorkspace:Location' ] === 'root' && ctx.locationContext[ 'ActiveWorkspace:SubLocation' ] === 'com.siemens.splm.client.mfg.ngp.ewi'"
+      },
+      "notInNGPEwiPage": {
+        "expression": {
+          "$source": "conditions.isOnNGPEwiPage",
+          "$query": {
+            "$eq": false
+          }
+        }
+      }
+    }
+  },
+  "states": {
+    "com_siemens_splm_client_mfg_ngp": {
+      "abstract": false,
+      "view": "mfeCommonLocation",
+      "parent": "root",
+      "url": "/com.siemens.splm.client.mfg.ngp?uid",
+      "data": {
+        "browserSubTitle": {
+          "source": "/i18n/NgpBaseMessages",
+          "key": "ngp"
+        },
+        "headerTitle": {
+          "source": "/i18n/NgpBaseMessages",
+          "key": "ngp"
+        }
+      }
+    },
+    "mfg_dualview": {
+      "abstract": false,
+      "data": {
+        "hostApplication": "ngp"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ],
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "params": {
+        "token": null,
+        "guid": null
+      },
+      "view": "mfeCommonLocation",
+      "parent": "root",
+      "url": "/mfg_dualview"
+    },
+    "information": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/information",
+      "parent": "com_siemens_splm_client_mfg_ngp",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "ngpObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mpr0BOPElement",
+              "Mpr0ManufacturingElement"
+            ]
+          }
+        }
+      },
+      "data": {
+        "label": {
+          "source": "/i18n/NgpSubpagesMessages",
+          "key": "informationSubpageTitle"
+        },
+        "nameToken": "ngpInformationSubLocation",
+        "clientScopeURI": "",
+        "priority": 100,
+        "defaultSubpagePriority": 300,
+        "hostApplication": "ngp"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "buildStrategy": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/buildStrategy",
+      "parent": "com_siemens_splm_client_mfg_ngp",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ngpObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0Activity",
+                  "Mpr0BuildElement"
+                ]
+              }
+            },
+            {
+              "$source": "ngpObjectToNavigate.props.mpr0isLibrary.dbValues.0",
+              "$query": {
+                "$eq": "0"
+              }
+            }
+          ]
+        }
+      },
+      "data": {
+        "label": {
+          "source": "/i18n/NgpSubpagesMessages",
+          "key": "buildStrategySubpageTitle"
+        },
+        "nameToken": "ngpBuildStrategySubLocation",
+        "clientScopeURI": "",
+        "priority": 200,
+        "defaultSubpagePriority": 200,
+        "hostApplication": "ngp"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "content": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/content",
+      "parent": "com_siemens_splm_client_mfg_ngp",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ngpObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mpr0Activity",
+                  "Mpr0BuildElement"
+                ]
+              }
+            },
+            {
+              "$source": "ngpObjectToNavigate.props.mpr0isLibrary.dbValues.0",
+              "$query": {
+                "$eq": "1"
+              }
+            }
+          ]
+        }
+      },
+      "data": {
+        "label": {
+          "source": "/i18n/NgpSubpagesMessages",
+          "key": "contentSubpageTitle"
+        },
+        "nameToken": "ngpContentSubLocation",
+        "clientScopeURI": "",
+        "priority": 200,
+        "defaultSubpagePriority": 200,
+        "hostApplication": "ngp"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "productSubset": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/productSubset",
+      "parent": "com_siemens_splm_client_mfg_ngp",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "ngpObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mpr0Activity"
+            ]
+          }
+        }
+      },
+      "data": {
+        "label": {
+          "source": "/i18n/NgpSubpagesMessages",
+          "key": "productSubsetSubpageTitle"
+        },
+        "nameToken": "ngpProductSubsetSubLocation",
+        "clientScopeURI": "",
+        "priority": 300,
+        "defaultSubpagePriority": 400,
+        "hostApplication": "ngp"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "workunitBuildup": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/workunitBuildup",
+      "parent": "com_siemens_splm_client_mfg_ngp",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "ngpObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mpr0Activity"
+            ]
+          }
+        }
+      },
+      "data": {
+        "label": {
+          "source": "/i18n/NgpSubpagesMessages",
+          "key": "workUnitSubpageTitle"
+        },
+        "nameToken": "ngpWorkUnitSubLocation",
+        "clientScopeURI": "",
+        "priority": 400,
+        "defaultSubpagePriority": 100,
+        "hostApplication": "ngp"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "operations": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/operations",
+      "parent": "com_siemens_splm_client_mfg_ngp",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "ngpObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mpr0ProcessElementBase"
+            ]
+          }
+        }
+      },
+      "data": {
+        "label": {
+          "source": "/i18n/NgpSubpagesMessages",
+          "key": "operationsSubpageTitle"
+        },
+        "nameToken": "ngpOperationsSubLocation",
+        "clientScopeURI": "",
+        "priority": 400,
+        "defaultSubpagePriority": 100,
+        "hostApplication": "ngp"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "modelviews": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/modelviews",
+      "parent": "com_siemens_splm_client_mfg_ngp",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "ngpObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mpr0ProcessElementBase"
+            ]
+          }
+        }
+      },
+      "data": {
+        "label": {
+          "source": "/i18n/NgpSubpagesMessages",
+          "key": "modelViewsSubpageTitle"
+        },
+        "nameToken": "ngpModelViewsSubLocation",
+        "clientScopeURI": "",
+        "priority": 500,
+        "defaultSubpagePriority": 500,
+        "hostApplication": "ngp"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "com_siemens_splm_client_mfg_ngp_ewi": {
+      "abstract": false,
+      "view": "commonLocation",
+      "parent": "root",
+      "url": "/com.siemens.splm.client.mfg.ngp.ewi?uid"
+    },
+    "processWorkInstructions": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/processWorkInstructions",
+      "parent": "com_siemens_splm_client_mfg_ngp_ewi",
+      "abstract": false,
+      "visibleWhen": true,
+      "data": {
+        "nameToken": "ngpEwiProcessSubLocation",
+        "clientScopeURI": "",
+        "hostApplication": "ngp"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    }
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "Mpr0ManufacturingElement": {
+        "additionalProperties": [
+          {
+            "name": "release_status_list",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "Mpr0BOPElement": {
+        "additionalProperties": [
+          {
+            "name": "release_status_list",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          },
+          {
+            "name": "mdl0model_object"
+          }
+        ]
+      },
+      "ChangeNoticeRevision": {
+        "additionalProperties": [
+          {
+            "name": "object_name"
+          }
+        ]
+      },
+      "ReleaseStatus": {
+        "additionalProperties": [
+          {
+            "name": "object_name"
+          }
+        ]
+      }
+    }
+  },
+  "themeExtensions": [
+    "_ngpChangeManagementTheme",
+    "_ngpHeaderTheme",
+    "_ngpInformationTheme"
+  ],
+  "syncStrategy": {
+    "schemaVersion": "1.0.0",
+    "syncStrategies": {
+      "syncFromNgpHeaderToBuildStrategySubpage": {
+        "source": {
+          "view": "ngpHeader",
+          "port": "scopeObject"
+        },
+        "target": {
+          "view": "ngpBuildStrategySubpage",
+          "port": "input"
+        }
+      },
+      "syncFromNgpHeaderToInformationSubpage": {
+        "source": {
+          "view": "ngpHeader",
+          "port": "scopeObject"
+        },
+        "target": {
+          "view": "ngpInformationSubpage",
+          "port": "input_informationSubpage"
+        }
+      },
+      "syncFromAttachmentsInformationToInformationDetails": {
+        "source": {
+          "view": "ngpAttachmentsAgsFormsLists",
+          "port": "selection_ngpAttachmentsAgsFormsLists"
+        },
+        "target": {
+          "view": "ngpInformationDetails",
+          "port": "input_ngpInformationDetails"
+        }
+      }
+    },
+    "syncStrategyHandlers": {
+      "ngpHeaderToBuildStrategySubpageSyncHandler": {
+        "id": "syncFromNgpHeaderToBuildStrategySubpage",
+        "activeWhen": true
+      },
+      "ngpHeaderToInformationSubpageSyncHandler": {
+        "id": "syncFromNgpHeaderToInformationSubpage",
+        "activeWhen": true
+      },
+      "ngpFromInformToInformationDetails": {
+        "id": "syncFromAttachmentsInformationToInformationDetails",
+        "activeWhen": true
+      }
+    }
+  },
+  "propertyRendererTemplates": {
+    "cloneStatus_columnHeader_template": {
+      "grids": [
+        "ngpBuildStrategyTable"
+      ],
+      "columns": [
+        "CloneStatus",
+        "MasterStatus"
+      ],
+      "headerTemplateUrl": "/propertyRenderTemplates/ngpTablesColumnHeaderRenderer.html"
+    },
+    "ngpCloneStatusColumn_template": {
+      "grids": [
+        "ngpBuildStrategyTable"
+      ],
+      "columns": [
+        "CloneStatus"
+      ],
+      "renderFunction": "renderCloneStatusCellImage",
+      "deps": "js/services/ngpCloneStatusTableCellService"
+    },
+    "ngpMasterStatusColumn_template": {
+      "grids": [
+        "ngpBuildStrategyTable"
+      ],
+      "columns": [
+        "MasterStatus"
+      ],
+      "renderFunction": "renderMasterStatusCellImage",
+      "deps": "js/services/ngpCloneStatusTableCellService"
+    }
+  }
+}

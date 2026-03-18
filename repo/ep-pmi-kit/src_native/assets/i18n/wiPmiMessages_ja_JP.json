@@ -1,0 +1,15 @@
+{
+    "assemblyPmiTitle": "PMIアセンブリリスト",
+    "assemblyPmiTitleWithSelection": "{0}に対するPMIアセンブリレベル",
+    "assignedPmiTitle": "PMI",
+    "name": "名前",
+    "id": "ID",
+    "nominalValue": "公称値",
+    "uom": "UOM",
+    "selectProcessOrOperation": "プロセスまたはオペレーションを選択してください.",
+    "selectProcessOrOperationForPMIs": "プロセスまたはオペレーションを選択して、その割当てられたをPMI表示します.",
+    "noAssociatedPMIs": "選択したプロセス\/オペレーションには関連するPMIがありません.",
+    "noAssignedPMIs": "割当てられたPMIがありません.",
+    "connectedParts" : "接続パート",
+    "more" : "詳細"
+}

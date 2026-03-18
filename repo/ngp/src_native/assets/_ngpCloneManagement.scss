@@ -1,0 +1,41 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+.aw-ngp-updateClonesDialogWarning {
+    padding-left: 8px;
+    margin-bottom: 10px;
+}
+
+.aw-ngp-updateClonesDialogFirstMsg {
+    margin-bottom: 10px;
+}
+
+.aw-ngp-cloneAssignmentFailureProcessName {
+    font-size: $fontsize_x_large;
+    margin-bottom: 4px;
+    margin-top: 24px;
+}
+
+
+.aw-ngp-cloneAssignmentFailures {
+    @include flexbox();
+    @include flex-direction(row);
+    height: 19px;
+
+    .aw-ngp-cloneAssignmentFailuresIcon {
+        img {
+            width: 16px;
+            height: 16px;
+            padding: 2px;
+        }
+    }
+
+    .aw-ngp-cloneAignmentFailuresMsg {
+        font-size: $fontsize_large;
+    }
+}

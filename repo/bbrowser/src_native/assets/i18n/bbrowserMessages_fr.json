@@ -1,0 +1,16 @@
+{
+    "LoadButton": "Charger le porte-documents",
+    "loadstatus": "Chargement...",
+    "compare": "Comparer les contenus",
+    "locationClickViewerHeaderTitle": "Afficheur",
+    "locationOneClickViewerSubTitle": "Afficheur",
+    "pickTOSPanel": "Aperçu du porte-documents",
+    "pickTOSPanelCompare": "Comparer le porte-documents",
+    "transferOptionSet": "Sélectionner l'ens. d'options de transfert",
+    "tosPanelSourceBCZ": "Porte-documents source",
+    "tosPanelTargetBCZ": "Porte-documents cible",
+    "tosSourceLabel": "Ensemble d'options de transfert source appliqué",
+    "tosTargetLabel": "Ensemble d'options de transfert cible appliqué",
+    "bbrowserCompareViewerDesc": "Afficher les différences entre les fichiers du porte-documents.",
+    "bbrowserOneClickViewerDesc": "Réviser le contenu du fichier de porte-documents avant de l'importer."
+}

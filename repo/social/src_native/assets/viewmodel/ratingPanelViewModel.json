@@ -1,0 +1,362 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-social-ratings-overview.directive",
+        "js/aw-social-ratings-summary.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-list.directive",
+        "js/aw-custom-commentary-cell.directive"
+    ],
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "ratingListProvider"
+        },
+
+        "search":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2016-03-Finder",
+            "method": "performSearch",
+            "inputData":
+            {
+                "columnConfigInput":
+                {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}",
+                    "columnsToExclude":
+                    [
+
+                    ],
+
+                    "hostingClientName": "",
+                    "operationType": ""
+                },
+
+                "searchInput":
+                {
+                    "attributesToInflate":
+                    [
+
+                    ],
+
+                    "internalPropertyName": "",
+                    "maxToLoad": 25,
+                    "maxToReturn": 25,
+                    "providerName": "S2clCommentaryProvider",
+                    "searchCriteria":
+                    {
+                        "Target": "{{function:getObjectUID}}",
+                        "Type": "ratings",
+                        "RatingsFilter": "{{data.selectedRating.uiValue}}"
+                    },
+
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchFilterMap":
+                    {
+
+                    },
+
+                    "searchSortCriteria":
+                    [
+
+                    ],
+
+                    "startIndex": 0
+                }
+            },
+
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "S2clCommentary",
+                        "properties":
+                        [
+                            {
+                                "name": "object_name"
+                            },
+
+                            {
+                                "name": "owning_user"
+                            },
+
+                            {
+                                "name": "last_mod_date"
+                            },
+
+                            {
+                                "name": "creation_date"
+                            },
+
+                            {
+                                "name": "awp0CellProperties"
+                            },
+
+                            {
+                                "name": "s2clParentRootComment"
+                            },
+
+                            {
+                                "name": "s2clTotalCommentsFmSy"
+                            },
+
+                            {
+                                "name": "s2clTotalFollowsFromSummary"
+                            },
+
+                            {
+                                "name": "s2clTotalLikesFromSummary"
+                            },
+
+                            {
+                                "name": "s2clCellProperties"
+                            },
+
+                            {
+                                "name": "s2clTargetObject"
+                            },
+
+                            {
+                                "modifiers":
+                                [
+                                    {
+                                        "Value": "false",
+                                        "name": "includeIsModifiable"
+                                    }
+                                ],
+
+                                "name": "s2clCommentPlainText"
+                            },
+
+                            {
+                                "modifiers":
+                                [
+                                    {
+                                        "Value": "false",
+                                        "name": "includeIsModifiable"
+                                    }
+                                ],
+
+                                "name": "s2clTargetObjectName"
+                            },
+
+                            {
+                                "name": "s2clCommentRichText"
+                            },
+
+                            {
+                                "name": "s2clRatingValue"
+                            },
+
+                            {
+                                "name": "s2clTotalLikesFromSummary"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData":
+            {
+                "searchResults": "searchResults",
+                "totalFound": "totalFound",
+                "totalLoaded": "totalLoaded"
+            },
+            "events":
+            {
+                "success":
+                [
+                   {
+                      "name":"ratingPanel.ratingsDataLoaded"
+                   }
+                ]
+             },
+            "deps": "js/S2clSocialService"
+        },
+        "openTargetComment":
+        {
+            "actionType": "JSFunction",
+            "method": "go",
+            "deps": "js/locationNavigation.service",
+            "inputData":
+            {
+                "showObject": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+                "toParams":
+                {
+                    "uid": "{{vmo.uid}}"
+                },
+
+                "option":
+                {
+                    "inherit": false
+                }
+            }
+        },
+        "filterCommentsForRatingStar":
+        {
+            "actionType": "JSFunction",
+            "method": "updateSelectedRatingProp",
+            "deps": "js/S2clSocialService",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "path": "selectedRating.uiValue",
+                "value": "{{selectedprop.propertyDisplayName}}"
+            },
+            "events":
+            {
+                "success":
+                [
+                   {
+                      "name":"ratingPanel.ratingClicked"
+                   }
+                ]
+             }
+        },
+        "addRatingAction":
+        {
+            "actionType": "JSFunction",
+            "method": "addCommentary",
+            "deps": "js/S2clSocialService",
+            "inputData":
+            {
+                "commandId": "S2clSCAddRatingNew",
+                "objects":
+                [
+                    {
+                        "uid": "{{ctx.selected.uid}}",
+                        "type": "{{ctx.selected.type}}",
+                        "rating": "{{ctx.Social.rating}}"
+                    }
+                ]
+            }
+        },
+        "populateRatingProps":
+        {
+            "actionType": "JSFunction",
+            "method": "populateRatingProps",
+            "deps": "js/S2clSocialService",
+            "inputData":
+            {
+                "data": "{{data}}"
+            }
+        }
+    },
+    "dataProviders":
+    {
+        "ratingListProvider":
+        {
+            "action": "search",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.searchResults.length}}",
+            "deps": "js/S2clSocialService",
+            "commands":
+            {
+                "openCommand":
+                {
+                    "id": "cmdOpen",
+                    "title": "Open",
+                    "areas":
+                    [
+                        "com.siemens.splm.clientfx.ui.modelObjectListActionCommands"
+                    ],
+
+                    "priorities":
+                    [
+                        300
+                    ],
+
+                    "action": "openTargetComment",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            }
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "dataProvider.reset",
+            "action": "reveal"
+        },
+        {
+            "eventId": "ratingPanel.contentLoaded",
+            "action": "reveal"
+        },
+        {
+            "eventId": "updateNavigationList",
+            "action": "reveal"
+        },
+        {
+            "eventId":"ratingPanel.ratingClicked",
+            "action":"ratingListProvider"
+        },
+        {
+            "eventId":"ratingPanel.ratingsDataLoaded",
+            "action":"populateRatingProps"
+        }
+    ],
+    "data":
+    {
+        "yourRating":
+        {
+            "displayName": "{{i18n.yourRating}}",
+            "type": "STRING"
+        },
+        "averageRating":
+        {
+            "displayName": "{{i18n.averageRating}}",
+            "type": "DOUBLE",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE",
+            "isEditable": "false"
+        },
+        "selectedRating":
+        {
+            "type": "STRING",
+            "displayName":"{{i18n.allRatings}}"
+        }
+    },
+    "i18n":
+    {
+        "ratingSummaries":
+        [
+            "SocialMessages"
+        ],
+        "yourRating":
+        [
+            "SocialMessages"
+        ],
+        "allRatings":
+        [
+            "SocialMessages"
+        ],
+        "averageRating":
+        [
+            "SocialMessages"
+        ]
+    },
+    "functions":
+    {
+        "getRatingProps":
+        {
+            "functionName": "getRatingProps",
+            "parameters":
+            [
+                "{{data}}"
+            ]
+        },
+        "getObjectUID":
+        {
+            "functionName": "getObjectUID",
+            "parameters":
+            [
+                "{{ctx.xrtSummaryContextObject}}"
+            ]
+        }
+    }
+}

@@ -1,0 +1,460 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-graph.directive",
+        "js/aw-include.directive"
+    ],
+    "ports": {
+        "epPert_singleSelection": {
+            "syncObject": {}
+        }
+    },
+    "data": {
+        "graphModel": {
+            "graphDataProvider": {
+                "name": "epPertGraphDataProvider",
+                "dataParser": {
+                    "nodes": "nodes",
+                    "edges": "edges",
+                    "node": {
+                        "id": "uid"
+                    },
+                    "edge": {
+                        "id": "id",
+                        "sourceNodeId": "puid",
+                        "targetNodeId": "suid"
+                    }
+                },
+                "groupRelationCategory": "",
+                "graphRenderInterface": "js/epPertGraphRenderService"
+            },
+            "config": {
+                "enableEdit": true,
+                "minZoom": 0,
+                "maxZoom": 1,
+                "autoEdgeRoutingType": "HV_SEGMENT3",
+                "fitViewPosition": "CENTER",
+                "movableItems": [
+                    "Node"
+                ],
+                "selectableItems": [
+                    "Node",
+                    "Edge"
+                ],
+                "layout": {
+                    "layoutMode": "IncUpdateLayout",
+                    "defaultOption": "LeftToRight"
+                },
+                "nodeToNodeDistance": {
+                    "x": 40,
+                    "y": 40
+                },
+                "edgeToEdgeDistance": {
+                    "x": 20,
+                    "y": 20
+                },
+                "minNodeSize": {
+                    "width": 80,
+                    "height": 40
+                },
+                "inputMode": "viewInputMode",
+                "graphEditHandler": "js/epPertEditService",
+                "moveWithoutSelection": true,
+                "enableAutoPan": true,
+                "enableMarqueeSelection": false,
+                "showOverview": true,
+                "enableObjectArrangement": true,
+                "snapToGridByAnchorPoint": false,
+                "showGrid": false,
+                "enableAlignment": false,
+                "isNetworkMode": false,
+                "dragAndDropHandler": "js/epPertGraphDragAndDropHandler",
+                "defaults": {
+                    "nodeSize": {
+                        "width": 250,
+                        "height": 106
+                    },
+                    "nodeStyle": {
+                        "templateId": "epPertNodeTemplate"
+                    },
+                    "edgeStyle": {
+                        "color": "rgb(46,46,46)",
+                        "dashStyle": "SOLID",
+                        "isHotSpotEdge": true,
+                        "targetArrow": {
+                            "arrowShape": "TRIANGLE",
+                            "fillInterior": true,
+                            "arrowScale": 1
+                        },
+                        "thickness": 1
+                    }
+                }
+            },
+            "nodeTemplates": {
+                "epPertNodeTemplate": {
+                    "templateUrl": "/html/epPertNodeTemplate.html",
+                    "textOverflow": "ELLIPSIS",
+                    "subTemplateIds": [
+                        "detailedNodeTemplate"
+                    ],
+                    "initialBindData": {}
+                }
+            },
+            "inputModes": {
+                "editingMode": {
+                    "editMode": true,
+                    "creatableItem": "Edge",
+                    "defaultCursor": "default"
+                },
+                "viewInputMode": {
+                    "editMode": false,
+                    "enableManualEdgeRouting": true,
+                    "enableNodeResize": false,
+                    "enableLabelEdit": false,
+                    "dragableCursorUrl": "cursor/openhand.cur",
+                    "draggingCursorUrl": "cursor/closedhand.cur"
+                }
+            }
+        },
+        "messages": {
+            "missingProcessElements": [ {
+                "text": "{{i18n.missingProcessElements}}"
+            } ]
+        }
+    },
+    "actions": {
+        "loadPertData": {
+            "actionType": "JSFunction",
+            "method": "loadPertData",
+            "inputData": {
+                "graphModel": "{{data.graphModel}}",
+                "subPanelContext": "{{subPanelContext}}"
+            },
+            "deps": "js/epPertGraphDataProviderService"
+        },
+        "createPertDataForObjects": {
+            "actionType": "JSFunction",
+            "method": "createPertDataForObjects",
+            "inputData": {
+                "eventData": "{{data.eventData}}",
+                "graphModel": "{{data.graphModel}}"
+            },
+            "deps": "js/epPertEditService"
+        },
+        "selectRecentPertNode": {
+            "actionType": "JSFunction",
+            "method": "selectRecentPertNode",
+            "inputData": {
+                "data": "{{data.eventMap['awGraph.itemsAdded']}}",
+                "graphModel": "{{data.graphModel}}"
+            },
+            "deps": "js/epPertEditService"
+        },
+        "reDrawGraph": {
+            "actionType": "JSFunction",
+            "method": "removeNodes",
+            "inputData": {
+                "eventData": "{{data.eventMap['ep.deleteEvents']}}",
+                "graphModel": "{{data.graphModel}}",
+                "tabContext": "{{subPanelContext}}"
+            },
+            "deps": "js/epPertEditService"
+        },
+        "updateSelectionInCommandContext": {
+            "actionType": "JSFunction",
+            "method": "setPertNodesSelection",
+            "inputData": {
+                "graphModel": "{{data.graphModel}}",
+                "tabContext": "{{subPanelContext}}"
+            },
+            "outputData": {
+                "selectedPertNodes": ""
+            },
+            "deps": "js/epPertEditService"
+        },
+        "showOpenCommandOnHover": {
+            "actionType": "JSFunction",
+            "method": "showOpenCommandOnHover",
+            "inputData": {
+                "hoveredItem": "{{data.eventMap['awGraph.hoverChanged'].hoveredItem}}",
+                "unHoveredItem": "{{data.eventMap['awGraph.hoverChanged'].unHoveredItem}}",
+                "graphModel": "{{data.graphModel}}"
+            },
+            "deps": "js/epPertGraphDataProviderService"
+        },
+        "updateSelectionPort": {
+            "actionType": "Sync",
+            "parameters": {
+                "selectedNodeForFilesTab": "{{actionData.selectedNodeForFilesTab}}"
+            },
+            "inputData": {
+                "port": "epPert_singleSelection",
+                "syncObject": "{{parameters.selectedNodeForFilesTab}}"
+            }
+        },
+        "updateSelectionInContextAndPort": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "updateSelectionInCommandContext",
+                    "outputArg": [
+                        "selectedNodeForFilesTab"
+                    ]
+                },
+                {
+                    "action": "updateSelectionPort",
+                    "inputArg": {
+                        "selectedNodeForFilesTab": "{{actionData.selectedNodeForFilesTab}}"
+                    }
+                }
+            ]
+        },
+        "moveGraphItems": {
+            "actionType": "JSFunction",
+            "method": "moveGraphItems",
+            "inputData": {
+                "items": "{{data.eventMap['awGraph.graphItemsMoved'].items}}",
+                "graphModel": "{{data.graphModel}}"
+            },
+            "deps": "js/epPertEditService"
+        },
+        "updateNodeBindData": {
+            "actionType": "JSFunction",
+            "method": "updateNodeBindData",
+            "inputData": {
+                "modelObjects": "{{data.eventMap['mfe.updated'].modelObjects}}",
+                "graphModel": "{{data.graphModel}}"
+            },
+            "deps": "js/epPertEditService"
+        },
+        "updateNodeBindDataForWorkflow": {
+            "actionType": "JSFunction",
+            "method": "updateNodeBindData",
+            "inputData": {
+                "modelObjects": "{{data.eventMap['epViewModelObject.updated'].affectedVmos}}",
+                "graphModel": "{{data.graphModel}}"
+            },
+            "deps": "js/epPertEditService"
+        },
+        "removeNodesInGraphDataModel": {
+            "actionType": "JSFunction",
+            "method": "removeNodesAfterSync",
+            "inputData": {
+                "graphModel": "{{data.graphModel}}"
+            },
+            "deps": "js/epPertEditService"
+        },
+        "updateGrapghAfterSync": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "removeNodesInGraphDataModel",
+                    "condition": "conditions.isRemoveObsoleteOnSyncTwin"
+                },
+                {
+                    "action": "loadPertData"
+                }
+            ]
+        },
+        "showMfePertToggleModePopup": {
+            "actionType": "JSFunction",
+            "method": "show",
+            "inputData": {
+                "data": {
+                    "declView": "pertToggle",
+                    "options": {
+                        "reference": "idForMfeTogglePopup",
+                        "customClass": "aw-mfePert-togglePopupMargin",
+                        "isModal": false,
+                        "width": 64,
+                        "height": 32,
+                        "disableClose": true,
+                        "placement": "top-start",
+                        "forceCloseOthers":false
+                    }
+                }
+            },
+            "deps": "js/popupService"
+        },
+        "registerReload": {
+            "actionType": "JSFunction",
+            "method": "registerReloadInput",
+            "inputData": {
+                "name":"epPert",
+                "type": "Pert",
+                "object": "{{ctx.ep.scopeObject}}",
+                "propertiesToReload": [ "bl_rev_fnd0InProcess",
+                    "bl_rev_last_release_status",
+                    "bl_rev_fnd0AllWorkflows"
+                ]
+            },
+            "deps": "js/epReloadService"
+        },
+        "unRegisterReload": {
+            "actionType": "JSFunction",
+            "method": "unregisterReloadInput",
+            "inputData": {
+                "name":"epPert"
+            },
+            "deps": "js/epReloadService"
+        },
+        "updateVmoToWorkflow": {
+            "actionType": "JSFunction",
+            "method": "updateVmosToWorkflow",
+            "inputData": {
+                "vmo": "{{data.eventMap['epViewModelObject.updated'].affectedVmos}}"
+            },
+            "deps": "js/epWorkflowIndicationService"
+        },
+        "destroy": {
+            "actionType": "JSFunction",
+            "method": "destroy",
+            "deps": "js/epViewModelObjectService"
+        },
+        "init": {
+            "actionType": "JSFunction",
+            "method": "init",
+            "deps": "js/epViewModelObjectService"
+        },
+        "destroyOnUnmount": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "unRegisterReload"
+                },
+                {
+                    "action": "destroy"
+                }
+            ]
+        }
+    },
+    "onEvent": [ {
+            "eventId": "awGraph.initialized",
+            "action": "loadPertData"
+        },
+        {
+            "eventId": "ep.saveEvents",
+            "action": "createPertDataForObjects",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ep.deleteEvents",
+            "action": "reDrawGraph",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "awGraph.itemsAdded",
+            "action": "selectRecentPertNode",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "awGraph.hoverChanged",
+            "action": "showOpenCommandOnHover",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "awGraph.selectionChanged",
+            "action": "updateSelectionInContextAndPort",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "awGraph.graphItemsMoved",
+            "action": "moveGraphItems",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "mfe.updated",
+            "action": "updateNodeBindData",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "epViewModelObject.updated",
+            "action": "updateNodeBindDataForWorkflow",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "awGraph.itemsRemoved",
+            "action": "updateSelectionInContextAndPort"
+        },
+        {
+            "eventId": "awGraph.initialized",
+            "action": "showMfePertToggleModePopup",
+            "condition": "!(ctx.mfgReadOnlyMode && ctx.mfgReadOnlyMode.readOnlyMode)"
+        },
+        {
+            "eventId": "ep.syncSuccess",
+            "action": "updateGrapghAfterSync"
+        },
+        {
+            "eventId": "epPert.contentUnloaded",
+            "action": "destroyOnUnmount"
+        }
+    ],
+    "i18n": {
+        "missingProcessElements": [
+            "PertMessages"
+        ]
+    },
+    "conditions": {
+        "noProcessArea": {
+            "expression": {
+                "$source": "ctx.ep.scopeObject.props.Mfg0sub_elements.dbValues.length",
+                "$query": {
+                    "$eq": 0
+                }
+            }
+        },
+        "isReadOnlyModeActive": {
+            "expression": {
+                "$and": [ {
+                        "$source": "ctx.mfgReadOnlyMode",
+                        "$query": {
+                            "$notNull": true
+                        }
+                    },
+                    {
+                        "$source": "ctx.mfgReadOnlyMode.readOnlyMode",
+                        "$query": {
+                            "$eq": true
+                        }
+                    }
+                ]
+            }
+        },
+        "isSingleSelection": {
+            "expression": {
+                "$source": "response.actionData.selectedNodeForFilesTab.length",
+                "$query": {
+                    "$eq": 1
+                }
+            }
+        },
+        "isNotSingleSelection": {
+            "expression": {
+                "$or": [ {
+                        "$source": "response.actionData.selectedNodeForFilesTab.length",
+                        "$query": {
+                            "$gt": 1
+                        }
+                    },
+                    {
+                        "$source": "response.actionData.selectedNodeForFilesTab.length",
+                        "$query": {
+                            "$lt": 1
+                        }
+                    }
+                ]
+            }
+        },
+        "isRemoveObsoleteOnSyncTwin": {
+            "expression": {
+                "$source": "ctx.preferences.EP_RemoveObsoleteOnSyncTwin",
+                "$query": {
+                    "$eq": true
+                }
+            }
+        }
+
+    },
+    "lifecycleHooks": {
+        "onMount": "registerReload",
+        "onInit" : "init"
+    }
+}

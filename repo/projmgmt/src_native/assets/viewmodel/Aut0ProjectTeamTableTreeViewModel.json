@@ -1,0 +1,281 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-toolbar.directive",
+        "js/aw-row.directive"
+    ],
+    "actions": {
+        "showEditabilty": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2020-01-ProjectLevelSecurity",
+            "method": "getPrivilegeInProjects",
+            "inputData": {
+                    "projects": [{
+                        "type": "{{ctx.xrtSummaryContextObject.type}}",
+                        "uid": "{{ctx.xrtSummaryContextObject.uid}}"
+                    }]
+            },
+            "outputData": {
+                "projectPrivilege": ""
+            }
+        },
+        "loadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2020-01-ProjectLevelSecurity",
+            "method": "getFirstLevelProjectTeamStructure",
+            "inputData": {
+                "input": {
+                    "project": {
+                        "type": "{{ctx.xrtSummaryContextObject.type}}",
+                        "uid": "{{ctx.xrtSummaryContextObject.uid}}"
+                    },
+                    "startIndex": 0,
+                    "pageSize": 100,
+                    "quickLoad": false
+                }
+            },
+            "outputData": {
+                "treeLoadResult": "{{function:loadRootNode}}",
+                "ctx.project": "{{ctx.selected}}"
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "showEditable.Projects"
+                    }
+                ]
+            },
+            "deps": "js/showProjectTeamTableTree"
+        },
+        "loadTreeTableChildData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2020-01-ProjectLevelSecurity",
+            "method": "getProjectTeamChildNodes",
+            "inputData": {
+                "project": {
+                    "type": "{{ctx.xrtSummaryContextObject.type}}",
+                    "uid": "{{ctx.xrtSummaryContextObject.uid}}"
+                },
+                "node": "{{function:inputNodeForChild}}",
+                "depth": 1
+            },
+            "policy":
+             {
+                "types": [{
+                    "name": "POM_member",
+                    "properties": [{
+                        "modifiers": [{
+                            "Value": "true",
+                            "name": "withProperties"
+                        }],
+                        "name": "user"
+                    }]
+                },{
+                    "name": "GroupMember",
+                    "properties": [
+                        {
+                            "name": "status"
+                        }                            
+                    ]
+                },{
+                    "name": "User",
+                    "properties": [
+                        {
+                            "name": "status"
+                        }                            
+                    ]
+                },{
+                    "name": "Role",
+                    "properties": [{
+                        "name": "role_name"
+                    }]
+                }, {
+                    "name": "Group",
+                    "properties": [{
+                        "name": "name"
+                    }]
+                }, {
+                    "name": "TC_Project",
+                    "properties": [{
+                        "name": "project_id"
+                    },{
+                        "name": "project_name"
+                    },{
+                        "name": "last_mod_date"
+                    },{
+                        "name": "creation_date"
+                    },{
+                        "name": "owning_user"
+                    }]
+                }]
+             },
+            "outputData": {
+                "treeLoadResult": "{{function:loadChildNodes}}"
+            },
+            "deps": "js/showProjectTeamTableTree"
+        },
+        "updateMembers": {
+            "actionType": "JSFunction",
+            "method": "removeSelectedMembers",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.exampleDataProvider}}",
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/updateProjectMembersDetails"
+        },
+        "setPrivilegeStatus": {
+            "actionType": "JSFunction",
+            "method": "setPrivilegeStatus",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.exampleDataProvider}}",
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/updateProjectMembersDetails"
+        },
+        "setNonPrivilegeStatus": {
+            "actionType": "JSFunction",
+            "method": "setNonPrivilegeStatus",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.exampleDataProvider}}",
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/updateProjectMembersDetails"
+        },
+        "setProjectTeamAdmin": {
+            "actionType": "JSFunction",
+            "method": "setProjectTeamAdmin",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.exampleDataProvider}}",
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/updateProjectMembersDetails"
+        },
+        "projectTeamPropertyActionJS": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadPropertiesJS",
+            "inputData": {
+                "dataProvider": "{{data}}",
+                "propertyLoadInput": "request.propertyLoadInput"
+            },
+            "outputData": {},
+            "deps": "js/showProjectTeamTableTree"
+        }
+    },
+    "data": {},
+    "dataProviders": {
+        "exampleDataProvider": {
+            "action": "loadData",
+            "initializeAction": "loadData",
+            "nextAction": "loadTreeTableChildData",
+            "treeLoadResult": "{{data.treeLoadResult}}",
+            "inputData": {
+                "accessMode": "tree",
+                "topNodeUid" : "top"
+            },
+            "selectionModelMode": "multiple"
+        },
+        "projectTeamPropertyProvider": {
+            "action": "projectTeamPropertyActionJS",
+            "propertyLoadResult": "action.result.propertyLoadResult"
+        }
+    },
+    "columnProviders": {
+        "exampleColumnProvider": {
+            "columns": [
+                {
+                    "name": "object_name",
+                    "displayName": "{{i18n.ProjectMemberName}}",
+                    "minWidth": 250,
+                    "width": 350,
+                    "isTreeNavigation": true,
+                    "enableColumnMenu": false
+                },
+                {
+                    "name": "status",
+                    "displayName": "{{i18n.ProjectMemberStatus}}",
+                    "minWidth": 150,
+                    "width": 150,
+                    "enableColumnMenu": false
+                }
+            ],
+            "frozenColumnIndex": -1
+        }
+    },
+    "grids": {
+        "ProjectTeamTreeGrid": {
+            "dataProvider": "exampleDataProvider",
+            "columnProvider": "exampleColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enableGridMenu": false,
+                "enablePinning": false,
+                "enableSorting": false
+            }
+        }
+    },
+    "i18n": {
+        "NonPrivilegedKey": [
+            "ProjmgmtConstants"
+        ],
+        "PrivilegedKey": [
+            "ProjmgmtConstants"
+        ],
+        "TeamAdminKey": [
+            "ProjmgmtConstants"
+        ],
+        "ProjectAdminKey": [
+            "ProjmgmtConstants"
+        ],
+        "ProjectMemberStatus":[
+            "ProjmgmtConstants"
+        ],
+        "ProjectMemberName":[
+            "ProjmgmtConstants"
+        ]
+    },
+    "onEvent": [
+        {
+            "eventId": "removeGroupAndGroupMembers",
+            "action": "updateMembers"
+        },
+        {
+            "eventId": "proj.setNonPrivilegeStatus",
+            "action": "setNonPrivilegeStatus"
+        },
+        {
+            "eventId": "proj.setPrivilegeStatus",
+            "action": "setPrivilegeStatus"
+        },
+        {
+            "eventId": "proj.setProjectTeamAdmin",
+            "action": "setProjectTeamAdmin"
+        },
+        {
+            "eventId": "showEditable.Projects",
+            "action": "showEditabilty"
+        }
+    ],
+    "functions": {
+        "loadRootNode": {
+            "functionName": "loadRootNode",
+            "parameters": [
+                "{{data.treeLoadInput}}"
+            ]
+        },
+        "loadChildNodes": {
+            "functionName": "loadChildNodes",
+            "parameters": [
+                "{{data.treeLoadInput}}"
+            ]
+        },
+        "inputNodeForChild": {
+            "functionName": "inputNodeForChild",
+            "parameters": [
+                "{{data.treeLoadInput}}"
+            ]
+        }
+    }
+}

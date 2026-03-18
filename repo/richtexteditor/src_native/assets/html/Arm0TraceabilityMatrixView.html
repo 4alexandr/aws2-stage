@@ -1,0 +1,23 @@
+<aw-panel>
+    <div>
+        {{data.matrixType}}
+    </div>
+    <div class="aw-layout-workareaCommandbar aw-relationshipmatrix-commandBarIcon">
+        <aw-toolbar first-anchor="aw_relationshipMatrixViewer" second-anchor="aw_toolbarRight" orientation="HORIZONTAL"></aw-toolbar>
+    </div>
+    <aw-flex-row height="100%">
+        <aw-flex-column width="12">
+            <aw-flex-row height="24">
+                <div id='aw-traceability-matrix-widget' class="aw-richtexteditor-tracelinkDashboard filter-panel">
+                    <div id='matrix_container' ></div>
+                </div>
+            </aw-flex-row>
+            <aw-separator  exist-when="data.totalFound > 0"></aw-separator>
+            <aw-flex-row height="{{data.totalFound > 3  ? '48f' : '12f'}}" exist-when="data.totalFound > 0">
+            <div exist-when="data.totalFound > 0" class="aw-layout-row">
+                <aw-splm-table exist-when="data.totalFound > 0" gridid="traceMatrixCellPropTable" aw-scrollpanel=""></aw-splm-table>                
+            </div>
+        </aw-flex-row>
+        </aw-flex-column>
+    </aw-flex-row>
+</aw-panel>

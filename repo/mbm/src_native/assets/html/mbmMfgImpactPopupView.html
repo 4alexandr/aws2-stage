@@ -1,0 +1,32 @@
+<aw-popup2>
+    <aw-panel-body>
+        <aw-flex-row height="12">
+            <aw-flex-column offset="1f">
+                <aw-flex-row height="6.1f" offset-bottom="1f" offset="1f">
+                    <aw-flex-row>
+                        <aw-include name="largeHeaderTitle" sub-panel-context="data.headerConfig"></aw-include>
+                    </aw-flex-row>
+                    <aw-flex-column justify="top" align-content="end"  width="0.5" offset-right="1f">
+                        <aw-command-bar anchor="mfgImpactPopupCloseCmdAnchor" alignment="HORIZONTAL"></aw-command-bar>
+                    </aw-flex-column>
+                </aw-flex-row>
+                <aw-flex-column offset-right="1f">
+                    <aw-advanced-bar type="TOOLBAR" >
+                        <aw-flex-row height="3.4f" align-content="center"  justify="space-between">
+                            <!--Title-->
+                            <aw-flex-row class="aw-mbm-toolbarTitle"><aw-i18n>i18n.mbmCnPopupToolbarTitle</aw-i18n></aw-flex-row>
+                            <!--Left command-->
+                            <aw-flex-row justify="left" align-content="center">
+                            </aw-flex-row>
+                            <!--Right command-->
+                            <aw-flex-row justify="right">
+                                <aw-command-bar anchor="mbmAssociateCNCmdAnchor" context="data" show-command-labels="true" alignment="HORIZONTAL"></aw-command-bar>
+                            </aw-flex-row>
+                        </aw-flex-row>
+                    </aw-advanced-bar>
+                    <aw-splm-table gridid="impactedWpTable"></aw-splm-table>
+                </aw-flex-column>
+            </aw-flex-column>
+        </aw-flex-row>
+    </aw-panel-body>
+</aw-popup2>

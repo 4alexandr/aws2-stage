@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "Copier",
+    "copyObjectToClipboard": "{0} a été copié vers le presse-papiers.",
+    "copySingleSuccessful": "\"{0}\" a été copié vers le presse-papiers.",
+    "copyMultipleSuccessful": "{0} sélections ont été copiées vers le presse-papiers."
+}

@@ -1,0 +1,25 @@
+<div class="aw-social-ratingsAlign">
+    <div class="aw-social-cellColumn1">
+        <!-- Cell list image -->
+        <div class="aw-widgets-cellListCellImage">
+            <aw-model-icon vmo="vmo"></aw-model-icon>
+        </div>
+    </div>
+    <div class="aw-social-cellColumn2">
+        <!-- Cell list content -->
+        <div class=" aw-social-cell aw-widgets-cellListCell">
+            <div class="aw-social-cellHeader aw-widgets-cellListCellTitleBlock">
+                <div ng-if="vmo.type === 'S2clScalarRating'" class="aw-social-ratingCell">
+                    <aw-social-ratings ng-if="vmo.type === 'S2clScalarRating'" ratings='vmo.props.s2clRatingValue.dbValue' is-editable="false"></aw-social-ratings>
+                </div>
+                <label ng-if="vmo.type != 'S2clScalarRating'" class="aw-widgets-cellListCellItemType aw-base-small" title="{{vmo.cellHeader2}}">{{vmo.cellHeader2}}</label>
+                <label ng-if="vmo.type === 'S2clScalarRating'" class="aw-widgets-cellListCellItemType aw-base-small" title="{{vmo.props.owning_user.uiValue}}">{{vmo.props.owning_user.uiValue}}</label>
+            </div>
+            <div class="aw-social-cellText" ng-style="{'display' :'block' }">
+                <div aw-parse-html="" ng-if="vmo.type === 'S2clScalarRating'" display-val="vmo.props.s2clCommentRichText.value" is-rich-text="true"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

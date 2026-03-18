@@ -1,0 +1,15 @@
+{
+    "schemaVersion": "1.0.0", 
+    "imports":[],
+    "dataProviders": {},
+    "i18n": {},
+    "actions": {},
+    "onEvent": [],
+    "data" : {},
+    "messages": {},
+    "conditions": {},
+    "grids": {},
+    "dataParseDefinitions": {},
+    "functions": {},
+    "columnProviders": {}
+}

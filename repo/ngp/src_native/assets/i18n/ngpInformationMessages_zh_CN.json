@@ -1,0 +1,13 @@
+{
+    "editSelectedItem": "编辑所选零组件",
+    "overview": "概述",
+    "attachments": "附件",
+    "attributeGroups": "属性组",
+    "forms": "表单",
+    "attachFile": "附加文件",
+    "createAgs": "创建属性组",
+    "downloadAttachment": "下载",
+    "cannotDeleteAGMessage": "您无权删除属性组 \"{0}\"。\n要将其移除而不删除吗？",
+    "cancel": "取消",
+    "remove": "移除"
+}

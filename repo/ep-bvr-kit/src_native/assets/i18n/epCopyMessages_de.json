@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "Kopieren",
+    "copyObjectToClipboard": "{0} wurde in die Zwischenablage kopiert.",
+    "copySingleSuccessful": "\"{0}\" wurde in die Zwischenablage kopiert.",
+    "copyMultipleSuccessful": "{0} Auswahlen wurden in die Zwischenablage kopiert."
+}

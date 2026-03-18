@@ -1,0 +1,25 @@
+ {
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-label.directive",
+        "js/aw-parse-html.directive"
+    ],
+
+
+    "data":
+    {
+        "richText":
+        {
+            "displayName": "{{ctx.locationContext.modelObject.props.s2clCommentRichText.propertyDescriptor.displayName}}",
+            "dbValue": "",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "false"
+        }
+    }
+
+
+ }
+
+

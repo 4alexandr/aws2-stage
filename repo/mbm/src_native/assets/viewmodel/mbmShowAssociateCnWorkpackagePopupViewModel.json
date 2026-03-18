@@ -1,0 +1,354 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/exist-when.directive",
+        "js/enable-when.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-i18n.directive",
+        "js/aw-radiobutton.directive",
+        "js/aw-widget.directive",
+        "js/aw-button.directive",
+        "js/aw-guidance-message.directive",
+        "js/aw-break.directive"
+    ],
+
+    "data":{
+        "mbmAssociateCnWorkpackageOpenDesc":{
+            "text":"{{i18n.mbmAssociateCnWpPopupDesc}}",
+            "params":["{{subPanelContext.workPackage.props.object_name.uiValues[0]}}"]
+        },
+
+        "mbmOpenWithCnOption":{
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "mbmOpenWithCnOption",
+            "vertical": true
+        },
+        "mbmOpenWithoutCnOption":{
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "vertical": true
+        },
+        "mbmOpenWithCnOptionValues": {
+            "type": "STRING",
+            "dbValue": [
+                {
+                    "propDisplayValue": "{{i18n.mbmWpTrackOptionText}}",
+                    "propInternalValue": "mbmOpenWithCnOption"
+                }
+            ]
+        },
+        "mbmOpenWithoutCnOptionValues": {
+            "type": "STRING",
+            "dbValue": [
+                {
+                    "propDisplayValue": "{{i18n.mbmWpWithoutTrackOptionText}}",
+                    "propInternalValue": "mbmOpenWithoutCnOption"
+                }
+            ]
+        },
+        "mbmCnListBox": {
+            "type": "STRING",
+            "isRequired": "true",
+            "dataProvider":"mbmCnListBoxDataProvider",
+            "propertyLabelDisplay": "NO_PROPERTY_LABEL"
+
+        }
+    },
+    "dataProviders":{
+        "mbmCnListBoxDataProvider":{
+            "response": "{{subPanelContext.associatedCnObjects}}"
+        }
+    },
+    "actions":{
+        "mbmOpenWithCnOptionSelection":{
+            "actionType":"JSFunction",
+            "method":"mbmOpenWithCnOptionSelection",
+            "inputData":{
+                "selectedOption":"{{data.mbmOpenWithCnOption}}",
+                "unSelectedOption":"{{data.mbmOpenWithoutCnOption}}"
+            },
+            "outputData": {
+                "mbmSelectedOption":""
+            },
+            "deps":"js/openWPService"
+
+        },
+        "mbmOpenWithoutCnOptionSelection":{
+            "actionType":"JSFunction",
+            "method":"mbmOpenWithoutCnOptionSelection",
+            "inputData":{
+                "selectedOption":"{{data.mbmOpenWithoutCnOption}}",
+                "unSelectedOption":"{{data.mbmOpenWithCnOption}}"
+            },
+            "outputData": {
+                "mbmSelectedOption":""
+            },
+            "deps":"js/openWPService"
+
+        },
+        "prepareAssociatedCnOptions":{
+            "actionType":"JSFunction",
+            "method":"prepareAssociatedCnOptions",
+            "inputData":{
+                "wpInfo":"{{subPanelContext}}"
+            },
+            "outputData": {
+                "mbmOptionsDataPreapred":""
+            },
+            "deps":"js/openWPService"
+        },
+        "mbmCancelPopup":{
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+        "mbmProcessNavigation":{
+            "actionType": "JSFunction",
+            "method": "processNavigation",
+            "inputData": {
+                "workPackage":"{{subPanelContext.workPackage}}",
+                "selectedCN":"{{data.mbmCnListBox.selectedLovEntries[0]}}",
+                "navigationType":"{{subPanelContext.navigationType}}"
+            },
+            "outputData": {
+                "workPackageInfo":""
+            },
+            "events":{
+                "success":[
+                    {
+                        "name": "mbm.processNavigateWorkPackageWithoutChangeNoticePopupEvent",
+                        "condition":"data.mbmSelectedOption==='mbmOpenWithoutCnOption'"
+                    },
+                    {
+                        "name": "mbm.mbmActivateSelectedChangeNoticePopupEvent",
+                        "condition":"data.mbmSelectedOption==='mbmOpenWithCnOption' && data.workPackageInfo.selectedCN.props.is_modifiable.dbValues[0] === '1'"
+                    },
+                    {
+                        "name": "mbm.activateSelectedChangeNoticeSuccessEvent",
+                        "condition":"data.mbmSelectedOption==='mbmOpenWithCnOption' && data.workPackageInfo.selectedCN.props.is_modifiable.dbValues[0] === '0'"
+                    }
+                ]
+            },
+            "deps":"js/openWPService"
+        },
+
+        "mbmActivateSelectedChangeNotice":{
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-09-DataManagement",
+            "method": "setProperties",
+            "inputData": {
+                "info": [
+                    {
+                        "object": "{{ctx.userSession}}",
+                        "timestamp": "",
+                        "vecNameVal": [
+                            {
+                                "name": "cm0GlobalChangeContext",
+                                "values": [
+                                    "{{data.workPackageInfo.selectedCN.uid}}"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "mbm.activateSelectedChangeNoticeSuccessEvent"
+                    }
+                ]
+            }
+        },
+        "mbmProcessNavigateWorkPackageWithoutChangeNotice":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "mbm.navigateToMbmAlignmentPagePopupEvent",
+                        "condition":"data.workPackageInfo.navigationType==='_self'"
+                    },
+                    {
+                        "name": "mbm.navigateToMbmAlignmentNewTabPopupEvent",
+                        "condition":"data.workPackageInfo.navigationType==='newTab'"
+                    },
+                    {
+                        "name": "mbm.navigateToMbmAlignmentNewWindowPopupEvent",
+                        "condition":"data.workPackageInfo.navigationType==='newWindow'"
+                    },
+                    {
+                        "name":"mbm.associatedCnWpOpenPopupCloseEvent"
+                    }
+                ]
+            }
+        },
+
+        "mbmProcessNavigateWorkPackageWithSelectedChangeNotice":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "mbm.navigateWithCnToAlignEbomMbomPagePopupEvent",
+                        "condition":"data.workPackageInfo.navigationType==='_self'"
+                    },
+                    {
+                        "name": "mbm.navigateWithCnToAlignEbomMbomPageInNewTabPopupEvent",
+                        "condition":"data.workPackageInfo.navigationType==='newTab'"
+                    },
+                    {
+                        "name": "mbm.navigateWithCnToAlignEbomMbomPageInNewWindowPopupEvent",
+                        "condition":"data.workPackageInfo.navigationType==='newWindow'"
+                    },
+                    {
+                        "name":"mbm.associatedCnWpOpenPopupCloseEvent"
+                    }
+                ]
+            }
+        },
+        "mbmNavigateToMbmAlignmentPage":{
+            "actionType": "Navigate",
+            "navigateTo": "multiBOMManager",
+            "navigationParams": {
+                "cc_uid": "{{data.workPackageInfo.workPackage.uid}}"
+            }
+        },
+        "mbmNavigateToAlignEbomMbomPageInNewTab": {
+            "actionType": "Navigate",
+            "navigateTo": "multiBOMManager",
+            "navigationParams": {
+                "cc_uid": "{{data.workPackageInfo.workPackage.uid}}"
+            },
+            "navigateIn": "newTab"
+        },
+        "mbmNavigateToAlignEbomMbomPageInNewWindow": {
+            "actionType": "Navigate",
+            "navigateTo": "multiBOMManager",
+            "navigationParams": {
+                "cc_uid": "{{data.workPackageInfo.workPackage.uid}}"
+            },
+            "navigateIn": "newWindow"
+        },
+        "mbmNavigateWithCnToAlignEbomMbomPage": {
+            "actionType": "Navigate",
+            "navigateTo": "multiBOMManager",
+            "navigationParams": {
+                "cc_uid": "{{data.workPackageInfo.workPackage.uid}}",
+                "cn_uid": "{{data.workPackageInfo.selectedCN.uid}}"
+            }
+        },
+        "mbmNavigateWithCnToAlignEbomMbomPageInNewTab": {
+            "actionType": "Navigate",
+            "navigateTo": "multiBOMManager",
+            "navigationParams": {
+                "cc_uid": "{{data.workPackageInfo.workPackage.uid}}",
+                "cn_uid": "{{data.workPackageInfo.selectedCN.uid}}"
+            },
+            "navigateIn": "newTab"
+        },
+        "mbmNavigateWithCnToAlignEbomMbomPageInNewWindow": {
+            "actionType": "Navigate",
+            "navigateTo": "multiBOMManager",
+            "navigationParams": {
+                "cc_uid": "{{data.workPackageInfo.workPackage.uid}}",
+                "cn_uid": "{{data.workPackageInfo.selectedCN.uid}}"
+            },
+            "navigateIn": "newWindow"
+        }
+    },
+    "messages":{
+        "mbmReadOnlyMessage":{
+            "messageType": "WARNING",
+            "messageText": "{{i18n.mbmReadOnlyChangeNotice}}"
+        }
+    },
+    "onEvent":[
+        {
+            "eventId": "awPanel.reveal",
+            "action": "prepareAssociatedCnOptions"
+        },
+        {
+            "eventId": "mbm.associatedCnWpOpenPopupCloseEvent",
+            "action": "mbmCancelPopup"
+        },
+        {
+            "eventId": "mbm.navigateToMbmAlignmentPagePopupEvent",
+            "action": "mbmNavigateToMbmAlignmentPage"
+        },
+        {
+            "eventId": "mbm.navigateToMbmAlignmentNewTabPopupEvent",
+            "action": "mbmNavigateToAlignEbomMbomPageInNewTab"
+        },
+        {
+            "eventId": "mbm.navigateToMbmAlignmentNewWindowPopupEvent",
+            "action": "mbmNavigateToAlignEbomMbomPageInNewWindow"
+        },
+        {
+            "eventId": "mbm.mbmActivateSelectedChangeNoticePopupEvent",
+            "action": "mbmActivateSelectedChangeNotice"
+        },
+        {
+            "eventId":"mbm.processNavigateWorkPackageWithoutChangeNoticePopupEvent",
+            "action":"mbmProcessNavigateWorkPackageWithoutChangeNotice"
+        },
+        {
+            "eventId": "mbm.activateSelectedChangeNoticeSuccessEvent",
+            "action": "mbmProcessNavigateWorkPackageWithSelectedChangeNotice"
+        },
+        {
+            "eventId": "mbm.navigateWithCnToAlignEbomMbomPagePopupEvent",
+            "action": "mbmNavigateWithCnToAlignEbomMbomPage"
+        },
+        {
+            "eventId": "mbm.navigateWithCnToAlignEbomMbomPageInNewTabPopupEvent",
+            "action": "mbmNavigateWithCnToAlignEbomMbomPageInNewTab"
+        },
+        {
+            "eventId": "mbm.navigateWithCnToAlignEbomMbomPageInNewWindowPopupEvent",
+            "action": "mbmNavigateWithCnToAlignEbomMbomPageInNewWindow"
+        }
+    ],
+
+    "conditions":{
+        "isDataPrepared":{
+            "expression":"data.mbmOptionsDataPreapred===true"
+        },
+
+        "isCnWithoutTrackOptionSelected":{
+            "expression":"data.mbmSelectedOption==='mbmOpenWithoutCnOption'"
+        },
+
+        "isCnWithTrackOptionSelected":{
+            "expression":"data.mbmSelectedOption==='mbmOpenWithCnOption'"
+        },
+
+        "isCnSelected":{
+            "expression":"conditions.isCnWithTrackOptionSelected && data.mbmCnListBox.selectedLovEntries.length > 0 && data.mbmCnListBox.selectedLovEntries[0].isEmptyEntry !== true"
+        },
+
+        "isSelectedCnReadOnly":{
+            "expression":"conditions.isCnSelected && data.mbmCnListBox.selectedLovEntries[0].props.is_modifiable.dbValues[0] === '0'"
+        }
+    },
+
+    "i18n": {
+        "mbmAssociateCnWpPopupDesc":["mbmMessages"],
+        "mbmWpTrackOptionText":["mbmMessages"],
+        "mbmWpWithoutTrackOptionText":["mbmMessages"],
+        "mbmContinue":["mbmMessages"],
+        "mbmCancel":["mbmMessages"],
+        "mbmReadOnlyChangeNotice":["mbmMessages"],
+        "mbmContinueWithoutTrackingButtonTitle":["mbmMessages"]
+    }
+}

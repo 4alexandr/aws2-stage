@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "复制",
+    "copyObjectToClipboard": "{0} 已复制到剪贴板。",
+    "copySingleSuccessful": "\"{0}\" 已复制到剪贴板。",
+    "copyMultipleSuccessful": "{0} 个选定对象已复制到剪贴板。"
+}

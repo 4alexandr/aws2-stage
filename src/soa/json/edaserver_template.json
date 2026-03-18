@@ -1,0 +1,2117 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "tc12000.1.0",
+      "description": "Interface Name for Business Object EDACCABaseRevision",
+      "libraryName": "eda",
+      "name": "EDACCABaseRevision",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "EDACCABaseRevision"
+    },
+    {
+      "createRelease": "P8000.0.0",
+      "description": "Interface Name for Business Object EDADerivedDataConfig",
+      "libraryName": "eda",
+      "name": "EDADerivedDataConfig",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "EDADerivedDataConfig"
+    },
+    {
+      "createRelease": "P8000.0.0",
+      "description": "Interface Name for Business Object EDADerivedDatasetConfigDef",
+      "libraryName": "eda",
+      "name": "EDADerivedDatasetConfigDef",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "EDADerivedDatasetConfigDef"
+    },
+    {
+      "createRelease": "P8000.0.0",
+      "description": "Interface Name for Business Object EDADerivedItemConfigDef",
+      "libraryName": "eda",
+      "name": "EDADerivedItemConfigDef",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "EDADerivedItemConfigDef"
+    },
+    {
+      "createRelease": "tc12000.2.0",
+      "description": "Interface Name for Business Object Eda0DesignInfo",
+      "libraryName": "eda",
+      "name": "Eda0DesignInfo",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Eda0DesignInfo"
+    },
+    {
+      "createRelease": "tc12000.4.0",
+      "description": "Interface Name for Business Object Eda0EDMDCollaboration",
+      "libraryName": "eda",
+      "name": "Eda0EDMDCollaboration",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Eda0EDMDCollaboration"
+    },
+    {
+      "createRelease": "tc12000.2.0",
+      "description": "Interface Name for Business Object Eda0HasDesignInfo",
+      "libraryName": "eda",
+      "name": "Eda0HasDesignInfo",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Eda0HasDesignInfo"
+    },
+    {
+      "createRelease": "tc12000.3.0",
+      "description": "Interface Name for Business Object Eda0HasRelatedIDX",
+      "libraryName": "eda",
+      "name": "Eda0HasRelatedIDX",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Eda0HasRelatedIDX"
+    },
+    {
+      "createRelease": "tc12000.2.0",
+      "description": "Interface Name for Business Object Eda0MentorDesignInfo",
+      "libraryName": "eda",
+      "name": "Eda0MentorDesignInfo",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Eda0MentorDesignInfo"
+    },
+    {
+      "createRelease": "tc12000.3.0",
+      "description": "Interface Name for Business Object ItemRevision",
+      "libraryName": "eda",
+      "name": "ItemRevision",
+      "namespace": "eda0::Teamcenter",
+      "primaryInterface": "false",
+      "typeName": "ItemRevision"
+    }
+  ],
+  "Date": "Fri Jun 05 04:01:57 PM 2020",
+  "Library": [
+    {
+      "DependentOn": [
+        {
+          "name": "eda"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This service library contains all the services which support the Teamcenter ECAD MCAD Collaboration solution.",
+      "isThirdParty": "false",
+      "name": "Eda0SoaEDMDCollab",
+      "namespace": "Eda0::Soa::EDMDCollab",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "EDA",
+      "isThirdParty": "false",
+      "name": "eda",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.3.0",
+      "dependencies": "",
+      "description": "This operation cancels the processing of an <b>Eda0IDXIncrement</b> object by the calling domain, during the ECAD MCAD Collaboration process.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.",
+      "exceptionCondition": "",
+      "id": "cancelProcessChange#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CancelProcessInput,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "cancelProcessChange",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Eda0::Soa::EDMDCollab::EDMDCollaboration::cancelProcessChange#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CancelProcessInput,&",
+      "returnDescription": "ServiceData containing partial errors, if the cancellation of processing was not successful in Teamcenter. No partial errors indicate a successful cancellation by the calling domain. The list of possible partial errors are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: The value provided for designUID/domainIdentifier is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249036: Unable to cancel process change because there is no IDX Increment in process by the calling domain.",
+      "useCase": "&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or the MCAD designer while working on the PCB design within the respective tool, imports an IDX Increment for review. The designer cancels the review, resulting in a call to this operation."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Input structure for the operation.",
+          "parameterName": "cancelPublishInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.3.0",
+      "dependencies": "",
+      "description": "This operation cancels the intent of publishing an <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> object to Teamcenter by ECAD or MCAD domain, during the ECAD MCAD Collaboration process. This cancellation ensures that any of the domains subsequently can again register the intent to publish the <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> objects to Teamcenter by calling EDMDCollaborationService.registerPublishIntent operation.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema.<b><br /><br />Eda0IDXBaseline</b> represents the IDX Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<b><br /><br />Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.",
+      "exceptionCondition": "",
+      "id": "cancelPublishIntent#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CancelPublishInput,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "cancelPublishIntent",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Eda0::Soa::EDMDCollab::EDMDCollaboration::cancelPublishIntent#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CancelPublishInput,&",
+      "returnDescription": "ServiceData containing partial errors, if the cancellation of publish intent was not successful in Teamcenter. No partial errors indicate a successful cancellation by the calling domain. The list of possible partial errors are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: Empty input value provided for designUID/domainIdentifier.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249031: The intent for publishing the IDX Object cannot be cancelled, as there is no publish intent registered by calling domain. Please call &ldquo;registerPublishIntent&rdquo; operation to register an intent to publish the IDX Object in Teamcenter.",
+      "useCase": "Use Case 1:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or the MCAD designer while working on the PCB design within the respective tool, cancels the export of IDX Baseline. This would trigger a call to this operation.<br /><br />Use Case 2:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or the MCAD designer while working on the PCB design within the respective tool, cancels the export of IDX Increment. This would trigger a call to this operation."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "This structure represents the input to the operation.",
+          "parameterName": "publishInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.4.0",
+      "dependencies": "",
+      "description": "This operation creates a new <b>Eda0IDX</b> business object in Teamcenter for a Design participating in an ECAD MCAD Collaboration. Optionally, it also allows creation of a package containing 3D Model files corresponding to Printed Circuit Board components contained within an <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b>.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of Eda0IDX business object.<br /><br /><b>Eda0IDX</b> represents any Teamcenter managed IDX object.<br /><br /><b>Eda0IDXBaseline</b> represents the IDX Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "exceptionCondition": "",
+      "id": "publishIDX2#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishInput2,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "publishIDX2",
+      "opTemplate": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishIDXResponse2#Eda0::Soa::EDMDCollab::EDMDCollaboration::publishIDX2#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishInput2,&",
+      "returnDescription": "The created <b>Eda0IDX</b> and optionally <b>Eda03DModelsPackage</b> objects. Any failures will be returned in the ServiceData as a list of partial errors.<br /><ul><ul><li type=\"disc\">249019: The input design is invalid.</li><li type=\"disc\">249005: The IDX object cannot be published. Please call the &quot;registerPublishIntent&quot; operation before publishing.</li><li type=\"disc\">249014: IDX Response cannot be published, because the IDX Increment is not downloaded for review. Please use &quot;getCollaborationData&quot; operation to download the IDX Increment for processing.</li><li type=\"disc\">249029: Input value cannot be empty. Please provide valid values for &quot;domainIdentifier&quot;, &quot;fileName&quot;, &quot;fileExtension&quot;, &quot;folderPath&quot;.</li><li type=\"disc\">249030: The value provided for &quot;idxObjectType&quot; is invalid. The valid values are &quot;<i>IDXBaseline</i>&quot;, &quot;<i>IDXIncrement</i>&quot; or &quot;<i>IDXResponse</i>&quot;.</li></ul></ul>",
+      "useCase": "Use Case 1:<br /><ul><ul><li type=\"disc\">ECAD or the MCAD designer while working on the PCB design, use the export IDX Baseline functionality within the respective tool, to create <b>Eda0IDXBaseline</b> object in Teamcenter. Optionally ECAD designer may also publish the Components 3D Model Package file along with <b>Eda0IDXBaseline</b>.</li><li type=\"disc\">The preceding <b>Eda0IDXBaseline</b> and any <b>Eda0IDXIncrement</b> business objects published by the calling domain, if existing, are marked as obsoleted in Teamcenter.</li></ul></ul><br /><br />Use Case 2:<br /><ul><ul><li type=\"disc\">ECAD or the MCAD designer while working on the PCB design, use the export IDX Increment functionality within the respective tool, to create a <b>Eda0IDXIncrement</b> object in Teamcenter. Optionally ECAD designer may also publish the Components 3D Model Package file along with <b>Eda0IDXIncrement</b>.</li></ul></ul><br /><br />Use Case 3:<br /><ul><ul><li type=\"disc\">ECAD or the MCAD designer while working on the PCB design in their respective tool, imports an IDX Increment for reviewing the changes.</li><li type=\"disc\">The designer reviews the changes contained within the IDX file, accepts or rejects each change and publishes an IDX Response to create an <b>Eda0IDXResponse</b> object in Teamcenter.</li></ul></ul>"
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "This structure represents the input to the operation.",
+          "parameterName": "registerIntentInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.3.0",
+      "dependencies": "",
+      "description": "This operation registers the intent of publishing an <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> object to Teamcenter by ECAD or MCAD domain, during the ECAD MCAD Collaboration process. This registration ensures that only the calling domain can publish the <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> objects to Teamcenter during the collaboration. If the intent to publish an <b>Eda0IDXBaseline</b> is successfully registered by one of the domains by calling this operation, the collaborating domain calling this operation would get a failure. If the intent to publish an <b>Eda0IDXIncrement</b> is successfully registered by one of the domains calling this operation, the collaborating domain calling this operation would get a success, as both domains can publish their respective <b>Eda0IDXIncrement</b> objects to Teamcenter, at the same time.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br /><b>Eda0IDXBaseline</b> represents the IDX Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.",
+      "exceptionCondition": "",
+      "id": "registerPublishIntent#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::RegisterIntentInput,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "registerPublishIntent",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Eda0::Soa::EDMDCollab::EDMDCollaboration::registerPublishIntent#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::RegisterIntentInput,&",
+      "returnDescription": "ServiceData containing partial errors or warnings, if any. No errors in ServiceData indicates that the operation is successful. The list of partial errors and warnings are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The intent for publishing IDX Object cannot be registered because design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249020: The intent for publishing IDX Object cannot be registered because intent is invalid. The valid values are &lsquo;IDXBaseline&rsquo; or &lsquo;IDXIncrement&rsquo;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249021: The intent for publishing IDX Object cannot be registered because no IDX Baseline is associated with the input design.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249022: The intent for publishing IDX Object cannot be registered because IDX Baseline is reserved by other domain.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249023: The intent for publishing IDX Object cannot be registered because the preceding IDX increment from the same domain is being processed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249024: The intent for publishing IDX Object cannot be registered because the preceding IDX increment from the same domain has an IDX response to be processed. Please download the IDX Response for processing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249025: The intent for publishing IDX Object cannot be registered because there is an unprocessed IDX Increment from other domain which is not processed yet. Please download the IDX Increment for processing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249026: The intent for publishing IDX Object registered successfully. However, there exists an IDX Increment published by your domain, which would be marked obsolete, if you proceed to publish the IDX object. Please cancel the registered intent if this is not intended.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249027: The intent for publishing IDX Object is already registered successfully. Please proceed to publish the IDX object.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249028: The intent for publishing IDX Increment registered successfully. However, the IDX Baseline is not downloaded by the collaborating domain. If you choose to publish a new IDX Baseline instead of an IDX Increment please cancel publish intent and subsequently call this operation with the &quot;IDXBaseline&quot; as the publish intent value.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: Empty input value provided for designUID/domainIdentifier/publishIntent.",
+      "useCase": "Use Case 1:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or the MCAD designer while working on the PCB design, open the export IDX Baseline Dialog within the respective tool. This would trigger a call to this operation.<br /><br />Use Case 2:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or the MCAD designer while working on the PCB design, open the export IDX Increment Dialog within the respective tool. This would trigger a call to this operation."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "This structure represents the input to the operation.",
+          "parameterName": "checkIDXInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.3.0",
+      "dependencies": "",
+      "description": "This operation checks, if there is an <b>Eda0IDX</b> object available in Teamcenter for the caller to process. The operation would checks for the input design <b>ItemRevision</b>, if there is an <b>Eda0IDXBaseline</b> to be downloaded, or an <b>Eda0IDXIncrement</b> to be reviewed or an<b> Eda0IDXResponse</b> to be processed.<br /><br /> <br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (Standard for the Exchange of Product model data) based neutral format that stores electromechanical data using an XML schema.<br /><br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of <b>Eda0IDX</b> business object.<br /><br /><br /><b>Eda0IDXBaseline</b> represents the Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "exceptionCondition": "",
+      "id": "checkIDXToProcess#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CheckIDXInput,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "checkIDXToProcess",
+      "opTemplate": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CheckIDXToProcessResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::checkIDXToProcess#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CheckIDXInput,&",
+      "returnDescription": "Returns a structure to indicate whether the collaboration associated with the input design has a published baseline or published increment or reviewed response for the current domain. Any failures will be returned with the client id mapped to error message in the ServiceData   list of partial errors:<br /><br />&middot;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&middot;&nbsp;&nbsp;&nbsp;&nbsp;249036: There is no collaboration session associated with the input design.<br />&middot;&nbsp;&nbsp;&nbsp;&nbsp;249037: Invalid domain is passed in the input as no such domain exists for the collaboration",
+      "useCase": "Use Case 1:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer published <b>Eda0IDXBaseline</b> to Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool queries to check if there is an <b>Eda0IDXBaseline</b> present to be downloaded from Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool shows a notification for MCAD designer to download the <b>Eda0IDXBaseline</b> from Teamcenter.<br /><br /><br /> Use Case 2:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer published <b>Eda0IDXIncrement</b> to Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool queries Teamcenter to check if there is an <b>Eda0IDXIncrement</b> to be reviewed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool shows a notification for MCAD designer to download the <b>Eda0IDXIncrement</b> from Teamcenter for review.<br /><br />  <br />Use Case 3:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer published <b>Eda0IDXResponse</b> to Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool queries Teamcenter to check if there is an <b>Eda0IDXResponse</b> to be processed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool shows a notification for MCAD designer to download the <b>Eda0IDXResponse</b> from Teamcenter for processing.<br /><br /> <br />Use Case 4:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer published <b>Eda0IDXBaseline</b> to Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer published <b>Eda0IDXIncrement</b> to Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool queries Teamcenter to check for any <b>Eda0IDX</b> available to be processed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool shows a notification for MCAD designer to download the <b>Eda0IDXBaseline</b> and <b>Eda0IDXIncrement</b> from Teamcenter for processing.<br /><br />Use Case 5:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer published <b>Eda0IDXIncrement</b> to Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD designer published <b>Eda0IDXIncrement</b> to Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer reviews the MCAD <b>Eda0IDXIncrement</b> and publishes an <b>Eda0IDXResponse</b>.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool queries Teamcenter to check for any <b>Eda0IDX</b> available to be processed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool shows a notification for MCAD designer to download the <b>Eda0IDXIncrement</b> for review and Eda0IDXResponse for processing, from Teamcenter."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "This structure represents the input to the operation.",
+          "parameterName": "createOrUpdateInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.4.0",
+      "dependencies": "",
+      "description": "ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB).<br /><br />This operation creates or updates an <b>Eda0EDMDCollaboration</b> business object in Teamcenter for an ECAD or MCAD Design <b>Item</b> <b>Revision</b>. <b>Eda0EDMDCollaboration</b> being associated with an ECAD or MCAD Design <b>Item</b> <b>Revision</b> represents that the Design <b>Item</b> <b>Revision</b> participates in an ECAD MCAD Collaboration.",
+      "exceptionCondition": "",
+      "id": "createOrUpdateCollaboration#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::CreateOrUpdateInput,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createOrUpdateCollaboration",
+      "opTemplate": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::CreateOrUpdateResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::createOrUpdateCollaboration#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::CreateOrUpdateInput,&",
+      "returnDescription": "The created or updated <b>Eda0EDMDCollaboration</b> object. Any failures will be returned with the client id mapped to error message in the ServiceData list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249040: Collaboration object to be updated is not found in Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249041: The object to be attached from Collaboration is not found in Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249042: The object to be detached from Collaboration is not found in Teamcenter.",
+      "useCase": "Use Case 1:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Project Leader opens an EDACCABaseRevision or Item Revision in Active Workspace representing the ECAD or MCAD design. <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Project Leader clicks a command to initiate the ECAD MCAD Collaboration.<br /><br />Use Case 2:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Project Leader opens an Eda0EDMDCollaboration object in Active Worskpace.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Project Leader clicks on the command to add designs to ECAD MCAD Collaboration.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Project Leader performs a Teamcenter search for ECAD or MCAD Design and adds it to the ECAD MCAD Collaboration.<br /><br />Use Case 3:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Project Leader opens an Eda0EDMDCollaboration object in Active Worskpace.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Project Leader is able to view the participating ECAD and MCAD design Item Revision and selects one of them.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Project Leader clicks a command to remove the selected design from the ECAD MCAD Collaboration."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "This structure represents the input to the operation.",
+          "parameterName": "deleteInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.3.0",
+      "dependencies": "",
+      "description": "This operation deletes an <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> from Teamcenter, for an input design participating in ECAD MCAD Collaboration.<br /><br />In the case of delete of an <b>Eda0IDXBaseline</b> using this operation, any change which was done to the preceding <b>Eda0IDXBaseline</b> and the associated <b>Eda0IDXIncrement</b> during the publish of the unintended <b>Eda0IDXBaseline</b>, is reverted.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (Standard for the Exchange of Product model data) based neutral format that stores electromechanical data using an XML schema.<br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of <b>Eda0IDX</b> business object.<br /><br /><b>Eda0IDXBaseline</b> represents the Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.",
+      "exceptionCondition": "",
+      "id": "deleteIDX#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::DeleteInput,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "deleteIDX",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Eda0::Soa::EDMDCollab::EDMDCollaboration::deleteIDX#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::DeleteInput,&",
+      "returnDescription": "ServiceData containing partial errors or warnings, if any. No errors in ServiceData indicates that the operation is successful. The list of partial errors and warnings are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: The value provided for designUID/domainIdentifier is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249038: The intent for deleting the IDX Object cannot be completed because there is no published IDX Baseline or IDX Increment which can be deleted by the calling domain.",
+      "useCase": "Use Case 1:<br /><br />* ECAD designer publishes an <b>Eda0IDXBaseline</b> by mistake.<br /><br />* ECAD designer deletes the unintended <b>Eda0IDXBaseline</b> by calling this operation.<br /><br />Use Case 2:<br /><br />* MCAD designer publishes an <b>Eda0IDXIncrement</b> by mistake.<br /><br />* MCAD designer deletes the unintended <b>Eda0IDXIncrement</b> by calling this operation."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The UID for the ECAD design <b>ItemRevision</b>.",
+          "parameterName": "designUID"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.4.0",
+      "dependencies": "",
+      "description": "ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB).<br /><br />This operation fetches 3D Models of PCB parent assembly BOM for an ECAD design <b>ItemRevision</b> participating in an ECAD MCAD Collaboration. This operation also fetches an assembly file which contains the placement coordinates of the 3D Models.",
+      "exceptionCondition": "",
+      "id": "getAssemblyContext3DModels#const,std::string,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getAssemblyContext3DModels",
+      "opTemplate": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetAssembly3DModelsResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::getAssemblyContext3DModels#const,std::string,&",
+      "returnDescription": "An FMS read ticket for the zip file containing the 3D Model part files and Assembly file.<br />Any failures will be returned in the ServiceData as list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019:  The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249039: The design is not participating in any collaboration.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249045: No 3D Model part files exist for the input design.",
+      "useCase": "&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer has made some changes to the ECAD Design <b>ItemRevision</b> in the tool.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer uses this operation to get the 3D Models and the Assembly File for the PCB parent assembly BOM context from the <b>Eda0EDMDCollaboration</b> in Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer validates the changes of the PCB using the Assembly File and the 3D Models.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD designer publishes the changes as <b>Eda0IDXIncrement</b> to Teamcenter."
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "getCollaborationData2 is introduced to support component 3D models download while downloading IDX object.",
+          "deprecatedRelease": "tc12000.4.0"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "This structure represents the input to the operation.",
+          "parameterName": "getCollaborationData"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.3.0",
+      "dependencies": "",
+      "description": "This operation gets the <b>Eda0IDX</b> and <b>ChangeItem</b> objects, for the input Teamcenter managed PCB Design <b>Item</b>, which participates in ECAD MCAD Collaboration.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the<b> E</b>xchange of<b> P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of <b>Eda0IDX</b> business object.<br /><br /><b>Eda0IDX</b> represents any Teamcenter managed IDX object.<br /><br /><b>Eda0IDXBaseline</b> represents the Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "exceptionCondition": "",
+      "id": "getCollaborationData#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::GetCollaborationInput,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getCollaborationData",
+      "opTemplate": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::GetCollaborationDataResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::getCollaborationData#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::GetCollaborationInput,&",
+      "returnDescription": "Contains the objects associated with the input design participating in ECAD MCAD Collaboration, as per the inputs for the operation. Any failures will be returned with the client id mapped to error message in the ServiceData list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: The value provided for IDX Object is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249031: The Object Type is invalid. The valid values are &quot;Eda0IDXBaseline&quot;, &quot;Eda0IDXIncrement&quot;, &quot;Eda0IDXResponse&quot; or &quot;ChangeItem&quot;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249032: The filter criteria is invalid. The valid values are &quot;includeObsolete&quot;, &quot;includePendingReview&quot; or an empty string.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249033: The IDX data cannot be returned because there exists more than one IDX Baseline for the state.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249034: The IDX data cannot be returned because there exists more than one IDX Increment for the state.",
+      "useCase": "Use Case 1:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD Designer working in respective tools in the context of a PCB design managed in Teamcenter, clicks on a command within the tool, to display the latest <b>Eda0IDXBaseline</b> object for the collaboration.<br /><br />Use Case 2:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Active Workspace displays <b>Eda0IDXBaseline</b> objects and all associated <b>Eda0IDXIncrement</b> for a PCB Design <b>Item</b> participating in the ECAD MCAD Collaboration.<br /><br />Use Case 3:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD Designer working in respective tools in the context of a PCB design managed in Teamcenter, clicks on a command to display the latest <b>Eda0IDXIncrement</b> object for the collaboration which was published to Teamcenter by the calling domain.<br /><br />Use Case 4:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD Designer working in respective tools in the context of a PCB design managed in Teamcenter, click on a command to display all the <b>Eda0IDXIncrement</b> objects for the collaboration which was published to Teamcenter by the calling domain.<br /><br />Use Case 5:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD tools, in the context of a PCB Design <b>Item</b>, query Teamcenter to find the <b>Eda0IDXIncrement</b> object, which was published to Teamcenter by the collaborating domain.<br /><br />Use Case 6:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD tools, in the context of a PCB Design <b>Item</b>, query Teamcenter to find the <b>Eda0IDXResponse</b> object, which was published to Teamcenter by the collaborating domain.<br /><br />Use Case 7:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Active Workspace shows a list of <b>ChangeItem</b> objects for a PCB Design participating in the ECAD MCAD Collaboration."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "This structure represents the input to the operation.",
+          "parameterName": "getCollaborationInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.4.0",
+      "dependencies": "",
+      "description": "This operation gets the <b>Eda0IDX</b> and <b>ChangeItem</b> objects, for the input Teamcenter managed PCB Design <b>Item</b>, which participates in ECAD MCAD Collaboration. This operation also optionally downloads the <b>Eda03DModelsPackage</b> Components 3D Models Package for the <b>Eda0IDXBaseline</b> and <b>Eda0IDXIncrement</b> objects.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of <b>Eda0IDX</b> business object.<br /><br /><b>Eda0IDX</b> represents any Teamcenter managed IDX object.<br /><br /><b>Eda0IDXBaseline</b> represents the Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "exceptionCondition": "",
+      "id": "getCollaborationData2#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetCollaborationInput2,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getCollaborationData2",
+      "opTemplate": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetCollaborationDataResponse2#Eda0::Soa::EDMDCollab::EDMDCollaboration::getCollaborationData2#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetCollaborationInput2,&",
+      "returnDescription": "Contains the objects associated with the input design participating in ECAD MCAD Collaboration, as per the inputs for the operation. Any failures will be returned in the ServiceData as a list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249039: The input design is not participating in any collaboration.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249030: Invalid input value for GetCollaborationInput.idxObjectType. The valid values are &ldquo;IDXBaseline&rdquo;, &ldquo;IDXIncrement&rdquo;, &ldquo;IDXResponse&rdquo; or &ldquo;ChangeItem&rdquo;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249032: Invalid input value for GetCollaborationInput.filterCriteria. The valid values are empty string, &ldquo;includeObsolete&rdquo; or &ldquo;includePendingReview&rdquo;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249049: Unable to fetch IDX Increment for review, as the collaborating domain is publishing another IDX Increment.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249050: Unable to fetch IDX Response for review, as the collaborating domain has not yet reviewed the IDX Increment.",
+      "useCase": "Use Case 1:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD Designer working in respective tools in the context of a PCB design managed in Teamcenter, clicks on a command within the tool, to display the latest <b>Eda0IDXBaseline</b> object for the collaboration.<br /><br />Use Case 2:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Active Workspace displays <b>Eda0IDXBaseline</b> objects and all associated <b>Eda0IDXIncrement</b> for a PCB Design <b>Item</b> participating in the ECAD MCAD Collaboration.<br /><br />Use Case 3:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD Designer working in respective tools in the context of a PCB design managed in Teamcenter, clicks on a command to display the latest <b>Eda0IDXIncrement</b> object for the collaboration which was published to Teamcenter by the calling domain.<br /><br />Use Case 4:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD Designer working in respective tools in the context of a PCB design managed in Teamcenter, click on a command to display all the <b>Eda0IDXIncrement</b> objects for the collaboration which was published to Teamcenter by the calling domain.<br /><br />Use Case 5:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD tools, in the context of a PCB Design <b>Item</b>, query Teamcenter to find the <b>Eda0IDXIncrement</b> object, which was published to Teamcenter by the collaborating domain.<br /><br />Use Case 6:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or MCAD tools, in the context of a PCB Design <b>Item</b>, query Teamcenter to find the <b>Eda0IDXResponse</b> object, which was published to Teamcenter by the collaborating domain.<br /><br />Use Case 7:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Active Workspace shows a list of <b>ChangeItem</b> objects for a PCB Design participating in the ECAD MCAD Collaboration.<br /><br />Use Case 8:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD tool while downloading an <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> from Teamcenter, may optionally also download the corresponding Components 3D Model Package file."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "This structure represents the input to the operation.",
+          "parameterName": "publishAssemblyInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.4.0",
+      "dependencies": "",
+      "description": "ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB).<br /><br />This operation helps MCAD tool to publish PCB parent assembly BOM context for an MCAD design ItemRevision to an ECAD MCAD Collaboration. This operation also publishes an assembly file which contains the placement coordinates of the 3D models associated with the PCB parent assembly BOM context.",
+      "exceptionCondition": "",
+      "id": "publishAssemblyContext#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishAssemblyInput,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "publishAssemblyContext",
+      "opTemplate": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishAssemblyResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::publishAssemblyContext#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishAssemblyInput,&",
+      "returnDescription": "UID and FMS Write Ticket for the Dataset containing the Assembly File.<br /><br />Any failures will be returned in the ServiceData as list of partial errors:<br />249019:  The input design is invalid.<br />249039: The design is not participating in any collaboration.<br />249044: Input bomlines cannot be empty.",
+      "useCase": "&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD designer loads and visualizes the PCB parent assembly context in the tool.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD designer can selectively disable visualization of certain parts in the BOM by unchecking the checkbox against the parts.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;MCAD designer while publishing an Eda0IDXBaseline to Teamcenter, chooses the &ldquo;Clone Assembly&rdquo; option on the UI within the tool. This operation gets called as a part of this UI."
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "publishIDX2 is introduced to support component 3D models publish while publishing IDX object.",
+          "deprecatedRelease": "tc12000.4.0"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "Structure containing information about the IDX to be published to Teamcenter.",
+          "parameterName": "publishInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Eda0EDAServerSupport",
+      "createRelease": "tc12000.3.0",
+      "dependencies": "",
+      "description": "This operation creates a new <b>Eda0IDX</b> business object in Teamcenter for a Design participating in an ECAD MCAD Collaboration. <br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of Eda0IDX business object.<br /><br /><b>Eda0IDX</b> represents any Teamcenter managed IDX object.<br /><br /><b>Eda0IDXBaseline</b> represents the IDX Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "exceptionCondition": "",
+      "id": "publishIDX#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::PublishInput,&",
+      "interface": "Eda0::Soa::EDMDCollab::EDMDCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "publishIDX",
+      "opTemplate": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::PublishIDXResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::publishIDX#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::PublishInput,&",
+      "returnDescription": "The created <b>Eda0IDX</b> object. Any failures will be returned with the client id mapped to error message in the ServiceData list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249005: The IDX object cannot be published. Please register publish intent before publishing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249014: IDX Response cannot be published, because the IDX Increment is not downloaded for review. Please download the IDX Increment for processing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: Input value cannot be empty. Please provide valid values for &quot;domainIdentifier&quot;, &quot;fileName&quot;, &quot;fileExtension&quot;, &quot;folderPath&quot;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249030: The value provided for &quot;idxObjectType&quot; is invalid. The valid values are &quot;<i>IDXBaseline</i>&quot;, &quot;<i>IDXIncrement</i>&quot; or &quot;<i>IDXResponse</i>&quot;.",
+      "useCase": "Use Case 1:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or the MCAD designer while working on the PCB design, use the export IDX Baseline functionality within the respective tool, to create <b>Eda0IDXBaseline</b> object in Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;The preceding <b>Eda0IDXBaseline</b> and any <b>Eda0IDXIncrement</b> business objects published by the calling domain, if existing, are marked as obsoleted in Teamcenter.<br /><br />Use Case 2:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or the MCAD designer while working on the PCB design, use the export IDX Increment functionality within the respective tool, to create a <b>Eda0IDXIncrement</b> object in Teamcenter.<br /><br />Use Case 3:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;ECAD or the MCAD designer while working on the PCB design in their respective tool, imports an IDX Increment for reviewing the changes.<br />The designer reviews the changes contained within the IDX file, accepts or rejects each change and publishes an IDX Response to create an <b>Eda0IDXResponse</b> object in Teamcenter."
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CancelProcessInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input structure for the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "cancelProcessInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.3.0",
+      "description": "This operation cancels the processing of an <b>Eda0IDXIncrement</b> object by the calling domain, during the ECAD MCAD Collaboration process.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Eda0::Soa::EDMDCollab::EDMDCollaboration::cancelProcessChange#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CancelProcessInput,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::cancelProcessChange",
+      "returnConst": "false",
+      "returnDescription": "ServiceData containing partial errors, if the cancellation of processing was not successful in Teamcenter. No partial errors indicate a successful cancellation by the calling domain. The list of possible partial errors are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: The value provided for designUID/domainIdentifier is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249036: Unable to cancel process change because there is no IDX Increment in process by the calling domain.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CancelPublishInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input structure for the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "cancelPublishInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.3.0",
+      "description": "This operation cancels the intent of publishing an <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> object to Teamcenter by ECAD or MCAD domain, during the ECAD MCAD Collaboration process. This cancellation ensures that any of the domains subsequently can again register the intent to publish the <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> objects to Teamcenter by calling EDMDCollaborationService.registerPublishIntent operation.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema.<b><br /><br />Eda0IDXBaseline</b> represents the IDX Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<b><br /><br />Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Eda0::Soa::EDMDCollab::EDMDCollaboration::cancelPublishIntent#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CancelPublishInput,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::cancelPublishIntent",
+      "returnConst": "false",
+      "returnDescription": "ServiceData containing partial errors, if the cancellation of publish intent was not successful in Teamcenter. No partial errors indicate a successful cancellation by the calling domain. The list of possible partial errors are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: Empty input value provided for designUID/domainIdentifier.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249035: The intent for publishing the IDX Object cannot be cancelled because there is no publish intent registered by calling domain.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishInput2",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This structure represents the input to the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "publishInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishIDXResponse2",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.4.0",
+      "description": "This operation creates a new <b>Eda0IDX</b> business object in Teamcenter for a Design participating in an ECAD MCAD Collaboration. Optionally, it also allows creation of a package containing 3D Model files corresponding to Printed Circuit Board components contained within an <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b>.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of Eda0IDX business object.<br /><br /><b>Eda0IDX</b> represents any Teamcenter managed IDX object.<br /><br /><b>Eda0IDXBaseline</b> represents the IDX Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "id": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishIDXResponse2#Eda0::Soa::EDMDCollab::EDMDCollaboration::publishIDX2#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishInput2,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::publishIDX2",
+      "returnConst": "false",
+      "returnDescription": "The created <b>Eda0IDX</b> and optionally <b>Eda03DModelsPackage</b> objects. Any failures will be returned in the ServiceData as a list of partial errors.<br /><ul><ul><li type=\"disc\">249019: The input design is invalid.</li><li type=\"disc\">249005: The IDX object cannot be published. Please call the &quot;registerPublishIntent&quot; operation before publishing.</li><li type=\"disc\">249014: IDX Response cannot be published, because the IDX Increment is not downloaded for review. Please use &quot;getCollaborationData&quot; operation to download the IDX Increment for processing.</li><li type=\"disc\">249029: Input value cannot be empty. Please provide valid values for &quot;domainIdentifier&quot;, &quot;fileName&quot;, &quot;fileExtension&quot;, &quot;folderPath&quot;.</li><li type=\"disc\">249030: The value provided for &quot;idxObjectType&quot; is invalid. The valid values are &quot;<i>IDXBaseline</i>&quot;, &quot;<i>IDXIncrement</i>&quot; or &quot;<i>IDXResponse</i>&quot;.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::RegisterIntentInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This structure represents the input to the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "registerIntentInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.3.0",
+      "description": "This operation registers the intent of publishing an <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> object to Teamcenter by ECAD or MCAD domain, during the ECAD MCAD Collaboration process. This registration ensures that only the calling domain can publish the <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> objects to Teamcenter during the collaboration. If the intent to publish an <b>Eda0IDXBaseline</b> is successfully registered by one of the domains by calling this operation, the collaborating domain calling this operation would get a failure. If the intent to publish an <b>Eda0IDXIncrement</b> is successfully registered by one of the domains calling this operation, the collaborating domain calling this operation would get a success, as both domains can publish their respective <b>Eda0IDXIncrement</b> objects to Teamcenter, at the same time.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br /><b>Eda0IDXBaseline</b> represents the IDX Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Eda0::Soa::EDMDCollab::EDMDCollaboration::registerPublishIntent#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::RegisterIntentInput,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::registerPublishIntent",
+      "returnConst": "false",
+      "returnDescription": "ServiceData containing partial errors or warnings, if any. No errors in ServiceData indicates that the operation is successful. The list of partial errors and warnings are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The intent for publishing IDX Object cannot be registered because design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249020: The intent for publishing IDX Object cannot be registered because intent is invalid. The valid values are &lsquo;IDXBaseline&rsquo; or &lsquo;IDXIncrement&rsquo;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249021: The intent for publishing IDX Object cannot be registered because no IDX Baseline is associated with the input design.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249022: The intent for publishing IDX Object cannot be registered because IDX Baseline is reserved by other domain.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249023: The intent for publishing IDX Object cannot be registered because the preceding IDX increment from the same domain is being processed.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249024: The intent for publishing IDX Object cannot be registered because the preceding IDX increment from the same domain has an IDX response to be processed. Please download the IDX Response for processing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249025: The intent for publishing IDX Object cannot be registered because there is an unprocessed IDX Increment from other domain which is not processed yet. Please download the IDX Increment for processing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249026: The intent for publishing IDX Object registered successfully. However, there exists an IDX Increment published by your domain, which would be marked obsolete, if you proceed to publish the IDX object. Please cancel the registered intent if this is not intended.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249027: The intent for publishing IDX Object is already registered successfully. Please proceed to publish the IDX object.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249028: The intent for publishing IDX Increment registered successfully. However, the IDX Baseline is not downloaded by the collaborating domain. If you choose to publish a new IDX Baseline instead of an IDX Increment please cancel publish intent and subsequently call this operation with the &quot;IDXBaseline&quot; as the publish intent value.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: Empty input value provided for designUID/domainIdentifier/publishIntent.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CheckIDXInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This structure represents the input to the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "checkIDXInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CheckIDXToProcessResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.3.0",
+      "description": "This operation checks, if there is an <b>Eda0IDX</b> object available in Teamcenter for the caller to process. The operation would checks for the input design <b>ItemRevision</b>, if there is an <b>Eda0IDXBaseline</b> to be downloaded, or an <b>Eda0IDXIncrement</b> to be reviewed or an<b> Eda0IDXResponse</b> to be processed.<br /><br /> <br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (Standard for the Exchange of Product model data) based neutral format that stores electromechanical data using an XML schema.<br /><br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of <b>Eda0IDX</b> business object.<br /><br /><br /><b>Eda0IDXBaseline</b> represents the Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "id": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CheckIDXToProcessResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::checkIDXToProcess#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CheckIDXInput,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::checkIDXToProcess",
+      "returnConst": "false",
+      "returnDescription": "Returns a structure to indicate whether the collaboration associated with the input design has a published baseline or published increment or reviewed response for the current domain. Any failures will be returned with the client id mapped to error message in the ServiceData   list of partial errors:<br /><br />&middot;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&middot;&nbsp;&nbsp;&nbsp;&nbsp;249036: There is no collaboration session associated with the input design.<br />&middot;&nbsp;&nbsp;&nbsp;&nbsp;249037: Invalid domain is passed in the input as no such domain exists for the collaboration",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::CreateOrUpdateInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This structure represents the input to the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "createOrUpdateInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::CreateOrUpdateResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.4.0",
+      "description": "ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB).<br /><br />This operation creates or updates an <b>Eda0EDMDCollaboration</b> business object in Teamcenter for an ECAD or MCAD Design <b>Item</b> <b>Revision</b>. <b>Eda0EDMDCollaboration</b> being associated with an ECAD or MCAD Design <b>Item</b> <b>Revision</b> represents that the Design <b>Item</b> <b>Revision</b> participates in an ECAD MCAD Collaboration.",
+      "id": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::CreateOrUpdateResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::createOrUpdateCollaboration#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::CreateOrUpdateInput,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::createOrUpdateCollaboration",
+      "returnConst": "false",
+      "returnDescription": "The created or updated <b>Eda0EDMDCollaboration</b> object. Any failures will be returned with the client id mapped to error message in the ServiceData list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249040: Collaboration object to be updated is not found in Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249041: The object to be attached from Collaboration is not found in Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249042: The object to be detached from Collaboration is not found in Teamcenter.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::DeleteInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This structure represents the input to the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "deleteInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.3.0",
+      "description": "This operation deletes an <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> from Teamcenter, for an input design participating in ECAD MCAD Collaboration.<br /><br />In the case of delete of an <b>Eda0IDXBaseline</b> using this operation, any change which was done to the preceding <b>Eda0IDXBaseline</b> and the associated <b>Eda0IDXIncrement</b> during the publish of the unintended <b>Eda0IDXBaseline</b>, is reverted.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (Standard for the Exchange of Product model data) based neutral format that stores electromechanical data using an XML schema.<br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of <b>Eda0IDX</b> business object.<br /><br /><b>Eda0IDXBaseline</b> represents the Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Eda0::Soa::EDMDCollab::EDMDCollaboration::deleteIDX#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::DeleteInput,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::deleteIDX",
+      "returnConst": "false",
+      "returnDescription": "ServiceData containing partial errors or warnings, if any. No errors in ServiceData indicates that the operation is successful. The list of partial errors and warnings are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: The value provided for designUID/domainIdentifier is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249038: The intent for deleting the IDX Object cannot be completed because there is no published IDX Baseline or IDX Increment which can be deleted by the calling domain.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The UID for the ECAD design <b>ItemRevision</b>.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "designUID"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetAssembly3DModelsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.4.0",
+      "description": "ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB).<br /><br />This operation fetches 3D Models of PCB parent assembly BOM for an ECAD design <b>ItemRevision</b> participating in an ECAD MCAD Collaboration. This operation also fetches an assembly file which contains the placement coordinates of the 3D Models.",
+      "id": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetAssembly3DModelsResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::getAssemblyContext3DModels#const,std::string,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::getAssemblyContext3DModels",
+      "returnConst": "false",
+      "returnDescription": "An FMS read ticket for the zip file containing the 3D Model part files and Assembly file.<br />Any failures will be returned in the ServiceData as list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019:  The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249039: The design is not participating in any collaboration.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249045: No 3D Model part files exist for the input design.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::GetCollaborationInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This structure represents the input to the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "getCollaborationData"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::GetCollaborationDataResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.3.0",
+      "description": "This operation gets the <b>Eda0IDX</b> and <b>ChangeItem</b> objects, for the input Teamcenter managed PCB Design <b>Item</b>, which participates in ECAD MCAD Collaboration.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the<b> E</b>xchange of<b> P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of <b>Eda0IDX</b> business object.<br /><br /><b>Eda0IDX</b> represents any Teamcenter managed IDX object.<br /><br /><b>Eda0IDXBaseline</b> represents the Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "id": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::GetCollaborationDataResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::getCollaborationData#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::GetCollaborationInput,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::getCollaborationData",
+      "returnConst": "false",
+      "returnDescription": "Contains the objects associated with the input design participating in ECAD MCAD Collaboration, as per the inputs for the operation. Any failures will be returned with the client id mapped to error message in the ServiceData list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: The value provided for IDX Object is empty.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249031: The Object Type is invalid. The valid values are &quot;Eda0IDXBaseline&quot;, &quot;Eda0IDXIncrement&quot;, &quot;Eda0IDXResponse&quot; or &quot;ChangeItem&quot;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249032: The filter criteria is invalid. The valid values are &quot;includeObsolete&quot;, &quot;includePendingReview&quot; or an empty string.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249033: The IDX data cannot be returned because there exists more than one IDX Baseline for the state.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249034: The IDX data cannot be returned because there exists more than one IDX Increment for the state.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetCollaborationInput2",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This structure represents the input to the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "getCollaborationInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetCollaborationDataResponse2",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.4.0",
+      "description": "This operation gets the <b>Eda0IDX</b> and <b>ChangeItem</b> objects, for the input Teamcenter managed PCB Design <b>Item</b>, which participates in ECAD MCAD Collaboration. This operation also optionally downloads the <b>Eda03DModelsPackage</b> Components 3D Models Package for the <b>Eda0IDXBaseline</b> and <b>Eda0IDXIncrement</b> objects.<br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of <b>Eda0IDX</b> business object.<br /><br /><b>Eda0IDX</b> represents any Teamcenter managed IDX object.<br /><br /><b>Eda0IDXBaseline</b> represents the Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "id": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetCollaborationDataResponse2#Eda0::Soa::EDMDCollab::EDMDCollaboration::getCollaborationData2#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetCollaborationInput2,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::getCollaborationData2",
+      "returnConst": "false",
+      "returnDescription": "Contains the objects associated with the input design participating in ECAD MCAD Collaboration, as per the inputs for the operation. Any failures will be returned in the ServiceData as a list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249019: The input design is invalid.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249039: The input design is not participating in any collaboration.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249030: Invalid input value for GetCollaborationInput.idxObjectType. The valid values are &ldquo;IDXBaseline&rdquo;, &ldquo;IDXIncrement&rdquo;, &ldquo;IDXResponse&rdquo; or &ldquo;ChangeItem&rdquo;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249032: Invalid input value for GetCollaborationInput.filterCriteria. The valid values are empty string, &ldquo;includeObsolete&rdquo; or &ldquo;includePendingReview&rdquo;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249049: Unable to fetch IDX Increment for review, as the collaborating domain is publishing another IDX Increment.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249050: Unable to fetch IDX Response for review, as the collaborating domain has not yet reviewed the IDX Increment.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishAssemblyInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This structure represents the input to the operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "publishAssemblyInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishAssemblyResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.4.0",
+      "description": "ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB).<br /><br />This operation helps MCAD tool to publish PCB parent assembly BOM context for an MCAD design ItemRevision to an ECAD MCAD Collaboration. This operation also publishes an assembly file which contains the placement coordinates of the 3D models associated with the PCB parent assembly BOM context.",
+      "id": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishAssemblyResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::publishAssemblyContext#const,Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::PublishAssemblyInput,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::publishAssemblyContext",
+      "returnConst": "false",
+      "returnDescription": "UID and FMS Write Ticket for the Dataset containing the Assembly File.<br /><br />Any failures will be returned in the ServiceData as list of partial errors:<br />249019:  The input design is invalid.<br />249039: The design is not participating in any collaboration.<br />249044: Input bomlines cannot be empty.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::PublishInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Structure containing information about the IDX to be published to Teamcenter.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "publishInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::PublishIDXResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc12000.3.0",
+      "description": "This operation creates a new <b>Eda0IDX</b> business object in Teamcenter for a Design participating in an ECAD MCAD Collaboration. <br /><br />ECAD MCAD Collaboration is a process of exchange of incremental design changes between ECAD and MCAD engineers, during the design process for a Printed Circuit Board (PCB). The IDX file format is a STEP (<b>ST</b>andard for the <b>E</b>xchange of <b>P</b>roduct model data) based neutral format that stores electromechanical data using an XML schema. <br /><br />In Teamcenter, IDX files for an ECAD MCAD Collaboration are managed as <b>Eda0IDXBaseline</b>, <b>Eda0IDXIncrement</b> and <b>Eda0IDXResponse</b> objects, which are types of Eda0IDX business object.<br /><br /><b>Eda0IDX</b> represents any Teamcenter managed IDX object.<br /><br /><b>Eda0IDXBaseline</b> represents the IDX Baseline object in ECAD MCAD Collaboration. The IDX Baseline object represents an IDX file, in which the board outline and the complete geometry information of the PCB is captured. The IDX Baseline is the agreed state of a PCB design, starting from which the ECAD and MCAD tools would make incremental changes and collaborate with each other in the PCB development process.<br /><br /><b>Eda0IDXIncrement</b> represents an IDX (Interdomain Design Exchange) file which contains the incremental changes in a PCB layout, during the collaboration between ECAD and MCAD, as a part of PCB development process.<br /><br /><b>Eda0IDXResponse</b> represents an IDX (Interdomain Design Exchange) file, which is created as a part of ECAD or MCAD tool reviewing and accepting or rejecting the proposed incremental changes. The IDX Response file is then imported by the tool which initiated the proposal, to bring the design in sync in both ECAD and MCAD tools.",
+      "id": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::PublishIDXResponse#Eda0::Soa::EDMDCollab::EDMDCollaboration::publishIDX#const,Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::PublishInput,&",
+      "name": "Eda0::Soa::EDMDCollab::EDMDCollaboration::publishIDX",
+      "returnConst": "false",
+      "returnDescription": "The created <b>Eda0IDX</b> object. Any failures will be returned with the client id mapped to error message in the ServiceData list of partial errors:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249005: The IDX object cannot be published. Please register publish intent before publishing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249014: IDX Response cannot be published, because the IDX Increment is not downloaded for review. Please download the IDX Increment for processing.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249029: Input value cannot be empty. Please provide valid values for &quot;domainIdentifier&quot;, &quot;fileName&quot;, &quot;fileExtension&quot;, &quot;folderPath&quot;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;249030: The value provided for &quot;idxObjectType&quot; is invalid. The valid values are &quot;<i>IDXBaseline</i>&quot;, &quot;<i>IDXIncrement</i>&quot; or &quot;<i>IDXResponse</i>&quot;.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "tc12000.3.0",
+      "dependencies": "",
+      "description": "This service contains all the operations which support the Teamcenter ECAD MCAD Collaboration Solution.",
+      "libraryName": "Eda0SoaEDMDCollab",
+      "name": "EDMDCollaboration",
+      "namespace": "Eda0::Soa::EDMDCollab",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for the ECAD or MCAD design <b>Item</b>.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique Identifier representing a domain, one each chosen by ECAD and MCAD. The value could be any non-empty string less than 128 characters, the only condition being that the value should be consistent across all service calls made by each domain. This is used to establish ownership of objects published by respective domains.",
+          "name": "domainIdentifier"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This structure contains the information needed to cancel the processing of an IDX Increment.",
+      "isPublished": "true",
+      "name": "CancelProcessInput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for the ECAD or MCAD design <b>ItemRevision</b>.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique Identifier representing a domain, one each chosen by ECAD and MCAD. The value could be any non-empty string less than 128 characters, the only condition being that the value should be consistent across all service calls made by each domain. This is used to establish ownership of objects published by respective domains.",
+          "name": "domainIdentifier"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This structure represents the input for the operation.",
+      "isPublished": "true",
+      "name": "CancelPublishInput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>Eda0IDX</b> object managed in Teamcenter.",
+          "name": "idxObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "File Management System (FMS) Read Ticket which needs to be used by the calller to fetch the IDX file, using FMS operations.",
+          "name": "readTicket"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This structure represents the <b>Eda0IDX</b> object and the File Management System (FMS) Read Ticket to fetch the respective IDX file from Teamcenter.",
+      "isPublished": "true",
+      "name": "FileOutput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>Eda0IDX</b> object managed in Teamcenter.",
+          "name": "idxObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "FMS read ticket of the IDX file.",
+          "name": "idxReadTicket"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>Eda03DModelsPackage</b> object corresponding to idxObject.",
+          "name": "packageObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "FMS read ticket for the components 3D models package file.",
+          "name": "packageReadTicket"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "This structure represents the Eda0IDX object and the File Management System (FMS) Read Ticket to fetch the respective IDX file from Teamcenter.",
+      "isPublished": "true",
+      "name": "FileOutput2",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "File Management System (FMS) Ticket corresponding to the zip file containing the 3D Model part files and the Assembly file of the PCB parent assembly context. Using this read ticket, the caller needs to download the zip file, using FMS APIs.",
+          "name": "readTicket"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Contains partial errors for the operation, if any.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "Structure representing the output of the operation.",
+      "isPublished": "true",
+      "name": "GetAssembly3DModelsResponse",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::IDXBaselineInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Collection of IDXBaselineInfo, each containing a <b>Eda0IDXBaseline</b> object and  the associated <b>Eda0IDXIncrement</b> objects.",
+          "name": "idxBaselineInfos"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::IDXIncrementInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Collection of IDXIncrementInfo, each containing <b>Eda0IDXIncrement</b> object and  the associated <b>Eda0IDXBaseline</b> object and <b>Eda0IDXResponse</b> object.",
+          "name": "idxIncrementInfos"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Collection of ChangeItems associated with the input design.",
+          "name": "changeItems"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "Structure containing the Collaboration data objects.",
+      "isPublished": "true",
+      "name": "GetCollaborationDataOutput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::IDXBaselineInfo2"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Collection of IDXBaselineInfo2, each containing an <b>Eda0IDXBaseline</b> object and  the associated <b>Eda0IDXIncrement</b> objects.",
+          "name": "idxBaselineInfos"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::IDXIncrementInfo2"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Collection of IDXIncrementInfo2, each containing <b>Eda0IDXIncrement</b> object and  the associated <b>Eda0IDXBaseline</b> object and <b>Eda0IDXResponse</b> object.",
+          "name": "idxIncrementInfos"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Collection of <b>ChangeItem</b> associated with the input design.",
+          "name": "changeItems"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "Structure containing the Collaboration data objects.",
+      "isPublished": "true",
+      "name": "GetCollaborationDataOutput2",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::GetCollaborationDataOutput"
+            }
+          ],
+          "description": "Collaboration data fetched from Teamcenter.",
+          "name": "getCollaborationDataOutput"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Contains the partial errors for the operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "Structure containing the Collaboration data requested from Teamcenter.",
+      "isPublished": "true",
+      "name": "GetCollaborationDataResponse",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::GetCollaborationDataOutput2"
+            }
+          ],
+          "description": "Collaboration data fetched from Teamcenter.",
+          "name": "getCollaborationDataOutput"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Contains the partial errors for the operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "Structure containing the Collaboration data requested from Teamcenter.",
+      "isPublished": "true",
+      "name": "GetCollaborationDataResponse2",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for the ECAD or MCAD design <b>ItemRevision</b>.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "String representing the IDX object type to be published. Valid values are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXBaseline</i>&rdquo; &ndash; Get <b>Eda0IDXBaseline</b> objects from Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXIncrement</i>&rdquo; &ndash; Get <b>Eda0IDXIncrement</b> objects from Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXResponse</i>&rdquo; &ndash; Get <b>Eda0IDXResponse</b> objects from Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>ChangeItem</i>&rdquo; &ndash; Get ChangeItem objects from Teamcenter.",
+          "name": "idxObjectType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique Identifier representing a domain, one each chosen by ECAD and MCAD. The value could be any non-empty string less than 128 characters, the only condition being that the value should be consistent across all service calls made by each domain. This is used to establish ownership of objects published by respective domains.",
+          "name": "domainIdentifier"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Represents the filtering criteria, based on which the IDX objects would be returned by the operation. Valid values are: <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Empty string &ndash; Returns the non-processed and non-obsoleted IDX objects. Applicable only when idxObjectType value is <i>IDXBaseline</i> or <i>IDXIncrement</i>.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;<i>includeObsolete</i> &ndash; Returns the obsoleted IDX objects as well as the non-obsolete IDX objects. Applicable only when idxObjectType value is <i>IDXBaseline</i> or &nbsp;&nbsp;&nbsp;&nbsp;<i>IDXIncrement</i>.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;<i>includePendingReview</i> - Returns the <b>Eda0IDXIncrement</b> or <b>Eda0IDXResponse</b>, which needs to be reviewed by the caller. Applicable only when idxObjectType value is IDXIncrement or IDXResponse.",
+          "name": "filterCriteria"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This structure represents the input for the operation.",
+      "isPublished": "true",
+      "name": "GetCollaborationInput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for the ECAD or MCAD design <b>Item</b>.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "String representing the IDX object type to be published. Valid values are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXBaseline</i>&rdquo; &ndash; Get <b>Eda0IDXBaseline</b> objects from Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXIncrement</i>&rdquo; &ndash; Get <b>Eda0IDXIncrement</b> objects from Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXResponse</i>&rdquo; &ndash; Get <b>Eda0IDXResponse</b> objects from Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>ChangeItem</i>&rdquo; &ndash; Get <b>ChangeItem</b> objects from Teamcenter.",
+          "name": "idxObjectType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique Identifier representing a domain, one each chosen by ECAD and MCAD. The value could be any non-empty string, the only condition being that the value should be consistent across all service calls made by each domain. This is used to establish ownership of objects published by respective domains.",
+          "name": "domainIdentifier"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Represents the filtering criteria, based on which the IDX objects would be returned by the operation. Valid values are: <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Empty string &ndash; Returns the non-obsoleted IDX objects. Applicable only when idxObjectType value is IDXBaseline or IDXIncrement.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>includeObsolete</i>&rdquo; &ndash; Returns the obsoleted IDX objects as well as the non-obsolete IDX objects. Applicable only when idxObjectType value is IDXBaseline or IDXIncrement.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>includePendingReview</i>&rdquo; - Returns the <b>Eda0IDXIncrement</b> or <b>Eda0IDXResponse</b>, which needs to be reviewed by the caller. Applicable only when idxObjectType value is <i>IDXIncrement</i> or <i>IDXResponse</i>",
+          "name": "filterCriteria"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, Components 3D Models Package file corresponding to each <b>Eda0IDXBaseline</b> or <b>Eda0IDXIncrement</b> would be included in  GetCollaborationDataResponse2.",
+          "name": "include3DModelPackage"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "This structure contains all the information for fetching data from Teamcenter for a design participating in ECAD MCAD Collaboration.",
+      "isPublished": "true",
+      "name": "GetCollaborationInput2",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::FileOutput"
+            }
+          ],
+          "description": "FileOutput representing an <b>Eda0IDXBaseline</b> object.",
+          "name": "idxBaseline"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::IDXIncrementInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Collection of IDXIncrementInfo, each representing an <b>Eda0IDXIncrement</b> object.",
+          "name": "associatedIDXIncrements"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This structure contains criteria on the basis of which the operation would return the matching Eda0IDXBaseline objects.",
+      "isPublished": "true",
+      "name": "IDXBaselineInfo",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for the ECAD or MCAD design <b>ItemRevision</b>.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique Identifier representing a domain, one each chosen by ECAD and MCAD. The value could be any non-empty string less than 128 characters, the only condition being that the value should be consistent across all service calls made by each domain. This is used to establish ownership of objects published by respective domains.",
+          "name": "domainIdentifier"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This structure represents the input for the operation.",
+      "isPublished": "true",
+      "name": "CheckIDXInput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::FileOutput2"
+            }
+          ],
+          "description": "FileOutput2 representing an <b>Eda0IDXBaseline</b> object.",
+          "name": "idxBaseline"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::IDXIncrementInfo2"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Collection of IDXIncrementInfo2, each representing an <b>Eda0IDXIncrement</b> object.",
+          "name": "associatedIDXIncrements"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "This structure contains criteria on the basis of which the operation would return the matching Eda0IDXBaseline objects.",
+      "isPublished": "true",
+      "name": "IDXBaselineInfo2",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::FileOutput"
+            }
+          ],
+          "description": "FileOutput representing an <b>Eda0IDXIncrement</b> object.",
+          "name": "idxIncrement"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::FileOutput"
+            }
+          ],
+          "description": "FileOutput for the <b>Eda0IDXBaseline</b> object, to which the idxIncrement is associated.",
+          "name": "associatedIDXBaseline"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::FileOutput"
+            }
+          ],
+          "description": "FileOutput for the <b>Eda0IDXResponse</b> object associated with the idxIncrement",
+          "name": "associatedIDXResponse"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This structure contains criteria on the basis of which the operation would return the matching IDX Baseline objects.",
+      "isPublished": "true",
+      "name": "IDXIncrementInfo",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::FileOutput2"
+            }
+          ],
+          "description": "FileOutput2 representing an <b>Eda0IDXIncrement</b> object.",
+          "name": "idxIncrement"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::FileOutput2"
+            }
+          ],
+          "description": "FileOutput2 for the <b>Eda0IDXBaseline</b> object, to which the idxIncrement is associated.",
+          "name": "associatedIDXBaseline"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::FileOutput2"
+            }
+          ],
+          "description": "FileOutput2 for the <b>Eda0IDXResponse</b> object associated with the idxIncrement.",
+          "name": "associatedIDXResponse"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "This structure contains criteria on the basis of which the operation would return the matching IDX Baseline objects.",
+      "isPublished": "true",
+      "name": "IDXIncrementInfo2",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID of the object to be attached to <b>Eda0EDMDCollaboration</b>.",
+          "name": "objectUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The relation to be used to associate the object with <b>Eda0EDMDCollaboration</b>. If this is not provided, then the relation type is determined using the preference &lt;Primary&gt;_&lt;Secondary&gt;_default_relation. For example, if relateToObject is of type <b>ItemRevision</b> and boName is <b>DirectModel</b> then preference ItemRevision_DirectModel_default_relation used. If not found, then ItemRevision_default_relation will be searched for and used.",
+          "name": "relationName"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "This structure is an input to specify the objects which need to be attached to an <b>Eda0EDMDCollaboration</b>.",
+      "isPublished": "true",
+      "name": "ObjectAttachInfo",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for MCAD design ItemRevision.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::FileInfo"
+            }
+          ],
+          "description": "FileInfo object corresponding to the assy file to be published.",
+          "name": "fileInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BOMLine"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of BOMLine objects of the PCB parent assembly BOM that MCAD  tool needs to publish.",
+          "name": "bomLines"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "Structure containing information about the PCB parent assembly BOM context to be published to Teamcenter.",
+      "isPublished": "true",
+      "name": "PublishAssemblyInput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The uid of the dataset to which the Assembly file needs to be uploaded.",
+          "name": "datasetUid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "File Management System (FMS) Write Ticket corresponding to the Assembly file passed in the FileInfo input. Using this Write Ticket, the caller needs to upload the Assembly file to the dataset, using FMS APIs.",
+          "name": "writeTicket"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The Eda0AssemblyFile and VisStructureContext are added to the Created object list.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "Structure representing the output of the operation.",
+      "isPublished": "true",
+      "name": "PublishAssemblyResponse",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The unmodified value from the PublishIDXInput.clientId. This can be used by the caller to identify this data structure with the source input data.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>Eda0IDX</b> object which is created in Teamcenter.",
+          "name": "publishedIDX"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "File Management System (FMS) Write Ticket corresponding to the the IDX file passed in the FileInfo input. Using this Write Ticket, the caller needs to upload the IDX file into the publishedIDX, using FMS APIs.",
+          "name": "writeTicket"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The <b>Eda0IDX</b> is added to the Created object list.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "Structure representing the published IDX object.",
+      "isPublished": "true",
+      "name": "PublishIDXResponse",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>Eda0IDX</b> object which is created in Teamcenter.",
+          "name": "publishedIDX"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>Eda03DModelsPackage</b> object which is created in Teamcenter.",
+          "name": "packageFile"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "FMS Write Ticket corresponding to the the IDX file passed in the idxFileInfo input.",
+          "name": "idxWriteTicket"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "FMS Write Ticket corresponding to the the IDX file passed in the packageFileInfo input.",
+          "name": "packageWriteTicket"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The <b>Eda0IDX</b> and <b>Eda03DModelsPackage</b> are added to the Created object list.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "Structure representing the published IDX object.",
+      "isPublished": "true",
+      "name": "PublishIDXResponse2",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for the ECAD or MCAD design <b>ItemRevision</b>.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique Identifier representing a domain, one each chosen by ECAD and MCAD. The value could be any non-empty string less than 128 characters, the only condition being that the value should be consistent across all service calls made by each domain. This is used to establish ownership of objects published by respective domains.",
+          "name": "domainIdentifier"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "String representing the IDX object type to be published. Valid values are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXBaseline</i>&rdquo; &ndash; For publishing an IDX Baseline or <b>Eda0IDXBaseline</b> object to Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXIncrement</i>&rdquo; - For publishing an IDX Increment or <b>Eda0IDXIncrement</b> object to Teamcenter.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXResponse</i>&rdquo; &ndash; For publishing an IDX Response or <b>Eda0IDXResponse</b> object to Teamcenter.",
+          "name": "idxObjectType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::FileInfo"
+            }
+          ],
+          "description": "FileInfo object corresponding to the IDX object to be published.",
+          "name": "fileInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::IDXAttributes"
+            }
+          ],
+          "description": "A map of  name/value (string, list of strings) pairs of property or attribute names with the desired values for the <b>Eda0IDX</b> object to be created in Teamcenter. The calling client is responsible for converting the different property types (int, float, date .etc) to a string using the appropriate toXXXString functions in the SOA client Property class.",
+          "name": "attributes"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "Structure containing information about the IDX to be published to Teamcenter.",
+      "isPublished": "true",
+      "name": "PublishInput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for the ECAD or MCAD design <b>Item</b>.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique Identifier representing a domain, one each chosen by ECAD and MCAD. The value could be any non-empty string, the only condition being that the value should be consistent across all service calls made by each domain. This is used to establish ownership of objects published by respective domains.",
+          "name": "domainIdentifier"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The IDX object type to be published. Valid values are:<br /><ul><ul><li type=\"disc\">&ldquo;<i>IDXBaseline</i>&rdquo; &ndash; For publishing an IDX Baseline or <b>Eda0IDXBaseline</b> object to Teamcenter.</li><li type=\"disc\">&ldquo;<i>IDXIncrement</i>&rdquo; - For publishing an IDX Increment or <b>Eda0IDXIncrement</b> object to Teamcenter.</li><li type=\"disc\">&ldquo;<i>IDXResponse</i>&rdquo; &ndash; For publishing an IDX Response or <b>Eda0IDXResponse</b> object to Teamcenter.</li></ul></ul>",
+          "name": "idxObjectType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::FileInfo"
+            }
+          ],
+          "description": "FileInfo of the IDX object to be published.",
+          "name": "idxFileInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::FileInfo"
+            }
+          ],
+          "description": "FileInfo of the components 3D Models Package file corresponding to the IDX object to be published.",
+          "name": "packageFileInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::IDXAttributes2"
+            }
+          ],
+          "description": "A map of  name/value (string, list of strings) pairs of property or attribute names with the desired values for the <b>Eda0IDX</b> object to be created in Teamcenter. The calling client is responsible for converting the different property types (int, float, date .etc) to a string using the appropriate toXXXString functions in the SOA client Property class.",
+          "name": "attributes"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "Structure containing information about the IDX to be published to Teamcenter.",
+      "isPublished": "true",
+      "name": "PublishInput2",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, Teamcenter contains an <b>Eda0IDXBaseline</b> to be downloaded by the caller, for the input design <b>ItemRevision</b>.",
+          "name": "isIDXBaselineAvailableToProcess"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, Teamcenter contains an <b>Eda0IDXIncrement</b> to be reviewed by the caller, for the input design <b>ItemRevision</b>.",
+          "name": "isIDXIncrementAvailableToProcess"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, Teamcenter contains an <b>Eda0IDXResponse </b>to be processed by the caller, for the input design <b>ItemRevision</b>.",
+          "name": "isIDXResponseAvailableToProcess"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "Structure containing the logical values to indicate whether there is an <b>Eda0IDXBaseline</b> or an <b>Eda0IDXIncrement</b> or an <b>Eda0IDXResponse</b> available to be processed by the caller.",
+      "isPublished": "true",
+      "name": "CheckIDXOutput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for the ECAD or MCAD design <b>ItemRevision</b>.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique Identifier representing a domain, one each chosen by ECAD and MCAD. The value could be any non-empty string less than 128 characters, the only condition being that the value should be consistent across all service calls made by each domain. This is used to establish ownership of objects published by respective domains.",
+          "name": "domainIdentifier"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Represents the IDX Type to be published to Teamcenter. Valid values are:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXBaseline</i>&rdquo; &ndash; To register the intent to publish a new <b>Eda0IDXBaseline</b>.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;<i>IDXIncrement</i>&rdquo; &ndash; To register the intent to publish a new <b>Eda0IDXIncrement</b>.",
+          "name": "publishIntent"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "Structure containing information about the publish intent of the caller.",
+      "isPublished": "true",
+      "name": "RegisterIntentInput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration::CheckIDXOutput"
+            }
+          ],
+          "description": "Contains status for IDX availability.",
+          "name": "checkIDXOutput"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Contains the partial errors for the operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "Response containing the structure for the results returned by the SOA.",
+      "isPublished": "true",
+      "name": "CheckIDXToProcessResponse",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::CreateOrUpdateObjectInfo"
+            }
+          ],
+          "description": "The input that has information to create or update an <b>Eda0EDMDCollaboration</b>.",
+          "name": "collaborationToCreateOrUpdate"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::ObjectAttachInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of information about the objects that need to be attached to <b>Eda0EDMDCollaboration</b>. This would typically include any ECAD or MCAD Design <b>Item</b> <b>Revision</b> that would participate in the Collaboration.",
+          "name": "attachObjectsToCollaboration"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of Teamcenter UID of the objects that need to be detached from the <b>Eda0EDMDCollaboration</b>.",
+          "name": "detachObjectsFromCollaboration"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "Structure which enables to create or update an ECAD MCAD Collaboration. The client can pass formation to create a Collaboration by passing in collaborationToCreateOrUpdate or update a Collaboration by passing the collaborationObject. The client can attach any object to the Collaboration using  attachObjectsToCollaboration or detach any object from the Collaboration using detachObjectsFromCollaboration.",
+      "isPublished": "true",
+      "name": "CreateOrUpdateInput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID of <b>Eda0EDMDCollaboration</b> to be updated. Client should pass an empty value when a new <b>Eda0EDMDCollaboration</b> is to be created.",
+          "name": "collabObjectUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration::CollaborationAttributes"
+            }
+          ],
+          "description": "A map (string, PropertyValues) of property name and values pairs that need to be set on the created or updated object.",
+          "name": "objectProps"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "This structure is an input to create or update an <b>Eda0EDMDCollaboration</b>.",
+      "isPublished": "true",
+      "name": "CreateOrUpdateObjectInfo",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>Eda0EDMDCollaboration</b> object which is created or updated in Teamcenter.",
+          "name": "collaborationObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The <b>Eda0EDMDCollaboration</b> is added to the Created or Updated object list.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "Structure representing the created or updated <b>Eda0EDMDCollaboration</b> object.",
+      "isPublished": "true",
+      "name": "CreateOrUpdateResponse",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter UID for the ECAD or MCAD design <b>ItemRevision</b>.",
+          "name": "designUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique Identifier representing a domain, one each chosen by ECAD and MCAD. The value could be any non-empty string less than 128 characters, the only condition being that the value should be consistent across all service calls made by each domain. This is used to establish ownership of objects published by respective domains.",
+          "name": "domainIdentifier"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This structure represents the input for the operation.",
+      "isPublished": "true",
+      "name": "DeleteInput",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the Interdomain Design Exchange (IDX) file.",
+          "name": "fileName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "File Extension of the Interdomain Design Exchange (IDX) file.",
+          "name": "fileExtension"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "File system path for the folder containing the Interdomain Design Exchange (IDX) file.",
+          "name": "folderPath"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "This structure contains the file system information of an Interdomain Design Exchange (IDX) file.",
+      "isPublished": "true",
+      "name": "FileInfo",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    }
+  ],
+  "TcVersion": "tc13000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "A map of  name/value (string/vector&lt;string&gt;) pairs of property or attribute names with the desired values for the <b>Eda0EDMDCollaboration</b> object to be created or updated in Teamcenter. The calling client is responsible for converting the different property types (int, float, date .etc) to a string using the appropriate toXXXString functions in the SOA client Property class.",
+      "isPublished": "true",
+      "name": "CollaborationAttributes",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc12000.3.0",
+      "description": "A map of  name/value (string/vector&lt;string&gt;) pairs of property or attribute names with the desired values for the <b>Eda0IDX</b> object to be created in Teamcenter. The calling client is responsible for converting the different property types (int, float, date .etc) to a string using the appropriate toXXXString functions in the SOA client Property class.",
+      "isPublished": "true",
+      "name": "IDXAttributes",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_01::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc12000.4.0",
+      "description": "A map of  name/value (string/vector&lt;string&gt;) pairs of property or attribute names with the desired values for the <b>Eda0IDX</b> object to be created in Teamcenter. The calling client is responsible for converting the different property types (int, float, date .etc) to a string using the appropriate toXXXString functions in the SOA client Property class.",
+      "isPublished": "true",
+      "name": "IDXAttributes2",
+      "namespace": "Eda0::Soa::EDMDCollab::_2020_04::EDMDCollaboration",
+      "scope": "Eda0::Soa::EDMDCollab::EDMDCollaboration"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

@@ -1,0 +1,16 @@
+<%
+    let imagePath =  basePath + '/image/';
+    let columnName = _.get( column, 'field' );
+    let displayName = _.get( column, 'displayName' );
+
+    let cellImg;
+     switch ( columnName ) {
+        case 'CloneStatus':
+            cellImg = imagePath + 'miscTableHeaderClone16.svg';
+            break;
+        case 'MasterStatus':
+            cellImg = imagePath + 'miscTableHeaderIsMasterOfClone16.svg';
+            break;
+        }
+%>
+<img class="aw-visual-indicator" src="<%=cellImg%>" title="<%=displayName%>">

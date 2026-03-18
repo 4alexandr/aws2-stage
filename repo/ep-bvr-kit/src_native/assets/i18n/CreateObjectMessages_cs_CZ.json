@@ -1,0 +1,14 @@
+{
+    "selectType": "Vybrat typ",
+    "CreateButtonTitle": "Vytvořit",
+    "CreateAndAddMoreObjectButtonTitle": "Vytvořit a přidat další",
+    "CancelButtonTitle": "Storno",
+    "createOperationCmdTitle": "Vytvořit operaci",
+    "createProcessAreaCmdTitle": "Vytvořit oblast procesu",
+    "gotoPreviousPageCmdTitle": "Zpět",
+    "assignProjectCmdTitle": "Přiřadit projekty",
+    "SearchPanelTitle":"Hledat",
+    "projectsPanelCaption":"Projekt",
+    "loading":"Načítání",
+    "addProjectHeaderTitle":"Přidat projekt"
+}

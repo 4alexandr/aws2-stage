@@ -1,0 +1,219 @@
+{
+  "name": "ep-configurator-kit",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "commandsViewModel": {
+    "commands": {
+      "epEditVariantFormula": {
+        "iconId": "cmdVariantFormula",
+        "title": "{{i18n.openVariantFormula}}"
+      },
+      "epHostedEditVariantFormula": {
+        "iconId": "cmdVariantOptions",
+        "title": "{{i18n.openVariantFormula}}"
+      }
+    },
+    "commandHandlers": {
+      "epEditVariantFormulaCommandHandler": {
+        "id": "epEditVariantFormula",
+        "action": "epEditVariantFormulaAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.epViewEditVariantFormulaCmd"
+        }
+      },
+      "epEditHostedVariantFormulaCommandHandler": {
+        "id": "epHostedEditVariantFormula",
+        "action": "epEditHostedVariantFormulaAction",
+        "activeWhen": true
+      }
+    },
+    "conditions": {
+      "isProductConfiguratorEnabled": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.preferences.PSM_enable_product_configurator",
+              "$query": {
+                "$notNull": "true"
+              }
+            },
+            {
+              "$source": "ctx.preferences",
+              "$query": {
+                "$source": "PSM_enable_product_configurator.0",
+                "$query": {
+                  "$eq": [
+                    "true"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "isOperationPage": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.epPageContext",
+              "$query": {
+                "$notNull": "true"
+              }
+            },
+            {
+              "$source": "ctx.epPageContext.loadedObject",
+              "$query": {
+                "$notNull": "true"
+              }
+            },
+            {
+              "$source": "ctx.epPageContext.loadedObject.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrOperation"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "epViewEditVariantFormulaCmd": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isProductConfiguratorEnabled",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "conditions.isOperationPage",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "commandPlacements": {
+      "epEditVariantFormulaDisplay": {
+        "id": "epEditVariantFormula",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 1
+      }
+    },
+    "actions": {
+      "epEditVariantFormulaAction": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "setVariantFormulaContext"
+          },
+          {
+            "action": "setSelectionForVariantFormula"
+          },
+          {
+            "action": "showVariantFormulaPopup"
+          }
+        ]
+      },
+      "setVariantFormulaContext": {
+        "actionType": "JSFunction",
+        "method": "updateCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "name": "variantConditionContext",
+          "value": {
+            "allowConsumerAppsToLoadData": true,
+            "selectedObjectsFromConsumerApps": [
+              "{{ctx.epPageContext.loadedObject}}"
+            ]
+          }
+        }
+      },
+      "setSelectionForVariantFormula": {
+        "actionType": "JSFunction",
+        "method": "updateCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "name": "mselected",
+          "value": [
+            "{{ctx.epPageContext.loadedObject}}"
+          ]
+        }
+      },
+      "showVariantFormulaPopup": {
+        "actionType": "JSFunction",
+        "method": "showLargePopup",
+        "inputData": {
+          "params": {
+            "declView": "editVariantFormulaPopup"
+          }
+        },
+        "deps": "js/mfeLargePopupUtils"
+      },
+      "epEditHostedVariantFormulaAction": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "setHostedVariantFormulaContext"
+          },
+          {
+            "action": "setHostedSelectionForVariantFormula"
+          },
+          {
+            "action": "setPerformSaveThroughHosted"
+          },
+          {
+            "action": "showVariantFormulaPopup"
+          }
+        ]
+      },
+      "setHostedVariantFormulaContext": {
+        "actionType": "JSFunction",
+        "method": "updateCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "name": "variantConditionContext",
+          "value": {
+            "allowConsumerAppsToLoadData": true,
+            "selectedObjectsFromConsumerApps": "{{commandContext.commandArgs}}"
+          }
+        }
+      },
+      "setHostedSelectionForVariantFormula": {
+        "actionType": "JSFunction",
+        "method": "updateCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "name": "mselected",
+          "value": "{{commandContext.commandArgs}}"
+        }
+      },
+      "setPerformSaveThroughHosted": {
+        "actionType": "JSFunction",
+        "method": "updatePartialCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "name": "ep.performSaveThroughHosted",
+          "value": true
+        }
+      }
+    },
+    "i18n": {
+      "openVariantFormula": [
+        "VariantsMessages"
+      ]
+    }
+  }
+}

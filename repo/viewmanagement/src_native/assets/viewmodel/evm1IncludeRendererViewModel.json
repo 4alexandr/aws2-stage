@@ -1,0 +1,31 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-checkbox.directive"
+    ],
+    "actions": {
+        "handleIncludeToggle": {
+            "actionType": "JSFunction",
+            "method": "handleIncludeToggle",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1IncludeRendererService"
+        }
+    },
+    "data": {
+        "evm1IncludeData": {
+            "displayName": "",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": true,
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_RIGHT"
+        },
+        "vmo":{}
+    },
+    "i18n": {
+
+    }
+}

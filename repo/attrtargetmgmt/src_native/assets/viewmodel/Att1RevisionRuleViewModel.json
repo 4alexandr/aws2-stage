@@ -1,0 +1,63 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-link-with-popup.directive",
+        "js/aw-property-non-edit-val.directive",
+        "js/aw-include.directive"
+    ],
+
+    "actions": {
+        "populateConfPanelWithCurrentRevisionRule": {
+            "actionType": "JSFunction",
+            "method": "populateConfPanelWithCurrentRevisionRule",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Att1RevisionRuleConfigurationService"
+        },
+        "applySavedRevisionRule": {
+            "actionType": "JSFunction",
+            "method": "applySavedRevisionRule",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Att1RevisionRuleConfigurationService"
+        }
+
+    },
+    "lifecycleHooks": {
+        "onMount": "populateConfPanelWithCurrentRevisionRule"
+    },
+    "onEvent": [
+        {
+            "eventId": "Att1RefreshProject.completed",
+            "action": "applySavedRevisionRule",
+            "condition": "activeRevisionRuleObj !== undefined",
+            "cacheEventData": true
+        }
+
+    ],
+
+    "data": {
+        "globalLabel": {
+            "uiValue": "{{i18n.globalLabel}}",
+            "type": "STRING"
+        },
+        "globalRuleValue": {
+            "dbValue": "{{data.globalRuleValue}}",
+            "type": "STRING"
+        },
+        "currentRevisionRule": {
+            "uiValue": "{{data.currentRevisionRule}}",
+            "type": "STRING"
+        }
+    },
+
+    "i18n": {
+        "configurationPanelRevisionRuleSectionTitle": [ "OccurrenceManagementConstants" ],
+        "currentRevisionRule": [ "OccurrenceManagementConstants" ],
+        "globalLabel": [ "OccurrenceManagementConstants" ],
+        "occurrenceManagementLoadingMsg": [ "OccurrenceManagementConstants" ],
+        "errorInGettingPreferredConfigInfo": [ "OccurrenceManagementMessages" ]
+    }
+}

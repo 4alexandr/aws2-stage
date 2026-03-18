@@ -1,0 +1,9 @@
+{
+  "name": "librarymgmt",
+  "description": "",
+  "modules": [
+    "librarymgmt"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

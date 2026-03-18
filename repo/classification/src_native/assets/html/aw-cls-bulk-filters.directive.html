@@ -1,0 +1,10 @@
+<div>
+    <aw-cls-individual-bulk-filter ng-repeat="(filterName, filterInfo) in bulkFiltersMap"
+        filter-name="filterName"
+        filter-display-name="filterInfo.categoryInfo.displayName"
+        applied-filter-array="filterInfo.appliedFilters"
+        remove-action="removeAction"
+        remove-all-action="removeAllAction"
+        >
+    </aw-cls-individual-bulk-filter>
+</div>

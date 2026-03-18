@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "Edit Localization",
+    "editLocalizationSingleDesc": "Translate value into different languages for the property",
+    "masterValue": "Master Value",
+    "translationLanguages": "Translation Languages",
+    "addorRemoveLocales": "Add or Remove Languages",
+    "addorRemoveLocalesDesc": "Select from the list of languages for translation",
+    "removeLocale": "Remove Language",
+    "removeLocaleDesc": "Remove translation language",
+    "propertiesTranslated": "Properties that can be translated",
+    "status": "Status",
+    "saveTranslationsError": "Issues occurred while trying to save. {0}",
+    "property": "Property"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "systemmodeler",
+  "description": "",
+  "modules": [
+    "systemmodeler"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Ase1.Soa.SystemsModeling"
+  ],
+  "extraDeps": [
+    "js/Ase1InterfaceGraphControlHitHandler"
+  ]
+}

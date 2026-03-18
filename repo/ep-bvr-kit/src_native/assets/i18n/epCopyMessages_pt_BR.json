@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "Copiar",
+    "copyObjectToClipboard": "{0} foi copiado à área de transferência.",
+    "copySingleSuccessful": "\"{0}\" foi copiado à área de transferência.",
+    "copyMultipleSuccessful": "{0} seleções foram copiadas para a área de transferência."
+}

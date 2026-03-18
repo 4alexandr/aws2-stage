@@ -1,0 +1,8 @@
+{
+    "srcPaths": [
+        "repo/*/@(kit|module).json",
+        "src/**",
+        "src/*/@(kit|module).json"
+    ],
+    "schemaPaths": [ "xsd/*.xsd" ]
+}

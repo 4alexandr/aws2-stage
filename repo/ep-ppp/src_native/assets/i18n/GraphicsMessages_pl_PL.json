@@ -1,0 +1,9 @@
+{
+    "noVisuals": "Brak elementów wizualnych w tym elemencie.",
+    "selectElement": "Wybierz element, aby wyświetlić jego elementy wizualne.",
+    "capture2DImage": "Zapamiętaj obraz 2D",
+    "capture2DImagesSuccess": "Obraz 2D został zapamiętany i dołączony do \"{0}\".",
+    "epManageProductViewsCommandTitle":"Zarządzaj widokami produktu w programie Teamcenter Visualization",
+    "3DView": "Widok 3D",
+    "openInTeamcenterVis":"Otwórz w Wizualizacji Teamcenter"
+}

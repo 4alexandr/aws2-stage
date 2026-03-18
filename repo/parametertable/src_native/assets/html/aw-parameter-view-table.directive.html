@@ -1,0 +1,425 @@
+<div class="aw-parameter-view-table" ng-if="dataLoaded">
+    <div class="aw-parameter-view-table-fixed-cols" ng-style="getFixedColsStyle()">
+        <div class="aw-parameter-view-table-fixed-col">
+            <div class="aw-parameter-view-table-header">
+                <div class="aw-parameter-view-table-row">
+                    <div class="aw-parameter-view-table-cell" ng-if="columnVis.checkbox">
+                        <div class="aw-parameter-view-table-cell-filter-select">
+                            <select ng-options="item.title for item in rowFilter" ng-model="filterInfo.manualRowFilter" ng-change="filterTableRows()"
+                                ng-class="filterInfo.manualRowFilter.class"></select>
+                        </div>
+                    </div>
+                    <div class="aw-parameter-view-table-cell" ng-if="columnVis.thumbnail">
+                    </div>
+                    <div class="aw-parameter-view-table-cell" ng-if="columnVis.name" ng-attr-title="{{i18n.ParamColumn_Name}}">
+                        <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttribute).object_name\']'">
+                            <aw-i18n>i18n.ParamColumn_Name</aw-i18n>
+                        </div>
+                    </div>
+                </div>
+                <div class="aw-parameter-view-table-row">
+                    <div class="aw-parameter-view-table-cell" ng-if="columnVis.checkbox">
+                        <input type="checkbox" ng-model="filterInfo.checkAll" ng-change="checkBoxAllChanged()"/>
+                    </div>
+                    <div class="aw-parameter-view-table-cell" ng-if="columnVis.thumbnail">
+                    </div>
+                    <div class="aw-parameter-view-table-cell aw-uiwidgets-searchBoxContainer afx-content-background" ng-if="columnVis.name">
+                        <input type="text" ng-model="filterInfo.text.name" ng-change="filterTableRows()" placeholder="{{i18n.ParamFilter}}">
+                    </div>
+                </div>
+            </div>
+            <div class="aw-parameter-view-table-rows" aw-parameter-view-table-scroll-column="true">
+                <div class="aw-parameter-view-table-rows-render-area" ng-style="{'height':renderAreaHeight}">
+                    <div class="aw-parameter-view-table-rows-render-visible" ng-style="visibleRowsStyle">
+                        <div class="aw-parameter-view-table-row" ng-repeat="row in renderedRows track by $index" ng-class="{'prm1-selected':row.selected, 'prm1-striped':$even}">
+                            <div class="aw-parameter-view-table-cell" ng-if="columnVis.checkbox">
+                                <input type="checkbox" ng-checked="row.isTableRowFileter" ng-click="toggleCheckboxSelection(row)"/>
+                            </div>
+                            <div class="aw-parameter-view-table-cell" ng-if="columnVis.thumbnail" ng-click="select(row, $event)" aw-long-press="handleLongPress(row, $event)">
+                                <aw-model-icon vmo="row" hideoverlay="true" class="aw-widgets-gridCellColorThumbnail"></aw-model-icon>
+                            </div>
+                            <div class="aw-parameter-view-table-cell" ng-if="columnVis.name" ng-click="select(row, $event)">
+                                <aw-param-table-cell modifiable="false" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttribute).object_name']"></aw-param-table-cell>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <aw-parameter-view-table-resizer fixed-rows="true" ng-style="{'height':tableResizerHeight}"></aw-parameter-view-table-resizer>
+
+    <div class="aw-parameter-view-table-main-cols">
+        <div class="aw-parameter-view-table-main-cols-flex">
+            <div class="aw-parameter-view-table-main-col"><!-- ItemRevision properties -->
+                <div class="aw-parameter-view-table-header">
+                    <div class="aw-parameter-view-table-row">
+                        <div class="aw-parameter-view-table-cell" ng-if="columnVis.desc" ng-style="getColumnWidthStyle('desc')" ng-attr-title="{{i18n.ParamColumn_Description}}">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttribute).object_desc\']'">
+                                <aw-i18n>i18n.ParamColumn_Description</aw-i18n>
+                            </div>
+                            <aw-param-column-resizer column-name="desc"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell" ng-if="columnVis.editable" ng-style="getColumnWidthStyle('editable')" ng-attr-title="{{i18n.ParamColumn_Editable}}">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).is_modifiable\']'">
+                                <aw-i18n>i18n.ParamColumn_Editable</aw-i18n>
+                            </div>
+                            <aw-param-column-resizer column-name="editable"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell" ng-if="columnVis.status" ng-style="getColumnWidthStyle('status')" ng-attr-title="{{i18n.ParamColumn_Status}}">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttribute).release_status_list\']'">
+                                <aw-i18n>i18n.ParamColumn_Status</aw-i18n>
+                            </div>
+                            <aw-param-column-resizer column-name="status"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell" ng-if="columnVis.unit" ng-style="getColumnWidthStyle('unit')" ng-attr-title="{{i18n.ParamColumn_Unit}}">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Uom\']'">
+                                <aw-i18n>i18n.ParamColumn_Unit</aw-i18n>
+                            </div>
+                            <aw-param-column-resizer column-name="unit"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell" ng-if="columnVis.source && row.props['REF(att1SourceElement,Fnd0BuildingBlockBOMLine).bl_rev_object_name'].dbValue === null" ng-style="getColumnWidthStyle('source')" ng-attr-title="{{i18n.ParamColumn_Source}}">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceElement,WorkspaceObject).object_name\']'">
+                                <aw-i18n>i18n.ParamColumn_Source</aw-i18n>
+                            </div>
+                            <aw-param-column-resizer column-name="source"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell" ng-if="columnVis.source && row.props['REF(att1SourceElement,Fnd0BuildingBlockBOMLine).bl_rev_object_name'].dbValue !== null" ng-style="getColumnWidthStyle('source')" ng-attr-title="{{i18n.ParamColumn_Source}}">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceElement,Fnd0BuildingBlockBOMLine).bl_rev_object_name\']'">
+                                <aw-i18n>i18n.ParamColumn_Source</aw-i18n>
+                            </div>
+                            <aw-param-column-resizer column-name="source"></aw-param-column-resizer>
+                        </div>
+                    </div>
+                    <div class="aw-parameter-view-table-row">
+                        <div class="aw-parameter-view-table-cell aw-uiwidgets-searchBoxContainer afx-content-background" ng-if="columnVis.desc" ng-style="getColumnWidthStyle('desc')">
+                            <input type="text" ng-model="filterInfo.text.desc" ng-change="filterTableRows()" placeholder="{{i18n.ParamFilter}}">
+                            <aw-param-column-resizer column-name="desc"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell" ng-if="columnVis.editable" ng-style="getColumnWidthStyle('editable')">
+                            <aw-param-column-resizer column-name="editable"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-uiwidgets-searchBoxContainer afx-content-background" ng-if="columnVis.status" ng-style="getColumnWidthStyle('status')">
+                            <input type="text" ng-model="filterInfo.text.status" ng-change="filterTableRows()" placeholder="{{i18n.ParamFilter}}">
+                            <aw-param-column-resizer column-name="status"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-uiwidgets-searchBoxContainer afx-content-background" ng-if="columnVis.unit" ng-style="getColumnWidthStyle('unit')">
+                            <input type="text" ng-model="filterInfo.text.unit" ng-change="filterTableRows()" placeholder="{{i18n.ParamFilter}}">
+                            <aw-param-column-resizer column-name="unit"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-uiwidgets-searchBoxContainer afx-content-background" ng-if="columnVis.source" ng-style="getColumnWidthStyle('source')">
+                            <input type="text" ng-model="filterInfo.text.source" ng-change="filterTableRows()" placeholder="{{i18n.ParamFilter}}">
+                            <aw-param-column-resizer column-name="source"></aw-param-column-resizer>
+                        </div>
+                    </div>
+                </div>
+                <div class="aw-parameter-view-table-rows" aw-parameter-view-table-scroll-column="true">
+                    <div class="aw-parameter-view-table-rows-render-area" ng-style="{'height':renderAreaHeight}">
+                        <div class="aw-parameter-view-table-rows-render-visible" ng-style="visibleRowsStyle">
+                            <div class="aw-parameter-view-table-row" ng-repeat="row in renderedRows track by $index" ng-class="{'prm1-selected':row.selected, 'prm1-striped':$even}"
+                                ng-click="select(row, $event)" aw-long-press="handleLongPress(row, $event)">
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.desc" ng-style="getColumnWidthStyle('desc')">
+                                    <aw-param-table-cell modifiable="{{row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).is_modifiable'].dbValue}}" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttribute).object_desc']" ng-style="getColumnWidthStyle('desc')"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.editable" ng-style="getColumnWidthStyle('editable')">
+                                    <div class="aw-parameter-view-table-cell-icon" ng-show="!row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).is_modifiable'].dbValue">
+                                        <i class="ui-grid-icon-lock" ng-attr-aria-label="{{i18n.NonEditableIcon}}"></i>
+                                    </div>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.status" ng-style="getColumnWidthStyle('status')">
+                                    <span class="aw-jswidgets-text aw-widgets-propertyNonEditValue aw-parameter-view-table-cell-text">{{row.props['REF(att1SourceAttribute,Att0MeasurableAttribute).release_status_list'].uiValue}}</span>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.unit" ng-style="getColumnWidthStyle('unit')">
+                                    <aw-param-table-cell modifiable="{{row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).is_modifiable'].dbValue}}" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Uom']"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.source && row.props['REF(att1SourceElement,Fnd0BuildingBlockBOMLine).bl_rev_object_name'].dbValue === null" ng-style="getColumnWidthStyle('source')">
+                                    <aw-param-table-cell modifiable="false" prop="row.props['REF(att1SourceElement,WorkspaceObject).object_name']"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.source && row.props['REF(att1SourceElement,Fnd0BuildingBlockBOMLine).bl_rev_object_name'].dbValue !== null" ng-style="getColumnWidthStyle('source')">
+                                    <aw-param-table-cell modifiable="false" prop="row.props['REF(att1SourceElement,Fnd0BuildingBlockBOMLine).bl_rev_object_name']"></aw-param-table-cell>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aw-parameter-view-table-main-col"><!-- Latest MA properties -->
+                <div class="aw-parameter-view-table-header">
+                    <div class="aw-parameter-view-table-row">
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-attr-title" ng-style="comparisonColumnHeaderStyle('Latest')">
+                            <label>{{data.CurrentRevRuleTitle}}</label>
+                        </div>
+                    </div>
+                    <div class="aw-parameter-view-table-row">
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.measurement"
+                            ng-attr-title="{{i18n.ParamColumn_Measurement}}" ng-style="getColumnWidthStyle('measurement')">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).REF(att0CurrentValue,Att0MeasureValueDbl).att0Value\']'">
+                                <aw-i18n>i18n.ParamColumn_Measurement</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp | filter : { type: 'mainConf'} " ng-model="filterInfo.cols['att0Value']"
+                                    ng-change="filterTableRows()" ng-class="filterInfo.cols['att0Value'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="measurement"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.goal"
+                            ng-attr-title="{{i18n.ParamColumn_Goal}}" ng-style="getColumnWidthStyle('goal')">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Goal\']'">
+                                <aw-i18n>i18n.ParamColumn_Goal</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp | filter : { type: 'mainConf'} " ng-model="filterInfo.cols['att0Goal']"
+                                    ng-change="filterTableRows()" ng-class="filterInfo.cols['att0Goal'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="goal"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.att0MinOperator"
+                            ng-attr-title="{{i18n.ParamColumn_Min_Operator}}" ng-style="getColumnWidthStyle('att0MinOperator')">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0MinOperator\']'">
+                                <aw-i18n>i18n.ParamColumn_Min_Operator</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp | filter : { type: 'mainConf'} " ng-model="filterInfo.cols['att0MinOperator']"
+                                    ng-change="filterTableRows()" ng-class="filterInfo.cols['att0MinOperator'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="att0MinOperator"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.min"
+                            ng-attr-title="{{i18n.ParamColumn_Min}}" ng-style="getColumnWidthStyle('min')">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Min\']'">
+                                <aw-i18n>i18n.ParamColumn_Min</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp | filter : { type: 'mainConf'} " ng-model="filterInfo.cols['att0Min']"
+                                    ng-change="filterTableRows()" ng-class="filterInfo.cols['att0Min'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="min"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.att0MaxOperator"
+                            ng-attr-title="{{i18n.ParamColumn_Max_Operator}}" ng-style="getColumnWidthStyle('att0MaxOperator')">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0MaxOperator\']'">
+                                <aw-i18n>i18n.ParamColumn_Max_Operator</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp | filter : { type: 'mainConf'} " ng-model="filterInfo.cols['att0MaxOperator']"
+                                    ng-change="filterTableRows()" ng-class="filterInfo.cols['att0MaxOperator'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="att0MaxOperator"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.max"
+                            ng-attr-title="{{i18n.ParamColumn_Max}}" ng-style="getColumnWidthStyle('max')">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Max\']'">
+                                <aw-i18n>i18n.ParamColumn_Max</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp | filter : { type: 'mainConf'} " ng-model="filterInfo.cols['att0Max']"
+                                    ng-change="filterTableRows()" ng-class="filterInfo.cols['att0Max'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="max"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.file"
+                            ng-attr-title="{{i18n.ParamColumn_MapFile}}" ng-style="getColumnWidthStyle('file')">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttribute).GRMREL(Att0HasGoalFile,Dataset).secondary_object\']'">
+                                <aw-i18n>i18n.ParamColumn_MapFile</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp | filter : { type: 'mainConf'} " ng-model="filterInfo.cols['Att0HasGoalFile']"
+                                    ng-change="filterTableRows()" ng-class="filterInfo.cols['Att0HasGoalFile'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="file"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.revision"
+                            ng-attr-title="{{i18n.ParamColumn_Revision}}" ng-style="getColumnWidthStyle('revision')">
+                            <div aw-param-sortable-column="'props[\'REF(att1SourceAttribute,Att0MeasurableAttribute).fnd0RevisionId\']'">
+                                <aw-i18n>i18n.ParamColumn_Revision</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp | filter : { type: 'mainConf'} " ng-model="filterInfo.cols['fnd0RevisionId']"
+                                    ng-change="filterTableRows()" ng-class="filterInfo.cols['fnd0RevisionId'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="revision"></aw-param-column-resizer>
+                        </div>
+                    </div>
+                </div>
+                <div class="aw-parameter-view-table-rows" aw-parameter-view-table-scroll-column="true">
+                    <div class="aw-parameter-view-table-rows-render-area" ng-style="{'height':renderAreaHeight}">
+                        <div class="aw-parameter-view-table-rows-render-visible" ng-style="visibleRowsStyle">
+                            <div class="aw-parameter-view-table-row" ng-repeat="row in renderedRows track by $index" ng-class="{'prm1-selected':row.selected, 'prm1-striped':$even}"
+                                ng-click="select(row, $event)" aw-long-press="handleLongPress(row, $event)">
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.measurement" ng-style="getColumnWidthStyle('measurement')">
+                                    <aw-param-table-cell modifiable="{{row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).is_modifiable'].dbValue}}" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).REF(att0CurrentValue,Att0MeasureValueDbl).att0Value']" ng-style="getColumnWidthStyle('measurement')"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.goal" ng-style="getColumnWidthStyle('goal')">
+                                    <aw-param-table-cell modifiable="{{row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).is_modifiable'].dbValue}}" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Goal']" ng-style="getColumnWidthStyle('goal')"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.att0MinOperator" ng-style="getColumnWidthStyle('att0MinOperator')">
+                                    <aw-param-table-cell modifiable="false" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0MinOperator']"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.min" ng-style="getColumnWidthStyle('min')">
+                                    <aw-param-table-cell modifiable="{{row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).is_modifiable'].dbValue}}" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Min']" ng-style="getColumnWidthStyle('min')"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.att0MaxOperator" ng-style="getColumnWidthStyle('att0MaxOperator')">
+                                    <aw-param-table-cell modifiable="false" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0MaxOperator']"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.max" ng-style="getColumnWidthStyle('max')">
+                                    <aw-param-table-cell modifiable="{{row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).is_modifiable'].dbValue}}" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Max']" ng-style="getColumnWidthStyle('max')"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.file" ng-style="getColumnWidthStyle('file')">
+                                    <aw-param-table-cell modifiable="false" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttribute).GRMREL(Att0HasGoalFile,Dataset).secondary_object']"></aw-param-table-cell>
+                                </div>
+                                <div class="aw-parameter-view-table-cell" ng-if="columnVis.revision" ng-style="getColumnWidthStyle('revision')">
+                                    <aw-param-table-cell modifiable="false" prop="row.props['REF(att1SourceAttribute,Att0MeasurableAttribute).fnd0RevisionId']"></aw-param-table-cell>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <aw-parameter-view-table-resizer ng-style="{'height':tableResizerHeight}"  ng-if="data.comparisonDefs.length"></aw-parameter-view-table-resizer>
+
+    <div class="aw-parameter-view-table-variable-cols" aw-param-movable-boundry="true">
+        <div class="aw-parameter-view-table-variable-cols-flex">
+            <div class="aw-parameter-view-table-variable-col" ng-repeat="cmp in data.comparisonDefs track by $index" ng-init="parentIndex = $index">
+                <div class="aw-parameter-view-table-header">
+                    <div class="aw-parameter-view-table-row">
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-attr-title" aw-param-movable="true" ng-style="comparisonColumnHeaderStyle(cmp.uid)" ng-attr-title="{{cmp.title}}">
+                            <label>{{cmp.title}}</label>
+                        </div>
+                         <div class="aw-parameter-view-comparison-buttons-container">
+                            <div class="aw-parameter-view-comparison-button-spacer"></div>
+                            <div class="aw-parameter-view-icon-button aw-parameter-view-comparison-button-open" ng-if="isStudyCompareSubLoc" >
+                                <a target="_blank" ng-href="#/com.siemens.splm.clientfx.tcui.xrt.showObject?uid={{cmp.vmo.uid}}" ng-attr-title="{{i18n.OpenAnalysisRequestCmd}}">
+                                    <img src="assets/image/cmdOpen24.svg">
+                                </a>
+                            </div>
+                            <div class="aw-parameter-view-icon-button aw-parameter-view-comparison-button-remove" ng-attr-title="{{i18n.RemoveComparisonCmd}}" ng-click="removeComparison(cmp)">
+                                <img src="assets/image/cmdRemove24.svg">
+                            </div>
+                        </div>
+                        <div class="prm1-variable-table-right-border" ng-if="data.comparisonDefs.length > parentIndex + 1" ></div>
+                    </div>
+                    <div class="aw-parameter-view-table-row">
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.measurement" ng-attr-title="{{i18n.ParamColumn_Measurement}}" ng-style="getColumnWidthStyle(cmp.uid+'measurement')">
+                            <div aw-param-sortable-column="'comparisons[\'' + cmp.uid + '\'].props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).REF(att0CurrentValue,Att0MeasureValueDbl).att0Value\']'">
+                                <aw-i18n>i18n.ParamColumn_Measurement</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp" ng-model="filterInfo.cols[cmp.uid + '_att0Value']" ng-change="filterTableRows()"
+                                    ng-class="filterInfo.cols[cmp.uid + '_att0Value'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="{{cmp.uid}}measurement"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.goal" ng-attr-title="{{i18n.ParamColumn_Goal}}" ng-style="getColumnWidthStyle(cmp.uid+'goal')">
+                            <div aw-param-sortable-column="'comparisons[\'' + cmp.uid + '\'].props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Goal\']'">
+                                <aw-i18n>i18n.ParamColumn_Goal</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp" ng-model="filterInfo.cols[cmp.uid + '_att0Goal']" ng-change="filterTableRows()"
+                                    ng-class="filterInfo.cols[cmp.uid + '_att0Goal'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="{{cmp.uid}}goal"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.min" ng-attr-title="{{i18n.ParamColumn_Min}}" ng-style="getColumnWidthStyle(cmp.uid+'min')">
+                            <div aw-param-sortable-column="'comparisons[\'' + cmp.uid + '\'].props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Min\']'">
+                                <aw-i18n>i18n.ParamColumn_Min</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp" ng-model="filterInfo.cols[cmp.uid + '_att0Min']" ng-change="filterTableRows()"
+                                    ng-class="filterInfo.cols[cmp.uid + '_att0Min'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="{{cmp.uid }}min"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.max" ng-attr-title="{{i18n.ParamColumn_Max}}" ng-style="getColumnWidthStyle(cmp.uid+'max')">
+                            <div aw-param-sortable-column="'comparisons[\'' + cmp.uid + '\'].props[\'REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Max\']'">
+                                <aw-i18n>i18n.ParamColumn_Max</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp" ng-model="filterInfo.cols[cmp.uid + '_att0Max']" ng-change="filterTableRows()"
+                                    ng-class="filterInfo.cols[cmp.uid + '_att0Max'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="{{cmp.uid}}max"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.file" ng-attr-title="{{i18n.ParamColumn_MapFile}}" ng-style="getColumnWidthStyle(cmp.uid+'file')">
+                            <div aw-param-sortable-column="'comparisons[\'' + cmp.uid + '\'].props[\'REF(att1SourceAttribute,Att0MeasurableAttribute).GRMREL(Att0HasGoalFile,Dataset).secondary_object\']'">
+                                <aw-i18n>i18n.ParamColumn_MapFile</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp" ng-model="filterInfo.cols[cmp.uid + '_Att0HasGoalFile']" ng-change="filterTableRows()"
+                                    ng-class="filterInfo.cols[cmp.uid + '_Att0HasGoalFile'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="{{cmp.uid}}file"></aw-param-column-resizer>
+                        </div>
+                        <div class="aw-parameter-view-table-cell aw-parameter-view-table-cell-filter" ng-if="columnVis.revision" ng-attr-title="{{i18n.ParamColumn_Revision}}" ng-style="getColumnWidthStyle(cmp.uid+'revision')">
+                            <div aw-param-sortable-column="'comparisons[\'' + cmp.uid + '\'].props[\'REF(att1SourceAttribute,Att0MeasurableAttribute).fnd0RevisionId\']'">
+                                <aw-i18n>i18n.ParamColumn_Revision</aw-i18n>
+                            </div>
+                            <div class="aw-parameter-view-table-cell-filter-select">
+                                <select ng-options="item.title for item in rowFilterComp" ng-model="filterInfo.cols[cmp.uid + '_fnd0RevisionId']" ng-change="filterTableRows()"
+                                    ng-class="filterInfo.cols[cmp.uid + '_fnd0RevisionId'].class"></select>
+                            </div>
+                            <aw-param-column-resizer column-name="{{cmp.uid}}revision"></aw-param-column-resizer>
+                        </div>
+                        <div class="prm1-variable-table-right-border" ng-if="data.comparisonDefs.length > parentIndex + 1" ></div>
+                    </div>
+                </div>
+                <div class="aw-parameter-view-table-rows" aw-parameter-view-table-scroll-column="true">
+                    <div class="aw-parameter-view-table-rows-render-area" ng-style="{'height':renderAreaHeight}">
+                        <div class="aw-parameter-view-table-rows-render-visible" ng-style="visibleRowsStyle">
+                            <div class="aw-parameter-view-table-row" ng-repeat="row in renderedRows track by $index" ng-class="{'prm1-selected':row.selected, 'prm1-striped':$even}"
+                                ng-click="select(row, $event)" aw-long-press="handleLongPress(row, $event)">
+                                <div ng-if="columnVis.measurement" class="aw-parameter-view-table-cell"
+                                    ng-class="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).REF(att0CurrentValue,Att0MeasureValueDbl).att0Value'].dbValue == row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).REF(att0CurrentValue,Att0MeasureValueDbl).att0Value'].dbValue ? '' : 'aw-parameter-view-table-cell-value-different'"
+                                    ng-style="getColumnWidthStyle(cmp.uid+'measurement')">
+                                    <aw-param-table-cell modifiable="false" prop="row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).REF(att0CurrentValue,Att0MeasureValueDbl).att0Value']"></aw-param-table-cell>
+                                </div>
+                                <div ng-if="columnVis.goal" class="aw-parameter-view-table-cell"
+                                    ng-class="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Goal'].dbValue == row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Goal'].dbValue ? '' : 'aw-parameter-view-table-cell-value-different'"
+                                    ng-style="getColumnWidthStyle(cmp.uid+'goal')">
+                                    <aw-param-table-cell modifiable="false" prop="row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Goal']"></aw-param-table-cell>
+                                </div>
+                                <div ng-if="columnVis.min" class="aw-parameter-view-table-cell"
+                                    ng-class="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Min'].dbValue == row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Min'].dbValue ? '' : 'aw-parameter-view-table-cell-value-different'"
+                                    ng-style="getColumnWidthStyle(cmp.uid+'min')">
+                                    <aw-param-table-cell modifiable="false" prop="row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Min']"></aw-param-table-cell>
+                                </div>
+                                <div ng-if="columnVis.max" class="aw-parameter-view-table-cell"
+                                    ng-class="row.props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Max'].dbValue == row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Max'].dbValue ? '' : 'aw-parameter-view-table-cell-value-different'"
+                                    ng-style="getColumnWidthStyle(cmp.uid+'max')">
+                                    <aw-param-table-cell modifiable="false" prop="row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttributeDbl).att0Max']"></aw-param-table-cell>
+                                </div>
+                                <div ng-if="columnVis.file" class="aw-parameter-view-table-cell"
+                                    ng-class="row.props['REF(att1SourceAttribute,Att0MeasurableAttribute).GRMREL(Att0HasGoalFile,Dataset).secondary_object'].dbValue == row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttribute).GRMREL(Att0HasGoalFile,Dataset).secondary_object'].dbValue ? '' : 'aw-parameter-view-table-cell-value-different'"
+                                    ng-style="getColumnWidthStyle(cmp.uid+'file')">
+                                    <aw-param-table-cell modifiable="false" prop="row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttribute).GRMREL(Att0HasGoalFile,Dataset).secondary_object']"></aw-param-table-cell>
+                                </div>
+                                <div ng-if="columnVis.revision" class="aw-parameter-view-table-cell"
+                                    ng-class="row.props['REF(att1SourceAttribute,Att0MeasurableAttribute).fnd0RevisionId'].dbValue == row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttribute).fnd0RevisionId'].dbValue ? '' : 'aw-parameter-view-table-cell-value-different'"
+                                    ng-style="getColumnWidthStyle(cmp.uid+'revision')">
+                                    <aw-param-table-cell modifiable="false" prop="row.comparisons[cmp.uid].props['REF(att1SourceAttribute,Att0MeasurableAttribute).fnd0RevisionId']"></aw-param-table-cell>
+                                </div>
+                                <div class="prm1-variable-table-right-border" ng-if="data.comparisonDefs.length > parentIndex + 1" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="aw-parameter-view-table-scroll-cols">
+        <div class="aw-parameter-view-table-scroll-col">
+            <div class="aw-parameter-view-table-header">
+                <div class="aw-parameter-view-icon-button" ng-attr-title="{{i18n.ShowHideColumnConfigCmd}}" ng-click="showHideColumnsCmdPanel()">
+                    <img src="assets/image/cmdSettings24.svg">
+                </div>
+            </div>
+            <div class="aw-parameter-view-table-rows" aw-parameter-view-table-scroll-column="both">
+                <div class="aw-parameter-view-table-rows-render-area" ng-style="{'height':renderAreaHeight}"></div>
+            </div>
+        </div>
+    </div>
+</div>

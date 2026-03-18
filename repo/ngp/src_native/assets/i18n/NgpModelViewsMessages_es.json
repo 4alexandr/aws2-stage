@@ -1,0 +1,5 @@
+{
+    "sendToViewMakerCmdTitle": "Abrir el fabricante de vistas de fabricación",
+    "sendToViewMakerTooltipMsg": "El fabricante de vistas de fabricación le permite crear y gestionar las vistas del modelo.",
+    "sendToViewMakerDisabledTooltipMsg": "The command is available for processes that either have assignments, or have predecessors or background processes."
+}

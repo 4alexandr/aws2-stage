@@ -1,0 +1,14 @@
+<aw-popup2 caption="{{i18n.setEffectivityPopupTitle}}">
+    <aw-panel-body>
+        <aw-command-panel-section caption="i18n.effectivityTitle" anchor="data.addEffectivityCommandDisplay">
+            <aw-flex-row exist-when="data.dataProviders.getEffectivityList.viewModelCollection.loadedVMObjects.length === 0" class="aw-mfe-messageLine" 
+                justify="center" align-content="center" offset="7f">
+                {{i18n.noEffectivityAssignedToObject}}
+            </aw-flex-row>
+            <aw-flex-row offset="1f"></aw-flex-row>
+            <aw-list dataprovider="data.dataProviders.getEffectivityList">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+        </aw-command-panel-section>
+    </aw-panel-body>
+</aw-popup2>

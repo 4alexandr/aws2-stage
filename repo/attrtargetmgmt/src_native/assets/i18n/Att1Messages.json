@@ -1,0 +1,14 @@
+{
+    "Map_Title":"Map",
+    "MapButton":"Map",
+    "attributeTitle": "Parameters",
+    "StudyAttributes": "Study Parameters",
+    "SelectStudy": "Select Studies to display Parameters",
+    "TestEventAttributes": "Test Event Parameters",
+    "SelectTestEvent":"Select Test Events to display Parameters",
+    "StudyAttributesTC124": "Simulation and Test Request Parameters",
+    "SelectStudyTC124": "Select Simulation or Test Requests to display Parameters",
+    "RunAttributes": "Run Parameters",
+    "SelectRun": "Select Runs to display Parameters",
+    "Measurement_File_Title": "Add Value File"
+}

@@ -1,0 +1,84 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-step-progress.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "JSFunction",
+            "deps": "js/Ase1LogicalBlockStatusService",
+            "method": "getProperties"
+        },
+        "loadSteps":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2013-05-LOV",
+            "method": "getInitialLOVValues",
+            "inputData": {
+                    "initialData": {
+                        "propertyName" : "{{data.propName}}",
+                        "lovInput": {
+                            "operationName": "Create",
+                            "boName": "{{function:getUnderlyingObjectType}}"
+                        }
+                   }
+            },
+            "outputData":
+            {
+                "loadedStates": "lovValues"
+            },
+            "events": {
+                "success": [ {
+                    "name": "statesLoaded"
+                } ]
+            },
+            "deps": "js/Ase1LogicalBlockStatusService"
+        },
+        "getStates": {
+            "actionType": "JSFunction",
+            "method": "getStates",
+            "inputData": {
+                "selectedUid": "{{ctx.xrtSummaryContextObject.uid}}",
+                "propName": "{{data.propName}}",
+                "loadedStates": "{{data.loadedStates}}"
+            },
+            "outputData": {
+                "steps": "states",
+                "currStep": "currState"
+            },
+            "events": {
+                "success": [ {
+                    "name": "StatusProgress.stepCompleted",
+                    "eventData": {
+                        "currentStep": "{{data.currStep}}",
+                        "steps": "{{data.steps}}"
+                    }
+                } ]
+            },
+            "deps": "js/Ase1LogicalBlockStatusService"
+        }
+    },
+    "data": {
+        "propName": "seg0State"
+    },
+    "onEvent": [
+        {
+            "eventId": "Ase1LogicalBlockStatus.contentLoaded",
+            "action": "reveal"
+        },
+        {
+            "eventId": "propertiesLoaded",
+            "action": "loadSteps"
+        },
+        {
+            "eventId": "statesLoaded",
+            "action": "getStates"
+        }
+    ],
+    "functions":{
+        "getUnderlyingObjectType": 
+        {
+            "functionName": "getUnderlyingObjectType"
+        }
+    }
+}

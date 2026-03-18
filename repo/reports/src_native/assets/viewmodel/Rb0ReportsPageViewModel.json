@@ -1,0 +1,84 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/report-dynamic-size.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "validateReveal",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "vmo": "{{ctx.selected}}"
+            },
+
+            "deps": "js/Rb0ReportsPage"
+        },
+
+        "refreshPanelData":
+        {
+            "actionType": "JSFunction",
+            "method": "refreshPanelData",
+            "inputData":
+            {
+                "vmo": "{{selected}}",
+                "ticketURL": "{{urlPath}}",
+                "data": "{{rddata}}"
+            },
+            "outputData":{
+                "urlFrameSize": "urlFrameSize"
+            },
+
+            "deps": "js/Rb0ReportsPage"
+        }
+    },
+
+    "data":
+    {
+        "url":
+        {
+            "type": "STRING",
+            "dbValue": ""
+        }
+    },
+
+    "i18n":
+    {
+        "doLiveIntegration":
+        [
+            "ReportMessages"
+        ],
+        "reportsPage":
+        [
+            "ReportMessages"
+        ],
+        "showNoDataFoundMessage":
+        [
+            "ReportMessages"
+        ]
+    },
+
+       "messages":
+    {
+        "showNoDataFoundMessage":
+        {
+            "messageType": "INFO",
+            "messageText": "{{i18n.showNoDataFoundMessage}}"
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "updateHTMLReport",
+            "action": "refreshPanelData"
+        }
+    ]
+}

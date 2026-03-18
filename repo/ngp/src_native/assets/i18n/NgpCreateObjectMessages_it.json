@@ -1,0 +1,13 @@
+{
+    "cancel":"Annulla",
+    "creataAndAddMore":"Crea e aggiungi altri",
+    "create":"Crea",
+    "select":"Seleziona",
+    "selectType":"Seleziona tipo",
+    "creatingObjectMessage": "Creazione",
+    "next" : "Successivo",
+    "previous" : "Precedente",
+    "createBuildElement":"Crea elemento di costruzione",
+    "createActivity":"Crea attività"
+
+}

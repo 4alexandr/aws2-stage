@@ -1,0 +1,8 @@
+{
+    "delete":"删除",
+    "discard":"取消",
+    "DeleteSingleMessage": "确定要删除 \"{0}\" 吗？",
+    "DeleteMultipleMessage": "确定要删除这 {0} 个对象吗？",
+    "epCmdDeleteTitle":"删除",
+    "epCmdDeleteDesc": "删除选定对象。"
+}

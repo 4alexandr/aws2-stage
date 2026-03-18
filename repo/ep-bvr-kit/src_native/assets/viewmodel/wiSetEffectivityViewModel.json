@@ -1,0 +1,110 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-list.directive",
+        "js/aw-popup2.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-flex-row.directive"
+    ],
+
+    "data":
+    {
+       "addEffectivityCommandDisplay":"addEffectivity"
+    },
+
+    "actions": {
+        "closeSetEffectivityPopUpAction": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+
+        "initializeEffectivityList": {
+            "actionType": "dataProvider",
+            "method": "getEffectivityList"
+        },
+    
+        "updateEffectivityList": {
+            "actionType": "JSFunction",
+            "method": "updateEffectivityList",
+            "inputData": {
+                "effectivityObjs": "{{subPanelContext.effectivityObjs}}",
+                "removedEffectivityObjs": "{{data.eventData.toRemoveObjects}}",
+                "dataProvider": "{{data.dataProviders.getEffectivityList}}"
+            },
+            "deps": "js/wiSetEffectivityService"
+        },
+
+        "handleRemoveEffectivity": {
+            "actionType": "JSFunction",
+            "method": "handleRemoveEffectivity",
+            "inputData": {
+                "effectivityObj": "{{data.eventData.effectivityObj}}",
+                "selectedObject": "{{subPanelContext.selectedObject}}"
+            },
+            "deps": "js/wiEffectivityService"
+        },
+
+        "addOrEditEffectivity": {
+            "actionType": "JSFunction",
+            "method": "addOrEditEffectivity",
+            "inputData": {
+                "selectedObject": "{{subPanelContext.selectedObject}}",
+                "effectivityObjs": "{{subPanelContext.effectivityObjs}}",
+                "effectivityObj": "{{data.eventData.effectivityObj}}"
+            },
+            "deps": "js/wiSetEffectivityService"
+        }
+    },
+
+    "dataProviders": {
+        "getEffectivityList": {
+            "response": "{{subPanelContext.effectivityObjs}}",
+            "commandsAnchor": "setEffectivity",
+            "selectionModelMode": "single"
+        }
+    },
+
+    "onEvent": [ 
+        {
+            "eventId": "aw.closePopup",
+            "action": "closeSetEffectivityPopUpAction"
+        },
+        {
+            "eventId": "wi.updateEffectivityList",
+            "cacheEventData": true,
+            "action": "updateEffectivityList"
+        },
+        {
+            "eventId": "wi.handleRemoveEffectivity",
+            "cacheEventData": true,
+            "action": "handleRemoveEffectivity"
+        },
+        {
+            "eventId": "wi.addOrEditEffectivity",
+            "cacheEventData": true,
+            "action": "addOrEditEffectivity"
+        }
+    ],
+
+    "lifecycleHooks": {
+        "onInit": "initializeEffectivityList"
+    },
+
+    "i18n": {
+        "setEffectivityPopupTitle": [
+            "InstructionsEffectivityMessages"
+        ],
+        "noEffectivityAssignedToObject": [
+            "InstructionsEffectivityMessages"
+        ],
+        "effectivityTitle": [
+            "InstructionsEffectivityMessages"
+        ]
+    }
+}

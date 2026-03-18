@@ -1,0 +1,660 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+            "js/aw-default-cell.directive",
+            "js/aw-panel-body.directive",
+            "js/aw-panel-footer.directive",
+            "js/aw-button.directive",
+            "js/aw-i18n.directive",
+            "js/aw-list.directive",
+            "js/aw-cls-fullview-icocss.directive"
+    ],
+    "actions":
+    {
+        "setupStandaloneDataAndPrompt":{
+            "actionType": "JSFunction",
+            "method": "setupStandaloneDataAndPrompt",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "cleanStandaloneObjectData":
+        {
+            "actionType": "JSFunction",
+            "method": "cleanupStandaloneData",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyService"
+        },
+        "setTargetObjectForSelection":{
+            "actionType": "JSFunction",
+            "method": "setTargetObjectForSelection",
+            "inputData": {
+                "selectedWSO": "{{ctx.selected}}",
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "classifyPanel.loadCells"
+                    }
+                ]
+            },
+            "deps": "js/classifyService"
+        },
+        "getClassifiableWSOList":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-IcsAw-2019-06-Classification",
+            "method": "getClassificationCmdVisibilityInfo",
+            "inputData":
+            {
+                "theWSOs": "{{function:getWorkspaceObjectUidFromCtxSelected}}"
+            },
+            "outputData":
+            {
+                "classifiableWSOList":"{{function:getClassifyNonClassify}}"
+
+            },
+            "events": {
+                "success": [
+                    {
+
+                        "name": "classifyTab.reveal"
+                    }
+                ]
+            },
+            "deps":"js/classifyFullViewService"
+        },
+        "getCLSPreferences":
+        {
+            "actionType": "JSFunction",
+            "method": "getCLSPreferences",
+            "inputData": {
+                "ctx": "{{ctx}}"
+            },
+            "events":{
+                "success":[
+                    {
+                        "name": "classify.toggleView"
+                    }
+                ]
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "toggleView":
+        {
+            "actionType": "JSFunction",
+            "method": "toggleView",
+            "inputData": {
+                "selectedWSO": "{{ctx.selected}}",
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+            "events":{
+                "success":[
+                    {
+                        "name": "classifyPanel.loadCells"
+                    }
+                ]
+            },
+            "actionMessages":
+            {
+                "failure":
+                [
+                    {
+                        "message": "nonClassifiableWSOMessage"
+                    }
+                ]
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "edit": {
+            "actionType": "JSFunction",
+            "method": "editMode",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "revealView":{
+            "actionType": "JSFunction",
+            "method": "findClassificationObjects",
+            "inputData": {
+                "selectedWSO": "{{ctx.selected}}",
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "loadCells":
+        {
+            "actionType": "dataProvider",
+            "method": "performSearch"
+        },
+        "getIcos": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-IcsAw-2019-12-Classification",
+            "method": "findClassificationInfo3",
+            "inputData": {
+                "workspaceObjects": "{{function:getWorkspaceObjectUid}}",
+                "searchCriterias": [],
+                "classificationDataOptions": 9220
+            },
+            "outputData": {
+                "clsClassDescriptors":"clsClassDescriptors",
+                "keyLOVDescriptors":"keyLOVDescriptors",
+                "clsBlockDescriptors":"clsBlockDescriptors",
+                "classDefinitionMapResponse":"clsClassDescriptors",
+                "keyLOVDefinitionMapResponse":"keyLOVDescriptors",
+                "blockDefinitionMapResponse":"clsBlockDescriptors",
+                "clsObjectDefs":"clsObjectDefs",
+                "classParents":"classParents",
+                "expandImagesPanel":"false",
+                "clsImgAvailable":"false",
+                "attributesVisible":"false",
+                "hierarchyVisible":"true",
+                "hierarchyExpanded":"true",
+                "panelMode":"-1",
+                "standaloneIco":"clsObjectDefs[1][0].clsObjects[0]",
+                "icoCells": "{{function:generateCells}}"
+
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "classifyPanel.setCell"
+                    },
+                    {
+                        "name": "classifyPanel.setupStandaloneDataAndPrompt",
+                        "condition":"ctx.standaloneExists"
+                    }
+                ]
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "checkIfEditsToBeCancelled": {
+            "actionType": "JSFunction",
+            "method": "checkIfEditsToBeCancelled",
+
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "classifyPanel.processCell"
+                    }
+                ]
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "processCellSelection":{
+            "actionType": "JSFunction",
+            "method": "processCellSelection",
+
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "classifyTab.setCreateModeVariables",
+                        "condition": "ctx.clsTab && ctx.clsTab.navigateToCreateMode === true"
+                    },
+                    {
+                        "name": "classifyPanel.createReleaseList",
+                        "condition": "ctx.clsTab && ctx.clsTab.eReleases && ctx.clsTab.eReleases.length > 0"
+                    },
+                    {
+                        "name": "classify.editClass",
+                        "condition": "ctx.clsTab && ctx.clsTab.navigateToEditClass === true"
+                    }
+                ]
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "setCellProperty":{
+            "actionType": "JSFunction",
+            "method": "setCellProperty",
+
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyService"
+        },
+        "deselectICOBeforeEditing": {
+            "actionType": "JSFunction",
+            "method": "deselectICOBeforeEditing",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "editClass": {
+            "actionType": "JSFunction",
+            "method": "reClassify",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "tabTestTableClassification.plTable.reload"
+                    }
+                ]
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "editProperties": {
+            "actionType": "JSFunction",
+            "method": "editPropertyValues",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "cancelEdit": {
+            "actionType": "JSFunction",
+            "method": "processCancelEdit",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "exitFullScreenMode": {
+            "actionType": "JSFunction",
+            "method": "exitFullScreenMode",
+            "inputData":
+            {
+                "fullScreenCmd": "classifyFullscreen",
+                "fullViewModeActive": true
+            },
+            "deps": "js/classifyFullViewModeService"
+        },
+        "showHideAnnotations": {
+            "actionType": "JSFunction",
+            "method": "showHideAnnotations",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "showHideProperties": {
+            "actionType": "JSFunction",
+            "method": "showHideProperties",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "showHideMetric": {
+            "actionType": "JSFunction",
+            "method": "showHideMetricSystem",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "showHideImages": {
+            "actionType": "JSFunction",
+            "method": "showHideImages",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "showHidePropGroups": {
+            "actionType": "JSFunction",
+            "method": "showHidePropGroups",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "toggleTableView": {
+            "actionType": "JSFunction",
+            "method": "toggleCardinalityView",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "showImage":
+        {
+            "actionType": "JSFunction",
+            "method": "showImage",
+            "inputData":
+            {
+                "data":"{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "setTableEditable": {
+            "actionType": "JSFunction",
+            "method": "setTableEditable",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "dataProvider": "{{data.dataProviders.PropDataProvider}}"
+            },
+            "deps": "js/classifyFullviewTableService"
+        },
+        "adjustTableToFullScreen": {
+            "actionType": "JSFunction",
+            "method": "adjustTableToFullScreen",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "dataProvider": "{{data.dataProviders.PropDataProvider}}"
+            },
+            "deps": "js/classifyFullviewTableService"
+        },
+        "resetEditClassFlag":{
+            "actionType": "JSFunction",
+            "method": "resetEditClassFlag",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "doArrangeEvent" : {
+            "actionType": "JSFunctionAsync",
+            "method": "arrangeColumns",
+            "inputData": {
+                "declViewModel": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/columnArrangeService"
+        },
+        "highlightKeywords":
+        {
+            "actionType": "JSFunction",
+            "method": "highlightKeywords",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "gridView.plTable.clientRefresh"
+                    }
+                ]
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "noAction": {
+            "actionType": "JSFunction",
+            "method": "noAction",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "setCreateMode":{
+            "actionType": "JSFunction",
+            "method": "setCreateMode",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        },
+        "setSelectedIco":{
+            "actionType": "JSFunction",
+            "method": "setSelectedIco",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/searchSimilarService"
+        },
+        "resetIcoSelection": {
+            "actionType": "JSFunction",
+            "method": "resetIcoSelection",
+            "inputData": {
+            },
+            "deps": "js/searchSimilarService"
+        },
+        "checkSearchSimilarCommandVisibility": {
+            "actionType": "JSFunction",
+            "method": "checkSearchSimilarCommandVisibility",
+            "inputData": {
+            },
+            "deps": "js/searchSimilarService"
+        }
+    },
+    "onEvent": [
+        {
+           "eventId": "awPanel.reveal",
+           "criteria": {
+               "panelId": "Awp0ViewClassificationFull"
+           },
+           "action" : "getClassifiableWSOList"
+        },
+        {
+            "eventId" : "classifyTab.reveal",
+            "action": "getCLSPreferences"
+        },
+        {
+            "eventId" : "classify.toggleView",
+            "action": "toggleView"
+        },
+        {
+            "eventId" : "classifyTabActive.reveal",
+            "action": "revealView"
+        },
+        {
+           "eventId": "awPanel.navigate",
+           "criteria": {
+               "destPanelId": "Awp0ViewClassificationFull"
+           },
+           "action": "loadCells"
+        },
+        {
+           "eventId": "classifyPanel.loadCells",
+           "action": "loadCells"
+        },
+        {
+           "eventId": "performSearch.selectionChangeEvent",
+           "action": "checkIfEditsToBeCancelled"
+        },
+        {
+            "eventId": "performSearch.selectionChangeEvent",
+            "action": "setSelectedIco",
+            "cacheEventData": true
+         },
+        {
+           "eventId": "classifyTab.checkIfEditsToBeCancelled",
+           "action": "checkIfEditsToBeCancelled"
+        },
+        {
+           "eventId": "classifyPanel.setCell",
+           "action": "setCellProperty"
+        },
+         {
+           "eventId": "refresh.classifyTab",
+           "action": "revealView"
+        },
+        {
+            "eventId": "classifyTab.deselectICOBeforeEditing",
+            "action": "deselectICOBeforeEditing"
+        },
+        {
+            "eventId": "classify.editClass",
+            "cacheEventData": true,
+            "action": "editClass"
+         },
+        {
+            "eventId": "classify.editProperties",
+            "cacheEventData": true,
+            "action": "editProperties"
+         },
+         {
+            "eventId": "classify.cancelEdit",
+            "cacheEventData": true,
+            "action": "cancelEdit"
+         },
+         {
+            "eventId": "classify.exitFullScreenMode",
+            "action": "exitFullScreenMode"
+         },
+         {
+            "eventId": "classify.showHideAnnotations",
+            "cacheEventData": true,
+            "action": "showHideAnnotations"
+         },
+        {
+            "eventId": "classify.showHideProperties",
+            "cacheEventData": true,
+            "action": "showHideProperties"
+         },
+         {
+            "eventId": "classify.showHideMetric",
+            "cacheEventData": true,
+            "action": "showHideMetric"
+         },
+         {
+            "eventId": "classify.showHideImages",
+            "cacheEventData": true,
+            "action": "showHideImages"
+         },
+         {
+            "eventId": "classify.showHidePropGroups",
+            "cacheEventData": true,
+            "action": "showHidePropGroups"
+         },
+         {
+            "eventId": "classify.toggleTableView",
+            "cacheEventData": true,
+            "action": "toggleTableView"
+         },
+         {
+            "eventId": "classify.adjustTableForFullScreen",
+            "cacheEventData": true,
+            "action": "adjustTableToFullScreen"
+         },
+         {
+            "eventId": "classifyTab.imageSelected",
+            "action": "showImage"
+        },
+        {
+            "eventId":"classifyPanel.processCell",
+            "action":"processCellSelection"
+        },
+        {
+            "eventId": "gridView.plTable.loadMorePages",
+            "action": "setTableEditable"
+        },
+        {
+            "eventId":"classifyPanel.setupStandaloneDataAndPrompt",
+            "action":"setupStandaloneDataAndPrompt"
+        },
+        {
+            "eventId":"classifyPanel.cleanStandaloneObjectData",
+            "action":"cleanStandaloneObjectData"
+        },
+        {
+            "eventId": "reset.EditClassFlag",
+            "action": "resetEditClassFlag"
+        },
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "doArrangeEvent"
+        },
+        {
+            "eventId": "classify.highlightKeywords",
+            "cacheEventData": true,
+            "action": "highlightKeywords"
+        },
+        {
+            "eventId": "Ics1ClassificationTabViewer.contentUnloaded",
+            "action": "resetIcoSelection"
+        },
+        {
+            "eventId": "classifyPanel.processCell",
+            "action": "checkSearchSimilarCommandVisibility"
+        }
+    ],
+
+    "i18n":
+    {
+        "Add":              [ "ClassificationPanelMessages"],
+        "cancel":           [ "ClassificationPanelMessages"],
+        "Classifications": [ "ClassificationPanelMessages"],
+        "cardinalBlock":    [ "ClassificationPanelMessages"],
+        "polymorphicBlock": [ "ClassificationPanelMessages"],
+        "Classification":   [ "ClassificationPanelMessages"],
+        "edit":             [ "ClassificationPanelMessages"],
+        "Path":             [ "ClassificationPanelMessages" ],
+        "DateModified":     [ "ClassificationPanelMessages" ],
+        "nonClassifiableWSO": ["ClassificationPanelMessages"],
+        "noClassifiedObjects": ["ClassificationPanelMessages"]
+    },
+
+    "messages":
+    {
+        "nonClassifiableWSOMessage":{
+            "messageType": "ERROR",
+            "messageText": "{{i18n.nonClassifiableWSO}}",
+            "messageTextParams":[
+                "{{ctx.selected.cellHeader1}}",
+                "{{ctx.selected.cellHeader2}}"
+            ]
+        }
+    },
+    "data":{
+        "nasa_cell_commands": "nasa_cell_commands",
+        "cellTooltip": {
+            "view": "clsCellTooltip"
+        }
+    },
+    "dataProviders": {
+        "performSearch": {
+            "action": "getIcos",
+            "response": "{{data.icoCells}}",
+            "totalFound": "{{data.icoCells.length}}",
+            "commandsAnchor": "nasa_cell_commands"
+        }
+    },
+    "functions": {
+        "getWorkspaceObjectUid": {
+            "functionName": "getWorkspaceObjectUid",
+            "parameters": [
+                "{{data}}",
+                "{{ctx}}"
+            ]
+        },
+        "getWorkspaceObjectUidFromCtxSelected": {
+            "functionName": "getWorkspaceObjectUidFromCtxSelected",
+            "parameters": [
+                "{{data}}",
+                "{{ctx}}"
+            ]
+        },
+        "getObjects": {
+            "functionName": "getObjects",
+            "parameters": [
+                "{{data}}",
+                "{{ctx}}"
+            ]
+        }
+    }
+}

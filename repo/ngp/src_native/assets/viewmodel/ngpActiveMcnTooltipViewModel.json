@@ -1,0 +1,30 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "extendedTooltip": {
+            "title": "{{i18n.activeMcnTooltipTitle}}",
+            "messages": [ {
+                    "text": "{{i18n.activeMcnFirstRowMessage}}",
+                    "params": [
+                        "{{ctx.ngp.scopeObject.props.mpc0activeMCN.uiValue}}"
+                    ]
+                },
+                "{{i18n.activeMcnSecondRowMessage}}",
+                "{{i18n.activeMcnThirdRowMessage}}",
+                "{{i18n.activeMcnFourthRowMessage}}"
+            ],
+            "className": "aw-ngp-activeMcnTooltip"
+        }
+    },
+    "i18n": {
+        "activeMcnTooltipTitle": [ "NgpChangeMgmtMessages" ],
+        "activeMcnFirstRowMessage": [ "NgpChangeMgmtMessages" ],
+        "activeMcnSecondRowMessage": [ "NgpChangeMgmtMessages" ],
+        "activeMcnThirdRowMessage": [ "NgpChangeMgmtMessages" ],
+        "activeMcnFourthRowMessage": [ "NgpChangeMgmtMessages" ],
+        "activeMcnTooltipInstruction": [ "NgpChangeMgmtMessages" ]
+    }
+}

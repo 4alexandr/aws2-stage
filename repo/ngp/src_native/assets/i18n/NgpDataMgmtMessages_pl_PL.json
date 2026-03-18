@@ -1,0 +1,23 @@
+{
+    "cancel": "Anuluj",
+    "submit": "Przekaż",
+    "continue": "Kontynuuj",
+    "reviseCmdTitle": "Utwórz zmianę",
+    "workflowTemplatesLabel": "Szablon obiegu informacji",
+    "workflowNameLabel": "Nazwa obiegu informacji",
+    "workflowDescriptionLabel": "Opis",
+    "noWorkflowTemplatesMsg": "Nie znaleziono szablonów obiegu informacji dla wybranych elementów.",
+    "submitToWorkflowCmdTitle": "Przekaż do obiegu danych",
+    "submitToWorkflowTooltipMsg": "Przekaż {0} do obiegu informacji.",
+    "submitToWorkflowInformationMsg": "Usuwanie {0} procesów w toku. Aby wydać zawartość czynności, w tym tę operację usuwania, przekaż czynność do obiegu informacji przy użyciu szablonu obiegu informacji \"NGP_ReleasePendingDeletions\".",
+    "successfullySubmitToWorkflowSingle": "\"{0}\" przesłano do obiegu informacji.",
+    "successfullySubmitToWorkflowMultiple": "Liczba elementów przesłanych do obiegu informacji: {0}.",
+    "parentAutoReviseSingleConfirmation": "Tworzenie rewizji \"{0}\" spowoduje również utworzenie rewizji \"{1}\". Czy chcesz kontynuować?",
+    "parentAutoReviseMultipleConfirmation": "Tworzenie rewizji wybranych operacji spowoduje również utworzenie rewizji \"{0}\". Czy chcesz kontynuować?",
+    "successfulReviseAction": "Nowa rewizja została pomyślnie utworzona dla \"{0}\".",
+    "submitSelectedToWorkflow": "Przekaż wybrane elementy do obiegu informacji.",
+    "singleDeleteMessage": "Czy na pewno chcesz usunąć \"{0}\"?",
+    "multipleDeleteMessage": "Czy na pewno chcesz usunąć te elementy ({0})?",
+    "deleteTooltipMsg": "Usuń",
+    "deleteSelectedObjectsCmdDescription": "Usuń wybrane elementy"    
+}

@@ -1,0 +1,116 @@
+{
+  "name": "stockmaterial",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "aliasRegistry": {
+    "typeStockMaterial48": [
+      "SM0StockMaterial"
+    ],
+    "typeStockMaterialRevision48": [
+      "SM0StockMaterialRevision"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "Sm1AddStdPart": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Sm1AddStdPartDesc}}"
+      },
+      "Sm1AddStockMaterial": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Sm1AddStockMaterialDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "sm1AddStdPartCommandHandler": {
+        "id": "Sm1AddStdPart",
+        "action": "activateSm1AddStdPart",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isSm1AddStdPartCmdVisible"
+        }
+      },
+      "sm1AddStockMaterialCommandHandler": {
+        "id": "Sm1AddStockMaterial",
+        "action": "activateSm1AddStockMaterial",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isSm1AddStockMaterialCmdVisible"
+        }
+      }
+    },
+    "commandPlacements": {},
+    "actions": {
+      "activateSm1AddStdPart": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Sm1AddStdPart",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateSm1AddStockMaterial": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Sm1AddStockMaterial",
+          "location": "aw_toolsAndInfo"
+        }
+      }
+    },
+    "conditions": {
+      "isSm1AddStdPartCmdVisible": {
+        "expression": "commandContext.objectSetSource==='SM0MadeFrom.Part'"
+      },
+      "isSm1AddStockMaterialCmdVisible": {
+        "expression": "commandContext.objectSetSource==='SM0MadeFrom.SM0StockMaterial'"
+      }
+    },
+    "messages": {},
+    "onEvent": [
+      {}
+    ],
+    "i18n": {
+      "Sm1AddStdPartDesc": [
+        "Sm1StockMaterialMessages"
+      ],
+      "Sm1AddStockMaterialDesc": [
+        "Sm1StockMaterialMessages"
+      ]
+    }
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "SM0StockMaterialRevision": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "items_tag"
+          }
+        ]
+      },
+      "Part Revision": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "items_tag"
+          }
+        ]
+      }
+    }
+  }
+}

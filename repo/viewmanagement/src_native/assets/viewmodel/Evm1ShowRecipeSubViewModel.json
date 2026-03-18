@@ -1,0 +1,183 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-default-cell.directive",
+        "js/visible-when.directive",
+        "js/aw-i18n.directive"
+    ],
+
+    "actions": {
+        "updateRecipePanel": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": ""
+                },
+                "inflateProperties": false,
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Awp0SavedQuerySearchProvider",
+                    "searchCriteria": {
+                        "queryName": "General...",
+                        "searchID": "RECIPELIST",
+                        "Type": "Fnd0SearchRecipe",
+                        "lastEndIndex": "",
+                        "totalObjectsFoundReportedToClient": "",
+                        "typeOfSearch": "ADVANCED_SEARCH",
+                        "utcOffset": "0"
+                    },
+                    "attributesToInflate": [],
+                    "searchFilterFieldSortType": "Priority",
+                    "searchFilterMap6": {},
+                    "searchSortCriteria": [],
+                    "startIndex": "{{data.dataProviders.dataProviderRecipeList.startIndex}}"
+                }
+            },
+
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}"
+            },
+
+            "events": {
+                "success": [ {
+                    "name": "recipePanel.updatePanel"
+                } ]
+            }
+        },
+
+        "processSoaResponse": {
+            "actionType": "JSFunction",
+            "method": "processSoaResponseFunc",
+            "inputData": {
+                "data": "{{data}}"
+            },
+
+            "events": {
+                "success": [ {
+                        "name": "recipePanel.loadCells"
+                    }
+                ]
+            },
+
+            "deps": "js/Evm1ShowRecipeService"
+        },
+
+        "actionFilterList": {
+            "actionType": "JSFunction",
+            "method": "actionFilterList",
+            "inputData": {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/Evm1ShowRecipeService"
+        },
+
+        "loadCellList": {
+            "actionType": "dataProvider",
+            "method": "dataProviderRecipeList"
+        },
+
+        "executeRecipe":{
+            "actionType": "JSFunction",
+            "method": "executeRecipe",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1ShowRecipeService"
+        },
+
+        "openRecipe": {
+            "actionType": "Navigate",
+            "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+            "navigationParams": {
+                "uid": "{{data.eventData.uid}}"
+            }
+        }
+    },
+
+    "data": {
+        "filterBox": {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "false",
+            "requiredText": "Filter",
+            "dbValue": ""
+        },
+        "recipeDataList": {
+            "isArray": "true",
+            "dbValue": [
+
+            ]
+        },
+        "recipeDataFilterList": {
+            "isArray": "true",
+            "dbValue": [
+
+            ]
+        },
+        "recipeRadio": {
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "all",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "recipeRadioValues": {
+            "type": "STRING",
+            "dbValue": [
+                {
+                    "propDisplayValue": "All",
+                    "propInternalValue": "all"
+                },
+                {
+                    "propDisplayValue": "Assigned",
+                    "propInternalValue": "assigned"
+                }
+            ]
+        }
+    },
+
+    "dataProviders": {
+        "dataProviderRecipeList": {
+            "action": "actionFilterList",
+            "response": "{{data.recipeDataFilterList.dbValue}}",
+            "totalFound": "{{data.recipeDataFilterList.dbValue.length}}",
+            "selectionModelMode": "single",
+            "deps": "js/Evm1ShowRecipeService"
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "action": "updateRecipePanel"
+        },
+        {
+            "eventId": "recipePanel.updatePanel",
+            "action": "processSoaResponse"
+        },
+        {
+            "eventId": "recipePanel.loadCells",
+            "action": "loadCellList"
+        },
+        {
+            "eventId": "openSelectedRecipe",
+            "action": "openRecipe",
+            "cacheEventData": true
+        }
+    ],
+
+    "i18n": {
+        "NoResults": [
+            "RecipeCommandPanelsMessages"
+        ]
+    }
+}

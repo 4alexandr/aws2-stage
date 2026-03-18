@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "Agregar a",
+    "addButtonTitle": "Agregar",
+    "addLabel": "Agregar a",
+    "newShowAddObjectPresenterBtn": "Nuevo",
+    "paletteShowAddObjectPresenterBtn": "Paleta",
+    "searchShowAddObjectPresenterBtn": "Búsqueda",
+    "errorInGettingSubtypesofEndItem": "No se filtraron los resultados de la búsqueda debido a un error interno.",
+    "FrequentlyUsedSectionTitle": "Utilizado con más frecuencia",
+    "addPropertiesLabel": "Agregar propiedades",
+    "resultsTabTitle": "Resultados",
+    "filterTabTitle": "Filtro",
+    "Mtw0ShowAddObjectDesc": "Asigne una sustancia al material.",
+    "view": "Vista",
+    "billOfMaterials": "Lista de materiales",
+    "billOfSubstances" : "Lista de sustancias"
+}

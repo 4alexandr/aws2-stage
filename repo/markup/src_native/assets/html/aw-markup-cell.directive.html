@@ -1,0 +1,18 @@
+<div class="aw-layout-flexRow">
+    <div class="aw-widgets-cellListCellImage" ng-class="{'aw-markup-cellIndentation': isIndented()}">
+        <aw-avatar size="small" source="vmo.userImage" title="{{vmo | toShareInfo}}"></aw-avatar>
+    </div>
+    <div class="aw-markup-cellContent">
+        <div class="aw-widgets-cellListCellTitleBlock">
+            <h3 class="aw-widgets-cellListCellTitle">{{vmo.displayname}}</h3>
+            <label class="aw-widgets-cellListCellItemType aw-base-small">{{vmo | toStatus}}</label>
+        </div>
+        <div class="aw-widgets-cellListCellProperties">
+            <label class="aw-widgets-propertyValue aw-base-small">{{vmo.date.toLocaleString()}}</label>
+        </div>
+        <div visible-when="vmo.selected" ng-bind-html="vmo.comment | toTrusted" ></div>
+        <div visible-when="!vmo.selected" class="aw-widgets-cellListCellProperties">
+            <label class="aw-widgets-propertyValue aw-base-small">{{vmo.comment | toOneLine}}</label>
+        </div>
+    </div>
+</div>

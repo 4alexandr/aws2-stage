@@ -1,0 +1,16 @@
+{
+    "LoadButton": "Загрузить портфель",
+    "loadstatus": "Загрузка...",
+    "compare": "Сравнить содержания",
+    "locationClickViewerHeaderTitle": "Просмотр",
+    "locationOneClickViewerSubTitle": "Программа просмотра",
+    "pickTOSPanel": "Просмотр портфеля",
+    "pickTOSPanelCompare": "Сравнить портфели",
+    "transferOptionSet": "Выбрать набор параметров для передачи",
+    "tosPanelSourceBCZ": "Исходный портфель",
+    "tosPanelTargetBCZ": "Целевой портфель",
+    "tosSourceLabel": "Исходный набор параметров передачи применен",
+    "tosTargetLabel": "Целевой набор параметров передачи применен",
+    "bbrowserCompareViewerDesc": "Просмотреть различия между файлами портфеля.",
+    "bbrowserOneClickViewerDesc": "Утвердить содержимое файла портфеля перед импортом."
+}

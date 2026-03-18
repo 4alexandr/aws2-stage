@@ -1,0 +1,22 @@
+{
+    "manageTitle": "Spravovat",
+    "createWorkPackageHeaderTitle": "Nový pracovní balík",
+    "manageTitleDecl": "Spravovat pracovní balík",
+    "epOpenWPTitle": "Otevřít",
+    "epOpenWPDesc": "Otevřít pracovní balík",
+    "ebomTileTitle": "EBOM",
+    "mbomTileTitle": "MBOM",
+    "add": "Přidat",
+    "noEbomSelectedMessage": "Vyberte EBOM před výběrem MBOM.",
+    "addEbomCmdToolTipTitle": "Přidat EBOM",
+    "addEbomCmdToolTipDescription": "Vyberte strukturu EBOM a přidejte ji do pracovního balíku.",
+    "addMbomCmdToolTipTitle": "Přidat MBOM",
+    "addMbomCmdToolTipDescription": "Vytvořte novou strukturu MBOM nebo vyberte existující a přidejte ji do pracovního balíku.",
+    "manageWPRightAreaTitle": "Obsah",
+    "addProduct":"Přidat výrobek",
+    "productSearchPlaceHolder":"Název typu výrobku",
+    "useExistingMbom": "Použít existující MBOM",
+    "createNewMbom": "Vytvořit nové MBOM",
+    "revisionRule":"Pravidlo revize",
+    "createProductHeaderTitle":"Vytvořit výrobek"
+}

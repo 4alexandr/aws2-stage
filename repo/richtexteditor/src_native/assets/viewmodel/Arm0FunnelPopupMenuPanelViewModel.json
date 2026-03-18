@@ -1,0 +1,65 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-listbox.directive",
+        "js/aw-list.directive"
+    ],
+    "dataProviders": {
+        "linkTypes": {
+            "dataProviderType": "Static",
+            "response": "{{data.tlTypeList}}",
+            "totalFound": "{{data.tlTypeList.length}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "data": {
+        "tlType": {
+            "displayName": "Type",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": true,
+            "labelPosition": "PROPERTY_LABEL_AT_LEFT",
+            "dbValue": "ALL"
+        },
+        "tlTypeListIn": {
+            "type": "STRING",
+            "dbValue": [
+                "ALL"
+            ]
+        }
+    },
+    "actions": {
+        "reveal": {
+            "actionType": "dataProvider",
+            "method": "linkTypes"
+        },
+        "getLinkTypes": {
+            "actionType": "JSFunction",
+            "method": "getLinkTypes",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+
+            "deps": "js/Arm0TraceabilityMatrix"
+        },
+        "getSelectedTypeOfTraceLink": {
+            "actionType": "JSFunction",
+            "method": "getSelectedTypeOfTraceLink",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+
+            "deps": "js/Arm0TraceabilityMatrix"
+        }
+    },
+    "onEvent": [ {
+            "eventId": "linkTypes.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "getSelectedTypeOfTraceLink"
+        }
+    ]
+}

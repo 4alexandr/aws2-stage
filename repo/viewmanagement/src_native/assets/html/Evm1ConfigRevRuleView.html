@@ -1,0 +1,6 @@
+<aw-panel-section caption="i18n.ConfigPanelRevRuleTitle" exist-when="ctx.recipeCtx.productContextInfo">
+    <aw-include name="Awb0RevisionRule" sub-panel-context="data.subPanelContext"></aw-include>
+</aw-panel-section>
+<aw-panel-section caption="i18n.ConfigPanelRevRuleTitle" exist-when="!ctx.recipeCtx.productContextInfo">
+    <aw-link-with-popup-menu prop="data.currentRevisionRule" dataprovider="data.dataProviders.revisionLink"></aw-link-with-popup-menu>
+</aw-panel-section>

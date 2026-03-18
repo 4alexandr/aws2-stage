@@ -1,0 +1,24 @@
+<aw-panel-body>
+    <aw-panel-section caption="i18n.scheduleTemplate" >
+        <aw-listbox prop="data.scheduleTemplate" action="populateDefaultValues" list="data.scheduleTemplates"></aw-listbox>
+    </aw-panel-section>
+    <aw-panel-section caption="i18n.schedule">
+        <aw-textbox prop="data.name" visible-when="conditions.isScheduleTemplateSelected"></aw-textbox>
+        <aw-textarea prop="data.description" visible-when="conditions.isScheduleTemplateSelected"></aw-textarea>
+    </aw-panel-section>
+    <aw-panel-section caption="i18n.ownProjectSectionTitle" >
+        <aw-list dataprovider="data.dataProviders.getOwningProjectsProvider" exist-when="ctx.userSession.props.project.dbValues[0] !== ''">
+            <aw-default-cell vmo="item"></aw-default-cell>
+        </aw-list>
+        <aw-command-panel-section caption="i18n.projectsSectionTitle" anchor="data.addCDRLProjCommand" >
+            <aw-list dataprovider="data.dataProviders.getAssignedProjectsProvider">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+        </aw-command-panel-section>                
+    </aw-panel-section>
+</aw-panel-body>
+<aw-panel-footer>
+    <aw-button action="validateScheduleAttachNew" visible-when="conditions.isScheduleTemplateSelected && !conditions.isPaletteTabAddButtonVisible && conditions.isNameFieldNotNull && conditions.isCurrentTabNew &&  data.activeView!='assignProjectSub'">
+        <aw-i18n>i18n.add</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

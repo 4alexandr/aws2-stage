@@ -1,0 +1,32 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+/*=========================================================================*/
+/*========================== Station work instructions =========================*/
+/*=========================================================================*/
+
+.aw-ep-stationNavigationArea {
+    width: 24%
+}
+
+.aw-ep-stationEditorArea,
+.aw-ep-stationGraphicsArea {
+    width: 50%
+}
+
+.aw-ep-stationEditorArea {
+    .aw-ep-wiScopeLabel {
+        .aw-widgets-propertyContainer {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.aw-ep-stationGraphicsArea {
+    padding-right: 16px;
+}

@@ -1,0 +1,365 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-clipboard.directive",
+        "js/aw-favorite.directive",
+        "js/aw-history.directive",
+        "js/aw-button.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-i18n.directive"
+    ],
+
+    "actions": 
+    {
+        "attachSchedulePalette": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-09-DataManagement",
+            "method": "setProperties",
+            "inputData": 
+            {
+                "info": 
+                [
+                    {
+                        "object": "{{ctx.selected}}",
+                        "vecNameVal": 
+                        [
+                            {
+                                "name": "cdm0ContractEventSch",
+                                "values": 
+                                [
+                                    "{{function:getSchedule}}"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService",
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": 
+                        {
+                            "relatedModified": 
+                            [
+                                "{{ctx.selected}}"
+                            ],
+                            "refreshLocationFlag": true
+                        }
+                    },
+
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "attachScheduleThrPalette": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "attachScheduleOrNot.showMessage",
+                        "condition": "conditions.isSchAlreadyAttachedCond === true && conditions.schATemplate === false"
+                    },
+
+                    {
+                        "name": "scheduleATemplate.showMessage",
+                        "condition": "conditions.isSchAlreadyAttachedCond === true && conditions.schATemplate === true"
+                    },
+
+                    {
+                        "name": "scheduleATemplate.showMessageNew",
+                        "condition": "conditions.isSchAlreadyAttachedCond === false && conditions.schATemplate === true "
+                    },
+
+                    {
+                        "name": "action.attachSchedule",
+                        "condition": "conditions.isSchAlreadyAttachedCond === false && conditions.schATemplate === false"
+                    }
+                ]
+            }
+        },
+
+        "closePanel": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "getScheduleForContractFrmClipboard": 
+        {
+            "actionType": "JSFunction",
+            "method": "getScheduleForContractFrmClipboard",
+            "inputData": 
+            {
+                "data": "{{ctx}}",
+                "provider": "{{ctx.getClipboardProvider}}"
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        },
+
+        "getScheduleForContractFrmFav": 
+        {
+            "actionType": "JSFunction",
+            "method": "getScheduleForContractFrmFav",
+            "inputData": 
+            {
+                "data": "{{ctx}}",
+                "provider": "{{data.dataProviders.getFavoriteProvider}}"
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        },
+
+        "getScheduleForContractFrmRec": 
+        {
+            "actionType": "JSFunction",
+            "method": "getScheduleForContractFrmRec",
+            "inputData": 
+            {
+                "data": "{{ctx}}",
+                "provider": "{{data.dataProviders.getRecentObjsProvider}}"
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        },
+
+        "clearClipboardSelection": 
+        {
+            "actionType": "JSFunction",
+            "method": "clearClipboardSelection",
+            "inputData": 
+            {
+                "data": "{{ctx}}"
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        }
+    },
+
+    "onEvent": 
+    [
+        {
+            "eventId": "getClipboardProvider.modelObjectsUpdated",
+            "action": "clearClipboardSelection"
+        },
+
+        {
+            "eventId": "getClipboardProvider.selectionChangeEvent",
+            "action": "getScheduleForContractFrmClipboard"
+        },
+
+        {
+            "eventId": "getFavoriteProvider.selectionChangeEvent",
+            "action": "getScheduleForContractFrmFav"
+        },
+
+        {
+            "eventId": "getRecentObjsProvider.selectionChangeEvent",
+            "action": "getScheduleForContractFrmRec"
+        },
+
+        {
+            "eventId": "attachScheduleOrNot.showMessage",
+            "message": "attachScheduleOrNot"
+        },
+
+        {
+            "eventId": "scheduleATemplate.showMessage",
+            "message": "scheduleATemplate"
+        },
+
+        {
+            "eventId": "scheduleATemplate.showMessageNew",
+            "message": "scheduleATemplateNew"
+        },
+
+        {
+            "eventId": "action.attachSchedule",
+            "action": "attachSchedulePalette"
+        },
+
+        {
+            "eventId": "action.attachSchedule",
+            "action": "attachSchedulePalette"
+        }
+    ],
+
+    "functions": 
+    {
+        "attachSchedulePalette": 
+        {
+            "functionName": "attachSchedulePalette",
+            "parameters": 
+            [
+                "{{data}}"
+            ]
+        },
+
+        "getSchedule": 
+        {
+            "functionName": "getSchedule",
+            "parameters": 
+            [
+                "{{ctx}}"
+            ]
+        },
+
+        "validateScheduleAttach": 
+        {
+            "functionName": "validateScheduleAttach",
+            "parameters": 
+            [
+                "{{data}}"
+            ]
+        }
+    },
+
+    "conditions": 
+    {
+        "isPaletteTabAddButtonVisible": 
+        {
+            "expression": "ctx.getClipboardProvider.selectedObjects.length > 0  || ctx.getFavoriteProvider.selectedObjects.length > 0 || ctx.getRecentObjsProvider.selectedObjects.length > 0"
+        },
+
+        "isSchAlreadyAttachedCond": 
+        {
+            "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Cdm0ContractRevision') > -1  && ctx.selected.props.cdm0ContractEventSch.dbValues[0].length > 0"
+        },
+
+        "schATemplate": 
+        {
+            "expression": "ctx.getRecentObjsProvider.selectedObjects[0].props.is_template.dbValue === true || ctx.getClipboardProvider.selectedObjects[0].props.is_template.dbValue === true || ctx.getFavoriteProvider.selectedObjects[0].props.is_template.dbValue === true"
+        }
+    },
+
+    "messages": 
+    {
+        "attachScheduleOrNot": 
+        {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.attachScheduleOrNot}}",
+            "messageTextParams": 
+            [
+                "{{ctx.selectedSchedule.props.object_string.dbValue}}",
+                "{{ctx.selected.props.cdm0ContractEventSch.uiValues[0]}}"
+            ],
+
+            "navigationOptions": 
+            [
+                {
+                    "option": "Discard",
+                    "text": "{{i18n.cancel}}",
+                    "action": ""
+                },
+
+                {
+                    "option": "Save",
+                    "text": "{{i18n.proceed}}",
+                    "action": "attachSchedulePalette"
+                }
+            ]
+        },
+
+        "scheduleATemplate": 
+        {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.scheduleATemplate}}",
+            "messageTextParams": 
+            [
+                "{{ctx.selectedSchedule.props.object_string.dbValue}}",
+                "{{ctx.selected.props.cdm0ContractEventSch.uiValues[0]}}"
+            ],
+
+            "navigationOptions": 
+            [
+                {
+                    "option": "Discard",
+                    "text": "{{i18n.cancel}}",
+                    "action": ""
+                },
+
+                {
+                    "option": "Save",
+                    "text": "{{i18n.proceed}}",
+                    "action": "attachSchedulePalette"
+                }
+            ]
+        },
+
+        "scheduleATemplateNew": 
+        {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.scheduleATemplateNew}}",
+            "messageTextParams": 
+            [
+                "{{ctx.selectedSchedule.props.object_string.dbValue}}"
+            ],
+
+            "navigationOptions": 
+            [
+                {
+                    "option": "Discard",
+                    "text": "{{i18n.cancel}}",
+                    "action": ""
+                },
+
+                {
+                    "option": "Save",
+                    "text": "{{i18n.add}}",
+                    "action": "attachSchedulePalette"
+                }
+            ]
+        }
+    },
+
+    "i18n": 
+    {
+        "add": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "scheduleATemplate": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "scheduleATemplateNew": 
+        [
+            "contractmanagementMessages"
+        ]
+    }
+}

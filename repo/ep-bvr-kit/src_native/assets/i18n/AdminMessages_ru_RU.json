@@ -1,0 +1,22 @@
+{
+    "manageTitle": "Управление",
+    "createWorkPackageHeaderTitle": "Создать рабочий пакет",
+    "manageTitleDecl": "Управление рабочим пакетом",
+    "epOpenWPTitle": "Открыть",
+    "epOpenWPDesc": "Открыть рабочий пакет",
+    "ebomTileTitle": "Конструкторский состав изделия",
+    "mbomTileTitle": "Технологический состав изделия",
+    "add": "Добавить",
+    "noEbomSelectedMessage": "Выберите EBOM перед выбором MBOM.",
+    "addEbomCmdToolTipTitle": "Добавить EBOM",
+    "addEbomCmdToolTipDescription": "Выберите структуру EBOM и добавьте ее в рабочий пакет.",
+    "addMbomCmdToolTipTitle": "Добавить MBOM",
+    "addMbomCmdToolTipDescription": "Создайте новую структуру MBOM или выберите существующую и добавьте ее в рабочий пакет.",
+    "manageWPRightAreaTitle": "Содержимое",
+    "addProduct":"Добавить продукт",
+    "productSearchPlaceHolder":"Ввод имени продукта",
+    "useExistingMbom": "Использовать существующий технологический состав изделия",
+    "createNewMbom": "Создать технологический состав изделия",
+    "revisionRule":"Правило ревизии",
+    "createProductHeaderTitle":"Создать продукт"
+}

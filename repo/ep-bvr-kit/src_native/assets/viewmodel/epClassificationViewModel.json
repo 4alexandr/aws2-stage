@@ -1,0 +1,174 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-button.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-include.directive",
+        "js/exist-when.directive"
+    ],
+    "actions": {
+        "cmdAssignButtonCommandAction": {
+            "actionType": "JSFunction",
+            "method": "assignResourceAction",
+            "inputData": {
+                "sourceProcess": "{{subPanelContext.inputObject}}"
+            },
+
+            "deps": "js/classificationResourceService"
+        },
+        "closePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+        "selectionChanged": {
+            "actionType": "JSFunction",
+            "method": "selectionChanged",
+            "inputData": {
+                "data": "{{ctx.mselected}}",
+                "selectionModel": "{{data.dataProviders.listDataProvider.selectionModel}}"
+            },
+            "deps": "js/classificationResourceService"
+        },
+        "setNoneSelection": {
+            "actionType": "JSFunction",
+            "method": "setNoneSelection",
+            "inputData": {
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/classificationResourceService"
+        },
+        "unSetLoadingIndicator": {
+            "actionType": "JSFunction",
+            "method": "setLoadingIndicator",
+            "inputData": {
+                "isLoading": false
+            },
+            "outputData": {
+                "isLoading": ""
+            },
+            "deps": "js/mfeMessagesService"
+        },
+        "updateCtx": {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "deps": "js/appCtxService",
+            "inputData": {
+                "path": "resourceContext.selectedNodes",
+                "value": ""
+            }
+        },
+        "setLoadingIndicator": {
+            "actionType": "JSFunction",
+            "method": "setLoadingIndicator",
+            "inputData": {
+                "isLoading": true
+            },
+            "outputData": {
+                "isLoading": ""
+            },
+            "deps": "js/mfeMessagesService"
+        },
+        "classTableSelectionChange": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "updateCtx"
+                },
+                {
+                    "action": "setLoadingIndicator"
+                }
+            ]
+        },
+        "updateLoadingIndicator": {
+            "actionType": "JSFunction",
+            "method": "updateIsLoading",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "isLoading": ""
+            },
+
+            "deps": "js/classificationResourceService"
+        }
+    },
+    "data": {
+        "messages": {
+            "noElementSelected": [ {
+                "text": "{{i18n.noElementsSelected}}",
+                "textParams": [
+                    "tools"
+                ]
+            } ]
+        }
+    },
+    "i18n": {
+        "assign": [
+            "classificationResourceMessages"
+        ],
+        "noElementsSelected": [ "DetailsMessages" ]
+    },
+    "conditions": {
+        "isToolSelected": {
+            "expression": {
+                "$source": "ctx.resourceContext.selectedNodes.length",
+                "$query": {
+                    "$gt": 0
+                }
+            }
+        },
+        "isLoadingIndicator": {
+            "expression": {
+                "$and": [
+                    {
+                        "$source": "ctx.clsLocation.selectedNode",
+                        "$query": {
+                            "$notNull": true
+                        }
+                    },
+                    {
+                        "$source": "data.isLoading",
+                        "$query": {
+                            "$eq": false
+                        }
+                    }
+                ]
+            }
+        },
+        "hasInput": {
+            "expression": "ctx.clsLocation.selectedNode"
+        },
+        "isPageLoaded": {
+            "expression": "data.eventMap['listDataProvider.modelObjectsUpdated'].firstPage === true"
+        }
+    },
+    "onEvent": [ {
+            "eventId": "mfeLargePopup.closeRequest",
+            "action": "closePopupWindow"
+        },
+        {
+            "eventId": "ep.saveEvents",
+            "action": "closePopupWindow",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "listDataProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "selectionChanged"
+        },
+        {
+            "eventId": "gridDataProviders.modelObjectsUpdated",
+            "action": "updateLoadingIndicator",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "getClassTableSummary.selectionChangeEvent",         
+            "action": "classTableSelectionChange"
+        }
+
+    ]
+}

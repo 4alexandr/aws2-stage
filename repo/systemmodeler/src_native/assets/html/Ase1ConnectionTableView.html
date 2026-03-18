@@ -1,0 +1,8 @@
+<aw-column width="fill" height="fill" exist-when="ctx.interfacesCtx.isValidIntfSelection">
+    <aw-panel-section class="aw-systemmodeler-connectionSection" caption="i18n.externalConnectionsTable" exist-when="ctx.interfacesCtx.isBundledConnSelection === true">
+    </aw-panel-section>
+    <aw-panel-section class="aw-systemmodeler-connectionSection" caption="i18n.internalConnectionsTable" exist-when="ctx.interfacesCtx.isBundledConnSelection === false">
+    </aw-panel-section>
+    <aw-splm-table gridid="connectionTable" visible-when="!data.dataProviders.connectionDataProvider.noResults" ></aw-splm-table>
+</aw-column>
+

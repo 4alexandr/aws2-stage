@@ -1,0 +1,12 @@
+<aw-i18n visible-when="!ctx.isStudySelected && ctx.selected.modelType.parentTypeName !== 'Att0MeasurableAttribute' && ctx.xrtSummaryContextObject.type === 'Crt0VldnContractRevision' && ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion < 4">i18n.SelectStudy</aw-i18n>
+<aw-i18n visible-when="!ctx.isStudySelected && ctx.selected.modelType.parentTypeName !== 'Att0MeasurableAttribute' && ctx.xrtSummaryContextObject.type === 'Crt0VldnContractRevision' && ctx.tcSessionData.tcMajorVersion === 12 && (ctx.tcSessionData.tcMinorVersion > 4 || ctx.tcSessionData.tcMinorVersion === 4)">i18n.SelectStudyTC124</aw-i18n>
+<aw-i18n visible-when="!ctx.isStudySelected && ctx.selected.modelType.parentTypeName !== 'Att0MeasurableAttribute' && ctx.xrtSummaryContextObject.type === 'Crt0StudyRevision'">i18n.SelectRun</aw-i18n>
+<aw-i18n visible-when="!ctx.isStudySelected && ctx.selected.modelType.parentTypeName !== 'Att0MeasurableAttribute' && ctx.xrtSummaryContextObject.type === 'IAV0TestStudyRevision'">i18n.SelectTestEvent</aw-i18n>
+<aw-i18n visible-when="ctx.search.totalLoaded === 0 && ctx.isStudySelected">i18n.noResultsFound</aw-i18n>
+
+<div class="aw-xrt-objectSetToolbar">
+    <aw-command-bar anchor="aw_studyParameters" class="aw-commands-commandBarHorizontalRight" alignment="HORIZONTAL"></aw-command-bar>
+</div>
+<aw-row height="fill">
+    <aw-splm-table gridid="studyTable" ></aw-splm-table>
+</aw-row>

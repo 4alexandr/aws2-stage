@@ -1,0 +1,120 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-section.directive",
+        "js/aw-ace-date-effectivity.directive"
+    ],
+    "data": {
+        "currentEffectiveDate": {
+            "uiValue": "{{data.currentEffectiveDate}}",
+            "type": "DATE"
+        },
+        "isEffectiveDateFeatureSupported": {
+            "dbValue": false,
+            "type": "BOOLEAN"
+        },
+        "occurrenceManagementTodayTitle": {
+            "uiValue": "{{i18n.occurrenceManagementTodayTitle}}",
+            "displayName": "{{i18n.occurrenceManagementTodayTitle}}",
+            "type": "STRING"
+        }
+    },
+
+    "actions": {
+        "initializeDateEffectivityInfo": {
+            "actionType": "JSFunction",
+            "method": "getInitialDateEffectivityConfigurationData",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+
+        "getPreferredDateEffectivities": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceBom-2019-12-OccurrenceConfiguration",
+            "method": "getConfigurationRules2",
+            "inputData": {
+                "input": {
+                    "maxToLoad": 20,
+                    "startIndex": 0,
+                    "searchCriteria": "",
+                    "productContext": {
+                        "type": "Awb0ProductContextInfo",
+                        "uid": "{{ctx.recipeCtx.productContextInfo.uid}}"
+                    },
+
+                    "typeToFetch": "RevisionRule",
+                    "fetchOnlyPreferredConfiguration": true
+                }
+            },
+
+            "outputData": {
+                "dateEffectivities": "{{function:processDateEffectivity}}"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "errorInGettingPreferredConfigInfo"
+                } ]
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+        "selectChangedEffectivityDate": {
+            "actionType": "JSFunction",
+            "method": "selectChangedEffectivityDate",
+            "inputData": {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        }
+    },
+
+    "dataProviders": {
+        "getPreferredDateEffectivities": {
+            "action": "getPreferredDateEffectivities",
+            "response": "{{data.dateEffectivities}}",
+            "selectionModelMode": "single"
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "Evm1ConfigDateEffectivity.contentLoaded",
+            "action": "initializeDateEffectivityInfo"
+        },
+        {
+            "eventId": "awConfigPanel.effectivityDateChanged",
+            "cacheEventData": true,
+            "condition": "conditions.checkSelectionChange",
+            "action": "selectChangedEffectivityDate"
+        },
+        {
+            "eventId": "getPreferredDateEffectivities.selectionChangeEvent",
+            "cacheEventData": true,
+            "condition": "conditions.checkSelectionChange",
+            "action": "selectChangedEffectivityDate"
+        }
+    ],
+
+    "functions": {
+        "processDateEffectivity": {
+            "functionName": "processDateEffectivity",
+            "parameters": []
+        }
+    },
+
+    "messages": {
+
+    },
+
+    "conditions": {
+        "checkSelectionChange": {
+            "expression": "data.isPopupActive === true && ctx.xrtSummaryContextObject.type === 'Fnd0SearchRecipe'"
+        }
+    },
+
+    "i18n": {
+        "configPanelEffDateTitle": [ "RecipeCommandPanelsMessages" ],
+        "occurrenceManagementTodayTitle": [ "RecipeCommandPanelsMessages" ]
+    }
+}

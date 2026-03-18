@@ -1,0 +1,19 @@
+{
+    "processDisplayName": "proces",
+    "processesDisplayName": "procesy",
+    "processDisplayNameCapital": "Proces",
+    "activityDisplayName": "aktivita",
+    "activitiesDisplayName": "aktivity",
+    "activityDisplayNameCapital": "Aktivita",
+    "operationDisplayName": "operace",
+    "operationsDisplayName": "operace",
+    "operationDisplayNameCapital": "Operace",
+    "beDisplayName": "objekt tvorby",
+    "besDisplayName": "prvky sestavení",
+    "beDisplayNameCapital": "Objekt tvorby",
+    "meDisplayName": "objekt výroby",
+    "mesDisplayName": "prvky výroby",
+    "meDisplayNameCapital": "Objekt výroby",
+    "ngpWorkspaceName": "Plánovač další generace",
+    "ngp": "Plánování další generace"
+}

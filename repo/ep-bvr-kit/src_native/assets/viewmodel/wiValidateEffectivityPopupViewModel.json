@@ -1,0 +1,80 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-listbox.directive",
+        "js/enable-when.directive",
+        "js/aw-include.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive"
+    ],
+    "data": {
+        "endItemListBox": {
+            "displayName": "{{i18n.selectedEndItem}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": "true"
+        },
+        "endItemListBoxValues": {
+            "propertyName": "endItem",
+            "propertyDisplayName": " { { i18n.selectedEndItem } }",
+            "type": "STRING",
+            "dbValue": "{{ctx.validateEffectivityData.endItemList}}"
+        }
+    },
+    "messages": {},
+    "i18n": {
+        "selectedEndItem": [
+            "InstructionsEffectivityMessages"
+        ],
+        "save": [
+            "InstructionsEffectivityMessages"
+        ]
+    },
+    "actions": {
+        "saveEffectivityAction": {
+            "actionType": "JSFunction",
+            "method": "saveEffectivity",
+            "deps": "js/wiSaveEffectivityService"
+        },
+        "endItemSelectionChange": {
+            "actionType": "JSFunction",
+            "method": "endItemSelectionChange",
+            "deps": "js/wiValidateEffectivityService",
+            "inputData": {
+                "currentValue": "{{data.endItemListBox.dbValue}}"
+            }
+        },
+        "updateEndItemData": {
+            "actionType": "JSFunction",
+            "method": "updateEndItemData",
+            "deps": "js/wiValidateEffectivityService",
+            "inputData": {
+                "data": "{{data.eventMap['wi.UpdateEndItemToObjectMap']}}"
+            }
+        },
+        "endItemSelectionChangeAfterConfirmation": {
+            "actionType": "JSFunction",
+            "method": "endItemSelectionChangeAfterConfirmation",
+            "deps": "js/wiValidateEffectivityService",
+            "inputData": {
+                "data": "{{data.eventMap['wi.endItemSelectionChangeEvent']}}"
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "wi.UpdateEndItemToObjectMap",
+            "action": "updateEndItemData",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "wi.endItemSelectionChangeEvent",
+            "action": "endItemSelectionChangeAfterConfirmation",
+            "cacheEventData": true
+        }
+    ]
+}

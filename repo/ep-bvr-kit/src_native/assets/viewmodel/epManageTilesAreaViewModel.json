@@ -1,0 +1,101 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive"
+    ],
+    "data": {
+        "ebomTileData": {
+            "tileName": "{{i18n.ebomTileTitle}}",
+            "viewId": "ebomTile",
+            "placeHolderCmdAnchor": "ebomAddCmdAnchor",
+            "extendedTooltip": {
+                "title": "{{i18n.addEbomCmdToolTipTitle}}",
+                "messages": [
+                    "{{i18n.addEbomCmdToolTipDescription}}"
+                ]
+            },
+            "addCmdTitle": "{{i18n.add}}",
+            "tileInfo": "{{ctx.epPageContext.EbomStructureContext}}",
+            "showAddCommand":"true"
+        },
+        "mbomTileData": {
+            "tileName": "{{i18n.mbomTileTitle}}",
+            "viewId": "mbomTile",
+            "placeHolderCmdAnchor": "mbomAddCmdAnchor",
+            "extendedTooltip": {
+                "title": "{{i18n.addMbomCmdToolTipTitle}}",
+                "messages": [
+                    "{{i18n.addMbomCmdToolTipDescription}}"
+                ]
+            },
+            "message": [
+                {
+                    "text": "{{i18n.noEbomSelectedMessage}}"
+                }
+            ],
+            "addCmdTitle": "{{i18n.add}}",
+            "tileInfo": "{{ctx.epPageContext.MbomStructureContext}}",
+            "commandMenuCmds": [
+                {
+                    "dispalyName": "{{i18n.useExistingMbom}}",
+                    "internalName": "useExistingMbom",
+                    "icon": "cmdSelectParts24.svg"
+                },
+                {
+                    "dispalyName": "{{i18n.createNewMbom}}",
+                    "internalName": "createNewMbom",
+                    "icon": "cmdAdd24.svg"
+                }
+            ],
+            "showAddCommand":"{{ctx.epPageContext.EbomStructureContext? true:false}}"
+        },
+        "manageWPRightAreaTitle": "{{i18n.manageWPRightAreaTitle}}"
+    },
+    "actions": {
+        "destroy": {
+            "actionType": "JSFunction",
+            "method": "clearContext",
+            "deps": "js/epContextService"
+        }
+    },
+    "i18n": {
+        "manageWPRightAreaTitle": [
+            "AdminMessages"
+        ],
+        "ebomTileTitle": [
+            "AdminMessages"
+        ],
+        "mbomTileTitle": [
+            "AdminMessages"
+        ],
+        "noEbomSelectedMessage": [
+            "AdminMessages"
+        ],
+        "addEbomCmdToolTipTitle": [
+            "AdminMessages"
+        ],
+        "addEbomCmdToolTipDescription": [
+            "AdminMessages"
+        ],
+        "addMbomCmdToolTipTitle": [
+            "AdminMessages"
+        ],
+        "addMbomCmdToolTipDescription": [
+            "AdminMessages"
+        ],
+        "add": [
+            "AdminMessages"
+        ],
+        "useExistingMbom": [
+            "AdminMessages"
+        ],
+        "createNewMbom": [
+            "AdminMessages"
+        ]
+    },
+    "lifecycleHooks": {
+        "onUnmount": "destroy"
+    }
+}

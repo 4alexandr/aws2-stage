@@ -1,0 +1,90 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/visible-when.directive",
+        "js/aw-init.directive"
+    ],
+
+    "actions": {
+        "handleGroupAddition":{
+            "actionType": "JSFunction",
+            "method": "handleGroupAddition",
+            "inputData":{
+                "data":"{{data}}"
+            },
+            "deps": "js/Att1AddParameterGroupService"
+        },
+        "att1SetPin": {
+            "actionType": "JSFunction",
+            "method": "setPin",
+            "inputData": {
+                "data": "{{data.eventData.data}}"
+            },
+            "outputData": {},
+            "deps": "js/Att1AddParameterGroupService"
+        },
+
+        "att1SetUnPin": {
+            "actionType": "JSFunction",
+            "method": "setUnPin",
+            "inputData": {
+                "data": "{{data.eventData.data}}"
+            },
+            "outputData": {},
+            "deps": "js/Att1AddParameterGroupService"
+        },
+        "closeAddParameterGroupPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "complete",
+                    "condition": "ctx.parammgmtctx !== undefined  && ctx.panelContext && ctx.panelContext.modelType.typeHierarchyArray.indexOf( 'Att0ParamGroup' ) > -1",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                } ]
+            }
+        }
+    },
+    "data": {
+        "pinnedToForm": {
+            "propType": "BOOLEAN",
+            "dbValue": true
+        },
+        "unpinnedToForm": {
+
+            "propType": "BOOLEAN",
+            "dbValue": false
+        },
+        "att1AddParameterGroupPanelCommands": "addParameterGroupPanel_oneStepPinCommands"
+    },
+    "onEvent": [ {
+            "eventId": "addParameterGroup.setPinAddParameterGroupPanel",
+            "cacheEventData": true,
+            "action": "att1SetPin"
+        },
+        {
+            "eventId": "addParameterGroup.setUnPinAddParameterGroupPanel",
+            "cacheEventData": true,
+            "action": "att1SetUnPin"
+        },
+        {
+            "eventId": "Att1AddParamGroup.completed",
+            "cacheEventData": true,
+            "action": "handleGroupAddition"
+        },
+        {
+            "eventId": "gridDataProvider.selectionChangeEvent",
+            "action": "closeAddParameterGroupPanel"
+        }
+
+
+    ],
+    "i18n": {
+        "add": [ "Att1AttrMappingMessages" ]
+    }
+}

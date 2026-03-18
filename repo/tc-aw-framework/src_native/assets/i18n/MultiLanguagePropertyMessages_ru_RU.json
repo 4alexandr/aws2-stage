@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "Правка локализации",
+    "editLocalizationSingleDesc": "Перевод значения свойства на разные языки",
+    "masterValue": "Мастер-значение",
+    "translationLanguages": "Языки перевода",
+    "addorRemoveLocales": "Добавить или удалить языки",
+    "addorRemoveLocalesDesc": "Выбор языков для перевода",
+    "removeLocale": "Удалить язык",
+    "removeLocaleDesc": "Удалить язык перевода",
+    "propertiesTranslated": "Свойства для перевода",
+    "status": "Состояние",
+    "saveTranslationsError": "При попытке сохранить возникли проблемы. {0}",
+    "property": "Свойство"
+}

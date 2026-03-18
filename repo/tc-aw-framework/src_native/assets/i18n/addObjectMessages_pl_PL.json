@@ -1,0 +1,4 @@
+{
+    "invalidObjectWarning": "\"{0}\" nie jest prawidłowym plikiem dla zestawu elementów \"{1}\". Nowo utworzony element nie zostanie wyświetlony w zestawie elementów.",
+    "addedObjectIsNotUnique": "Nie zapisano elementu \"{1}-{0}\" ponieważ element \"ID = {1}\" nie jest niepowtarzalny."
+}

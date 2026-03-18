@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "Dodaj do",
+    "addButtonTitle": "Dodaj",
+    "addLabel": "Dodaj do",
+    "newShowAddObjectPresenterBtn": "Nowe",
+    "paletteShowAddObjectPresenterBtn": "Paleta",
+    "searchShowAddObjectPresenterBtn": "Szukaj",
+    "errorInGettingSubtypesofEndItem": "Wyniki wyszukiwania nie zostały przefiltrowane z powodu błędu wewnętrznego.",
+    "FrequentlyUsedSectionTitle": "Często używane",
+    "addPropertiesLabel": "Dodaj właściwości",
+    "resultsTabTitle": "Wyniki",
+    "filterTabTitle": "Filtr",
+    "Mtw0ShowAddObjectDesc": "Przypisz substancję do materiału.",
+    "view": "Widok",
+    "billOfMaterials": "Zestawienie materiałów",
+    "billOfSubstances" : "Zestawienie substancji"
+}

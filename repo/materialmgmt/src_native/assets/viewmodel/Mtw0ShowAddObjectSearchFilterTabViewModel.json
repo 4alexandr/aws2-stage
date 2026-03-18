@@ -1,0 +1,92 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-panel-section.directive",
+        "js/aw-filter-category.directive",
+        "js/aw-repeat.directive",
+        "js/aw-expandable-search-result-filter.directive",
+        "js/aw-filter-separator.directive",
+        "js/aw-i18n.directive",
+        "js/aw-label.directive"
+    ],
+
+    "actions": 
+    {
+        "updateCategoryResults":
+        {
+            "actionType": "JSFunction",
+            "method": "updateCategoryResults",
+            "inputData":
+            {
+                "category":"{{ctx.search.valueCategory}}"
+            },
+            "deps":"js/filterPanelService"
+        },
+        "selectFilter": 
+        {
+            "actionType": "JSFunction",
+            "method": "updateSearchFilter",
+            "inputData": 
+            {
+                "data": "{{data}}",
+                "category": "{{category}}",
+                "filter": "{{filter}}"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "addPanel.filterChanged"
+                    }
+                ]
+            },
+
+            "deps": "js/addObjectUtils"
+        },
+
+        "selectHierarchyFilter": 
+        {
+            "actionType": "JSFunction",
+            "method": "updateHierarchicalSearchFilter",
+            "inputData": 
+            {
+                "data": "{{data}}",
+                "category": "{{category}}",
+                "node": "{{selectedNode}}"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "addPanel.filterChanged"
+                    }
+                ]
+            },
+
+            "deps": "js/addObjectUtils"
+        }
+    },
+    "data": 
+    {
+        "keyWord": 
+        {
+            "displayName": "{{i18n.keywordsLabel}}",
+            "type": "STRING",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        }
+    },
+
+    "onEvent": [{
+        "eventId": "filterPanel.updateRefineCategoriesAfterUpdate",
+        "action":"updateCategoryResults"
+    } ],
+    "i18n": 
+    {
+        "refine": [ "awAddDirectiveMessages"]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "selectType": "Sélectionner le type",
+    "CreateButtonTitle": "Créer",
+    "CreateAndAddMoreObjectButtonTitle": "Créer & Ajouter d'autres",
+    "CancelButtonTitle": "Annuler",
+    "createOperationCmdTitle": "Créer une opération",
+    "createProcessAreaCmdTitle": "Créer une zone de processus",
+    "gotoPreviousPageCmdTitle": "Précédent",
+    "assignProjectCmdTitle": "Affecter des projets",
+    "SearchPanelTitle":"Rechercher",
+    "projectsPanelCaption":"Projet",
+    "loading":"Chargement",
+    "addProjectHeaderTitle":"Ajouter un projet"
+}

@@ -1,0 +1,89 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-label.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-popup2.directive",
+        "js/aw-radiobutton.directive",
+        "js/aw-i18n.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/enable-when.directive"
+
+    ],
+    "data": {
+        "selectReportTypeLabel": {
+            "displayName": "{{i18n.selectReportTypeLabel}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "false"
+        },
+        "reportTypesList": {
+            "type": "STRING",
+            "dbValue": "{{ctx.reportTypesList}}"
+        },
+        "reportTypes": {
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "",
+            "vertical": true,
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        }
+    },
+    "actions": {
+        "closePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": null,
+                "targetEvent": "{{$event}}"
+            },
+            "deps": "js/popupService"
+        },
+        "createReportAction": {
+            "actionType": "JSFunction",
+            "method": "generateReport",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/epBvrReportsService"
+        },
+        "clearCtxReportList": {
+            "actionType": "JSFunction",
+            "method": "unRegisterCtx",
+            "inputData": {
+                "name": "reportTypesList"
+            },
+            "deps": "js/appCtxService"
+        }
+    },
+    "conditions": {
+        "isEnabledCreateBtn": {
+            "expression": "data.reportTypes.dbValues.length > 0"
+        }
+    },
+    "onEvent": [ {
+        "eventId": "reports.closePopup",
+        "action": "closePopupWindow"
+    } ],
+    "i18n": {
+        "cancelReportBtn": [
+            "ReportsMessages"
+        ],
+        "createReportBtn": [
+            "ReportsMessages"
+        ],
+        "selectReportTypeLabel": [
+            "ReportsMessages"
+        ],
+        "createReportPopupTitle": [
+            "ReportsMessages"
+        ]
+    },
+    "lifecycleHooks": {
+        "onUnmount": "clearCtxReportList"
+    }
+}

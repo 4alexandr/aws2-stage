@@ -1,0 +1,14 @@
+<aw-command-panel caption="i18n.Create_AR_Panel_Title">      
+    
+    <aw-form name="commandPanelForm" visible-when="data.activeView!='assignProjectSub'&&data.activeView!='addReferenceSub'">
+        <aw-add max-recent-count='3' visible-tabs="new" type-override-id="CreateAR" include-types="Crt0VldnContract"></aw-add>
+    </aw-form>    
+    <aw-panel-footer visible-when="data.activeView!='assignProjectSub'&&data.activeView!='addReferenceSub'">
+        <!-- panel-footer button for New tab -->
+        <aw-button action="initCreateInputs" visible-when="commandPanelForm.$valid&&conditions.isNewTabAddButtonVisible">
+            <aw-i18n>i18n.Create_Button_Title</aw-i18n>
+        </aw-button>
+         
+    </aw-panel-footer>
+    
+</aw-command-panel>  

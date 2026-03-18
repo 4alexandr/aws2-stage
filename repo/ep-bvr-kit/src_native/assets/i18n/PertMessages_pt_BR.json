@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"Excluir",
+    "pertDeleteDesc": "Excluir os nós selecionados",
+    "deleteConfirmationMessage": "Tem certeza de que deseja excluir permanentemente os nós Pert selecionados?",
+    "missingProcessElements": "Crie um processo.",
+    "openPertNodeTitle": "Abrir",
+    "resetLayoutTitle": "Redefinir Layout",
+    "resetLayoutDescription": "Redefina os nós PERT para o layout padrão."
+}

@@ -1,0 +1,349 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-row.directive",
+        "js/aw-toolbar.directive"
+    ],
+    "actions": {
+        "rgisterContext": {
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "name": "reqSummaryTable",
+                "value": {
+                    "columnConfig": "{{data.dataProviders.showReqSummaryTableProvider.columnConfig}}"
+                }
+            },
+            "deps": "js/appCtxService"
+        },
+        "unRegisterContext": {
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "name": "reqSummaryTable"
+            },
+            "deps": "js/appCtxService"
+        },
+        "editEventAction": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "plTable.editStateChange",
+                        "eventData": {
+                            "state": "{{data.eventData.state}}",
+                            "dataSource": {
+                                "dataProviders": "{{data.dataProviders}}"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "addEventDataToNativeData": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "nativeDataLoadEvent",
+                        "eventData": {
+                            "viewModelObjects": "{{data.dataProviders.showReqSummaryTableProvider.viewModelCollection.loadedVMObjects}}"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "refreshReqSummaryTable": {
+            "actionType": "dataProvider",
+            "method": "showReqSummaryTableProvider"
+        },
+
+        "doArrangeEvent": {
+            "actionType": "JSFunctionAsync",
+            "method": "arrangeColumns",
+            "inputData": {
+                "declViewModel": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/columnArrangeService"
+        },
+        "saveColumnConfigLoadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "operationType": "as_arranged",
+                    "clientScopeURI": "ReqSummaryTable"
+                },
+                "saveColumnConfigData": {
+                    "clientScopeURI": "ReqSummaryTable",
+                    "columnConfigId": "{{data.dataProviders.showReqSummaryTableProvider.columnConfig.columnConfigId}}",
+                    "columns": "{{data.dataProviders.showReqSummaryTableProvider.newColumns}}",
+                    "scope": "LoginUser",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Arm0SummaryTabProvider",
+                    "searchCriteria": {
+                        "selectedElementUid": "{{ctx.selected.uid}}",
+                        "productContextUid":"{{ctx.occmgmtContext.productContextInfo.uid}}",
+                        "enableSortAndPaging": "true"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchSortCriteria": "{{data.columnProviders.reqSummaryTableColumnProvider.sortCriteria}}",
+                    "startIndex": "{{data.dataProviders.showReqSummaryTableProvider.startIndex}}",
+                    "columnFilters": "{{data.columnProviders.reqSummaryTableColumnProvider.columnFilters}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.showReqSummaryTableProvider.columnConfig": "columnConfig"
+            },
+            "events": {
+                "success": [
+                 {
+                     "name":"Arm0RequirementSummaryTable.registerContext"
+                 }
+             ]
+            },
+            "deps": "js/Arm0RequirementSummaryTable"
+        },
+        "resetColumnConfig": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "inputData": {
+                "getOrResetUiConfigsIn": [
+                    {
+                        "scope": "LoginUser",
+                        "scopeName": "",
+                        "clientName": "AWClient",
+                        "resetColumnConfig": true,
+                        "columnConfigQueryInfos": [
+                            {
+                                "clientScopeURI": "ReqSummaryTable",
+                                "operationType": "configured",
+                                "typeNames": [
+                                    "WorkspaceObject"
+                                ],
+                                "columnsToExclude": []
+                            }
+                        ],
+                        "businessObjects": [
+                            {}
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "dataProviders.showReqSummaryTableProvider.resetColumnConfigs": "columnConfigurations"
+            },
+            "deps": "js/Arm0RequirementSummaryTable"
+        },
+        "loadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "ReqSummaryTable",
+                    "operationType": "as_configured"
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Arm0SummaryTabProvider",
+                    "searchCriteria": {
+                        "selectedElementUid": "{{ctx.selected.uid}}",
+                        "productContextUid":"{{ctx.occmgmtContext.productContextInfo.uid}}",
+                        "enableSortAndPaging": "true"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchSortCriteria": "{{data.columnProviders.reqSummaryTableColumnProvider.sortCriteria}}",
+                    "startIndex": "{{data.dataProviders.showReqSummaryTableProvider.startIndex}}",
+                    "columnFilters": "{{function:getColumnFilters}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.showReqSummaryTableProvider.columnConfig": "columnConfig"
+            },
+            "events": {
+                "success": [
+                 {
+                     "name": "showReqSummaryTable.clearProviderSelection"
+                 },
+                 {
+                     "name":"Arm0RequirementSummaryTable.registerContext"
+                 }
+             ]
+            },
+            "deps": "js/Arm0RequirementSummaryTable"
+        },
+        "clearProviderSelection":{
+            "actionType": "JSFunction",
+            "method": "clearProviderSelection",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Arm0RequirementSummaryTable"
+        },
+        "postTracelinkCreated": {
+            "actionType": "JSFunction",
+            "method": "postTracelinkCreated",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/Arm0RequirementSummaryTable"
+        },
+        "showWidePanelEditorPopupPanel": {
+            "actionType": "JSFunction",
+            "method": "showWidePanelEditorPopup",
+            "deps": "js/Arm0SingleRequirementWidePanelEditor",
+            "inputData": {
+                "data": {
+                    "declView": "Arm0SingleRequirementWidePanelEditor",
+                    "locals": {
+                        "anchor": "arm0_single_req_popup"
+                    },
+                    "options": {
+                        "reference": ".aw-layout-infoCommandbar",
+                        "isModal": false,
+                        "placement": "left-end",
+                        "width": 800,
+                        "height": 680,
+                        "draggable": false,
+                        "detachMode": true,
+                        "disableClose": true
+                    }
+                },
+                "calcHeight" : true
+            }
+        },
+        "plTableClientRefresh": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "showReqSummaryTable.plTable.clientRefresh"
+                    }
+                ]
+            }
+        }
+    },
+    "preferences": [
+    ],
+    "conditions": {
+
+    },
+    "functions": {
+        "getColumnFilters": {
+            "functionName": "getColumnFilters",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "columnProviders": {
+        "reqSummaryTableColumnProvider": {
+            "saveColumnAndLoadAction": "saveColumnConfigLoadData",
+            "resetColumnAction": "resetColumnConfig"
+        }
+    },
+    "dataProviders": {
+        "showReqSummaryTableProvider": {
+            "action": "loadData",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "multiple",
+            "inputData": {
+                "enablePropEdit": "conditions.isNoneContextNotActive"
+            }
+        }
+    },
+    "grids": {
+        "showReqSummaryTable": {
+            "columnProvider": "reqSummaryTableColumnProvider",
+            "dataProvider": "showReqSummaryTableProvider",
+            "enableArrangeMenu": true,
+            "addIconColumn": false,
+            "gridOptions": {
+                "maxRowsToShow": 21,
+                "isFilteringEnabled": true,
+                "enableExpandAndPaginationInEdit": true
+            }
+        }
+    },
+    "data": {
+    },
+    "onEvent": [
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "doArrangeEvent"
+        },
+        {
+            "eventId": "showReqSummaryTable.refreshTable",
+            "cacheEventData": true,
+            "action": "refreshReqSummaryTable"
+        },
+        {
+            "eventId": "showReqSummaryTableProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "addEventDataToNativeData"
+        },
+        {
+            "eventId": "editHandlerStateChange",
+            "cacheEventData": true,
+            "action": "editEventAction"
+        },
+        {
+            "eventId": "showReqSummaryTable.clearProviderSelection",
+            "cacheEventData": true,
+            "action":"clearProviderSelection"
+        },
+        {
+            "eventId": "Arm0SingleRequirementWidePanelEditor.showWidePanelEditorPopupPanel",
+            "action": "showWidePanelEditorPopupPanel"
+        },
+        {
+            "eventId": "RM.PostTraceLinkCreated",
+            "cacheEventData": true,
+            "action": "postTracelinkCreated"
+        },
+        {
+            "eventId": "Arm0RequirementSummaryTable.contentUnloaded",
+            "action": "unRegisterContext"
+        },
+        {
+            "eventId": "Arm0RequirementSummaryTable.registerContext",
+            "action": "rgisterContext"
+        },
+        {
+            "eventId": "Arm0SummaryTable.refreshTable",
+            "action": "plTableClientRefresh"
+        }
+
+    ],
+    "i18n": {
+        "summaryTable": [
+            "RequirementsManagerMessages"
+        ]
+
+    }
+}

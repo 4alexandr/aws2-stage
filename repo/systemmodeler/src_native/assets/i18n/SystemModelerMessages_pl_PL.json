@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "\"{0}\" i odpowiadające mu przyporządkowania atrybutów zostaną usunięte.",
+    "removeSingleElementConfirmation": "\"{0}\" zostanie usunięty.",
+    "removeMultipleElementsConfirmation": "Wybrane elementy ({0}) zostaną usunięte.",
+    "removeMeasurableAttributeMessage": "\"{0}\" zostanie usunięty.",
+    "syncSingleConectionMessage": "Trwa synchronizacja \"{0}\" i aktualizacja interakcji. Po zakończeniu zostanie wyświetlone powiadomienie.",
+    "syncMultipleConectionsMessage": "Trwa synchronizacja wybranych elementów (\"{0}\") i aktualizacja interakcji. Po zakończeniu zostanie wyświetlone powiadomienie.",
+    "exportInterfaceTitle": "Eksportuj interfejs",
+    "aw_interfaceTableCommandbar": "Pasek poleceń Tabela interfejsu",
+    "aw_interactionTableCommandbar": "Pasek poleceń Tabela interakcji",
+    "aw_attributesTableCommandbar": "Pasek poleceń Tabela atrybutów",
+    "aw_interfacesViewer": "Przeglądarka interfejsów",
+    "table_cell_commands": "Polecenia komórek tabeli",
+    "Ase1ExportInterfaceElementDesc": "Eksportuj wybrane szczegóły interfejsu."
+}

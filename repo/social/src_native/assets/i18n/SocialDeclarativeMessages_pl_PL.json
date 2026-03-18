@@ -1,0 +1,23 @@
+{
+    "addComment": "Komentarz",
+    "addQuestion": "Zadaj pytanie",
+    "addAnswer": "Opublikuj odpowiedź",
+    "addRating": "Stawka",
+    "name": "Nazwa",
+    "postComment": "Opublikuj komentarz",
+    "postQuestion": "Zadaj pytanie",
+    "postAnswer": "Opublikuj odpowiedź",
+    "postRating": "Stawka",
+    "subscriptionFailed": "Po \"{0}\" nie może nic występować.",
+    "oneStarRating": "1 gwiazdek",
+    "twoStarRating": "2 gwiazdek",
+    "threeStarRating": "3 gwiazdek",
+    "fourStarRating": "4 gwiazdek",
+    "fiveStarRating": "5 gwiazdek",
+    "allRatings": "Wszystkie oceny",
+    "reply": "Odpowiedz",
+    "S2clSCAddCommentNewDesc": "Opublikuj komentarz dotyczący elementu.",
+    "S2clSCAddQuestionNewDesc": "Zadaj pytanie dotyczące elementu.",
+    "S2clSCAddAnswerNewDesc": "Odpowiedz na pytanie dotyczące elementu.",
+    "S2clSCAddRatingNewDesc": "Dodaj ocenę do elementu."
+}

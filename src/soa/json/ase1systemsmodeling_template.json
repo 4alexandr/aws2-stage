@@ -1,0 +1,1366 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp03.4.0",
+      "description": "Interface Name for Business Object Ase1InteractionObjProvider",
+      "libraryName": "Ase1systemsmodeling",
+      "name": "Ase1InteractionObjProvider",
+      "namespace": "ase1systemsmodeling",
+      "primaryInterface": "true",
+      "typeName": "Ase1InteractionObjProvider"
+    },
+    {
+      "createRelease": "Awp03.4.0",
+      "description": "Interface Name for Business Object Ase1InteractionProxy",
+      "libraryName": "Ase1systemsmodeling",
+      "name": "Ase1InteractionProxy",
+      "namespace": "ase1systemsmodeling",
+      "primaryInterface": "true",
+      "typeName": "Ase1InteractionProxy"
+    },
+    {
+      "createRelease": "Awp03.2.0",
+      "description": "Interface Name for Business Object Ase1InterfaceElementsProvider",
+      "libraryName": "Ase1systemsmodeling",
+      "name": "Ase1InterfaceElementsProvider",
+      "namespace": "ase1systemsmodeling",
+      "primaryInterface": "true",
+      "typeName": "Ase1InterfaceElementsProvider"
+    },
+    {
+      "createRelease": "Awp03.2.0",
+      "description": "Interface Name for Business Object Ase1IntfElementProxy",
+      "libraryName": "Ase1systemsmodeling",
+      "name": "Ase1IntfElementProxy",
+      "namespace": "ase1systemsmodeling",
+      "primaryInterface": "true",
+      "typeName": "Ase1IntfElementProxy"
+    },
+    {
+      "createRelease": "Awp03.2.0",
+      "description": "Interface Name for Business Object Ase1IntfElementProxyBool",
+      "libraryName": "Ase1systemsmodeling",
+      "name": "Ase1IntfElementProxyBool",
+      "namespace": "ase1systemsmodeling",
+      "primaryInterface": "true",
+      "typeName": "Ase1IntfElementProxyBool"
+    },
+    {
+      "createRelease": "Awp03.2.0",
+      "description": "Interface Name for Business Object Ase1IntfElementProxyDbl",
+      "libraryName": "Ase1systemsmodeling",
+      "name": "Ase1IntfElementProxyDbl",
+      "namespace": "ase1systemsmodeling",
+      "primaryInterface": "true",
+      "typeName": "Ase1IntfElementProxyDbl"
+    },
+    {
+      "createRelease": "Awp03.2.0",
+      "description": "Interface Name for Business Object Ase1IntfElementProxyInt",
+      "libraryName": "Ase1systemsmodeling",
+      "name": "Ase1IntfElementProxyInt",
+      "namespace": "ase1systemsmodeling",
+      "primaryInterface": "true",
+      "typeName": "Ase1IntfElementProxyInt"
+    },
+    {
+      "createRelease": "Awp03.2.0",
+      "description": "Interface Name for Business Object Ase1IntfElementProxyStr",
+      "libraryName": "Ase1systemsmodeling",
+      "name": "Ase1IntfElementProxyStr",
+      "namespace": "ase1systemsmodeling",
+      "primaryInterface": "true",
+      "typeName": "Ase1IntfElementProxyStr"
+    },
+    {
+      "createRelease": "Awp03.3.0",
+      "description": "Interface Name for Business Object Ase1UnbundledConnProvider",
+      "libraryName": "Ase1systemsmodeling",
+      "name": "Ase1UnbundledConnProvider",
+      "namespace": "ase1systemsmodeling",
+      "primaryInterface": "true",
+      "typeName": "Ase1UnbundledConnProvider"
+    }
+  ],
+  "Date": "Thu Aug 30 12:32:17 AM 2018",
+  "Library": [
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Service Library for Active Workspace Systems Modeling Template",
+      "isThirdParty": "false",
+      "name": "Ase1SoaSystemsModeling",
+      "namespace": "Ase1::Soa::SystemsModeling",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        },
+        {
+          "name": "Att0attrtargetmgmt"
+        },
+        {
+          "name": "systemsengineering"
+        }
+      ],
+      "createRelease": "Awp03.2.0",
+      "description": "Systems Modeling Library.",
+      "isThirdParty": "false",
+      "name": "Ase1systemsmodeling",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of exportInterfaceInputData structures.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp03.2.0",
+      "dependencies": "",
+      "description": "This operation exports the Seg0Interface objects attached to Fnd0LogicalBlockRevision objects into XML or HTML format. Scope of export may be defined as &lsquo;Internal&rsquo;, &lsquo;External&rsquo; or &lsquo;Both&rsquo;. This operation can be invoked as &lsquo;Foreground&rsquo; or &lsquo;Background&rsquo; processing mode. In Background processing mode, once the operation is completed, user will be notified through notification mechanism.",
+      "exceptionCondition": "",
+      "id": "exportInterfaces#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceInputData>,&",
+      "interface": "Ase1::Soa::SystemsModeling::InterfaceManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "exportInterfaces",
+      "opTemplate": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceResponse#Ase1::Soa::SystemsModeling::InterfaceManagement::exportInterfaces#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceInputData>,&",
+      "returnDescription": "File object of generated report file will be returned along with service data. Any failure will be returned with clientId mapped to error message in the ServiceData list of partial errors.<br />Following partial errors may be returned.<br /><br />124001 If there is an internal error during the query<br />124500 An invalid object was received by the Systems Modeling module. Please report this error to your system administrator.",
+      "useCase": "An Active Workspace user selects Fnd0LogicalBlock objects from diagram in architecture tab, then clicks on the &lsquo;Export&rsquo; command. Export panel will be shown. User specifies the export options like name of the output, format and scope of export on export panel. A report either XML or HTML will be generated."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of ExportInterfaceInputDataAsync structures.",
+          "parameterName": "inputsAsync"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp03.2.0",
+      "dependencies": "",
+      "description": "This is asynchronous operation. It exports the Seg0Interface objects attached to Fnd0LogicalBlockRevision objects into XML or HTML format. Scope of export may be defined as &lsquo;Internal&rsquo;, &lsquo;External&rsquo; or &lsquo;Both&rsquo;. Once the operation is completed, user will be notified through notification mechanism.",
+      "exceptionCondition": "",
+      "id": "exportInterfacesAsync#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceInputDataAsync>,&",
+      "interface": "Ase1::Soa::SystemsModeling::InterfaceManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "exportInterfacesAsync",
+      "opTemplate": "void#Ase1::Soa::SystemsModeling::InterfaceManagement::exportInterfacesAsync#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceInputDataAsync>,&",
+      "returnDescription": "This is an asynchronous method, there is no return value.",
+      "useCase": "An Active Workspace user selects Fnd0LogicalBlock objects from diagram in architecture tab, and then clicks on the &lsquo;Export&rsquo; command. Export panel will be shown. User specifies the export options like name of the output, format and scope of export on export panel. A report either XML or HTML will be generated. Once the operation is completed, user will be notified through notification mechanism."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of FindOrCreateInteractionsInputData structures.",
+          "parameterName": "inputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp03.4.0",
+      "dependencies": "",
+      "description": "This operation finds or creates the Seg0Interconnection objects for Awb0Connection objects by mapping the interfaces and measurable attributes attached to connected ends of Awb0Connection objects. This is used to align the measurable attributes between two systems. This operation can be invoked as Foreground or Background processing mode. In Background processing mode, user will be notified through notification mechanism once the operation is completed.",
+      "exceptionCondition": "",
+      "id": "findOrCreateInteractions#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::FindOrCreateInteractionsInputData>,&",
+      "interface": "Ase1::Soa::SystemsModeling::InterfaceManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "findOrCreateInteractions",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Ase1::Soa::SystemsModeling::InterfaceManagement::findOrCreateInteractions#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::FindOrCreateInteractionsInputData>,&",
+      "returnDescription": "The Service Data. Any failure will be returned with clientId mapped to error message in the ServiceData list of partial errors.<br />Following partial errors may be returned.<br />124001: An internal error has occurred in the Diagram Management module. Please report this error to your system administrator.<br />124501: An invalid object was received by the Systems Modeling module. Please report this error to your system administrator.<br />124504: The operation cannot be invoked asynchronously, because the dispatcher is not installed. Please contact your system administrator to install and configure the dispatcher for the asynchronous framework.",
+      "useCase": "An Active Workspace user selects Awb0Connection object on diagram in Architecture tab, then clicks on the &lsquo;Show Interface Details&rsquo; command. Interface Details table will be shown. User then clicks on the &lsquo;Sync&rsquo; command to find or create Seg0Interconnection objects for the Awb0Connection."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of FindOrCreateInteractionsInputAsync structures.",
+          "parameterName": "asyncInputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp03.4.0",
+      "dependencies": "",
+      "description": "This is an asynchronous operation that finds or creates the Seg0Interconnection objects for Awb0Connection objects by mapping the interfaces and measurable attributes attached to connected ends of Awb0Connection objects. Once the operation is completed, user will be notified through notification mechanism.",
+      "exceptionCondition": "",
+      "id": "findOrCreateInteractionsAsync#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::FindOrCreateInteractionsInputAsync>,&",
+      "interface": "Ase1::Soa::SystemsModeling::InterfaceManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "findOrCreateInteractionsAsync",
+      "opTemplate": "void#Ase1::Soa::SystemsModeling::InterfaceManagement::findOrCreateInteractionsAsync#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::FindOrCreateInteractionsInputAsync>,&",
+      "returnDescription": "This is an asynchronous method, there is no return value.",
+      "useCase": "An Active Workspace user selects Awb0Connection object on diagram in Architecture tab, then clicks on the &lsquo;Show Interface Details&rsquo; command. Interface Details table will be shown. User then clicks on the &lsquo;Sync&rsquo; command to find or create Seg0Interconnection objects for the Awb0Connection. Once the operation is completed, user will be notified through notification mechanism."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The required information to get the saved bookmark for a given Fnd0SystemModelRevision or Fnd0LogicalBlockRevision object.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp03.1.0",
+      "dependencies": "",
+      "description": "This operation returns business objects and their related Awb0SavedBookmark objects. This operation first finds the Awb0SavedBookmark object related to the given business objects. If there are no related Awb0SavedBookmark objects, it creates a new Awb0SavedBookmark object, adds given business objects to it, and relates it to the given business objects with Ase0WorkingContextRelation relationship.",
+      "exceptionCondition": "",
+      "id": "getAlignmentArtifacts#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement::GetAlignmentArtifactsInputData>,&",
+      "interface": "Ase1::Soa::SystemsModeling::AlignmentManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getAlignmentArtifacts",
+      "opTemplate": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement::GetAlignmentArtifactsResponse#Ase1::Soa::SystemsModeling::AlignmentManagement::getAlignmentArtifacts#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement::GetAlignmentArtifactsInputData>,&",
+      "returnDescription": "Map containing business objects and their related Awb0SavedBookmark. Any failure will be returned with clientId mapped to error message in the ServiceData list of partial errors.  Following partial errors may be returned.<br />&bull; 124001 If there is an internal error during the query<br />&bull; 35002 If there is an internal error during fetching the related bookmark<br />&bull; 35016 If there is an error during creating the Ase0WorkingContextRelation relation",
+      "useCase": "An Active Workspace user switches to Artifacts tab for System Model or System Block object. System responds by returning the related Awb0SavedBookmark object."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Structures which hold the required information to find interfaces between the given nodes.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp03.3.0",
+      "dependencies": "",
+      "description": "Systems interact with external systems through interactions. Systems are generally connected to external systems by connections through which data flows. For instance, information, energy, material etc. For a Systems engineer, it is important to know how a system interacts with external systems. This operation will build the interface information and will be used in the diagrammatic representation.",
+      "exceptionCondition": "",
+      "id": "getInterfaces#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::GetInterfacesInputInfo>,&",
+      "interface": "Ase1::Soa::SystemsModeling::DiagramManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getInterfaces",
+      "opTemplate": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::GetInterfacesResponse#Ase1::Soa::SystemsModeling::DiagramManagement::getInterfaces#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::GetInterfacesInputInfo>,&",
+      "returnDescription": "Maps containing Awb0Element objects and their related objects lists and the ServiceData. Any failure will be returned with clientId mapped to error message in the ServiceData list of partial errors. Following error codes are returned in the ServiceData.<br />&bull;  124001  An internal error has occurred in the Diagram Management module. <br />&bull;  124002  No Adapter could be found to handle the Product.<br />&bull;  124016  Value of userAction parameter is not a valid supported key",
+      "useCase": "Use case 1:<br />A Systems engineer selects a system from the ACE list in AW client and toggles it on by clicking on the Interfaces tab. Interfaces tab responds by showing the connected systems as peers. Although there may be number of connections connecting the systems, all of them will be bundled into one as a connection representative. System performs a roll up of all the connections and by deduction it builds the peer system information to be rendered on the diagram.<br />Use case 2:<br />A Systems engineer selected the system and choses to drill down to see the connections going to its substructure. System responds by showing the first level children with rolled up connections though the connections may not be directly going to the children but they are connecting the substructure within."
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement::GetAlignmentArtifactsInputData",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The required information to get the saved bookmark for a given Fnd0SystemModelRevision or Fnd0LogicalBlockRevision object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement::GetAlignmentArtifactsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.1.0",
+      "description": "This operation returns business objects and their related Awb0SavedBookmark objects. This operation first finds the Awb0SavedBookmark object related to the given business objects. If there are no related Awb0SavedBookmark objects, it creates a new Awb0SavedBookmark object, adds given business objects to it, and relates it to the given business objects with Ase0WorkingContextRelation relationship.",
+      "id": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement::GetAlignmentArtifactsResponse#Ase1::Soa::SystemsModeling::AlignmentManagement::getAlignmentArtifacts#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement::GetAlignmentArtifactsInputData>,&",
+      "name": "Ase1::Soa::SystemsModeling::AlignmentManagement::getAlignmentArtifacts",
+      "returnConst": "false",
+      "returnDescription": "Map containing business objects and their related Awb0SavedBookmark. Any failure will be returned with clientId mapped to error message in the ServiceData list of partial errors.  Following partial errors may be returned.<br />&bull; 124001 If there is an internal error during the query<br />&bull; 35002 If there is an internal error during fetching the related bookmark<br />&bull; 35016 If there is an error during creating the Ase0WorkingContextRelation relation",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::GetInterfacesInputInfo",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Structures which hold the required information to find interfaces between the given nodes.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::GetInterfacesResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.3.0",
+      "description": "Systems interact with external systems through interactions. Systems are generally connected to external systems by connections through which data flows. For instance, information, energy, material etc. For a Systems engineer, it is important to know how a system interacts with external systems. This operation will build the interface information and will be used in the diagrammatic representation.",
+      "id": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::GetInterfacesResponse#Ase1::Soa::SystemsModeling::DiagramManagement::getInterfaces#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::GetInterfacesInputInfo>,&",
+      "name": "Ase1::Soa::SystemsModeling::DiagramManagement::getInterfaces",
+      "returnConst": "false",
+      "returnDescription": "Maps containing Awb0Element objects and their related objects lists and the ServiceData. Any failure will be returned with clientId mapped to error message in the ServiceData list of partial errors. Following error codes are returned in the ServiceData.<br />&bull;  124001  An internal error has occurred in the Diagram Management module. <br />&bull;  124002  No Adapter could be found to handle the Product.<br />&bull;  124016  Value of userAction parameter is not a valid supported key",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceInputData",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of exportInterfaceInputData structures.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.2.0",
+      "description": "This operation exports the Seg0Interface objects attached to Fnd0LogicalBlockRevision objects into XML or HTML format. Scope of export may be defined as &lsquo;Internal&rsquo;, &lsquo;External&rsquo; or &lsquo;Both&rsquo;. This operation can be invoked as &lsquo;Foreground&rsquo; or &lsquo;Background&rsquo; processing mode. In Background processing mode, once the operation is completed, user will be notified through notification mechanism.",
+      "id": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceResponse#Ase1::Soa::SystemsModeling::InterfaceManagement::exportInterfaces#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceInputData>,&",
+      "name": "Ase1::Soa::SystemsModeling::InterfaceManagement::exportInterfaces",
+      "returnConst": "false",
+      "returnDescription": "File object of generated report file will be returned along with service data. Any failure will be returned with clientId mapped to error message in the ServiceData list of partial errors.<br />Following partial errors may be returned.<br /><br />124001 If there is an internal error during the query<br />124500 An invalid object was received by the Systems Modeling module. Please report this error to your system administrator.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceInputDataAsync",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of ExportInterfaceInputDataAsync structures.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputsAsync"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "void",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.2.0",
+      "description": "This is asynchronous operation. It exports the Seg0Interface objects attached to Fnd0LogicalBlockRevision objects into XML or HTML format. Scope of export may be defined as &lsquo;Internal&rsquo;, &lsquo;External&rsquo; or &lsquo;Both&rsquo;. Once the operation is completed, user will be notified through notification mechanism.",
+      "id": "void#Ase1::Soa::SystemsModeling::InterfaceManagement::exportInterfacesAsync#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceInputDataAsync>,&",
+      "name": "Ase1::Soa::SystemsModeling::InterfaceManagement::exportInterfacesAsync",
+      "returnConst": "false",
+      "returnDescription": "This is an asynchronous method, there is no return value.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::FindOrCreateInteractionsInputData",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of FindOrCreateInteractionsInputData structures.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.4.0",
+      "description": "This operation finds or creates the Seg0Interconnection objects for Awb0Connection objects by mapping the interfaces and measurable attributes attached to connected ends of Awb0Connection objects. This is used to align the measurable attributes between two systems. This operation can be invoked as Foreground or Background processing mode. In Background processing mode, user will be notified through notification mechanism once the operation is completed.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Ase1::Soa::SystemsModeling::InterfaceManagement::findOrCreateInteractions#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::FindOrCreateInteractionsInputData>,&",
+      "name": "Ase1::Soa::SystemsModeling::InterfaceManagement::findOrCreateInteractions",
+      "returnConst": "false",
+      "returnDescription": "The Service Data. Any failure will be returned with clientId mapped to error message in the ServiceData list of partial errors.<br />Following partial errors may be returned.<br />124001: An internal error has occurred in the Diagram Management module. Please report this error to your system administrator.<br />124501: An invalid object was received by the Systems Modeling module. Please report this error to your system administrator.<br />124504: The operation cannot be invoked asynchronously, because the dispatcher is not installed. Please contact your system administrator to install and configure the dispatcher for the asynchronous framework.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::FindOrCreateInteractionsInputAsync",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of FindOrCreateInteractionsInputAsync structures.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "asyncInputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "void",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.4.0",
+      "description": "This is an asynchronous operation that finds or creates the Seg0Interconnection objects for Awb0Connection objects by mapping the interfaces and measurable attributes attached to connected ends of Awb0Connection objects. Once the operation is completed, user will be notified through notification mechanism.",
+      "id": "void#Ase1::Soa::SystemsModeling::InterfaceManagement::findOrCreateInteractionsAsync#const,std::vector<Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::FindOrCreateInteractionsInputAsync>,&",
+      "name": "Ase1::Soa::SystemsModeling::InterfaceManagement::findOrCreateInteractionsAsync",
+      "returnConst": "false",
+      "returnDescription": "This is an asynchronous method, there is no return value.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp03.1.0",
+      "dependencies": "",
+      "description": "Alignment Management Service",
+      "libraryName": "Ase1SoaSystemsModeling",
+      "name": "AlignmentManagement",
+      "namespace": "Ase1::Soa::SystemsModeling",
+      "serviceLibraryRef": ""
+    },
+    {
+      "createRelease": "Awp03.3.0",
+      "dependencies": "",
+      "description": "This service is to manage the operations on interfaces in diagram.",
+      "libraryName": "Ase1SoaSystemsModeling",
+      "name": "DiagramManagement",
+      "namespace": "Ase1::Soa::SystemsModeling",
+      "serviceLibraryRef": ""
+    },
+    {
+      "createRelease": "Awp03.2.0",
+      "dependencies": "",
+      "description": "The service provides functionality related to interface management.",
+      "libraryName": "Ase1SoaSystemsModeling",
+      "name": "InterfaceManagement",
+      "namespace": "Ase1::Soa::SystemsModeling",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The relation object.",
+          "name": "edge"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Awb0Element"
+            }
+          ],
+          "description": "The Awb0Element object which is the primary end of the relation object which the edge represents. In this scenario, the Awb0Element object is system of interest/system in view.",
+          "name": "end1Element"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Awb0Element"
+            }
+          ],
+          "description": "The Awb0Element object which is the secondary end of the relation object which the edge represents. In this scenario, the Awb0Element object is the related to the system of interest/system in view object.",
+          "name": "end2Element"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::NameValuePair"
+            }
+          ],
+          "description": "Information about the edge.",
+          "name": "edgeInfo"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Structure representing an edge shown on the diagram.",
+      "isPublished": "false",
+      "name": "EdgeData",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement",
+      "scope": "Ase1::Soa::SystemsModeling::DiagramManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify return <br />data elements and partial errors associated with this input structure.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of selected Awb0Element objects.",
+          "name": "awbElements"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Awb0ProductContextInfo"
+            }
+          ],
+          "description": "This indicates the productContext information, this represent the <br />product along with the configuration information.",
+          "name": "productContext"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportOptions"
+            }
+          ],
+          "description": "A map (string, list of strings) of preferences and their values.<br />Supported key values are exportAppFormat-values are &lsquo;HTML&rsquo; or &lsquo;XML&rsquo;,<br />outputFileName- any string, exportScope &ndash;&lsquo; Internal or External or Internal and External, processingMode- Background or Foreground. Foreground option is for future.<br />Keys and their values both are case sensitive.",
+          "name": "exportOptions"
+        }
+      ],
+      "createRelease": "Awp03.2.0",
+      "description": "Structure required to generate the interface report.",
+      "isPublished": "false",
+      "name": "ExportInterfaceInputData",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement",
+      "scope": "Ase1::Soa::SystemsModeling::InterfaceManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "This unique ID is used to identify return data elements and partial errors  associated with this input structure.  It may be empty.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Awb0Element"
+            }
+          ],
+          "description": "The Awb0Element object on the diagram for which the interfaces are to be retrieved between the nodes showed on the diagram.",
+          "name": "systemOfInterest"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Awb0Element"
+            }
+          ],
+          "description": "The Awb0Element object currently visible on the diagram. Generally this would be same as systemOfInterest but would be different in case of &ldquo;ShowParentInterfaces&rdquo;.",
+          "name": "systemInView"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The Awb0Element objects currently visible on the diagram. According to the navigation mode set by the client, the diagram elements will be utilized. For instance, for showing internals, system will use the diagram elements as the outside systems to which interfaces will be shown.",
+          "name": "externalSystems"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A string to set the server to perform in a particular navigation mode. Valid values are &ldquo;ShowInterfaces&rdquo;, &ldquo;ShowChildInterfaces&rdquo;, &ldquo;ShowParentInterfaces&rdquo;.",
+          "name": "navigationMode"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::InputContext"
+            }
+          ],
+          "description": "The configuration information.",
+          "name": "inputContext"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::NameValuePair"
+            }
+          ],
+          "description": "A map(string, list of strings) of diagram related information. Valid values for key/value are (sortBy, awb0DisplayedName) and ( isSystemOfInterest, &lsquo;0/1&rsquo;).",
+          "name": "diagramInfo"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Structure representing the input info required to build the interface information.",
+      "isPublished": "false",
+      "name": "GetInterfacesInputInfo",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement",
+      "scope": "Ase1::Soa::SystemsModeling::DiagramManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The unmodified value from the FindDiagramInputInfo.clientId. This can be used by the caller to indentify this data structure with the source input data.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::NameValuePair"
+            }
+          ],
+          "description": "A map (string, list of string) of diagram related information. Valid values for key/value are (zoomLevel, &lsquo;0 to 1&rsquo;), (viewpoint, &lsquo;x,y&rsquo;).",
+          "name": "diagramInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A string to set the server to perform in a particular navigation mode. Valid values are &ldquo;ShowInterfaces&rdquo;, &ldquo;ShowChildInterfaces&rdquo;, &ldquo;ShowParentInterfaces&rdquo;.",
+          "name": "navigationMode"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::NodeData"
+            }
+          ],
+          "description": "The Node representing the current system shown on the diagram.",
+          "name": "systemInView"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::NodeData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The list of structures representing nodes to be shown on the diagram. These nodes are will be drawn as the peer nodes of the given systemInView.",
+          "name": "externalNodeData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::NodeData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The list of structures representing nodes to be shown on the diagram. These nodes are will be drawn as child nodes of the given systemInView.",
+          "name": "internalNodeData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::EdgeData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The list of structures representing edges to be shown on the diagram.",
+          "name": "edgeData"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Structure representing the output of the operation.",
+      "isPublished": "false",
+      "name": "GetInterfacesOutput",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement",
+      "scope": "Ase1::Soa::SystemsModeling::DiagramManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::GetInterfacesOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of GetInterfacesOutput structures.",
+          "name": "results"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard return; includes any error information.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Structure representing the response of the operation.",
+      "isPublished": "false",
+      "name": "GetInterfacesResponse",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement",
+      "scope": "Ase1::Soa::SystemsModeling::DiagramManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::OccurrenceConfigurationInfo"
+            }
+          ],
+          "description": "The OccurrenceConfigurationInfo structure.",
+          "name": "configuration"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The page size for pagination.",
+          "name": "pageSize"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "This holds reference to structure context object.",
+          "name": "structureContextObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Awb0ProductContextInfo"
+            }
+          ],
+          "description": "The Awb0ProductContextInfo object which holds the context  and product information.",
+          "name": "productContext"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Structure represents the configuration parameters.",
+      "isPublished": "false",
+      "name": "InputContext",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement",
+      "scope": "Ase1::Soa::SystemsModeling::DiagramManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Awb0Element"
+            }
+          ],
+          "description": "The Awb0Element for which the node is constructed.",
+          "name": "node"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement::NameValuePair"
+            }
+          ],
+          "description": "The NameValuePair which holds information about the node. Valid values are &ldquo;Label&rdquo;,&ldquo;Type&rdquo;, &ldquo;Hidden&rdquo; .",
+          "name": "nodeInfo"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Structure representing the node data.",
+      "isPublished": "false",
+      "name": "NodeData",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement",
+      "scope": "Ase1::Soa::SystemsModeling::DiagramManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::RevisionRule"
+            }
+          ],
+          "description": "The RevisionRule object used to configure the structure.",
+          "name": "revisionRule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::DateTime"
+            }
+          ],
+          "description": "The effectivity Date used in the Revision Rule configuration.",
+          "name": "effectivityDate"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The end item Item or ItemRevision object used for Effectivity.",
+          "name": "endItem"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::VariantRule"
+            }
+          ],
+          "description": "The saved VariantRule object used  to configure the structure.",
+          "name": "variantRule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The ConfigurationContext  object . If specified, the other configuration information will be ignored.",
+          "name": "configurationObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The unit number to be used in Effectivity.",
+          "name": "unitNo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, the configuration is the current time.",
+          "name": "now"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Structure contains the configuration parameters to be applied on the given parent.",
+      "isPublished": "false",
+      "name": "OccurrenceConfigurationInfo",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement",
+      "scope": "Ase1::Soa::SystemsModeling::DiagramManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::vector<std::string>"
+            }
+          ],
+          "description": "A list of recipes of selected Awb0Element objects.",
+          "name": "awbElementRecipes"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The recipe of product context information.",
+          "name": "productContextReceipe"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportOptions"
+            }
+          ],
+          "description": "A map (string, list of strings) of preferences and their values.<br />Supported key values are exportAppFormat-values are &lsquo;HTML&rsquo; or &lsquo;XML&rsquo;, outputFileName- any string, exportScope &ndash;&lsquo; Internal or External or Internal and External.<br />Keys and their values both are case sensitive.",
+          "name": "exportOptions"
+        }
+      ],
+      "createRelease": "Awp03.2.0",
+      "description": "Structure required to generate the interface report.",
+      "isPublished": "false",
+      "name": "ExportInterfaceInputDataAsync",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement",
+      "scope": "Ase1::Soa::SystemsModeling::InterfaceManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify return <br />data elements and partial errors associated with this input structure.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "File object of report file which is generated during operation.",
+          "name": "exportedFile"
+        }
+      ],
+      "createRelease": "Awp03.2.0",
+      "description": "Structure represents the output of the operation.",
+      "isPublished": "false",
+      "name": "ExportInterfaceOutputData",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement",
+      "scope": "Ase1::Soa::SystemsModeling::InterfaceManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement::ExportInterfaceOutputData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of exportInterfaceOutputData structures.",
+          "name": "output"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The Service Data.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp03.2.0",
+      "description": "Structure represents the output parameters of the operation.",
+      "isPublished": "false",
+      "name": "ExportInterfaceResponse",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement",
+      "scope": "Ase1::Soa::SystemsModeling::InterfaceManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::vector<std::string>"
+            }
+          ],
+          "description": "A list of recipes of selected Awb0Connection objects.",
+          "name": "awbConnectionRecipes"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::ProductContextRootElementRecipePair"
+            }
+          ],
+          "description": "A map (recipe of Awb0ProductContextInfo, recipe of Awb0Element) of recipe of Awb0ProductContextInfo (key) and recipe of Root Awb0Element in product (value) objects. Valid keys are recipe of Awb0ProductContextInfo which represent the product and valid values are recipe of Root Awb0Element objects in the product.",
+          "name": "productContextElementInfo"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "Structure required to find or create interactions asynchronously.",
+      "isPublished": "false",
+      "name": "FindOrCreateInteractionsInputAsync",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement",
+      "scope": "Ase1::Soa::SystemsModeling::InterfaceManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify return data elements and partial errors associated with this input structure.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of selected Awb0Connection objects.",
+          "name": "awbConnections"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement::ProductContextRootElementPair"
+            }
+          ],
+          "description": "A map (Awb0ProductContextInfo, Awb0Element) of Awb0ProductContextInfo (key) and Root Awb0Element in product (value) objects. Valid keys are Awb0ProductContextInfo objects which represent the product and valid values are Root Awb0Element objects in the product.",
+          "name": "productContextElementInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true then operation is invoked asynchronously.",
+          "name": "runInBackground"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "Structure required to find or create interactions.",
+      "isPublished": "false",
+      "name": "FindOrCreateInteractionsInputData",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement",
+      "scope": "Ase1::Soa::SystemsModeling::InterfaceManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify return data elements and partial errors associated with this input structure.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The list of Fnd0SystemModelRevision or Fnd0SystemBlockRevision objects.",
+          "name": "objects"
+        }
+      ],
+      "createRelease": "Awp03.1.0",
+      "description": "Structure represents the parameters required to  return related Awb0SavedBookmark object.",
+      "isPublished": "false",
+      "name": "GetAlignmentArtifactsInputData",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement",
+      "scope": "Ase1::Soa::SystemsModeling::AlignmentManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The clientId from the input GetAlignmentArtifactsInputData element. This value is unchanged from the input, and can be used to identify this response element with the corresponding input element.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement::AlignmentBookmarkMap"
+            }
+          ],
+          "description": "A map (BusinessObject, Awb0SavedBookmark) of the input  Fnd0SystemModelRevision or Fnd0SystemBlockRevision objects and its related Awb0SavedBookmark object.",
+          "name": "savedBookmark"
+        }
+      ],
+      "createRelease": "Awp03.1.0",
+      "description": "Structure represents the output of the operation getAlignmentArtifacts.",
+      "isPublished": "false",
+      "name": "GetAlignmentArtifactsOutput",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement",
+      "scope": "Ase1::Soa::SystemsModeling::AlignmentManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The Service Data.",
+          "name": "serviceData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement::GetAlignmentArtifactsOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Structure represents the output of the operation getAlignmentArtifacts.",
+          "name": "output"
+        }
+      ],
+      "createRelease": "Awp03.1.0",
+      "description": "Structure represents the output of the operation getAlignmentArtifacts.",
+      "isPublished": "false",
+      "name": "GetAlignmentArtifactsResponse",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement",
+      "scope": "Ase1::Soa::SystemsModeling::AlignmentManagement"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            },
+            {
+              "dataType": "Teamcenter::Awb0SavedBookmark"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp03.1.0",
+      "description": "A map of input BusinessObject and its related Awb0SavedBookmark.",
+      "isPublished": "false",
+      "name": "AlignmentBookmarkMap",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2016_03::AlignmentManagement",
+      "scope": "Ase1::Soa::SystemsModeling::AlignmentManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::vector<std::string>"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp03.2.0",
+      "description": "A map of preferences and their values. Supported key are as below &ndash;<br /><br /><ul><ul><li type=\"disc\">exportAppFormat - Supported values are - &lsquo;HTML&rsquo;, &lsquo;XML&rsquo;</li><li type=\"disc\">outputFileName - Any alphanumeric string</li><li type=\"disc\">exportScope - Supported values are - &lsquo;Internal&rsquo;, &lsquo;External&rsquo;, &lsquo;Both'</li><li type=\"disc\">processingMode - Supported values are - &lsquo;Background&rsquo;, &lsquo;Foreground&rsquo;</li></ul></ul><br /><br />Keys and their values both are case sensitive.",
+      "isPublished": "false",
+      "name": "ExportOptions",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2016_12::InterfaceManagement",
+      "scope": "Ase1::Soa::SystemsModeling::InterfaceManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::vector<std::string>"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "NameValuePair is a map of property name (key) and property values (values) in string format.",
+      "isPublished": "false",
+      "name": "NameValuePair",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_06::DiagramManagement",
+      "scope": "Ase1::Soa::SystemsModeling::DiagramManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Awb0ProductContextInfo"
+            },
+            {
+              "dataType": "Teamcenter::Awb0Element"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "ProductContextRootElementPair is a map of Awb0ProductContextInfo (key) and root Awb0Element (value) objects.",
+      "isPublished": "false",
+      "name": "ProductContextRootElementPair",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement",
+      "scope": "Ase1::Soa::SystemsModeling::InterfaceManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "ProductContextRootElementRecipePair is a map of recipe of Awb0ProductContextInfo (key) and recipe of root Awb0Element (value) objects.",
+      "isPublished": "false",
+      "name": "ProductContextRootElementRecipePair",
+      "namespace": "Ase1::Soa::Internal::SystemsModeling::_2017_12::InterfaceManagement",
+      "scope": "Ase1::Soa::SystemsModeling::InterfaceManagement"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

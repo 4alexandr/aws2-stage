@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "\"{0}\" и соответствующие сопоставления атрибутов будут удалены.",
+    "removeSingleElementConfirmation": "\"{0}\" будет удален.",
+    "removeMultipleElementsConfirmation": "Выбор {0} будет удален.",
+    "removeMeasurableAttributeMessage": "\"{0}\" будет удалено.",
+    "syncSingleConectionMessage": "Выполняется синхронизация \"{0}\" и обновление объектов взаимодействия. Вы получите уведомление о завершении.",
+    "syncMultipleConectionsMessage": "Выполняется синхронизация выбранных объектов \"{0}\" и обновление объектов взаимодействия. Вы получите уведомление о завершении.",
+    "exportInterfaceTitle": "Экспорт интерфейса",
+    "aw_interfaceTableCommandbar": "Панель команд таблицы Интерфейс",
+    "aw_interactionTableCommandbar": "Панель команд таблицы Взаимодействие",
+    "aw_attributesTableCommandbar": "Панель команд таблицы Атрибуты",
+    "aw_interfacesViewer": "Просмотр интерфейсов",
+    "table_cell_commands": "Команды ячейки Таблица",
+    "Ase1ExportInterfaceElementDesc": "Экспортируйте выбранные данные об интерфейсе."
+}

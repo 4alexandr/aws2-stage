@@ -1,0 +1,4 @@
+<aw-include exist-when="!conditions.finishedLoading" name="mfeLoadingMessage"></aw-include>
+<aw-include exist-when="conditions.noContentElementsUnderActivity" name="mfeMessage" sub-panel-context="data.messages.noContentElementsUnderActivity"></aw-include>
+<aw-include exist-when="conditions.noContentElementsUnderBuildElement" name="mfeMessage" sub-panel-context="data.messages.noContentElementsUnderBuildElement"></aw-include>
+<aw-splm-table visible-when="conditions.shouldShowTable" gridid="ngpBuildStrategyTable" use-tree="true" show-decorators="true"></aw-splm-table>

@@ -1,0 +1,23 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/aw-splitter.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive"
+    ],
+    "actions": {},
+    "data": {
+        "partsContentPanelData": {
+            "tabs": [ {
+                    "name": "{{i18n.AvailablePartsPanelTitle}}",
+                    "tabKey": "epAvailableParts"
+                }
+            ]
+        }
+    },
+    "dataProviders":  {},
+    "i18n": {
+        "AvailablePartsPanelTitle": [ "PlanningMessages" ]
+    }
+}

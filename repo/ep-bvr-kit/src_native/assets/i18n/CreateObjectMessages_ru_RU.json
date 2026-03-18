@@ -1,0 +1,14 @@
+{
+    "selectType": "Выбор типа",
+    "CreateButtonTitle": "Создать",
+    "CreateAndAddMoreObjectButtonTitle": "Создать и добавить еще",
+    "CancelButtonTitle": "Отмена",
+    "createOperationCmdTitle": "Создать операцию",
+    "createProcessAreaCmdTitle": "Создать область процесса",
+    "gotoPreviousPageCmdTitle": "Назад",
+    "assignProjectCmdTitle": "Назначить проекты",
+    "SearchPanelTitle":"Поиск",
+    "projectsPanelCaption":"Проект",
+    "loading":"Загрузка",
+    "addProjectHeaderTitle":"Добавить проект"
+}

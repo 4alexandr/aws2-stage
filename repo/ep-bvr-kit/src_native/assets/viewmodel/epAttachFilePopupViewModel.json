@@ -1,0 +1,311 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-popup2.directive",
+        "js/aw-file-upload.directive",
+        "js/aw-separator.directive",
+        "js/aw-textbox.directive",
+        "js/aw-textarea.directive",
+        "js/aw-listbox.directive",
+        "js/enable-when.directive",
+        "js/aw-class.directive",
+        "js/aw-progress-indicator.directive"
+    ],
+    "data": {
+        "datasetName": {
+            "displayName": "{{i18n.name}}",
+            "type": "STRING",
+            "isRequired": "true"
+        },
+        "datasetDesc": {
+            "displayName": "{{i18n.description}}",
+            "type": "STRING"
+        },
+        "datasetType": {
+            "displayName": "{{i18n.type}}",
+            "type": "STRING",
+            "hasLov": true,
+            "isRequired": "true"
+        },
+        "creationRelation": {
+            "displayName": "{{i18n.relation}}",
+            "type": "STRING",
+            "hasLov": true,
+            "isRequired": "true"
+        },
+        "relationList": {
+            "type": "STRING",
+            "dbValue": []
+        },
+        "dataset": "dataset",
+        "datasetCreationInProgress": false
+    },
+    "actions": {
+        "reveal": {
+            "actionType": "JSFunction",
+            "method": "getAllowedFileTypes",
+            "inputData": {
+                "fileExtnsWithDatasetTypes": "{{data.preferences.DRAG_AND_DROP_default_dataset_type}}"
+            },
+            "outputData": {
+                "allowedTypes": "allowedTypes"
+            },
+            "deps": "js/epAttachFilePopupService"
+        },
+        "startDatasetCreateAction": {
+            "actionType": "JSFunction",
+            "method": "initiateDatasetCreation",
+            "inputData": {
+                "data": "{{data}}",
+                "scopeObject": "{{subPanelContext.scopeObject}}"
+            },
+            "deps": "js/epAttachFilePopupService"
+        },
+        "epCreateAttach": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "setDatasetCreationInProgress"
+                },
+                {
+                    "action": "initCreateAttachAction"
+                }
+            ]
+        },
+        "initCreateAttachAction": {
+            "actionType": "JSFunction",
+            "method": "createAttachmentObjectAndAttach",
+            "inputData": {
+                "connectedToObject": "{{subPanelContext.scopeObject}}",
+                "type": "{{data.fileType}}",
+                "relationType": "{{data.creationRelation.dbValue}}",
+                "objectName": "{{data.datasetName.dbValue}}",
+                "objectDesc": "{{data.datasetDesc.dbValue}}"
+            },
+            "deps": "js/epAttachmentsService"
+        },
+        "setDatasetCreationInProgress": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "object": "{{data}}",
+                "key": "datasetCreationInProgress",
+                "value": true
+            },
+            "deps": "js/mfeViewModelUtils",
+            "events": {
+                "success": [
+                    {
+                        "name": "progress.start"
+                    }
+                ]
+            }
+        },
+        "getSavedDatasetObject": {
+            "actionType": "JSFunction",
+            "method": "getSavedDatasetObject",
+            "inputData": {
+                "saveResults": "{{data.eventData.saveResults}}",
+                "fileType": "{{data.fileType}}"
+            },
+            "outputData": {
+                "datasetUid": "datasetUid",
+                "namedReference": "namedReference"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "epAttachFile.getDatasetWriteTickets"
+                    }
+                ]
+            },
+            "deps": "js/epAttachFilePopupService"
+        },
+        "getDatasetWriteTickets": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-FileManagement",
+            "method": "getDatasetWriteTickets",
+            "inputData": {
+                "inputs": [
+                    {
+                        "createNewVersion": true,
+                        "dataset": {
+                            "uid": "{{data.datasetUid}}",
+                            "type": "{{data.fileType}}"
+                        },
+                        "datasetFileInfos": [
+                            {
+                                "allowReplace": true,
+                                "fileName": "{{data.fileName}}",
+                                "isText": "{{data.isText}}",
+                                "namedReferencedName": "{{data.namedReference}}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "fmsTicket1": "commitInfo[0].datasetFileTicketInfos[0].ticket",
+                "commitInfos1": "commitInfo[0]"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "epAttachFile.updateFormData"
+                    }
+                ]
+            }
+        },
+        "updateFormData": {
+            "actionType": "JSFunction",
+            "method": "updateFormData",
+            "inputData": {
+                "fileData": {
+                    "key": "fmsTicket",
+                    "value": "{{data.fmsTicket1}}"
+                },
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "epAttachFile.uploadFile"
+                    }
+                ]
+            },
+            "deps": "js/declUtils"
+        },
+        "uploadFile": {
+            "actionType": "RESTService",
+            "serviceName": "",
+            "method": "POST",
+            "inputData": {
+                "request": {
+                    "method": "POST",
+                    "url": "{{Constants.fmsUrl}}",
+                    "headers": {
+                        "Content-type": "undefined"
+                    },
+                    "data": "{{data.formData}}"
+                }
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "epAttachFile.commitDatasetFiles"
+                    }
+                ]
+            }
+        },
+        "commitDatasetFiles": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-FileManagement",
+            "method": "commitDatasetFiles",
+            "inputData": {
+                "commitInput": [
+                    "{{data.commitInfos1}}"
+                ]
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "epAttachFile.datasetAttached",
+                        "excludeLocalDataCtx": true,
+                        "eventData":
+                        {
+                            "dataset": "{{data.commitInfos1.dataset}}",
+                            "connectedToObject": "{{subPanelContext.scopeObject[0]}}"
+                        }
+                    },
+                    {
+                        "name": "progress.end"
+                    },
+                    {
+                        "name": "epAttachFile.closePopupWindow"
+                    }
+                ]
+            }
+        },
+        "closePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "deps": "js/popupService"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "epAttachFile.getDatasetWriteTickets",
+            "action": "getDatasetWriteTickets"
+        },
+        {
+            "eventId": "epAttachFile.commitDatasetFiles",
+            "action": "commitDatasetFiles"
+        },
+        {
+            "eventId": "epAttachFile.closePopupWindow",
+            "action": "closePopupWindow"
+        },
+        {
+            "eventId": "epAttachFile.updateFormData",
+            "action": "updateFormData"
+        },
+        {
+            "eventId": "epAttachFile.uploadFile",
+            "action": "uploadFile"
+        },
+        {
+            "eventId": "ep.saveEvents",
+            "cacheEventData": true,
+            "action": "getSavedDatasetObject"
+        },
+        {
+            "eventId": "invalidFileSelected",
+            "message": "invalidFileWarning"
+        }
+    ],
+    "conditions": {
+        "validFile": {
+            "expression": "data.fileName !== null && data.fileName !== '' && data.validFile && data.listOfDatasetTypes"
+        },
+        "datasetCreationInProgress": {
+            "expression": "data.datasetCreationInProgress"
+        }
+    },
+    "preferences": [
+        "MBC_AllowedDatasetTypes",
+        "DRAG_AND_DROP_default_dataset_type"
+    ],
+    "messages": {
+        "invalidFileWarning": {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.invalidFileWarningMsg}}"
+        }
+    },
+    "i18n": {
+        "name": [
+            "EPMessages"
+        ],
+        "description": [
+            "EPMessages"
+        ],
+        "type": [
+            "EPMessages"
+        ],
+        "relation": [
+            "EPMessages"
+        ],
+        "cancel": [
+            "EPMessages"
+        ],
+        "done": [
+            "EPMessages"
+        ],
+        "invalidFileWarningMsg": [
+            "EPMessages"
+        ]
+    }
+}

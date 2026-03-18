@@ -1,0 +1,19 @@
+{
+  "name": "nx",
+  "description": "",
+  "modules": [
+    "nx"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "configuration": {
+    "testdatamaster": {
+      "output": "javascript",
+      "format": "object",
+      "definition": "module"
+    }
+  },
+  "soaDeps": [
+    "Awn0.Soa.NX"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+    "editSelectedItem": "Upravit vybranou položku",
+    "overview": "Přehled",
+    "attachments": "Připojený obsah",
+    "attributeGroups": "Skupiny atributů",
+    "forms": "Formuláře",
+    "attachFile": "Připojit soubor",
+    "createAgs": "Vytvořit skupinu atributů",
+    "downloadAttachment": "Stáhnout",
+    "cannotDeleteAGMessage": "Nemáte oprávnění k odstranění skupiny atributů \"{0}\".\n Chcete ji odebrat bez odstranění?",
+    "cancel": "Storno",
+    "remove": "Odebrat"
+}

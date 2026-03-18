@@ -1,0 +1,179 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-include.directive"
+    ],
+    "ports": {
+        "wiAssemblyPmiTable_inputObject": {
+            "onChangeAction": "loadPmisDataProviderAction",
+            "syncObject": {}
+        }
+    },
+    "data": {
+        "messages": {
+            "noValidInput": [ {
+                "text": "{{i18n.selectProcessOrOperation}}"
+            } ],
+            "noAssociatedPMIs": [ {
+                "text": "{{i18n.noAssociatedPMIs}}"
+            } ]
+        },
+        "columnConfigPreference" : "EP_AssemblyPMIsColumnConfiguration"
+    },
+    "actions": {
+        "loadPmisDataProviderAction": {
+            "actionType": "dataProvider",
+            "method": "assemblyPmiDataProvider"
+        },
+        "loadPmis": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadPmis",
+            "deps": "js/wiPmiService",
+            "inputData": {
+                "context": "{{ports.wiAssemblyPmiTable_inputObject.syncObject.context}}",
+                "viewModelData": "{{data}}",
+                "pmiPolicy": "{{data.dataProviders.assemblyPmiDataProvider.policy}}"
+            },
+            "outputData": {
+                "listOfPmis": ""
+            }
+        },
+        "loadPmiTypeDescription": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2015-10-Session",
+            "method": "getTypeDescriptions2",
+            "inputData": {
+                "typeNames": [ "Mci0PMIObject" ]
+            }
+        },
+        "extractRuntimeProps": {
+            "actionType": "JSFunction",
+            "method": "extractConnectedParts",
+            "inputData": {
+                "pmiVmos": "{{data.dataProviders.assemblyPmiDataProvider.viewModelCollection.loadedVMObjects}}",
+                "connectedPartsDisplayName": "{{data.i18n.connectedParts}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "assemblyPmiTable.plTable.clientRefresh`"
+                } ]
+            },
+            "deps": "js/wiPmiService"
+        },
+        "createColumns": {
+            "actionType": "JSFunction",
+            "method": "createColumns",
+            "inputData": {
+                "preferenceValues": "{{data.columnConfigPreference}}",
+                "dataProvider": "{{data.dataProviders.assemblyPmiDataProvider}}",
+                "columnProvider": "",
+                "additionalPolicyObjects": ""
+            },
+            "deps": "js/mfeTableService"
+        }
+    },
+    "grids": {
+        "assemblyPmiTable": {
+            "dataProvider": "assemblyPmiDataProvider",
+            "columnProvider": "assemblyPmiColumnProvider",
+            "gridOptions": {
+                "enableSorting": true
+            }
+
+        }
+    },
+    "dataProviders": {
+        "assemblyPmiDataProvider": {
+            "action": "loadPmis",
+            "response": "{{data.listOfPmis}}",
+            "totalFound": "{{data.listOfPmis.length}}",
+            "commandsAnchor": "wiAssemblyPmiTable_tableRow_uiAnchor",
+            "selectionModelMode": "multiple"
+        }
+    },
+    "columnProviders": {
+        "assemblyPmiColumnProvider": {
+            "loadColumnAction": "createColumns"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "loadPmiTypeDescription"
+    },
+    "conditions": {
+        "hasValidInput": {
+            "expression": {
+                "$source": "ports.wiAssemblyPmiTable_inputObject.syncObject.context",
+                "$query": {
+                    "$notNull": true
+                }
+            }
+        },
+        "showTable": {
+            "expression": {
+                "$and": [ {
+                        "$source": "conditions.hasValidInput",
+                        "$query": {
+                            "$eq": true
+                        }
+                    },
+                    {
+                        "$source": "data.listOfPmis.length",
+                        "$query": {
+                            "$gt": 0
+                        }
+                    }
+                ]
+            }
+        },
+        "isLoading": {
+            "expression": {
+                "$and": [ {
+                        "$source": "conditions.hasValidInput",
+                        "$query": {
+                            "$eq": true
+                        }
+                    },
+                    {
+                        "$source": "data.listOfPmis",
+                        "$query": {
+                            "$isNull": true
+                        }
+                    }
+                ]
+            }
+        },
+        "hasNoAssociatedPMIs": {
+            "expression": {
+                "$and": [ {
+                        "$source": "conditions.hasValidInput",
+                        "$query": {
+                            "$eq": true
+                        }
+                    },
+                    {
+                        "$source": "data.listOfPmis.length",
+                        "$query": {
+                            "$eq": 0
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "onEvent": [ {
+        "eventId": "assemblyPmiDataProvider.modelObjectsUpdated",
+        "action": "extractRuntimeProps",
+        "condition": "data.listOfPmis.length > 0"
+    } ],
+    "i18n": {
+        "name": [ "wiPmiMessages" ],
+        "id": [ "wiPmiMessages" ],
+        "nominalValue": [ "wiPmiMessages" ],
+        "uom": [ "wiPmiMessages" ],
+        "selectProcessOrOperation": [ "wiPmiMessages" ],
+        "noAssociatedPMIs": [ "wiPmiMessages" ],
+        "connectedParts" : [ "wiPmiMessages" ],
+        "more" : [ "wiPmiMessages" ]
+    }
+}

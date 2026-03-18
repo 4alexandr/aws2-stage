@@ -1,0 +1,141 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/aw-scrollpanel.directive",
+        "js/aw-panel-header.directive",
+        "js/aw-button.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-i18n.directive",
+        "js/enable-when.directive"
+    ],
+
+    "actions": {
+        "loadComparationDetails": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadComparationDetails",
+            "inputData": {
+              "selectedObject":"{{subPanelContext.selectedObject}}",
+              "contextKey":"mbomContext"
+            },
+            "outputData":{
+                "compareInfo":""
+            },
+            "deps": "js/mbmComparePopupService"
+          },
+
+        "closeAction":{
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupEl": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+          },
+
+        "evaluatePropagateAction":{
+            "actionType": "JSFunction",
+            "method": "evaluatePropagateChanges",
+            "inputData": {
+                "selectedObjects":["{{subPanelContext.selectedObject}}"],
+                "contextKey":"mbomContext",
+                "isPullPropagate":true
+            },
+            "outputData": {
+                "evaluatedObject":""
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "message": "mbmPropagateOverAssigneConfirmMessage",
+                        "condition": "data.evaluatedObject.hasOverAssigned"
+                    }
+                ]
+            },
+            "events": {
+                "success":[
+                    {
+                        "name": "mbm.evaluatePropagateActionCompleteEvent",
+                        "condition": "!data.evaluatedObject.hasOverAssigned"
+                    },
+                    {
+                        "name": "mbm.closePopup",
+                        "condition": "!data.evaluatedObject.hasOverAssigned"
+                    }
+                ]
+            },
+            "deps":"js/mbmComparePopupService"
+        },
+        "propagateAllConfirmation":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "mbm.evaluatePropagateActionCompleteEvent"
+                    },
+                    {
+                        "name": "mbm.closePopup"
+                    }
+                ]
+            }
+        },
+        "performPropagateChange": {
+            "actionType": "JSFunctionAsync",
+                "method": "pushPropagateChanges",
+                "inputData": {
+                    "param":"{{data.evaluatedObject.objectsToPropagate}}"
+                },
+                "deps":"js/mbmPropagateService"
+          }
+    },
+
+    "lifecycleHooks":{
+        "onInit":"loadComparationDetails"
+    },
+    "onEvent":[
+        {
+            "eventId":"mbm.evaluatePropagateActionCompleteEvent",
+            "action":"performPropagateChange"
+        },
+
+        {
+            "eventId": "mbm.closePopup",
+            "action": "closeAction"
+        }
+    ],
+
+    "messages": {
+        "mbmPropagateOverAssigneConfirmMessage": {
+          "messageType": "WARNING",
+          "messageText": "{{i18n.mbmOverAssignedAdditionalPropagateMessage}}",
+          "messageTextParams": [
+            "{{subPanelContext.selectedObject.props.awb0Archetype.uiValues[0]}}"
+          ],
+          "navigationOptions": [
+            {
+              "option": "Cancel",
+              "text": "{{i18n.mbmCancel}}"
+            },
+            {
+              "option": "propagateAll",
+              "text": "{{i18n.mbmPropagateAll}}",
+              "action": "propagateAllConfirmation"
+            }
+          ]
+        }
+    },
+
+    "i18n": {
+        "mbmUpdateMbom":["mbmMessages"],
+        "mbmClose":["mbmMessages"],
+        "mbmComparingInstances":["mbmMessages"],
+        "mbmEbom":["mbmMessages"],
+        "mbmMbom":["mbmMessages"],
+        "mbmOverAssignedAdditionalPropagateMessage":["mbmMessages"],
+        "mbmPropagateAll":["mbmMessages"],
+        "mbmCancel":["mbmMessages"],
+        "mbmChangesInParentContext":["mbmMessages"]
+    }
+}

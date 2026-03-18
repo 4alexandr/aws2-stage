@@ -1,0 +1,8 @@
+{
+    "delete":"Elimina",
+    "discard":"Annulla",
+    "DeleteSingleMessage": "Eliminare \"{0}\"?",
+    "DeleteMultipleMessage": "Eliminare questi {0} oggetti?",
+    "epCmdDeleteTitle":"Elimina",
+    "epCmdDeleteDesc": "Eliminare la selezione."
+}

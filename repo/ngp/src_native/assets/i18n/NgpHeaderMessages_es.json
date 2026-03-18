@@ -1,0 +1,21 @@
+{
+    "loading": "Cargando...",
+    "rootClassLibraryObjectMsg": "Biblioteca de fabricación de la clase",
+    "addToFavoritesCommandTitle": "Agregar a Favoritos",
+    "removeFromFavoritesCommandTitle": "Quitar de favoritos",
+    "pinObjectCommandTitle": "Fijar en Inicio",
+    "unPinObjectCommandTitle": "Desfijar de Inicio",
+    "pinnedToHome": "\"{0}\" fue agregado a la página Inicio.",
+    "unpinnedFromHome": "\"{0}\" fue quitado de la página Inicio.",
+    "addedToFavorites": "\"{0}\" fue agregado a Favoritos.",
+    "removedFromFavorites": "\"{0}\" fue quitado de Favoritos.",
+    "moreActionsCmdTooltip": "Más acciones en {0}",
+    "checkInCmdTitle": "Proteger",
+    "checkOutCmdTitle": "Desprotección",
+    "checkoutSuccessful": "Se desprotegió correctamente el objeto \"{0}\"",
+    "checkinSuccessful": "Se protegió correctamente el objeto \"{0}\"",
+    "noChildrenFound": "Sin elementos",
+    "effectivityTooltip": "Unidad = {0}",
+    "discontinuedSubElementsTooltipTitle": "Pending Deletions",
+    "discontinuedSubElementsTooltipMessage": "Deletion of {0} processes is pending. To release the activity content, including this deletion, submit the activity to workflow while using workflow template \"NGP_ReleasePendingDeletions\"."
+}

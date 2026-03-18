@@ -1,0 +1,208 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/aw-scrollpanel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-search-box.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-row.directive",
+        "js/aw-class.directive"
+    ],
+    "actions": {
+        "searchObjects": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "resetPrevSelection"
+                },
+                {
+                    "action": "resetInput"
+                },
+                {
+                    "action": "getSpecifiedObjectType"
+                },
+                {
+                    "action": "fetchSubBOTypes",
+                    "condition":"conditions.isSubBusinessObjectsPresent"
+                },
+                {
+                    "action": "doSearch"
+                }
+            ]
+        },
+        "getSpecifiedObjectType":{
+            "actionType":"JSFunction",
+            "method":"getSpecifiedObjectType",
+            "inputData": {
+                "data": "{{data}}",
+                "context":"{{subPanelContext}}"
+            },
+            "deps":"js/epSearchObjectWithRevRuleService"
+        },
+        "resetPrevSelection":{
+            "actionType":"JSFunction",
+            "method":"setValueInViewModel",
+            "inputData": {
+                "data": "{{data}}",
+                "key":"selectedObject",
+                "value":null
+            },
+            "deps":"js/mfeViewModelUtils"
+        },
+        "fetchSubBOTypes": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-04-DataManagement",
+            "method": "findDisplayableSubBusinessObjectsWithDisplayNames",
+            "inputData": {
+                "input": [ {
+                    "boTypeName": "{{subPanelContext.boTypeName}}",
+                    "exclusionBOTypeNames":  "{{subPanelContext.exclusionBOTypeNames}}"
+                } ]
+            },
+            "outputData": {
+                "subBusinessObjects": "{{function:processSoaResponseForBOTypes}}"
+            },
+            "deps": "js/epSearchObjectWithRevRuleService"
+        },
+        "searchObjectSelectionChanged": {
+            "actionType": "JSFunction",
+            "method": "searchObjectSelectionChanged",
+            "inputData": {
+                "data": "{{data}}",
+                "subPanelContext":"{{subPanelContext}}"
+            },
+            "deps": "js/epSearchObjectWithRevRuleService"
+        },
+        "setInput": {
+            "actionType": "JSFunction",
+            "method": "setInputObject",
+            "inputData": {
+                "data": "{{subPanelContext}}",
+                "value":{
+                    "selectedObjects":"{{data.selectedObject}}"
+                }
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "resetInput": {
+            "actionType": "JSFunction",
+            "method": "setInputObject",
+            "inputData": {
+                "data": "{{subPanelContext}}",
+                "value":""
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "doSearch": {
+            "actionType": "dataProvider",
+            "method": "epSearchObjectProvider"
+        },
+        "performSearchForObject": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "inflateProperties": false,
+                "noServiceData": false,
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Awp0SearchResults",
+                    "columnsToExclude": [],
+                    "hostingClientName": "",
+                    "operationType": "intersection"
+                },
+                "saveColumnConfigData": {
+                    "columnConfigId": "",
+                    "clientScopeURI": "",
+                    "columns": [],
+                    "scope": "",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "attributesToInflate": [],
+                    "cursor": {
+                        "startIndex": "{{data.dataProviders.searchEndItems.startIndex}}",
+                        "endIndex": 0,
+                        "startReached": false,
+                        "endReached": false
+                    },
+                    "internalPropertyName": "",
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Awp0FullTextSearchProvider",
+                    "searchCriteria": {
+                        "searchString": "{{data.objectSearchBox.dbValue}}"
+                    },
+                    "searchFilterFieldSortType": "Priority",
+                    "searchFilterMap6": {
+                        "WorkspaceObject.object_type": "{{data.subBusinessObjects}}"
+                    },
+                    "searchSortCriteria": []
+                }
+            },
+            "outputData": {
+                "objectsFound": "{{json:searchResultsJSON}}",
+                "totalObjectsFound": "totalFound"
+            }
+        }
+    },
+    "functions": {
+        "processSoaResponseForBOTypes": {
+            "functionName": "processSoaResponseForBOTypes",
+            "parameters": [
+                "{{data}}"
+            ],
+            "deps": "js/epSearchObjectWithRevRuleService"
+        }
+    },
+    "dataProviders": {
+        "epSearchObjectProvider": {
+            "action": "performSearchForObject",
+            "response": "{{data.objectsFound}}",
+            "totalFound": "{{data.totalObjectsFound}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "lifecycleHooks":{
+    },
+    "onEvent": [
+        {
+            "eventId": "epSearchObjectProvider.selectionChangeEvent",
+            "action": "searchObjectSelectionChanged",
+            "cacheEventData": true
+        }
+    ],
+    "data": {
+        "objectSearchBox": {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "objectSearchPlaceHolder": {
+            "displayName": "{{subPanelContext.placeHolderForSearch}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{subPanelContext.placeHolderForSearch}}",
+            "dispValue": ""
+        }
+    },
+    "conditions": {
+        "isSearchObjectFound": {
+            "expression": "data.totalObjectsFound === 0"
+        },
+        "isSubBusinessObjectsPresent":{
+            "expression": "!data.subBusinessObjects "
+        }
+    },
+    "i18n": {
+        "cancel": ["EPMessages"],
+        "noObjectFound": ["searchObjectMessages"]
+    }
+}

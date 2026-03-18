@@ -1,0 +1,6 @@
+{
+    "moveModeCommandTitle":"Verschieben-Modus",
+    "moveModeCommandDescription":"Verwenden Sie Drag & Drop, wenn der Modus aktiviert ist, um ein Feld zu verschieben.",
+    "editModeCommandTitle":"Ablauferstellungsmodus",
+    "editModeCommandDescription":"Verwenden Sie Drag & Drop, wenn der Modus aktiviert ist, um einen Prozess mit einem nachfolgenden Prozess zu verbinden."  
+}

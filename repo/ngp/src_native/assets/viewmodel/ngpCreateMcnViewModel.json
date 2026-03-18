@@ -1,0 +1,113 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-popup2.directive",
+        "js/aw-xrt.directive",
+        "js/aw-form.directive",
+        "js/enable-when.directive",
+        "js/aw-class.directive",
+        "js/aw-include.directive",
+        "js/exist-when.directive",
+        "js/visible-when.directive"
+    ],
+    "data": {
+        "submitInProgress": false,
+        "xrtIsLoading": true,
+        "inputData": {
+            "isSubmitToWorkFlow": "true"
+        }
+    },
+    "actions": {
+        "createAndSubmit": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "setSubmitInProgress"
+                },
+                {
+                    "action": "createMcnObject"
+                },
+                {
+                    "action": "refreshScopeObject",
+                    "condition": "conditions.submitInProgress"
+                },
+                {
+                    "action": "closePopupWindow",
+                    "condition": "conditions.submitInProgress"
+                }
+            ]
+        },
+        "setSubmitInProgress": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "object": "{{data}}",
+                "key": "submitInProgress",
+                "value": true
+            },
+            "deps": "js/mfeViewModelUtils"
+        },
+        "refreshScopeObject": {
+            "actionType": "JSFunctionAsync",
+            "method": "refreshObjects",
+            "inputData": {
+                "modelObjects": [
+                    "{{ctx.ngp.scopeObject}}"
+                ]
+            },
+            "deps": "js/services/ngpLoadService"
+        },
+        "createMcnObject": {
+            "actionType": "JSFunctionAsync",
+            "method": "createMcnAndSubmitToWorkflow",
+            "inputData": {
+                "viewModeData": "{{data}}",
+                "scopeObject": "{{ctx.ngp.scopeObject}}"
+            },
+            "outputData": {
+                "submitInProgress": ""
+            },
+            "deps": "js/services/ngpChangeManagementService"
+        },
+        "closePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+        "updateXrtLoadingCompleted": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "object": "{{data}}",
+                "key": "xrtIsLoading",
+                "value": false
+            },
+            "deps": "js/mfeViewModelUtils"
+        }
+    },
+    "conditions": {
+        "submitInProgress": {
+            "expression": "data.submitInProgress"
+        },
+        "xrtIsLoading": {
+            "expression": "data.xrtIsLoading"
+        }
+    },
+    "onEvent": [ {
+        "eventId": "awXRT.contentLoaded",
+        "action": "updateXrtLoadingCompleted"
+    } ],
+    "preferences": [
+        "NGPMCNTypeToCreate"
+    ],
+    "i18n": {
+        "cancel": [ "NgpChangeMgmtMessages" ],
+        "createAndSubmit": [ "NgpChangeMgmtMessages" ],
+        "createChangeNotice": [ "NgpChangeMgmtMessages" ]
+    }
+}

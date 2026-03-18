@@ -1,0 +1,9 @@
+{
+  "name": "pmitool",
+  "description": "",
+  "modules": [
+    "pmitool"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

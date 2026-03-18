@@ -1,0 +1,14 @@
+<aw-command-panel caption="i18n.cmdViewOwnershipTransfer">
+    <aw-panel-body>
+        <aw-listbox prop="data.targetSitesListBox" list="data.targetSitesListBoxValues"
+            action="targetSiteSelectionChange"></aw-listbox>
+        <aw-break></aw-break>
+        <aw-toolbar first-anchor="pending_ot_command_anchor" second-anchor="" alignment="HORIZONTAL"></aw-toolbar>
+        <aw-scrollpanel>
+            <aw-list dataprovider="data.dataProviders.listDataProvider" show-context-menu="true" show-drop-area="true"
+                show-check-box="data.dataProviders.listDataProvider.selectionModel.multiSelectEnabled">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+        </aw-scrollpanel>
+    </aw-panel-body>
+</aw-command-panel>

@@ -1,0 +1,78 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+
+    "actions": {
+        "init": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "setLoadingIndicator"
+                },
+                {
+                    "action": "unRegisterSelectionMode"
+                }
+            ]
+        },
+
+        "setLoadingIndicator": {
+            "actionType": "JSFunction",
+            "method": "setLoadingIndicator",
+            "inputData": {
+                "isLoading": false
+            },
+            "outputData": {
+                "isLoading": ""
+            },
+            "deps": "js/mfeMessagesService"
+        },
+
+        "unRegisterSelectionMode": {
+            "actionType": "JSFunction",
+            "method": "unRegisterSelectionMode",
+            "deps": "js/wiSelectionModeUtil"
+        }
+    },
+
+    "data": {
+        "isLoading": true,
+        "assemblyTreeContext": {
+            "objectUid": "{{ctx.epPageContext.loadedObject.uid}}",
+            "isTopNode": false,
+            "preferenceName": "EP_ProductScopeTabTreeGridColumnConfiguration",
+            "additionalPolicyObjects": {
+                "types": [{
+                    "name": "BOMLine",
+                    "properties": [{
+                        "name": "bl_has_children"
+                    }]
+                }]
+            },
+            "isScopeOrTarget": "Target",
+            "customColumns":
+            [
+                {
+                    "clientColumn": true,
+                    "name": "graphicVisibility",
+                    "propertyDisplayName": "{{i18n.GraphicVisibilityColumnName}}"
+                }
+            ],
+            "messages": {
+                "noAssemblyStructure": [{
+                    "text": "{{i18n.noAssemblyStructure}}"
+                }]
+            }
+        }
+    },
+
+    "lifecycleHooks": {
+        "onInit": "init"
+    },
+
+    "i18n": {
+        "noAssemblyStructure": [ "InstructionsMessages" ],
+        "GraphicVisibilityColumnName":[ "InstructionsMessages" ]
+    }
+}

@@ -1,0 +1,15 @@
+<aw-panel-body>
+    <aw-panel-section>
+        <aw-clipboard filter-types= "{{data.filterType}}" selection-mode="multiple"> </aw-clipboard>
+        <aw-favorite filter-types= "{{data.filterType}}" selection-mode="multiple"> </aw-favorite>
+        <aw-history filter-types= "{{data.filterType}}" selection-mode="multiple"> </aw-history>
+    </aw-panel-section>
+</aw-panel-body>
+<aw-panel-footer >
+    <aw-button  action="callCreateParamSOA"  enable-when="!ctx.addItemEventProgressing" visible-when="conditions.showAddPalette && conditions.isTcReleaseAtLeast122">
+        <aw-i18n>i18n.add</aw-i18n>
+    </aw-button>
+    <aw-button default="false"  enable-when="!ctx.addItemEventProgressing" action="callCreateParamSOAForAddCopy" visible-when="conditions.showAddPalette">
+        <aw-i18n>i18n.addAsCopy</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

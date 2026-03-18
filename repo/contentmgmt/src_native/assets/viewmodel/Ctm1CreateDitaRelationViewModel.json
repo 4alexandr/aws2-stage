@@ -1,0 +1,221 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-panel.directive",
+        "js/aw-widget.directive",
+        "js/visible-when.directive"
+    ],
+
+    "actions":
+    {
+        "reveal": {
+            "actionType": "JSFunction",
+            "method": "moveDitaRelationDataToCtx",
+            "inputData": {
+                "ctx": "{{ctx}}",
+                "data": "{{data}}"
+            },
+            "deps": "js/Ctm1ContentMgmtCreateDitaRelationService"
+        },
+        "topicTypeSelectionChange": {
+            "actionType": "JSFunction",
+            "method": "topicTypeSelectionChange",
+            "inputData": {
+                "ctx": "{{ctx}}",
+                "topicType": "{{data.revision__ctm0TopicTypeTagref.displayValues[0]}}"
+            },
+            "outputData": {
+                "ctx.ctm1.referenceTopicTypeList": ""
+            },
+            "deps": "js/Ctm1ContentMgmtCreateDitaRelationService"
+        },
+
+        "getDitaRelationList": {
+            "actionType": "JSFunction",
+            "method": "getDitaRelationList",
+            "inputData": {
+            },
+            "outputData": {
+                "lovValues": ""
+            },
+            "deps": "js/Ctm1ContentMgmtCreateDitaRelationService"
+        },
+        "getReferenceList": {
+            "actionType": "JSFunction",
+            "method": "getReferenceList",
+            "inputData": {
+                "ctx": "{{ctx}}",
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "lovValues": ""
+            },
+            "deps": "js/Ctm1ContentMgmtCreateDitaRelationService"
+        },
+
+        "postProcessing": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2018-05-DataManagement",
+            "method": "saveViewModelEditAndSubmitWorkflow2",
+            "inputData": {
+                "inputs": "{{function:buildInputForDitaRelationWorkflow}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/Ctm1ContentMgmtCreateDitaRelationService"
+        },
+        "validateList": {
+            "actionType": "JSFunction",
+            "method": "rejectSuggestions",
+            "inputData": {
+                "suggestion": "request.suggestion"
+            },
+            "outputData": {
+                "valid": "valid",
+                "message": "message"
+            },
+            "deps": "js/Ctm1ContentMgmtService"
+        }
+    },
+
+    "data":
+    {
+        "relationSelection": {
+            "dbValue": "DC_ComposableReferenceR",
+            "uiValue": "{{i18n.composableReference}}",
+            "displayName": "{{i18n.relationSelection}}",
+            "type": "STRING",
+            "dataProvider": "relationListProvider",
+            "isRequired": "false",
+            "isEditable": "true"
+        },
+        "referenceTopicType": {
+            "dbValue": "",
+            "displayName": "Reference Topic Type",
+            "type": "STRING",
+            "dataProvider": "referenceListProvider",
+            "isRequired": "false",
+            "isEditable": "true"
+        },
+        "ctm0KeyName": {
+            "dbValue": "",
+            "displayName": "Key Name",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true"
+        }
+    },
+
+    "dataProviders":
+    {
+        "relationListProvider":
+        {
+            "initializeAction": "getDitaRelationList",
+            "nextAction": "getDitaRelationList",
+            "validateAction": "validateList",
+            "response": "{{data.lovValues}}",
+            "totalFound": "{{data.lovValues.length}}",
+            "valid": "{{data.valid}}",
+            "message": "{{data.message}}",
+            "moreValuesExist": false
+        },
+        "referenceListProvider":
+        {
+            "initializeAction": "getReferenceList",
+            "nextAction": "getReferenceList",
+            "validateAction": "validateList",
+            "response": "{{data.lovValues}}",
+            "totalFound": "{{data.lovValues.length}}",
+            "valid": "{{data.valid}}",
+            "message": "{{data.message}}",
+            "moreValuesExist": false
+        }
+    },
+
+    "functions":
+    {
+        "updateReferenceTopicTypeList":
+        {
+            "functionName": "updateReferenceTopicTypeList",
+            "parameters":
+            [
+                "{{ctx}}",
+                "{{data}}",
+                "{{response}}"
+            ]
+        },
+        "buildInputForDitaRelationWorkflow":
+        {
+            "functionName": "buildInputForDitaRelationWorkflow",
+            "parameters":
+            [
+                "{{data}}",
+                "{{ctx}}"
+            ]
+        },
+        "test":
+        {
+            "functionName": "test",
+            "parameters":
+            [
+                "{{data}}",
+                "{{ctx}}"
+            ]
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "topicType.selectionChange",
+            "action": "topicTypeSelectionChange",
+            "cacheEventData": true,
+            "condition": "conditions.isAddChildOrSibling"
+        },
+        {
+            "eventId": "addElement.elementsAdded",
+            "action": "postProcessing",
+            "cacheEventData": true,
+            "condition": "conditions.doDitaPostProcessing"
+        }
+    ],
+
+    "conditions":
+    {
+        "isAddChildOrSibling": {
+            "expression": "ctx.activeToolsAndInfoCommand.commandId === 'Awb0AddChildElementDeclarative' || ctx.activeToolsAndInfoCommand.commandId === 'Awb0AddSiblingElementDeclarative'"
+        },
+        "showDitaRelationPanel": {
+            "expression": "ctx.ctm1.referenceTopicTypeList.length > 0"
+        },
+        "doDitaPostProcessing": {
+            "expression": "ctx.relationSelection && ctx.relationSelection.dbValue === 'DC_TopicTopicR' && ctx.ctm1.referenceTopicTypeList.length > 0"
+        }
+    },
+
+    "preferences":
+    [
+
+    ],
+
+    "messages":
+    {
+
+    },
+
+    "i18n":
+    {
+        "relationSelection": ["ContentMgmtMessages"],
+        "composableReference": ["ContentMgmtMessages"],
+        "topicToTopicReference": ["ContentMgmtMessages"]
+    }
+}

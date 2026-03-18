@@ -1,0 +1,15 @@
+{
+    "assemblyPmiTitle": "ТУ Уровень сборки",
+    "assemblyPmiTitleWithSelection": "ТУ Уровень сборки для {0}",
+    "assignedPmiTitle": "ТУ",
+    "name": "Имя",
+    "id": "Идентификатор",
+    "nominalValue": "Номинальное значение",
+    "uom": "Единицы измерения",
+    "selectProcessOrOperation": "Выберите процесс или операцию.",
+    "selectProcessOrOperationForPMIs": "Выберите процесс или операцию, чтобы просмотреть назначенные ТУ.",
+    "noAssociatedPMIs": "У выбранного процесса\/операции нет связанных ТУ.",
+    "noAssignedPMIs": "Отсутствуют назначенные ТУ.",
+    "connectedParts" : "Соединенные детали",
+    "more" : "Дополнительно"
+}

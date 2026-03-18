@@ -1,0 +1,112 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-panel-body.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "dataProvider",
+            "method": "revisionRuleListProvider"
+        },
+        "getRevisionRules": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}"
+                },
+                "searchInput": {
+                    "maxToLoad": 20,
+                    "maxToReturn": 50,
+                    "providerName": "Att1ProjectConfRuleProvider",
+                    "searchCriteria": {
+                        "openedObjectUid": "{{ctx.state.params.uid}}",
+                        "revisionRule": "true",
+                        "excludedRevRules" : "{{function:getExcludedRevRuleUids}}"
+                    },
+                    "searchSortCriteria": [
+                        {
+                            "fieldName": "object_name",
+                            "sortDirection": "ASC"
+                        }
+                    ],
+                    "startIndex": "{{data.dataProviders.revisionRuleListProvider.startIndex}}"
+                }
+            },
+            "outputData": {
+                "searchResults": "{{json:searchResultsJSON}}",
+                "totalFound": "totalFound"
+            },
+            "actionMessages": {
+                "failure": [
+                    {
+                        "message": "errorInGettingPreferredConfigInfo"
+                    }
+                ]
+            },
+            "deps": "js/prm1ParameterViewService"
+        },
+        "addRevRuleToCompare": {
+            "actionType": "JSFunction",
+            "method": "addRevRuleToCompare",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+            "events":{
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/prm1ParameterViewService"
+        }
+    },
+    "data": {},
+    "onEvent": [],
+    "functions": {
+        "getExcludedRevRuleUids":
+        {
+            "functionName": "getExcludedRevRuleUids",
+            "parameters": [
+
+            ]
+        }
+    },
+    "dataProviders": {
+        "revisionRuleListProvider": {
+            "action": "getRevisionRules",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "multiple"
+        }
+    },
+    "conditions": {
+        "isAddButtonVisible": {
+            "expression": " data.dataProviders.revisionRuleListProvider.selectedObjects.length > 0 "
+        }
+    },
+    "i18n": {
+        "ParamAdd": [
+            "prm1ParameterTableMessages"
+        ],
+        "RevisionRuleTitle": [
+            "prm1ParameterTableMessages"
+        ]
+    }
+}

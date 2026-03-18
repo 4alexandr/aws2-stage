@@ -1,0 +1,22 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-icon-button.directive"
+    ],
+    "actions": {
+        "ticonLogoAction": {
+            "actionType": "JSFunction",
+            "method": "postMessageToHostedWindow",
+            "inputData": {
+                "topic": "ticonLogoClicked"
+            },
+            "deps": "js/services/mfeHostingMessagingService"
+        }
+    },
+    "data": {
+        "ticonLogoCommand": {
+            "action": "ticonLogoAction",
+            "iconName": "miscTiconLogo"
+        }
+    }
+}

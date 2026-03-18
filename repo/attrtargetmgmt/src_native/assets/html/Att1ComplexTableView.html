@@ -1,0 +1,30 @@
+<aw-panel>
+        <aw-row height="36f" exist-when="(ctx.goalTable) && ((ctx.tcSessionData.tcMajorVersion === 11 && ctx.tcSessionData.tcMinorVersion === 2 && ctx.tcSessionData.tcQRMNumber > 6 ) || (ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion > 0) || ctx.tcSessionData.tcMajorVersion > 12) && (ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0AttributeDefRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0MeasurableAttribute' ) > -1)">
+            <aw-column width="fill">
+                <aw-panel-section caption="i18n.goalTitle" collapsed="false">
+                    <aw-splm-table gridid="goalTable"></aw-splm-table>
+                </aw-panel-section>
+            </aw-column>
+        </aw-row>
+        <aw-row height="36f" exist-when="(ctx.minTable) && ((ctx.tcSessionData.tcMajorVersion === 11 && ctx.tcSessionData.tcMinorVersion === 2 && ctx.tcSessionData.tcQRMNumber > 6 ) || (ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion > 0) || ctx.tcSessionData.tcMajorVersion > 12) && (ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0AttributeDefRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0MeasurableAttribute' ) > -1)">
+            <aw-column width="fill">
+                <aw-panel-section caption="i18n.minTitle" collapsed="false">
+                    <aw-splm-table gridid="minTable"></aw-splm-table>
+                </aw-panel-section>
+            </aw-column>
+        </aw-row>
+        <aw-row height="36f" exist-when="(ctx.maxTable) && ((ctx.tcSessionData.tcMajorVersion === 11 && ctx.tcSessionData.tcMinorVersion === 2 && ctx.tcSessionData.tcQRMNumber > 6 ) || (ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion > 0) || ctx.tcSessionData.tcMajorVersion > 12) && (ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0AttributeDefRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0MeasurableAttribute' ) > -1)">
+            <aw-column width="fill">
+                <aw-panel-section caption="i18n.maxTitle" collapsed="false" >
+                    <aw-splm-table gridid="maxTable"></aw-splm-table>
+                </aw-panel-section>
+            </aw-column>
+        </aw-row>
+        <aw-row height="36f" exist-when="(ctx.valueTable) && ((ctx.tcSessionData.tcMajorVersion === 11 && ctx.tcSessionData.tcMinorVersion === 2 && ctx.tcSessionData.tcQRMNumber > 6 ) || (ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion > 0) || ctx.tcSessionData.tcMajorVersion > 12) && (ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0AttributeDefRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0MeasurableAttribute' ) > -1)">
+            <aw-column width="fill">
+                <aw-panel-section caption="i18n.measuredValueTitle" collapsed="false" >
+                    <aw-splm-table gridid="measureValueTable"></aw-splm-table>
+                </aw-panel-section>
+            </aw-column>
+        </aw-row>
+</aw-panel>

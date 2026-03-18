@@ -1,0 +1,52 @@
+<aw-panel-header visible-when="!(ctx.locationContext[ 'ActiveWorkspace:Location' ] == 'ImportPreviewLocation')">
+
+    <div exist-when="!ctx.occmgmtContext">
+        <div class="aw-layout-panelSectionTitle aw-layout-flexRow">
+            <label title="Properties">{{i18n.locationLabel}}</label>
+        </div>
+        <br>
+        <div class="aw-splm-tableRow ui-grid-row aw-row-icon">
+                <div class="aw-splm-tableTreeCommandCell aw-jswidgets-tablecell">
+                    <div class="aw-jswidgets-cellTop aw-jswidgets-uiNonEditCell">
+                        <div class="aw-widgets-dataGridCellImage">
+                        <aw-image class="" is-icon="true" source="data.selectedSpecObj.iconURL" exist-when="data.selectedSpecObj.iconURL"></aw-image>
+                    </div>
+                            <div class="aw-jswidgets-tableNonEditContainer aw-layout-flexRowContainer" title="{{data.selectedSpecObj.specName}}">
+                                <div class="aw-splm-tableCellText">{{data.selectedSpecObj.specName}}</div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    <br>
+        <aw-flex-row height="3f" width="100%">
+            <aw-flex-column width="fill" align-content="start">
+                <aw-label prop="data.selectFile"></aw-label>
+            </aw-flex-column>
+            <aw-flex-column align-content="end">
+                <div class="aw-requirements-matrixTypeHelpIcon">
+            <aw-icon icon-id="homehelp" extended-tooltip="data.importHelptooltipView"></aw-icon>
+                </div>
+            </aw-flex-column>
+        </aw-flex-row>
+        <aw-flex-row height="3f" align-content="start" width="100%" exist-when="!ctx.occmgmtContext">
+            <aw-flex-column width="fill">
+                <aw-file-upload file-change-action="updateFormData1" type-filter=".docx, .doc, .docm, .pdf, .xlsx, .xlsm, .reqifz, .reqif" is-required="true"></aw-file-upload>
+            </aw-flex-column>
+        </aw-flex-row>
+        <aw-flex-row height="3f" align-content="start" width="100%" exist-when="ctx.occmgmtContext">
+            <aw-flex-column width="fill">
+                <aw-file-upload file-change-action="updateFormData1" type-filter=".docx, .doc, .docm, .pdf" is-required="true"></aw-file-upload>
+            </aw-flex-column>
+        </aw-flex-row>
+</aw-panel-header>
+<br>
+<aw-flex-row exist-when="ctx.isArm0ImportFromWordSubPanelActive || ctx.isArm0ImportFromPDFSubPanelActive || ctx.locationContext[ 'ActiveWorkspace:Location' ] == 'ImportPreviewLocation'">
+    <aw-command-sub-panel panel-id="Arm0ImportFromWordSub"></aw-command-sub-panel>
+</aw-flex-row>
+<aw-flex-row visible-when="ctx.isArm0ImportFromExcelSubPanelActive" >
+    <aw-command-sub-panel panel-id="Arm0ImportFromExcelSub"></aw-command-sub-panel>
+</aw-flex-row>
+<aw-flex-row exist-when="ctx.isArm0ImportFromReqIFSubPanelActive">
+    <aw-command-sub-panel panel-id="Arm0ImportFromReqIFSub"></aw-command-sub-panel>
+</aw-flex-row>

@@ -1,0 +1,141 @@
+{
+    "types": [{
+        "name": "POM_object",
+        "properties": [{
+            "name": "awp0CellProperties"
+        }]
+    }, {
+        "name": "BusinessObject",
+        "properties": [{
+            "name": "awp0CellProperties"
+        }]
+    }, {
+        "name": "ItemRevision",
+        "properties": [{
+            "name": "object_name"
+        }, {
+            "name": "owning_user"
+        }, {
+            "name": "last_mod_date"
+        }, {
+            "name": "creation_date"
+        }, {
+            "name": "s2clCommentaryObjects"
+        }, {
+            "name": "s2clCommentaryRatingObjects"
+        }, {
+            "name": "s2clTotal1StarFromSummary"
+        }, {
+            "name": "s2clTotal2StarFromSummary"
+        }, {
+            "name": "s2clTotal3StarFromSummary"
+        }, {
+            "name": "s2clTotal4StarFromSummary"
+        }, {
+            "name": "s2clTotal5StarFromSummary"
+        }, {
+            "name": "s2clAverageRatingFmSy"
+        }, {
+            "name": "s2clUserRatingValue"
+        }, {
+            "name": "s2clTotalRatingsFromSummary"
+        }]
+    }, {
+        "name": "S2clCommentary",
+        "properties": [{
+            "name": "object_name"
+        }, {
+            "name": "owning_user"
+        }, {
+            "name": "last_mod_date"
+        }, {
+            "name": "creation_date"
+        }, {
+            "name": "awp0CellProperties"
+        }, {
+            "name": "s2clParentRootComment"
+        }, {
+            "name": "s2clTotalCommentsFmSy"
+        }, {
+            "name": "s2clTotalFollowsFromSummary"
+        }, {
+            "name": "s2clTotalLikesFromSummary"
+        }, {
+            "name": "s2clCellProperties"
+        }, {
+            "name": "s2clTargetObject"
+        }, {
+            "modifiers": [{
+                "Value": "false",
+                "name": "includeIsModifiable"
+            }],
+            "name": "s2clCommentPlainText"
+        }, {
+            "modifiers": [{
+                "Value": "false",
+                "name": "includeIsModifiable"
+            }],
+            "name": "s2clTargetObjectName"
+        }, {
+            "name": "s2clCommentRichText"
+        }, {
+            "name": "s2clRatingValue"
+        }, {
+            "name": "s2clTotalLikesFromSummary"
+        }]
+    }, {
+        "name": "S2clQuestion",
+        "properties": [{
+            "name": "s2clTotalAnsweredFmSy"
+        }, {
+            "modifiers": [{
+                "Value": "false",
+                "name": "includeIsModifiable"
+            }],
+            "name": "s2clTargetObjectName"
+        }]
+    }, {
+        "name": "S2clAnswer",
+        "properties": [{
+            "name": "s2clTotalLikesFromSummary"
+        }, {
+            "modifiers": [{
+                "Value": "false",
+                "name": "includeIsModifiable"
+            }],
+            "name": "s2clTargetObjectName"
+        }]
+    }, {
+        "name": "S2clToggleRating",
+        "properties": [{
+            "name": "owning_user"
+        }]
+    }, {
+        "name": "S2clScalarRating",
+        "properties": [{
+            "name": "object_name"
+        }, {
+            "name": "owning_user"
+        }, {
+            "name": "last_mod_date"
+        }, {
+            "name": "creation_date"
+        }, {
+            "modifiers": [{
+                "Value": "true",
+                "name": "withProperties"
+            }],
+            "name": "s2clCommentaryObjects"
+        }, {
+            "name": "s2clCommentaryRatingObjects"
+        }, {
+            "name": "s2clParentRootComment"
+        }, {
+            "modifiers": [{
+                "Value": "false",
+                "name": "includeIsModifiable"
+            }],
+            "name": "s2clTargetObjectName"
+        }]
+    }]
+}

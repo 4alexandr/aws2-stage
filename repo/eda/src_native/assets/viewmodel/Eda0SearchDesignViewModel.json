@@ -1,0 +1,128 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-tab-set.directive",
+        "js/aw-button.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-i18n.directive"
+    ],
+    "data": {
+        "tabsModel":
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "tabKey": "palette",
+                    "panelId": "paletteTabPageSub",
+                    "name": "{{i18n.paletteTabTitle}}"
+                },
+                {
+                    "tabKey": "search",
+                    "panelId": "searchTabPageSub",
+                    "name": "{{i18n.searchTabTitle}}"
+                }
+            ]
+        },
+        "visibleSearchFilterPanelTabKeys": "[ 'results', 'filters' ]"
+    },
+    "actions": {
+        "addObjectsToCollaboration": {
+            "actionType": "TcSoaService",
+            "serviceName": "EDMDCollab-2020-04-EDMDCollaboration",
+            "method": "createOrUpdateCollaboration",
+            "inputData": {
+                "createOrUpdateInput": {
+                    "collaborationToCreateOrUpdate": {
+                        "collabObjectUID" : "{{ctx.locationContext.modelObject.uid}}",
+                        "objectProps" : {}
+                    },
+                    "attachObjectsToCollaboration": [
+                        {
+                            "objectUID" : "{{function:getSelectionFromAddPanel}}",
+                            "relationName" : ""
+                        }
+                    ]
+                }
+            },
+            "events": {
+                "success":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    },
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "refreshLocationFlag": true,
+                            "relatedModified": [
+                                "{{ctx.xrtSummaryContextObject}}"
+                            ]
+                        }
+                    }
+                ],
+                "failure":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "message": "designAddedToCollaboration"
+                    }
+                ]
+            },
+            "deps": "js/Eda0UtilService"
+        }
+    },
+    "messages": {
+        "designAddedToCollaboration": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.designAddedToCollaboration}}",
+            "messageTextParams": [
+                "{{data.objectAddedToCollaboration}}"
+            ]
+        }
+    },
+    "functions": {
+        "getSelectionFromAddPanel": {
+            "functionName": "getSelectionFromAddPanel",
+            "parameters": [
+                "{{ctx}}",
+                "{{data}}"
+            ]
+        }
+    },
+    "conditions": {
+        "isAddButtonVisible": {
+            "expression": "conditions.isPaletteTabAddButtonVisible || conditions.isSearchTabAddButtonVisible"
+        },
+        "isPaletteTabAddButtonVisible": {
+            "expression": "conditions.isPaletteTabSelected && (ctx.getClipboardProvider.selectedObjects.length === 1 || ctx.getFavoriteProvider.selectedObjects.length === 1  || ctx.getRecentObjsProvider.selectedObjects.length === 1)"
+        },
+        "isSearchTabAddButtonVisible": {
+            "expression": "!conditions.isPaletteTabSelected && data.dataProviders.performSearch.selectedObjects.length === 1"
+        },
+        "isPaletteTabSelected": {
+            "expression": "data.selectedTab.panelId==='paletteTabPageSub'"
+        }
+    },
+    "i18n": {
+        "addToCollaboration": ["EdaMessages"],
+        "designAddedToCollaboration" : ["EdaMessages"],
+        "paletteTabTitle": ["awAddDirectiveMessages"],
+        "searchTabTitle": ["awAddDirectiveMessages"]
+    }
+}

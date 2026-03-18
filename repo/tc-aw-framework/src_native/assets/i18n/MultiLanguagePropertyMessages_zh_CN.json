@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "编辑本地化",
+    "editLocalizationSingleDesc": "将属性的值翻译为不同的语言",
+    "masterValue": "主值",
+    "translationLanguages": "翻译语言",
+    "addorRemoveLocales": "添加或移除语言",
+    "addorRemoveLocalesDesc": "从语言列表中选择以进行翻译",
+    "removeLocale": "移除语言",
+    "removeLocaleDesc": "移除翻译语言",
+    "propertiesTranslated": "可以翻译的属性",
+    "status": "状态",
+    "saveTranslationsError": "尝试保存时发生问题。{0}",
+    "property": "属性"
+}

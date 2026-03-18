@@ -1,0 +1,8 @@
+<aw-include exist-when="!(data.inputForXRT.xrtType && data.inputForXRT.scopeObject.uid)" name="mfeMessage" sub-panel-context="data.noElementSelectedMessageForXRT"></aw-include>
+
+<aw-panel exist-when="data.inputForXRT.xrtType && data.inputForXRT.scopeObject.uid">
+    <aw-panel-body class="aw-epInformation-summary">
+      <aw-xrt-summary exist-when="data.inputForXRT.xrtType ==='SUMMARY'" model-object="data.inputForXRT.scopeObject"></aw-xrt-summary>
+      <aw-xrt  exist-when="data.inputForXRT.xrtType !=='SUMMARY'" type="{{data.inputForXRT.xrtType}}" vmo="data.inputForXRT.scopeObject"></aw-xrt>
+    </aw-panel-body>
+</aw-panel>

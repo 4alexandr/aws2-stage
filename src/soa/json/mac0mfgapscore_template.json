@@ -1,0 +1,936 @@
+{
+  "Date": "Fri Apr 24 02:11:04 AM 2020",
+  "Library": [
+    {
+      "createRelease": "tc11000.3.0",
+      "description": "Mac0SoaManufacturingCore",
+      "isThirdParty": "false",
+      "name": "Mac0SoaManufacturingCore",
+      "namespace": "Mac0::Soa::ManufacturingCore",
+      "serviceLibrary": "true"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of object types.",
+          "parameterName": "attachedToTypes"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Mac0NGPCore",
+      "createRelease": "tc11000.3.0",
+      "dependencies": "",
+      "description": "This operation gets the valid and invalid attribute group types for input object to which it is attached based on the preference values specified by the admin. If preference is not specified for given type, all the attribute group types will be there in the valid list and invalid list will be empty.",
+      "exceptionCondition": "",
+      "id": "getAllowedAttributeGroupTypes#const,std::vector<Teamcenter::ImanType>,&",
+      "interface": "Mac0::Soa::ManufacturingCore::DataManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getAllowedAttributeGroupTypes",
+      "opTemplate": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement::GetAllowedAttributeGroupTypesResp#Mac0::Soa::ManufacturingCore::DataManagement::getAllowedAttributeGroupTypes#const,std::vector<Teamcenter::ImanType>,&",
+      "returnDescription": "Output containing standard service data and list of valid &amp; invalid attribute group types for input attached to object. Service data may contain following errors/warnings:<br />The preference &lt;preference_name&gt; is invalid.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of object types.",
+          "parameterName": "attachedToTypes"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Mac0NGPCore",
+      "createRelease": "tc11000.3.0",
+      "dependencies": "",
+      "description": "This operation gets the dataset types and associated relation type for input primary object to which can be attached based on the preference values specified by the admin. If preference is not specified for given type, all the dataset types with all the relation types will be there in the output.",
+      "exceptionCondition": "",
+      "id": "getAllowedDatasetTypes#const,std::vector<Teamcenter::ImanType>,&",
+      "interface": "Mac0::Soa::ManufacturingCore::DataManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getAllowedDatasetTypes",
+      "opTemplate": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement::GetAllowedDatasetTypesResp#Mac0::Soa::ManufacturingCore::DataManagement::getAllowedDatasetTypes#const,std::vector<Teamcenter::ImanType>,&",
+      "returnDescription": "Output containing standard service data and list of dataset type and its possible relation type for input attached to object. Service data may contain following errors/warnings:<br />The preference &lt;preference_name&gt; is invalid.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "List of object to get its Attachments, AttributeGroups and Managed AttributeGroups.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Mac0NGPCore",
+      "createRelease": "tc11000.3.0",
+      "dependencies": "",
+      "description": "This operation gives list of attachment, attribute group, managed attribute group to given objects. List of valid attachment, attribute group, managed attribute group are controlled by preferences. The preference names are NGP_&lt;object type&gt;.GETDATASET and NGP_&lt;object type&gt;.GETAG.",
+      "exceptionCondition": "",
+      "id": "getAttachments#const,std::vector<Teamcenter::BusinessObject>,&",
+      "interface": "Mac0::Soa::ManufacturingCore::DataManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getAttachments",
+      "opTemplate": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetAttachmentsResponse#Mac0::Soa::ManufacturingCore::DataManagement::getAttachments#const,std::vector<Teamcenter::BusinessObject>,&",
+      "returnDescription": "This operation returns GetAttachmentsResponse struct which contains a list of GetAttachmentsResponseData struct and ServiceData.",
+      "useCase": "This feature comes to enable the NGP user/s to have a clean and lean view of the DE/s content; that includes the list of attached documents and their content as well as the related attribute group/s information - within NGP application."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The objects for which breadcrumbs are needed",
+          "parameterName": "objects"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Mac0NGPCore",
+      "createRelease": "tc11000.3.0",
+      "dependencies": "",
+      "description": "This operation will return the breadcrumbs for each given input object, meaning the chain of \"parent\" objects in the object's hierarchy up to the top level object, not including the input object itself.",
+      "exceptionCondition": "",
+      "id": "getBreadcrumbs#const,std::vector<Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement::BreadcrumbsInput>,&",
+      "interface": "Mac0::Soa::ManufacturingCore::RelationManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getBreadcrumbs",
+      "opTemplate": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement::BreadcrumbsResponse#Mac0::Soa::ManufacturingCore::RelationManagement::getBreadcrumbs#const,std::vector<Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement::BreadcrumbsInput>,&",
+      "returnDescription": "Returns the breadcrumbs for each given input object",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Input",
+          "parameterName": "inputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Mac0NGPCore",
+      "createRelease": "tc11000.3.0",
+      "dependencies": "",
+      "description": "This operation gets a Mdl0ConditionalModelElement and according to the current revision rule return an appropriate revision.",
+      "exceptionCondition": "",
+      "id": "getConfiguredObjects#const,std::vector<Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetConfiguredObjectsIn>,&",
+      "interface": "Mac0::Soa::ManufacturingCore::DataManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getConfiguredObjects",
+      "opTemplate": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetConfiguredObjectsResponse#Mac0::Soa::ManufacturingCore::DataManagement::getConfiguredObjects#const,std::vector<Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetConfiguredObjectsIn>,&",
+      "returnDescription": "Service data and Vector of pairs: input object and the configured objects according the revision rule.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of objects to be deleted.",
+          "parameterName": "objects"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Mac0NGPCore",
+      "createRelease": "tc11000.5.0",
+      "dependencies": "",
+      "description": "This operation removes the input objects from their scope. In case input object is of type <i>Mpr0MfgProcessElement</i>, if the object is released, a new discontinued revision will be created through revise. If the object is the first revision, it will directly be deleted. For any other working revision, the working revision will be deleted and then a new discontinue revision will be created. Similar action will also be applicable for the associated <i>Mpr0ManufacturingElement</i>.<br />In case input object is of type <i>Mpr0BaseOperation</i>, the working revision will be deleted and any old released revisions will be unlinked from the associated process.<br />For any other business object type, the object will be deleted.",
+      "exceptionCondition": "",
+      "id": "removeObjects#const,std::vector<Teamcenter::BusinessObject>,&",
+      "interface": "Mac0::Soa::ManufacturingCore::DataManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "removeObjects",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Mac0::Soa::ManufacturingCore::DataManagement::removeObjects#const,std::vector<Teamcenter::BusinessObject>,&",
+      "returnDescription": "The UID of the successfully deleted objects is returned in the deleted list of the ServiceData. Any errors that occur will be returned as a partial error with the source business object attached to the partial error.",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ImanType",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of object types.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "attachedToTypes"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement::GetAllowedAttributeGroupTypesResp",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.3.0",
+      "description": "This operation gets the valid and invalid attribute group types for input object to which it is attached based on the preference values specified by the admin. If preference is not specified for given type, all the attribute group types will be there in the valid list and invalid list will be empty.",
+      "id": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement::GetAllowedAttributeGroupTypesResp#Mac0::Soa::ManufacturingCore::DataManagement::getAllowedAttributeGroupTypes#const,std::vector<Teamcenter::ImanType>,&",
+      "name": "Mac0::Soa::ManufacturingCore::DataManagement::getAllowedAttributeGroupTypes",
+      "returnConst": "false",
+      "returnDescription": "Output containing standard service data and list of valid &amp; invalid attribute group types for input attached to object. Service data may contain following errors/warnings:<br />The preference &lt;preference_name&gt; is invalid.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ImanType",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of object types.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "attachedToTypes"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement::GetAllowedDatasetTypesResp",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.3.0",
+      "description": "This operation gets the dataset types and associated relation type for input primary object to which can be attached based on the preference values specified by the admin. If preference is not specified for given type, all the dataset types with all the relation types will be there in the output.",
+      "id": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement::GetAllowedDatasetTypesResp#Mac0::Soa::ManufacturingCore::DataManagement::getAllowedDatasetTypes#const,std::vector<Teamcenter::ImanType>,&",
+      "name": "Mac0::Soa::ManufacturingCore::DataManagement::getAllowedDatasetTypes",
+      "returnConst": "false",
+      "returnDescription": "Output containing standard service data and list of dataset type and its possible relation type for input attached to object. Service data may contain following errors/warnings:<br />The preference &lt;preference_name&gt; is invalid.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "List of object to get its Attachments, AttributeGroups and Managed AttributeGroups.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetAttachmentsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.3.0",
+      "description": "This operation gives list of attachment, attribute group, managed attribute group to given objects. List of valid attachment, attribute group, managed attribute group are controlled by preferences. The preference names are NGP_&lt;object type&gt;.GETDATASET and NGP_&lt;object type&gt;.GETAG.",
+      "id": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetAttachmentsResponse#Mac0::Soa::ManufacturingCore::DataManagement::getAttachments#const,std::vector<Teamcenter::BusinessObject>,&",
+      "name": "Mac0::Soa::ManufacturingCore::DataManagement::getAttachments",
+      "returnConst": "false",
+      "returnDescription": "This operation returns GetAttachmentsResponse struct which contains a list of GetAttachmentsResponseData struct and ServiceData.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetConfiguredObjectsIn",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetConfiguredObjectsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.3.0",
+      "description": "This operation gets a Mdl0ConditionalModelElement and according to the current revision rule return an appropriate revision.",
+      "id": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetConfiguredObjectsResponse#Mac0::Soa::ManufacturingCore::DataManagement::getConfiguredObjects#const,std::vector<Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetConfiguredObjectsIn>,&",
+      "name": "Mac0::Soa::ManufacturingCore::DataManagement::getConfiguredObjects",
+      "returnConst": "false",
+      "returnDescription": "Service data and Vector of pairs: input object and the configured objects according the revision rule.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of objects to be deleted.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "objects"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.5.0",
+      "description": "This operation removes the input objects from their scope. In case input object is of type <i>Mpr0MfgProcessElement</i>, if the object is released, a new discontinued revision will be created through revise. If the object is the first revision, it will directly be deleted. For any other working revision, the working revision will be deleted and then a new discontinue revision will be created. Similar action will also be applicable for the associated <i>Mpr0ManufacturingElement</i>.<br />In case input object is of type <i>Mpr0BaseOperation</i>, the working revision will be deleted and any old released revisions will be unlinked from the associated process.<br />For any other business object type, the object will be deleted.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Mac0::Soa::ManufacturingCore::DataManagement::removeObjects#const,std::vector<Teamcenter::BusinessObject>,&",
+      "name": "Mac0::Soa::ManufacturingCore::DataManagement::removeObjects",
+      "returnConst": "false",
+      "returnDescription": "The UID of the successfully deleted objects is returned in the deleted list of the ServiceData. Any errors that occur will be returned as a partial error with the source business object attached to the partial error.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement::BreadcrumbsInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The objects for which breadcrumbs are needed",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "objects"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement::BreadcrumbsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.3.0",
+      "description": "This operation will return the breadcrumbs for each given input object, meaning the chain of \"parent\" objects in the object's hierarchy up to the top level object, not including the input object itself.",
+      "id": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement::BreadcrumbsResponse#Mac0::Soa::ManufacturingCore::RelationManagement::getBreadcrumbs#const,std::vector<Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement::BreadcrumbsInput>,&",
+      "name": "Mac0::Soa::ManufacturingCore::RelationManagement::getBreadcrumbs",
+      "returnConst": "false",
+      "returnDescription": "Returns the breadcrumbs for each given input object",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "tc11000.3.0",
+      "dependencies": "",
+      "description": "This service contains utilities which augment the Teamcenter core data management services.",
+      "libraryName": "Mac0SoaManufacturingCore",
+      "name": "DataManagement",
+      "namespace": "Mac0::Soa::ManufacturingCore",
+      "serviceLibraryRef": ""
+    },
+    {
+      "createRelease": "tc11000.3.0",
+      "dependencies": "",
+      "description": "Contains RelationManagement Services",
+      "libraryName": "Mac0SoaManufacturingCore",
+      "name": "RelationManagement",
+      "namespace": "Mac0::Soa::ManufacturingCore",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ImanType"
+            }
+          ],
+          "description": "Attached to object type.",
+          "name": "attachedToType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ImanType"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Valid attribute group types.",
+          "name": "validAGTypes"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ImanType"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Invalid attribute group types.",
+          "name": "invalidAGTypes"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Structure containing valid and invalid attribute group type for attachedTo object.",
+      "isPublished": "true",
+      "name": "AllowedAttributeGroupTypesInfo",
+      "namespace": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ImanType"
+            }
+          ],
+          "description": "Attached to object type.",
+          "name": "attachedToType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement::ImanTypeToImanTypeListMap"
+            }
+          ],
+          "description": "Dataset type to allowed relation type list map.",
+          "name": "datasetInfoMap"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "A list of AllowedDatasetTypesInfo structure.",
+      "isPublished": "true",
+      "name": "AllowedDatasetTypesInfo",
+      "namespace": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "unique string used to correlate the input with the output values",
+          "name": "clientID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The object that the service should configured according to the revision rule.",
+          "name": "object"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Input",
+      "isPublished": "false",
+      "name": "GetConfiguredObjectsIn",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "serviceData",
+          "name": "serviceData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetConfiguredObjectOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "output",
+          "name": "output"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Response",
+      "isPublished": "false",
+      "name": "GetConfiguredObjectsResponse",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The object's breadcrumbs, not including the given object itself",
+          "name": "breadcrumbs"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The unique ID for the result object given in the input",
+          "name": "clientID"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "This struct contains the breadcrumbs for a single object",
+      "isPublished": "false",
+      "name": "ObjectBreadcrumbs",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::RelationManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "the object for which breadcrumbs are requested",
+          "name": "object"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Unique string for the input object, to be used in the response",
+          "name": "clientID"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "This struct contains the input data for the getBreadcrumbs operation.",
+      "isPublished": "false",
+      "name": "BreadcrumbsInput",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::RelationManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement::ObjectBreadcrumbs"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Breadcrumbs for each input object",
+          "name": "objectBreadcrumbs"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "ServiceData",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Response struct for getBreadcrumbs operation, returning the requested breadcrumbs for each input object",
+      "isPublished": "false",
+      "name": "BreadcrumbsResponse",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::RelationManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::RelationManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ImanRelation"
+            }
+          ],
+          "description": "Relation of dataset.",
+          "name": "relation"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of attached named references to the dataset.",
+          "name": "relatedNamedRef"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "This structure contains dataset relation and its related named references.",
+      "isPublished": "false",
+      "name": "DatasetInfo",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement::AllowedAttributeGroupTypesInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of AllowedAttributeGroupTypesInfo structure.",
+          "name": "output"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard service data.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Output for getAllowedAttributeGroupTypes operation.",
+      "isPublished": "true",
+      "name": "GetAllowedAttributeGroupTypesResp",
+      "namespace": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement::AllowedDatasetTypesInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of AllowedDatasetTypesInfo structure.",
+          "name": "output"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard service data.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Output for getAllowedDatasetTypes operation.",
+      "isPublished": "true",
+      "name": "GetAllowedDatasetTypesResp",
+      "namespace": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::GetAttachmentsResponseData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of GetAttachmentsResponseData struct.",
+          "name": "responseData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "It contains partial errors, if any. 1. MAC0MFGAPSCORE_preference_not_defined - The preference is not defined. 2. MAC0MFGAPSCORE_invalid_preference - The preference is invalid.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "This struct contains a list of GetAttachmentsResponseData struct and ServiceData.",
+      "isPublished": "false",
+      "name": "GetAttachmentsResponse",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The object for which attachments, attribute groups, managed attribute groups are requested.",
+          "name": "object"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::AttachmentDatasetInfoMap"
+            }
+          ],
+          "description": "Map of dataset and DatasetInfo structure.",
+          "name": "attachmentDatasetInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::AttributeGroupRelationMap"
+            }
+          ],
+          "description": "Map of attribute group and its relation.",
+          "name": "attributeGroupRelationInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Form"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Source object forms",
+          "name": "sourceObjectForms"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "This structure contains object to overview, dataset/attribute group and its related information.",
+      "isPublished": "false",
+      "name": "GetAttachmentsResponseData",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "unique string that will be used to match the input with the output.",
+          "name": "clientID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The appropriate object according the revision rule and the root object.",
+          "name": "configuredObject"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Output",
+      "isPublished": "false",
+      "name": "GetConfiguredObjectOutput",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            },
+            {
+              "dataType": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement::DatasetInfo"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Map of dataset and its related DatasetInfo object.",
+      "isPublished": "false",
+      "name": "AttachmentDatasetInfoMap",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            },
+            {
+              "dataType": "Teamcenter::ImanRelation"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Map of attribute group and its relation.",
+      "isPublished": "false",
+      "name": "AttributeGroupRelationMap",
+      "namespace": "Mac0::Soa::Internal::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ImanType"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ImanType"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "ImanType to list of ImanType objects.",
+      "isPublished": "true",
+      "name": "ImanTypeToImanTypeListMap",
+      "namespace": "Mac0::Soa::ManufacturingCore::_2017_05::DataManagement",
+      "scope": "Mac0::Soa::ManufacturingCore::DataManagement"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

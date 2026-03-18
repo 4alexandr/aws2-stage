@@ -1,0 +1,63 @@
+{
+  "name": "ep-electronics",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "commandsViewModel": {
+    "commands": {
+      "cmdLaunchProcessPrep": {
+        "iconId": "cmdOpenInProcessPreparation",
+        "isGroup": false,
+        "title": "{{i18n.launchProcessPrepTitle}}"
+      }
+    },
+    "commandPlacements": {
+      "launchProcessPrepCommandDisplay": {
+        "id": "cmdLaunchProcessPrep",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 100
+      }
+    },
+    "commandHandlers": {
+      "launchProcessPrepCommandHandler": {
+        "id": "cmdLaunchProcessPrep",
+        "action": "launchProcessPrepCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.launchProcessPrepCommandCondition"
+        }
+      }
+    },
+    "conditions": {
+      "launchProcessPrepCommandCondition": {
+        "expression": {
+          "$source": "ctx.epPageContext.collaborationContext.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Ppe0PcbWorkPackage"
+            ]
+          }
+        }
+      }
+    },
+    "actions": {
+      "launchProcessPrepCommandAction": {
+        "actionType": "JSFunction",
+        "method": "launchProcessPrep",
+        "deps": "js/processPrepService"
+      }
+    },
+    "i18n": {
+      "launchProcessPrepTitle": [
+        "ElectronicsMessages"
+      ]
+    }
+  }
+}

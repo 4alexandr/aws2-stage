@@ -1,0 +1,57 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-list.directive",
+        "js/exist-when.directive"
+    ],
+    "actions": {
+        "constructTaskList": {
+            "actionType": "JSFunctionAsync",
+            "method": "constructTaskList",
+            "deps": "js/mfeHeaderService",
+            "inputData": {
+                "availablePages": "{{data.availablePages}}"
+            },
+            "outputData": {
+                "taskList": ""
+            }
+        },
+        "switchSubLocation": {
+            "actionType": "JSFunction",
+            "method": "switchSubLocation",
+            "inputData": {
+                "selectedTask": "{{data.eventData.selectedObjects[0]}}",
+                "taskList": "{{data.taskList}}"
+            },
+            "deps": "js/mfeHeaderService"
+        },
+
+        "loadMfeTaskListDataProvider": {
+            "actionType": "dataProvider",
+            "method": "mfeTaskList"
+        }
+    },
+    "dataProviders": {
+        "mfeTaskList": {
+            "action": "constructTaskList",
+            "response": "{{data.taskList}}",
+            "totalFound": "{{data.taskList.length}}"
+        }
+    },
+    "conditions": {
+        "showLoading": {
+            "expression": "!data.taskList"
+        }
+    },
+    "onEvent": [ {
+        "eventId": "mfeTaskList.selectionChangeEvent",
+        "action": "switchSubLocation",
+        "cacheEventData": true
+    } ],
+    "lifecycleHooks": {
+        "onInit": "loadMfeTaskListDataProvider"
+    },
+    "i18n": {
+        "loading": [ "mfeUiMessages" ]
+    }
+}

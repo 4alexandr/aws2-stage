@@ -1,0 +1,13 @@
+<aw-command-panel caption="i18n.add"  anchor="data.addEventPanelPinCommands" context="data">
+<aw-form name="addEventsTableForm" >
+    <aw-panel-body>
+         <aw-panel-section>
+            <aw-listbox prop="data.cdm0ScheduleTask" action="getScheduleTasksPropsAndUpdateFields" list="data.scheduleTemplates"></aw-listbox>
+            <aw-xrt type="CREATE" object-type="Cdm0EventsTable"></aw-xrt>
+        </aw-panel-section>
+    </aw-panel-body>
+</aw-form>    
+<aw-panel-footer>
+    <aw-button action="createAndAttachEventsTable" visible-when="addEventsTableForm.$valid"><aw-i18n>i18n.add</aw-i18n></aw-button>
+</aw-panel-footer>
+</aw-command-panel>

@@ -1,0 +1,83 @@
+<aw-panel-section>
+    <div class="aw-classificationpanelsjs-searchVisualNavigationContent aw-base-scrollPanel" visible-when="conditions.showHierarchy">
+    <div class="aw-layout-panelBody">
+        <div class="aw-tcWidgets-modelObjectList">
+                    <div class = "aw-widgets-cellListWidgetContainer">
+                    <ul class="aw-widgets-cellListWidget aw-layout-flexRowContainer" ng-show="true">
+                            <li class="aw-widgets-cellListItem aw-widgets-cellTop aw-cls-widgets-cellListItemSelected" aw-repeat="item : data.firstLevelChildren" ng-click="nodeClick(item, $last, $index, false)">
+                            <div class="aw-vnc-classname-header">
+                                 <div class="aw-widgets-cellListCellContent">
+                                     <div class="aw-widgets-cellListCellTitleBlock">
+                                          <h3 title="{{item.className}}" class="aw-widgets-cellListCellTitle" cell-title-id="CellTitle">{{item.className}}</h3>
+                                              <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{item.className}}"></label>
+                                     </div>
+                                 </div>
+                            </div>
+                            <div ng-switch="(item.iconAvailable || item.classDescription === '')" class="aw-class-info" ng-class="item.secondLevelChildren.length ? 'aw-vnc-child-exists' : 'aw-vnc-no-child-exists'">
+                                <div ng-switch-when="true">
+                                    <div class="aw-widgets-cellListCellImage">
+                                    <div id="CellThumbnail" class="aw-base-large-thumbnail">
+                                    <div class="aw-widgets-modelObjectThumbnailContainer">
+                                    <div class="aw-widgets-modelObjectThumbnail">
+                                    <aw-image title="{{ item.classDescription }}" class="aw-base-icon" source="imageURL" aw-repeat="imageURL : item.typeIconFileUrl" visible-when="imageURL"></aw-image>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div ng-switch-default>
+                                    <div class="aw-widgets-classDescription">
+                                        {{ item.classDescription }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "aw-cls-nextLvlChildren">
+                                <aw-cls-subchildren-link title="{{secondLevelChildren.className}}" aw-repeat="secondLevelChildren : item.secondLevelChildren" prop="secondLevelChildren" ng-click="nodeClick(secondLevelChildren, $last, $index, true); $event.stopPropagation();"></aw-cls-subchildren-link>
+                            </div>
+                            <div class ="aw-cls-label" exist-when="item.secondLevelChildren.isSecLvlChildMoreThanFour===true">
+                                 <label><aw-i18n>i18n.more</aw-i18n></label>
+                           </div>
+                            </li>
+                        </ul>
+            </div>
+       </div>
+    </div>
+    </div>
+    <div class="aw-classificationpanelsjs-searchVisualNavigationContent aw-base-scrollPanel" visible-when="!conditions.showHierarchy">
+    <div class="aw-layout-panelBody">
+        <div class="aw-tcWidgets-modelObjectList">
+                    <div class = "aw-widgets-cellListWidgetContainer">
+                    <ul class="aw-widgets-cellListWidget aw-layout-flexRowContainer" ng-show="true">
+                            <li class="aw-widgets-cellListItem aw-widgets-cellTop aw-cls-widgets-cellListItemSelected" aw-repeat="item : data.classificationSearchResults" ng-click="doit(item)">
+                            <div class="aw-vnc-classname-header">
+                                 <div class="aw-widgets-cellListCellContent">
+                                     <div class="aw-widgets-cellListCellTitleBlock">
+                                          <h3 title="{{item.propertyDisplayName}}" class="aw-widgets-cellListCellTitle" cell-title-id="CellTitle">{{item.propertyDisplayName}}</h3>
+                                              <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{item.propertyDisplayName}}"></label>
+                                     </div>
+                                 </div>
+                            </div>
+                            <div class="aw-class-info">
+                            <div class="aw-widgets-cellListCellImage">
+                                 <div id="CellThumbnail" class="aw-base-large-thumbnail">
+                                 <div class="aw-widgets-modelObjectThumbnailContainer">
+                                 <div class="aw-widgets-modelObjectThumbnail">
+                                 <aw-image class="aw-base-icon" source="imageURL" aw-repeat="imageURL : item.typeIconFileUrl" visible-when="imageURL"></aw-image>
+                                 </div>
+                                 </div>
+                                </div>
+                             </div>
+                            </div>
+                            <div class = "aw-cls-nextLvlChildren">
+                                <aw-cls-subchildren-link aw-repeat="secondLevelChildren : item.secondLevelChildren" prop="secondLevelChildren" ng-click="singleClick(secondLevelChildren, $last, $index)"></aw-cls-subchildren-link>
+                            </div>
+                            <div class ="aw-cls-label" exist-when="item.secondLevelChildren.isSecLvlChildMoreThanFour===true">
+                                <label><aw-i18n>i18n.more</aw-i18n></label>
+                            </div>
+                            </li>
+                        </ul>
+            </div>
+       </div>
+    </div>
+    </div>
+</aw-panel-section>

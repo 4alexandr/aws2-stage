@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "Результаты",
+     "filterTabTitle" : "Фильтры",
+     "searchTabTitle" :"Поиск",
+     "paletteTabTitle" :"Паллета",
+     "addStockMaterialTitle" : "Добавить",
+     "properties" : "Свойства",
+     "add" : "Добавить",
+     "madeFromFailureMakeFromPrefTrue": "\"{0}\" был добавлен, но не рекомендуется в \"{1}\".",
+     "madeFromFailureMakeFromPrefFalse": "\"{0}\" не был добавлен, поскольку не рекомендуется в \"{1}\".",     
+     "dimensionsLabel": "Размеры",
+     "Sm1AddStdPartDesc": "Прикрепите стандартную деталь к детали.",
+     "Sm1AddStockMaterialDesc": "Добавьте материал заготовки в деталь.",
+     "addPropertiesLabel" : "Добавить свойства"
+}

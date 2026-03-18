@@ -1,0 +1,82 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive"
+    ],
+
+    "actions": {
+        "doGridDataProvider": {
+            "actionType": "dataProvider",
+            "method": "__workinstrView-name__GridDataProvider"
+        },
+        "loadData": {
+            "actionType": "JSFunction",
+            "method": "loadData",
+            "inputData": {
+                "activeTab": "{{activeTab.tab}}",
+                "sortCriteria": "{{data.columnProviders.staticColumnProvider.sortCriteria}}"
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "searchResults"
+            },
+            "deps": "js/workinstrTableService"
+        },
+        "loadColumns": {
+            "actionType": "JSFunction",
+            "method": "loadColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.__workinstrView-name__GridDataProvider}}",
+                "colInfos": "{{activeTab.tab.viewMode.columns}}"
+            },
+            "deps": "js/workinstrTableService"
+        },
+        "gridRowSelected": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "workinstr.selectionChange",
+                    "eventData": {
+                        "dataProvider": "{{data.dataProviders.__workinstrView-name__GridDataProvider}}",
+                        "activeTab": "{{activeTab.tab}}"
+                    }
+                } ]
+            }
+        }
+    },
+
+    "columnProviders": {
+        "staticColumnProvider": {
+            "loadColumnAction": "loadColumns",
+            "columns": "{{data.columns}}",
+            "sortCriteria": []
+        }
+    },
+
+    "dataProviders": {
+        "__workinstrView-name__GridDataProvider": {
+            "action": "loadData",
+            "editContext": "TABLE_CONTEXT",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "inputData": {
+                "selectionModelMode": "single"
+            },
+            "commandsAnchor": "workinstrCellCommands"
+        }
+    },
+
+    "grids": {
+        "__workinstrView-name__GridView": {
+            "dataProvider": "__workinstrView-name__GridDataProvider",
+            "columnProvider": "staticColumnProvider",
+            "addIconColumn": true
+        }
+    },
+
+    "onEvent": [ {
+        "eventId": "__workinstrView-name__GridDataProvider.selectionChangeEvent",
+        "action": "gridRowSelected"
+    } ]
+}

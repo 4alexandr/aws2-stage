@@ -1,0 +1,22 @@
+{
+    "UseTransparencyOnTitle": "Włącz tryb przezroczystego ekranu wyboru",
+    "UseTransparencyOffTitle": "Wyłącz tryb przezroczystego ekranu wyboru",
+    "NavigationRotateTitle": "Obróć",
+    "NavigationPanTitle": "Przesunięcie",
+    "NavigationZoomTitle": "Powiększenie",
+    "GeometricAnalysisPanelTitle": "Analiza geometryczna",
+    "GeometricAnalysisMeasurementTitle": "Miara",
+    "GeometricAnalysisSectionTitle": "Przekrój",
+    "GeometricAnalysisQueryTitle": "Zapytanie",
+    "GeometricAnalysisVolumeTitle": "Wolumen",
+    "GeometricAnalysisProximityTitle": "Bliskość",
+    "LoadingViewer": "Ładowanie...",
+    "MMVSessionWarning": "Sesje jeszcze nie mogą zachowywać zrzutów danych MMV.",
+    "Checkout": "Nie pracujesz już w najnowszej wersji tej sesji. Czy chcesz utworzyć nową sesję?",
+    "InternalError": "Dane wizualizacji nie zostały zapisane w sesji.",
+    "Cancel":"Anuluj",
+    "Create":"Utwórz",
+    "OwningModel":"Model zawierający",
+    "OwningUser":"Właściciel - użytkownik",
+    "modelViewProxyListPanelTitle":"Ujawnione widoki modelu"
+}

@@ -1,0 +1,18 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":[
+        "js/aw-i18n.directive"
+    ],
+    "data":{
+        "title":"{{subPanelContext.tooltipDisplayName}}"
+    },
+    "i18n": {
+        "mbmFindInEbomTooltipDesc": ["mbmMessages"],
+        "mbmFindInMbomTooltipDesc":["mbmMessages"],
+        "mbmPropagateActionTooltipDesc":["mbmMessages"],
+        "mbmRemoveActionTooltipDesc":["mbmMessages"],
+        "mbmInstanceUpdatedTooltipDesc":["mbmMessages"],
+        "mbmAddedinstanceTooltipDesc":["mbmMessages"],
+        "mbmInstanceRemovedTooltipDesc":["mbmMessages"]
+    }
+}

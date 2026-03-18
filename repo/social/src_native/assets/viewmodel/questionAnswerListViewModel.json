@@ -1,0 +1,168 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-social-comment-list.directive"
+    ],
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "questionListProvider"
+        },
+        "search":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2016-03-Finder",
+            "method": "performSearch",
+            "deps": "js/S2clSocialService",
+            "inputData":
+            {
+                "columnConfigInput":
+                {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}"
+                },
+                "searchInput":
+                {
+                    "maxToLoad": 25,
+                    "maxToReturn": 25,
+                    "startIndex": 0,
+                    "providerName": "S2clCommentaryProvider",
+                    "searchCriteria":
+                    {
+                        "Type": "questions",
+                        "Target": "{{function:getTargetObjectUID}}"
+                    }
+                }
+            },
+            "outputData":
+            {
+                "searchResults": "{{function:getThreadData}}",
+                "dataProviders.questionListProvider.columnConfig": "columnConfig"
+            },
+
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "S2clQuestion",
+                        "properties":
+                        [
+                            {
+                                "name": "s2clParentRootComment"
+                            },
+
+                            {
+                                "name": "s2clCommentRichText"
+                            },
+
+                            {
+                                "name": "s2clTotalLikesFromSummary"
+                            },
+
+                            {
+                                "name": "s2clCommentaryRatingObjects"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "S2clAnswer",
+                        "properties":
+                        [
+                            {
+                                "name": "s2clParentRootComment"
+                            },
+
+                            {
+                                "name": "s2clCommentRichText"
+                            },
+
+                            {
+                                "name": "s2clTotalLikesFromSummary"
+                            },
+
+                            {
+                                "name": "s2clCommentaryRatingObjects"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "events":
+            {
+                "success":
+                [
+                   {
+                      "name":"questionAnswerList.questionAnswerLoaded"
+                   }
+                ]
+            }
+        },
+
+        "updatFirstElementToShow":
+        {
+            "actionType": "JSFunction",
+            "method": "updatFirstElementToShow",
+            "inputData":
+            {
+                "data": "{{data.eventData}}"
+            },
+            "deps": "js/S2clSocialService"
+        }
+    },
+
+    "dataProviders":
+    {
+        "questionListProvider":
+        {
+            "action": "search",
+            "deps": "js/S2clSocialService",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.searchResults.length}}",
+            "commandsAnchor": "S2clCommands"
+        }
+    },
+    "functions":
+    {
+        "getThreadData":
+        {
+            "functionName": "getThreadData",
+            "parameters":
+            [
+                "{{data}}"
+            ]
+        },
+        "getTargetObjectUID":
+        {
+            "functionName": "getTargetObjectUID",
+            "parameters":
+            [
+            ]
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "questionAnswerList.contentLoaded",
+            "action": "reveal"
+        },
+        {
+            "eventId": "questionListProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "updatFirstElementToShow"
+        },
+        {
+            "eventId": "S2clSCAddAnswerNew.newAnswerAdded",
+            "action": "questionListProvider"
+        },
+        {
+            "eventId": "S2clrateHelpfulAnswer.completed",
+            "action": "questionListProvider"
+        }
+    ]
+}

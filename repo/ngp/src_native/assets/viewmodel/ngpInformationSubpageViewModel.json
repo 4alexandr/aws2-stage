@@ -1,0 +1,54 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/exist-when.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive"
+    ],
+    "ports": {
+        "input_informationSubpage": {
+            "syncObject": {}
+        }
+    },
+    "data": {
+        "policyObj": {
+            "types": [{
+                    "name": "Mdl0AttributeGroup",
+                    "properties": [{
+                        "name": "protection"
+                    }]
+                },
+                {
+                    "name": "Participant",
+                    "properties": [{
+                        "name": "fnd0AssigneeUser"
+                    }]
+                }
+            ]
+        }
+    },
+    "actions": {
+        "registerPolicy": {
+            "actionType": "JSFunction",
+            "method": "register",
+            "inputData": {
+                "name": "ngpInformationSubPage",
+                "policyObj": "{{data.policyObj}}"
+            },
+            "deps": "js/services/ngpPolicyService"
+        },
+        "unregisterPolicy": {
+            "actionType": "JSFunction",
+            "method": "unregister",
+            "inputData": {
+                "name": "ngpInformationSubPage"
+            },
+            "deps": "js/services/ngpPolicyService"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "registerPolicy",
+        "onUnmount": "unregisterPolicy"
+    }
+}

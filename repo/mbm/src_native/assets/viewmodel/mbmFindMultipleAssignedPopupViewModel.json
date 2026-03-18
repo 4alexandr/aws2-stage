@@ -1,0 +1,138 @@
+{
+
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup-panel2.directive",
+        "js/aw-panel.directive",
+        "js/aw-list.directive"
+    ],
+    "dataProviders": {
+        "objectsToFind": {
+            "dataProviderType": "Static",
+            "response": "{{subPanelContext.objectsToShow}}",
+            "totalFound": "{{subPanelContext.objectsToShow.length}}"
+        }
+    },
+
+    "actions": {
+        "initializeDataProvider":{
+            "actionType": "dataProvider",
+            "method": "objectsToFind"
+        },
+
+        "mbmFindInTargetContext": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "aceElementsSelectedEvent",
+                    "eventData": {
+                        "elementsToSelect":"{{data.eventData.objectToFind}}",
+                        "viewToReact":"{{data.eventData.viewToReact}}"
+                    },
+                    "condition": "!data.eventData.isSourcePacked || (data.eventData.isSourcePacked &&  data.eventData.isSelectedObjectPacked)"
+                },
+                {
+                    "name": "mbm.closePopup",
+                    "condition": "!data.eventData.isSourcePacked || (data.eventData.isSourcePacked &&  data.eventData.isSelectedObjectPacked)"
+                }
+            ]
+            },
+            "actionMessages":{
+                "success": [
+                    {
+                        "message":"mbmFindInUnpackedPartMessage",
+                        "condition": "data.eventData.isSourcePacked &&  !data.eventData.isSelectedObjectPacked"
+                    }
+                ]
+            }
+        },
+        "evaluateSelection":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                   {
+                    "name": "mbm.evaluateSelectionEvent",
+                    "eventData": {
+                        "objectToFind":"{{data.dataProviders.objectsToFind.selectedObjects[0].objectToFind}}",
+                        "viewToReact":"{{subPanelContext.viewToReact}}",
+                        "isSourcePacked":"{{subPanelContext.isPacked}}",
+                        "isSelectedObjectPacked":"{{data.dataProviders.objectsToFind.selectedObjects[0].isPacked}}"
+                    }
+                   }
+                ]
+            }
+        },
+
+        "mbmFindInUpackedConfirmation":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "aceElementsSelectedEvent",
+                        "eventData": {
+                            "elementsToSelect":"{{data.eventData.objectToFind}}",
+                            "viewToReact":"{{data.eventData.viewToReact}}"
+                        }
+                    },
+                    {
+                        "name": "mbm.closePopup"
+                    }
+                ]
+            }
+        },
+        "mbmClosePopup": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupEl": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "objectsToFind.selectionChangeEvent",
+            "action": "evaluateSelection"
+        },
+        {
+            "eventId": "mbm.evaluateSelectionEvent",
+            "cacheEventData": true,
+            "action": "mbmFindInTargetContext"
+
+        },
+        {
+            "eventId": "mbm.closePopup",
+            "action": "mbmClosePopup"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "action": "initializeDataProvider"
+        }
+
+    ],
+    "messages": {
+        "mbmFindInUnpackedPartMessage":{
+            "messageType": "WARNING",
+            "messageText": "{{i18n.mbmFindInMbomPackedIssuePart}}",
+            "navigationOptions": [
+                {
+                    "option": "close",
+                    "text": "{{i18n.mbmCancel}}"
+                },
+                {
+                    "option": "continue",
+                    "text": "{{i18n.mbmFindOccurrence}}",
+                    "action":"mbmFindInUpackedConfirmation"
+                }
+            ]
+        }
+    },
+    "i18n":{
+        "mbmFindInMbomPackedIssuePart":["mbmMessages"],
+        "mbmCancel":["mbmMessages"],
+        "mbmFindOccurrence":["mbmMessages"]
+    }
+}

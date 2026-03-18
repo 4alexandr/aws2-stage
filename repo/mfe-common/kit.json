@@ -1,0 +1,9 @@
+{
+  "name": "mfe-common",
+  "description": "",
+  "modules": [
+    "mfe-common"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

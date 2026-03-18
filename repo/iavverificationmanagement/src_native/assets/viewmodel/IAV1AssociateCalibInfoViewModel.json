@@ -1,0 +1,257 @@
+{
+    "schemaVersion" : "1.0.0",
+     "imports":
+     [
+         "js/aw-command-panel.directive",
+         "js/aw-command-sub-panel.directive",
+         "js/visible-when.directive",
+         "js/aw-init.directive"
+     ],
+ 
+     "actions":
+     {
+     "reveal":
+         {
+             "actionType": "TcSoaService",
+             "serviceName": "Core-2010-04-DataManagement",
+             "method": "findDisplayableSubBusinessObjectsWithDisplayNames",
+             "inputData":
+             {
+                 "input":
+                 [
+                     {
+                         "boTypeName": "FND_TraceLink",
+                         "exclusionBOTypeNames":
+                         [
+                             "Fnd0ListsParamReqments",
+                             "Fnd0CAE_TargetOccurrence"
+                         ]
+                     }
+                 ]
+             },
+ 
+             "outputData":
+             {
+                 "outTraceLinkTypes":"output"
+ 
+             },
+ 
+             "events":
+             {
+                 "success":
+                 [
+                     {
+                    "name": "createTracelink.initStartItemList"
+                    }
+ 
+                 ]
+             }
+         },
+         "initStartItemList":
+         {
+             "actionType": "JSFunction",
+             "method": "initStartItemList",
+             "inputData":
+             {
+                 "data": "{{data}}",
+                 "ctx": "{{ctx}}"
+             },
+             "events":
+             {
+                 "success":
+                 [
+                     {
+                         "name":"CreateTracelink.refreshStartItemList",
+                         "eventData":
+                         {
+                             "destPanelId": "IAV1AssociateCalibInfoSub"
+                         }
+                     }
+                 ]
+             },
+ 
+             "deps": "js/IAV1AssociateCalibInfo"
+         },
+         "setPin":
+         {
+             "actionType": "JSFunction",
+             "method": "setPin",
+             "inputData":
+             {
+                 "data": "{{data.eventData.data}}",
+                 "ctx": "{{ctx.createTraceLinkWorkSpace}}"
+             },
+             "outputData": {},
+             "deps": "js/IAV1AssociateCalibInfo"
+         },
+ 
+         "setUnPin":
+         {
+             "actionType": "JSFunction",
+             "method": "setUnPin",
+             "inputData":
+             {
+                 "data": "{{data.eventData.data}}",
+                 "ctx": "{{ctx.createTraceLinkWorkSpace}}"
+             },
+             "outputData": {},
+             "deps": "js/IAV1AssociateCalibInfo"
+         }
+     },
+ 
+     "onEvent":
+     [
+           {
+            "eventId": "createTracelink.initStartItemList",
+            "action": "initStartItemList"
+          },
+          {
+            "eventId": "createTracelink.iav1SetPin",
+            "cacheEventData": true,
+            "action": "setPin"
+          },
+          {
+            "eventId": "createTracelink.iav1SetUnPin",
+            "cacheEventData": true,
+            "action": "setUnPin"
+          } 
+     ],
+ 
+     "data":
+     {
+         "startItemListcommands":"iav1_startItemListcommands",
+         "endItemListcommands":"iav1_endItemListcommands",
+         "startItems": {
+              "isArray": "true",
+              "dbValue":
+              [
+              ]
+          },
+          "endItems": {
+              "isArray": "true",
+              "dbValue":
+              [
+              ]
+          },
+           "traceLinkType":
+          {
+              "displayName": "{{i18n.selectTraceLinkType}}",
+              "type": "STRING",
+              "isRequired": "false",
+              "hasLov": true
+          },
+         "isPanelPinned":
+         {
+             "type": "BOOLEAN",
+             "dbValue": false
+         },
+ 
+ 
+         "tabs":
+         [
+             { "name": "{{i18n.new}}",
+               "tabkey": "new",
+               "panelId": "IAV1AssociateCalibInfoCreateSub"
+             }
+         ],
+         "iav1PinCommand" : "iav1_oneStepPinCommands"
+     },
+ 
+   "preferences":
+     [
+         "TraceReport_Default_TraceLink_Type",
+         "RV1_DARB_Filter_Properties"
+     ],
+ 
+     "functions":
+     {
+ 
+         "getProviderName": {
+             "functionName": "getProviderName",
+             "parameters": [ "{{ctx}}" ]
+         },
+         "getSearchInputExistingTracelink": {
+             "functionName": "getSearchInputExistingTracelink",
+             "parameters": [  "{{ctx}}" , "{{data}}" ]
+         }
+ 
+     },
+ 
+     "messages":
+     {
+        "notificationManytoManyTracelinkCreation":
+         {
+             "messageType": "INFO",
+             "messageText": "{{i18n.notificationManytoManyTracelinkCreation}}"
+         }
+     },
+ 
+     "i18n":
+     {
+       "AssociateCalibInfoPanelTitle":
+         [
+             "verificationMgmtmMessages"
+         ],
+         "new" :
+         [
+             "RequirementsCommandPanelsMessages"
+         ],
+         "existing" :
+         [
+             "RequirementsCommandPanelsMessages"
+         ],
+         "selectTraceLinkType":
+         [
+             "RequirementsCommandPanelsMessages"
+         ],
+         "Awp0OpenInNewTabTitle":[
+             "ZeroCompileCommandMessages"
+         ]
+ 
+     },
+      "dataProviders":
+     {
+       "startItemList":
+         {
+          "commands":
+             {
+                 "delete":
+                 {
+                     "id": "cmdDelete",
+                     "title": "{{i18n.Remove}}",
+                     "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                     "priorities": [ 300 ],
+                     "action":"removeFromStartItems",
+                     "displayOption": "ON_HOVER_AND_SELECTION",
+                     "position": "TOP_RIGHT"
+                 }
+ 
+             },
+             "response":"{{data.startItems.dbValue}}",
+             "noResultsFound": " ",
+             "selectionModelMode": "single"
+          },
+       "endItemList":
+         {
+          "commands":
+             {
+                 "delete":
+                 {
+                     "id": "cmdDelete",
+                     "title": "{{i18n.Remove}}",
+                     "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                     "priorities": [ 300 ],
+                     "action":"removeFromEndItems",
+                     "displayOption": "ON_HOVER_AND_SELECTION",
+                     "position": "TOP_RIGHT"
+                 }
+ 
+             },
+             "response":"{{data.endItems.dbValue}}",
+             "noResultsFound": " ",
+             "selectionModelMode": "single"
+          }
+ 
+     }
+ }
+ 

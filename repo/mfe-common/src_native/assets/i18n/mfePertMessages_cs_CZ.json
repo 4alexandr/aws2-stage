@@ -1,0 +1,6 @@
+{
+    "moveModeCommandTitle":"Režim přesunu",
+    "moveModeCommandDescription":"Když je tento režim zapnutý, kliknutím a přetažením přesuňte pole.",
+    "editModeCommandTitle":"Režim tvorby toku",
+    "editModeCommandDescription":"Když je tento režim zapnutý, kliknutím a přetažením propojte proces s následným procesem."  
+}

@@ -1,0 +1,26 @@
+<aw-panel-body>
+    <aw-search-box prop="data.objectSearchBox" placeholder="data.objectSearchPlaceHolder" action="searchObjects"></aw-search-box>
+    <aw-row offset="1f" height="fill">
+        <aw-scrollpanel>
+            <aw-flex-row exist-when="conditions.isSearchObjectFound">
+                <span
+                    class="aw-mfe-messageLine">{{i18n.noObjectFound}}
+                </span>
+            </aw-flex-row>
+            <aw-list dataprovider="data.dataProviders.epSearchObjectProvider" class="aw-epSearchObject-listBoxWidth">
+                <span >
+                    <aw-flex-row >
+                        <aw-flex-column width="6">
+                            <aw-default-cell vmo="item"></aw-default-cell>
+                        </aw-flex-column>
+                        <aw-flex-column width="fill" offset="2f" >
+                            <aw-flex-row height="fill" exist-when="data.selectedObject && item.uid === data.selectedObject.uid" >
+                                <aw-include name="epRevisionRuleListWidget" sub-panel-context="subPanelContext"></aw-include>
+                            </aw-flex-row>
+                        </aw-flex-column>
+                    </aw-flex-row>
+                </span>
+            </aw-list>
+        </aw-scrollpanel>
+    </aw-row>
+</aw-panel-body>

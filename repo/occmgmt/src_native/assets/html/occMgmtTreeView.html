@@ -1,0 +1,16 @@
+<div class="aw-layout-column aw-layout-flexbox">
+    <aw-guidance-message message="defaultOpenStateMessage" exist-when="ctx.occmgmtContext.isRestoreOptionApplicableForProduct === true && ctx.occmgmtContext.treeLoadingInProgress === false" closable="false" banner-style="true" show-icon="true" show-type="false">
+        <aw-button action="restoreProduct">
+            <aw-i18n>i18n.restore</aw-i18n>
+        </aw-button>
+    </aw-guidance-message>
+    <aw-splm-table gridid="occTreeTable" use-tree="true" show-decorators="true" show-context-menu="true" show-check-box="subPanelContext.showCheckBox"></aw-splm-table>
+    <div exist-when="ctx.aceActiveContext.context.isDuplicateEnabled">
+        <aw-button class="aw-occmgmt-editButtons" action="launchInteractiveDuplicatePanel">
+            <aw-i18n>i18n.save</aw-i18n>
+        </aw-button>
+        <aw-button class="aw-occmgmt-editButtons" button-type="negative" action="showConfirmationMessageForDisableDuplicateMode">
+            <aw-i18n>i18n.cancel</aw-i18n>
+        </aw-button>
+    </div>
+</div>

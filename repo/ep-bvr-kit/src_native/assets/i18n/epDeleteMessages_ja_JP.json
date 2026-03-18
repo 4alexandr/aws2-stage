@@ -1,0 +1,8 @@
+{
+    "delete":"削除",
+    "discard":"キャンセル",
+    "DeleteSingleMessage": "削除してよろしいですか \"{0}\"?",
+    "DeleteMultipleMessage": "これらの{0}オブジェクトを本当に削除しますか?",
+    "epCmdDeleteTitle":"削除",
+    "epCmdDeleteDesc": "選択範囲を削除します."
+}

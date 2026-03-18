@@ -1,0 +1,11 @@
+<aw-panel-body>
+    <aw-panel-section caption="i18n.ratingSummaries">
+        <aw-social-ratings-overview data="data"></aw-social-ratings-overview>
+        <aw-social-ratings-summary data="data" action="filterCommentsForRatingStar"> </aw-social-ratings-summary>
+    </aw-panel-section>
+    <aw-panel-section caption="{{data.selectedRating.propertyDisplayName}}">
+        <aw-list dataprovider="data.dataProviders.ratingListProvider">
+            <aw-custom-commentary-cell vmo="item"></aw-custom-commentary-cell>
+        </aw-list>
+    </aw-panel-section>
+</aw-panel-body>

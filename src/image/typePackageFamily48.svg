@@ -1,0 +1,30 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="linear-gradient" x1="15.5" y1="6.752" x2="31.5" y2="22.753" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#afd7e1"/>
+      <stop offset="0.159" stop-color="#a4d0dc"/>
+      <stop offset="0.706" stop-color="#80bcce"/>
+      <stop offset="1" stop-color="#73b4c8"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="4.583" y1="17.67" x2="26.417" y2="39.504" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="19.029" y1="28.794" x2="27.971" y2="37.735" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="16.685" y1="7.999" x2="32.411" y2="23.726" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#73b4c8"/>
+      <stop offset="0.175" stop-color="#6aaec3"/>
+      <stop offset="0.457" stop-color="#529eb5"/>
+      <stop offset="0.809" stop-color="#2c839f"/>
+      <stop offset="1" stop-color="#147391"/>
+    </linearGradient>
+  </defs>
+  <polyline points="38 1 47 1 47 47 38 47" fill="none" stroke="#969696" stroke-miterlimit="10" stroke-width="2"/>
+  <polyline points="10 47 1 47 1 1 10 1" fill="none" stroke="#969696" stroke-miterlimit="10" stroke-width="2"/>
+  <g>
+    <polygon points="23.5 24.005 39.5 14.753 39.5 33.169 23.5 42.422 23.5 24.005" fill="#3c91af"/>
+    <polygon points="7.5 14.752 23.473 5.5 39.5 14.753 23.5 24.005 7.5 14.752" fill="url(#linear-gradient)"/>
+    <polygon points="23.5 24.005 23.5 42.422 7.5 33.168 7.5 14.752 23.5 24.005" fill="url(#linear-gradient-2)"/>
+    <line x1="23.5" y1="24.324" x2="23.5" y2="42.206" stroke="#147391" stroke-linejoin="round" fill="url(#linear-gradient-3)"/>
+  </g>
+  <polygon points="33.5 21.637 33.5 17.874 17.98 8.682 13.214 11.47 29.5 20.873 29.5 26.637 33.5 21.637" stroke="#147391" stroke-miterlimit="10" fill="url(#linear-gradient-4)"/>
+  <polyline points="39.5 14.753 23.5 24.005 7.5 14.752" fill="none" stroke="#147391" stroke-linejoin="round"/>
+  <polygon points="23.473 5.5 7.5 14.752 7.5 33.168 23.5 42.422 39.5 33.169 39.5 14.753 23.473 5.5" fill="none" stroke="#464646" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,734 @@
+{
+  "name": "markup",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "commandsViewModel": {
+    "commands": {
+      "Awp0ShowMarkupPanel": {
+        "iconId": "cmdShowMarkupPanel",
+        "title": "{{i18n.markupPanel}}",
+        "description": "{{i18n.markupPanelDesc}}"
+      },
+      "Awp0ShowMarkups": {
+        "iconId": "cmdMarkup",
+        "title": "{{i18n.showMarkups}}",
+        "description": "{{i18n.showMarkupsDesc}}"
+      },
+      "Awp0MarkupHighlight": {
+        "iconId": "cmdHighlight",
+        "title": "{{i18n.highlightMarkup}}",
+        "description": "{{i18n.highlightMarkupDesc}}"
+      },
+      "Awp0MarkupFreehand": {
+        "iconId": "cmdFreehand",
+        "title": "{{i18n.freehandMarkup}}",
+        "description": "{{i18n.freehandMarkupDesc}}"
+      },
+      "Awp0MarkupShape": {
+        "iconId": "cmdShapes",
+        "isRibbon": true,
+        "title": "{{i18n.markupShapes}}",
+        "description": "{{i18n.markupShapesDesc}}"
+      },
+      "Awp0MarkupRectangle": {
+        "iconId": "cmdRectangle",
+        "title": "{{i18n.rectangle}}",
+        "description": "{{i18n.rectangleDesc}}"
+      },
+      "Awp0MarkupEllipse": {
+        "iconId": "cmdOval",
+        "title": "{{i18n.ellipse}}",
+        "description": "{{i18n.ellipseDesc}}"
+      },
+      "Awp0MarkupArrow": {
+        "iconId": "cmdArrow",
+        "title": "{{i18n.arrow}}",
+        "description": "{{i18n.arrowDesc}}"
+      },
+      "Awp0MarkupGdnt": {
+        "iconId": "cmdGdntMarkup",
+        "title": "{{i18n.gdnt}}",
+        "description": "{{i18n.gdntDesc}}"
+      },
+      "Awp0MarkupStamp": {
+        "iconId": "cmdRubberStamp",
+        "title": "{{i18n.stampPanel}}",
+        "description": "{{i18n.stampPanelDesc}}"
+      },
+      "Awp0MarkupPrint": {
+        "iconId": "cmdPrint",
+        "title": "{{i18n.printMarkups}}",
+        "description": "{{i18n.printMarkupsDesc}}"
+      },
+      "Awp0MarkupEdit": {
+        "iconId": "cmdEdit",
+        "title": "{{i18n.editMarkup}}",
+        "description": "{{i18n.editMarkupDesc}}"
+      },
+      "Awp0MarkupReply": {
+        "iconId": "cmdReply",
+        "title": "{{i18n.replyMarkup}}",
+        "description": "{{i18n.replyMarkupDesc}}"
+      },
+      "Awp0MarkupDelete": {
+        "iconId": "cmdDelete",
+        "title": "{{i18n.deleteMarkup}}",
+        "description": "{{i18n.deleteMarkupDesc}}"
+      },
+      "Awp0MarkupDeleteStamp": {
+        "iconId": "cmdDelete",
+        "title": "{{i18n.deleteStamp}}",
+        "description": "{{i18n.deleteStampDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "awp0MarkupCommandHandler": {
+        "id": "Awp0ShowMarkupPanel",
+        "action": "activateMarkupPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.markupShowPanelSelected"
+        },
+        "enableWhen": true
+      },
+      "awp0ShowMarkupsCommandHandler": {
+        "id": "Awp0ShowMarkups",
+        "action": "showMarkups",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.markupShowMarkupsSelected"
+        },
+        "enableWhen": true
+      },
+      "awp0MarkupHighlightCommandHandler": {
+        "id": "Awp0MarkupHighlight",
+        "action": "newHighlightMarkup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.markupHighlightSelected"
+        },
+        "enableWhen": {
+          "condition": "conditions.markupHighlightEnabled"
+        }
+      },
+      "awp0MarkupFreehandCommandHandler": {
+        "id": "Awp0MarkupFreehand",
+        "action": "newFreehandMarkup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.markupFreehandSelected"
+        },
+        "enableWhen": {
+          "condition": "conditions.markupFreehandEnabled"
+        }
+      },
+      "awp0MarkupShapeCommandHandler": {
+        "id": "Awp0MarkupShape",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.markupShapeSelected"
+        },
+        "enableWhen": {
+          "condition": "conditions.markupShapeEnabled"
+        }
+      },
+      "awp0MarkupRectangleCommandHandler": {
+        "id": "Awp0MarkupRectangle",
+        "action": "newRectangleMarkup",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "awp0MarkupEllipseCommandHandler": {
+        "id": "Awp0MarkupEllipse",
+        "action": "newEllipseMarkup",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "awp0MarkupArrowCommandHandler": {
+        "id": "Awp0MarkupArrow",
+        "action": "newArrowMarkup",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "awp0MarkupGdntCommandHandler": {
+        "id": "Awp0MarkupGdnt",
+        "action": "newGdntMarkup",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "awp0MarkupStampCommandHandler": {
+        "id": "Awp0MarkupStamp",
+        "action": "newStampMarkup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.markupStampSelected"
+        },
+        "enableWhen": {
+          "condition": "conditions.markupStampEnabled"
+        }
+      },
+      "awp0MarkupPrintCommandHandler": {
+        "id": "Awp0MarkupPrint",
+        "action": "printMarkups",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupVisible"
+        },
+        "enableWhen": {
+          "condition": "conditions.markupPrintable"
+        }
+      },
+      "awp0MarkupEditCommandHandler": {
+        "id": "Awp0MarkupEdit",
+        "action": "editMarkup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupEditable"
+        }
+      },
+      "awp0MarkupReplyCommandHandler": {
+        "id": "Awp0MarkupReply",
+        "action": "replyMarkup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupReplyable"
+        }
+      },
+      "awp0MarkupDeleteCommandHandler": {
+        "id": "Awp0MarkupDelete",
+        "action": "confirmDeleteMarkup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupDeletable"
+        }
+      },
+      "awp0MarkupDeleteStampCommandHandler": {
+        "id": "Awp0MarkupDeleteStamp",
+        "action": "confirmDeleteStamp",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markupDeletable"
+        }
+      }
+    },
+    "commandPlacements": {
+      "awp0ShowMarkupsCommandPlacement-classic": {
+        "id": "Awp0ShowMarkups",
+        "uiAnchor": "aw_viewerCommands",
+        "priority": 9
+      },
+      "awp0ShowMarkupsCommandPlacement": {
+        "id": "Awp0ShowMarkups",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 9
+      },
+      "awp0MarkupCommandPlacement-classic": {
+        "id": "Awp0ShowMarkupPanel",
+        "uiAnchor": "aw_viewerCommands",
+        "priority": 10
+      },
+      "awp0MarkupCommandPlacement": {
+        "id": "Awp0ShowMarkupPanel",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 10
+      },
+      "awp0MarkupHighlightCommandPlacement-classic": {
+        "id": "Awp0MarkupHighlight",
+        "uiAnchor": "aw_viewerCommands",
+        "priority": 11
+      },
+      "awp0MarkupHighlightCommandPlacement": {
+        "id": "Awp0MarkupHighlight",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 11
+      },
+      "awp0MarkupFreehandCommandPlacement-classic": {
+        "id": "Awp0MarkupFreehand",
+        "uiAnchor": "aw_viewerCommands",
+        "priority": 12
+      },
+      "awp0MarkupFreehandCommandPlacement": {
+        "id": "Awp0MarkupFreehand",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 12
+      },
+      "Awp0MarkupShapePlacement-classic": {
+        "id": "Awp0MarkupShape",
+        "uiAnchor": "aw_viewerCommands",
+        "priority": 13
+      },
+      "Awp0MarkupShapePlacement": {
+        "id": "Awp0MarkupShape",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 13
+      },
+      "awp0MarkupRectangleOneStepPlacement-classic": {
+        "id": "Awp0MarkupRectangle",
+        "parentGroupId": "Awp0MarkupShape",
+        "uiAnchor": "aw_oneStep",
+        "priority": 14
+      },
+      "awp0MarkupRectangleOneStepPlacement": {
+        "id": "Awp0MarkupRectangle",
+        "parentGroupId": "Awp0MarkupShape",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 14
+      },
+      "awp0MarkupEllipseOneStepPlacement-classic": {
+        "id": "Awp0MarkupEllipse",
+        "parentGroupId": "Awp0MarkupShape",
+        "uiAnchor": "aw_oneStep",
+        "priority": 15
+      },
+      "awp0MarkupEllipseOneStepPlacement": {
+        "id": "Awp0MarkupEllipse",
+        "parentGroupId": "Awp0MarkupShape",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 15
+      },
+      "awp0MarkupArrowOneStepPlacement-classic": {
+        "id": "Awp0MarkupArrow",
+        "parentGroupId": "Awp0MarkupShape",
+        "uiAnchor": "aw_oneStep",
+        "priority": 16
+      },
+      "awp0MarkupArrowOneStepPlacement": {
+        "id": "Awp0MarkupArrow",
+        "parentGroupId": "Awp0MarkupShape",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 16
+      },
+      "awp0MarkupGdntOneStepPlacement-classic": {
+        "id": "Awp0MarkupGdnt",
+        "parentGroupId": "Awp0MarkupShape",
+        "uiAnchor": "aw_oneStep",
+        "priority": 17
+      },
+      "awp0MarkupGdntOneStepPlacement": {
+        "id": "Awp0MarkupGdnt",
+        "parentGroupId": "Awp0MarkupShape",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 17
+      },
+      "awp0MarkupStampCommandPlacement-classic": {
+        "id": "Awp0MarkupStamp",
+        "uiAnchor": "aw_viewerCommands",
+        "priority": 20
+      },
+      "awp0MarkupStampCommandPlacement": {
+        "id": "Awp0MarkupStamp",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 20
+      },
+      "awp0MarkupPrintCommandPlacement-classic": {
+        "id": "Awp0MarkupPrint",
+        "uiAnchor": "aw_viewerCommands",
+        "priority": 21
+      },
+      "awp0MarkupPrintCommandPlacement": {
+        "id": "Awp0MarkupPrint",
+        "uiAnchor": "aw_universalViewer",
+        "priority": 21
+      },
+      "awp0MarkupEditCommandPlacement": {
+        "id": "Awp0MarkupEdit",
+        "uiAnchor": "aw_markup_cell_commands",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": false,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "awp0MarkupReplyCommandPlacement": {
+        "id": "Awp0MarkupReply",
+        "uiAnchor": "aw_markup_cell_commands",
+        "priority": 2,
+        "cellDisplay": {
+          "hover": false,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "awp0MarkupDeleteCommandPlacement": {
+        "id": "Awp0MarkupDelete",
+        "uiAnchor": "aw_markup_cell_commands",
+        "priority": 3,
+        "cellDisplay": {
+          "hover": false,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "awp0MarkupDeleteStampCommandPlacement": {
+        "id": "Awp0MarkupDeleteStamp",
+        "uiAnchor": "aw_markup_stamp_commands",
+        "priority": 4,
+        "cellDisplay": {
+          "hover": false,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      }
+    },
+    "actions": {
+      "activateMarkupPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "inputData": {
+          "commandId": "Awp0MarkupMain",
+          "location": "aw_toolsAndInfo",
+          "context": null,
+          "push": true
+        },
+        "deps": "js/commandPanel.service"
+      },
+      "showMarkups": {
+        "actionType": "JSFunction",
+        "method": "showMarkups",
+        "deps": "js/Awp0MarkupService"
+      },
+      "newHighlightMarkup": {
+        "actionType": "JSFunction",
+        "method": "selectTool",
+        "inputData": {
+          "tool": "highlight"
+        },
+        "deps": "js/Awp0MarkupService"
+      },
+      "newFreehandMarkup": {
+        "actionType": "JSFunction",
+        "method": "selectTool",
+        "inputData": {
+          "tool": "freehand"
+        },
+        "deps": "js/Awp0MarkupService"
+      },
+      "newRectangleMarkup": {
+        "actionType": "JSFunction",
+        "method": "selectTool",
+        "inputData": {
+          "tool": "shape",
+          "subTool": "rectangle"
+        },
+        "deps": "js/Awp0MarkupService"
+      },
+      "newEllipseMarkup": {
+        "actionType": "JSFunction",
+        "method": "selectTool",
+        "inputData": {
+          "tool": "shape",
+          "subTool": "ellipse"
+        },
+        "deps": "js/Awp0MarkupService"
+      },
+      "newArrowMarkup": {
+        "actionType": "JSFunction",
+        "method": "selectTool",
+        "inputData": {
+          "tool": "shape",
+          "subTool": "arrow"
+        },
+        "deps": "js/Awp0MarkupService"
+      },
+      "newGdntMarkup": {
+        "actionType": "JSFunction",
+        "method": "selectTool",
+        "inputData": {
+          "tool": "shape",
+          "subTool": "gdnt"
+        },
+        "deps": "js/Awp0MarkupService"
+      },
+      "newStampMarkup": {
+        "actionType": "JSFunction",
+        "method": "selectTool",
+        "inputData": {
+          "tool": "stamp"
+        },
+        "deps": "js/Awp0MarkupService"
+      },
+      "editMarkup": {
+        "actionType": "JSFunction",
+        "method": "editMarkup",
+        "deps": "js/Awp0MarkupService"
+      },
+      "replyMarkup": {
+        "actionType": "JSFunction",
+        "method": "replyMarkup",
+        "deps": "js/Awp0MarkupService"
+      },
+      "confirmDeleteMarkup": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "awp0Markup.confirmDelete"
+            }
+          ]
+        }
+      },
+      "deleteMarkup": {
+        "actionType": "JSFunction",
+        "method": "deleteMarkup",
+        "deps": "js/Awp0MarkupService"
+      },
+      "confirmDeleteStamp": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "awp0Markup.confirmDeleteStamp"
+            }
+          ]
+        }
+      },
+      "deleteStamp": {
+        "actionType": "JSFunction",
+        "method": "deleteStamp",
+        "deps": "js/Awp0MarkupService"
+      },
+      "printMarkups": {
+        "actionType": "JSFunction",
+        "method": "printMarkups",
+        "deps": "js/Awp0MarkupService"
+      }
+    },
+    "conditions": {
+      "markupVisible": {
+        "expression": "ctx.viewerContext.type=='aw-pdf-viewer' || ctx.viewerContext.type=='aw-2d-viewer' || ctx.viewerContext.type=='aw-image-viewer' || ctx.viewerContext.type=='aw-text-viewer' || ctx.viewerContext.type=='aw-html-viewer' ||  ctx.reqMarkupCtx.viewerType=='aw-requirement-ckeditor' || ctx.markup.keep"
+      },
+      "markupShowMarkupsSelected": {
+        "expression": "ctx.markup.showMarkups"
+      },
+      "markupShowPanelSelected": {
+        "expression": "ctx.markup.showPanel"
+      },
+      "markupHighlightEnabled": {
+        "expression": "!ctx.markup.currentEdit && ctx.markup.supportedTools.highlight"
+      },
+      "markupFreehandEnabled": {
+        "expression": "!ctx.markup.currentEdit && ctx.markup.supportedTools.freehand"
+      },
+      "markupHighlightSelected": {
+        "expression": "ctx.markup.selectedTool==='highlight'"
+      },
+      "markupFreehandSelected": {
+        "expression": "ctx.markup.selectedTool==='freehand'"
+      },
+      "markupShapeSelected": {
+        "expression": "ctx.markup.selectedTool==='shape'"
+      },
+      "markupShapeEnabled": {
+        "expression": "!ctx.markup.currentEdit && ctx.markup.supportedTools.shape"
+      },
+      "markupStampSelected": {
+        "expression": "ctx.markup.selectedTool==='stamp'"
+      },
+      "markupStampEnabled": {
+        "expression": "!ctx.markup.currentEdit && ctx.markup.supportedTools.stamp"
+      },
+      "markupEditable": {
+        "expression": "commandContext.vmo.isEditable"
+      },
+      "markupReplyable": {
+        "expression": "commandContext.vmo.isReplyable"
+      },
+      "markupDeletable": {
+        "expression": "commandContext.vmo.isDeletable"
+      },
+      "markupPrintable": {
+        "expression": "(ctx.markup.showMarkups || ctx.markup.showPanel) && ctx.markup.count > 0"
+      }
+    },
+    "i18n": {
+      "showMarkups": [
+        "MarkupMessages"
+      ],
+      "showMarkupsDesc": [
+        "MarkupMessages"
+      ],
+      "noMarkupOnDoc": [
+        "MarkupMessages"
+      ],
+      "existMarkupOnDoc": [
+        "MarkupMessages"
+      ],
+      "markupPanel": [
+        "MarkupMessages"
+      ],
+      "markupPanelDesc": [
+        "MarkupMessages"
+      ],
+      "highlightMarkup": [
+        "MarkupMessages"
+      ],
+      "highlightMarkupDesc": [
+        "MarkupMessages"
+      ],
+      "freehandMarkup": [
+        "MarkupMessages"
+      ],
+      "freehandMarkupDesc": [
+        "MarkupMessages"
+      ],
+      "markupShapes": [
+        "MarkupMessages"
+      ],
+      "markupShapesDesc": [
+        "MarkupMessages"
+      ],
+      "rectangle": [
+        "MarkupMessages"
+      ],
+      "rectangleDesc": [
+        "MarkupMessages"
+      ],
+      "ellipse": [
+        "MarkupMessages"
+      ],
+      "ellipseDesc": [
+        "MarkupMessages"
+      ],
+      "arrow": [
+        "MarkupMessages"
+      ],
+      "arrowDesc": [
+        "MarkupMessages"
+      ],
+      "gdnt": [
+        "MarkupMessages"
+      ],
+      "gdntDesc": [
+        "MarkupMessages"
+      ],
+      "stampPanel": [
+        "MarkupMessages"
+      ],
+      "stampPanelDesc": [
+        "MarkupMessages"
+      ],
+      "printMarkups": [
+        "MarkupMessages"
+      ],
+      "printMarkupsDesc": [
+        "MarkupMessages"
+      ],
+      "editMarkup": [
+        "MarkupMessages"
+      ],
+      "editMarkupDesc": [
+        "MarkupMessages"
+      ],
+      "replyMarkup": [
+        "MarkupMessages"
+      ],
+      "replyMarkupDesc": [
+        "MarkupMessages"
+      ],
+      "deleteMarkup": [
+        "MarkupMessages"
+      ],
+      "deleteMarkupDesc": [
+        "MarkupMessages"
+      ],
+      "deleleStamp": [
+        "MarkupMessages"
+      ],
+      "deleleStampDesc": [
+        "MarkupMessages"
+      ],
+      "cancel": [
+        "MarkupMessages"
+      ],
+      "confirmDeleteMarkup": [
+        "MarkupMessages"
+      ],
+      "confirmDeleteStamp": [
+        "MarkupMessages"
+      ],
+      "aw_viewerCommands": [
+        "MarkupMessages"
+      ],
+      "aw_universalViewer": [
+        "MarkupMessages"
+      ],
+      "aw_markup_cell_commands": [
+        "MarkupMessages"
+      ]
+    },
+    "messages": {
+      "confirmDeleteMarkup": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.confirmDeleteMarkup}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}"
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.del}}",
+            "action": "deleteMarkup"
+          }
+        ]
+      },
+      "confirmDeleteStamp": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.confirmDeleteStamp}}",
+        "messageTextParams": [
+          "{{ctx.markup.stamp.stampName}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}"
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.del}}",
+            "action": "deleteStamp"
+          }
+        ]
+      }
+    },
+    "onEvent": [
+      {
+        "eventId": "awp0Markup.confirmDelete",
+        "message": "confirmDeleteMarkup"
+      },
+      {
+        "eventId": "awp0Markup.confirmDeleteStamp",
+        "message": "confirmDeleteStamp"
+      }
+    ]
+  }
+}

@@ -1,0 +1,280 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/exist-when.directive",
+        "js/visible-when.directive",
+        "js/aw-include.directive"
+    ],
+    "ports": {
+        "epMbomTreeTable_selectedObjects": {
+            "onChangeAction": "setSelection",
+            "syncObject": {}
+        },
+        "epMbomTreeTable_setVisibility": {
+            "syncObject": {}
+        },
+        "epMbomTreeTable_getVisibility": {
+            "onChangeAction": "updateGraphicVisibility",
+            "syncObject": {}
+        }
+    },
+    "data": {
+        "messages": "{{subPanelContext.messages}}"
+    },
+    "actions": {
+        "setSelection": {
+            "actionType": "JSFunction",
+            "method": "setSelection",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.epMbomTreeDataProvider}}",
+                "objectsToSelect": "{{ports.epMbomTreeTable_selectedObjects.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "updateSelectionPort": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "epMbomTreeTable_selectedObjects",
+                "syncObject": "{{data.eventData.selectedObjects}}"
+            }
+        },
+        "createColumns": {
+            "actionType": "JSFunction",
+            "method": "createColumns",
+            "inputData": {
+                "preferenceValues": "{{subPanelContext.preferenceName}}",
+                "dataProvider": "{{data.dataProviders.epMbomTreeDataProvider}}",
+                "columnProvider": {
+                    "clientColumns": "{{subPanelContext.customColumns}}"
+                },
+                "additionalPolicyObjects": "{{subPanelContext.additionalPolicyObjects}}"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "loadTreeTableData": {
+            "actionType": "JSFunction",
+            "method": "loadTreeTableData",
+            "inputData": {
+                "treeLoadInput": "{{data.treeLoadInput}}",
+                "topNodeUid": "{{subPanelContext.objectUid}}",
+                "isTopNode": "{{subPanelContext.isTopNode}}",
+                "rootLoadInputData": {
+                    "loadType": "GetAssociatedAssembly",
+                    "additionalLoadParams": [{
+                        "tagName": "productInfo",
+                        "attributeName": "isScopeOrTarget",
+                        "attributeValue": "{{subPanelContext.isScopeOrTarget}}"
+                    }],
+                    "loadedObjectMapKey": "associatedAssembly"
+                },
+                "childLoadInputData": {
+                    "loadType": "getProperties",
+                    "propertiesToLoad": [
+                        "bl_child_lines"
+                    ]
+                },
+                "dataProvider": "{{data.dataProviders.epMbomTreeDataProvider}}",
+                "treeNavigationColumnIndex": "{{subPanelContext.customColumns.length}}",
+                "isLeafProperty": "bl_has_children"
+            },
+            "outputData": {
+                "treeLoadResult": "treeLoadResult"
+            },
+            "events": {
+                "success": [{
+                    "name": "epMbomTreeTable.highlightScopedNode"
+                }]
+            },
+            "deps": "js/epTableService"
+        },
+        "graphicVisibilityClicked": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "setGraphicVisibilityState"
+                },
+                {
+                    "action": "setVisibilityPort"
+                }
+            ]
+        },
+        "setGraphicVisibilityState": {
+            "actionType": "JSFunction",
+            "method": "setGraphicVisibilityState",
+            "inputData": {
+                "vmo": "{{data.eventData.vmo}}"
+            },
+            "deps": "js/epGraphicVisibilityTablePropertyRenderer"
+        },
+        "setVisibilityPort": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "epMbomTreeTable_setVisibility",
+                "syncObject": "{{data.eventData.vmo}}"
+            }
+        },
+        "updateGraphicVisibility": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "getGraphicVisibilityFromPort"
+                },
+                {
+                    "action": "getGraphicVisibility",
+                    "condition": "conditions.hasObjectsVisibilityStateMap"
+                }
+            ]
+        },
+        "getGraphicVisibilityFromPort": {
+            "actionType": "JSFunction",
+            "method": "getGraphicVisibilityFromPort",
+            "inputData": {
+                "objectsVisibility": "{{ports.epMbomTreeTable_getVisibility.syncObject}}"
+            },
+            "outputData": {
+                "objectsVisibilityStateMap": ""
+            },
+            "deps": "js/epGraphicVisibilityTablePropertyRenderer"
+        },
+        "getGraphicVisibility": {
+            "actionType": "JSFunction",
+            "method": "getGraphicVisibility",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.epMbomTreeDataProvider}}",
+                "objectsVisibilityStateMap": "{{data.objectsVisibilityStateMap}}"
+            },
+            "deps": "js/epGraphicVisibilityTablePropertyRenderer"
+        },
+        "saveResizedColumnsWidth": {
+            "actionType": "JSFunction",
+            "method": "saveResizedColumnsWidth",
+            "inputData": {
+                "preferenceName": "{{subPanelContext.preferenceName}}",
+                "columns": "{{data.eventData.columns}}"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "highlightScopedNode": {
+            "actionType": "JSFunction",
+            "method": "highlightScopedNode",
+            "inputData": {
+                "data": "{{data}}",
+                "columns": "{{data.dataProviders.epMbomTreeDataProvider.columnConfig.columns}}",
+                "topNodeUid": "{{ctx.epPageContext.productStructure.uid}}"
+            },
+            "deps": "js/epTableService"
+        },
+        "createColumnsAndRegisterPolicy": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "createColumns"
+                },
+                {
+                    "action": "registerPolicy"
+                }
+            ]
+        },
+        "registerPolicy": {
+            "actionType": "JSFunction",
+            "method": "register",
+            "inputData": {
+                "name": "epMbomTree",
+                "policyObj": "{{data.dataProviders.epMbomTreeDataProvider.policy}}"
+            },
+            "deps": "js/mfePolicyService"
+        },
+        "unregisterPolicy": {
+            "actionType": "JSFunction",
+            "method": "unregister",
+            "inputData": {
+                "name": "epMbomTree"
+            },
+            "deps": "js/mfePolicyService"
+        }
+    },
+    "onEvent": [{
+            "eventId": "epMbomTreeDataProvider.selectionChangeEvent",
+            "action": "updateSelectionPort",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "epGraphicVisibilityClicked",
+            "cacheEventData": true,
+            "action": "graphicVisibilityClicked"
+        },
+        {
+            "eventId": "epMbomTreeDataProvider.treeNodesLoaded",
+            "cacheEventData": true,
+            "action": "getGraphicVisibility",
+            "condition": "conditions.hasObjectsVisibilityStateMap"
+        },
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "saveResizedColumnsWidth",
+            "criteria":
+            {
+                "name": "epMbomTreeTable"
+            }
+        },
+        {
+            "eventId": "epMbomTreeTable.highlightScopedNode",
+            "action": "highlightScopedNode",
+            "condition": "conditions.enableScopeHighlighting"
+        }
+    ],
+    "dataProviders": {
+        "epMbomTreeDataProvider": {
+            "initializeAction": "loadTreeTableData",
+            "nextAction": "loadTreeTableData",
+            "previousAction": "loadTreeTableData",
+            "focusAction": "loadTreeTableData",
+            "treeLoadResult": "{{data.treeLoadResult}}",
+            "selectionModelMode": "multiple",
+            "inputData": {
+                "accessMode": "tree",
+                "topNodeUid": "{{subPanelContext.objectUid}}"
+            }
+        }
+    },
+    "columnProviders": {
+        "epMbomTreeColumnProvider": {
+            "loadColumnAction": "createColumnsAndRegisterPolicy",
+            "frozenColumnIndex": -1
+        }
+    },
+    "grids": {
+        "epMbomTreeTable": {
+            "dataProvider": "epMbomTreeDataProvider",
+            "columnProvider": "epMbomTreeColumnProvider",
+            "addIconColumn": false
+        }
+    },
+
+    "conditions": {
+        "hasObjectsVisibilityStateMap":
+        {
+            "expression": "data.objectsVisibilityStateMap"
+        },
+        "isTreeDataLoaded": {
+            "expression": "data.dataProviders.epMbomTreeDataProvider.viewModelCollection.totalObjectsLoaded > 0"
+        },
+        "enableScopeHighlighting": {
+            "expression": {
+                "$and": [{
+                        "$eventSource": "self"
+                    },
+                    {
+                        "$source": "ctx.locationContext['ActiveWorkspace:SubLocation']",
+                        "$query": {
+                            "$eq": "ProcessAreaPlanning"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "lifecycleHooks": {
+        "onUnmount": "unregisterPolicy"
+    }
+}

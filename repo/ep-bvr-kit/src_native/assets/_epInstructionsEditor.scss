@@ -1,0 +1,115 @@
+/*
+    @<COPYRIGHT>@
+    ==================================================
+    Copyright 2019.
+    Siemens Product Lifecycle Management Software Inc.
+    All Rights Reserved.
+    ==================================================
+    @<COPYRIGHT>@
+*/
+
+/*=========================== PROCESS RESOURCE ===========================*/
+
+.wi-editor-content {
+    overflow: auto;
+    background: #ffffff;
+    max-height: 100%;
+}
+
+.wi-editor-textarea {
+    float: center;
+}
+
+.wi-editor-header {
+    position: relative;
+    background-color: #EAF4F7;
+    height: 40px;
+    border-bottom: 1px solid #55A0B9;
+    display: inline-flex;
+    width: 100%;
+}
+
+.wiEditorPlaceHolder {
+    max-height: 100%;
+    display: contents;
+}
+
+
+.WIEditorHeaderContent {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.WIEditorHeaderStepContent {
+    color: #55A0B9;
+}
+
+.wi-stepHeader-commandBar {
+    float: right;
+    display: none;
+}
+
+.wi-editor-header:hover .wi-stepHeader-commandBar {
+    float: right;
+    display: inline-flex;
+}
+
+.wi-stepHeader-content {
+    display: inline-grid;
+    padding-left: 16px;
+    padding-top: 14px;
+    height: 15px;
+    width: inherit;
+}
+
+.wi-editor-header .aw-layout-popup {
+    margin-left: -60px;
+}
+
+.wi-editor-header .aw-widgets-groupCommandStack aw-icon {
+    display: none;
+}
+
+.wi-editor-header .wi-stepHeader-commandBar .aw-commands-commandIconButton {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.aw-epInstructionsEditor-standardTextPopupPanel{
+    .aw-epInstructionsEditor-standardTextFilterList {
+        width: 350px;
+        max-height: 34px;
+    }
+    .aw-epInstructionsEditor-standardTextFilterListItem {
+        width: 315px;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        height: 13px;
+    }
+    .aw-epInstructionsEditor-standardTextFilterList .aw-base-scrollPanel {
+        overflow-y: auto;
+        width: 100%;
+        flex: auto;
+    }
+}
+
+.wi-editor-header-selection {
+    position: relative;
+    background-color: #CDE6EB;
+    height: 40px;
+}
+
+.aw-epInstructionsEditor-wiEditorContainer {
+    .aw-widgets-cellListItem {
+        padding:0 0 8px 0;
+        width: 100% ;
+    }
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+

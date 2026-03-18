@@ -1,0 +1,412 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-include.directive",
+        "js/exist-when.directive",
+        "js/visible-when.directive"
+    ],
+    "data": {
+        "savedCloneStatusUids": [],
+        "messages": {
+            "noContentElementsUnderActivity": [ {
+                    "text": "{{i18n.noProcesses}}",
+                    "textParams": [ "{{subPanelContext.input.props.object_string.uiValue}}" ]
+                },
+                {
+                    "text": "{{i18n.whereToCreateProcesses}}"
+                }
+            ],
+            "noContentElementsUnderBuildElement": [ {
+                "text": "{{i18n.noBuildElementsOrActivities}}",
+                "textParams": [ "{{subPanelContext.input.props.object_string.uiValue}}" ]
+            } ]
+        }
+    },
+    "actions": {
+        "registerPolicyAndGetContentElements": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "registerPolicy"
+                },
+                {
+                    "action": "loadTableData"
+                }
+            ]
+        },
+        "clearTableData": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "unregisterPolicy"
+                },
+                {
+                    "action": "clearBuildStrategyState"
+                },
+                {
+                    "action": "clearSavedCloneStatuses"
+                }
+            ]
+        },
+        "clearBuildStrategyState": {
+            "actionType": "JSFunction",
+            "method": "unRegisterCtx",
+            "inputData": {
+                "name": "ngp.buildStrategyState"
+            },
+            "deps": "js/appCtxService"
+        },
+        "clearSavedCloneStatuses": {
+            "actionType": "JSFunction",
+            "method": "removeFromCache",
+            "inputData": {
+                "uids": "{{data.savedCloneStatusUids}}"
+            },
+            "deps": "js/services/ngpCloneStatusCache"
+        },
+        "registerPolicy": {
+            "actionType": "JSFunction",
+            "method": "register",
+            "inputData": {
+                "name": "ngpBuildStrategyTable",
+                "policyObj": "{{data.dataProviders.ngpBuildStrategyTableDataProvider.policy}}"
+            },
+            "deps": "js/services/ngpPolicyService"
+        },
+        "unregisterPolicy": {
+            "actionType": "JSFunction",
+            "method": "unregister",
+            "inputData": {
+                "name": "ngpBuildStrategyTable"
+            },
+            "deps": "js/services/ngpPolicyService"
+        },
+        "loadTableData": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTableData",
+            "inputData": {
+                "treeLoadInput": "{{data.treeLoadInput}}",
+                "dataProvider": "{{data.dataProviders.ngpBuildStrategyTableDataProvider}}",
+                "sortCriteria": "{{data.columnProviders.ngpBuildStrategyTableColumnProvider.sortCriteria}}",
+                "viewModelData": "{{data}}"
+            },
+            "outputData": {
+                "contentElements": "treeLoadResult"
+            },
+            "deps": "js/services/ngpBuildStrategyService"
+        },
+        "createColumns": {
+            "actionType": "JSFunction",
+            "method": "createTableColumns",
+            "inputData": {
+                "preferenceName": "NGPBuildstrategyColumConfiguration",
+                "dataProvider": "{{data.dataProviders.ngpBuildStrategyTableDataProvider}}",
+                "columnProvider": {
+                    "enableSorting": true
+                }
+            },
+            "deps": "js/services/ngpBuildStrategyService"
+        },
+        "updateCommandContext": {
+            "actionType": "JSFunction",
+            "method": "setCommandContext",
+            "inputData": {
+                "tabModel": "{{subPanelContext}}",
+                "commandContext": {
+                    "selection": "{{data.eventMap['ngpBuildStrategyTableDataProvider.selectionChangeEvent'].selectedObjects}}",
+                    "cmdObjects": "{{data.eventMap['ngpBuildStrategyTableDataProvider.selectionChangeEvent'].selectedObjects}}"
+                }
+            },
+            "deps": "js/mfeContentPanelUtil"
+        },
+        "updateCloneConditions": {
+            "actionType": "JSFunction",
+            "method": "updateCloneConditions",
+            "inputData": {
+                "tabModel": "{{subPanelContext}}",
+                "selection": "{{data.eventMap['ngpBuildStrategyTableDataProvider.selectionChangeEvent'].selectedObjects}}"
+            },
+            "deps": "js/services/ngpCloneService"
+        },
+        "setSelection": {
+            "actionType": "JSFunction",
+            "method": "findAndSetSelection",
+            "inputData": {
+                "uidsToSelect": "{{data.eventMap['ngp.selectOrHighlightObjects'].uidsToSelect}}",
+                "dataProvider": "{{data.dataProviders.ngpBuildStrategyTableDataProvider}}",
+                "viewModelData": "{{data}}"
+            },
+            "deps": "js/services/ngpBuildStrategyService"
+        },
+        "refreshTable": {
+            "actionType": "JSFunction",
+            "method": "refreshTable",
+            "inputData": {
+                "tableId": "ngpBuildStrategyTable"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "reloadTable": {
+            "actionType": "JSFunction",
+            "method": "reloadTable",
+            "inputData": {
+                "tableId": "ngpBuildStrategyTable"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "onClonesUpdated": {
+            "actionType": "JSFunction",
+            "method": "onClonesUpdated",
+            "inputData": {
+                "updatedClones": "{{data.eventMap['ngp.clonesUpdated'].cloneModelObjects}}",
+                "dataProvider": "{{data.dataProviders.ngpBuildStrategyTableDataProvider}}",
+                "tableId": "ngpBuildStrategyTable",
+                "viewModelData": "{{data}}"
+            },
+            "deps": "js/services/ngpBuildStrategyService"
+        },
+        "uponRestructureAction": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "updateTableAfterRestructure"
+                },
+                {
+                    "action": "clearMoveCandidates"
+                },
+                {
+                    "action": "refreshTable"
+                }
+            ]
+        },
+        "updateTableAfterObjectCreated":{
+            "actionType": "JSFunction",
+            "method": "updateTableAfterObjectCreated",
+            "inputData": {
+                "parentObject": "{{data.eventMap['ngp.objectCreated'].parentObject}}",
+                "childrenCreated": "{{data.eventMap['ngp.objectCreated'].childrenCreated}}",
+                "dataProvider": "{{data.dataProviders.ngpBuildStrategyTableDataProvider}}",
+                "viewModelData": "{{data}}",
+                "rootNodeTree": "{{data.treeLoadInput.parentNode}}"
+            },
+            "deps": "js/services/ngpRestructureService"
+        },
+        "updateTableAfterRestructure": {
+            "actionType": "JSFunction",
+            "method": "updateTableAfterRestructure",
+            "inputData": {
+                "movedObjectWithOldParentArray": "{{data.eventMap['ngp.restructureAction'].movedObjectWithOldParentArray}}",
+                "moveTo": "{{data.eventMap['ngp.restructureAction'].moveTo}}",
+                "dataProvider": "{{data.dataProviders.ngpBuildStrategyTableDataProvider}}",
+                "viewModelData": "{{data}}"
+            },
+            "deps": "js/services/ngpRestructureService"
+        },
+        "updateTableAfterClone": {
+            "actionType": "JSFunction",
+            "method": "updateTableAfterClone",
+            "inputData": {
+                "parentTreeNode": "{{data.eventMap['ngpCloneFinishSuccessfully'].context}}",
+                "childObject": "{{data.eventMap['ngpCloneFinishSuccessfully'].clonesInfo[0].clone}}",
+                "dataProvider": "{{data.dataProviders.ngpBuildStrategyTableDataProvider}}"
+            },
+            "deps": "js/services/ngpBuildStrategyService"
+        },
+        "clearMoveCandidates": {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "inputData": {
+                "path": "ngp.buildStrategyState.moveCandidates",
+                "value": []
+            },
+            "deps": "js/appCtxService"
+        },
+        "deleteFromBuildStrategy": {
+            "actionType": "JSFunction",
+            "method": "removeFromDataProvider",
+            "inputData": {
+                "uidsToRemove": "{{data.eventMap['ngp.deleteObjects'].deletedUids}}",
+                "dataProvider": "{{data.dataProviders.ngpBuildStrategyTableDataProvider}}"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "unselectInvisibleNodes": {
+            "actionType": "JSFunction",
+            "method": "unselectInvisibleNodes",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.ngpBuildStrategyTableDataProvider}}"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "saveModifiedColumns": {
+            "actionType": "JSFunction",
+            "method": "saveResizedColumnsWidth",
+            "inputData": {
+                "preferenceName": "NGPBuildstrategyColumConfiguration",
+                "columns": "{{data.eventMap.columnArrange.columns}}"
+            },
+            "deps": "js/mfeTableService"
+        }
+    },
+    "columnProviders": {
+        "ngpBuildStrategyTableColumnProvider": {
+            "loadColumnAction": "createColumns",
+            "resetColumnAction": "saveModifiedColumns",
+            "saveColumnAndLoadAction": "saveModifiedColumns",
+            "frozenColumnIndex": -1
+        }
+    },
+    "dataProviders": {
+        "ngpBuildStrategyTableDataProvider": {
+            "initializeAction": "registerPolicyAndGetContentElements",
+            "nextAction": "registerPolicyAndGetContentElements",
+            "previousAction": "registerPolicyAndGetContentElements",
+            "focusAction": "registerPolicyAndGetContentElements",
+            "treeLoadResult": "action.result.treeLoadResult",
+            "selectionModelMode": "multiple",
+            "treePageSize": 1000,
+            "commandsAnchor": "com.siemens.splm.clientfx.tcui.commands.modelObjectCellListActionCommands",
+            "inputData": {
+                "accessMode": "tree",
+                "topNodeUid": "{{subPanelContext.input.uid}}"
+            }
+        }
+    },
+    "grids": {
+        "ngpBuildStrategyTable": {
+            "dataProvider": "ngpBuildStrategyTableDataProvider",
+            "columnProvider": "ngpBuildStrategyTableColumnProvider",
+            "addIconColumn": false
+        }
+    },
+    "conditions": {
+        "finishedLoading": {
+            "expression": {
+                "$source": "data.contentElements.childNodes.length",
+                "$query": {
+                    "$gte": 0
+                }
+            }
+        },
+        "shouldShowTable": {
+            "expression": {
+                "$source": "data.contentElements.childNodes.length",
+                "$query": {
+                    "$gt": 0
+                }
+            }
+        },
+        "noContentElementsUnderBuildElement": {
+            "expression": {
+                "$and": [ {
+                        "$source": "data.contentElements.childNodes.length",
+                        "$query": {
+                            "$eq": 0
+                        }
+                    },
+                    {
+                        "$source": "subPanelContext.input.modelType.typeHierarchyArray",
+                        "$query": {
+                            "$in": [ "Mpr0BuildElement" ]
+                        }
+                    }
+                ]
+            }
+        },
+        "noContentElementsUnderActivity": {
+            "expression": {
+                "$and": [ {
+                        "$source": "data.contentElements.childNodes.length",
+                        "$query": {
+                            "$eq": 0
+
+                        }
+                    },
+                    {
+                        "$source": "subPanelContext.input.modelType.typeHierarchyArray",
+                        "$query": {
+                            "$in": [ "Mpr0Activity" ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "lifecycleHooks": {
+        "onUnmount": "clearTableData"
+    },
+    "onEvent": [ {
+            "eventId": "ngpBuildStrategyTableDataProvider.selectionChangeEvent",
+            "action": "updateCommandContext",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngpBuildStrategyTableDataProvider.selectionChangeEvent",
+            "action": "updateCloneConditions",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngp.storageUpdateEvent",
+            "action": "updateCloneConditions"
+        },
+        {
+            "eventId": "ngp.successfullySetCloneCandidates",
+            "action": "updateCloneConditions"
+        },
+        {
+            "eventId": "ngp.selectOrHighlightObjects",
+            "action": "setSelection",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngp.clonesUnlinked",
+            "action": "refreshTable"
+        },
+        {
+            "eventId": "ngp.clonesUpdated",
+            "action": "onClonesUpdated",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngp.moveCandidatesHaveBeenSet",
+            "action": "refreshTable"
+        },
+        {
+            "eventId": "ngp.restructureAction",
+            "action": "uponRestructureAction",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngp.message.submitToWorkflow",
+            "action": "reloadTable"
+        },
+        {
+            "eventId": "ngp.deleteObjects",
+            "action": "deleteFromBuildStrategy",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngpCloneFinishSuccessfully",
+            "action": "updateTableAfterClone",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngpBuildStrategyTable.plTable.loadMorePages",
+            "action": "unselectInvisibleNodes"
+        },
+        {
+            "eventId": "columnArrange",
+            "condition": "name === 'ngpBuildStrategyTable'",
+            "cacheEventData": true,
+            "action": "saveModifiedColumns"
+        },
+        {
+            "eventId": "ngp.objectCreated",
+            "action": "updateTableAfterObjectCreated",
+            "cacheEventData": true
+        }
+    ],
+    "i18n": {
+        "noBuildElementsOrActivities": [ "NgpBuildStrategyMessages" ],
+        "noProcesses": [ "NgpBuildStrategyMessages" ],
+        "whereToCreateProcesses": [ "NgpBuildStrategyMessages" ]
+    }
+}

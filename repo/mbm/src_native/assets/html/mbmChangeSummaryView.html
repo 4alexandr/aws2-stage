@@ -1,0 +1,156 @@
+<aw-flex-column>
+    <!--Change Summary Header start-->
+    <aw-flex-row height="6.75f" class="aw-mbm-changeSummaryHeaderContainer afx-alt-content-background">
+        <aw-flex-column class="aw-mbm-changeSummaryHeader">
+            <aw-i18n class="aw-mbm-changeSummaryHeaderTitle">i18n.mbmChangeSummaryHeaderTitle</aw-i18n>
+        </aw-flex-column>
+    </aw-flex-row>
+    <!--Change Summary Header end-->
+    <!--Change Summary contents start-->
+    <aw-panel class="aw-mbm-changeSummaryContainer afx-alt-content-background">
+        <!-- Change Summary content(tile) start -->
+        <aw-flex-column width="12" aw-repeat ="changeSummary:data.changeSummaries">
+            <aw-flex-column exist-when="changeSummary.changeType === 'MBMBOM_Added'" class="aw-mbm-changeSummaryTileContent">
+                <div  aw-class="['afx-alt-content-background']">
+                    <aw-flex-row height="1.7f"  justify="right" aw-class="['aw-mbm-changeTypeIndicationPanel',{'aw-mbm-changeSummaryHandled':changeSummary.hasOwnProperty('isHandle') && changeSummary.isHandle}]">
+                        <div aw-class="[{'aw-mbm-changeTypeSeparator':!changeSummary.isHandle}, {'aw-mbm-changeTypeHandledSeparator':changeSummary.hasOwnProperty('isHandle') && changeSummary.isHandle}]"></div>
+                        <aw-flex-column width="5f" align-content="center" justify="center">
+                            <div>{{data.changeTypeTitle[changeSummary.changeType]}}</div>
+                        </aw-flex-column>
+                    </aw-flex-row>
+                </div>
+                <aw-flex-column  aw-class="['aw-mbm-changeSummaryTile','afx-content-background', {'aw-mbm-changeSummaryTileWithIndication':changeSummary.showIndication}]" >
+                    <div exist-when="changeSummary.showIndication" aw-class="['aw-mbm-changeIndicationAdd']"></div>
+                    <div exist-when="!changeSummary.showIndication && changeSummary.isHandle" aw-class="['afx-alt-content-background aw-mbm-changeIndicationHandled']">
+                        <div aw-class="['aw-mbm-changeSummaryHandled']"></div>
+                    </div>
+                    <div exist-when="changeSummary.showIndication" aw-class="['aw-mbm-changeTriangleIndicationAdd']"></div>
+                    <aw-icon  exist-when="changeSummary.showIndication"  icon-id="indicatorNonAssignedSummaryWhite16.svg" class="aw-mbm-changeIndication"></aw-icon>
+                    <aw-flex-column aw-class="[{'aw-mbm-changeSummaryHandled':changeSummary.hasOwnProperty('isHandle') && changeSummary.isHandle}]">
+                         <!-- tile header start-->
+                         <aw-default-cell vmo="changeSummary.vmo" aw-class="['aw-mbm-changeSummaryTileHeader']"></aw-default-cell>
+                         <!-- tile header end-->
+                    </aw-flex-column>
+                    <!--sub tiles info start-->
+                    <aw-include exist-when="changeSummary.subTilesInfo && changeSummary.subTilesInfo.contextInfo" name="mbmChangeSummarySubTiles" sub-panel-context="changeSummary"></aw-include>
+                    <aw-flex-column  exist-when="changeSummary.subTilesInfo && changeSummary.subTilesInfo.contextInfo" aw-repeat="subTileInfo:changeSummary.subTilesInfo.contextInfo">
+                        <aw-include  name="mbmChangeSummarySubTile" sub-panel-context="subTileInfo"></aw-include>
+                    </aw-flex-column>
+                    <!--sub tiles info end-->
+                </aw-flex-column>
+            </aw-flex-column>
+            <aw-flex-column exist-when="changeSummary.changeType === 'MBMBOM_Removed'" class="aw-mbm-changeSummaryTileContent">
+                <div  aw-class="['afx-alt-content-background']">
+                    <aw-flex-row height="1.7f"  justify="right" aw-class="['aw-mbm-changeTypeIndicationPanel',{'aw-mbm-changeSummaryHandled':changeSummary.hasOwnProperty('isHandle') && changeSummary.isHandle}]">
+                        <div aw-class="[{'aw-mbm-changeTypeSeparator':!changeSummary.isHandle}, {'aw-mbm-changeTypeHandledSeparator':changeSummary.hasOwnProperty('isHandle') && changeSummary.isHandle}]"></div>
+                        <aw-flex-column width="5f" align-content="center" justify="center">
+                            <div>{{data.changeTypeTitle[changeSummary.changeType]}}</div>
+                        </aw-flex-column>
+                    </aw-flex-row>
+                </div>
+                <aw-flex-column  aw-class="['aw-mbm-changeSummaryTile','afx-content-background']" >
+                    <div exist-when="changeSummary.showIndication" aw-class="['aw-mbm-changeIndicationMissing']"></div>
+                    <div exist-when="changeSummary.showIndication" aw-class="['aw-mbm-changeTriangleIndicationMissing']"></div>
+                    <div exist-when="!changeSummary.showIndication && changeSummary.isHandle" aw-class="['afx-alt-content-background aw-mbm-changeIndicationHandled']">
+                        <div aw-class="['aw-mbm-changeSummaryHandled']"></div>
+                    </div>
+                    <aw-icon  exist-when="changeSummary.showIndication"  icon-id="indicatorMissingInSourceWhite16.svg" class="aw-mbm-changeIndication"></aw-icon>
+                    <aw-flex-column aw-class="[{'aw-mbm-changeSummaryHandled':changeSummary.hasOwnProperty('isHandle') && changeSummary.isHandle}]">
+                        <!-- tile header start-->
+                        <aw-default-cell vmo="changeSummary.vmo" aw-class="['aw-mbm-changeSummaryTileHeader']"></aw-default-cell>
+                        <!-- tile header end-->
+                   </aw-flex-column>
+                   <!--sub tiles info start-->
+                   <aw-include exist-when="changeSummary.subTilesInfo && changeSummary.subTilesInfo.contextInfo" name="mbmChangeSummarySubTiles" sub-panel-context="changeSummary"></aw-include>
+                    <aw-flex-column  exist-when="changeSummary.subTilesInfo && changeSummary.subTilesInfo.contextInfo" aw-repeat="subTileInfo:changeSummary.subTilesInfo.contextInfo">
+                        <aw-include  name="mbmChangeSummarySubTile" sub-panel-context="subTileInfo"></aw-include>
+                    </aw-flex-column>
+                   <!--sub tiles info end-->
+                </aw-flex-column>
+            </aw-flex-column>
+            <aw-flex-column exist-when="changeSummary.changeType =='MBMBOM_Updated' || changeSummary.changeType ==='MBMBOM_Occurrence_Updated'" class="aw-mbm-changeSummaryTileContent">
+                <div  aw-class="['afx-alt-content-background']">
+                    <aw-flex-row  height="1.7f" justify="right" aw-class="['aw-mbm-changeTypeIndicationPanel', {'aw-mbm-changeSummaryHandled':changeSummary.hasOwnProperty('isHandle') && changeSummary.isHandle}]">
+                        <div aw-class="[{'aw-mbm-changeTypeSeparator':!changeSummary.isHandle}, {'aw-mbm-changeTypeHandledSeparator':changeSummary.hasOwnProperty('isHandle') && changeSummary.isHandle}]"></div>
+                        <aw-flex-column width="5f" align-content="center" justify="center" aw-class="['aw-mbm-changeTypeIndicationTitlePanel']">
+                            <div>{{data.changeTypeTitle[changeSummary.changeType]}}</div>
+                        </aw-flex-column>
+                    </aw-flex-row>
+                </div>
+                <aw-flex-column  aw-class="['aw-mbm-changeSummaryTile','afx-content-background']" >
+                    <div exist-when="changeSummary.showIndication" aw-class="['aw-mbm-changeIndicationMismatch']"></div>
+                    <div exist-when="!changeSummary.showIndication && changeSummary.isHandle" aw-class="['afx-alt-content-background aw-mbm-changeIndicationHandled']">
+                        <div aw-class="['aw-mbm-changeSummaryHandled']"></div>
+                    </div>
+                    <div exist-when="changeSummary.showIndication" aw-class="['aw-mbm-changeTriangleIndicationMismatch']"></div>
+                    <aw-icon  exist-when="changeSummary.showIndication"  icon-id="indicatorMismatchWhite16.svg" class="aw-mbm-changeIndication"></aw-icon>
+                    <aw-flex-column aw-class="[{'aw-mbm-changeSummaryHandled':changeSummary.hasOwnProperty('isHandle') && changeSummary.isHandle}]">
+                        <!-- tile header start-->
+                        <aw-default-cell vmo="changeSummary.vmo" aw-class="['aw-mbm-changeSummaryTileHeader']"></aw-default-cell>
+                        <!-- tile header end-->
+                        <!--property change info of part start-->
+                        <div aw-repeat="prop: changeSummary.propertyInfo" aw-class="['aw-mbm-changeSummaryTileProperty']">
+                            <div aw-class="['aw-mbm-changeSummaryTileInfo']">
+                                <div aw-class="['aw-widgets-cellListCellTitleBlock']">
+                                    <h3 aw-class="['aw-widgets-cellListCellTitle']">{{prop.propDisplayName}}</h3>
+                                </div>
+                                <span aw-class="['aw-jswidgets-change']" title="{{prop.currentUIValue}}">{{prop.currentUIValue}}</span>
+                                <span aw-class="['aw-jswidgets-oldText']" title="{{prop.oldUIValue}}">{{prop.oldUIValue}}</span>
+                            </div>
+                        </div>
+                        <div exist-when="!changeSummary.properyInfo && changeSummary.compareStatus ==='mbmChangeMismatch'" aw-class="['aw-mbm-changeSummaryTileProperty']" >
+                            <div aw-class="['aw-widgets-cellListCellTitleBlock']">
+                                <aw-i18n aw-class="['aw-widgets-cellListCellTitle']">i18n.mbmNoChanges</aw-i18n>
+                            </div>
+                        </div>
+                        <!--property change info of part end-->
+                        <!--occurrance property change info of child  start-->
+                        <div exist-when="changeSummary.occLevelPropChangesInChild" aw-repeat="childOccProp: changeSummary.occLevelPropChangesInChild" aw-class="['aw-mbm-changeSummaryTilePropertyLabel']">
+                            <div aw-class="['aw-mbm-changeSummaryTilesSeparator']"></div>
+                            <div aw-class="['aw-mbm-changeSummaryTileInfo']">
+                                <div aw-class="['aw-widgets-cellListCellTitleBlock','aw-mbm-changeSummaryTileInfoSubHeader']">
+                                    <h3 aw-class="['aw-widgets-cellListCellTitle']">{{childOccProp.displayName}}</h3>
+                                </div>
+                                <div aw-repeat="occProp: childOccProp.propertyInfo" aw-class="['aw-mbm-changeSummaryTileProperty']">
+                                    <div aw-class="['aw-widgets-cellListCellTitleBlock']">
+                                        <h3 aw-class="['aw-widgets-cellListCellTitle']">{{occProp.propDisplayName}}</h3>
+                                    </div>
+                                    <span aw-class="['aw-jswidgets-change']" title="{{occProp.currentUIValue}}">{{occProp.currentUIValue}}</span>
+                                    <span aw-class="['aw-jswidgets-oldText']" title="{{occProp.oldUIValue}}">{{occProp.oldUIValue}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--occurrance property change info of child  end-->
+                        <!--occurrance property change info of part start-->
+                        <div exist-when="changeSummary.occPropChanges" >
+                            <div aw-class="['aw-mbm-changeSummaryTilesSeparator']"></div>
+                            <div aw-class="['aw-mbm-changeSummaryTileInfo']">
+                                <div aw-class="['aw-widgets-cellListCellTitleBlock','aw-mbm-changeSummaryTileInfoSubHeader']">
+                                    <h3 aw-class="['aw-widgets-cellListCellTitle']">
+                                        <aw-i18n >i18n.mbmChangesInParentContext</aw-i18n>
+                                    </h3>
+                                </div>
+                                <div  aw-repeat="occProp: changeSummary.occPropChanges" aw-class="['aw-mbm-changeSummaryTileProperty']">
+                                    <div aw-class="['aw-widgets-cellListCellTitleBlock']">
+                                        <h3 aw-class="['aw-widgets-cellListCellTitle']">{{occProp.propDisplayName}}</h3>
+                                    </div>
+                                    <span aw-class="['aw-jswidgets-change']" title="{{occProp.currentUIValue}}">{{occProp.currentUIValue}}</span>
+                                    <span aw-class="['aw-jswidgets-oldText']" title="{{occProp.oldUIValue}}">{{occProp.oldUIValue}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--occurrance property change info of part end-->
+                   </aw-flex-column>
+                   <!--sub tiles info start-->
+                   <aw-include exist-when="changeSummary.subTilesInfo && changeSummary.subTilesInfo.contextInfo" name="mbmChangeSummarySubTiles" sub-panel-context="changeSummary"></aw-include>
+                   <aw-flex-column  exist-when="changeSummary.subTilesInfo && changeSummary.subTilesInfo.contextInfo" aw-repeat="subTileInfo:changeSummary.subTilesInfo.contextInfo">
+                        <aw-include  name="mbmChangeSummarySubTile" sub-panel-context="subTileInfo"></aw-include>
+                   </aw-flex-column>
+                   <!--sub tiles info end-->
+                </aw-flex-column>
+            </aw-flex-column>
+        </aw-flex-column>
+        <!-- Change Summary content(tile) end -->
+    </aw-panel>
+    <!--Change Summary contents end-->
+</aw-flex-column>

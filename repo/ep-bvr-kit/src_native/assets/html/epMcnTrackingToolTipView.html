@@ -1,0 +1,19 @@
+<aw-panel>
+    <aw-flex-column width="12">
+        <aw-flex-row height="2f" align-content="center">
+            <aw-flex-column>
+                <aw-i18n class="aw-ep-activeMCN">{{i18n.activeMCN}}</aw-i18n>
+            </aw-flex-column>
+            <aw-flex-column align-content="end">
+                <aw-command-bar context="{vmo : ctx.ep.mcnObject}" anchor="epMCNToolTipCommandBarSlot"
+                    alignment="HORIZONTAL">
+                </aw-command-bar>
+            </aw-flex-column>
+        </aw-flex-row>
+        <aw-separator></aw-separator>
+        <aw-i18n>{{i18n.mcnToolTipContent}}:</aw-i18n>
+        <aw-i18n>{{i18n.mcnNameLabel}}: <strong>{{ctx.ep.mcnObject.props.object_string.uiValues[0]}}</strong></aw-i18n>
+        <aw-i18n>{{i18n.mcnEffectivityDateLabel}}:
+            <strong>{{ctx.ep.mcnObject.props.effectivity_text.uiValues[0]}}</strong></aw-i18n>
+    </aw-flex-column>
+</aw-panel>

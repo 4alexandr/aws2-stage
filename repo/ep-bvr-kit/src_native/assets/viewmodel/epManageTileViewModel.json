@@ -1,0 +1,29 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-default-cell.directive"
+    ],
+    "data": {
+        "revisionRule": "{{i18n.revisionRule}}"
+    },
+    "actions": {
+        "createManageTileData": {
+            "actionType": "JSFunction",
+            "method": "createManageTileData",
+            "inputData": {
+                "context": "{{subPanelContext}}"
+            },
+            "deps": "js/manageWorkPackageService"
+        }
+    },
+    "i18n": {
+        "revisionRule": [
+            "AdminMessages"
+        ]
+    },
+    "lifecycleHooks": {
+        "onMount": "createManageTileData"
+    }
+}

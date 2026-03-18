@@ -1,0 +1,28 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "actions": {},
+    "data": {
+        "epProductTreeContext": {
+            "objectUid": "{{ctx.epPageContext.loadedObject.uid}}",
+            "isTopNode": false,
+            "additionalPolicyObjects": {
+                "types": [{
+                    "name": "BOMLine",
+                    "properties": [{
+                        "name": "bl_has_children"
+                    }]
+                }]
+            },
+            "preferenceName": "EP_ProductTabTreeGridColumnConfiguration",
+            "isScopeOrTarget": "Scope",
+            "customColumns": [{
+                "clientColumn": true,
+                "name": "graphicVisibility"
+            }]
+        }
+    },
+    "dataProviders": {}
+}

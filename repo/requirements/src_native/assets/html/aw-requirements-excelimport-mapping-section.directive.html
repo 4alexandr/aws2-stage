@@ -1,0 +1,18 @@
+<div class="aw-widgets-propertyContainer">
+    <div class="aw-requirements-excelImportMappingSection">
+      <div class="propertyLabelTopContainer">
+          <div class="aw-widgets-propertyLabelTop"><aw-i18n>i18n.savedMappings</aw-i18n>{{':'}}</div>
+      </div>
+      <div class="aw-widgets-propertyLabelTopValueContainer">
+          <aw-property-val prop="prop.mappingGroup" modifiable="modifiable" hint="hint" exist-when="!prop.newGroupName.isVisible"></aw-property-val>
+          <div class="aw-layout-flexRowContainer aw-widget-iconParent aw-requirements-mapping-chevron-icon" exist-when="prop.newGroupName.isVisible">
+    
+                <input class="aw-jswidgets-choice gwt-ListBox" prop="prop.newGroupName"  type="text" 
+                 placeholder="{{prop.newGroupName.propertyRequiredText}}" ng-model="prop.newGroupName.dbValue" ng-required="prop.newGroupName.isRequired" />
+                   
+                 <aw-property-image name="miscDownArrow_uxRefresh" class="aw-widget-icon" ng-click="toggleDropdown()"  ></aw-property-image>
+            </div>
+       </div>
+     </div>
+</div>
+    

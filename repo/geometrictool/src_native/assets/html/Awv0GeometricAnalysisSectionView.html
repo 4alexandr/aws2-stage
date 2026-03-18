@@ -1,0 +1,14 @@
+<aw-command-panel caption="i18n.sectionTabText">
+    <aw-panel-body>
+        <aw-check-list prop="data.showCaps"></aw-check-list>
+        </br>
+        <aw-check-list prop="data.createCutLines"></aw-check-list>
+        <aw-command-panel-section caption="i18n.sectionsTitleText" anchor="data.analysisSectionCommands" context="data">
+            <aw-section-list-popup prop="data.createSectionPlanesProp"></aw-section-list-popup>
+            <aw-i18n visible-when="!conditions.hasSections">i18n.emptySectionList</aw-i18n>
+            <aw-list visible-when="conditions.hasSections" dataprovider="data.dataProviders.sectionsDataProvider">
+                <aw-section-cell vmo="item"></aw-section-cell>
+            </aw-list>
+        </aw-command-panel-section>
+    </aw-panel-body>
+</aw-command-panel>

@@ -1,0 +1,8 @@
+<aw-flex-column exist-when="subPanelContext.vmo && subPanelContext.revisionRule" justify="top" align-content="left">
+    <aw-flex-row height="6.5f" class="aw-mfe-manageWpTileContainer" align-content="center">
+        <aw-default-cell class="aw-mfe-manageTileContent" vmo="subPanelContext.vmo"></aw-default-cell>
+    </aw-flex-row>
+    <aw-flex-row height="1.7f" align-content="center" class="aw-mfe-manageWpTileReVRuleContainer">
+        <div class="aw-mfe-manageWpTileRevRuleContent"><span class="aw-mfe-manageWpTileReVRule">{{data.revisionRule}}: </span><span class="aw-mfe-manageWpTileReVRuleValue">{{subPanelContext.revisionRule}}</span> </div>
+    </aw-flex-row>
+</aw-flex-column>

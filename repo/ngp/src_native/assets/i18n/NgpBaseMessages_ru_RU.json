@@ -1,0 +1,19 @@
+{
+    "processDisplayName": "процесс",
+    "processesDisplayName": "процессы",
+    "processDisplayNameCapital": "Процесс",
+    "activityDisplayName": "действие",
+    "activitiesDisplayName": "действия",
+    "activityDisplayNameCapital": "Действие",
+    "operationDisplayName": "операция",
+    "operationsDisplayName": "операции",
+    "operationDisplayNameCapital": "Операция",
+    "beDisplayName": "элемент построения",
+    "besDisplayName": "элементы построения",
+    "beDisplayNameCapital": "Элемент построения",
+    "meDisplayName": "технологический элемент",
+    "mesDisplayName": "технологические элементы",
+    "meDisplayNameCapital": "Технологический элемент",
+    "ngpWorkspaceName": "Планировщик следующего поколения",
+    "ngp": "Планирование следующего поколения"
+}

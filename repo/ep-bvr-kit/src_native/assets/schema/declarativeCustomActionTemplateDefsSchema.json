@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "description": "This is the schema for Easy Plan specific custom action used for navigation in EasyPlan pages",
+    "definitions": {
+        "actionDef": {
+            "oneOf": [ {
+                "if": {
+                    "properties": {
+                        "actionType": {
+                            "const": "epNavigationAction"
+                        }
+                    }
+                },
+                "then": {
+                    "$ref": "#/definitions/epNavigationActionDef"
+                },
+                "else": false
+            } ]
+        },
+        "epNavigationActionDef": {
+            "type": "object",
+            "description": "This action is used for navigation in EasyPlan pages. It only requires the object to navigate as input. It should not have additional properties.",
+            "additionalProperties": false,
+            "required": [
+                "actionType"
+            ],
+            "properties": {
+                "actionType": {
+                    "type": "string",
+                    "const": "epNavigationAction"
+                },
+                "inputData": {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "description": "JSON data for the action input.",
+                    "properties": {
+                        "objectToNavigate": {
+                            "type": "string"
+                        },
+                        "mcn": {
+                            "type": "string"
+                        },
+                        "navigateIn": {
+                            "type": "string"
+                        },
+                        "keepSameState": {
+                            "type": "boolean"
+                        },
+                        "ignoreMCN": {
+                            "type": "boolean"
+                        },
+                        "stateName": {
+                            "type": "string"
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

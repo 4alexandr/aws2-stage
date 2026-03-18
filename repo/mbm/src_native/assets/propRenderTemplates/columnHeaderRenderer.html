@@ -1,0 +1,20 @@
+<%
+    let imagePath =  basePath + '/image/';
+    let columnName = _.get( column, 'field' );
+    let displayName = _.get( column, 'displayName' );
+
+    let cellImg;
+     switch ( columnName ) {
+        case 'assignmentIndication':
+            cellImg = imagePath + 'headerCompletion16.svg';
+            break;
+        case 'mismatchIndication':
+            cellImg = imagePath + 'headerMismatch16.svg' ;
+            break;
+        case 'mismatchOrMissingIndication':
+            cellImg = imagePath + 'headerMismatch16.svg' ;
+            break
+        }
+    %>
+
+<img class="aw-visual-indicator" src="<%=cellImg%>" title="<%=displayName%>">

@@ -1,0 +1,9 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "title": "{{subPanelContext.extendedTooltip.scopeObject.props.last_release_status.uiValue}}"
+    }
+}

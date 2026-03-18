@@ -1,0 +1,148 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/aw-include.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-command-bar.directive",
+        "js/aw-advanced-bar.directive",
+        "js/aw-i18n.directive",
+        "js/aw-splm-table.directive"
+    ],
+
+    "data":{
+        "headerConfig":{
+            "iconName":"miscPageImpactOfChange72.svg",
+            "headerTitle":"{{i18n.mbmCnPopupHeaderTitle}}",
+            "subHeaderTitle":"{{i18n.mbmCnPopupSubHeaderTitle}}",
+            "scopeName":"{{subPanelContext.contextObject.props.object_name.uiValues[0]}}",
+            "showReadOnlyChip":"{{subPanelContext.contextObject.props.is_modifiable.dbValues[0] === '0'}}"
+        }
+    },
+
+    "grids":{
+        "impactedWpTable":{
+            "dataProvider":"impactedWpTableDataProvider",
+            "columnProvider":"impactedWpTableColumnProvider",
+            "addIconColumn":false,
+            "gridOptions":{
+                "enablePinning": true,
+                "enableSorting": false
+            }
+        }
+    },
+
+    "dataProviders":{
+       "impactedWpTableDataProvider" :{
+           "initializeAction":"initialLoadData",
+            "response":"{{data.response.workPackages}}",
+            "totalFound":"{{data.response.totalFound}}"
+       }
+    },
+
+    "columnProviders":{
+        "impactedWpTableColumnProvider":{
+            "frozenColumnIndex":-1,
+            "columns":[
+                {
+                    "name":"cnStatusIndication",
+                    "displayName":"",
+                    "minWidth":30,
+                    "width":30,
+                    "maxWidth":30,
+                    "enableColumnMenu":false,
+                    "enableColumnMoving":false
+                },
+                {
+                    "name":"object_string",
+                    "displayName":"{{i18n.mbmWorkPackage}}",
+                    "width":400,
+                    "enableColumnMenu":false,
+                    "enableColumnMoving":false
+                },
+                {
+                    "name":"owning_user",
+                    "displayName":"{{i18n.mbmOwner}}",
+                    "width":250,
+                    "enableColumnMenu":false,
+                    "enableColumnMoving":false
+                },
+                {
+                    "name":"mbm0EBOM",
+                    "displayName":"{{i18n.mbmEbom}}",
+                    "width":300,
+                    "enableColumnMenu":false,
+                    "enableColumnMoving":false
+                },
+                {
+                    "name":"mbm0MBOM",
+                    "displayName":"{{i18n.mbmMbom}}",
+                    "width":300,
+                    "enableColumnMenu":false,
+                    "enableColumnMoving":false
+                },
+                {
+                    "name":"mbm0AssociatedActiveCNs",
+                    "displayName":"{{i18n.mbmAssociatedActiveCNs}}",
+                    "width":300,
+                    "enableColumnMenu":false,
+                    "enableColumnMoving":false
+                }
+
+            ]
+        }
+    },
+    "actions":{
+        "mbmChangeNoticeSelectionUpdate":{
+            "actionType": "JSFunction",
+            "method": "updateSelection",
+            "inputData": {
+                "seletion": "{{data.dataProviders.impactedWpTableDataProvider.selectedObjects}}",
+                "parentSelection":"{{subPanelContext.contextObject}}"
+            },
+            "deps": "js/selection.service"
+        },
+        "mbmImpactedWorkpackagePopupClose":{
+            "actionType": "JSFunction",
+            "method": "hideManufacturingChangePopup",
+            "inputData": {
+                "popupElement": "{{data.mbmCNPopupRef}}"
+            },
+            "deps": "js/mbmChangeNoticePopupUtils"
+        },
+        "initialLoadData":{
+            "actionType": "JSFunctionAsync",
+            "method": "initialLoadData",
+            "inputData": {
+                "activeECN":"{{subPanelContext.contextObject}}",
+                "workPackages" : "{{subPanelContext.mbmImpactedWorkPankages}}"
+            },
+            "outputData": {
+                "response":""
+            },
+            "deps": "js/mbmChangeNoticeService"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "impactedWpTableDataProvider.selectionChangeEvent",
+            "action": "mbmChangeNoticeSelectionUpdate"
+        },
+        {
+            "eventId": "$locationChangeSuccess",
+            "action": "mbmImpactedWorkpackagePopupClose"
+        }
+    ],
+    "i18n": {
+        "mbmCnPopupHeaderTitle": [ "mbmMessages" ],
+        "mbmCnPopupSubHeaderTitle": [ "mbmMessages" ],
+        "mbmCnPopupToolbarTitle": [ "mbmMessages" ],
+        "mbmWorkPackage":["mbmMessages"],
+        "mbmOwner":["mbmMessages"],
+        "mbmEbom":["mbmMessages"],
+        "mbmMbom":["mbmMessages"],
+        "mbmAssociatedActiveCNs":["mbmMessages"]
+    }
+}

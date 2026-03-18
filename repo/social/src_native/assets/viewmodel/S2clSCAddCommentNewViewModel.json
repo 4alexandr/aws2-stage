@@ -1,0 +1,209 @@
+{
+    "schemaVersion" : "1.0.0",
+"imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-i18n.directive",
+        "js/aw-button.directive",
+        "js/aw-widget.directive",
+        "js/visible-when.directive",
+        "js/aw-social-editor.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "setIsTextValid",
+            "inputData":
+            {
+                "isValid": false
+            },
+            "deps": "js/S2clSocialService"
+        },
+        "isInputTextValidAction":
+        {
+            "actionType": "JSFunction",
+            "method": "isInputTextValid",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/S2clSocialService"
+        },
+        "postComment":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Services-2012-10-SocialCollaboration",
+            "method": "createComment",
+            "inputData":
+            {
+                "request":
+                {
+                    "commentType": "{{ctx.Social.commentType}}",
+                    "contextObjectUids": [],
+                    "objectName": "{{data.name.dbValue}}",
+                    "plainText": "{{function:getPlainText}}",
+                    "ratingValue": "{{ctx.Social.ratingValue}}",
+                    "richText": "{{function:getRichText}}",
+                    "sendToObjectUids": [],
+                    "tagNameString": "",
+                    "targetObjectUid": "{{ctx.Social.targetObjectUid}}"
+                }
+            },
+            "outputData":
+            {
+                "isSuccess": "isSuccess",
+                "message": "message"
+             },
+            "deps": "js/S2clSocialService",
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "S2clSCAddCommentNew.newCommentsAdded"
+                    }
+                ]
+            },
+            "actionMessages":
+            {
+                "failure":
+                [
+                    {
+                        "message": "postFailed"
+                    }
+                ]
+            }
+        },
+        "validateCreateAction":
+        {
+            "actionType": "JSFunction",
+            "method": "validateCreateComment",
+            "inputData":
+            {
+                "type": "{{ctx.Social.commentType}}",
+                "data": "{{data}}"
+            },
+            "deps": "js/S2clSocialService"
+        },
+        "closePanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "functions":
+    {
+        "getRichText":
+         {
+            "functionName": "getRichText",
+            "parameters":  []
+         },
+         "getPlainText":
+         {
+            "functionName": "getPlainText",
+            "parameters":  []
+         },
+        "getObjects":
+        {
+            "functionName": "getObjects",
+            "parameters":
+            [
+                "{{ctx.Social.targetObjectUid}}"
+            ]
+        },
+        "getObjectUID":
+        {
+            "functionName": "getObjectUID",
+            "parameters":
+            [
+                "{{ctx.xrtSummaryContextObject}}"
+            ]
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "isInputTextValidEvent",
+            "action": "isInputTextValidAction"
+        },
+        {
+            "eventId": "S2clSCAddCommentNew.commentsLoaded",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "S2clSCAddCommentNew.newCommentsAdded",
+            "action": "validateCreateAction"
+        }
+    ],
+
+    "preferences":
+    [
+
+    ],
+
+    "data":
+    {
+        "name":
+        {
+            "displayName": "{{i18n.name}}",
+            "dbValue": "{{ctx.Social.defaultName}}",
+            "type": "STRING",
+            "isRequired": "true"
+        }
+    },
+
+    "conditions":
+    {
+        "validInputData":
+        {
+            "expression":"data.name.dbValue && data.isInputTextValid"
+        }
+    },
+
+    "dataProviders":
+    {
+
+    },
+
+    "messages":
+    {
+        "postFailed":
+        {
+            "messageType": "INFO",
+            "messageText": "{{message}}"
+        }
+    },
+
+    "i18n":
+    {
+        "addComment": [ "SocialDeclarativeMessages" ],
+        "name": [ "SocialDeclarativeMessages" ],
+        "postComment": [ "SocialDeclarativeMessages" ],
+        "postSuccess": [ "SocialDeclarativeMessages" ],
+        "subscriptionFailed": [ "SocialDeclarativeMessages" ]
+    }
+}

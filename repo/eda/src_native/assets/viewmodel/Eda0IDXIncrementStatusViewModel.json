@@ -1,0 +1,59 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-step-progress.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "JSFunction",
+            "method": "maturityPropLoad",
+            "deps": "js/Eda0IDXIncrementStatusService"
+        },
+        "setProgressBar": {
+            "actionType": "JSFunction",
+            "method": "setMaturityValues",
+            "inputData": {
+                "data": "{{data}}",
+                "filterData": {
+                    "filterString": "",
+                    "maxResults": 0,
+                    "numberToReturn": 25,
+                    "order": 1,
+                    "sortPropertyName": ""
+                },
+                "lov": {
+                    "uid": "",
+                    "type": ""
+                },
+                "lovInput": {
+                    "boName": "{{ctx.mselected[0].type}}",
+                    "operationName": "Create",
+                    "owningObject": {
+                        "type": "{{ctx.mselected[0].type}}",
+                        "uid": "{{ctx.mselected[0].uid}}"
+                    },
+                    "propertyValues": {}
+                },
+                "propertyName": "eda0Maturity"
+            },
+            "deps": "js/Eda0IDXIncrementStatusService"
+        }
+    },
+    "data": {
+        "labeProp": {
+            "displayName": "{{ctx.mselected[0].modelType.propertyDescriptorsMap.eda0Maturity.displayName}}",
+            "dbValue": "{{ctx.mselected[0].modelType.propertyDescriptorsMap.eda0Maturity.displayName}}"
+        },
+        "currentStep": {
+            "displayName": "Submitted",
+            "type": "STRING",
+            "dispValue": "Submitted"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId":"Eda0IDXIncrementStatus.contentLoaded",
+            "action": "setProgressBar"
+        }
+    ]
+}

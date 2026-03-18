@@ -1,0 +1,2731 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "tc2007.1",
+      "description": "Teamcenter::BidPackage",
+      "libraryName": "vm",
+      "name": "BidPackage",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "BidPackage"
+    },
+    {
+      "createRelease": "tc2007.1",
+      "description": "Teamcenter::BidPackageContent",
+      "libraryName": "vm",
+      "name": "BidPackageContent",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "BidPackageContent"
+    },
+    {
+      "createRelease": "P8000.0.0",
+      "description": "Interface Name for Business Object VMRepresents",
+      "libraryName": "vm",
+      "name": "VMRepresents",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "VMRepresents"
+    },
+    {
+      "createRelease": "tc2007.1",
+      "description": "Teamcenter::Vendor",
+      "libraryName": "vm",
+      "name": "Vendor",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Vendor"
+    },
+    {
+      "createRelease": "tc2007.1",
+      "description": "Teamcenter::VendorRevision",
+      "libraryName": "vm",
+      "name": "VendorRevision",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "VendorRevision"
+    },
+    {
+      "createRelease": "tc2007.1",
+      "description": "Teamcenter::VendorRole",
+      "libraryName": "vm",
+      "name": "VendorRole",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "VendorRole"
+    },
+    {
+      "createRelease": "tc11000.1.0",
+      "description": "Interface Name for Business Object Vm0ExchangeLine",
+      "libraryName": "vm",
+      "name": "Vm0ExchangeLine",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Vm0ExchangeLine"
+    },
+    {
+      "createRelease": "tc12000.3.0",
+      "description": "Interface Name for Business Object Vm0PrtnrContractRevision",
+      "libraryName": "vm",
+      "name": "Vm0PrtnrContractRevision",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Vm0PrtnrContractRevision"
+    },
+    {
+      "createRelease": "tc11000.1.0",
+      "description": "Interface Name for Business Object Vm0SupplierResponseObject",
+      "libraryName": "vm",
+      "name": "Vm0SupplierResponseObject",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Vm0SupplierResponseObject"
+    },
+    {
+      "createRelease": "tc11000.1.0",
+      "description": "Interface Name for Business Object Vm0VendorXChangeRevision",
+      "libraryName": "vm",
+      "name": "Vm0VendorXChangeRevision",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Vm0VendorXChangeRevision"
+    },
+    {
+      "createRelease": "tc2007.1",
+      "description": "Teamcenter::BidPackageLineItem",
+      "libraryName": "vm",
+      "name": "BidPackageLineItem",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "BidPackageLineItem"
+    },
+    {
+      "createRelease": "tc2007.1",
+      "description": "Teamcenter::BidPackageRevision",
+      "libraryName": "vm",
+      "name": "BidPackageRevision",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "BidPackageRevision"
+    },
+    {
+      "createRelease": "tc9000.1.0",
+      "description": "Interface Name for Business Object CommercialPart",
+      "libraryName": "vm",
+      "name": "CommercialPart",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "CommercialPart"
+    },
+    {
+      "createRelease": "tc9000.1.0",
+      "description": "Interface Name for Business Object CommercialPart Revision",
+      "libraryName": "vm",
+      "name": "CommercialPart Revision",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "CommercialPart Revision"
+    },
+    {
+      "createRelease": "tc2007.1",
+      "description": "Teamcenter::LineItemConfigContext",
+      "libraryName": "vm",
+      "name": "LineItemConfigContext",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "LineItemConfigContext"
+    },
+    {
+      "createRelease": "tc9000.1.0",
+      "description": "Interface Name for Business Object ManufacturerPart",
+      "libraryName": "vm",
+      "name": "ManufacturerPart",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "ManufacturerPart"
+    },
+    {
+      "createRelease": "tc9000.1.0",
+      "description": "Interface Name for Business Object ManufacturerPart Revision",
+      "libraryName": "vm",
+      "name": "ManufacturerPart Revision",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "ManufacturerPart Revision"
+    },
+    {
+      "createRelease": "P8000.0.0",
+      "description": "Teamcenter::ProvidedFrom",
+      "libraryName": "vm",
+      "name": "ProvidedFrom",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "ProvidedFrom"
+    }
+  ],
+  "Date": "Fri Jun 05 04:04:30 PM 2020",
+  "Library": [
+    {
+      "createRelease": "tc2007.1.4",
+      "description": "TcSoaVendormanagement",
+      "isThirdParty": "false",
+      "name": "TcSoaVendorManagement",
+      "namespace": "Teamcenter::Soa::Vendormanagement",
+      "serviceLibrary": "true"
+    },
+    {
+      "createRelease": "tc2007.1",
+      "description": "vm",
+      "isThirdParty": "false",
+      "name": "vm",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "It is a list of <font face=\"courier\" height=\"10\">VendorRoleData</font> structures meant to hold data for <b>VendorRole</b> objects to be processed.",
+          "parameterName": "vendorRoles"
+        },
+        {
+          "description": "Reference to the <b>VendorRevision</b> object in the context of which these roles are to be processed.",
+          "parameterName": "vendorRevRef"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc10000.0.0",
+      "dependencies": "",
+      "description": "This operation adds or removes set of roles to/from a <b>VendorRevision</b>. Typically a role can be assigned to a <b>VendorRevision</b> by adding a role form with different role specific information. OOTB <b>VendorRevision</b> can be assigned with 3 roles namely <i>Distributor</i>, <i>Supplier</i> and <i>Manufacturer</i>. All these role forms contain information about the <b>Vendor</b> based on the type of the role. Similarly a role can be revoked from a <b>VendorRevision</b>. When a <b>Vendor</b> is revised, the new revision inherits all the assigned roles to the previous <b>VendorRevision</b>.",
+      "exceptionCondition": "",
+      "id": "addRemoveVendorRoles#const,std::vector<Teamcenter::Soa::Vendormanagement::_2012_09::VendorManagement::VendorRoleData>,&$const,Teamcenter::BusinessObject,&",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "addRemoveVendorRoles",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::addRemoveVendorRoles#const,std::vector<Teamcenter::Soa::Vendormanagement::_2012_09::VendorManagement::VendorRoleData>,&$const,Teamcenter::BusinessObject,&",
+      "returnDescription": "The partial errors and failures are updated and returned through the object <font face=\"courier\" height=\"10\">ServiceData</font>.<br />Typical errors returned are: <br /><ul><ul><li type=\"disc\">Error 480014: <b>VendorRevision</b> object is not valid.</li><li type=\"disc\">Error 229024: Unable to get <b>VendorRoles</b> from <b>VendorRevision</b>.</li><li type=\"disc\">Error 229022: Unable to add specified <b>VendorRole</b>.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "input is a list of <font face=\"courier\" height=\"10\">ChangeVendorInputInfo</font> structures. If a <b>Vendor</b> is supplied in the list, all the related parts are processed. If <b>VendorPart</b> objects are supplied, they are processed one by one for changing <b>Vendor</b>.<br /><br /><b>ChangeVendorInputInfo</b><br />Input structure containing <b>Vendor</b> to change, <b>VendorPart</b> to change and destination new <b>Vendor</b>.<br /><br /><font face=\"courier\" height=\"10\">struct ChangeVendorInputInfo<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;Teamcenter::Soa::Client::Model::Vendor* vendorToChange;<br />&nbsp;&nbsp;&nbsp;&nbsp;vector< Teamcenter::Soa::Client::Model::Item* > vendorParts;<br />&nbsp;&nbsp;&nbsp;&nbsp;Teamcenter::Soa::Client::Model::Vendor* newVendor;<br />}</font><br /><br /><ul><ul><li type=\"disc\">vendorToChange&nbsp;&nbsp;&nbsp;&nbsp;This is Object pointing to the Vendor to change. If this input is specified, all the related VendorPart objects are processed for change Vendor operation. This input takes precedence over VendorPart objects input.</li><li type=\"disc\">vendorParts&nbsp;&nbsp;&nbsp;&nbsp;VendorPart objects to be processed for change Vendor operation. </li><li type=\"disc\">newVendor&nbsp;&nbsp;&nbsp;&nbsp;The new Vendor to be attached to the part.</li></ul></ul>",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "P8000.0.0",
+      "dependencies": "",
+      "description": "This service operation can be called on either a <b>VendorPart</b> or a <b>Vendor</b>.<br /><br />For <b>VendorPart</b>: It creates a new copy of <b>VendorPart</b> with the new <b>Vendor</b> information. This newly created <b>VendorPart</b> is associated to the new revision of the <b>CommercialPart</b> of the old <b>VendorPart</b>.<br />For <b>Vendor</b>: All <b>VendorPart</b> objects related with given <b>Vendor</b> are taken into consideration. Each of these <b>VendorPart</b> objects are then processed as mentioned above.<br /><br />This operation shows old and new part id with the information of the success or failure. <br /><br /><b>Typical Client Usage: </b><br />Typical usage involves two Vendor objects and a VendorPart created with either one of them.<br /><br /><font face=\"courier\" height=\"10\"><b>VendorManagementService vmService = <br />VendorManagementService.getService(session);<br />ChangeVendorInputInfo[]chanProps = new ChangeVendorInputInfo[1];<br />ChangeVendorInputInfo changeProps = new ChangeVendorInputInfo();<br />ChangeVendorResponse response = null;<br />changeProps.newVendor = (TCComponentVendor)newVendor;<br />changeProps.vendorParts=selectedParts;<br />chanProps[0] = changeProps;<br /><br />response = vmService.changeVendor( chanProps );</b></font><br />",
+      "exceptionCondition": "",
+      "id": "changeVendor#const,std::vector<Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::ChangeVendorInputInfo>,&",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "changeVendor",
+      "opTemplate": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::ChangeVendorResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::changeVendor#const,std::vector<Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::ChangeVendorInputInfo>,&",
+      "returnDescription": "<font face=\"courier\" height=\"10\">ChangeVendorResponse</font> structure returned contains information about the updated <b>VendorParts</b> and their statuses along with the notes if any. <br />List of <font face=\"courier\" height=\"10\">ChangeVendorStatus</font> structure contains: <br />A String list of Number of old VendorPart Ids before performing the change <b>Vendor</b> operation.<br />A String list of Number of new VendorPart Ids after performing the change <b>Vendor</b> operation. <br />A String list of Remarks (notes) corresponding to the each change <b>Vendor</b> operation. e.g. \"<i>Success</i>\", \"<i>Failure</i>\".<br /><br />Typical errors returned are:<br /><ul><ul><li type=\"disc\">Error 229013: Invalid Id supplied for New Vendor</li><li type=\"disc\">Error 229013: Invalid Id for old Vendor to change</li><li type=\"disc\">Error 48005: Cannot create a new VendorPart</li><li type=\"disc\">Error 48043: VendorPart with given credentials already exists</li><li type=\"disc\">Error 229024: Cannot find either Vendor to change or VendorPart objects to change.</li></ul></ul><br /><br /><br /><b>ChangeVendorResponse</b><br />Response structure for the operation contains statuses member. It is a list of <font face=\"courier\" height=\"10\">ChangeVendorStatus</font> structures.<br /><br /><font face=\"courier\" height=\"10\">struct ChangeVendorResponse<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;vector<ChangeVendorStatus> statuses;<br />&nbsp;&nbsp;&nbsp;&nbsp;Teamcenter::Soa::Client::ServiceData serviceData;<br />}</font><br /><br /><ul><ul><li type=\"disc\">statuses&nbsp;&nbsp;&nbsp;&nbsp;List of ChangeVendorStatus structures. There is an entry per entry in input structure.</li><li type=\"disc\">serviceData&nbsp;&nbsp;&nbsp;&nbsp;Standard ServiceData structure. It contains partial errors and failures along with the clientIds.</li></ul></ul><br /><br /><b>ChangeVendorStatus</b><br />This is the structure containing a list of structures for each <b>VendorPart</b> statuses.<br /><br /><font face=\"courier\" height=\"10\">struct ChangeVendorStatus<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;vector<ChangedPartStatus> changedStatus;<br />}</font><br /><br /><ul><ul><li type=\"disc\">changedStatus&nbsp;&nbsp;&nbsp;&nbsp;This structure contains the status of VendorPart objects and remarks from the operation.</li></ul></ul><br /><br /><b>ChangedPartStatus</b><br />This is the structure containing a list of statuses for change <b>Vendor</b> operation.<br /><br /><font face=\"courier\" height=\"10\">struct ChangedPartStatus<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;string oldPartStr;<br />&nbsp;&nbsp;&nbsp;&nbsp;string newPartStr;<br />&nbsp;&nbsp;&nbsp;&nbsp;string notes;<br />}</font><br /><br /><ul><ul><li type=\"disc\">oldPartStr&nbsp;&nbsp;&nbsp;&nbsp;Id of old VendorPart.</li><li type=\"disc\">newPartStr&nbsp;&nbsp;&nbsp;&nbsp;Id of new VendorPart created.</li><li type=\"disc\">Notes&nbsp;&nbsp;&nbsp;&nbsp;Remarks (notes) corresponding to the each change Vendor operation. e.g. \"<i>Success</i>\" <i>Failure</i>\".</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "This operation is deprecated in TC 10.0. Replaced by new operation addRemoveVendorRoles.",
+          "deprecatedRelease": "tc10000.0.0"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "The input is a list of <font face=\"courier\" height=\"10\">VendorProperties</font> structures. There will be an entry for each of the <b>VendorRole</b> objects to be deleted.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc2007.1",
+      "dependencies": "",
+      "description": "This service operation deletes specified <b>VendorRole</b> objects attached with <b>VendorRevision</b> objects mentioned through <font face=\"courier\" height=\"10\">VendorProperties</font>  data structure. <b>VendorRevision</b> is specified through vendor ID and Revision name in <font face=\"courier\" height=\"10\">VendorProperties</font>. The combination to be specified thus is '<i>vendorId</i> + <i>revId</i> + <i>roleType</i>'. So, this combination denotes that there will be one instance of <font face=\"courier\" height=\"10\">VendorProperties</font> per <b>VendorRole</b> to be deleted. In case of <b>VendorRevision</b> is not found based on the Id and Revision key, this operation will return an error.",
+      "exceptionCondition": "",
+      "id": "deleteVendorRoles#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties>,&",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "deleteVendorRoles",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::deleteVendorRoles#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties>,&",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> structure. It will contain all the partial errors and failures such as mentioned below, if any, with specific client Ids.<br /><ul><ul><li type=\"disc\">In case multiple vendors are found with same ItemId and RevId combination, the service operation will throw error 48161.</li><li type=\"disc\">Error 229004 will be thrown in case the VendorRole could not be deleted.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of <font face=\"courier\" height=\"10\">VectorProperties</font> structures which are used to search for <b>Vendor</b> objects for deletion operation.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc2007.1",
+      "dependencies": "",
+      "description": "This service operation deletes <b>Vendor</b> objects and associated <b>VendorRevision</b> objects and <b>VendorRole</b> objects. When provided with the input in the form of <font face=\"courier\" height=\"10\">VendorProperties</font> structure, the operation finds the specified <b>Vendor</b> objects and deletes them. <b>VendorRole</b> objects  will also be deleted along with the associated <b>VendorRevision</b> objects and <b>Vendor</b> objects.",
+      "exceptionCondition": "",
+      "id": "deleteVendors#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties>,&",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "deleteVendors",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::deleteVendors#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties>,&",
+      "returnDescription": "The operation returns standard <font face=\"courier\" height=\"10\">ServiceData</font> object. The partial errors and failures are updated and returned thru this object. The success of the operation must be checked through this object only.<br />Typical errors possible are:<br /><ul><ul><li type=\"disc\">Error 48006: Unable to delete the specified <b>Item</b> (<b>Vendor</b>).</li><li type=\"disc\">Error 48035: Error Unable to delete the specified <b>ItemRevision</b> (<b>VendorRevision</b>).</li><li type=\"disc\">Error 48008: <b>Vendor</b> with specified ID is not found.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A structure of external IDs and context IDs. This data is used to generate the <b>Item</b> IDs with context. It will also be used to compare and find out existing Item with such ID.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc2007.1.4",
+      "dependencies": "",
+      "description": "This service operation concatenates external object id and context id with hyphen to generate a new item id, provided length of concatenated id is less than the desired item id length. This operation also returns existing <b>Item</b> objects that have the generated IDs.<br />The intent of this operation is to support import of <b>Item</b> objects from external systems. This service operation concatenates external object id and context id with hyphen to generate a new item id, provided length of concatenated id is less than the desired item id length. This operation also returns existing <b>Item</b> objects that have the generated IDs.<br />The intent of this operation is to support import of <b>Item</b> objects from external systems.",
+      "exceptionCondition": "",
+      "id": "getItemIDwithContext#const,std::vector<Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::ItemIDInput>,&",
+      "interface": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getItemIDwithContext",
+      "opTemplate": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::ItemIDResponse#Teamcenter::Soa::Internal::Vendormanagement::VendorManagement::getItemIDwithContext#const,std::vector<Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::ItemIDInput>,&",
+      "returnDescription": "A list of <font face=\"courier\" height=\"10\">ItemIDData</font> structures which contain <font face=\"courier\" height=\"10\">item_id </font>and references to existing objects with those IDs. Failure will be with client id and error message in the ServiceData.<br /><br />Typical Errors returned would be:<br /><br /><ul><ul><li type=\"disc\">Error 229016: In case the combination of<font face=\"courier\" height=\"10\"> input.externalObjectID</font> and <font face=\"courier\" height=\"10\">input.contextID</font> becomes larger than maximum allowed length for item ID (128), it will throw an exception mentioning the same.</li><li type=\"disc\">Error 229009, 48043: Standard exceptions while trying to look for an existing Item with generated Item ID will also be thrown back. </li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "P8000.0.0",
+      "dependencies": "",
+      "description": "This internal service operation gets a list of conditions to use for <b>VendorPart</b> Selection Rule. The Response structure returned contains a list of condition names and their expressions.",
+      "exceptionCondition": "",
+      "id": "getVPSRConditions#",
+      "interface": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getVPSRConditions",
+      "opTemplate": "Teamcenter::Soa::Internal::Vendormanagement::_2008_06::VendorManagement::GetVPSRConditionsResponse#Teamcenter::Soa::Internal::Vendormanagement::VendorManagement::getVPSRConditions",
+      "returnDescription": "<font face=\"courier\" height=\"10\">GetVPSRConditionsResponse</font> structure returned contains a list of <font face=\"courier\" height=\"10\">ConditionData</font> which contains conditions information. Failures will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font>.",
+      "useCase": "In a typical use case, there is a dialogue to be displayed which will let user select one of the <b>VendorPart</b> Selection Rule conditions.<br />Once the dialogue is created, it may be populated using this operation.<br />"
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "List of <font face=\"courier\" height=\"10\">GetVendorPartsWithSelRuleInputInfo</font> structures containing <b>CommercialPartRevision</b> objects to be used as input to find related <b>VendorPart</b> objects.  It also contains condition name string.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "P8000.0.0",
+      "dependencies": "",
+      "description": "This service operation returns <b>VendorPart</b> objects  associated with the given <b>CommercialPartRevision</b>  based on the selection rule set for the <b>VendorPart</b> objects in Structure Manager. If no value is given for the selection rule, it is read  from the preference <b>VMS_vendor_part_selection_rule</b>. Typical OOTB selection rules provided are <i>showAllVendorParts</i> and <i>showPreferredVendorPartsOnly</i>.  First selection rule is to show all related <b>VendorPart</b> objects and later is used to show the related <b>VendorPart</b> objects carrying <i>preferred</i> status.",
+      "exceptionCondition": "",
+      "id": "getVendorPartsWithSelRule#const,std::vector<Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::GetVendorPartsWithSelRuleInputInfo>,&",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getVendorPartsWithSelRule",
+      "opTemplate": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::GetVendorPartsWithSelRuleResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::getVendorPartsWithSelRule#const,std::vector<Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::GetVendorPartsWithSelRuleInputInfo>,&",
+      "returnDescription": "<font face=\"courier\" height=\"10\">GetVendorPartsWithSelRuleResponse</font> contains a list of <font face=\"courier\" height=\"10\">vendorPartData</font> structures. <font face=\"courier\" height=\"10\">vendorPartData</font> structure essentially consists of an list of collection of <b>VendorPart</b> objects and its relation objects with <b>CommercialPartRevision</b> objects.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of <font face=\"courier\" height=\"10\">BidPackageProps</font> structures which are used to create or update <b>BidPackage</b> objects.",
+          "parameterName": "properties"
+        },
+        {
+          "description": "A parent object reference with which the created <b>BidPackage</b> objects will be associated.",
+          "parameterName": "container"
+        },
+        {
+          "description": "A relation name to be used for associating the <b>BidPackage</b> to its parent.",
+          "parameterName": "relationType"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc2007.1",
+      "dependencies": "",
+      "description": "This service operation creates or updates a group of <b>BidPackage</b>, <b>BidPackageRevision </b>objects. This operation allows the user to find or create a set of <b>BidPackage</b> objects based on the input data. The service first tries to find the existence of the specified <b>BidPackage</b> or <b>BidPackageRevision</b>. If the specified <b>BidPackage</b> objects exist and any of the input attribute values differ from those already set, the <b>BidPackage</b> objects will be updated.",
+      "exceptionCondition": "",
+      "id": "createOrUpdateBidPackages#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::BidPackageProps>,&$const,Teamcenter::BusinessObject,&$const,std::string",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createOrUpdateBidPackages",
+      "opTemplate": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateBidPacksResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateBidPackages#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::BidPackageProps>,&$const,Teamcenter::BusinessObject,&$const,std::string",
+      "returnDescription": "A list of <font face=\"courier\" height=\"10\">CreateBidPacksOutput</font> structures. These structures contain information about the <b>BidPackages</b>, <b>BidPackageRevisions</b>. <br />Failures are returned through <font face=\"courier\" height=\"10\">ServiceData</font> with client id and error message.<br /><br />Typical errors returned can be:<br /><ul><ul><li type=\"disc\">Error 48161: Multiple BidPackage objects existing with the specified itemId Id</li><li type=\"disc\">Error 48005, 48032: Unable to create BidPackage or BidPackageRevision.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "replaced by Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItemsWithType",
+          "deprecatedRelease": "tc9000.1.0"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "A list of <font face=\"courier\" height=\"10\">LineItemPropsWithType</font> structures which are used to create or update <b>BidPackageLineItem</b> objects.",
+          "parameterName": "properties"
+        },
+        {
+          "description": "Reference to the <b>BidPackageRevision</b> object which will be used to associate the created <b>BidPackageLineItem</b> objects.",
+          "parameterName": "bidPackage"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc2007.1.4",
+      "dependencies": "",
+      "description": "This service operation creates or updates a group of <b>BidPackageLineItem </b>objects in the context of the mentioned <b>BidPackage</b>. This operation allows the user to find or create a set of <b>BidPackageLineItem</b> objects based on the input data. It first tries to find the existence of the specified <b>BidPackageLineItem</b> for the specified <b>BidPackage</b>. If the specified <b>BidPackageLineItem</b> is found, then the <b>BidPackageLineItem</b> data will be updated. Otherwise, it will create the specified <b>BidPackageLineItem</b> and associate it to the specified <b>BidPackageRevision</b>. If the specified <b>BidPackageLineItem</b> objects exist and any of the input attribute values differ from those already set, the <b>BidPackageLineItem </b>objects will be updated.<br />The operation is now deprecated. It is now replaced by <font face=\"courier\" height=\"10\">Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItemsWithType.</font>",
+      "exceptionCondition": "",
+      "id": "createOrUpdateLineItems#const,std::vector<Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::LineItemPropsWithType>,&$const,Teamcenter::BusinessObject,&",
+      "interface": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "createOrUpdateLineItems",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Internal::Vendormanagement::VendorManagement::createOrUpdateLineItems#const,std::vector<Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::LineItemPropsWithType>,&$const,Teamcenter::BusinessObject,&",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> instance is returned. Failure will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font>.<br /><br />Typical errors returned are: <br /><ul><ul><li type=\"disc\">Error 229024: Error while creating or updating <b>BidPackageLineItems</b></li><li type=\"disc\">Error 229020: Error while adding the <b>BidPackageLineItems</b> to the <b>BidPackageRevision</b>.</li><li type=\"disc\">Error 48014, 229024: Errors while processing rules (Revision, Variant or Closure) for <b>LineItemConfigContext</b>.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "replaced by Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItemsWithType",
+          "deprecatedRelease": "P8000.0.0"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "A list of <font face=\"courier\" height=\"10\">LineItemProps</font> structures which are used to create or update <b>BidPackageLineItem</b> objects.",
+          "parameterName": "properties"
+        },
+        {
+          "description": "Reference to the <b>BidPackageRevision</b> object which will be used to associate the created <b>BidPackageLineItem</b> objects.",
+          "parameterName": "bidPackage"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc2007.1",
+      "dependencies": "",
+      "description": "This service operation creates or updates a group of <b>BidPackageLineItem</b> objects in the context of the mentioned <b>BidPackage</b>. This operation allows the user to find or create a set of <b>BidPackageLineItem</b> objects based on the input data. It first tries to find the existence of the specified <b>BidPackageLineItem</b> for the specified <b>BidPackage</b>. If the specified <b>BidPackageLineItem</b> is found, then its corresponding data will be updated. Otherwise, it will create the specified <b>BidPackageLineItem</b> and associate it to the specified <b>BidPackageRevision</b>. If the specified <b>BidPackageLineItem</b> objects exist and any of the input attribute values differ from those already set, the <b>BidPackageLineItem</b> objects will be updated.<br /><br />The operation is now deprecated. It is now replaced by <font face=\"courier\" height=\"10\">Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItemsWithType.</font>",
+      "exceptionCondition": "",
+      "id": "createOrUpdateLineItems#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::LineItemProps>,&$const,Teamcenter::BusinessObject,&",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createOrUpdateLineItems",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItems#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::LineItemProps>,&$const,Teamcenter::BusinessObject,&",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> instance is returned. Failure will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font>.<br /><br />Typical Errors returned are:<br /><ul><ul><li type=\"disc\">Errors 29006, 29013 while creating or updating Line Items</li><li type=\"disc\">Low level relation ITK errors while adding the <b>BidPackageLineItem</b> objects to the <b>BidPackageRevision</b>.</li><li type=\"disc\">Errors 29006, 29013, 29020 while processing rules (Revision, Variant or Closure) for <b>LineItemConfigContext</b>.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of <font face=\"courier\" height=\"10\">LineItemPropertiesWithType</font> structures which are used to create or update <b>BidPackageLineItem</b> objects.<br />",
+          "parameterName": "properties"
+        },
+        {
+          "description": "Reference to the <b>BidPackageRevision</b> object which will be used to associate the created <b>BidPackageLineItem</b> objects.",
+          "parameterName": "bidPackage"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc9000.1.0",
+      "dependencies": "",
+      "description": "This service operation creates or updates a group of <b>BidPackageLineItem</b> objects and any subtype of it in the context of the mentioned <b>BidPackage</b>. This operation allows the user to find or create a set of <b>BidPackageLineItem</b> objects based on the input data. It first tries to find the existence of the specified <b>BidPackageLineItem</b> for the specified <b>BidPackage</b>. If the specified <b>BidPackageLineItem</b> is found, then the its data will be updated. Otherwise, it will create the specified <b>BidPackageLineItem</b> and associate it to the specified <b>BidPackageRevision</b>. If the specified <b>BidPackageLineItem</b> objects exist and any of the input attribute values differ from those already set, they will be updated.",
+      "exceptionCondition": "",
+      "id": "createOrUpdateLineItemsWithType#const,std::vector<Teamcenter::Soa::Vendormanagement::_2012_02::VendorManagement::LineItemPropertiesWithType>,&$const,Teamcenter::BusinessObject,&",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createOrUpdateLineItemsWithType",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItemsWithType#const,std::vector<Teamcenter::Soa::Vendormanagement::_2012_02::VendorManagement::LineItemPropertiesWithType>,&$const,Teamcenter::BusinessObject,&",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> instance is returned. Failure will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font>.<br /><br />Typical Errors returned are:<br /><br /><ul><ul><li type=\"disc\">Errors 9006, 29013 while creating or updating <b>BidPackageLineItem</b> objects.</li><li type=\"disc\">Low level relation ITK errors while adding the <b>BidPackageLineItem</b> objects to the <b>BidPackageRevision</b>.</li><li type=\"disc\">Errors 29006, 29013, 29020 while processing rules (Revision, Variant or Closure) for <b>LineItemConfigContext</b>.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of <font face=\"courier\" height=\"10\">VectorPartProperties</font> structures which are used to create or update <b>VendorPart</b> objects or <b>CommercialPart</b> objects.<br /><br /><b>VendorPartProperties</b><br />The information about each <b>VendorPart</b> to be processed is provided by way of the <font face=\"courier\" height=\"10\">VendorPartProperties</font> data structure.<br />",
+          "parameterName": "properties"
+        },
+        {
+          "description": "A parent object reference with which the created parts will be associated.",
+          "parameterName": "container"
+        },
+        {
+          "description": "A relation name to be used for associating the <b>Vendor</b> to its parent.",
+          "parameterName": "relationType"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc2007.1",
+      "dependencies": "",
+      "description": "This service operation creates or updates a group of <b>VendorPart</b> objects or <b>CommericialPart</b> objects. The choice could be either <b>CommercialPart</b> or <b>VendorPart</b> only. This operation allows the user to update or create a set of <b>CommercialPart</b> objects or <b>VendorPart</b> objects based on the input data. It first tries to find the existence of the specified <b>VendorPart</b> or <b>VendorPartRevision</b>. If the specified parts are found, those parts will be updated with the specified values. Otherwise new parts will be created. <br />The choice for type of part is given through data member type of <font face=\"courier\" height=\"10\">VendorPartProperties</font> structure. Only '<i>ManufacturerPart</i>' and '<i>CommercialPart</i>' are valid types. <br /><b>Behavior for CommercialPart:</b>  The service will create the <b>CommercialPart</b> and <b>CommercialPartRevision</b> and it will associate the created <b>CommercialPart</b> to the specified parent (container). It also associates the part to the specified <b>Vendor</b> object if given. <br /><b>Behavior for ManufacturerPart: </b> The service will create the <b>ManufacturerPart</b> and <b>ManufacturerPartRevision</b> and will associate the part to the specified <b>Vendor</b> object. It also associates the created <b>ManufacturerPart</b> to the <b>CommercialPart</b> if specified.",
+      "exceptionCondition": "",
+      "id": "createOrUpdateVendorParts#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorPartProperties>,&$const,Teamcenter::BusinessObject,&$const,std::string",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createOrUpdateVendorParts",
+      "opTemplate": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorPartsResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateVendorParts#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorPartProperties>,&$const,Teamcenter::BusinessObject,&$const,std::string",
+      "returnDescription": "<font face=\"courier\" height=\"10\">CreateVendorPartsResponse</font> object returned contains a list of <font face=\"courier\" height=\"10\">CreateVendorPartsOutput</font> structures which contain information about the <b>VendorPart</b> and <b>VendorPartRevision</b>. Failure will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font> structure returned from within the <font face=\"courier\" height=\"10\">CreateVendorPartsResponse</font> object.<br /><br />Typical errors returned are:<br /><ul><ul><li type=\"disc\">48161 - Multiple <b>Vendor</b> objects existing with the specified <b>Vendor</b> Id</li><li type=\"disc\">29020 - Unable to create <b>Vendor</b> or <b>CommercialPart</b> or respective <b>PartRevision</b>.</li><li type=\"disc\">35002 - Unable to add specified <b>Vendor</b> to the <b>VendorPart</b>.</li><li type=\"disc\">35002, 35013 - Cannot relate created or updated <b>VendorPart</b> to the specified <b>CommercialPart</b> or <b>PartRevision</b>.</li><li type=\"disc\">35013, 35006 - Unable to add <b>VendorPart</b> to the parent Business Object.</li><li type=\"disc\">29024 - Unable to create <b>VendorPart</b> due to invalid release status of the <b>Vendor</b> & its latest revision specified.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "This operation is deprecated in TC 10.0. Replaced by new operation addRemoveVendorRoles.",
+          "deprecatedRelease": "tc10000.0.0"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "A list of <font face=\"courier\" height=\"10\">VendorProperties</font> structures which are used to create or update the <b>Vendor</b> objects.<br />",
+          "parameterName": "properties"
+        },
+        {
+          "description": "A parent object reference to which the created <b>Vendor</b> objects will be associated.",
+          "parameterName": "container"
+        },
+        {
+          "description": "A relation name to be used for associating the <b>Vendor</b> to its parent.",
+          "parameterName": "relationType"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc2007.1",
+      "dependencies": "",
+      "description": "This service operation creates or updates a group of <b>Vendor</b>, <b>VendorRevision</b> Objects and <b>VendorRole</b> objects. It allows the user to update or create a set of <b>Vendor</b> objects based on the input data. The service first tries to find the existence of the specified <b>Vendor</b> or <b>VendorRevision</b> or <b>VendorRole</b>. If the service is able to find any of those objects, then those objects will be updated. If the service is not able to find those objects, then those objects will be created. If the <b>Vendor</b> exists, but <b>VendorRevision</b> does not, then <b>VendorRevision</b> and <b>VendorRole</b> (and <b>VendorRole</b> form) will be created. If the specified <b>Vendor</b> object and its associated objects exist and any of the input attribute values differ from those already set, the <b>Vendor</b> and its associated objects will be updated.",
+      "exceptionCondition": "",
+      "id": "createOrUpdateVendors#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties>,&$const,Teamcenter::BusinessObject,&$const,std::string",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createOrUpdateVendors",
+      "opTemplate": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorsResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateVendors#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties>,&$const,Teamcenter::BusinessObject,&$const,std::string",
+      "returnDescription": "<font face=\"courier\" height=\"10\">CreateVendorsResponse</font> is the returned object. It contains the output in the form of list of <font face=\"courier\" height=\"10\">CreateVendorsOutput</font> structures which contain information about the <b>Vendor</b>, <b>VendorRevision</b> Objects and <b>VendorRole</b> objects. It also contains standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> structure. Failure will be with client id and potential error messages as mentioned below in the <font face=\"courier\" height=\"10\">ServiceData</font>.<br /><br />Typical errors returned can be:<br /><ul><ul><li type=\"disc\">Error 48161: Multiple <b>Vendor</b> objects existing with the specified <b>Vendor</b> Id</li><li type=\"disc\">Error 48005: Unable to create <b>Vendor</b> or <b>VendorRevision</b> or <b>VendorRole</b> or <b>VendorRoleForm</b>.</li><li type=\"disc\">Error 267023: Unable to add created <b>VendorRole</b> to the <b>VendorRevision</b></li><li type=\"disc\">Error 35002: Unable to add Vendor to the parent Business Object.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of VendorPartProperties2 structures which are used to create ManufacturerPart objects. The information about each ManufacturerPart to be processed is provided by the way of VendorPartProperties2 structure.",
+          "parameterName": "properties"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc10000.1.7",
+      "dependencies": "",
+      "description": "This operation creates a set of <b>ManufacturerPart</b> objects of given type based on input data.This operation is applicable for bulk creation of Vendor Part objects.",
+      "exceptionCondition": "",
+      "id": "createVendorParts#const,std::vector<Teamcenter::Soa::Vendormanagement::_2016_09::VendorManagement::VendorPartProperties2>,&",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createVendorParts",
+      "opTemplate": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorPartsResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::createVendorParts#const,std::vector<Teamcenter::Soa::Vendormanagement::_2016_09::VendorManagement::VendorPartProperties2>,&",
+      "returnDescription": "<b>CreateVendorPartsResponse</b> object returned contains a list of <b>CreateVendorPartsOutput</b> structures which contain information about the <b>VendorPart</b> and <b>VendorPartRevision</b>. Failure will be with client id and error message in the ServiceData structure returned from within the <b>CreateVendorPartsResponse</b> object.<br /><br />Possible errors returned in ServiceData are :<br />229021 - An Invalid Company Location was given. <br />229013 - The object type is invalid. <br />229028 - A Part name must be provided to create the Vendor Part.",
+      "useCase": "Create Vendor Parts in bulk,when Vendor is already created and CompanyLocation can be available with Vendor."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "List of <font face=\"courier\" height=\"10\">LineItemProps</font> structures which denote the exact <b>BidPackageLineItem</b> to be deleted. Out of all the members of this structure, name is needed to be populated as it will be used as the key for search within specified <b>BidPackage</b> Context.",
+          "parameterName": "input"
+        },
+        {
+          "description": "This is reference to <font face=\"courier\" height=\"10\">BidPackageProps</font> structure used to define context to look for <b>BidPackageLineItem</b> objects. ItemId and RevId need to be populated for this structure to accurately define the <b>BidPackageRevision</b>, which will be used to look for <b>BidPackageLineItem</b> objects to be deleted.",
+          "parameterName": "bidPackage"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm0VendorManagement",
+      "createRelease": "tc2007.1",
+      "dependencies": "",
+      "description": "This service operation deletes the <b>BidPackageLineItem </b>objects associated with a specific <b>BidPackageRevision</b>. The <b>BidPackageLineItem</b> objects to be deleted are searched with their names provided through the input data structures <font face=\"courier\" height=\"10\">LineItemProps</font>. Hence there will be one entry in the input vector 'input' per <b>BidPackageLineItem</b> to be deleted. There will be one call each for every <b>BidPackageRevision</b> for which <b>BidPackageLineItem</b> objects are to be deleted.",
+      "exceptionCondition": "",
+      "id": "deleteLineItems#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::LineItemProps>,&$const,Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::BidPackageProps,&",
+      "interface": "Teamcenter::Soa::Vendormanagement::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "deleteLineItems",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::deleteLineItems#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::LineItemProps>,&$const,Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::BidPackageProps,&",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> structure. It will contain all the partial errors and failures if any with specific client Ids.<br /><br />Typical Errors possible are:<br /><ul><ul><li type=\"disc\">Error 48008: <b>BidPackage</b> with given Id not found.</li><li type=\"disc\">Error 48161: Error Multiple <b>BidPackage</b> objects with given Id found.</li><li type=\"disc\">Error 48014: Specified <b>BidPackageRevision</b> not found.</li><li type=\"disc\">Error 48006: Error in deleting the specific <b>BidPackageLineItem</b>.</li></ul></ul>",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::LineItemPropsWithType",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <font face=\"courier\" height=\"10\">LineItemPropsWithType</font> structures which are used to create or update <b>BidPackageLineItem</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "properties"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::BusinessObject",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Reference to the <b>BidPackageRevision</b> object which will be used to associate the created <b>BidPackageLineItem</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "bidPackage"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc2007.1.4",
+      "description": "This service operation creates or updates a group of <b>BidPackageLineItem </b>objects in the context of the mentioned <b>BidPackage</b>. This operation allows the user to find or create a set of <b>BidPackageLineItem</b> objects based on the input data. It first tries to find the existence of the specified <b>BidPackageLineItem</b> for the specified <b>BidPackage</b>. If the specified <b>BidPackageLineItem</b> is found, then the <b>BidPackageLineItem</b> data will be updated. Otherwise, it will create the specified <b>BidPackageLineItem</b> and associate it to the specified <b>BidPackageRevision</b>. If the specified <b>BidPackageLineItem</b> objects exist and any of the input attribute values differ from those already set, the <b>BidPackageLineItem </b>objects will be updated.<br />The operation is now deprecated. It is now replaced by <font face=\"courier\" height=\"10\">Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItemsWithType.</font><br />",
+      "id": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Internal::Vendormanagement::VendorManagement::createOrUpdateLineItems#const,std::vector<Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::LineItemPropsWithType>,&$const,Teamcenter::BusinessObject,&",
+      "name": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement::createOrUpdateLineItems",
+      "returnConst": "false",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> instance is returned. Failure will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font>.<br /><br />Typical errors returned are: <br /><ul><ul><li type=\"disc\">Error 229024: Error while creating or updating <b>BidPackageLineItems</b></li><li type=\"disc\">Error 229020: Error while adding the <b>BidPackageLineItems</b> to the <b>BidPackageRevision</b>.</li><li type=\"disc\">Error 48014, 229024: Errors while processing rules (Revision, Variant or Closure) for <b>LineItemConfigContext</b>.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::ItemIDInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A structure of external IDs and context IDs. This data is used to generate the <b>Item</b> IDs with context. It will also be used to compare and find out existing Item with such ID.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::ItemIDResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc2007.1.4",
+      "description": "This service operation concatenates external object id and context id with hyphen to generate a new item id, provided length of concatenated id is less than the desired item id length. This operation also returns existing <b>Item</b> objects that have the generated IDs.<br />The intent of this operation is to support import of <b>Item</b> objects from external systems. This service operation concatenates external object id and context id with hyphen to generate a new item id, provided length of concatenated id is less than the desired item id length. This operation also returns existing <b>Item</b> objects that have the generated IDs.<br />The intent of this operation is to support import of <b>Item</b> objects from external systems.",
+      "id": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::ItemIDResponse#Teamcenter::Soa::Internal::Vendormanagement::VendorManagement::getItemIDwithContext#const,std::vector<Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::ItemIDInput>,&",
+      "name": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement::getItemIDwithContext",
+      "returnConst": "false",
+      "returnDescription": "A list of <font face=\"courier\" height=\"10\">ItemIDData</font> structures which contain <font face=\"courier\" height=\"10\">item_id </font>and references to existing objects with those IDs. Failure will be with client id and error message in the ServiceData.<br /><br />Typical Errors returned would be:<br /><br /><ul><ul><li type=\"disc\">Error 229016: In case the combination of<font face=\"courier\" height=\"10\"> input.externalObjectID</font> and <font face=\"courier\" height=\"10\">input.contextID</font> becomes larger than maximum allowed length for item ID (128), it will throw an exception mentioning the same.</li><li type=\"disc\">Error 229009, 48043: Standard exceptions while trying to look for an existing Item with generated Item ID will also be thrown back. </li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2016_09::VendorManagement::VendorPartProperties2",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of VendorPartProperties2 structures which are used to create ManufacturerPart objects. The information about each ManufacturerPart to be processed is provided by the way of VendorPartProperties2 structure.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "properties"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorPartsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc10000.1.7",
+      "description": "This operation creates a set of <b>ManufacturerPart</b> objects of given type based on input data.This operation is applicable for bulk creation of Vendor Part objects.",
+      "id": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorPartsResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::createVendorParts#const,std::vector<Teamcenter::Soa::Vendormanagement::_2016_09::VendorManagement::VendorPartProperties2>,&",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::createVendorParts",
+      "returnConst": "false",
+      "returnDescription": "<b>CreateVendorPartsResponse</b> object returned contains a list of <b>CreateVendorPartsOutput</b> structures which contain information about the <b>VendorPart</b> and <b>VendorPartRevision</b>. Failure will be with client id and error message in the ServiceData structure returned from within the <b>CreateVendorPartsResponse</b> object.<br /><br />Possible errors returned in ServiceData are :<br />229021 - An Invalid Company Location was given. <br />229013 - The object type is invalid. <br />229028 - A Part name must be provided to create the Vendor Part.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::LineItemProps",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "List of <font face=\"courier\" height=\"10\">LineItemProps</font> structures which denote the exact <b>BidPackageLineItem</b> to be deleted. Out of all the members of this structure, name is needed to be populated as it will be used as the key for search within specified <b>BidPackage</b> Context.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::BidPackageProps",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This is reference to <font face=\"courier\" height=\"10\">BidPackageProps</font> structure used to define context to look for <b>BidPackageLineItem</b> objects. ItemId and RevId need to be populated for this structure to accurately define the <b>BidPackageRevision</b>, which will be used to look for <b>BidPackageLineItem</b> objects to be deleted.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "bidPackage"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc2007.1",
+      "description": "This service operation deletes the <b>BidPackageLineItem </b>objects associated with a specific <b>BidPackageRevision</b>. The <b>BidPackageLineItem</b> objects to be deleted are searched with their names provided through the input data structures <font face=\"courier\" height=\"10\">LineItemProps</font>. Hence there will be one entry in the input vector 'input' per <b>BidPackageLineItem</b> to be deleted. There will be one call each for every <b>BidPackageRevision</b> for which <b>BidPackageLineItem</b> objects are to be deleted.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::deleteLineItems#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::LineItemProps>,&$const,Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::BidPackageProps,&",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::deleteLineItems",
+      "returnConst": "false",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> structure. It will contain all the partial errors and failures if any with specific client Ids.<br /><br />Typical Errors possible are:<br /><ul><ul><li type=\"disc\">Error 48008: <b>BidPackage</b> with given Id not found.</li><li type=\"disc\">Error 48161: Error Multiple <b>BidPackage</b> objects with given Id found.</li><li type=\"disc\">Error 48014: Specified <b>BidPackageRevision</b> not found.</li><li type=\"disc\">Error 48006: Error in deleting the specific <b>BidPackageLineItem</b>.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The input is a list of <font face=\"courier\" height=\"10\">VendorProperties</font> structures. There will be an entry for each of the <b>VendorRole</b> objects to be deleted.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc2007.1",
+      "description": "This service operation deletes specified <b>VendorRole</b> objects attached with <b>VendorRevision</b> objects mentioned through <font face=\"courier\" height=\"10\">VendorProperties</font>  data structure. <b>VendorRevision</b> is specified through vendor ID and Revision name in <font face=\"courier\" height=\"10\">VendorProperties</font>. The combination to be specified thus is '<i>vendorId</i> + <i>revId</i> + <i>roleType</i>'. So, this combination denotes that there will be one instance of <font face=\"courier\" height=\"10\">VendorProperties</font> per <b>VendorRole</b> to be deleted. In case of <b>VendorRevision</b> is not found based on the Id and Revision key, this operation will return an error.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::deleteVendorRoles#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties>,&",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::deleteVendorRoles",
+      "returnConst": "false",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> structure. It will contain all the partial errors and failures such as mentioned below, if any, with specific client Ids.<br /><ul><ul><li type=\"disc\">In case multiple vendors are found with same ItemId and RevId combination, the service operation will throw error 48161.</li><li type=\"disc\">Error 229004 will be thrown in case the VendorRole could not be deleted.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <font face=\"courier\" height=\"10\">VectorProperties</font> structures which are used to search for <b>Vendor</b> objects for deletion operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc2007.1",
+      "description": "This service operation deletes <b>Vendor</b> objects and associated <b>VendorRevision</b> objects and <b>VendorRole</b> objects. When provided with the input in the form of <font face=\"courier\" height=\"10\">VendorProperties</font> structure, the operation finds the specified <b>Vendor</b> objects and deletes them. <b>VendorRole</b> objects  will also be deleted along with the associated <b>VendorRevision</b> objects and <b>Vendor</b> objects.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::deleteVendors#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties>,&",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::deleteVendors",
+      "returnConst": "false",
+      "returnDescription": "The operation returns standard <font face=\"courier\" height=\"10\">ServiceData</font> object. The partial errors and failures are updated and returned thru this object. The success of the operation must be checked through this object only.<br />Typical errors possible are:<br /><ul><ul><li type=\"disc\">Error 48006: Unable to delete the specified <b>Item</b> (<b>Vendor</b>).</li><li type=\"disc\">Error 48035: Error Unable to delete the specified <b>ItemRevision</b> (<b>VendorRevision</b>).</li><li type=\"disc\">Error 48008: <b>Vendor</b> with specified ID is not found.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::GetVendorPartsWithSelRuleInputInfo",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "List of <font face=\"courier\" height=\"10\">GetVendorPartsWithSelRuleInputInfo</font> structures containing <b>CommercialPartRevision</b> objects to be used as input to find related <b>VendorPart</b> objects.  It also contains condition name string.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::GetVendorPartsWithSelRuleResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "P8000.0.0",
+      "description": "This service operation returns <b>VendorPart</b> objects  associated with the given <b>CommercialPartRevision</b>  based on the selection rule set for the <b>VendorPart</b> objects in Structure Manager. If no value is given for the selection rule, it is read  from the preference <b>VMS_vendor_part_selection_rule</b>. Typical OOTB selection rules provided are <i>showAllVendorParts</i> and <i>showPreferredVendorPartsOnly</i>.  First selection rule is to show all related <b>VendorPart</b> objects and later is used to show the related <b>VendorPart</b> objects carrying <i>preferred</i> status.",
+      "id": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::GetVendorPartsWithSelRuleResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::getVendorPartsWithSelRule#const,std::vector<Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::GetVendorPartsWithSelRuleInputInfo>,&",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::getVendorPartsWithSelRule",
+      "returnConst": "false",
+      "returnDescription": "<font face=\"courier\" height=\"10\">GetVendorPartsWithSelRuleResponse</font> contains a list of <font face=\"courier\" height=\"10\">vendorPartData</font> structures. <font face=\"courier\" height=\"10\">vendorPartData</font> structure essentially consists of an list of collection of <b>VendorPart</b> objects and its relation objects with <b>CommercialPartRevision</b> objects.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Internal::Vendormanagement::_2008_06::VendorManagement::GetVPSRConditionsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "P8000.0.0",
+      "description": "This internal service operation gets a list of conditions to use for <b>VendorPart</b> Selection Rule. The Response structure returned contains a list of condition names and their expressions.",
+      "id": "Teamcenter::Soa::Internal::Vendormanagement::_2008_06::VendorManagement::GetVPSRConditionsResponse#Teamcenter::Soa::Internal::Vendormanagement::VendorManagement::getVPSRConditions",
+      "name": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement::getVPSRConditions",
+      "returnConst": "false",
+      "returnDescription": "<font face=\"courier\" height=\"10\">GetVPSRConditionsResponse</font> structure returned contains a list of <font face=\"courier\" height=\"10\">ConditionData</font> which contains conditions information. Failures will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font>.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2012_09::VendorManagement::VendorRoleData",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "It is a list of <font face=\"courier\" height=\"10\">VendorRoleData</font> structures meant to hold data for <b>VendorRole</b> objects to be processed.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "vendorRoles"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::BusinessObject",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Reference to the <b>VendorRevision</b> object in the context of which these roles are to be processed.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "vendorRevRef"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc10000.0.0",
+      "description": "This operation adds or removes set of roles to/from a <b>VendorRevision</b>. Typically a role can be assigned to a <b>VendorRevision</b> by adding a role form with different role specific information. OOTB <b>VendorRevision</b> can be assigned with 3 roles namely <i>Distributor</i>, <i>Supplier</i> and <i>Manufacturer</i>. All these role forms contain information about the <b>Vendor</b> based on the type of the role. Similarly a role can be revoked from a <b>VendorRevision</b>. When a <b>Vendor</b> is revised, the new revision inherits all the assigned roles to the previous <b>VendorRevision</b>.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::addRemoveVendorRoles#const,std::vector<Teamcenter::Soa::Vendormanagement::_2012_09::VendorManagement::VendorRoleData>,&$const,Teamcenter::BusinessObject,&",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::addRemoveVendorRoles",
+      "returnConst": "false",
+      "returnDescription": "The partial errors and failures are updated and returned through the object <font face=\"courier\" height=\"10\">ServiceData</font>.<br />Typical errors returned are: <br /><ul><ul><li type=\"disc\">Error 480014: <b>VendorRevision</b> object is not valid.</li><li type=\"disc\">Error 229024: Unable to get <b>VendorRoles</b> from <b>VendorRevision</b>.</li><li type=\"disc\">Error 229022: Unable to add specified <b>VendorRole</b>.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::ChangeVendorInputInfo",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "input is a list of <font face=\"courier\" height=\"10\">ChangeVendorInputInfo</font> structures. If a <b>Vendor</b> is supplied in the list, all the related parts are processed. If <b>VendorPart</b> objects are supplied, they are processed one by one for changing <b>Vendor</b>.<br /><br /><b>ChangeVendorInputInfo</b><br />Input structure containing <b>Vendor</b> to change, <b>VendorPart</b> to change and destination new <b>Vendor</b>.<br /><br /><font face=\"courier\" height=\"10\">struct ChangeVendorInputInfo<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;Teamcenter::Soa::Client::Model::Vendor* vendorToChange;<br />&nbsp;&nbsp;&nbsp;&nbsp;vector< Teamcenter::Soa::Client::Model::Item* > vendorParts;<br />&nbsp;&nbsp;&nbsp;&nbsp;Teamcenter::Soa::Client::Model::Vendor* newVendor;<br />}</font><br /><br /><ul><ul><li type=\"disc\">vendorToChange&nbsp;&nbsp;&nbsp;&nbsp;This is Object pointing to the Vendor to change. If this input is specified, all the related VendorPart objects are processed for change Vendor operation. This input takes precedence over VendorPart objects input.</li><li type=\"disc\">vendorParts&nbsp;&nbsp;&nbsp;&nbsp;VendorPart objects to be processed for change Vendor operation. </li><li type=\"disc\">newVendor&nbsp;&nbsp;&nbsp;&nbsp;The new Vendor to be attached to the part.</li></ul></ul>",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::ChangeVendorResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "P8000.0.0",
+      "description": "This service operation can be called on either a <b>VendorPart</b> or a <b>Vendor</b>.<br /><br />For <b>VendorPart</b>: It creates a new copy of <b>VendorPart</b> with the new <b>Vendor</b> information. This newly created <b>VendorPart</b> is associated to the new revision of the <b>CommercialPart</b> of the old <b>VendorPart</b>.<br />For <b>Vendor</b>: All <b>VendorPart</b> objects related with given <b>Vendor</b> are taken into consideration. Each of these <b>VendorPart</b> objects are then processed as mentioned above.<br /><br />This operation shows old and new part id with the information of the success or failure. <br /><br /><b>Typical Client Usage: </b><br />Typical usage involves two Vendor objects and a VendorPart created with either one of them.<br /><br /><font face=\"courier\" height=\"10\"><b>VendorManagementService vmService = <br />VendorManagementService.getService(session);<br />ChangeVendorInputInfo[]chanProps = new ChangeVendorInputInfo[1];<br />ChangeVendorInputInfo changeProps = new ChangeVendorInputInfo();<br />ChangeVendorResponse response = null;<br />changeProps.newVendor = (TCComponentVendor)newVendor;<br />changeProps.vendorParts=selectedParts;<br />chanProps[0] = changeProps;<br /><br />response = vmService.changeVendor( chanProps );</b></font><br />",
+      "id": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::ChangeVendorResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::changeVendor#const,std::vector<Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::ChangeVendorInputInfo>,&",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::changeVendor",
+      "returnConst": "false",
+      "returnDescription": "<font face=\"courier\" height=\"10\">ChangeVendorResponse</font> structure returned contains information about the updated <b>VendorParts</b> and their statuses along with the notes if any. <br />List of <font face=\"courier\" height=\"10\">ChangeVendorStatus</font> structure contains: <br />A String list of Number of old VendorPart Ids before performing the change <b>Vendor</b> operation.<br />A String list of Number of new VendorPart Ids after performing the change <b>Vendor</b> operation. <br />A String list of Remarks (notes) corresponding to the each change <b>Vendor</b> operation. e.g. \"<i>Success</i>\", \"<i>Failure</i>\".<br /><br />Typical errors returned are:<br /><ul><ul><li type=\"disc\">Error 229013: Invalid Id supplied for New Vendor</li><li type=\"disc\">Error 229013: Invalid Id for old Vendor to change</li><li type=\"disc\">Error 48005: Cannot create a new VendorPart</li><li type=\"disc\">Error 48043: VendorPart with given credentials already exists</li><li type=\"disc\">Error 229024: Cannot find either Vendor to change or VendorPart objects to change.</li></ul></ul><br /><br /><br /><b>ChangeVendorResponse</b><br />Response structure for the operation contains statuses member. It is a list of <font face=\"courier\" height=\"10\">ChangeVendorStatus</font> structures.<br /><br /><font face=\"courier\" height=\"10\">struct ChangeVendorResponse<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;vector<ChangeVendorStatus> statuses;<br />&nbsp;&nbsp;&nbsp;&nbsp;Teamcenter::Soa::Client::ServiceData serviceData;<br />}</font><br /><br /><ul><ul><li type=\"disc\">statuses&nbsp;&nbsp;&nbsp;&nbsp;List of ChangeVendorStatus structures. There is an entry per entry in input structure.</li><li type=\"disc\">serviceData&nbsp;&nbsp;&nbsp;&nbsp;Standard ServiceData structure. It contains partial errors and failures along with the clientIds.</li></ul></ul><br /><br /><b>ChangeVendorStatus</b><br />This is the structure containing a list of structures for each <b>VendorPart</b> statuses.<br /><br /><font face=\"courier\" height=\"10\">struct ChangeVendorStatus<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;vector<ChangedPartStatus> changedStatus;<br />}</font><br /><br /><ul><ul><li type=\"disc\">changedStatus&nbsp;&nbsp;&nbsp;&nbsp;This structure contains the status of VendorPart objects and remarks from the operation.</li></ul></ul><br /><br /><b>ChangedPartStatus</b><br />This is the structure containing a list of statuses for change <b>Vendor</b> operation.<br /><br /><font face=\"courier\" height=\"10\">struct ChangedPartStatus<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;string oldPartStr;<br />&nbsp;&nbsp;&nbsp;&nbsp;string newPartStr;<br />&nbsp;&nbsp;&nbsp;&nbsp;string notes;<br />}</font><br /><br /><ul><ul><li type=\"disc\">oldPartStr&nbsp;&nbsp;&nbsp;&nbsp;Id of old VendorPart.</li><li type=\"disc\">newPartStr&nbsp;&nbsp;&nbsp;&nbsp;Id of new VendorPart created.</li><li type=\"disc\">Notes&nbsp;&nbsp;&nbsp;&nbsp;Remarks (notes) corresponding to the each change Vendor operation. e.g. \"<i>Success</i>\" <i>Failure</i>\".</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::BidPackageProps",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <font face=\"courier\" height=\"10\">BidPackageProps</font> structures which are used to create or update <b>BidPackage</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "properties"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::BusinessObject",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A parent object reference with which the created <b>BidPackage</b> objects will be associated.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "container"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": ""
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A relation name to be used for associating the <b>BidPackage</b> to its parent.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "relationType"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateBidPacksResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc2007.1",
+      "description": "This service operation creates or updates a group of <b>BidPackage</b>, <b>BidPackageRevision </b>objects. This operation allows the user to find or create a set of <b>BidPackage</b> objects based on the input data. The service first tries to find the existence of the specified <b>BidPackage</b> or <b>BidPackageRevision</b>. If the specified <b>BidPackage</b> objects exist and any of the input attribute values differ from those already set, the <b>BidPackage</b> objects will be updated.",
+      "id": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateBidPacksResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateBidPackages#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::BidPackageProps>,&$const,Teamcenter::BusinessObject,&$const,std::string",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateBidPackages",
+      "returnConst": "false",
+      "returnDescription": "A list of <font face=\"courier\" height=\"10\">CreateBidPacksOutput</font> structures. These structures contain information about the <b>BidPackages</b>, <b>BidPackageRevisions</b>. <br />Failures are returned through <font face=\"courier\" height=\"10\">ServiceData</font> with client id and error message.<br /><br />Typical errors returned can be:<br /><ul><ul><li type=\"disc\">Error 48161: Multiple BidPackage objects existing with the specified itemId Id</li><li type=\"disc\">Error 48005, 48032: Unable to create BidPackage or BidPackageRevision.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::LineItemProps",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <font face=\"courier\" height=\"10\">LineItemProps</font> structures which are used to create or update <b>BidPackageLineItem</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "properties"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::BusinessObject",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Reference to the <b>BidPackageRevision</b> object which will be used to associate the created <b>BidPackageLineItem</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "bidPackage"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc2007.1",
+      "description": "This service operation creates or updates a group of <b>BidPackageLineItem</b> objects in the context of the mentioned <b>BidPackage</b>. This operation allows the user to find or create a set of <b>BidPackageLineItem</b> objects based on the input data. It first tries to find the existence of the specified <b>BidPackageLineItem</b> for the specified <b>BidPackage</b>. If the specified <b>BidPackageLineItem</b> is found, then its corresponding data will be updated. Otherwise, it will create the specified <b>BidPackageLineItem</b> and associate it to the specified <b>BidPackageRevision</b>. If the specified <b>BidPackageLineItem</b> objects exist and any of the input attribute values differ from those already set, the <b>BidPackageLineItem</b> objects will be updated.<br /><br />The operation is now deprecated. It is now replaced by <font face=\"courier\" height=\"10\">Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItemsWithType.</font>",
+      "id": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItems#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::LineItemProps>,&$const,Teamcenter::BusinessObject,&",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItems",
+      "returnConst": "false",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> instance is returned. Failure will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font>.<br /><br />Typical Errors returned are:<br /><ul><ul><li type=\"disc\">Errors 29006, 29013 while creating or updating Line Items</li><li type=\"disc\">Low level relation ITK errors while adding the <b>BidPackageLineItem</b> objects to the <b>BidPackageRevision</b>.</li><li type=\"disc\">Errors 29006, 29013, 29020 while processing rules (Revision, Variant or Closure) for <b>LineItemConfigContext</b>.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2012_02::VendorManagement::LineItemPropertiesWithType",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <font face=\"courier\" height=\"10\">LineItemPropertiesWithType</font> structures which are used to create or update <b>BidPackageLineItem</b> objects.<br />",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "properties"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::BusinessObject",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Reference to the <b>BidPackageRevision</b> object which will be used to associate the created <b>BidPackageLineItem</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "bidPackage"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.0",
+      "description": "This service operation creates or updates a group of <b>BidPackageLineItem</b> objects and any subtype of it in the context of the mentioned <b>BidPackage</b>. This operation allows the user to find or create a set of <b>BidPackageLineItem</b> objects based on the input data. It first tries to find the existence of the specified <b>BidPackageLineItem</b> for the specified <b>BidPackage</b>. If the specified <b>BidPackageLineItem</b> is found, then the its data will be updated. Otherwise, it will create the specified <b>BidPackageLineItem</b> and associate it to the specified <b>BidPackageRevision</b>. If the specified <b>BidPackageLineItem</b> objects exist and any of the input attribute values differ from those already set, they will be updated.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItemsWithType#const,std::vector<Teamcenter::Soa::Vendormanagement::_2012_02::VendorManagement::LineItemPropertiesWithType>,&$const,Teamcenter::BusinessObject,&",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateLineItemsWithType",
+      "returnConst": "false",
+      "returnDescription": "Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> instance is returned. Failure will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font>.<br /><br />Typical Errors returned are:<br /><br /><ul><ul><li type=\"disc\">Errors 9006, 29013 while creating or updating <b>BidPackageLineItem</b> objects.</li><li type=\"disc\">Low level relation ITK errors while adding the <b>BidPackageLineItem</b> objects to the <b>BidPackageRevision</b>.</li><li type=\"disc\">Errors 29006, 29013, 29020 while processing rules (Revision, Variant or Closure) for <b>LineItemConfigContext</b>.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorPartProperties",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <font face=\"courier\" height=\"10\">VectorPartProperties</font> structures which are used to create or update <b>VendorPart</b> objects or <b>CommercialPart</b> objects.<br /><br /><b>VendorPartProperties</b><br />The information about each <b>VendorPart</b> to be processed is provided by way of the <font face=\"courier\" height=\"10\">VendorPartProperties</font> data structure.<br />",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "properties"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::BusinessObject",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A parent object reference with which the created parts will be associated.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "container"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": ""
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A relation name to be used for associating the <b>Vendor</b> to its parent.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "relationType"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorPartsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc2007.1",
+      "description": "This service operation creates or updates a group of <b>VendorPart</b> objects or <b>CommericialPart</b> objects. The choice could be either <b>CommercialPart</b> or <b>VendorPart</b> only. This operation allows the user to update or create a set of <b>CommercialPart</b> objects or <b>VendorPart</b> objects based on the input data. It first tries to find the existence of the specified <b>VendorPart</b> or <b>VendorPartRevision</b>. If the specified parts are found, those parts will be updated with the specified values. Otherwise new parts will be created. <br />The choice for type of part is given through data member type of <font face=\"courier\" height=\"10\">VendorPartProperties</font> structure. Only '<i>ManufacturerPart</i>' and '<i>CommercialPart</i>' are valid types. <br /><b>Behavior for CommercialPart:</b>  The service will create the <b>CommercialPart</b> and <b>CommercialPartRevision</b> and it will associate the created <b>CommercialPart</b> to the specified parent (container). It also associates the part to the specified <b>Vendor</b> object if given. <br /><b>Behavior for ManufacturerPart: </b> The service will create the <b>ManufacturerPart</b> and <b>ManufacturerPartRevision</b> and will associate the part to the specified <b>Vendor</b> object. It also associates the created <b>ManufacturerPart</b> to the <b>CommercialPart</b> if specified.",
+      "id": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorPartsResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateVendorParts#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorPartProperties>,&$const,Teamcenter::BusinessObject,&$const,std::string",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateVendorParts",
+      "returnConst": "false",
+      "returnDescription": "<font face=\"courier\" height=\"10\">CreateVendorPartsResponse</font> object returned contains a list of <font face=\"courier\" height=\"10\">CreateVendorPartsOutput</font> structures which contain information about the <b>VendorPart</b> and <b>VendorPartRevision</b>. Failure will be with client id and error message in the <font face=\"courier\" height=\"10\">ServiceData</font> structure returned from within the <font face=\"courier\" height=\"10\">CreateVendorPartsResponse</font> object.<br /><br />Typical errors returned are:<br /><ul><ul><li type=\"disc\">48161 - Multiple <b>Vendor</b> objects existing with the specified <b>Vendor</b> Id</li><li type=\"disc\">29020 - Unable to create <b>Vendor</b> or <b>CommercialPart</b> or respective <b>PartRevision</b>.</li><li type=\"disc\">35002 - Unable to add specified <b>Vendor</b> to the <b>VendorPart</b>.</li><li type=\"disc\">35002, 35013 - Cannot relate created or updated <b>VendorPart</b> to the specified <b>CommercialPart</b> or <b>PartRevision</b>.</li><li type=\"disc\">35013, 35006 - Unable to add <b>VendorPart</b> to the parent Business Object.</li><li type=\"disc\">29024 - Unable to create <b>VendorPart</b> due to invalid release status of the <b>Vendor</b> & its latest revision specified.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <font face=\"courier\" height=\"10\">VendorProperties</font> structures which are used to create or update the <b>Vendor</b> objects.<br />",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "properties"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::BusinessObject",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A parent object reference to which the created <b>Vendor</b> objects will be associated.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "container"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": ""
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A relation name to be used for associating the <b>Vendor</b> to its parent.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "relationType"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc2007.1",
+      "description": "This service operation creates or updates a group of <b>Vendor</b>, <b>VendorRevision</b> Objects and <b>VendorRole</b> objects. It allows the user to update or create a set of <b>Vendor</b> objects based on the input data. The service first tries to find the existence of the specified <b>Vendor</b> or <b>VendorRevision</b> or <b>VendorRole</b>. If the service is able to find any of those objects, then those objects will be updated. If the service is not able to find those objects, then those objects will be created. If the <b>Vendor</b> exists, but <b>VendorRevision</b> does not, then <b>VendorRevision</b> and <b>VendorRole</b> (and <b>VendorRole</b> form) will be created. If the specified <b>Vendor</b> object and its associated objects exist and any of the input attribute values differ from those already set, the <b>Vendor</b> and its associated objects will be updated.",
+      "id": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorsResponse#Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateVendors#const,std::vector<Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::VendorProperties>,&$const,Teamcenter::BusinessObject,&$const,std::string",
+      "name": "Teamcenter::Soa::Vendormanagement::VendorManagement::createOrUpdateVendors",
+      "returnConst": "false",
+      "returnDescription": "<font face=\"courier\" height=\"10\">CreateVendorsResponse</font> is the returned object. It contains the output in the form of list of <font face=\"courier\" height=\"10\">CreateVendorsOutput</font> structures which contain information about the <b>Vendor</b>, <b>VendorRevision</b> Objects and <b>VendorRole</b> objects. It also contains standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> structure. Failure will be with client id and potential error messages as mentioned below in the <font face=\"courier\" height=\"10\">ServiceData</font>.<br /><br />Typical errors returned can be:<br /><ul><ul><li type=\"disc\">Error 48161: Multiple <b>Vendor</b> objects existing with the specified <b>Vendor</b> Id</li><li type=\"disc\">Error 48005: Unable to create <b>Vendor</b> or <b>VendorRevision</b> or <b>VendorRole</b> or <b>VendorRoleForm</b>.</li><li type=\"disc\">Error 267023: Unable to add created <b>VendorRole</b> to the <b>VendorRevision</b></li><li type=\"disc\">Error 35002: Unable to add Vendor to the parent Business Object.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "tc2007.1.4",
+      "dependencies": "",
+      "description": "The Vendor Management service exposes operations that are used to address Vendor Management related functionalities. Common uses of this service are to create, modify and delete Vendor Management complex objects through different operations.<br /><br />This service provides following Vendor Management use cases.<br /><ul><ul><li type=\"disc\">Create or update of BidPackage, Vendor Part, Vendor, BidPackage Line Item,</li><li type=\"disc\">Deletion of BidPackage Line Item, Vendor,</li><li type=\"disc\">Change Vendor of an existing Vendor Part,</li><li type=\"disc\">Fetching Vendor Parts based on a selection rule,</li><li type=\"disc\">Add or remove Vendor roles to or from a Vendor.</li></ul></ul>",
+      "libraryName": "TcSoaVendorManagement",
+      "name": "VendorManagement",
+      "namespace": "Teamcenter::Soa::Internal::Vendormanagement",
+      "serviceLibraryRef": "<ul><ul><li type=\"disc\">Java</li></ul></ul><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcSoaVendorManagementTypes.jar<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcSoaVendorManagementStrong.jar<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcSoaVendorManagementLoose.jar<br /><br /><ul><ul><li type=\"disc\">C++</li></ul></ul><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagement.dll<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagementstrong.dll<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagementtypes.dll<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagementstrongmngd.dll <br /><br /><ul><ul><li type=\"disc\">C#</li></ul></ul><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagementtypes.dll<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcSoaVendorManagementStrong."
+    },
+    {
+      "createRelease": "tc2007.1.4",
+      "dependencies": "",
+      "description": "The Vendor Management service exposes operations that are used to address Vendor Management related functionalities. Common uses of this service are to create, modify and delete Vendor Management complex objects through different operations.<br /><br />This service provides following Vendor Management use cases.<br /><ul><ul><li type=\"disc\">Create or update of BidPackage, Vendor Part, Vendor, BidPackage Line Item,</li><li type=\"disc\">Deletion of BidPackage Line Item, Vendor,</li><li type=\"disc\">Change Vendor of an existing Vendor Part,</li><li type=\"disc\">Fetching Vendor Parts based on a selection rule,</li><li type=\"disc\">Add or remove Vendor roles to or from a Vendor.</li></ul></ul>",
+      "libraryName": "TcSoaVendorManagement",
+      "name": "VendorManagement",
+      "namespace": "Teamcenter::Soa::Vendormanagement",
+      "serviceLibraryRef": "<ul><ul><li type=\"disc\">Java</li></ul></ul><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcSoaVendorManagementTypes.jar<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcSoaVendorManagementStrong.jar<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcSoaVendorManagementLoose.jar<br /><br /><ul><ul><li type=\"disc\">C++</li></ul></ul><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagement.dll<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagementstrong.dll<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagementtypes.dll<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagementstrongmngd.dll <br /><br /><ul><ul><li type=\"disc\">C#</li></ul></ul><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libtcsoavendormanagementtypes.dll<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TcSoaVendorManagementStrong."
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify the Partial Errors associated with this <font face=\"courier\" height=\"10\">BidPackageProps</font> input.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Id to create <b>BidPackage</b>, generated if the string is empty.",
+          "name": "itemId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name for the <b>BidPackage</b>. Default name generated if left empty.",
+          "name": "name"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Object Type to be created. It is <i>BidPackage</i>.",
+          "name": "type"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Revision Id to create <b>BidPackageRevision</b>. Generated if left empty.",
+          "name": "revId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description of the object to be created.",
+          "name": "description"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The information about each <b>BidPackage</b> to be processed is provided by way of the <font face=\"courier\" height=\"10\">BidPackageProps</font> data structure.",
+      "isPublished": "true",
+      "name": "BidPackageProps",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Vendor"
+            }
+          ],
+          "description": "This is Object pointing to the <b>Vendor</b> to change. If this input is specified, all the related <b>VendorPart</b> objects are processed for change <b>Vendor</b> operation. This input takes precedence over <b>VendorPart</b> objects input.",
+          "name": "vendorToChange"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Item"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "<b>VendorPart</b> objects to be processed for change <b>Vendor</b> operation.",
+          "name": "vendorParts"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Vendor"
+            }
+          ],
+          "description": "The new <b>Vendor</b> to be attached to the part.",
+          "name": "newVendor"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "Input structure containing <b>Vendor</b> to change, <b>VendorPart</b> to change and destination new <b>Vendor</b>.",
+      "isPublished": "true",
+      "name": "ChangeVendorInputInfo",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Vendor"
+            }
+          ],
+          "description": "<b>Vendor</b> Object created or updated.",
+          "name": "vendor"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::VendorRevision"
+            }
+          ],
+          "description": "<b>VendorRevision</b> Object created or Updated.",
+          "name": "vendorRev"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The information about each <b>Vendor</b> object output after creation is provided by way of the <font face=\"courier\" height=\"10\">CreateVendorsOutput</font> data structure.",
+      "isPublished": "true",
+      "name": "CreateVendorsOutput",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorsOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <font face=\"courier\" height=\"10\">CreateVendorsOutput</font> structures. Each of them represents a <b>Vendor</b> created or updated.",
+          "name": "output"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard <font face=\"courier\" height=\"10\">ServiceData</font> structure. It contains partial errors and failures along with the clientIds.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The <font face=\"courier\" height=\"10\">CreateVendorsResponse</font> structure represents the output vector <font face=\"courier\" height=\"10\">CreateVendorsOutput</font> and the <font face=\"courier\" height=\"10\">ServiceData</font>.",
+      "isPublished": "true",
+      "name": "CreateVendorsResponse",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Internal::Vendormanagement::_2008_06::VendorManagement::ConditionData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "It is a list of <font face=\"courier\" height=\"10\">ConditionData</font> structres which contain information of the conditions found.",
+          "name": "condData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard <font face=\"courier\" height=\"10\">ServiceData</font> structure. It contains partial errors and failures along with the clientIds.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "Response structure for service operation <font face=\"courier\" height=\"10\">getVPSRConditions</font>.",
+      "isPublished": "false",
+      "name": "GetVPSRConditionsResponse",
+      "namespace": "Teamcenter::Soa::Internal::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ItemRevision"
+            }
+          ],
+          "description": "Selected <b>CommercialPartRevision</b> object from BOM. This revision is used for searching the related <b>VendorPart</b> objects based on selection rule.",
+          "name": "comPartRev"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The name of the condition in Teamcenter which is used as a selection rule while finding the <b>VendorPart</b> objects. The service operation will try and search for a valid selection rule based on the condition name. If this input is given as an empty string, the default selection rule is used which is governed by the preference <b>VMS_vendor_part_selection_rule</b>.",
+          "name": "conditionName"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "A structure of <b>CommercialPartRevision</b> and condition name.",
+      "isPublished": "true",
+      "name": "GetVendorPartsWithSelRuleInputInfo",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::VendorPartData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The output structure, which is essentially a list of <font face=\"courier\" height=\"10\">VendorPartData</font> structures returned. Each of them will contain relation and part information for each <b>VendorPart</b> found.",
+          "name": "partData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard Teamcenter service response data.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "The response structure containing <font face=\"courier\" height=\"10\">VendorPartData</font> structure which in turn stores information about found <b>VendorPart</b> objects.",
+      "isPublished": "true",
+      "name": "GetVendorPartsWithSelRuleResponse",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller which comes through input data.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Existing Item object with the same item_id. The presence of this object indicates that the item already exists in the system, or that the supplied combination of external <font face=\"courier\" height=\"10\">objectID</font> and <font face=\"courier\" height=\"10\">contextID</font> is not unique.",
+          "name": "itemID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Object tag of an existing item with the same item_id.\nThe presence of this tag indicates that the item\nalready exists in the system, or that the supplied\ncombination of external object ID and context ID is\nnot unique.",
+          "name": "existingObject"
+        }
+      ],
+      "createRelease": "tc2007.1.4",
+      "description": "Structure containing an item_id and a reference to an existing object with that ID.",
+      "isPublished": "false",
+      "name": "ItemIDData",
+      "namespace": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement",
+      "scope": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify returned <font face=\"courier\" height=\"10\">ItemData</font> elements and Partial Errors associated with this <font face=\"courier\" height=\"10\">ItemIDInput</font>.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The object ID provided from the external system. The assumption is that this ID is unique within the supplied context.",
+          "name": "externalObjectID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "An ID designating the external system, usually the ID of a vendor or a partner company providing the Item information.",
+          "name": "contextID"
+        }
+      ],
+      "createRelease": "tc2007.1.4",
+      "description": "A structure of external IDs and context IDs. This data is used to generate the <b>Item</b> IDs with context. It will also be used to compare and find out existing Item with such ID.",
+      "isPublished": "false",
+      "name": "ItemIDInput",
+      "namespace": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement",
+      "scope": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement::ItemIDData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of ItemIDData structures which essentially denote generated IDs with potential existing <b>Item</b> with the generated ID. Errors\\Partial errors will sit with standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> structure.",
+          "name": "itemData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard <font face=\"courier\" height=\"10\">ServiceData</font> structure. It contains partial errors and failures along with the clientIds.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc2007.1.4",
+      "description": "Response structure for <font face=\"courier\" height=\"10\">getItemIDwithContext</font>",
+      "isPublished": "false",
+      "name": "ItemIDResponse",
+      "namespace": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement",
+      "scope": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the <b>BidPackageLineItem</b> to be created.",
+          "name": "name"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description of the <b>BidPackageLineItem</b> Object.",
+          "name": "description"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>Quote</b> form to be added to <b>BidPackageLineItem</b>.",
+          "name": "quote"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the type of the <b>BidPackageLineItem</b> to be used.",
+          "name": "bpliTypeName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the <b>LineItemConfigContext</b> to be created.",
+          "name": "liccname"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description of the <b>LineItemConfigContext</b> to be created.",
+          "name": "liccdesc"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Id of the part to be associated with <b>BidPackageLineItem</b>.",
+          "name": "partid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "PSView Type to be associated with <b>LineItemConfigContext</b>.",
+          "name": "viewtype"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Quantity to be created for <b>BidPackageLineItem</b>.",
+          "name": "quantity"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Revision rule to be associated with <b>LineItemConfigContext</b>.",
+          "name": "revRule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Variant rule to be associated with <b>LineItemConfigContext</b>.",
+          "name": "varRule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Closure rule to be associated with <b>LineItemConfigContext</b>.",
+          "name": "closureRule"
+        }
+      ],
+      "createRelease": "tc9000.1.0",
+      "description": "The information about each <b>BidPackageLineItem</b> to be processed is provided by way of the <font face=\"courier\" height=\"10\">LineItemPropertiesWithType</font> data structure.",
+      "isPublished": "true",
+      "name": "LineItemPropertiesWithType",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2012_02::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the <b>BidPackageLineItem</b> to be created.",
+          "name": "name"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description of the BidPackageLineItem Object.",
+          "name": "description"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Model Object for <b>Quote</b> to be added to <b>BidPackageLineItem</b>.",
+          "name": "quote"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the <b>LineItemConfigContext</b> to be created.",
+          "name": "liccname"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description for the <font face=\"courier\" height=\"10\"><b>LineItemConfigContext</b></font> object to be created.",
+          "name": "liccdesc"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Id of the part to be associated with <b>BidPackageLineItem</b>.",
+          "name": "partid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "<font face=\"courier\" height=\"10\">PSViewType</font> to be associated with <b>LineItemConfigContext</b>.",
+          "name": "viewtype"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Quantity to be created for <b>BidPackageLineItem</b>.",
+          "name": "quantity"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Revision rule to be associated with <b>LineItemConfigContext</b>.",
+          "name": "revRule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Variant rule to be associated with LineItemConfigContext.",
+          "name": "varRule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Closure rule to be associated with LineItemConfigContext.",
+          "name": "closureRule"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The information about each <b>BidPackageLineItem</b> to be processed is provided by way of the <font face=\"courier\" height=\"10\">LineItemProps</font> data structure.",
+      "isPublished": "true",
+      "name": "LineItemProps",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::ChangeVendorStatus"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of <font face=\"courier\" height=\"10\">ChangeVendorStatus</font> structures. There is an entry per entry in input structure.",
+          "name": "statuses"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard <font face=\"courier\" height=\"10\">ServiceData</font> structure. It contains partial errors and failures along with the clientIds.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "Response structure for the <font face=\"courier\" height=\"10\">changeVendor</font> operation contains statuses member. It is a list of <font face=\"courier\" height=\"10\">ChangeVendorStatus</font> structures.",
+      "isPublished": "true",
+      "name": "ChangeVendorResponse",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the <b>BidPackageLineItem</b> to be created.",
+          "name": "name"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description of the <b>BidPackageLineItem</b> Object.",
+          "name": "description"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>BidPackageQuote</b> object to be added to <b>BidPackageLineItem</b>.",
+          "name": "quote"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "<b>BidPackageLineItem</b> Type name to be used.",
+          "name": "bpliTypeName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the <b>BidPackageLineItemConfigContext</b> to be created.",
+          "name": "liccname"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description of the <b>BidPackageLineItemConfigContext</b> to be created.",
+          "name": "liccdesc"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Id of the part to be associated with <b>BidPackageLineItem</b>.",
+          "name": "partid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "PSView Type to be associated with <b>BidPackageLineItemConfigContext</b>.",
+          "name": "viewtype"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Quantity to be created for <b>BidPackageLineItem</b> objects.",
+          "name": "quantity"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Revision rule to be associated with <b>BidPackageLineItemConfigContext</b>.",
+          "name": "revRule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Variant rule to be associated with <b>BidPackageLineItemConfigContext</b>.",
+          "name": "varRule"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Closure rule to be associated with <b>BidPackageLineItemConfigContext</b>.",
+          "name": "closureRule"
+        }
+      ],
+      "createRelease": "tc2007.1.4",
+      "description": "The information about each <b>BidPackageLineItem</b> type to be processed is provided by way of the <font face=\"courier\" height=\"10\">LineItemPropsWithType</font> data structure. This structure accepts the <b>BidPackageLineItem</b> type to be processed.",
+      "isPublished": "false",
+      "name": "LineItemPropsWithType",
+      "namespace": "Teamcenter::Soa::Internal::Vendormanagement::_2008_05::VendorManagement",
+      "scope": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Item"
+            }
+          ],
+          "description": "<b>VendorPart</b> object.",
+          "name": "vendorPart"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ImanRelation"
+            }
+          ],
+          "description": "Each of these <b>VendorPart</b> objects are related to the input <b>CommercialPartRevision</b> with a relation called <b>VMRepresents</b>. This object represents an instance of that relation.",
+          "name": "vmRepresentRel"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "Structure containing a <b>VendorPart</b> object and its relation object to a <b>CommercialPart</b>.",
+      "isPublished": "true",
+      "name": "VendorPartAndRel",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::VendorPartAndRel"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "It is the vector of <font face=\"courier\" height=\"10\">VendorPartAndRel</font> objects holding the information of individual <b>VendorPart</b> objects and relation of input <b>CommercialPartRevision</b> with each of them.",
+          "name": "partAndRel"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "Structure containing a filtered list of relation and part information for each <b>VendorPart</b> objects.",
+      "isPublished": "true",
+      "name": "VendorPartData",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Id for part to be created, mandatory for <b>ManufacturerPart</b> objects but generated for <b>CommercialPart</b> objects if the string is empty. Output PartId in case of <b>ManufacturerPart</b> will contain the provided partId and provided VendorId.",
+          "name": "partId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the Part object to be created.",
+          "name": "name"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Unit of Measure for Model Object.",
+          "name": "uom"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Make Buy Value for Part. The value could be either <i>Make</i> or <i>Buy</i>.",
+          "name": "makebuy"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify the Partial Errors associated with this <font face=\"courier\" height=\"10\">VendorPartProperties</font> input.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Object type to be created. Only <i>ManufacturerPart</i> and <i>CommercialPart</i> are valid.",
+          "name": "type"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Revision Id specified for create. Generated if the string is empty.",
+          "name": "revId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description of the <b>VendorPart</b>.",
+          "name": "description"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "<b>Vendor</b> Id to be associated with Part. <b>Vendor</b> Id is optional for <b>CommercialPart</b> but mandatory for <b>ManufacturerPart</b>.",
+          "name": "vendorid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Id of <b>CommercialPart</b> to be associated with <b>ManufacturerPart</b>.",
+          "name": "commercialpartid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "<b>CommercialPartRevision</b> Id to be associated with <b>ManufacturerPart</b>. If blank, <b>ManufacturerPart</b> is attached with the <b>CommercialPart</b> instead.",
+          "name": "commercialpartrevid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "Flag to decide if the design is required.",
+          "name": "isDesignReq"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The information about each <b>VendorPart</b> to be processed is provided by way of the <font face=\"courier\" height=\"10\">VendorPartProperties</font> data structure.",
+      "isPublished": "true",
+      "name": "VendorPartProperties",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Id of ManufacturerPart to be created, if not specified or blank then operation will generate the partId.",
+          "name": "partId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Part Name of the <b>ManufacturerPart</b> to be created.",
+          "name": "partName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Object type to be created. Only \"ManufacturerPart\" is valid type.",
+          "name": "partType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Revision Id specified for create. Generated if the string is empty.",
+          "name": "revId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>Vendor</b> object to be associated with <b>ManufacturerPart</b>.",
+          "name": "vendorObj"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "<b>CompanyLocation</b> object to be associated with <b>ManufacturerPart</b>. If null, then no location will be associated with ManufacturerPart object.",
+          "name": "companyLocationObj"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify the Partial Errors associated with input.",
+          "name": "clientId"
+        }
+      ],
+      "createRelease": "tc10000.1.7",
+      "description": "The information about each <b>ManufacturerPart</b> to be processed is provided by way of the <b>VendorPartProperties2</b> data structure.",
+      "isPublished": "true",
+      "name": "VendorPartProperties2",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2016_09::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify the Partial Errors associated with this <font face=\"courier\" height=\"10\">VendorProperties</font> input.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "<b>Item</b> Id of the <b>Vendor</b>. Generated if the string is empty.",
+          "name": "itemId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the <b>Vendor</b>. Default name is generated if kept empty.",
+          "name": "name"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Object type to be created.",
+          "name": "type"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "<b>VendorRevision</b> Id specified for create. Generated if the string is empty.",
+          "name": "revId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description of the <b>Vendor</b>.",
+          "name": "description"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Type of <b>VendorRole</b>. It can be <i>Manufacturer,Supplier, Distributor</i> or blank.",
+          "name": "roleType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "<b>Vendor</b> Certification status like <i>Gold</i>,<i>Silver</i> etc.",
+          "name": "certifiStatus"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "<b>Vendor</b> status like <i>Preferred</i>,<i>Approved</i> etc.",
+          "name": "vendorStatus"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The information about each <b>Vendor</b> to be processed is provided by way of the <font face=\"courier\" height=\"10\">VendorProperties</font> data structure.",
+      "isPublished": "true",
+      "name": "VendorProperties",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify the Partial Errors associated with this <font face=\"courier\" height=\"10\">VendorRoleData</font> input.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Description of the object to be created.",
+          "name": "description"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "<b>VendorRole</b> type, it shall be <i>Manufacturer</i>,<i>Supplier</i> or <i>Distributor</i>",
+          "name": "roleType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "Flag to indicate VendorRole is to be added or removed.",
+          "name": "remove"
+        }
+      ],
+      "createRelease": "tc10000.0.0",
+      "description": "This is the structure containing <b>VendorRole</b> information.",
+      "isPublished": "true",
+      "name": "VendorRoleData",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2012_09::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement::ChangedPartStatus"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "This is the structure containing a list of statuses for change <b>Vendor</b> operation.",
+          "name": "changedStatus"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "This is the structure containing a list of structures for each <b>VendorPart</b> statuses.",
+      "isPublished": "true",
+      "name": "ChangeVendorStatus",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Id of old <b>VendorPart</b>.",
+          "name": "oldPartStr"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Id of new <b>VendorPart</b> created.",
+          "name": "newPartStr"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Remarks (notes) corresponding to the each change <b>Vendor</b> operation. e.g. <i>Success</i>, <i>Failure</i>.",
+          "name": "notes"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "This structure contains the status of <b>VendorPart</b> objects and remarks from the operation.",
+      "isPublished": "true",
+      "name": "ChangedPartStatus",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The name of condition.",
+          "name": "condName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The expression of condition.",
+          "name": "condExpress"
+        }
+      ],
+      "createRelease": "P8000.0.0",
+      "description": "A structure containing name and expression of a condition entry.",
+      "isPublished": "false",
+      "name": "ConditionData",
+      "namespace": "Teamcenter::Soa::Internal::Vendormanagement::_2008_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Internal::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify the Partial Errors associated with input.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BidPackage"
+            }
+          ],
+          "description": "Model Object pointing to the <b>BidPackage</b> created.",
+          "name": "bidPackage"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BidPackageRevision"
+            }
+          ],
+          "description": "Model Object poinitng to the <b>BidPackageRevision</b> created.",
+          "name": "bidPackageRev"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The information about each <b>BidPackage</b> object output after creation is provided by  way of the <font face=\"courier\" height=\"10\">CreateVendorsOutput</font> data structure.",
+      "isPublished": "true",
+      "name": "CreateBidPacksOutput",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateBidPacksOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <font face=\"courier\" height=\"10\">CreateBidPacksOutput</font> structures. Each entry represents a <b>BidPackage</b> created or updated.",
+          "name": "output"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard <font face=\"courier\" height=\"10\">ServiceData</font> structure. It contains typical potential errors as mentioned in throws and failures along with the clientIds.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The <font face=\"courier\" height=\"10\">CreateBidPacksResponse</font> structure represents the output vector <font face=\"courier\" height=\"10\">CreateBidPacksOutput</font> and standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font> structure instance.",
+      "isPublished": "true",
+      "name": "CreateBidPacksResponse",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify the Partial Errors associated with input.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Part"
+            }
+          ],
+          "description": "Model Object pointing to the <b>VendorPart</b> created.",
+          "name": "vendorPart"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ItemRevision"
+            }
+          ],
+          "description": "Model Object poinitng to the <b>VendorPart</b> revision created.",
+          "name": "vendorPartRev"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The information about each <b>VendorPart</b> object output after creation is provided by way of the <font face=\"courier\" height=\"10\">CreateVendorPartsOutput</font> data structure.",
+      "isPublished": "true",
+      "name": "CreateVendorPartsOutput",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement::CreateVendorPartsOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Output is list of <font face=\"courier\" height=\"10\">CreateVendorPartsOutput</font> data structures, each of them representing a new <b>VendorPart</b> created.",
+          "name": "output"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard <font face=\"courier\" height=\"10\">ServiceData</font> structure. It contains partial errors and failures along with the clientIds.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc2007.1",
+      "description": "The <font face=\"courier\" height=\"10\">CreateVendorPartsResponse</font> structure represents the list of <font face=\"courier\" height=\"10\">CreateVendorPartsOutput</font> and Standard Teamcenter <font face=\"courier\" height=\"10\">ServiceData</font>.",
+      "isPublished": "true",
+      "name": "CreateVendorPartsResponse",
+      "namespace": "Teamcenter::Soa::Vendormanagement::_2007_06::VendorManagement",
+      "scope": "Teamcenter::Soa::Vendormanagement::VendorManagement"
+    }
+  ],
+  "TcVersion": "tc13000.0.0",
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

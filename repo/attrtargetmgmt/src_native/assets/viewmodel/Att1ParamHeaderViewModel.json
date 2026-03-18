@@ -1,0 +1,56 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-property-label.directive",
+        "js/aw-include.directive",
+        "js/aw-header-contribution.directive"
+    ],
+    "data": {
+        "revisionRule": {
+            "type": "STRING",
+            "hasLov": true,
+            "dbValue": "",
+            "displayName": "{{i18n.revision}}"
+        },
+        "variantRule":{
+            "type": "STRING",
+            "hasLov": true,
+            "dbValue": "",
+            "displayName": "{{i18n.variant}}"
+        },
+        "defaultVariantRule": {
+            "displayName": "{{i18n.variantSectionSavedVariantsValue}}",
+            "uiValue": "{{i18n.variantSectionSavedVariantsValue}}",
+            "type": "STRING"
+        }
+    },
+
+    "actions": {
+        "initializeParamHeader": {
+            "actionType": "JSFunction",
+            "method": "initializeParamHeader",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Att1ParamHeaderService"
+        }
+    },
+
+    "messages": {
+    },
+    "onEvent": [ {
+            "eventId": "Att1ParamHeader.contentLoaded",
+            "action": "initializeParamHeader"
+        }
+
+    ],
+    "conditions": {},
+    "functions": {
+
+    },
+    "i18n": {
+        "revision": [ "OccurrenceManagementConstants" ],
+        "variant": [ "OccurrenceManagementConstants" ],
+        "variantSectionSavedVariantsValue": [ "OccurrenceManagementConstants" ]
+    }
+}

@@ -1,0 +1,37 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2020.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+
+.aw-epPert-selectedNodeBorder {
+    stroke-width: 1;
+}
+
+.aw-epPert-detailedNode {
+    >.aw-epPert-nodeBorder{
+        stroke-width: 1;
+    }
+}
+
+.aw-epPert-highlightedNodeBorder {
+    stroke-width: 3;
+}
+
+.aw-epPert-nodeTitle {
+    font-size: $fontsize_x_large;
+    font-weight: 500;
+}
+.aw-epPert-nodeSubtitle {
+    font-size: $fontsize_normal;
+}
+
+.aw-epPert-nodeIcon {
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,248 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/exist-when.directive",
+        "js/aw-list.directive",
+        "js/aw-flex-row.directive"
+    ],
+
+    "ports": {
+        "epVisualsGallery_inputObject": {
+            "onChangeAction": "handleInput",
+            "syncObject": {}
+        },
+        "epVisualsGallery_visViewerInstanceId": {
+            "onChangeAction": "setVisInstanceIdToCommandContext",
+            "syncObject": {}
+        },
+        "epVisualsGallery_selectedObjects": {
+            "syncObject": {}
+        }
+    },
+
+    "data": {
+        "messages": {
+            "selectElement": [ {
+                "text": "{{i18n.selectElement}}"
+            } ],
+            "noVisuals": [ {
+                "text": "{{i18n.noVisuals}}"
+            } ]
+        }
+
+    },
+
+    "actions": {
+        "handleInput": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "handleNewInputForSingleObject"
+                },
+                {
+                    "action": "updateGalleryPanelDataProviderAction",
+                    "condition": "conditions.isInputObjectUpdated"
+                },
+                {
+                    "action": "initCtxForImageViewer",
+                    "condition": "conditions.isInputObjectUpdated"
+                },
+                {
+                    "action": "updateCommandContext",
+                    "condition": "conditions.isInputObjectUpdated"
+                }
+            ]
+        },
+
+        "handleNewInputForSingleObject": {
+            "actionType": "JSFunction",
+            "method": "handleNewInputForSingleObject",
+            "inputData": {
+                "data": "{{data}}",
+                "input": "{{ports.epVisualsGallery_inputObject.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+
+        "updateCommandContext": {
+            "actionType": "JSFunction",
+            "method": "setCommandContext",
+            "inputData": {
+                "tabModel": "{{subPanelContext}}",
+                "commandContext": {
+                    "inputObject": "{{data.inputObject}}",
+                    "datasetsToShow" : "{{data.datasetsToShow}}"
+                }
+            },
+            "deps": "js/mfeContentPanelUtil"
+        },
+
+        "setVisInstanceIdToCommandContext": {
+            "actionType": "JSFunction",
+            "method": "setCommandContext",
+            "inputData": {
+                "tabModel": "{{subPanelContext}}",
+                "commandContext": {
+                    "visInstanceId": "{{ports.epVisualsGallery_visViewerInstanceId.syncObject}}"
+                }
+            },
+            "deps": "js/mfeContentPanelUtil"
+        },
+
+        "updateGalleryPanel": {
+            "actionType": "JSFunction",
+            "method": "updateGalleryPanel",
+            "inputData": {
+                "selectedObjId": "{{data.inputObject.uid}}"
+            },
+            "outputData": {
+                "datasetsToShow": "datasetsToShow",
+                "totalFound": "totalFound"
+            },
+            "deps": "js/epVisualsGalleryService"
+        },
+
+        "updateGalleryPanelDataProviderAction": {
+            "actionType": "dataProvider",
+            "method": "epVisualsListDataProvider"
+        },
+
+        "updateDataProvider": {
+            "actionType": "JSFunction",
+            "method": "addToDataProvider",
+            "inputData": {
+                "objUidToAddList": [ "{{data.eventData.saveEvents[0].eventObjectUid}}" ],
+                "dataProvider": "{{data.dataProviders.epVisualsListDataProvider}}"
+
+            },
+            "deps": "js/mfeTableService"
+        },
+
+        "handleVisualSelection": {
+            "actionType": "batchJob",
+                "steps": [
+                    {
+                        "action": "updateVisualSelectionPort"
+                    },
+                    {
+                        "action": "updateCtxForImageViewer"
+                    }
+                ]
+        },
+
+        "updateCtxForImageViewer": {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "inputData": {
+                "name": "wiPageContext.isImageViewer",
+                "value": "{{conditions.hasSingleSelection}}"
+
+            },
+            "deps": "js/appCtxService"
+        },
+
+        "updateVisualSelectionPort": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "epVisualsGallery_selectedObjects",
+                "syncObject":"{{data.eventData.selectedObjects}}"
+            }
+        },
+
+        "initCtxForImageViewer": {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "inputData": {
+                "name": "wiPageContext.isImageViewer",
+                "value": false
+
+            },
+            "deps": "js/appCtxService"
+        },
+
+        "removeSelection": {
+            "actionType": "JSFunction",
+            "method": "removeSelection",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.epVisualsListDataProvider}}",
+                "objectsToDeSelect": "{{data.dataProviders.epVisualsListDataProvider.selectedObjects}}"
+
+            },
+            "deps": "js/mfeTableService"
+        }
+    },
+
+    "dataProviders": {
+        "epVisualsListDataProvider": {
+            "action": "updateGalleryPanel",
+            "response": "{{data.datasetsToShow}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionMode": "Single"
+
+        }
+    },
+
+    "conditions": {
+        "isInputObjectUpdated": {
+            "expression": {
+                "$source": "data.isInputObjectUpdated",
+                "$query": {
+                    "$eq": true
+                }
+            }
+        },
+        "hasInput":
+        {
+            "expression": "data.inputObject.uid"
+        },
+        "hasDatasetsToShow":
+        {
+            "expression": "data.dataProviders.epVisualsListDataProvider.viewModelCollection.loadedVMObjects.length > 0"
+        },
+        "noDatasetsToShow":
+        {
+            "expression": "conditions.hasInput && !conditions.hasDatasetsToShow"
+        },
+        "showTable":
+        {
+            "expression": "conditions.hasInput && conditions.hasDatasetsToShow"
+        },
+        "hasSingleSelection":
+        {
+            "expression": "data.eventData.selectedObjects.length === 1"
+        },
+        "hasSelection":
+        {
+            "expression": "data.dataProviders.epVisualsListDataProvider.selectedObjects.length > 0"
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "ep.saveEvents",
+            "action": "updateDataProvider",
+            "cacheEventData": true,
+            "criteria": {
+                "saveEvents[0].eventType": "create"
+            }
+        },
+        {
+            "eventId": "epVisualsListDataProvider.selectionChangeEvent",
+            "action": "handleVisualSelection",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "epGraphicVisibilityClicked",
+            "cacheEventData": true,
+            "action": "removeSelection",
+            "condition": "conditions.hasSelection"
+        }
+    ],
+
+    "i18n": {
+        "selectElement": ["GraphicsMessages"],
+        "noVisuals": ["GraphicsMessages"]
+    }
+}

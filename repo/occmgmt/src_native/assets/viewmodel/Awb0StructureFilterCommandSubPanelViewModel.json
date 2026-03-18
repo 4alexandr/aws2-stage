@@ -1,0 +1,356 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports": [
+                 "js/aw-filter-category.directive",
+                 "js/aw-panel-body.directive",
+                 "js/aw-panel-section.directive",
+                 "js/aw-repeat.directive",
+                 "js/exist-when.directive",
+                 "js/aw-scrollpanel.directive",
+                 "js/aw-layout-slot.directive",
+                 "js/aw-textbox.directive",
+                 "js/aw-filter-in-filters-searchbox.directive",
+                 "js/aw-link.directive",
+                 "js/aw-include.directive"
+
+    ],
+    "actions":
+    {
+        "updateCategoryResults":
+        {
+            "actionType": "JSFunction",
+            "method": "updateCategoryResults",
+            "inputData":
+            {
+                "category":"{{ctx.search.valueCategory}}"
+            },
+            "deps":"js/filterPanelService"
+        },
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "getFilterData",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "recipe" : "recipe"
+            },
+            "deps": "js/structureFilterService"
+        },
+        "selectStructureFilterAction":
+        {
+            "actionType": "JSFunction",
+            "method": "selectACEFilter",
+            "inputData":
+            {
+                "category"     : "{{category}}",
+                "filter"       : "{{filter}}"
+            },
+            "deps": "js/structureFilterService"
+        },
+        "selectGivenCategory":
+        {
+            "actionType": "JSFunction",
+            "method": "selectCategory",
+            "inputData":
+            {
+                "category"     : "{{category}}"
+            },
+            "deps": "js/structureFilterService"
+        },
+        "updatePanel":
+        {
+            "actionType": "JSFunction",
+            "method": "getFilterData",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "recipe" : "recipe"
+            },
+            "deps": "js/structureFilterService"
+        },
+        "initialize":
+        {
+            "actionType": "JSFunction",
+            "method": "initialize",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/structureFilterService"
+        },
+        "performPostProcessingOnLoad": {
+            "actionType": "JSFunction",
+            "method": "performPostProcessingOnLoad",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "recipe" : "recipe"
+            },
+            "deps": "js/structureFilterService"
+        },
+        "updateContextOnRecipeUpdate": {
+            "actionType": "JSFunction",
+            "method": "updateContextOnRecipeUpdate",
+            "inputData": {
+                "data": "{{data.eventData.updatedRecipe}}"
+            },
+            "deps": "js/structureFilterService"
+        },
+        "updateRecipeOnDelete":{
+            "actionType": "JSFunction",
+            "method": "updateRecipeCriteriaList",
+            "inputData": {
+                "recipe": "{{data.recipe}}",
+                "recipeItem": "{{data.eventData.recipeItem}}",
+                "recipeIndex": "{{data.eventData.recipeIndex}}",
+                "selectedValue": "{{data.eventData.selectedValue}}"
+            },
+            "outputData" : {
+                "updatedRecipe": ""
+            },
+            "events": {
+                "success": [ {
+                    "name": "occmgmt.recipeUpdated",
+                    "eventData": {
+                        "updatedRecipe": "{{data.updatedRecipe}}"
+                    }
+                } ]
+            },
+            "deps": "js/filterRecipeValidationService"
+        },
+        "updateRecipeOnProximityValueUpdate":{
+            "actionType": "JSFunction",
+            "method": "setProximityValueToRecipe",
+            "inputData": {
+                "recipe": "{{data.recipe}}",
+                "recipeIndex": "{{data.eventData.recipeIndex}}",
+                "newProximityValue": "{{data.eventData.newProximityValue}}"
+            },
+            "outputData" : {
+                "updatedRecipe": ""
+            },
+            "events": {
+                "success": [ {
+                    "name": "occmgmt.recipeUpdated",
+                    "eventData": {
+                        "updatedRecipe": "{{data.updatedRecipe}}"
+                    }
+                } ]
+            },
+            "deps": "js/filterRecipeValidationService"
+        },
+        "updateRecipeOnOperatorModification": {
+            "actionType": "JSFunction",
+            "method": "updateRecipeTermOperator",
+            "inputData": {
+                "recipe": "{{data.recipe}}",
+                "recipeIndex": "{{data.eventData.recipeIndex}}",
+                "criteriaOperatorType": "{{data.eventData.criteriaOperatorType}}"
+            },
+            "outputData" : {
+                "updatedRecipe": ""
+            },
+            "events": {
+                "success": [ {
+                    "name": "occmgmt.recipeUpdated",
+                    "eventData": {
+                        "updatedRecipe": "{{data.updatedRecipe}}"
+                    }
+                } ]
+            },
+            "deps": "js/filterRecipeValidationService"
+        },
+        "toggleShowMore":{
+            "actionType": "JSFunction",
+            "method": "toggleExpand",
+            "inputData": {
+                "value": "{{data.showMoreLink.dbValue}}"
+            },
+            "outputData": {
+                "showMoreLink.dbValue":""
+            },
+            "deps": "js/proximityFilterService"
+        },
+        "persistCategoryFilterToUpdateState": {
+            "actionType": "JSFunction",
+            "method": "persistCategoryFilterToUpdateState",
+            "inputData": {
+                "context": "{{data.eventData}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "performFacetSearch"
+                } ]
+            },
+            "deps": "js/structureFilterService"
+        },
+        "performFacetSearch": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2018-05-Finder",
+            "method": "performFacetSearch",
+            "inputData": {
+                "facetSearchInput": {
+                    "maxToReturn": 100,
+                    "providerName": "{{function:getFacetSearchDataProvider}}",
+                    "searchCriteria": "{{function:getSearchCriteriaForFacetSearch}}",
+                    "searchFilterMap": {},
+                    "startIndex": "{{function:getStartIndexForFacetSearch}}"
+                }
+            },
+            "outputData": {
+                "ctx.search.filterMap": "{{function:updateFilterMapForFacet}}",
+                "ctx.search.valueCategory.endIndex": "endIndex",
+                "ctx.search.valueCategory.hasMoreFacetValues": "hasMoreFacetValues",
+                "ctx.search.valueCategory.soaCallDone": true
+            },
+            "events": {
+                "success": [ {
+                    "name": "updateFilterPanel"
+                }]
+            },
+            "deps": "js/structureFilterService"
+        }
+    },
+    "functions": {
+        "getFacetSearchDataProvider": {
+            "functionName": "getFacetSearchDataProvider"
+        },
+        "getSearchCriteriaForFacetSearch": {
+            "functionName": "getSearchCriteriaForFacetSearch",
+            "parameters": [
+                "{{ctx.search.valueCategory}}"
+            ]
+        },
+        "getStartIndexForFacetSearch": {
+            "functionName": "getStartIndexForFacetSearch",
+            "parameters": [
+                "{{ctx.search.valueCategory}}"
+            ]
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "aw.ColorFilteringToggleEvent",
+            "action": "updatePanel"
+        },
+        {
+            "eventId": "productContextChangedEvent",
+            "action": "updatePanel",
+            "condition": "dataProviderActionType === 'initializeAction'"
+        },
+        {
+            "eventId": "occDataLoadedEvent",
+            "action": "updatePanel",
+            "condition": "dataProviderActionType === 'productChangedOnSelectionChange'"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria":
+            {
+                "panelId" : "Awb0StructureFilterCommandSubPanel"
+            },
+            "action": "initialize"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria":
+            {
+                "panelId" : "Awb0StructureFilterCommandSubPanel"
+            },
+            "action": "reveal"
+        },
+        {
+            "eventId": "occDataLoadedEvent",
+            "action": "performPostProcessingOnLoad"
+        },
+        {
+            "eventId": "occmgmt.recipeUpdated",
+            "action": "updateContextOnRecipeUpdate",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "filterPanel.updateRefineCategoriesAfterUpdate",
+            "action":"updateCategoryResults"
+        },
+        {
+            "eventId": "proximityValueUpdated",
+            "action": "updateRecipeOnProximityValueUpdate",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "operatorModified",
+            "action": "updateRecipeOnOperatorModification",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "recipeDeleted",
+            "action": "updateRecipeOnDelete",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "toggleExpansionUnpopulated",
+            "action": "persistCategoryFilterToUpdateState",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "filterInFilter.serverFilter",
+            "action": "performFacetSearch",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "performFacetSearch",
+            "action": "performFacetSearch",
+            "cacheEventData": true
+        }
+    ],
+    "data":
+    {
+        "recipe" :
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+
+            ]
+        },
+        "showMore":
+        {
+            "displayName": "{{i18n.MORE_LINK_TEXT}}",
+            "type": "STRING",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "showLess":
+        {
+            "displayName": "{{i18n.LESS_LINK_TEXT}}",
+            "type": "STRING",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "showFilterOperator":
+        {
+            "dbValue": false,
+            "type": "BOOLEAN"
+        },
+        "searchBox1": {
+            "displayName": "",
+            "type": "STRING"
+        },
+        "showMoreLink": {
+            "type": "BOOLEAN",
+            "isEditable": "true",
+            "dbValue": true
+        }
+    },
+    "i18n":
+    {
+          "subset" :        ["OccurrenceManagementConstants"],
+          "MORE_LINK_TEXT": [ "BaseMessages" ],
+          "LESS_LINK_TEXT": [ "BaseMessages" ]
+    }
+}

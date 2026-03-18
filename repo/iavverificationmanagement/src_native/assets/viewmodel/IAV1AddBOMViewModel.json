@@ -1,0 +1,82 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-add.directive"
+    ],
+    "actions": {
+        "createRelationForPaletteOrSearch":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "createRelations",
+            "inputData":{
+                "input": "{{function:getCreateRelationInputForBOM}}"
+            },
+            "deps": "js/IAV1CreateTestEventService",
+            "events": {
+                "success": [ 
+                 {
+                    "name": "closePanel"
+                 } ,
+                 {
+                    "name": "cdm.relatedModified",
+                    "eventData": {
+                        "relatedModified": [
+                            "{{ctx.selected}}"
+                        ],
+                        "refreshLocationFlag": true
+                    }
+                }
+             ]
+            }
+        },
+        "closePanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                 "events":
+                 [
+                     {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+
+                 ]
+            }
+        }
+},
+    "functions": {
+    "getCreateRelationInputForBOM": {
+        "functionName": "getCreateRelationInputForBOM",
+        "parameters": 
+        [
+            "{{data}}"
+        ]
+     }
+    },   
+
+    "onEvent": [
+        { 
+            "eventId": "closePanel",
+            "action": "closePanel"
+        }
+    ],
+
+    "i18n": {
+        "AddBOMTitle": [
+            "verificationMgmtmMessages"
+        ],
+        "Add": [
+            "verificationMgmtmMessages"
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "StationWorkInstructionsTitle": "Istruzioni di lavoro",
+    "processTitle": "Processo",
+    "editorTitle": "Editor",
+    "noAssemblyStructure": "Nessun riferimento a strutture di assieme.",
+    "GraphicVisibilityColumnName": "Visibilità grafica",
+    "syncedToViewer": "Sincronizzato con il visualizzatore.  {@msgTxtLink0}",
+    "syncedToEditor": "Sincronizzato con l'editor di testo.  {@msgTxtLink0}",
+    "switchMode": "Cambia"
+}

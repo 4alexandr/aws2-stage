@@ -1,0 +1,29 @@
+// Copyright 2020 Siemens Product Lifecycle Management Software Inc.
+
+.aw-activecollab-shadow > .aw-widgets-cellListContainer > .aw-widgets-cellListOffsetter > .aw-widgets-modelObjectList > .aw-widgets-cellListWidget > .aw-widgets-cellListItem {
+    border-color: $PL_Black_23;
+    box-shadow: $drop_shadow_normal;
+    -moz-box-shadow: $drop_shadow_small;
+    -webkit-box-shadow: $drop_shadow_small;
+    background-color: $brand_primary_content_background;
+    &:hover {
+        background-color: $brand_primary_content_background;
+        -moz-box-shadow: $drop_shadow_x_large;
+        -webkit-box-shadow: $drop_shadow_x_large;
+        box-shadow: $drop_shadow_x_large;
+    }
+    &.aw-widgets-cellListItemSelected {
+        background-color: $cell_list_item_selected;
+        &:hover {
+            background-color: $cell_list_item_selected_hover;
+        }
+    }
+}
+
+ul.aw-widgets-cellListWidget .aw-activecollab-nonIndentedList .aw-widgets-cellListItem {
+    background-color: $brand_primary_content_background;
+    border-color: $brand_primary_content_background;
+    &:hover {
+        background-color: $brand_primary_content_background;
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "pkgmgmt",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "aliasRegistry": {
+    "typeWorkPackage48": [
+      "Wpm0WorkPackage"
+    ],
+    "typeWorkPackageRevision48": [
+      "Wpm0WorkPackageRevision"
+    ]
+  }
+}

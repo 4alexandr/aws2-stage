@@ -1,0 +1,9 @@
+{
+  "name": "iavverificationmanagement",
+  "description": "",
+  "modules": [
+    "iavverificationmanagement"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

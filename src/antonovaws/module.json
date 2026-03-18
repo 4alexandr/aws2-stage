@@ -1,0 +1,96 @@
+{
+  "name": "antonovaws",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "JSC Antonov",
+
+  "commandsViewModel": {
+    "conditions": {
+      "isPrintGantCommandAvailable": {
+        "expression": "(ctx.selected && ctx.selected.type === 'Schedule') || (ctx.pselected && ctx.pselected.type === 'Schedule')"
+      }
+    },
+    "commands": {
+      "SortSPCCommand": {
+        "iconId": "cmdSort",
+        "isGroup": false,
+        "title": "Sort SPC",
+        "description": "Sort SPC lines"
+      },
+      "PrintGantCommand": {
+        "iconId": "cmdPrint",
+        "isGroup": false,
+        "title": "Print Gant",
+        "description": "Print Gant diagram"
+      },
+      "CreateChDocCommand": {
+        "iconId": "cmdPrint",
+        "isGroup": false,
+        "title": "create change",
+        "description": "Create change"
+      }
+    },
+    "commandHandlers": {
+      "SortSPCCommandHandler": {
+        "id": "SortSPCCommand",
+        "action": "sortSpcAction",
+        "activeWhen": true,
+        "visibleWhen":true,
+        "enableWhen": true
+      },
+      "PrintGantCommandHandler": {
+        "id": "PrintGantCommand",
+        "action": "printGantAction",
+        "activeWhen": {
+          "condition": "conditiobn.isPrintGantCommandAvailable"
+        },
+        "visibleWhen": {
+          "condition": "conditiobn.isPrintGantCommandAvailable"
+        },
+        "enableWhen": {
+          "condition": "conditiobn.isPrintGantCommandAvailable"
+        }
+      }
+    },
+    "commandPlacements": {
+      "SortSPCCommandPlacement": {
+        "id": "SortSPCCommand",
+        "uiAnchor": "aw_primaryWorkArea",
+        "priority": 44,
+        "parentGroupId": "Awb0RestructureGroup"
+      },
+      "PrintGantCommandPlacement": {
+        "id": "PrintGantCommand",
+        "uiAnchor": "aw_ganttViewer",
+        "priority": 160,
+        "relatedTo": "cmdShow"
+      }
+    },
+    "actions": {
+      "sortSpcAction": {
+        "actionType": "JSFunction",
+        "method": "sortSpcMethod",
+        "inputData": {
+          "data": "{{data}}",
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/sortSpcService"
+      },
+      "printGantAction": {
+        "actionType": "JSFunction",
+        "method": "printGantMethod",
+        "inputData": {
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/printGantService"
+      }
+    }
+  }
+}

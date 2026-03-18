@@ -1,0 +1,415 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-attr-table-commands.directive",
+        "js/aw-column.directive"
+    ],
+    "actions": {
+        "updateSelectedProxyObjects": {
+            "actionType": "JSFunction",
+            "method": "updateSelectedProxyObjects",
+            "inputData": {
+                "data":"{{data}}",
+                "dataProvider": "{{data.dataProviders.gridDataProvider}}"
+            },
+            "deps": "js/Att1AttrMappingTableSelectService"
+        },
+        "addEventDataToNativeData": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "nativeDataLoadEvent",
+                    "eventData": {
+                        "viewModelObjects": "{{data.dataProviders.gridDataProvider.viewModelCollection.loadedVMObjects}}"
+                    }
+                } ]
+            }
+        },
+        "doArrangeEvent": {
+            "actionType": "JSFunctionAsync",
+            "method": "arrangeColumns",
+            "inputData": {
+                "declViewModel": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/columnArrangeService"
+        },
+        "loadProperties": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableProperties",
+            "inputData": {
+                "propertyLoadInput": "request.propertyLoadInput"
+            },
+            "outputData": {
+                "dataProviders.gridDataProvider.columnConfig": "result.propertyLoadResult.columnConfig"
+            },
+            "events": {
+                "success": [ {
+                    "name": "Att1AttrMappingTable.propertiesLoaded"
+                } ]
+            },
+            "deps": "js/Att1AttrMappingTableCreateService"
+        },
+        "loadColumns": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.gridDataProvider}}"
+            },
+            "deps": "js/Att1AttrMappingTableCreateService"
+        },
+        "parentElementsSelectionChange": {
+            "actionType": "JSFunction",
+            "method": "parentElementsSelectionChange",
+            "deps": "js/Att1AttrMappingTableSelectService"
+        },
+        "doGridDataProvider": {
+            "actionType": "dataProvider",
+            "method": "gridDataProvider"
+        },
+        "loadTreeData": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableData",
+            "inputData": {
+                "treeLoadInput": "request.treeLoadInput",
+                "dataProvider": "{{data.dataProviders.gridDataProvider}}",
+                "sortCriteria": "{{data.columnProviders.attrColumnProvider.sortCriteria}}",
+                "columnFilters": "{{data.columnProviders.attrColumnProvider.columnFilters}}"
+            },
+            "outputData": {
+                "ctx.search.totalFound": "result.treeLoadResult.totalRootCount",
+                "ctx.search.totalLoaded": "result.treeLoadResult.childNodes.length"
+            },
+            "deps": "js/Att1AttrMappingTableCreateService"
+        },
+        "loadTreePage": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTablePage",
+            "inputData": {
+                "treeLoadInput": "request.treeLoadInput",
+                "dataProvider": "{{data.dataProviders.gridDataProvider}}",
+                "sortCriteria": "{{data.columnProviders.attrColumnProvider.sortCriteria}}",
+                "columnFilters": "{{data.columnProviders.attrColumnProvider.columnFilters}}"
+            },
+            "outputData": {
+                "ctx.search.totalFound": "result.treeLoadResult.totalRootCount",
+                "ctx.search.totalLoaded": "result.treeLoadResult.childNodes.length"
+            },
+            "deps": "js/Att1AttrMappingTableCreateService"
+        },
+        "treeTableSelection": {
+            "actionType": "JSFunction",
+            "method": "tableRowSelection",
+            "inputData": {
+                "selectedProxyObjects": "{{data.dataProviders.gridDataProvider.selectedObjects}}"
+            },
+            "deps": "js/Att1AttrMappingTableSelectService"
+        },
+        "updateEditStateForMappingTable": {
+            "actionType": "JSFunction",
+            "method": "updateEditState",
+            "inputData": {
+                "input": "{{data.dataProviders.gridDataProvider}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Att1AttrMappingTableEditService"
+        },
+        "displayErrorMessage": {
+            "actionType": "JSFunction",
+            "method": "displayErrorMessage",
+            "inputData": {
+                "nonModifiableObjects": "{{ctx.nonMappableObjects}}",
+                "data": "{{data}}"
+            },
+            "deps": "js/attrTableUtils"
+        },
+        "isAttrItemCreated": {
+            "actionType": "JSFunction",
+            "method": "isAttrItemCreated",
+            "inputData": {
+                "eventMap": "{{data.eventMap}}"
+            },
+            "deps": "js/attrTableUtils"
+        },
+        "isAttrItemUpdated": {
+            "actionType": "JSFunction",
+            "method": "isAttrItemUpdated",
+            "inputData": {
+                "eventMap": "{{data.eventMap}}"
+            },
+            "deps": "js/attrTableUtils"
+        },
+        "saveColumnConfigLoadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2016-03-UiConfig",
+            "method": "saveUIColumnConfigs",
+            "inputData": {
+                "columnConfigurations": [ {
+                    "clientScopeURI": "{{ctx.Att1ShowMappedAttribute.clientScopeURI}}",
+                    "columnConfigId": "{{data.dataProviders.gridDataProvider.columnConfig.columnConfigId}}",
+                    "columns": "{{data.dataProviders.gridDataProvider.newColumns}}",
+                    "scope": "LoginUser",
+                    "scopeName": ""
+                } ]
+            },
+            "outputData": {},
+            "events": {
+                "success": [ {
+                    "name": "showMappedAttrColumnConfig.saved"
+                } ]
+            }
+        },
+        "loadDataForSavedColumnConfig": {
+            "actionType": "JSFunctionAsync",
+            "method": "getTableViewModelProperties",
+            "deps": "js/tcViewModelObjectService",
+            "inputData": {
+                "vmNodes": "{{data.dataProviders.gridDataProvider.viewModelCollection.loadedVMObjects}}",
+                "context": {
+                    "clientScopeURI": "{{ctx.Att1ShowMappedAttribute.clientScopeURI}}",
+                    "clientName": "AWClient"
+                }
+            },
+            "outputData": {
+                "newColumnConfig": "result.output.columnConfig"
+            },
+            "events": {
+                "success": [ {
+                    "name": "showMappedAttrTreeTable.updateParamTreeColumns"
+                } ]
+            }
+        },
+        "resetColumnConfig": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "inputData": {
+                "getOrResetUiConfigsIn": [ {
+                    "scope": "LoginUser",
+                    "scopeName": "",
+                    "clientName": "AWClient",
+                    "resetColumnConfig": true,
+                    "columnConfigQueryInfos": [ {
+                        "clientScopeURI": "{{ctx.Att1ShowMappedAttribute.clientScopeURI}}",
+                        "operationType": "configured",
+                        "typeNames": [
+                            "WorkspaceObject"
+                        ],
+                        "columnsToExclude": []
+                    } ],
+                    "businessObjects": [
+                        {}
+                    ]
+                } ]
+            },
+            "outputData": {
+                "dataProviders.gridDataProvider.resetColumnConfigs": "columnConfigurations"
+            }
+        },
+        "initAttrMappingContext": {
+            "actionType": "JSFunction",
+            "method": "initAttrMappingContext",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Att1AttrMappingTableCreateService"
+        },
+        "onSublocationSelectionChange": {
+            "actionType": "JSFunction",
+            "method": "onSublocationSelectionChange",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Att1AttrMappingTableMapService"
+        },
+        "setOpenedContext": {
+            "actionType": "JSFunction",
+            "method": "onAttrSelection",
+            "inputData": {
+                "eventData": "{{data.eventMap}}"
+            },
+            "deps": "js/attrTableUtils"
+        },
+        "updateParamTreeColumns": {
+            "actionType": "JSFunction",
+            "method": "updateParamTreeColumns",
+            "inputData": {
+                "data": "{{data.newColumnConfig}}",
+                "dataProvider": "{{data.dataProviders.gridDataProvider}}"
+            },
+            "deps": "js/attrTableUtils"
+        },
+         "selectMappedAttrTableRow": {
+            "actionType": "JSFunction",
+            "method": "selectMappedAttrTableRow",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/attrTableUtils"
+        },
+        "unRegisterCtxForMapTable":{
+            "actionType": "JSFunction",
+            "method": "unRegisterCtxForMapTable",
+            "deps": "js/attrTableUtils"
+        }
+    },
+    "preferences": [
+        "PLE_MeasurableAttr_Override_RootContext"
+    ],
+    "dataProviders": {
+        "gridDataProvider": {
+            "initializeAction": "loadTreeData",
+            "nextAction": "loadTreePage",
+            "previousAction": "loadTreePage",
+            "editContext": "MAPPING_TABLE_CONTEXT",
+            "treeLoadResult": "action.result.treeLoadResult",
+            "selectionModelMode": "multiple",
+            "inputData": {
+                "accessMode": "tree"
+            },
+            "commandsAnchor": "show_object_command"
+        },
+        "gridTreePropertyProvider": {
+            "action": "loadProperties",
+            "propertyLoadResult": "action.result.propertyLoadResult"
+        }
+    },
+    "grids": {
+        "mappedAttrTable": {
+            "dataProvider": "gridDataProvider",
+            "propertyProvider": "gridTreePropertyProvider",
+            "columnProvider": "attrColumnProvider",
+            "enableArrangeMenu": true,
+            "addIconColumn": false,
+            "gridOptions": {
+                "enableSorting": true,
+                "useStaticFirstCol": true,
+                "maxRowsToShow": 18,
+                "isFilteringEnabled": true
+            }
+        }
+    },
+    "columnProviders": {
+        "attrColumnProvider": {
+            "loadColumnAction": "loadColumns",
+            "saveColumnAndLoadAction": "saveColumnConfigLoadData",
+            "resetColumnAction": "resetColumnConfig",
+            "sortCriteria": []
+        }
+    },
+    "onEvent": [ {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "doArrangeEvent"
+        },
+        {
+            "eventId": "Att1ShowMappedAttribute.refreshTable",
+            "action": "doGridDataProvider"
+        },
+        {
+            "eventId": "attributeMappingRemoved",
+            "action": "doGridDataProvider"
+        },
+        {
+            "eventId": "gwt.AttributesRemovedEvent",
+            "action": "doGridDataProvider"
+        },
+        {
+            "eventId": "editHandlerStateChange",
+            "cacheEventData": true,
+            "action": "updateEditStateForMappingTable"
+        },
+        {
+            "eventId": "displayErrorMessage",
+            "action": "displayErrorMessage"
+        },
+        {
+            "eventId": "cdm.updated",
+            "cacheEventData": true,
+            "action": "isAttrItemUpdated"
+        },
+        {
+            "eventId": "cdm.created",
+            "cacheEventData": true,
+            "action": "isAttrItemCreated"
+        },
+        {
+            "eventId": "primaryWorkArea.selectionChangeEvent",
+            "condition": "conditions.isMultiSelectAttributeTab",
+            "action": "parentElementsSelectionChange"
+        },
+        {
+            "eventId": "mappedAttrTable.nativeData.loaded",
+            "cacheEventData": true,
+            "action": "addEventDataToNativeData"
+        },
+        {
+            "eventId": "Att1ShowMappedAttribute.contentLoaded",
+            "action": "initAttrMappingContext"
+        },
+        {
+            "eventId": "AM.PrimarySelectionChangeEvent",
+            "cacheEventData": true,
+            "condition": "conditions.isNativeArchitectureTab",
+            "action": "initAttrMappingContext"
+        },
+        {
+            "eventId": "mappedAttrTable.gridSelection",
+            "cacheEventData": true,
+            "action": "setOpenedContext"
+        },
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "cacheEventData": true,
+            "action": "onSublocationSelectionChange"
+        },
+        {
+            "eventId": "gridDataProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "updateSelectedProxyObjects"
+        },
+        {
+            "eventId": "showMappedAttrColumnConfig.saved",
+            "cacheEventData": true,
+            "action": "loadDataForSavedColumnConfig"
+        },
+        {
+            "eventId": "showMappedAttrTreeTable.updateParamTreeColumns",
+            "action": "updateParamTreeColumns"
+        },
+        {
+            "eventId": "arm0MappedAttrTreeTable.changeRowSelection",
+            "cacheEventData": true,
+            "action": "selectMappedAttrTableRow"
+        },
+        {
+            "eventId":"Att1ShowMappedAttribute.contentUnloaded",
+            "action": "unRegisterCtxForMapTable"
+        }
+    ],
+    "conditions": {
+        "isMultiSelectAttributeTab": {
+            "expression": "ctx.state.params.spageId === 'Parameters' && (ctx.Att1ShowMappedAttribute.clientScopeURI === 'ARInputAttrTable' || ctx.Att1ShowMappedAttribute.clientScopeURI === 'AttributeMappingTable')"
+        },
+        "isNativeArchitectureTab": {
+            "expression": "ctx.xrtPageContext.secondaryXrtPageID === 'Ase0ArchitectureFeature'"
+        },
+        "InAceParametersTab":{
+            "expression": "ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_AttributesForDCP' && ctx.occmgmtContext.selectedModelObjects.length > 1"
+        }
+    },
+    "i18n": {
+        "attributeMapping": [
+            "Att1AttrMappingMessages"
+        ],
+        "multipleMappingSuccessful": [
+            "Att1AttrMappingMessages"
+        ],
+        "mapFailure": [
+            "Att1AttrMappingMessages"
+        ]
+    }
+}

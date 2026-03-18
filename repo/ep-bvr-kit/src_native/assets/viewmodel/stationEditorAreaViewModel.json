@@ -1,0 +1,19 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "contentPanelData": {
+            "tabs": [ {
+                    "name": "{{i18n.editorTitle}}",
+                    "tabKey": "wiEditor"
+                }
+            ],
+            "additionalHeaderComponent": "wiScopeLabel"
+        }
+    },
+    "i18n": {
+        "editorTitle": [ "StationsMessages" ]
+    }
+}

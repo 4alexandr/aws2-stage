@@ -1,0 +1,30 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "extendedTooltip": {
+            "title": "{{i18n.moveHereTooltipTitle}}",
+            "messages": [ "{{i18n.moveHereTooltipMsg}}" ]
+        }
+    },
+    "actions": {
+        "populateMoveCandidatesHereMsgArray": {
+            "actionType": "JSFunction",
+            "method": "populateMoveCandidatesHereMsgArray",
+            "inputData": {
+                "messageArray": "{{data.extendedTooltip.messages}}",
+                "moveCandidates": "{{subPanelContext.extendedTooltip.moveCandidates}}"
+            },
+            "deps": "js/services/ngpRestructureService"
+        }
+    },
+    "lifecycleHooks": {
+        "onMount": "populateMoveCandidatesHereMsgArray"
+    },
+    "i18n": {
+        "moveHereTooltipTitle": [ "NgpBuildStrategyMessages" ],
+        "moveHereTooltipMsg": [ "NgpBuildStrategyMessages" ]
+    }
+}

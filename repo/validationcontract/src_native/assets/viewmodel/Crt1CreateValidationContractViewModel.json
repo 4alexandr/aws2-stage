@@ -1,0 +1,125 @@
+{
+"schemaVersion" : "1.0.0",
+"imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-add.directive",
+        "js/visible-when.directive",
+        "js/aw-form.directive"
+    ],
+    "actions":
+    {
+        "initCreateInputs":
+        {
+            "actionType": "JSFunction",
+            "method": "initCreateObject",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "awCrt1CreateAR.inputsReady"
+                    }
+                ]
+            },
+            "deps": "js/createAnalysisRequest"
+        },
+
+        "createObject":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-Core-2012-10-DataManagement",
+            "method": "createRelateAndSubmitObjects",
+            "inputData": {
+                "inputs": "{{data.createInputs}}"
+            },
+            "outputData": {
+                "createdMainObject": "output[0].objects[0]",
+                "createdObject": "{{function:getCreatedObject}}"
+            },
+            "events": {
+                "success":
+                [
+                    {
+                        "name": "addObject.objectcreated"
+                    }
+                ]
+            },
+            "deps": "js/addObjectUtils"
+        },
+
+        "populateSavedBookmark":
+        {
+            "actionType": "JSFunction",
+            "method": "populateSavedBookmark",
+            "inputData":
+            {
+                  "data": "{{data}}"
+            },
+             "deps": "js/analysisRequestUtils"
+        },
+
+        "postProcessAR":
+        {
+            "actionType": "JSFunction",
+            "method": "processCreatedObject",
+            "inputData":
+            {
+                  "data": "{{data}}"
+            },
+
+             "deps": "js/analysisRequestUtils"
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "awXRT.contentLoaded",
+            "action":"populateSavedBookmark"
+        },
+        {
+            "eventId": "addObject.objectcreated",
+            "action": "postProcessAR"
+        },
+        {
+            "eventId": "getRecentTypesProvider.selectionChangeEvent",
+            "action": "populateSavedBookmark",
+            "condition": "data.creationType"
+        },
+        {
+            "eventId": "awCrt1CreateAR.inputsReady",
+            "action": "createObject"
+        }
+    ],
+    "data":
+    {
+
+    },
+    "conditions":
+    {
+         "isNewTabAddButtonVisible":
+        {
+          "expression":"data.selectedTab.panelId==='newTabPageSub' && data.objCreateInfo.createType"
+        }
+    },
+    "messages":
+    {
+
+    },
+    "i18n":
+    {
+        "Create_AR_Panel_Title":[ "AnalysisRequestCommandPanelsMessages"],
+        "Create_Button_Title":[ "AnalysisRequestCommandPanelsMessages"],
+        "Context_Title":[ "AnalysisRequestCommandPanelsMessages"],
+        "AddObjectsForValidationFromDiagramWarning":[ "AnalysisRequestCommandPanelsMessages"],
+        "throwError":[ "AnalysisRequestCommandPanelsMessages"]
+    }
+}

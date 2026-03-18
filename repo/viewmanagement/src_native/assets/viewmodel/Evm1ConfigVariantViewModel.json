@@ -1,0 +1,259 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-section.directive",
+        "js/aw-property-non-edit-val.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-widget.directive"
+    ],
+
+    "data": {
+        "variantCommands": "awb0_variantCommands",
+        "savedVariant": {
+            "uiValue": "{{i18n.savedVariant}}",
+            "type": "STRING"
+        },
+        "defaultVariantRule":
+        {
+            "displayName": "{{i18n.variantSectionSavedVariantsValue}}",
+            "uiValue": "{{i18n.variantSectionSavedVariantsValue}}",
+            "type": "STRING"
+        },
+        "currentVariantRule":
+        {
+            "uiValue": "{{data.currentVariantRule}}",
+            "type": "STRING"
+        },
+        "customVariantRule":
+        {
+            "displayName": "{{i18n.customVariantRule}}",
+            "type": "STRING"
+        },
+        "newVariantRule":
+        {
+            "displayName": "{{i18n.new}}",
+            "type": "STRING"
+        },
+        "variantRuleFilterBox":
+        {
+            "displayName" :"filter",
+            "type": "STRING",
+            "dbValue" :""
+        },
+        "variantRuleList": {
+            "displayName": "{{i18n.configPanelSavedVariantTitle}}",
+            "type": "STRING",
+            "dataProvider": "getAllVariantRulesProvider",
+            "emptyLOVEntry": false
+        }
+    },
+
+    "actions": {
+        "initSVROwningItems": {
+            "actionType": "JSFunction",
+            "method": "initSVROwningItems",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+        "revealSVROwningItems": {
+            "actionType": "dataProvider",
+            "method": "getConfiguredSVROwningItems"
+        },
+        "fetchSVROwningItems": {
+            "actionType": "JSFunction",
+            "method": "getSVROwningItems",
+            "inputData": {},
+            "outputData": {
+                "svrOwningItems": ""
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+        "initializeVariantInfo":
+        {
+            "actionType": "JSFunction",
+            "method": "getInitialVariantConfigurationData",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+        "deps": "js/Evm1ConfigurationPanelService"
+        },
+        "getAllVariantRules":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceBom-2019-12-OccurrenceConfiguration",
+            "method": "getConfigurationRules2",
+            "inputData":
+            {
+                "input": {
+                    "maxToLoad": 20,
+                    "startIndex": "{{function:evaluateStartIndex}}",
+                    "searchCriteria": "{{data.variantRuleFilterBox.dbValue}}",
+                    "productContext": {
+                        "type": "Awb0ProductContextInfo",
+                        "uid": "{{ctx.recipeCtx.productContextForVariantRule}}"
+                    },
+                    "typeToFetch": "VariantRule",
+                    "fetchOnlyPreferredConfiguration": false
+                }
+            },
+           "outputData":
+            {
+                "variantRules": "{{function:processVariantRules}}",
+                "totalFound": "totalFound"
+            },
+            "actionMessages": {
+                "failure":
+                [
+                    {
+                        "message": "errorInGettingPreferredConfigInfo"
+                    }
+                ]
+            },
+        "deps": "js/Evm1ConfigurationPanelService"
+        },
+        "selectChangedVariantInfo": {
+            "actionType": "JSFunction",
+            "method": "selectChangedVariantInfo",
+            "inputData": {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+        "svrOwningItemSelected": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "awPanel.navigate",
+                    "eventData": {
+                        "destPanelId": "Evm1SVROwningElementPanel",
+                        "title": "{{data.i18n.configPanelEffectiveVariantForTitle}}",
+                        "recreatePanel": "true",
+                        "supportGoBack": true
+                    }
+                } ]
+            }
+        },
+        "getProductContextForSVRItem": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ViewMgmtAW-2019-12-ViewDataManagement",
+            "method": "manageRecipes3",
+            "inputData": {
+                "inputs": "{{function:ManageRecipesInputForContext}}"
+            },
+            "outputData": {
+                "response": "{{function:getManageRecipeResponseForContext}}"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+        "resetVariantRuleList": {
+            "actionType": "JSFunction",
+            "method": "resetVariantRuleList",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        }
+    },
+
+    "dataProviders": {
+        "getConfiguredSVROwningItems": {
+            "action": "fetchSVROwningItems",
+            "response": "{{data.svrOwningItems}}",
+            "uidInResponse": "dbValues[0]",
+            "selectionModelMode": "single"
+        },
+        "getAllVariantRulesProvider":
+        {
+            "initializeAction": "getAllVariantRules",
+            "response": "{{data.variantRules}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single",
+            "moreValuesExist": "{{data.moreValuesExist}}"
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "Evm1ConfigVariant.contentLoaded",
+            "action": "initSVROwningItems"
+        },
+        {
+            "eventId": "evm1ConfigPanel.revealSVROwningItems",
+            "condition": "conditions.checkRevealCondition",
+            "action": "revealSVROwningItems"
+        },
+        {
+            "eventId": "Evm1ConfigVariant.contentLoaded",
+            "action": "initializeVariantInfo"
+        },
+        {
+            "eventId": "variantRuleList.lovValueChanged",
+            "cacheEventData": true,
+            "condition":"conditions.checkRevealCondition",
+            "action": "selectChangedVariantInfo"
+        },
+        {
+            "eventId": "getConfiguredSVROwningItems.selectionChangeEvent",
+            "action": "svrOwningItemSelected"
+        },
+        {
+            "eventId": "evm1ConfigPanel.svrOwningItemChanged",
+            "action": "initSVROwningItems"
+        },
+        {
+            "eventId": "evm1ConfigPanel.getProductContext",
+            "action": "getProductContextForSVRItem"
+        },
+        {
+            "eventId": "evm1ConfigPanel.resetVariantRuleList",
+            "action": "resetVariantRuleList"
+        }
+    ],
+
+    "messages": {
+
+    },
+
+    "functions": {
+        "evaluateStartIndex": {
+            "functionName": "evaluateStartIndexForVariantRuleDataProvider",
+            "parameters": ["{{data.dataProviders.getAllVariantRulesProvider}}"]
+        },
+        "ManageRecipesInputForContext": {
+            "functionName": "ManageRecipesInputForContext",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getManageRecipeResponseForContext": {
+            "functionName": "getManageRecipeResponseForContext",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+
+    "conditions": {
+        "checkRevealCondition":
+        {
+            "expression": "ctx.xrtSummaryContextObject.type === 'Fnd0SearchRecipe'"
+        },
+        "checkSelectionChange":
+        {
+            "expression": "data.isPopupActive === true && conditions.checkRevealCondition"
+        }
+    },
+
+    "i18n": {
+        "configPanelSavedVariantTitle": [ "RecipeCommandPanelsMessages" ],
+        "variantSectionSavedVariantsValue": [ "RecipeCommandPanelsMessages" ],
+        "savedVariant": [ "RecipeCommandPanelsMessages" ],
+        "configPanelEffectiveVariantForTitle": [ "RecipeCommandPanelsMessages" ]
+    }
+}

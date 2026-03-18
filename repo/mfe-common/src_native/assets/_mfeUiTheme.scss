@@ -1,0 +1,69 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+
+/*========================================================================*/
+/*============================ MFE Common Location =======================*/
+/*========================================================================*/
+
+.aw-mfe-contentPanel {
+    border-color: $brand-secondary-border;
+}
+
+.aw-mfe-headerTitle {
+    .aw-base-normal a {
+        color: $Siemens_Snow;
+    }
+}
+
+/*========================================================================*/
+/*============================= MFE Content Panel ========================*/
+/*========================================================================*/
+
+.aw-mfe-transparentSplitter {
+    >.aw-layout-splitterLine {
+        border-color: transparent;
+    }
+
+    >.aw-layout-splitterLineHorizontal {
+        border-color: transparent;
+    }
+}
+
+.aw-mfe-activeContentPanel{
+    border-top-color: $aw_accent_7a;
+}
+
+/*========================================================================*/
+/*=========================== MFE Extended Tooltip ============================*/
+/*========================================================================*/
+
+.aw-mfe-tooltipInstruction {
+    color: $brand_disabled_reverse_background;
+}
+
+.aw-mfe-informationWarning {
+    background-color: $brand_status_error_background;
+    border-color: $guidance_error_border_color;
+}
+
+.aw-mfe-contentPanelAdvancedBar {
+    box-shadow: $brand_secondary_box_shadow;
+}
+
+/*========================================================================*/
+/*============================= Large popup ==============================*/
+/*========================================================================*/
+
+.aw-mfe-largeHeader {
+    color: $aw_secondary_text;
+}
+
+.aw-mfe-largePopup {
+    border-top-color: $aw_secondary_text;
+}

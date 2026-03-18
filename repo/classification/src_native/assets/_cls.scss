@@ -1,0 +1,1751 @@
+// Copyright 2018 Siemens Product Lifecycle Management Software Inc.
+
+// mixins
+@import 'mixins/mixins';
+
+
+.aw-cls-classifyFooter {
+    padding-bottom: 0;
+}
+
+.aw-cls-classifyTree {
+    padding: 0;
+}
+
+.aw-cls-unit {
+    padding-left: 120px;
+}
+
+.aw-cls-imagesPanel {
+    padding-top: 12px;
+}
+.aw-cls-classesTab {
+    @include flex(1 1 auto);
+    @include flexbox();
+    @include flex-direction(column);
+    overflow: auto;
+
+    aw-cls-hierarchy-filter-searchbox,
+    aw-splm-table {
+        margin: 4px;
+    }
+    .aw-splm-table {
+        margin: 10px;
+    }
+    aw-cls-hierarchy-filter-searchbox .aw-ui-filterCategorySearchBoxWidget {
+        margin: 0;
+        padding: 10px;
+        padding-top: 0px;
+    }
+}
+
+.aw-cls-classesTab .aw-base-scrollPanel .aw-splm-tableOverflowVisible {
+    overflow: hidden;
+}
+
+.aw-cls-filtersTab {
+    overflow: auto;
+}
+
+.aw-cls-filtersTabNoscroll{
+    overflow: hidden;
+}
+
+div.aw-cls-filtersTab > aw-property-non-edit-val.aw-cls-filtersTabNoscroll {
+    overflow: hidden;
+}
+
+.aw-cls-float .aw-layout-panelMain .aw-base-blk-button {
+    position: fixed;
+    width: 50%;
+}
+
+aw-button .aw-cls-float {
+    position: fixed;
+    width: 50%;
+}
+
+.aw-cls-BulkFilerPanel {
+    display: inherit;
+}
+
+.aw-cls-icon .aw-base-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.aw-cls-classHeaderContent {
+    display: block;
+}
+
+.aw-cls-classHeaderContent .aw-base-normal {
+    display: block;
+}
+
+.aw-cls-hierarchyHeaderLabel {
+    cursor: pointer;
+}
+
+.aw-cls-propsHeaderLabelContainer {
+    width: 50%
+}
+
+.aw-cls-propCommands {
+    width: 2%;
+    display: inherit;
+}
+
+.aw-cls-propCommands-align {
+    width: 50%;
+    text-align: right;
+}
+
+.aw-cls-viewCommands-align {
+    width: 50%;
+    text-align: right;
+}
+
+.aw-cls-fullViewClassify {
+    margin-top: -4px;
+    width: 100%;
+}
+.aw-cls-list .aw-base-scrollPanel {
+    max-height: 100px;
+}
+
+.aw-cls-classHeaderContainer,
+.aw-cls-propsHeaderContainer {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    flex-flow: row nowrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -ms-flex-pack: start;
+    flex-pack: start;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    flex-line-pack: stretch;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -ms-flex-align: start;
+    flex-align: start;
+}
+
+.aw-cls-classHeaderContent .aw-ui-filterCategorySearchBoxWidget,
+.aw-cls-propsHeaderContainer .aw-ui-filterCategorySearchBoxWidget {
+    margin-left: 0;
+    margin-top: -5px;
+    padding-left: 0;
+    padding-bottom: 8px;
+    width: 100%;
+}
+
+.aw-cls-propsHeaderContainer .aw-ui-filterCategorySearchBoxWidget {
+    width: 100%;
+}
+
+.aw-cls-classHeaderContent aw-cls-property-group-tree-section {
+    margin-left: 22px;
+}
+
+.aw-cls-icon {
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: 2px;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    align-self: auto;
+    -ms-flex-item-align: auto;
+    flex-item-align: auto;
+}
+
+.aw-cls-classHeaderLabel {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    align-self: auto;
+    -ms-flex-item-align: auto;
+    flex-item-align: auto;
+}
+
+.aw-cls-extendedPropPanel {
+    width: 100%;
+    padding-left: 6px;
+}
+
+.aw-classification-widgetView {
+    text-align: left;
+    width: 50%;
+}
+
+.aw-classification-extendedPropView {
+    text-align: right;
+    margin-left: -30px;
+}
+
+.aw-cls-showMinMax {
+    padding: 0 8px 0 8px;
+    margin: 0;
+}
+
+.aw-cls-complex aw-property-val{
+    width: 80px;
+    display: inline-flex;
+}
+
+.aw-cls-showMinMax .aw-base-icon {
+    width: 20px;
+    height: 20px;
+    padding-top: 4px;
+}
+
+.aw-cls-showComplexMinMax .aw-base-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.aw-cls-unitDiv {
+    @include flexbox();
+}
+
+.aw-cls-unitDivTwoProps {
+    @include flexbox();
+    margin-left: 167px;
+}
+
+.aw-cls-unitDivThreePropsOrMore {
+    @include flexbox();
+    margin-left: 84px;
+}
+
+.aw-cls-extendedProp .aw-widgets-propertyValContainerMargin {
+    margin-bottom: 0;
+}
+
+.aw-cls-extendedProp {
+    width: 15%;
+}
+
+.aw-cls-extendedPropNavigate {
+    width: 100%;
+}
+
+.aw-cls-suggestion {
+    padding-left: 0;
+}
+
+.aw-cls-locationTab .aw-cls-extendedProp {
+    width: 30%;
+}
+
+.aw-cls-fullViewImage {
+    width: 40%;
+    -ms-overflow-style: none;
+    overflow: auto;
+}
+
+.aw-cls-fullViewImage .aw-layout-panelSectionTitle {
+    margin-top: 6px;
+    margin-right: 8px;
+}
+
+.aw-cls-block,
+.aw-cls-childHover,
+.aw-cls-cardinalParent .aw-splm-tableContainer {
+    border: 1px solid;
+}
+
+.aw-cls-parentHover {
+    border: 2px solid;
+}
+
+.aw-cls-fullViewViewPropLabelReleaseForm {
+    height: calc(100vh - 380px);
+    overflow-y: auto;
+}
+
+.aw-cls-fullViewViewPropLabelForm {
+    height: calc(100vh - 320px);
+    overflow-y: auto;
+}
+
+.aw-cls-fullViewViewPropReleaseForm {
+    height: calc(100vh - 340px);
+    overflow-y: auto;
+}
+
+.aw-cls-fullViewViewPropForm {
+    height: calc(100vh - 280px);
+    overflow-y: auto;
+}
+
+.aw-cls-extendedPropEdit {
+    width: 40%;
+}
+
+.aw-cls-extendedPropCreate {
+    width: 30%;
+}
+
+.aw-cls-locationTab .aw-cls-extendedPropCreate {
+    width: 50%;
+}
+
+.aw-cls-extendedPropCreate aw-property-val,
+.aw-cls-extendedPropEdit aw-property-val {
+    width: 100%;
+}
+
+.aw-cls-complexExtendedPropEdit {
+    @include flex( none );
+}
+
+.aw-cls-complexExtendedPropCreate {
+    @include flex( none );
+}
+
+.aw-cls-complexExtendedProp {
+    @include flex( none );
+}
+
+.aw-cls-locationTab .aw-cls-complexExtendedPropCreate {
+    @include flex( none );
+}
+
+.aw-cls-extendedPropBool {
+    width: 45%;
+    margin-left: -8px;
+}
+
+.aw-cls-extendedPropBoolEdit {
+    width: 25%;
+    margin-left: -8px;
+}
+
+.aw-cls-propertyAnnotationLabelBool {
+    font-weight: 600;
+}
+
+.aw-cls-propertyAnnotationLabelBoolFS {
+    font-weight: 600;
+}
+
+.aw-cls-propertyAnnotationLabelBoolOpen {
+    margin-left: -28px;
+    font-weight: 600;
+}
+
+.aw-cls-extendedPropsCellContainer {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    @include flex-direction(column);
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    flex-flow: column nowrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -ms-flex-pack: start;
+    flex-pack: start;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    flex-line-pack: stretch;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -ms-flex-align: start;
+    flex-align: start;
+}
+
+.aw-cls-bold.aw-widgets-propertyValue {
+    font-weight: 600;
+}
+
+/* Only increase the line height for the property values inside the extended properties container */
+
+.aw-cls-extendedPropsContainer .aw-cls-bold.aw-widgets-propertyValue {
+    display: inline;
+    line-height: 120%;
+}
+
+.aw-cls-extendedPropsContainer .aw-widgets-propertyLabel,
+.aw-cls-properties .aw-property-label {
+    word-break: break-word;
+}
+
+.aw-cls-property {
+    padding-left: 20px;
+}
+
+.aw-cls-block-property {
+    padding-left: 15px;
+}
+
+.aw-cls-extendedPropsCellContainer .aw-cls-defaultCellContainer {
+    width: 100%;
+}
+
+.aw-cls-extendedPropsCellContainer .aw-cls-defaultCellContainer,
+.aw-cls-extendedPropsCellContainer .aw-cls-extendedPropsContainer {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    align-self: auto;
+    -ms-flex-item-align: auto;
+    flex-item-align: auto;
+}
+
+.aw-cls-extendedPropsCellContainer .aw-cls-extendedPropsContainer {
+    width: -webkit-calc(100% - 15px);
+    width: -moz-calc(100% - 15px);
+    width: calc(100% - 15px);
+}
+
+.aw-cls-extendedPropsCellContainer .aw-widgets-cellListCellImage {
+    display: none;
+}
+
+.aw-cls-extendedPropsCellContainer .aw-widgets-cellListCellContent {
+    width: 100%;
+}
+
+.aw-cls-extendedPropsCellContainer .aw-cls-defaultCellContainer .aw-widgets-propertyValue {
+    font-weight: 600;
+    overflow: auto;
+    white-space: normal;
+}
+
+.aw-cls-extendedPropsContainer {
+    float: left;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.aw-cls-classHeaderContent .aw-base-normal {
+    margin-top: 4px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.aw-cls-classHeaderContent .aw-xrt-thumbnailImage {
+    max-width: 600px;
+    padding-bottom: 5px;
+    margin: 0;
+    float: right
+}
+
+aw-cls-fullview-container {
+    form.aw-layout-panelSectionContent {
+        padding-top: 0;
+        padding-left: 0;
+    }
+    form.aw-cls-images, form.aw-cls-fullview-container-propertiesFullPanel {
+        margin-top: 0;
+        padding: 0;
+
+        > div.aw-layout-panelSection {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    form.aw-cls-fullview-container-propertyGroups {
+        padding: 0;
+    }
+}
+
+.aw-cls-propertyGroupSection {
+    margin-top: 0;
+}
+
+aw-cls-fullview-properties, .aw-cls-suggestedCommandPanel, .aw-cls-images {
+    .aw-layout-panelSection {
+        margin-top: 0;
+    }
+}
+
+/*
+Fix for defect LCS-248739 - Horizontal scroll bar is not needed and shall be shown only when needed in Classification tab during authoring, not always
+Issue:
+We have a single column tree-table. In that on expansion after a few levels, the text width of the row might increase, but this width is not picked up by tree-table's div.ui-grid-cell.
+Even if we give width: auto in the column info of the tree, splmTableDomController.initializeColumnWidths, assigns a width in pixel to it(which is calculated as minWidth * 1.25)
+This width is applied to div.ui-grid-cell through inline style
+Solution:
+To refrain our tree column text from getting truncated and showing a scroll bar in case of text overflow, we've to give width: auto to div.ui-grid-cell element
+Since width in px is applied through inline style to the element, we need to override it using !important.
+*/
+.aw-cls-flex .aw-splm-table .aw-splm-tableContainer .ui-grid-row div.ui-grid-cell,
+.aw-cls-create-edit-treetable .aw-splm-table .aw-splm-tableContainer .ui-grid-row div.ui-grid-cell {
+    width: auto !important;
+    padding-right: 5px;
+    /* Little padding to put in
+     some breathing space after width auto */
+}
+
+.aw-cls-flex .aw-splm-table .aw-splm-tableContainer .ui-grid-row div.ui-grid-cell,
+.aw-cls-flex .aw-splm-table .aw-splm-tableContainer .ui-grid-row div.ui-grid-cell:hover,
+.aw-cls-create-edit-treetable .aw-splm-table .aw-splm-tableContainer .ui-grid-row div.ui-grid-cell {
+    border: none;
+}
+
+aw-cls-fullview-container,
+aw-cls-fullview-viewmode {
+
+    .aw-cls-createTreePanel {
+        .aw-layout-panelSectionContent {
+            padding: 0;
+            margin-top: 0;
+            margin-left: -4px;
+        }
+
+        margin: 0 0 4px 0;
+    }
+
+    .aw-cls-create-edit-treetable {
+        @include flex-direction(row);
+
+        .aw-cls-fullViewFlexContainer {
+            width: 100%;
+
+            aw-cls-hierarchy-filter-searchbox {
+                width: 100%;
+
+                .aw-ui-filterCategorySearchBoxWidget {
+                    margin-left: 0;
+                }
+            }
+
+            div.aw-cls-sort-cmd {
+                @include flex(1 1 15%);
+                padding: 4px;
+                margin: 0;
+
+                >form.aw-layout-panelSectionContent {
+                    display: none;
+                }
+
+                aw-popup-panel {
+                    font-weight: 400;
+                    text-transform: none;
+                }
+            }
+        }
+
+        aw-splm-table.aw-cls-fullViewFlexContainer {
+            @include flex-direction(column);
+
+            .aw-splm-table {
+                overflow: auto;
+
+                .aw-splm-tableViewport {
+                    overflow-x: hidden;
+                }
+            }
+        }
+    }
+
+    /*
+    Fix for defect LCS-248740:
+    The image/pdf viewer container's height is calculated based in setViewerDimensions in aw-universal-viewer.controller. There are two cases:
+    If useParentDimensions is true, it doesn’t take into account the height of the viewer buttons(maximize, checkout, etc) while calculating the height. Thus the viewer always has the scroll bar.
+    If useParentDimensions is false, height would expand up to the edge of the browser. Thus, whenever there are any bottom margins/paddings anywhere in it's ancestors, it would always overflow.
+                There is some margin/padding assigned for content inside tab. Thus, there would always be some margin at bottom, effectively leading to the issue height of the classification tab content would always overflow the assigned content area.
+
+    To fix this, we decided to keep the image with a fixed height. But fixed height from CSS was not getting picked up as aw-universal-viewer.controller was applying it’s calculated height as an inline style.
+    Thus the only option left is to make use of !important.
+    To address different resolutions used media queries.
+    */
+    .aw-cls-fullViewFlexBox.aw-cls-fullViewImageSection {
+        min-width: 30%;
+        margin-top: -6px;
+        margin-bottom: 8px;
+        margin-right: 8px;
+        form.aw-layout-subPanelContent {
+            padding: 0;
+        }
+
+        aw-image-viewer > #aw-image-viewer, aw-pdf-viewer > #aw-pdf-viewer{
+            > div#imageViewer,
+            > .aw-pdfjs-pdfPaneViewer.aw-pdfjs-pdfViewerIFrameWidget {
+                height: 378px !important;
+                @media all and (min-height: 852px) {
+                    height: 525px !important;
+                }
+                @media all and (min-height: 1080px) {
+                    height: 582px !important;
+                }
+            }
+        }
+        /* Image/PDF Full screen mode */
+        .aw-cls-fullview-image-ribbon-fullscreenMode {
+            aw-image-viewer > #aw-image-viewer, aw-pdf-viewer > #aw-pdf-viewer{
+                > div#imageViewer,
+                > .aw-pdfjs-pdfPaneViewer.aw-pdfjs-pdfViewerIFrameWidget {
+                    height: 574px;
+                    @media all and (min-height: 852px) {
+                        height: 721px;
+                    }
+                    @media all and (min-height: 1080px) {
+                        height: 778px;
+                    }
+                }
+            }
+        }
+    }
+
+    .aw-cls-images {
+        padding-left: 0;
+    }
+}
+
+aw-cls-fullview-container,
+.aw-cls-fullViewClassify .aw-flex-row {
+    overflow-y: auto;
+}
+
+.aw-cls-fullViewFlexContainer {
+    @include flexbox();
+    @include align-items(stretch);
+    @include flex-direction(row);
+}
+
+.aw-cls-fullViewFlexBox {
+    // causing massive whitespace between containers.
+    // @include flexbox();
+    @include flex-direction(column);
+    align-items: flex-start;
+    width: 100%;
+    //@include flex(6 3);
+    align-self: flex-start;
+}
+
+.aw-cls-fullViewClassFlexBox.aw-xrt-columnContentPanel,
+.aw-cls-fullViewFlexBox.aw-xrt-columnContentPanel.aw-cls-fullViewPropertySection {
+    min-width: 25%;
+}
+
+aw-secondary-workarea {
+    .aw-cls-fullViewColumnFlexContainer {
+        margin-top: 6px;
+        padding-left: 0;
+    }
+
+    .aw-cls-fullViewPropGrpSection {
+        margin-top: -6px;
+    }
+
+    aw-cls-fullview-container .aw-layout-panelSection {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        form.aw-layout-panelSectionContent {
+            padding-left: 0;
+        }
+
+        form.aw-cls-images {
+            padding-left: 8px;
+        }
+    }
+    .aw-cls-viewClassification {
+        form.aw-layout-subPanelContent {
+            padding-left: 0;
+            padding-top: 0;
+        }
+    }
+}
+
+.aw-cls-propertyGroupSection .aw-ui-filterCategorySearchBoxWidget {
+    margin-top: -4px;
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+.aw-cls-fullViewPropertySection {
+    margin-left: 8px;
+}
+
+.aw-cls-fullViewReleaseCheckbox{
+    width: 100%;
+    padding-top: 3px;
+    .aw-base-iconButton{
+        padding-top: 13px;
+        padding-right: 15px;
+        padding-left: 0px;
+    }
+}
+
+.aw-cls-fullViewFlexContainer .aw-flex-row .aw-base-iconButton {
+    padding-top: 10px;
+    padding-right: 0px;
+}
+
+.aw-cls-classificationReleaseCheckBox{
+    margin: 4px;
+    padding: 10px;
+    @include flexbox();
+    @include flex(1)
+}
+/* Reducing the min-width for the image-viewer gallery components for the classification tab
+since there isn't enough space to accomodate the image and the commands related to it */
+
+.aw-cls-fullViewFlexBox .aw-image-viewer,
+.aw-cls-fullViewFlexBox .aw-viewerjs-dimensions {
+    min-width: 100px;
+}
+
+.aw-cls-fullViewClassFlexBox {
+    @include flexbox();
+    @include flex-direction(column);
+    align-self: flex-start;
+}
+
+.aw-cls-fullViewVncFlexBox {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include flex(5 5);
+    @include flex-direction(row);
+    width: auto;
+    align-self: flex-start;
+    overflow-y: auto;
+}
+
+.aw-clsLocation-fullViewVncFlexBox {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include flex(5 5);
+    @include flex-direction(column);
+    width: auto;
+    align-self: flex-start;
+}
+
+.aw-clsLocation-fullViewVncFlexBox.aw-xrt-columnContentPanel{
+    padding-left: 11px;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListCellImage,
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListCellImage .aw-base-large-thumbnail,
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-modelObjectThumbnail,
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-modelObjectThumbnail .aw-base-icon {
+    max-width: 200px;
+    max-height: 200px;
+    width: 75px;
+    height: 75px;
+}
+
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListCellImage .aw-base-large-thumbnail>img.aw-base-icon {
+    display: none;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListWidget .aw-widgets-cellListItem {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+
+    align-content: flex-start;
+
+    padding: 15px;
+    margin: 15px;
+    min-width: 250px;
+    width: 250px;
+
+    align-content: normal;
+    height: 152px;
+    border-bottom: 0;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListCellContent {
+    width: inherit;
+    float: none;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-modelObjectThumbnailContainer {
+    margin: 0;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListCellCommands {
+    display: none;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-modelObjectTypeIconOverlay {
+    display: none;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListWidget {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListCellImage {
+    float: none;
+    margin: 0;
+    margin-left: 10px;
+
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListCellTitle {
+    font-size: $fontsize_x_large;
+    letter-spacing: .5px;
+    font-weight: 700;
+    max-width: 100%;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-cls-label {
+    @include flexbox();
+    @include flex-direction(row-reverse);
+    width: 100%;
+}
+
+.aw-cls-search-visualNavigationTitle {
+    font-size: $fontsize_x_large;
+    width: 100%;
+    text-align: center;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent {
+    width: 100%;
+    height: 100%
+}
+
+.aw-cls-selectedLink {
+    font-weight: 700;
+}
+
+.aw-cls-layout-panelBody {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 70%;
+
+    /* Removed for D-21482
+    Having overflow: hidden here overrides the special case fix for IE11 on Surface Pro,
+    if you change, or re-introduce this verify that it is possible to scroll using
+    touch only on Surface
+    overflow: hidden; */
+}
+
+.aw-cls-widgets-cellListCellContent .aw-widgets-cellListCellTitleBlock {
+    padding-top: 15px;
+}
+
+.aw-cls-tooltipLabel {
+    font-weight: bold;
+    line-height: 16px;
+}
+
+/* Adjust height to include cell commands on hover: 19px x 3*/
+.aw-cls-viewClassification .aw-widgets-cellListItem {
+    margin: 1px 1px 5px 1px;
+    height: 57px;
+    border-bottom: 0;
+}
+
+.aw-cls-viewClassification .aw-widgets-cellListWidget .aw-widgets-cellListItem {
+    max-width: none;
+}
+
+aw-cls-fullview-vnc .aw-layout-panelSectionContent {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.aw-cls-classHeaderContent {
+    height: auto;
+    @include flexbox();
+    @include flex-direction(column);
+    justify-content: space-around;
+    @include flex-wrap(wrap);
+    -webkit-justify-content: space-around;
+}
+
+.aw-cls-classHeaderContent .aw-xrt-thumbnailImagePanel {
+    @include flexbox();
+    @include flex-direction(column);
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.aw-cls-classHeaderContent .aw-xrt-thumbnailImage {
+    height: auto;
+    max-width: 100%;
+    width: auto;
+}
+
+.aw-cls-noClassifiedMsg {
+    margin-top: -5px;
+    padding-bottom: 24px;
+}
+
+.aw-cls-noImagesMsg {
+    padding: 8px;
+    font-weight: 600;
+}
+
+.aw-cls-propertyContainer {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+
+    display: flex;
+    flex-direction: row;
+
+    flex: 2;
+    padding-top: 7px;
+    width: 100%;
+
+    .aw-jswidgets-arrayNonEditValueCellList{
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+/**
+    Specific to  Navigate panel
+*/
+
+.aw-cls-navigatePropertyContainer {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex( 1 1 auto );
+    padding-top: 7px;
+    width: 100%;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListItem .aw-vnc-classname-header {
+    width: 100%;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListItem .aw-class-info {
+    width: 40%;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListItem .aw-class-info.aw-vnc-no-child-exists {
+    width: 100%;
+}
+
+/*
+For showing 2x2 grid using flex done following:
+1. flex-basis for each child as calc(50% - 10px) as margin-left and margin-right for each element is 5px
+2. flex-wrap: wrap so that it will be shown in 2 columns and will wrap to next line.
+*/
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListItem>.aw-cls-nextLvlChildren {
+    width: 50%;
+}
+
+.aw-cls-nextLvlChildren>aw-cls-subchildren-link {
+    display: inherit;
+}
+
+.aw-cls-subchildren-link .aw-cls-nextLvlChildren {
+    min-height: 25px;
+    height: 100%;
+}
+
+aw-cls-subchildren-link .aw-cls-nextLvlChildren a {
+    display: block;
+    height: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.aw-cls-navigateAnnotation{
+    width:inherit
+}
+
+.aw-cls-navigateAnnotation >.propertyLabelTopContainer {
+    word-break: break-all;
+}
+
+.aw-cls-annotation {
+    width: inherit;
+}
+
+.aw-cls-propertyLabelAnno {
+    width: 50%;
+    display:inline-flex;
+}
+
+.aw-cls-locationTab .aw-cls-propertyLabelAnno
+ {
+    width: 40%;
+    display:inline-flex;
+}
+
+.aw-cls-propertyLabelField {
+    width: 90%;
+    display:inline-flex;
+}
+
+.aw-cls-propertyLabelAnnoCreatePanel {
+    width: 100%;
+}
+
+
+.aw-cls-propertyLabelAnnoPanel {
+    width: 200px;
+    margin-left: -8px;
+    display: inline-flex;
+}
+
+.aw-cls-propertyLabel {
+    width: 75%;
+}
+
+.aw-cls-propertyAnnotationLabel {
+    font-weight: 600;
+    @include flexbox();
+}
+
+.aw-cls-propertyAnnotationLabelPanel {
+    width: 70px;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.aw-cls-propertyUnits {
+    padding: 0 6px 0 6px;
+}
+
+.aw-cls-propertyUnitsEdit {
+    padding-top: 6px;
+}
+
+aw-cls-properties .aw-ui-tree {
+    padding-top: 6px;
+}
+
+.aw-cls-propertyContainer .aw-widgets-propertyLabelTop,
+.aw-cls-propertyContainer .aw-widgets-propertyLabelTopValueContainer {
+    min-width: auto;
+}
+
+.aw-cls-propertyContainer .aw-widgets-propertyLabelTopValueContainer {
+    flex: none;
+}
+
+.aw-cls-propertyAnnotationLabel .propertyLabelTopContainer .aw-widgets-propertyLabelTop {
+    font-weight: 600;
+}
+
+
+/** Specific to navigate panel
+*/
+.aw-cls-navigatePropertyContainer .aw-widgets-propertyLabelTop,
+.aw-cls-navigatePropertyContainer .aw-widgets-propertyLabelTopValueContainer {
+    min-width: auto;
+    font-weight: 400;
+}
+.aw-cls-navigatePropertyContainer .aw-widgets-propertyLabelTopValueContainer{
+    flex: none;
+}
+
+
+/* Breaking the long attribute names if they don't fit, so that annotation is properly visible. */
+
+.aw-cls-annotation>.propertyLabelTopContainer {
+    word-break: break-all;
+}
+
+.aw-cls-pair {
+    display: inherit;
+}
+
+.aw-classification-pairView {
+    @include flexbox();
+}
+
+.aw-cls-minMaxLabel {
+    font-size: $fontsize_normal;
+}
+
+.aw-cls-minMaxLabelContainer {
+    margin-top: 2px;
+}
+
+.aw-cls-classificationHeaders {
+    margin-bottom: 0;
+
+}
+
+.aw-cls-classificationHeaders .aw-base-iconButton {
+    padding: 4px;
+    height: 32px;
+    width: 32px;
+}
+
+.aw-cls-viewClassification {
+    padding: 0;
+}
+
+.aw-cls-classifyCreateFooter .aw-layout-panelFooter {
+    display: inline-flex;
+    position: relative;
+    float: right;
+    width: auto;
+    padding: 0 4px 0 0;
+}
+
+.aw-cls-classifyCreateFooter .aw-layout-panelFooter .aw-cls-classifyButton {
+    margin-left: 5px;
+    margin-top: 4px;
+    width: 200px;
+    float: right;
+}
+
+.aw-cls-classifyCreateFooter .aw-layout-panelFooter .aw-cls-classifyButtonLast {
+    margin-right: 8px;
+}
+
+.aw-cls-fullview-classheader .aw-uiwidgets-navWidgetChild,
+.aw-cls-fullview-classheader .aw-uiwidgets-navWidgetParent {
+    padding-bottom: 2px;
+}
+
+.aw-ui-treeNode div.aw-cls-treeValueSection {
+    margin-left: -20px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+}
+
+.aw-cls-propertyGroupTreeSection {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 350px;
+}
+
+.aw-cls-propertyGroupTreeSection .aw-cls-propertyGroupTreeSection {
+    overflow: visible;
+}
+
+.aw-cls-propertyGroupLastChild {
+    margin-left: 8px;
+}
+
+.aw-cls-propertyImage {
+    padding-left: 4px;
+}
+
+.aw-ui-tree .aw-cls-propertyGroupTreeSection .aw-ui-treeNode div.aw-cls-treeValueSection .aw-cls-propertyGroupLastChild {
+    margin-left: 5px;
+}
+
+.aw-cls-propertyGroupTreeSection li {
+    font-size: $fontsize_large;
+}
+
+.aw-cls-propertyGroupTreeExpansionSection {
+    display: inline-block;
+}
+
+aw-cls-fullview-properties {
+    .aw-cls-fullViewProperties {
+        overflow-x: auto;
+    }
+
+    .aw-base-scrollPanel {
+        overflow-y: auto;
+        @include flexbox();
+        @include flex-direction(column);
+        @include flex(1);
+    }
+
+    .aw-layout-panelSectionTitle,
+    .aw-layout-panelSectionTitle label,
+    .aw-layout-panelSectionTitle .gwt-Label {
+        overflow: visible;
+    }
+}
+
+.aw-cls-fullViewClassify {
+    .aw-layout-panelSection .aw-layout-panelSectionTitle {
+        padding-right: 0;
+    }
+}
+
+/* Thumbnail Ribbon CSS */
+.aw-cls-thumbnailRibbonContainer {
+    display: inline-flex;
+    max-width: 75%;
+    width: 75%;
+    overflow: hidden;
+}
+
+.aw-cls-thumbnailRibbonContent {
+    float: left;
+    width: auto;
+    min-width: auto;
+    max-width: auto;
+}
+
+aw-cls-fullview-image-ribbon .aw-xrt-thumbnailImage {
+    height: inherit;
+    width: inherit;
+    max-width: none;
+}
+
+/* End Thumbnail Ribbon CSS */
+
+.aw-cls-fullViewFlexContainer aw-cls-attribute-annotation .aw-jswidgets-propertyVal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.aw-cls-fullViewFlexContainer aw-cls-attribute-annotation aw-icon {
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+}
+
+.aw-cls-searchFlexBox {
+    @include flexbox();
+    @include flex-direction(row);
+    align-items: flex-start;
+    width: 100%;
+    align-self: stretch;
+    @include flex(1 1 auto);
+}
+
+.aw-cls-table {
+    height: 697px;
+}
+
+.aw-cls-table .aw-jswidgets-grid .ui-grid-row .ui-grid-cell {
+    border-width: 1px;
+}
+
+.aw-cls-table .aw-jswidgets-grid .aw-splm-tableScrollContainer .ui-grid-row .ui-grid-cell:last-child {
+    border-width: 0;
+}
+
+.aw-cls-table .aw-jswidgets-grid .aw-splm-tableScrollContainer .aw-jswidgets-drop {
+    height: auto;
+    max-height: 120px;
+}
+
+.aw-cls-fullViewProperties .aw-cls-table {
+    height: auto;
+    padding-bottom: 5px;
+}
+
+aw-cls-attribute-annotation-location .aw-ui-filterCategorySearchBoxWidget {
+    margin: 0;
+}
+/* Bulk Filtering related CSS */
+.aw-cls-tile-filterContainer {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.aw-cls-tile-filterContainer .aw-ui-filterCategoryNameAndCountContainer {
+    .aw-jswidgets-checkboxLabel {
+        font-size: inherit;
+    }
+}
+
+.aw-cls-filter-item {
+    display: block;
+}
+
+.aw-cls-filter-item button {
+    display: inline-block;
+    visibility: hidden;
+}
+
+.aw-cls-filter-item:hover button {
+    visibility: visible;
+}
+
+aw-cls-location-filter-view,
+.aw-cls-location-filter-view {
+    overflow: auto;
+
+    .aw-cls-applied-filter-container {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -webkit-box;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+
+        .aw-cls-bulk-actions-container {
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            -webkit-align-self: flex-end;
+            -ms-flex-item-align: flex-end;
+            align-self: flex-end;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: flex;
+            padding-bottom: 5px;
+
+            .aw-cls-bulk-actions {
+                margin-left: 5px;
+                margin-right: 5px;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: -webkit-box;
+                display: flex;
+            }
+        }
+    }
+
+    aw-cls-bulk-filters {
+        aw-cls-individual-bulk-filter {
+
+            .aw-cls-filter-remove-button-all,
+            .aw-cls-filter-remove-button-item {
+                height: 20px;
+            }
+
+            .aw-cls-individual-bulk-filter-header,
+            .aw-cls-individual-bulk-filter-items {
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: -webkit-box;
+                display: flex;
+
+                padding-top: 2px;
+                padding-bottom: 1px;
+
+                >span {
+                    -webkit-flex: 1 1 auto;
+                    -ms-flex: 1 1 auto;
+                    flex: 1 1 auto;
+                }
+            }
+        }
+    }
+}
+
+.aw-ui-filterCategorySearchBoxWidget .aw-uiwidgets-addIcon {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: center;
+    width: 24px;
+    height: 24px;
+    padding: 4px;
+    display: block;
+}
+
+.aw-ui-filterCategorySearchBoxWidget .aw-uiwidgets-addIcon {
+    margin-left: 2px;
+    margin-top: 7px;
+}
+
+aw-cls-bulk-filter-category .aw-uiwidgets-searchBoxIconContainer {
+    @include flexbox();
+}
+
+.aw-ui-bulkFilterName.aw-ui-filterNameLabelSelected:before,
+.aw-ui-bulkFilterName.aw-ui-filterNameLabelSelectedDrilldown1:before,
+.aw-ui-bulkFilterName.aw-ui-filterNameLabelSelectedDrilldown2:before,
+.aw-ui-bulkFilterName.aw-ui-filterNameLabelSelectedDrilldown3:before,
+.aw-ui-bulkFilterName.aw-ui-filterNameLabelSelectedDrilldown4:before {
+    content: "";
+}
+
+aw-cls-treetable-command-cell .aw-widgets-propertyValContainerMargin {
+    margin-bottom: 0;
+}
+
+aw-cls-treetable-command-cell .aw-jswidgets-cellTop {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+aw-cls-treetable-command-cell .aw-jswidgets-dataGridCellText {
+    display: inline-block;
+}
+
+.aw-cls-ico-cell .aw-widgets-cellListCellCommands .aw-commands-cellCommandCommon {
+    padding-right: 6px;
+}
+
+.aw-cls-fullview-viewmode .aw-cls-classificationHeaders .aw-layout-panelSection {
+    margin-bottom: 0;
+}
+
+.aw-cls-classificationHeaders .aw-layout-panelSectionTitle {
+    width: 350px;
+}
+
+.aw-cls-fullview-unitsystem .aw-jswidgets-radioText {
+    font-size: $fontsize_property_value;
+    vertical-align: middle;
+}
+
+aw-cls-filter-category-string-filter .aw-ui-filterCategorySearchBoxWrapper input,
+aw-cls-filter-category-searchbox .aw-ui-filterCategorySearchBoxWrapper input {
+    font-size: $fontsize_property_value;
+}
+
+.aw-cls-classHeaderContainerSection {
+    height: 18px;
+    width: 18px;
+    padding-right: 3px;
+    display: -ms-inline-box;
+    display: -webkit-inline-box;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -ms-flex-pack: start;
+    flex-pack: start;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    flex-line-pack: stretch;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -ms-flex-align: start;
+    flex-align: start;
+    vertical-align: middle;
+}
+
+.aw-cls-image-chevron {
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+
+}
+
+.aw-cls-headerImage {
+    cursor: pointer;
+    margin-right: 15px;
+    margin-top: 5px;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    align-self: auto;
+    -ms-flex-item-align: auto;
+    flex-item-align: auto;
+}
+
+.aw-cls-typeIcon {
+    margin-right: 0;
+}
+
+.aw-cls-classHeader-toggle {
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-box;
+}
+
+aw-cls-properties .aw-cls-headerImage svg {
+    height: 12px;
+    width: 12px;
+}
+
+aw-cls-properties .aw-cls-headerImage.aw-cls-image-chevron-properties svg {
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+}
+
+aw-cls-properties .aw-cls-headerImage {
+    margin-top: 0;
+    margin-right: 0;
+}
+
+aw-cls-properties .aw-cls-headerImage.aw-cls-property-header-image {
+    margin-right: 5px;
+}
+
+aw-cls-properties aw-property-image {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+aw-cls-properties aw-property-array-val aw-property-image {
+    display: inline;
+}
+
+.aw-cls-propertyGroupTreeSection .aw-cls-treeValueSection {
+    display: inline-flex;
+}
+
+.aw-cls-blockHeader {
+    font-weight: 700;
+}
+
+.aw-cls-classHeader-toggle .aw-cls-classHeaderContainerSection svg,
+.aw-cls-treeValueSection .aw-cls-propertyGroupTreeExpansionSection .aw-cls-headerImage svg {
+    height: 18px;
+    width: 18px;
+}
+
+.aw-cls-treeValueSection .aw-cls-propertyGroupTreeExpansionSection .aw-cls-headerImage {
+    margin-top: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.aw-cls-classHeader-toggle label {
+    padding-top: 2px;
+}
+
+/* CSS for AI */
+.aw-cls-fullViewVerticalFlexBox {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    .aw-layout-panelSectionContent {
+        margin-top: 4px;
+        margin-bottom: 4px;
+        padding-top: 0;
+    }
+
+    .aw-cls-suggestedCommandPanel {
+        margin-left: -10px;
+        .aw-layout-panelBody {
+            padding-top: 0;
+        }
+    }
+
+    .aw-cls-fullViewClassFlexBox {
+        padding-right: 0;
+        width: 100%;
+
+        form.aw-cls-createClassificationPanel {
+            padding: 0;
+
+            .aw-cls-create-edit-treetable {
+                margin: 0 0 10px 4px;
+            }
+        }
+
+        form.aw-cls-propGroup {
+            padding: 0;
+
+            aw-cls-fullview-classheader .aw-ui-filterCategorySearchBoxWidget {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+aw-cls-suggested-vnc {
+    .aw-cls-thumbnailRibbonContainer {
+        width: 94%;
+        max-width: 94%;
+
+        .aw-cls-thumbnailRibbonContent {
+
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+
+            align-content: flex-start;
+
+            padding: 15px;
+            margin: 15px;
+            min-width: 250px;
+            width: 250px;
+
+            align-content: normal;
+            height: 152px;
+            border-bottom: 0;
+        }
+    }
+
+    .aw-cls-suggestedClassDescription {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -webkit-box;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 60%;
+        justify-content: flex-end;
+
+        .aw-widgets-classDescription {
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: flex;
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+        }
+    }
+}
+
+aw-cls-search-tab aw-link-with-popup-menu .aw-base-icon {
+    height: 22px;
+    width: 22px;
+}
+
+.aw-cls-flex aw-popup-panel {
+    font-weight: 400;
+}
+
+aw-cls-search-tab aw-link-with-popup-menu aw-popup-panel .aw-layout-linkWithPopupContainer {
+    width: 100%;
+}
+
+.aw-cls-fullViewVerticalFlexBox .aw-cls-fullViewFlexContainer .aw-layout-panelBody {
+    padding: 0;
+}
+
+.aw-cls-fullViewVerticalFlexBox .aw-cls-fullViewFlexContainer .aw-cls-propCommands {
+    width: auto;
+}
+
+.aw-cls-fullViewVerticalFlexBox .aw-cls-fullViewFlexContainer .aw-cls-viewCommands {
+    width: auto;
+}
+
+.aw-cls-cardinalController {
+    height: 40px;
+}
+
+.aw-cls-filterCategorySearchBoxDimensions {
+    margin-left: -20px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+aw-cls-location-filter-view .aw-cls-location-filter-view aw-togglebutton {
+    padding-top: 10px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: flex;
+}
+
+span.aw-cls-applied-filter-height {
+    padding-bottom: 2px;
+    padding-top: 3px;
+}
+
+aw-cls-location-filter-view aw-filter-category-searchbox,
+aw-cls-bulk-filter-category-value-searchbox {
+    padding-bottom: 10px;
+    display: block;
+}
+
+aw-cls-filter-category-date-filter aw-cls-filter-category-date-range-filter,
+aw-cls-bulk-filter-category-numeric-filter aw-cls-filter-category-numeric-range-filter {
+    .aw-uiwidgets-searchBoxIconContainer {
+
+        .aw-uiwidgets-addIcon,
+        .aw-uiwidgets-searchBoxIcon {
+            -webkit-align-self: auto;
+            -ms-flex-item-align: auto;
+            align-self: auto;
+        }
+    }
+}
+
+aw-cls-location-filter-view aw-property-date-time-val aw-property-date-val .aw-widgets-innerWidget .aw-widgets-propertyEditValue {
+    min-width: 105px;
+}
+
+aw-cls-filter-category-date-filter aw-cls-filter-category-date-range-filter .aw-ui-filterCategorySearchBoxWidget {
+    margin-left: 7px;
+}
+
+.aw-layout-panelSectionTitle.aw-layout-flexRow.aw-cls-header-size {
+    height: 42px;
+    padding-right: 0;
+}
+
+aw-hierarchical-navigation .aw-uiwidgets-navWidgetContainer .aw-base-normal.aw-uiwidgets-navWidgetParent.aw-theme-childListContent.aw-uiwidgets-activeParent {
+    font-weight: 700;
+}
+
+.aw-cls-units{
+    margin-left: 3px
+}
+
+.aw-cls-noSearchResultsFound aw-property-non-edit-val span {
+    padding-left: 10px;
+}
+
+.aw-cls-defaultClassImage .aw-xrt-thumbnailImagePanel {
+    padding: 40% 0 0 45%;
+}

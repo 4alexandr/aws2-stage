@@ -1,0 +1,22 @@
+<aw-include visible-when="!conditions.isProcessElementSelected" name="mfeMessage"
+    sub-panel-context="data.messages.selectElementForAttachments"></aw-include>
+<aw-include visible-when="conditions.isProcessElementSelected && !conditions.isFileAttached" name="mfeMessage"
+    sub-panel-context="data.messages.noFilesAttached"></aw-include>
+<aw-flex-row visible-when="conditions.isProcessElementSelected && conditions.isFileAttached">
+    <aw-flex-column width="3">
+        <aw-scrollpanel>
+            <aw-list dataprovider="data.dataProviders.attachedFilesList">
+                <aw-flex-row align-content="center">
+                    <img src="{{item.typeIconURL}}" class="aw-epDetails-fileIcon">
+                    <div>
+                        <strong>{{item.props.object_string.dbValues[0]}}</strong>
+                    </div>
+                </aw-flex-row>
+            </aw-list>
+        </aw-scrollpanel>
+    </aw-flex-column>
+    <aw-separator is-vertical="true"></aw-separator>
+    <aw-flex-column class="aw-epFile-preview">
+        <aw-include name="epInformation" sub-panel-context="data.subPanelContextForInformation"></aw-include>
+    </aw-flex-column>
+</aw-flex-row>

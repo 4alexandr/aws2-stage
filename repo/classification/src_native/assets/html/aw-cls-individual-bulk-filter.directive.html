@@ -1,0 +1,21 @@
+<div title="{{filterDisplayName}}">
+    <div class="aw-cls-individual-bulk-filter-header">
+        <span style="font-weight: bold;" class="aw-cls-applied-filter-height" >{{filterDisplayName}}:</span>
+        <button type="button" class="aw-commands-commandIconButton aw-widgets-defaultPropertyValueButton aw-cls-filter-remove-button-all"
+                ng-click="removeAll()" title="Remove" >
+            <aw-property-image name="cmdDelete"></aw-property-image>
+        </button>
+    </div>
+    <div>
+        <div ng-repeat="filterItem in appliedFilterArray" class="aw-cls-filter-item">
+            <div class="aw-cls-individual-bulk-filter-items" title="{{filterItem.name}}">
+                <span class="aw-cls-applied-filter-height"> {{filterItem.name}} </span>
+                <button type="button" class="aw-commands-commandIconButton aw-widgets-defaultPropertyValueButton aw-cls-filter-remove-button-item"
+                        ng-click="remove($index)" title="Remove" >
+                    <aw-property-image name="cmdDelete"></aw-property-image>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

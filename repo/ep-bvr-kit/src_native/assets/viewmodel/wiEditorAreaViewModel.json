@@ -1,0 +1,23 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "contentPanelData": {
+            "tabs": [ {
+                    "name": "{{i18n.editorTitle}}",
+                    "tabKey": "wiEditor"
+                },
+                {
+                    "name": "{{i18n.assemblyPmiTitle}}",
+                    "tabKey": "wiAssemblyPmiTable"
+                }
+            ]
+        }
+    },
+    "i18n": {
+        "editorTitle": [ "InstructionsMessages" ],
+        "assemblyPmiTitle": [ "wiPmiMessages" ]
+    }
+}

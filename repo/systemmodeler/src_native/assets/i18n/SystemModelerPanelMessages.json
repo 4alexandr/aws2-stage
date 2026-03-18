@@ -1,0 +1,11 @@
+{
+    "interfaceExportPanelTitle": "Export",
+    "interfacePanelName": "Interface",
+    "exportButton": "Export",
+    "exportOperation": "ExportInterface",
+    "exportNameLabel": "Name",
+    "exportScopeLabel": "Scope",
+    "internalOnly": "Internal Systems",
+    "internalAndExternal":"Internal and External Systems",
+    "exportStartedNotify" : "\"{0}\" is being exported."
+}

@@ -1,0 +1,101 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-button.directive",
+        "js/aw-checkbox.directive",
+        "js/aw-numeric.directive",
+        "js/aw-panel-footer.directive",
+        "js/visible-when.directive"
+    ],
+    "actions": {
+        "apply": {
+            "actionType": "JSFunction",
+            "method": "updateConfigFromViewModel",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/showObjectDevConfigService"
+        }
+    },
+    "i18n": {
+        "ShowObjectDevConfigTitle": [
+            "ShowObjectDevConfigMessages"
+        ]
+    },
+    "data": {
+        "useMockData": {
+            "displayName": "Use Mock Data",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{ctx.showObjectDevConfig.useMock}}",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "useNewOcc": {
+            "displayName": "Use New Occ SOA",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{ctx.showObjectDevConfig.useNewOcc}}",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "useDeclShowObj": {
+            "displayName": "Use Declarative Show Obj",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{ctx.showObjectDevConfig.useDeclShowObj}}",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "delayTimeTree": {
+            "displayName": "Tree Load Delay (ms)",
+            "type": "INTEGER",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{ctx.showObjectDevConfig.nodeDelay}}",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "delayTimeProperty": {
+            "displayName": "Property Load Delay (ms)",
+            "type": "INTEGER",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{ctx.showObjectDevConfig.propertyDelay}}",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "maxTreeLevel": {
+            "displayName": "Max Tree Level",
+            "type": "INTEGER",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{ctx.showObjectDevConfig.maxTreeLevel}}",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "initialChildNdx": {
+            "displayName": "Initial Child Index",
+            "type": "INTEGER",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{ctx.showObjectDevConfig.initialChildNdx}}",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "loadPageSize": {
+            "displayName": "Load Page Size",
+            "type": "INTEGER",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{ctx.showObjectDevConfig.loadPageSize}}",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        }
+    }
+}

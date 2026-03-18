@@ -1,0 +1,207 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-splm-table.directive"
+    ],
+    "actions": {
+        "loadAssignedProductsColumns": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-VendorManagementAW-2019-12-VendorManagement",
+            "method": "getColumnInfo",
+            "inputData": {
+                "input": {
+                    "tableType": "AssignedProductsStructure",
+                    "inputObject": {
+                        "type": "{{ctx.xrtSummaryContextObject.type}}",
+                        "uid": "{{ctx.xrtSummaryContextObject.uid}}"
+                    }
+                }
+            },
+            "outputData": {
+                "columnInfo": "columnInfo"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "processColumns"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "loadAssignedProductsResults": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-VendorManagementAW-2020-05-VendorManagement",
+            "method": "getAssignedProductsOfContract",
+            "inputData": {
+                "input": {
+                    "type": "{{ctx.xrtSummaryContextObject.type}}",
+                    "uid": "{{ctx.xrtSummaryContextObject.uid}}"
+                }
+            },
+            "outputData": {
+                "searchResults": "{{function:getRowsForAssignedProducts}}",
+                "assignedProducts": "{{function:getRowsFromResponse}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "sortAndFilterViewModelRows",
+                        "eventData":
+                        {
+                         "assignedProducts": "{{data.assignedProducts}}"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "loadSortedAndFilteredAssignedProductsResults": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-VendorManagementAW-2020-12-VendorManagement",
+            "method": "sortAndFilterViewModelRows",
+            "inputData": {
+                "input": {
+                    "viewModelRows": "{{data.assignedProducts}}",
+                    "columnFilters": "{{data.columnProviders.AssignedProductsColumnProvider.columnFilters}}",
+                    "sortCriteria": "{{function:getSortCriteria}}"
+                }
+            },
+            "outputData": {
+                "sortedFilteredPCRevs": "{{function:getRowsForAssignedProducts}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "refreshDataProvider"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "processColumnsAction": {
+            "actionType": "JSFunction",
+            "method": "processColumns",
+            "inputData": {
+                "columns": "{{data.dataProviders.AssignedProductsDataProvider}}",
+                "columnInfo": "{{data.columnInfo}}"
+            },
+            "outputData": {
+                "columns": ""
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "getFilterFacets": {
+            "actionType": "JSFunction",
+            "method": "getFilterFacetValues",
+            "inputData": {
+                "columnName": "{{filterFacetInput.column.field}}",
+                "objects": "{{data.dataProviders.AssignedProductsDataProvider.viewModelCollection.loadedVMObjects}}",
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "filterFacetResults": "{{data.filterFacetResults}}"
+            },
+            "deps": "js/Vm1SortFilterUtilService"
+        },
+        "updateSortFilterResultInTable":
+        {
+            "actionType": "JSFunction",
+            "method": "updateSortFilterResultInTable",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.AssignedProductsDataProvider}}",
+                "result": "{{data.sortedFilteredPCRevs}}"
+            },
+            "outputData": {
+            },
+            "deps": "js/Vm1SortFilterUtilService"
+
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "processColumns",
+            "action": "processColumnsAction"
+        },
+        {
+            "eventId": "sortAndFilterViewModelRows",
+            "action": "loadSortedAndFilteredAssignedProductsResults",
+            "condition": "conditions.checkOrderCriteria",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "refreshDataProvider",
+            "action": "updateSortFilterResultInTable"
+        }
+    ],
+    "functions": {
+        "getRowsForAssignedProducts": {
+            "functionName": "getRowsForAssignedProducts"
+        },
+        "getSortCriteria": {
+            "functionName": "getSortCriteria",
+            "parameters": [
+                "{{data.columnProviders.AssignedProductsColumnProvider.sortCriteria}}"
+            ]
+        }
+    },
+    "conditions":
+    {
+        "checkOrderCriteria":
+        {
+            "expression": "data.columnProviders.AssignedProductsColumnProvider.sortCriteria.length > 0 || data.columnProviders.AssignedProductsColumnProvider.columnFilters.length > 0"
+        }
+    },
+    "dataProviders": {
+        "AssignedProductsDataProvider": {
+            "action": "loadAssignedProductsResults",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "multiple",
+            "commandsAnchor": "com.siemens.splm.clientfx.tcui.commands.modelObjectCellListActionCommands",
+            "filterFacetAction": "getFilterFacets",
+            "filterFacetResults": "{{data.filterFacetResults}}"
+        }
+    },
+    "columnProviders": {
+        "AssignedProductsColumnProvider": {
+            "loadColumnAction": "loadAssignedProductsColumns",
+            "columnInfos": "{{data.columns}}",
+            "columnFilters": "{{filterFacetInput.columnFilters}}"
+        }
+    },
+    "grids": {
+        "Vm1AssignedProductsOfContractTable": {
+            "dataProvider": "AssignedProductsDataProvider",
+            "columnProvider": "AssignedProductsColumnProvider",
+            "addIconColumn": true,
+            "gridOptions": {
+                "maxRowsToShow": 18,
+                "isFilteringEnabled": "true",
+                "enableSorting": "true"
+            }
+        }
+    },
+    "messages": {
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    }
+}

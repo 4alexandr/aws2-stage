@@ -1,0 +1,9 @@
+{
+  "name": "programchange",
+  "description": "",
+  "modules": [
+    "programchange"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

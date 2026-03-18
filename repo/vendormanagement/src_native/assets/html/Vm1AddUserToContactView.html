@@ -1,0 +1,11 @@
+ <aw-command-panel caption="i18n.Vm1AddUserToContact">
+    <aw-panel-body>
+       <aw-list-filter prop="data.filterBox" dataprovider="data.dataProviders.getEligibleUsers">
+           <aw-default-cell vmo="item"></aw-default-cell>
+       </aw-list-filter>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="vm1attachIPLicenseToUserAction" visible-when="conditions.isUserSelected" ><aw-i18n>i18n.Vm1AddUserToContact</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

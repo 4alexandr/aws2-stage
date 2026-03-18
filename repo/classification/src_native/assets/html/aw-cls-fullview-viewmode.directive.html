@@ -1,0 +1,14 @@
+<div class="aw-cls-fullViewVerticalFlexBox">
+    <div class="aw-cls-fullViewClassifications" visible-when="data.panelMode === -1 || (data.panelMode === 1 && data.editPropInProgress)">
+        <aw-command-panel-section caption="i18n.Classifications" anchor="data.classificationCommands" collapsed="false">
+            <div class="aw-cls-viewClassification aw-xrt-columnContentPanel aw-layout-primaryWorkareaFill">
+                <aw-command-sub-panel panel-id="Awp0ViewClassificationFull" visible-when="data.panelMode === -1 || data.icoCells && data.icoCells.length >= 1"></aw-command-sub-panel>
+            </div>
+        </aw-command-panel-section>
+    </div>
+    <div class="aw-cls-fullViewClassFlexBox">
+        <aw-command-sub-panel class="aw-cls-createClassificationPanel" panel-id="Awp0CreateClassificationFull" visible-when="conditions.createMode || conditions.editMode && ctx.classifyEdit.vmo"></aw-command-sub-panel>
+    </div>
+</div>
+
+

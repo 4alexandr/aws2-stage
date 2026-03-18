@@ -1,0 +1,23 @@
+{
+    "addComment": "Commentaire",
+    "addQuestion": "Soulever une question",
+    "addAnswer": "Envoyer la réponse",
+    "addRating": "Noter",
+    "name": "Nom",
+    "postComment": "Envoyer le commentaire",
+    "postQuestion": "Soulever une question",
+    "postAnswer": "Envoyer la réponse",
+    "postRating": "Noter",
+    "subscriptionFailed": "\"{0}\" ne peut pas être suivi.",
+    "oneStarRating": "Note 1 étoile",
+    "twoStarRating": "Note 2 étoiles",
+    "threeStarRating": "Note 3 étoiles",
+    "fourStarRating": "Note 4 étoiles",
+    "fiveStarRating": "Note 5 étoiles",
+    "allRatings": "Toutes les notes",
+    "reply": "Répondre",
+    "S2clSCAddCommentNewDesc": "Poster un commentaire à propos d'un objet.",
+    "S2clSCAddQuestionNewDesc": "Poser une question à propos d'un objet.",
+    "S2clSCAddAnswerNewDesc": "Répondre à une question à propos d'un objet.",
+    "S2clSCAddRatingNewDesc": "Ajouter votre classement à un objet."
+}

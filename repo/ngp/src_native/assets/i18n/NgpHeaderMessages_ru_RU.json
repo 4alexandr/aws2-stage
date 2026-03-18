@@ -1,0 +1,21 @@
+{
+    "loading": "Загрузка...",
+    "rootClassLibraryObjectMsg": "Библиотека ТПП для класса",
+    "addToFavoritesCommandTitle": "Добавить в Избранное",
+    "removeFromFavoritesCommandTitle": "Удалить из избранных",
+    "pinObjectCommandTitle": "Закрепить на главной странице",
+    "unPinObjectCommandTitle": "Открепить с главной страницы",
+    "pinnedToHome": "\"{0}\" добавлен на главную страницу.",
+    "unpinnedFromHome": "\"{0}\" удален с главной страницы.",
+    "addedToFavorites": "\"{0}\" добавлен в Избранное.",
+    "removedFromFavorites": "\"{0}\" удален из Избранного.",
+    "moreActionsCmdTooltip": "Дополнительные действия для {0}",
+    "checkInCmdTitle": "Разблокировать",
+    "checkOutCmdTitle": "Заблокировать",
+    "checkoutSuccessful": "Блокировка успешно выполнена для объекта \"{0}\"",
+    "checkinSuccessful": "Разблокировка успешно выполнена для объекта \"{0}\"",
+    "noChildrenFound": "Нет элементов",
+    "effectivityTooltip": "Единица = {0}",
+    "discontinuedSubElementsTooltipTitle": "Pending Deletions",
+    "discontinuedSubElementsTooltipMessage": "Deletion of {0} processes is pending. To release the activity content, including this deletion, submit the activity to workflow while using workflow template \"NGP_ReleasePendingDeletions\"."
+}

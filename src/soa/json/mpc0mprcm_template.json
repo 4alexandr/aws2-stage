@@ -1,0 +1,421 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "tc11000.3.0",
+      "description": "Interface Name for Business Object Mpc0MfgCNRevision",
+      "libraryName": "Mpc0manufacturingCM",
+      "name": "Mpc0MfgCNRevision",
+      "namespace": "mpc0mprcm",
+      "primaryInterface": "true",
+      "typeName": "Mpc0MfgCNRevision"
+    },
+    {
+      "createRelease": "tc11000.3.0",
+      "description": "Interface Name for Business Object Mpr0Activity",
+      "libraryName": "Mpc0manufacturingCM",
+      "name": "Mpr0Activity",
+      "namespace": "mpc0::mpc0mprcm",
+      "primaryInterface": "false",
+      "typeName": "Mpr0Activity"
+    }
+  ],
+  "Date": "Fri Apr 24 02:11:08 AM 2020",
+  "Library": [
+    {
+      "DependentOn": [
+        {
+          "name": "ptn0partition"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Soa library for change management scenarios in NGP.",
+      "isThirdParty": "false",
+      "name": "Mpc0SoaManufacturingCM",
+      "namespace": "Mpc0::Soa::ManufacturingCM",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        },
+        {
+          "name": "cm"
+        },
+        {
+          "name": "Mpr0process"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "New library for change management scenarios in NGP.",
+      "isThirdParty": "false",
+      "name": "Mpc0manufacturingCM",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "The list of ECN objects of type ChangeNoticeRevision.",
+          "parameterName": "ecnList"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Mpc0mprcm",
+      "createRelease": "tc11000.3.0",
+      "dependencies": "",
+      "description": "This service operation gives information related to impacted objects such as activity, hull number etc for given list of Engineering Change Notice (ECNs). For each hull number, impacted activities along with Manufacturing Change Notice (MCNs) are returned and mcnIndication are returned",
+      "exceptionCondition": "",
+      "id": "getEcnImpactAnalysisInfo#const,std::vector<Teamcenter::ChangeNoticeRevision>,&",
+      "interface": "Mpc0::Soa::ManufacturingCM::ChangeManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getEcnImpactAnalysisInfo",
+      "opTemplate": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::ImpactAnalysisResponse#Mpc0::Soa::ManufacturingCM::ChangeManagement::getEcnImpactAnalysisInfo#const,std::vector<Teamcenter::ChangeNoticeRevision>,&",
+      "returnDescription": "Structure containing EcnImpactAnalysisInfoMap and ServiceData.",
+      "useCase": "<b>Usecase1:</b><br />User is notified of an ECN having problem items and impacted items. User wants to see impact analysis report for the ECN. So user will click on the impact analysis icon in the ECN page to see the report. After clicking on the impact analysis icon, user will see impact analysis report for the ECN. This will contain the impacted hull numbers and impacted activities per hull. Report will also contain Manufacturing Change Notice(MCN) per hull number (if created)."
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ChangeNoticeRevision",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The list of ECN objects of type ChangeNoticeRevision.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "ecnList"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::ImpactAnalysisResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.3.0",
+      "description": "This service operation gives information related to impacted objects such as activity, hull number etc for given list of Engineering Change Notice (ECNs). For each hull number, impacted activities along with Manufacturing Change Notice (MCNs) are returned and mcnIndication are returned",
+      "id": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::ImpactAnalysisResponse#Mpc0::Soa::ManufacturingCM::ChangeManagement::getEcnImpactAnalysisInfo#const,std::vector<Teamcenter::ChangeNoticeRevision>,&",
+      "name": "Mpc0::Soa::ManufacturingCM::ChangeManagement::getEcnImpactAnalysisInfo",
+      "returnConst": "false",
+      "returnDescription": "Structure containing EcnImpactAnalysisInfoMap and ServiceData.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "tc11000.3.0",
+      "dependencies": "",
+      "description": "This service interface is for change management scenarios in manufacturing 4G.",
+      "libraryName": "Mpc0SoaManufacturingCM",
+      "name": "ChangeManagement",
+      "namespace": "Mpc0::Soa::ManufacturingCM",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::ActivityToImpactingElementsInfoMap"
+            }
+          ],
+          "description": "Map of impacted activities and its associated information.",
+          "name": "impactedActivitiesInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::ActivityToECNMap"
+            }
+          ],
+          "description": "Map of activites which are not impacted by current ECN and are coming from the MCN and its associated information.",
+          "name": "nonImpactedActivitiesInfo"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "The structure containing impacted and non-impacted activities and its related information.",
+      "isPublished": "false",
+      "name": "ActivitiesInfo",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::UnitInfoMap"
+            }
+          ],
+          "description": "A map with hull number as key and impacted object details as value.",
+          "name": "unitInfoMap"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Structure containing UnitInfoMap.",
+      "isPublished": "false",
+      "name": "ECNInfo",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ChangeNoticeRevision"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of ecn objects impacting this activity.",
+          "name": "ecns"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "ECN information for activites which are not impacted by current ECN and are coming from the MCN and its associated information.",
+      "isPublished": "false",
+      "name": "ECNList",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::EcnImpactAnalysisInfoMap"
+            }
+          ],
+          "description": "A map with key as ECN business object of type ChangeNoticeRevision  and value as structure containing impacted objects details",
+          "name": "ecnImpactAnalysisInfoMap"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard service data containing partial errors.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Structure containing EcnImpactAnalysisInfoMap and ServiceData.",
+      "isPublished": "false",
+      "name": "ImpactAnalysisResponse",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Cpd::Cpd0DesignElement"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of design element objects impacting the activity.",
+          "name": "designElements"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Cpd::Cpd0DesignFeature"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of design feature objects impacted the activity.",
+          "name": "designFeatures"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Elements information impacting the activities.",
+      "isPublished": "false",
+      "name": "ImpactingElementsInfo",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::MCNInfoMap"
+            }
+          ],
+          "description": "Map of mcn objects implementing current ECN and its associated activities information.",
+          "name": "implementingMCNInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::MCNInfoMap"
+            }
+          ],
+          "description": "Map of mcn objects not implementing current ECN and its associated activities information. Map with null key represents activities which do not have any active MCN.",
+          "name": "nonImplementingMCNInfo"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "Structure containing manufacturing change notice and its associated activity information.",
+      "isPublished": "false",
+      "name": "UnitInfo",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "cmtprocess::Mpr0Activity"
+            },
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::ECNList"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "A map with non-impacted activities as key and structure containing its impacting ecn objects as value. Valid key type is Mpr0Activity.",
+      "isPublished": "false",
+      "name": "ActivityToECNMap",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "cmtprocess::Mpr0Activity"
+            },
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::ImpactingElementsInfo"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "A map with impacted activities as key and structure containing its impacting elements information as value. Valid key type is <b>Mpr0Activity</b>.",
+      "isPublished": "false",
+      "name": "ActivityToImpactingElementsInfoMap",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ChangeNoticeRevision"
+            },
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::ECNInfo"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "A map with key as ECN business object of type <b>ChangeNoticeRevision</b> and value as structure containing impacted objects details",
+      "isPublished": "false",
+      "name": "EcnImpactAnalysisInfoMap",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "mpc0mprcm::Mpc0MfgCNRevision"
+            },
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::ActivitiesInfo"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "A map with manufacturing change notice object as key and <i>ActivitiesInfo</i> structure containing its associated impacted and non-impacted activities information as value. Valid key type is <b>Mpc0MfgCNRevision</b>.",
+      "isPublished": "false",
+      "name": "MCNInfoMap",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            },
+            {
+              "dataType": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement::UnitInfo"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.3.0",
+      "description": "A map with hull number as key and UnitInfo structure containing mcn related information for each unit.",
+      "isPublished": "false",
+      "name": "UnitInfoMap",
+      "namespace": "Mpc0::Soa::Internal::ManufacturingCM::_2017_05::ChangeManagement",
+      "scope": "Mpc0::Soa::ManufacturingCM::ChangeManagement"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

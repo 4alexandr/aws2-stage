@@ -1,0 +1,51 @@
+{
+    "schemaVersion": "1.0.0",
+    "workspaceId": "TcActiveArchitectWorkspace",
+    "workspaceName": {
+        "source": "/i18n/WorkspaceMessages",
+        "key": "tcActiveArchitectWorkspaceName"
+    },
+    "workspaceType": "Exclusive",
+    "defaultPage": "showHome",
+    "availablePages": [
+        "actionBuilderInCommandBuilder",
+        "availableTemplates",
+        "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "com_siemens_splm_clientfx_ui_components_ComponentsPresenter",
+        "commandBuilder",
+        "downloadFile",
+        "hostedObjectInfoLocation",
+        "logicalObjects",
+        "pages",
+        "showHome",
+        "showTypes",
+        "toolbars",
+        "typeOverview",
+        "typeProperties",
+        "workspaces",
+        "wysiwygActionBuilder",
+        "wysiwygCanvas",
+        "wysiwygEditor",
+        "wysiwygMainPage",
+        "wysiwygPreview",
+        "xrtEditor",
+        "commandBuilderLocation",
+        "errorLocation",
+        "errorSubLocation",
+        "internalOAuth2State"
+
+    ],
+    "excludedCommands": [
+        "Awp0GoChanges",
+        "Awp0GoFavorites",
+        "Awp0GoInbox",
+        "Awp0GoInboxWithoutBubble",
+        "Awp0GoReports",
+        "Awp0GoSchedules",
+        "Awp0GoScheduleTasks",
+        "Awp0ShowAlertWithBubble",
+        "Awp0ShowAlertWithoutBubble",
+        "Awp0ShowHomeFolder",
+        "Cm1NoChangeContext"
+    ]
+}

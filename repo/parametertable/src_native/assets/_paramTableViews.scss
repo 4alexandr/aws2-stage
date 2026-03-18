@@ -1,0 +1,368 @@
+/* Copyright 2019 Siemens Product Lifecycle Management Software Inc. */
+aw-parameter-view-table {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+div.aw-parameter-view-table {
+    position: relative;
+}
+
+div.aw-parameter-view-table,
+div.aw-parameter-view-table .aw-parameter-view-table-main-cols-flex,
+div.aw-parameter-view-table .aw-parameter-view-table-variable-cols-flex,
+div.aw-parameter-view-table .aw-parameter-view-table-row {
+    display: flex;
+    flex-direction: row;
+}
+
+div.aw-parameter-view-table {
+    max-height: 100%;
+    overflow: hidden;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-fixed-cols {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 20%;
+    max-width: 80%;
+}
+div.aw-parameter-view-table .aw-parameter-view-table-main-cols,
+div.aw-parameter-view-table .aw-parameter-view-table-variable-cols {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: scrollbar;   /* IE normally draws scrollbars on top of content,
+                                        which doesn't work with our logic for keeping the
+                                        height of the different table regions consistent. */
+}
+div.aw-parameter-view-table .aw-parameter-view-table-scroll-cols {
+    flex: none;
+    width: 20px;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-rows {
+    overflow: hidden;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-rows-render-area,
+div.aw-parameter-view-table .aw-parameter-view-table-rows-render-visible {
+    position: relative;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-fixed-col {
+    width: 100%;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-fixed-col,
+div.aw-parameter-view-table .aw-parameter-view-table-main-cols-flex,
+div.aw-parameter-view-table .aw-parameter-view-table-main-col,
+div.aw-parameter-view-table .aw-parameter-view-table-variable-cols-flex,
+div.aw-parameter-view-table .aw-parameter-view-table-variable-col,
+div.aw-parameter-view-table .aw-parameter-view-table-scroll-col {
+    height: 100%;
+}
+div.aw-parameter-view-table .aw-parameter-view-table-fixed-col .aw-parameter-view-table-rows,
+div.aw-parameter-view-table .aw-parameter-view-table-main-col .aw-parameter-view-table-rows,
+div.aw-parameter-view-table .aw-parameter-view-table-variable-col .aw-parameter-view-table-rows,
+div.aw-parameter-view-table .aw-parameter-view-table-scroll-col .aw-parameter-view-table-rows {
+    height: calc(100% - 54px); /* header height, including boarders */
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-scroll-col .aw-parameter-view-table-rows {
+    overflow-y: auto;
+}
+
+div.aw-parameter-view-table .prm1-variable-table-right-border {
+    width : 1px;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header {
+    height: 52px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-style: solid;
+    border-bottom-width: 2px;
+    font-weight: 600;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-scroll-cols .aw-parameter-view-table-header {
+    border-color: transparent;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header select {
+    font-size: inherit;
+}
+
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell {
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    line-height: normal;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-cell {
+    position: relative;
+    border-top-style: none;
+    border-bottom-style: none;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-cell div,
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-cell label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header div.aw-parameter-view-table-cell-filter {
+    display: flex;
+    flex-direction: row;
+}
+div.aw-parameter-view-table .aw-parameter-view-table-header div.aw-parameter-view-table-cell-filter div {
+    flex: auto;
+    overflow: hidden;
+}
+div.aw-parameter-view-table .aw-parameter-view-table-header div.aw-parameter-view-table-cell-filter div.aw-parameter-view-table-cell-filter-select {
+    flex: none;
+    margin-top: 1px;
+    margin-right: 3px;
+}
+div.aw-parameter-view-table .aw-parameter-view-table-header div.aw-parameter-view-table-cell-filter-select select {
+    width: 22px;
+    padding-left: 0px;/* TODO: IE would look better with below properties and wider initial checkbox column, but Chrome doesn't look so good with these.
+    width: 31px;
+    padding-right: 4px;*/
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell div[aw-param-sortable-column] {
+    cursor: pointer;
+}
+
+div.aw-parameter-view-table .prm1-sort-arrow-up:after {
+    content: "▲";
+    padding-left: 0.1em;
+}
+div.aw-parameter-view-table .prm1-sort-arrow-down:after {
+    content: "▼";
+    padding-left: 0.1em;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-cell.aw-uiwidgets-searchBoxContainer {
+    margin-bottom: 0px;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-cell-attr-title aw-i18n,
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-cell-attr-title label {
+    flex: auto;
+    text-align: center;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-variable-cols .aw-parameter-view-table-header .aw-parameter-view-table-cell-attr-title label {
+    cursor: pointer;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell.aw-param-movable-moving {
+    border: 0;
+}
+
+
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-row:first-child .aw-parameter-view-table-cell {
+    height: 20px;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-row:first-child .aw-parameter-view-table-cell.aw-parameter-view-table-cell-attr-title {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+
+/* rowFilter */
+div.aw-parameter-view-table .aw-parameter-view-table-fixed-cols .aw-parameter-view-table-cell[ng-if="columnVis.checkbox"] {
+    display: block;
+    width: 24px;
+    min-width: 24px;
+    text-align: center;
+}
+div.aw-parameter-view-table .aw-parameter-view-table-fixed-cols .aw-parameter-view-table-cell[ng-if="columnVis.checkbox"] input[type="checkbox"] {
+    margin-top: 12px;
+}
+
+/* type */
+div.aw-parameter-view-table .aw-parameter-view-table-fixed-cols .aw-parameter-view-table-cell[ng-if="columnVis.thumbnail"] {
+    width: 28px;
+    min-width: 28px;
+}
+
+/* name */
+div.aw-parameter-view-table .aw-parameter-view-table-fixed-cols .aw-parameter-view-table-cell[ng-if="columnVis.name"] {
+    flex: auto;
+    min-width: 0;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-cell input[type="text"] {
+    width: 100%;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell aw-param-table-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-width: 0;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell .aw-parameter-view-table-cell-text {
+    display: inherit;
+    width: inherit;
+    align-items: center;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell .aw-parameter-view-table-cell-icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.25em;
+    margin-bottom: 2px;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell .aw-parameter-view-table-cell-text,
+div.aw-parameter-view-table .aw-parameter-view-table-cell .aw-parameter-view-table-cell-icon {
+    padding: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell .aw-parameter-view-table-cell-text,
+div.aw-parameter-view-table .aw-parameter-view-table-cell .aw-parameter-view-table-cell-icon,
+div.aw-parameter-view-table .aw-jswidgets-cellTop .aw-jswidgets-dataGridCellText,
+div.aw-parameter-view-table .aw-jswidgets-cellTop .aw-jswidgets-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+div.aw-parameter-view-table .aw-jswidgets-draghandle { /* drag isn't supported */
+    display: none !important;
+}
+
+/* Display array props on single line, comma separated */
+div.aw-parameter-view-table ul.aw-jswidgets-arrayNonEditValueCellList {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    height: 100%;
+}
+div.aw-parameter-view-table ul.aw-jswidgets-arrayNonEditValueCellList li.aw-jswidgets-arrayValueCellListItem {
+    padding: 0;
+    display: inline-flex;
+}
+div.aw-parameter-view-table li.aw-jswidgets-arrayValueCellListItem:not(:last-child)::after {
+    content: ",";
+}
+
+
+.aw-parameter-view-icon-button {
+    cursor: pointer;
+}
+
+.aw-parameter-view-icon-button,
+.aw-parameter-view-icon-button img {
+    height: 18px;
+}
+
+.aw-parameter-view-comparison-buttons-container {
+    position: relative;
+    width: 0;
+}
+.aw-parameter-view-comparison-buttons-container .aw-parameter-view-comparison-button-spacer,
+.aw-parameter-view-comparison-buttons-container .aw-parameter-view-icon-button {
+    position: absolute;
+}
+.aw-parameter-view-comparison-button-remove {
+    left: -24px;
+}
+.aw-parameter-view-comparison-button-open {
+    left: -45px;
+}
+.aw-parameter-view-comparison-button-spacer {
+    left: -6px;
+    width: 6px;
+    height: 20px;
+}
+
+
+aw-parameter-view-table-resizer {
+    flex: 0 0 2px;
+    height: 54px; /* initial, header height with border */
+}
+
+aw-parameter-view-table-resizer .aw-parameter-view-table-resizer-grabber {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 5px;
+    background-color: transparent;
+    cursor: col-resize;
+}
+
+
+aw-param-column-resizer {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width : 5px;
+    cursor: col-resize;
+    border-width: 2px;
+    border-right-style: solid;
+}
+
+
+div.aw-paramtable-col-checkbox {
+    padding-left: 1em;
+    height: 2rem;
+    line-height: 2rem;
+    user-select: none;
+}
+
+div.aw-paramtable-col-checkbox > label > input {
+    visibility: hidden;
+    width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+div.aw-paramtable-col-checkbox > label > span.aw-paramtable-col-checkbox-check:before {
+    content: "\2713";
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+div.aw-paramtable-col-checkbox:hover > label:nth-of-type(1) > input:not(:checked) + span.aw-paramtable-col-checkbox-check:before {
+    opacity: 0.25;
+}
+div.aw-paramtable-col-checkbox > label:nth-of-type(1) > input:checked + span.aw-paramtable-col-checkbox-check:before {
+    opacity: 1;
+}
+
+div.aw-paramtable-col-checkbox .aw-paramtable-col-checkbox-text {
+    padding-left: 0.25em;
+}

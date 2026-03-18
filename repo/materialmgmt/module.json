@@ -1,0 +1,139 @@
+{
+  "name": "materialmgmt",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "aliasRegistry": {
+    "typeMaterial48": [
+      "Mat1Material"
+    ],
+    "typeMaterialRevision48": [
+      "Mat1MaterialRevision"
+    ],
+    "typeSubstance48": [
+      "Mat1Substance"
+    ],
+    "typeCompoundMaterial48": [
+      "Mat1CompMaterial"
+    ],
+    "typeCompoundMaterialRevision48": [
+      "Mat1CompMaterialRevision"
+    ],
+    "typeMatmlDataset48": [
+      "Mat1MatML"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "Mtw0ShowAddObject": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.AddToTitle}}",
+        "description": "{{i18n.Mtw0ShowAddObjectDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "Mtw0ShowAddObjectCommandHandler": {
+        "id": "Mtw0ShowAddObject",
+        "action": "addEventChangeOperation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.addObjectCmdVisibility"
+        }
+      }
+    },
+    "commandPlacements": {},
+    "actions": {
+      "addEventChangeOperation": {
+        "actionType": "JSFunction",
+        "method": "activateShowAddObjectPanel",
+        "deps": "js/Mtw0ShowAddObjectService",
+        "inputData": {
+          "commandId": "Mtw0ShowAddObject",
+          "location": "aw_toolsAndInfo",
+          "data": "{{data}}",
+          "ctx": "{{ctx}}",
+          "objectSetSource ": "{{commandContext.objectSetSource}}"
+        }
+      }
+    },
+    "functions": {},
+    "conditions": {
+      "addObjectCmdVisibility": {
+        "expression": "(ctx.visibleServerCommands.Mtw0ShowAddObject)&&((commandContext.objectSetSource==='Mat1UsesSubstance.Mat1Substance' && ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'Mat1MaterialRevision' ) > -1) || (commandContext.objectSetSource==='Mat1MadeFromMaterial.Mat1MaterialRevision' && ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'Mat1CompMaterialRevision' ) > -1)|| (commandContext.objectSetSource==='Mat1UsesMaterial.Mat1MaterialRevision' && ((ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'Part' ) > -1)|| (ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'CommercialPart Revision' ) > -1)||(ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'RetailMaterialRevision' ) > -1)||(ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'Part Revision' ) > -1)))) "
+      }
+    },
+    "i18n": {
+      "AddToTitle": [
+        "MaterialMgmtMessages"
+      ],
+      "Mtw0ShowAddObjectDesc": [
+        "MaterialMgmtMessages"
+      ]
+    }
+  },
+  "typeIconsRegistry": [
+    {
+      "type": {
+        "names": [
+          "Mtw0MaterialSubstanceInfo"
+        ],
+        "prop": {
+          "names": [
+            "mtw0Material"
+          ],
+          "type": {
+            "names": [
+              "Mat1MaterialRevision"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": {
+        "names": [
+          "Mtw0MaterialSubstanceInfo"
+        ],
+        "prop": {
+          "names": [
+            "mtw0Substance"
+          ],
+          "type": {
+            "names": [
+              "Mat1Substance"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "typeProperties": {
+    "typeProperties": {
+      "Mtw0MaterialSubstanceInfo": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "mtw0Material"
+          },
+          {
+            "name": "mtw0Substance"
+          }
+        ]
+      },
+      "ItemRevision": {
+        "additionalProperties": [
+          {
+            "name": "VMRepresents"
+          }
+        ]
+      }
+    }
+  }
+}

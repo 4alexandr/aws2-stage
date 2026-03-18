@@ -1,0 +1,12 @@
+{
+  "name": "ep-wia",
+  "description": "",
+  "modules": [
+    "ep-wia"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "extraDeps": [
+    "js/epGraphicsServiceProxy"
+  ]
+}

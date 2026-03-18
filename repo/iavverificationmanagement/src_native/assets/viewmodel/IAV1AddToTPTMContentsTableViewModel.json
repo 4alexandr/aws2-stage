@@ -1,0 +1,184 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-form.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-add.directive"
+    ],
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "setObjToDisplayPanel",
+            "inputData":
+             {
+                 "declViewModel": "{{data}}"
+             },
+
+             "deps": "js/IAV1AddToVRService"
+         },
+        "createObject": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2016-09-DataManagement",
+            "method": "createAttachAndSubmitObjects",
+            "inputData": {
+                "inputs": "{{function:getCreateInput}}"
+            },
+            "outputData": {
+                "createdMainObject": "output[0].objects[0]",
+                "createdObject": "{{function:getCreatedObject}}"
+            },
+            "events": {
+                "success":
+                [
+                    {
+                        "name": "addObject.addObjectPostProcess"
+                    }
+                ]
+            },
+            "deps": "js/addObjectUtils"
+        },
+        "postProcessVR":
+        {
+            "actionType": "JSFunction",
+            "method": "getManageVRInputToAddToTPTMTable",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/IAV1AddToVRService",
+            "outputData": {
+                "getManageVRInputToAddToTPTMTable": ""
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "manageAnalysisRequests"
+                    }
+                ]
+            }
+        },
+        "manageAnalysisRequests": {
+            "actionType": "JSFunction",
+            "method": "callManageVerificationSOA",
+            "inputData": {
+                "input": "{{data.getManageVRInputToAddToTPTMTable.input}}",
+                "pref": "{{data.getManageVRInputToAddToTPTMTable.pref}}",
+
+                "data":"{{data}}",
+                "tableContext": "TPTMTable"
+            },
+            "deps": "js/manageVerificationService",
+            "events": {
+                "success": [
+                    {
+                        "name": "closePanel"
+                    }
+                ]
+            }
+        },
+        "createRelationForPaletteOrSearch":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                 "events":
+                 [
+                     {
+                         "name": "addObject.addObjectPostProcess"
+                     }
+                 ]
+            }
+
+        },
+        "closePanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "awPanel.reveal",
+            "action": "reveal"
+        },
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "addObject.addObjectPostProcess",
+            "action": "postProcessVR"
+        },
+        {
+            "eventId": "manageAnalysisRequests",
+            "action": "manageAnalysisRequests"
+        },
+        {
+            "eventId": "closePanel",
+            "action": "closePanel"
+        }
+    ],
+    "data":
+    {
+
+    },
+    "conditions":
+    {
+
+    "isNewTabAddButtonVisible":
+    {
+        "expression":"data.selectedTab.panelId==='newTabPageSub' && data.selectedTab.panelId!='paletteTabPageSub' && data.selectedTab.panelId!='searchTabPageSub' && ( data.creationType && data.objCreateInfo ) && ( !conditions.isClipboardObject && !conditions.isFavoriteObject && !conditions.isRecentObject )"
+    },
+    "isPalatteTabSelection": {
+        "expression": "data.selectedTab.panelId==='paletteTabPageSub' && ( conditions.isClipboardObject || conditions.isFavoriteObject || conditions.isRecentObject )"
+    },
+    "isSearchTabSelection": {
+        "expression": "data.selectedTab.panelId!='newTabPageSub' && data.selectedTab.panelId!='paletteTabPageSub'"
+    },
+    "isClipboardObject": {
+        "expression": "ctx.getClipboardProvider && ctx.getClipboardProvider.selectedObjects.length > 0"
+    },
+    "isFavoriteObject": {
+        "expression": "ctx.getFavoriteProvider && ctx.getFavoriteProvider.selectedObjects.length > 0"
+    },
+    "isRecentObject": {
+        "expression": "ctx.getRecentObjsProvider && ctx.getRecentObjsProvider.selectedObjects.length > 0"
+    }
+
+    },
+    "messages":
+        {
+            "addToPartialError": {
+                "messageType": "ERROR",
+                "messageText": "{{i18n.PartialError}}",
+                "messageTextParams": [
+                    "{{data.getManageVRInputToAddToTPTMTable.succMsg}}"
+
+                ]
+            }
+        },
+    "i18n": {
+        "Add": [
+            "verificationMgmtmMessages"
+        ],
+        "PartialError": [
+            "verificationMgmtmMessages"
+        ]
+    }
+}

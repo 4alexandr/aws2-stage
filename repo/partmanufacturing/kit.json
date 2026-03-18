@@ -1,0 +1,9 @@
+{
+  "name": "partmanufacturing",
+  "description": "",
+  "modules": [
+    "partmanufacturing"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

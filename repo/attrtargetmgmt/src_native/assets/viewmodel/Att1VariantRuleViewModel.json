@@ -1,0 +1,68 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-link-with-popup.directive",
+        "js/aw-property-non-edit-val.directive",
+        "js/aw-include.directive"
+    ],
+
+    "actions": {
+        "getSavedVariantRuleFromProject": {
+            "actionType": "JSFunction",
+            "method": "getAppliedVariantRuleFromProject",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Att1VariantInfoConfigurationService"
+        },
+        "applySavedVariantRule": {
+            "actionType": "JSFunction",
+            "method": "applySavedVariantRule",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Att1VariantInfoConfigurationService"
+        }
+
+    },
+    "functions": {
+        "getConfigurationMode": {
+            "functionName": "getConfigurationMode",
+            "parameters": []
+        },
+        "getSelectionForVariantContext": {
+            "functionName": "getSelectionForVariantContext"
+        }
+
+    },
+    "lifecycleHooks": {
+        "onMount": "getSavedVariantRuleFromProject"
+    },
+    "conditions": {},
+
+    "onEvent": [ {
+        "eventId": "Att1RefreshProject.completed",
+        "action": "applySavedVariantRule",
+        "condition": "activeVariantRuleObj !== undefined || noVariantRule",
+        "cacheEventData": true
+    } ],
+
+    "data": {
+        "defaultVariantRule": {
+            "displayName": "{{i18n.variantSectionSavedVariantsValue}}",
+            "uiValue": "{{i18n.variantSectionSavedVariantsValue}}",
+            "dbValues": [ "{{i18n.variantSectionSavedVariantsValue}}" ],
+            "uiValues": [ "{{i18n.variantSectionSavedVariantsValue}}" ],
+            "type": "STRING"
+        },
+        "appliedVariantRule": {
+            "displayName": "{{i18n.variantSectionSavedVariantsValue}}",
+            "uiValue": "{{i18n.variantSectionSavedVariantsValue}}",
+            "type": "STRING"
+        }
+    },
+
+    "i18n": {
+        "variantSectionSavedVariantsValue": [ "OccurrenceManagementConstants" ]
+    }
+}

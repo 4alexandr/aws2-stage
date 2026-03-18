@@ -1,0 +1,276 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports": 
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-widget.directive",
+        "js/aw-i18n.directive",
+        "js/aw-listbox.directive",
+        "js/aw-radiobutton.directive",
+        "js/visible-when.directive",
+        "js/listBoxService"
+    ],
+    
+    "actions":{
+    
+     "exportHTML":
+        {
+         "actionType": "TcSoaService",
+            "serviceName": "Internal-SystemsModeling-2016-12-InterfaceManagement",
+            "method": "exportInterfaces",
+            "inputData":
+            {
+                "input": 
+                [
+                        {
+                             
+                             "clientId": "{{data.exportClientId.dbValue}}",
+                             "awbElements":"{{ctx.mselected}}",
+                             "productContext":"{{ctx.occmgmtContext.productContextInfo}}",
+                             "exportOptions": {"exportAppFormat":["{{data.exportAppOption.propertyRadioTrueText}}"],
+                                                 "outputFileName":["{{data.exportInterfaceName.dbValue}}"],
+                                                 "exportScope":["{{function:getScopeValue}}"]
+                                              }
+                        }
+                ]
+            },
+           
+             "events":{
+
+                "success":
+                 [
+                     {
+                       "name": "complete",
+                        "eventData": 
+                        {
+                           "source": "toolAndInfoPanel"
+                        }
+                     }
+                ],
+                
+               "failure":
+                [
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            
+            "actionMessages": 
+            {
+                "success": 
+                [
+                    {
+                        "message": "notificationForExportMsg"
+                    }
+                ]
+            },
+            
+            "deps": "js/Ase1ExportInterfaceElement"
+        },
+        
+        "exportXML":
+        {
+         "actionType": "TcSoaService",
+            "serviceName": "Internal-SystemsModeling-2016-12-InterfaceManagement",
+            "method": "exportInterfaces",
+            "inputData":
+            {
+                "input": 
+                [
+                        {
+                             "clientId": "{{data.exportClientId.dbValue}}",
+                             "awbElements":"{{ctx.mselected}}",
+                             "productContext":"{{ctx.occmgmtContext.productContextInfo}}",
+                             "exportOptions": {"exportAppFormat":["{{data.exportAppOption.propertyRadioFalseText}}"],
+                                                 "outputFileName":["{{data.exportInterfaceName.dbValue}}"],
+                                                 "exportScope":["{{function:getScopeValue}}"]
+                                                 }
+                        }
+                ]
+            },
+           
+             "events":{
+
+                "success":
+                 [
+                     {
+                       "name": "complete",
+                        "eventData": 
+                        {
+                           "source": "toolAndInfoPanel"
+                        }
+                     }
+                ],
+                
+               "failure":
+                [
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            
+            "actionMessages": 
+            {
+                "success": 
+                [
+                    {
+                        "message": "notificationForExportMsg"
+                    }
+                ]
+            },
+            
+          "deps": "js/Ase1ExportInterfaceElement"
+        },
+
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "createListModelObjectsFromStrings",
+            "inputData":
+            {
+                "input":
+                    [
+                        "{{data.i18n.internalOnly}}",
+                        "{{data.i18n.internalAndExternal}}"
+                    ]
+            },
+
+            "outputData":
+            {
+                "exportInterfaceScopeList": ""
+            },
+
+            "deps": "js/listBoxService"
+        }
+
+    },
+    
+    "data": 
+    {
+        "exportAppOption":
+        {
+            "type": "BOOLEAN",
+            "isRequired": "true",
+            "propertyRadioTrueText": "HTML",
+            "propertyRadioFalseText": "XML",
+            "dbValue": true
+        },
+        
+        "exportInterfaceName":
+        {
+            "displayName": "{{i18n.exportNameLabel}}",
+            "type": "STRING",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP",
+            "isRequired": "true",            
+            "dbValue":""
+        },
+        
+        "exportInterfaceScope":
+        {
+            "displayName": "{{i18n.exportScopeLabel}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": true,
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+
+        "exportClientId":
+        {
+            "type":"STRING",
+            "dbValue":"{{i18n.exportOperation}}"
+        }  
+    },
+    
+    "functions": 
+    {
+         "getScopeValue": 
+        {
+            "functionName": "getScopeValue",
+            "parameters": 
+            [
+                "{{data}}"
+            ]
+        }
+    },
+    
+     "messages": 
+    {
+        "notificationForExportMsg": 
+        {
+            "messageType": "INFO",
+            "messageText": "{{i18n.exportStartedNotify}}",
+            "messageTextParams": 
+            [
+                "{{data.exportInterfaceName.dbValue}}"
+            ]
+        }
+    },
+     
+    
+    "conditions":{ 
+          "isExportAllowed":
+              {
+               "expression": "data.exportInterfaceScope.dbValue.length>0 && data.exportInterfaceName.dbValue.length > 0"
+              },
+           "isExportButtonVisibleForHtml":
+              {
+               "expression": "conditions.isExportAllowed && data.exportAppOption.dbValue"
+              },           
+           "isExportButtonVisibleForXml":
+              {
+              "expression": "conditions.isExportAllowed && !data.exportAppOption.dbValue"
+              }
+        },
+        
+    "i18n":{
+         "interfaceExportPanelTitle": 
+             [
+             "SystemModelerPanelMessages"
+             ],
+        "interfacePanelName": 
+            [
+            "SystemModelerPanelMessages"
+            ],
+        "exportButton": 
+            [
+            "SystemModelerPanelMessages"
+            ],
+        "exportNameLabel": 
+            [
+            "SystemModelerPanelMessages"
+            ],
+        "exportScopeLabel": 
+            [
+            "SystemModelerPanelMessages"
+            ],
+         "exportOperation":
+            [
+             "SystemModelerPanelMessages"
+            ],
+         "internalOnly":[
+              "SystemModelerPanelMessages"
+            ],
+          "internalAndExternal":
+            [
+             "SystemModelerPanelMessages"
+            ],
+          "exportStartedNotify":
+            [
+            "SystemModelerPanelMessages"
+            ]
+    }
+}

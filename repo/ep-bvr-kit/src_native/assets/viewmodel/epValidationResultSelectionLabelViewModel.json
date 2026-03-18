@@ -1,0 +1,15 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [],
+    "ports": {
+        "epValidationResultSelectionLabel_inputObject": {
+            "syncObject": {}
+        }
+    },
+    "data": {
+            "name": "{{i18n.validationResultBomlineColumn}}"
+    },
+    "i18n": {
+        "validationResultBomlineColumn": [ "epValidationMessages" ]
+    }
+}

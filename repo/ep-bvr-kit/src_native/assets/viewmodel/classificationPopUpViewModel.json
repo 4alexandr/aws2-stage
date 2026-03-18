@@ -1,0 +1,113 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "popupData": {
+            "viewName": "classificationResource",
+            "header": {
+                "title": "{{i18n.classificationTitle}}",
+                "iconName": "typeClassificationElement",
+                "subtitle": "{{i18n.classificationSubTitle}}"
+            }
+        },
+        "eppopupData": {
+            "viewName": "epClassification",
+            "header": {
+                "title": "{{i18n.classificationTitle}}",
+                "iconName": "typeClassificationElement",
+                "subtitle": "{{i18n.classificationSubTitle}}"
+            }
+        }
+
+    },
+    "actions": {
+        "updateNewStateCtx": {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "inputData": {
+                "name": "mfeLargePopup.isNewState",
+                "value": true
+            },
+            "deps": "js/appCtxService"
+        },
+        "unregisterCtx": {
+            "actionType": "JSFunction",
+            "method": "unRegisterCtx",
+            "inputData": {
+                "name": "mfeLargePopup.isNewState"
+            },
+            "deps": "js/appCtxService"
+        },
+        "updateViewModeCtx": {
+            "actionType": "JSFunction",
+            "method": "restoreCtxVariables",
+            "inputData": {
+                "eventdata": "ViewModeContext"
+            },
+            "deps": "js/classificationResourceService"
+        },
+        "updateCtxSelected": {
+            "actionType": "JSFunction",
+            "method": "restoreCtxVariables",
+            "inputData": {
+                "eventdata": "selected"
+            },
+            "deps": "js/classificationResourceService"
+        },
+        "resetCtx": {
+            "actionType": "JSFunction",
+            "method": "restoreCtxVariables",
+            "deps": "js/classificationResourceService",
+            "inputData": {
+                "name": ["locationContext",
+                "selected",
+                "pselected",
+                "mselected"]
+            }
+        }
+    },
+
+    "i18n": {
+        "classificationTitle": [
+            "classificationResourceMessages"
+        ],
+        "classificationSubTitle": [
+            "classificationResourceMessages"
+        ],
+        "restoreTreeMessage": [
+            "classificationResourceMessages"
+        ]
+    },
+    "messages": {
+        "restoreTreeMessage": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.restoreTreeMessage}}",
+            "messageTextParams":
+            [
+                "{{ctx.aceActiveContext.context.rootElement.props.object_string.uiValues}}"
+            ]
+        }
+    },
+    "onEvent": [ {
+        "eventId": "mfeLargePopup.contentLoaded",
+        "action": "updateNewStateCtx"
+    },
+    {
+        "eventId": "mfeLargePopup.closeRequest",
+        "action": "resetCtx"
+    },
+    {
+        "eventId": "appCtx.update",
+        "condition": "name === 'ViewModeContext'",
+        "action": "updateViewModeCtx"
+    },
+    {
+        "eventId": "mfeLargePopup.closeRequest",
+        "action": "unregisterCtx"
+    }
+
+ ]
+}

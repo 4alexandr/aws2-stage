@@ -1,0 +1,23 @@
+<aw-command-panel caption="i18n.pickTOSPanelCompare">
+        <aw-panel-body>
+            <aw-panel-section caption="i18n.tosPanelSourceBCZ">
+            <aw-list  dataprovider="data.dataProviders.getSourceContextData">
+               <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+            <aw-listbox prop="data.selectedMapping" list="data.mappingList"></aw-listbox>
+            </aw-panel-section>
+                
+            <aw-panel-section caption="i18n.tosPanelTargetBCZ">
+            <aw-list  dataprovider="data.dataProviders.getTargetContextData">
+                <aw-default-cell vmo="item"></aw-default-cell>
+             </aw-list>
+             <aw-listbox prop="data.selectedTarMapping" list="data.mappingListTar"></aw-listbox>
+             </aw-panel-section>
+        </aw-panel-body>
+        <aw-panel-footer>
+                <aw-button action="loadBriefcaseWindow">
+                    <aw-i18n>i18n.compare</aw-i18n>
+                </aw-button>           
+        </aw-panel-footer>    
+</aw-command-panel>
+<!--<aw-listbox prop="" list="" action=""></aw-listbox>-->

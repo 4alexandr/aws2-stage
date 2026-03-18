@@ -1,0 +1,1893 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "tc11000.4.0",
+      "description": "Interface Name for Business Object Att0AbstractMapping",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0AbstractMapping",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0AbstractMapping"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0AttrRelation",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0AttrRelation",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0AttrRelation"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0MeasurableAttributeBool",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasurableAttributeBool",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasurableAttributeBool"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0MeasurableAttributeDbl",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasurableAttributeDbl",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasurableAttributeDbl"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0MeasurableAttributeInt",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasurableAttributeInt",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasurableAttributeInt"
+    },
+    {
+      "createRelease": "tc11000.4.0",
+      "description": "Interface Name for Business Object Att0MeasurableAttributePnt",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasurableAttributePnt",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasurableAttributePnt"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0MeasurableAttributeStr",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasurableAttributeStr",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasurableAttributeStr"
+    },
+    {
+      "createRelease": "tc10000.1.3",
+      "description": "Interface Name for Business Object Att0MeasureValue",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasureValue",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasureValue"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0MeasureValueBool",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasureValueBool",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasureValueBool"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0MeasureValueDbl",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasureValueDbl",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasureValueDbl"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0MeasureValueInt",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasureValueInt",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasureValueInt"
+    },
+    {
+      "createRelease": "tc11000.4.0",
+      "description": "Interface Name for Business Object Att0MeasureValuePnt",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasureValuePnt",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasureValuePnt"
+    },
+    {
+      "createRelease": "tc11000.4.0",
+      "description": "Interface Name for Business Object Att0AttributeAlignment",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0AttributeAlignment",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0AttributeAlignment"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0MeasureValueStr",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasureValueStr",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasureValueStr"
+    },
+    {
+      "createRelease": "tc10000.1.3",
+      "description": "Interface Name for Business Object Att0Measurement",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0Measurement",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0Measurement"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0OutputAttrRelation",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0OutputAttrRelation",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0OutputAttrRelation"
+    },
+    {
+      "createRelease": "tc12000.2.0",
+      "description": "Interface Name for Business Object Att0ParamDictionary",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0ParamDictionary",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0ParamDictionary"
+    },
+    {
+      "createRelease": "tc11000.6.0",
+      "description": "Interface Name for Business Object Att0ParamGroup",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0ParamGroup",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0ParamGroup"
+    },
+    {
+      "createRelease": "tc11000.6.0",
+      "description": "Interface Name for Business Object Att0ParamProject",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0ParamProject",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0ParamProject"
+    },
+    {
+      "createRelease": "tc12000.4.0",
+      "description": "Interface Name for Business Object Att0ParamVarConfObject",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0ParamVarConfObject",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0ParamVarConfObject"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0Target",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0Target",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0Target"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0TargetRevision",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0TargetRevision",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0TargetRevision"
+    },
+    {
+      "createRelease": "tc10000.1.3",
+      "description": "Interface Name for Business Object Att0AttributeDef",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0AttributeDef",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0AttributeDef"
+    },
+    {
+      "createRelease": "tc10000.1.3",
+      "description": "Interface Name for Business Object Att0AttributeDefRevision",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0AttributeDefRevision",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0AttributeDefRevision"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0HasGoalFile",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0HasGoalFile",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0HasGoalFile"
+    },
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Interface Name for Business Object Att0HasMeasurementFile",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0HasMeasurementFile",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0HasMeasurementFile"
+    },
+    {
+      "createRelease": "tc12000.2.0",
+      "description": "Interface Name for Business Object Att0HasParamValue",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0HasParamValue",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0HasParamValue"
+    },
+    {
+      "createRelease": "tc10000.1.5",
+      "description": "Interface Name for Business Object Att0InputAttrRelation",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0InputAttrRelation",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0InputAttrRelation"
+    },
+    {
+      "createRelease": "tc10000.1.3",
+      "description": "Interface Name for Business Object Att0MeasurableAttribute",
+      "libraryName": "Att0attrtargetmgmt",
+      "name": "Att0MeasurableAttribute",
+      "namespace": "att0attrtargetmgmt",
+      "primaryInterface": "true",
+      "typeName": "Att0MeasurableAttribute"
+    }
+  ],
+  "Date": "Fri Jun 05 04:00:49 PM 2020",
+  "Library": [
+    {
+      "createRelease": "tc10000.1.4",
+      "description": "Service library that contains soa services related attribute and target",
+      "isThirdParty": "false",
+      "name": "Att0SoaAttrTargetMgmt",
+      "namespace": "Att0::Soa::AttrTargetMgmt",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "tc10000.1.3",
+      "description": "Library for attribute and product target management",
+      "isThirdParty": "false",
+      "name": "Att0attrtargetmgmt",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "MetaEnum": [
+    {
+      "MetaEnumLiteral": [
+        {
+          "description": "",
+          "name": "SyncFromSource"
+        },
+        {
+          "description": "",
+          "name": "PublishToSource"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "<i>SyncFromSource</i> - Synchonization happens from source <b>Att0MeasurableAttribute</b> objects to input <b>Att0MeasurableAttribute</b> objects.<br /><i>PublishToSource</i> - Synchonization happens from output <b>Att0MeasurableAttribute</b> objects to source <b>Att0MeasurableAttribute</b> objects.",
+      "isPublished": "true",
+      "name": "SyncDirection",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "The list of measurable attributes and their parent objects.",
+          "parameterName": "inputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Att0AttTargetMgmt",
+      "createRelease": "tc10000.1.5",
+      "dependencies": "",
+      "description": "This operation deletes measurable attribute (<b>Att0MeasurableAttribute</b>) objects from given parent object. <br /><ul><ul><li type=\"disc\">If the given measurable attribute(<b>Att0MeasurableAttribute</b>) is a source attribute,  it is is deleted directly.</li><li type=\"disc\">If the given measurable attribute(<b>Att0MeasurableAttribute</b>) is an overridden attribute, the overridden attribute itself is deleted as well as its related source attribute.</li><li type=\"disc\">If the given measurable attribute(<b>Att0MeasurableAttribute</b>) is a source attribute and it is assigned as Input/Output attribute to an Analysis Request(<b>Crt0VldnContractRevision</b>), then the delete actions is discarded  and a warning message is returned.</li></ul></ul>",
+      "exceptionCondition": "",
+      "id": "deleteMeasurableAttributes#const,std::vector<Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement::DeleteMeasurableAttributeInput>,&",
+      "interface": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "deleteMeasurableAttributes",
+      "opTemplate": "Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement::DeleteMeasurableAttributesResponse#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::deleteMeasurableAttributes#const,std::vector<Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement::DeleteMeasurableAttributeInput>,&",
+      "returnDescription": "A map of client identifier to the <b>Att0MeasurableAttribute</b> objects that could not be deleted. The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">185204 - A valid parent object must be specified.</li><li type=\"disc\">185205 - A value for the measurable attribute parameter must be provided in order to complete the \"Delete\" operation.</li><li type=\"disc\">185206 - The measurable attribute could not be deleted, because it is referenced in the Analysis Request.</li><li type=\"disc\">185207 - The measurable attribute could not be deleted, because it is referenced in other context.</li><li type=\"disc\">185208 - The measurable attribute could not be deleted, because it is referenced.</li></ul></ul>",
+      "useCase": "<ul><ul><li type=\"disc\">A system architect creates a product structure of logical blocks (<b>Fnd0LogicalBlock</b>), and defines for each block its measurable attributes (<b>Att0MeasurableAttribute</b>). A system designer may override measurable attribute in context of product. As the design of the product architecture evolves or need to re-design, the system designer may need to delete the already created measurable attributes from product architecture and will re-create measurable attribute.</li><li type=\"disc\">A system architect may revise the logical block (<b>Fnd0LogicalBlock</b>), it copies measurable attributes from previous logical block revision (<b>Fnd0LogicalBlockRevision</b>) to new revision block. A system designer may want to delete attributes from previous logical block revision, and re-create attributes (<b>Att0MeasurableAttribute</b>) in the new logical block revision.</li></ul></ul>"
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Revise input",
+          "parameterName": "pReviseInput"
+        },
+        {
+          "description": "Deep Copy Data Vector",
+          "parameterName": "vecDeepCopyData"
+        }
+      ],
+      "canOverride": "true",
+      "component": "",
+      "createRelease": "tc11000.2.0",
+      "dependencies": "",
+      "description": "Finalize Revise Input Operation",
+      "exceptionCondition": "",
+      "id": "finalizeReviseInput#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*",
+      "interface": "att0attrtargetmgmt::Att0MeasurableAttribute",
+      "isPostActionAllowed": "true",
+      "isPreActionAllowed": "true",
+      "isPreConditionAllowed": "true",
+      "isPublished": "true",
+      "name": "finalizeReviseInput",
+      "opTemplate": "int#att0attrtargetmgmt::Att0MeasurableAttribute::finalizeReviseInput#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*",
+      "returnDescription": "Failure Code",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Input information required for the getAttributeComplexData in the form of GetAttributeComplexDataIn.",
+          "parameterName": "inputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Att0AttTargetMgmt",
+      "createRelease": "tc11000.6.0",
+      "dependencies": "",
+      "description": "This operation gets the complex data for the given Attribute Definition or Measurable Attribute.",
+      "exceptionCondition": "",
+      "id": "getAttributeComplexData#const,std::vector<Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::GetAttributeComplexDataIn>,&",
+      "interface": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getAttributeComplexData",
+      "opTemplate": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::GetAttributeComplexDataResp#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::getAttributeComplexData#const,std::vector<Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::GetAttributeComplexDataIn>,&",
+      "returnDescription": "The operation returns two maps attrPropNamesToAttrComplexDataMap and measurePropNamesToMeasurementComplexDataMap corresponding to each input property names vector of attrPropNames and measurePropNames respectively along with the ServiceData. The attrPropNamesToAttrComplexDataMap maps the attrPropNames properties to its list of complex data whereas measurePropNamesToMeasurementComplexDataMap maps the measurePropNames properties to its list of complex data.<br /><br />The following errors may be returned:<br /><br />* 185047 &ndash; The given object type is not supported for complex data. The supported types are &quot;Att0MeasurableAttribute&quot; and &quot;Att0AttributeDefRevision&quot;.<br /><br />* 185050 &ndash; The property does not exist on Att0MeasurableAttribute, please provide valid property name.",
+      "useCase": "The System Engineer opens Attribute Definition or Measurable Attribute in Active Workspace and reviews the complex data (if existing) for Goal or Min or Max properties."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The criteria for filtering the list of latest <b>ItemRevision</b> objects.",
+          "parameterName": "inputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Att0AttTargetMgmt",
+      "createRelease": "tc10000.1.4",
+      "dependencies": "",
+      "description": "This operation gets the list of <b>ItemRevision</b> objects based on given criteria. The <i>DefinitionCriteria</i> holds criteria such as item revision name, item or item revision type name, enabled release status as well as disabled release status; if and only if the latest <b>ItemRevision</b> or sub type objects will be returned when it matches these criteria.",
+      "exceptionCondition": "",
+      "id": "getLatestDefinitions#const,std::vector<Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::DefinitionCriteria>,&",
+      "interface": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getLatestDefinitions",
+      "opTemplate": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::DefinitionsResponse#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::getLatestDefinitions#const,std::vector<Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::DefinitionCriteria>,&",
+      "returnDescription": "A map of client identifier to the <b>ItemRevision</b> objects .The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">126101&nbsp;&nbsp;&nbsp;&nbsp; When value of <i>itemOrRevType</i> of <i>DefinitionCriteria</i> structure is empty. </li><li type=\"disc\">126102&nbsp;&nbsp;&nbsp;&nbsp; When value of <i>itemOrRevType</i> of <i>DefinitionCriteria</i> structure does not exist.&nbsp;&nbsp;&nbsp;&nbsp;</li><li type=\"disc\">126103&nbsp;&nbsp;&nbsp;&nbsp; When value of <i>itemOrRevType</i> of <i>DefinitionCriteria</i> structure is not item or item revision type.&nbsp;&nbsp;&nbsp;&nbsp;</li></ul></ul>",
+      "useCase": "Creates an <b>Attribute Definition Revision</b> into Teamcenter like below and following story:<br />{ItemID=000001, Name=AttributeDef_1, Revision=B, Release Status=\"Released\"}<br />{ItemID=000001, Name=AttributeDef_1, Revision=C, Release Status=\"Obsolete\"}<br />{ItemID=000001, Name=AttributeDef_1, Revision=D, Release Status=\"\"}<br /><br />When <i>DefinitionCriteria</i> is set as <i>objectName</i>=AttributeDef_1, <i>itemOrRevType</i>=Att0AttributeDefRevision <i>enabledStatus</i>=Released, <i>disabledStatus</i>=Obsolete<br /><br />At first case, revision B will be returned since it is released and status matches \"Released\"<br />At second case, none revision is returned since latest revision C is \"Obsolete\"<br />At third case, none revision is returned since latest revision D is in progress,  while revision C is obsoleted<br />"
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Revise Input",
+          "parameterName": "pReviseInput"
+        },
+        {
+          "description": "Deep Copy Data Vactor",
+          "parameterName": "vecDeepCopyData"
+        },
+        {
+          "description": "New Object tag",
+          "parameterName": "newObjTag"
+        }
+      ],
+      "canOverride": "true",
+      "component": "",
+      "createRelease": "tc11000.2.0",
+      "dependencies": "",
+      "description": "Bom0ConfigurableBomElement Revise Operation",
+      "exceptionCondition": "",
+      "id": "revise#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*$tag_t,*",
+      "interface": "att0attrtargetmgmt::Att0MeasurableAttribute",
+      "isPostActionAllowed": "true",
+      "isPreActionAllowed": "true",
+      "isPreConditionAllowed": "true",
+      "isPublished": "true",
+      "name": "revise",
+      "opTemplate": "int#att0attrtargetmgmt::Att0MeasurableAttribute::revise#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*$tag_t,*",
+      "returnDescription": "Failure Code",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Revise Input Descriptor",
+          "parameterName": "pReviseInput"
+        },
+        {
+          "description": "Deep Copy Data Vector",
+          "parameterName": "vecDeepCopyData"
+        }
+      ],
+      "canOverride": "true",
+      "component": "",
+      "createRelease": "tc11000.2.0",
+      "dependencies": "",
+      "description": "Reivse post operation",
+      "exceptionCondition": "",
+      "id": "revisePost#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*",
+      "interface": "att0attrtargetmgmt::Att0MeasurableAttribute",
+      "isPostActionAllowed": "true",
+      "isPreActionAllowed": "true",
+      "isPreConditionAllowed": "true",
+      "isPublished": "true",
+      "name": "revisePost",
+      "opTemplate": "int#att0attrtargetmgmt::Att0MeasurableAttribute::revisePost#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*",
+      "returnDescription": "Failure Code",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Information needed to create or update the complex data for the given Attribute Definition or Measurable Attribute.",
+          "parameterName": "inputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Att0AttTargetMgmt",
+      "createRelease": "tc11000.5.0",
+      "dependencies": "",
+      "description": "This operation sets the complex data for the given Attribute Definition or Measurable Attribute.",
+      "exceptionCondition": "",
+      "id": "setAttributeComplexData#const,std::vector<Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::SetAttributeComplexDataIn>,&",
+      "interface": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "setAttributeComplexData",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::setAttributeComplexData#const,std::vector<Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::SetAttributeComplexDataIn>,&",
+      "returnDescription": "Standard ServiceData object to hold the partial errors that the operation encounters.<br />The following errors may be returned:<br /><br />185047 &ndash; The given object type is not supported for complex data. The supported types are &quot;Att0MeasurableAttribute&quot; and &quot;Att0AttributeDefRevision&quot;.<br />185048 -  No complex data was provided.<br />185049 -  The file type is invalid for complex data. The supported types are &quot;xlsx&quot; and &quot;xlsm&quot;.<br />185050 &ndash; The property does not exist for objects of type Attribute Table (Att0AttributeTable) and Value Table (Att0ValueTable).<br />185051 &ndash; The number of rows/colums are different across Min/Max/Goal/Measurement tables. The import of complex data will proceed nevertheless.<br />185052 &ndash; The column definition is different across Min/Max/Goal/Measurement tables. The import of complex data will proceed nevertheless.<br />185053 &ndash; The number of rows/colums are different across Min/Max/Goal/Measurement tables. The import of complex data will not proceed.<br />185054 &ndash; The Column definition is different across Min/Max/Goal/Measurement tables. The import of complex data will not proceed.",
+      "useCase": "Use case 1:<br />The System Engineer can import the Excel file into the given Attribute Definition. In the background, the system extracts the table content from the Excel and then update the array of data to the Attribute Definition.<br /><br />Use case 2:<br />The System Engineer opens the Attribute Summary page which may display the Goal/Min/Max table if existing and start edit and click &ldquo;Save&rdquo; to update the array of data to the Attribute.<br />Blow is the sample input structure, in the form of XML, that the caller of this service operation needs to provider for below table.<br /><br />Below is the sample input structure, in the form of XML, that the caller of this service operation needs to provider for below table.<br /><br />                    Time     Temperature<br />Temp          1800         25.4<br />Temp2        1900         22.2<br /><br />&lt;SetAttributeComplexDataIn&gt;<br />  &lt;clientId&gt;NXModeling&rdquo;&lt;/clientId&gt;<br />  &lt;isProceedWithValidationError&gt;true&lt;/isProceedWithValidationError&gt;<br />  &lt;objectToModify&gt;objectTag&lt;/objectToModify&gt;<br />  &lt;propNameToTableDataMap map_key=&quot;Att0MinTable&quot;&gt;<br />    &lt;map_value&gt;<br />       &lt;AttrTabeData&gt;<br />           &lt;opeation&gt;&quot;Add&quot;&lt;/operation&gt;<br />           &lt;AttrComplexData&gt;<br />              &lt;tableName&gt;&rdquo;TempratureRecord&rdquo;&lt;/tableName&gt;<br />              &lt;columnHeaders&gt;<br />                           &lt;AttrColumnHeader&gt;<br />                    &lt;index&gt;1&lt;/index&gt;<br />                    &lt;name&gt;Time&lt;/name&gt;<br /><br />                &lt;/AttrColumnHeader&gt;<br />                &lt;AttrColumnHeader&gt;<br />                    &lt;index&gt;2&lt;/index&gt;<br />                    &lt;name&gt;Temperature&lt;/name&gt;<br />                &lt;/AttrColumnHeader&gt;<br />              &lt;/columnHeaders&gt;<br />              &lt;rowHeaders&gt;<br />                            &lt;AttrRowHeader&gt;<br />                    &lt;index&gt;11&lt;/index&gt;<br />                    &lt;name&gt;Temp1&lt;/name&gt;<br />                &lt;/AttrRowHeader&gt;<br />                &lt;AttrRowHeader&gt;<br />                    &lt;index&gt;22&lt;/index&gt;<br />                    &lt;name&gt;Temp2&lt;/name&gt;<br />                &lt;/AttrRowHeader&gt;<br />              &lt;/rowHeaders&gt;<br />              &lt;rows&gt;<br />                 &lt;AttrTableRow&gt;<br />                   &lt;Index&gt;11&lt;/Index&gt;<br />                   &lt;cells&gt;<br />                       &lt;AttrTableCell&gt;<br />                         &lt;Index&gt;1&lt;/Index&gt;<br />                         &lt;Data&gt;1800&lt;/Data&gt;<br />                       &lt;/AttrTableCell&gt;<br />                       &lt;AttrTableCell&gt;<br />                         &lt;Index&gt;2&lt;/Index&gt;<br />                         &lt;Data&gt;25.4&lt;/Data&gt;<br />                       &lt;/AttrTableCell&gt;<br />                 &lt;/cells&gt;<br />                 &lt;AttrTableRow&gt;<br />                &lt;Index&gt;22&lt;/Index&gt;<br />                       &lt;cells&gt;<br />                       &lt;AttrTableCell&gt;<br />                         &lt;Index&gt;1&lt;/Index&gt;<br />                         &lt;Data&gt;1900&lt;/Data&gt;<br />                       &lt;/AttrTableCell&gt;<br />                       &lt;AttrTableCell&gt;<br />                         &lt;Index&gt;2&lt;/Index&gt;<br />                         &lt;Data&gt;22.2&lt;/Data&gt;<br />                       &lt;/AttrTableCell&gt;<br />                   &lt;/cells&gt;<br />                    &lt;/AttrTableRow&gt;<br />              &lt;/rows&gt;<br />           &lt;/AttrComplexData&gt;<br />       &lt;/AttrTabeData&gt;<br />      &lt;map_value&gt;<br />  &lt;/propNameToTableDataMap&gt;"
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Revise Input Descriptor",
+          "parameterName": "pReviseInput"
+        }
+      ],
+      "canOverride": "true",
+      "component": "",
+      "createRelease": "tc11000.2.0",
+      "dependencies": "",
+      "description": "Set properties from revise input Operation",
+      "exceptionCondition": "",
+      "id": "setPropertiesFromReviseInput#Teamcenter::ReviseInput,*",
+      "interface": "att0attrtargetmgmt::Att0MeasurableAttribute",
+      "isPostActionAllowed": "true",
+      "isPreActionAllowed": "true",
+      "isPreConditionAllowed": "true",
+      "isPublished": "true",
+      "name": "setPropertiesFromReviseInput",
+      "opTemplate": "int#att0attrtargetmgmt::Att0MeasurableAttribute::setPropertiesFromReviseInput#Teamcenter::ReviseInput,*",
+      "returnDescription": "Failure code",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The synchronization measurable attribute inputs.",
+          "parameterName": "inputs"
+        },
+        {
+          "description": "The synchronization measurable attribute preference.",
+          "parameterName": "pref"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Att0AttTargetMgmt",
+      "createRelease": "tc10000.1.4",
+      "dependencies": "",
+      "description": "This operation is used to synchronize <b>Att0MeasurableAttribute</b> objects between source <b>Att0MeasurableAttribute</b> instances and target <b>Att0MeasurableAttribute</b> instances.  This synchronization operation has two process flows: synchronize from source <b>Att0MeasurableAttribute</b> instances to input <b>Att0MeasurableAttribute</b> instances; and publish from output <b>Att0MeasurableAttribute</b> instances to source <b>Att0MeasurableAttribute</b> instances.<br /><ul><ul><li type=\"disc\">When synchronize from source to input <b>Att0MeasurableAttribute</b>, an update operation is done against input <b>Att0MeasurableAttribute</b> with latest property values from source Att0MeasurableAttribute. Meanwhile copies the latest <b>Att0MeasurableValue</b> of source Att0MeasurableAttribute and inserts it into the input <b>Att0MeasurableAttribute</b>.</li><li type=\"disc\">When publish from output to source <b>Att0MeasurableAttribute</b>, the latest <b>Att0MeasurableValue</b> is retrieved from output <b>Att0MeasurableAttribute</b> and inserts it into the latest <b>Att0MeasurableValue</b> list on the source <b>Att0MeasurableAttribute</b>. The source <b>Att0MeasurableAttribute</b> properties will not be updated.</li><li type=\"disc\">If there is an issue during publication, the process stops and all modified objects are be restored.</li></ul></ul>",
+      "exceptionCondition": "",
+      "id": "synchronizeMeasuableAttributes#const,std::vector<Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributeInput>,&$const,Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributePref,&",
+      "interface": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "synchronizeMeasuableAttributes",
+      "opTemplate": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributeResponse#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::synchronizeMeasuableAttributes#const,std::vector<Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributeInput>,&$const,Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributePref,&",
+      "returnDescription": "A map of client identifier to the <b>Att0MeasurableAttribute</b> objects. The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">185017 - The given object is invalid primary object for Input Measurable Attribute.</li><li type=\"disc\">185018 - The given object is invalid primary object for Output Measurable Attribute.</li><li type=\"disc\">185025 - Some input <b>Att0MeasurableAttribute</b> objects are out of date, publication could only be done when all input <b>Att0MeasurableAttribute</b> objects are up to date.</li><li type=\"disc\">185026 - The given synchronization candidates type does not match to the source object type.</li><li type=\"disc\">185027 - The validation object is not allowed to publish measurable attributes, because its release status is not match with pre-defined ones.</li></ul></ul>",
+      "useCase": "1.&nbsp;&nbsp;&nbsp;&nbsp;A system architect creates a product structure of logical blocks (<b>Fnd0LogicalBlock</b>), and defines for each block its measurable attributes (<b>Att0MeasurableAttribute</b>). As the design of the product architecture evolves, the system architect requests a partial or complete validation of the system. As part of the request system architect defines the logical blocks to be validated, their attributes that will inputs for the validation and the ones that need to be measured. As the system architect sets a logical block attribute (<b>Att0MeasurableAttribute</b>) as an input of the validation, the system builds a copy of the attribute for the validation context. The goal is to isolate the validation context from any updates that can be done on the product context. <br />However when processing the validation request, the validation engineer should know if the input attributes are up to date with the product logical blocks attributes.  If they are not the validation engineer can run synchronize input attributes command.<br />2.&nbsp;&nbsp;&nbsp;&nbsp;A system architect creates a product structure of logical blocks (<b>Fnd0LogicalBlock</b>), and defines for each block its measurable attributes (<b>Att0MeasurableAttribute</b>). As the design of the product architecture evolves, the system architect requests a partial or complete validation of the system. As part of the request system architect defines the logical blocks to be validated, their attributes that will inputs for the validation and the ones that need to be measured. As the system architect sets a logical block attribute (<b>Att0MeasurableAttribute</b>) as an input of the validation, the system builds a copy of the attribute for the validation context. The goal is to isolate the validation context from any updates that can be done on the product context. <br />However when processing the validation request, the validation engineer should know if the output attributes are measured which comes out a new measurement value (<b>Att0MeasureValue</b>). If new measurement value is generated, the validation engineer can run publish command to publish output attribute measurement value to logical block attribute."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Revise Input Descriptor",
+          "parameterName": "pReviseInput"
+        },
+        {
+          "description": "Deep Copy Data Vector",
+          "parameterName": "vecDeepCopyData"
+        }
+      ],
+      "canOverride": "true",
+      "component": "",
+      "createRelease": "tc11000.2.0",
+      "dependencies": "",
+      "description": "Validate Revise Input Operation",
+      "exceptionCondition": "",
+      "id": "validateReviseInput#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*",
+      "interface": "att0attrtargetmgmt::Att0MeasurableAttribute",
+      "isPostActionAllowed": "true",
+      "isPreActionAllowed": "true",
+      "isPreConditionAllowed": "true",
+      "isPublished": "true",
+      "name": "validateReviseInput",
+      "opTemplate": "int#att0attrtargetmgmt::Att0MeasurableAttribute::validateReviseInput#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*",
+      "returnDescription": "Failure Code",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement::DeleteMeasurableAttributeInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The list of measurable attributes and their parent objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement::DeleteMeasurableAttributesResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc10000.1.5",
+      "description": "This operation deletes measurable attribute (<b>Att0MeasurableAttribute</b>) objects from given parent object. <br /><ul><ul><li type=\"disc\">If the given measurable attribute(<b>Att0MeasurableAttribute</b>) is a source attribute,  it is is deleted directly.</li><li type=\"disc\">If the given measurable attribute(<b>Att0MeasurableAttribute</b>) is an overridden attribute, the overridden attribute itself is deleted as well as its related source attribute.</li><li type=\"disc\">If the given measurable attribute(<b>Att0MeasurableAttribute</b>) is a source attribute and it is assigned as Input/Output attribute to an Analysis Request(<b>Crt0VldnContractRevision</b>), then the delete actions is discarded  and a warning message is returned.</li></ul></ul>",
+      "id": "Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement::DeleteMeasurableAttributesResponse#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::deleteMeasurableAttributes#const,std::vector<Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement::DeleteMeasurableAttributeInput>,&",
+      "name": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::deleteMeasurableAttributes",
+      "returnConst": "false",
+      "returnDescription": "A map of client identifier to the <b>Att0MeasurableAttribute</b> objects that could not be deleted. The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">185204 - A valid parent object must be specified.</li><li type=\"disc\">185205 - A value for the measurable attribute parameter must be provided in order to complete the \"Delete\" operation.</li><li type=\"disc\">185206 - The measurable attribute could not be deleted, because it is referenced in the Analysis Request.</li><li type=\"disc\">185207 - The measurable attribute could not be deleted, because it is referenced in other context.</li><li type=\"disc\">185208 - The measurable attribute could not be deleted, because it is referenced.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::GetAttributeComplexDataIn",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input information required for the getAttributeComplexData in the form of GetAttributeComplexDataIn.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::GetAttributeComplexDataResp",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.6.0",
+      "description": "This operation gets the complex data for the given Attribute Definition or Measurable Attribute.",
+      "id": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::GetAttributeComplexDataResp#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::getAttributeComplexData#const,std::vector<Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::GetAttributeComplexDataIn>,&",
+      "name": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::getAttributeComplexData",
+      "returnConst": "false",
+      "returnDescription": "The operation returns two maps attrPropNamesToAttrComplexDataMap and measurePropNamesToMeasurementComplexDataMap corresponding to each input property names vector of attrPropNames and measurePropNames respectively along with the ServiceData. The attrPropNamesToAttrComplexDataMap maps the attrPropNames properties to its list of complex data whereas measurePropNamesToMeasurementComplexDataMap maps the measurePropNames properties to its list of complex data.<br /><br />The following errors may be returned:<br /><br />* 185047 &ndash; The given object type is not supported for complex data. The supported types are &quot;Att0MeasurableAttribute&quot; and &quot;Att0AttributeDefRevision&quot;.<br /><br />* 185050 &ndash; The property does not exist on Att0MeasurableAttribute, please provide valid property name.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::DefinitionCriteria",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The criteria for filtering the list of latest <b>ItemRevision</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::DefinitionsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc10000.1.4",
+      "description": "This operation gets the list of <b>ItemRevision</b> objects based on given criteria. The <i>DefinitionCriteria</i> holds criteria such as item revision name, item or item revision type name, enabled release status as well as disabled release status; if and only if the latest <b>ItemRevision</b> or sub type objects will be returned when it matches these criteria.",
+      "id": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::DefinitionsResponse#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::getLatestDefinitions#const,std::vector<Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::DefinitionCriteria>,&",
+      "name": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::getLatestDefinitions",
+      "returnConst": "false",
+      "returnDescription": "A map of client identifier to the <b>ItemRevision</b> objects .The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">126101&nbsp;&nbsp;&nbsp;&nbsp; When value of <i>itemOrRevType</i> of <i>DefinitionCriteria</i> structure is empty. </li><li type=\"disc\">126102&nbsp;&nbsp;&nbsp;&nbsp; When value of <i>itemOrRevType</i> of <i>DefinitionCriteria</i> structure does not exist.&nbsp;&nbsp;&nbsp;&nbsp;</li><li type=\"disc\">126103&nbsp;&nbsp;&nbsp;&nbsp; When value of <i>itemOrRevType</i> of <i>DefinitionCriteria</i> structure is not item or item revision type.&nbsp;&nbsp;&nbsp;&nbsp;</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::SetAttributeComplexDataIn",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Information needed to create or update the complex data for the given Attribute Definition or Measurable Attribute.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.5.0",
+      "description": "This operation sets the complex data for the given Attribute Definition or Measurable Attribute.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::setAttributeComplexData#const,std::vector<Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::SetAttributeComplexDataIn>,&",
+      "name": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::setAttributeComplexData",
+      "returnConst": "false",
+      "returnDescription": "Standard ServiceData object to hold the partial errors that the operation encounters.<br />The following errors may be returned:<br /><br />185047 &ndash; The given object type is not supported for complex data. The supported types are &quot;Att0MeasurableAttribute&quot; and &quot;Att0AttributeDefRevision&quot;.<br />185048 -  No complex data was provided.<br />185049 -  The file type is invalid for complex data. The supported types are &quot;xlsx&quot; and &quot;xlsm&quot;.<br />185050 &ndash; The property does not exist for objects of type Attribute Table (Att0AttributeTable) and Value Table (Att0ValueTable).<br />185051 &ndash; The number of rows/colums are different across Min/Max/Goal/Measurement tables. The import of complex data will proceed nevertheless.<br />185052 &ndash; The column definition is different across Min/Max/Goal/Measurement tables. The import of complex data will proceed nevertheless.<br />185053 &ndash; The number of rows/colums are different across Min/Max/Goal/Measurement tables. The import of complex data will not proceed.<br />185054 &ndash; The Column definition is different across Min/Max/Goal/Measurement tables. The import of complex data will not proceed.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributeInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The synchronization measurable attribute inputs.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputs"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributePref",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The synchronization measurable attribute preference.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "pref"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributeResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc10000.1.4",
+      "description": "This operation is used to synchronize <b>Att0MeasurableAttribute</b> objects between source <b>Att0MeasurableAttribute</b> instances and target <b>Att0MeasurableAttribute</b> instances.  This synchronization operation has two process flows: synchronize from source <b>Att0MeasurableAttribute</b> instances to input <b>Att0MeasurableAttribute</b> instances; and publish from output <b>Att0MeasurableAttribute</b> instances to source <b>Att0MeasurableAttribute</b> instances.<br /><ul><ul><li type=\"disc\">When synchronize from source to input <b>Att0MeasurableAttribute</b>, an update operation is done against input <b>Att0MeasurableAttribute</b> with latest property values from source Att0MeasurableAttribute. Meanwhile copies the latest <b>Att0MeasurableValue</b> of source Att0MeasurableAttribute and inserts it into the input <b>Att0MeasurableAttribute</b>.</li><li type=\"disc\">When publish from output to source <b>Att0MeasurableAttribute</b>, the latest <b>Att0MeasurableValue</b> is retrieved from output <b>Att0MeasurableAttribute</b> and inserts it into the latest <b>Att0MeasurableValue</b> list on the source <b>Att0MeasurableAttribute</b>. The source <b>Att0MeasurableAttribute</b> properties will not be updated.</li><li type=\"disc\">If there is an issue during publication, the process stops and all modified objects are be restored.</li></ul></ul>",
+      "id": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributeResponse#Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::synchronizeMeasuableAttributes#const,std::vector<Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributeInput>,&$const,Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributePref,&",
+      "name": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement::synchronizeMeasuableAttributes",
+      "returnConst": "false",
+      "returnDescription": "A map of client identifier to the <b>Att0MeasurableAttribute</b> objects. The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">185017 - The given object is invalid primary object for Input Measurable Attribute.</li><li type=\"disc\">185018 - The given object is invalid primary object for Output Measurable Attribute.</li><li type=\"disc\">185025 - Some input <b>Att0MeasurableAttribute</b> objects are out of date, publication could only be done when all input <b>Att0MeasurableAttribute</b> objects are up to date.</li><li type=\"disc\">185026 - The given synchronization candidates type does not match to the source object type.</li><li type=\"disc\">185027 - The validation object is not allowed to publish measurable attributes, because its release status is not match with pre-defined ones.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ReviseInput",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Revise input",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "pReviseInput"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::vector<Teamcenter::DeepCopyData*>",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Deep Copy Data Vector",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "vecDeepCopyData"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.2.0",
+      "description": "Finalize Revise Input Operation",
+      "id": "int#att0attrtargetmgmt::Att0MeasurableAttribute::finalizeReviseInput#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*",
+      "name": "att0attrtargetmgmt::Att0MeasurableAttribute::finalizeReviseInput",
+      "returnConst": "false",
+      "returnDescription": "Failure Code",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ReviseInput",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Revise Input",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "pReviseInput"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::vector<Teamcenter::DeepCopyData*>",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Deep Copy Data Vactor",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "vecDeepCopyData"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "tag_t",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "New Object tag",
+          "freeOutputMemory": "false",
+          "inputOutput": "Output",
+          "name": "newObjTag"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "true",
+      "const": "false",
+      "createRelease": "tc11000.2.0",
+      "description": "Bom0ConfigurableBomElement Revise Operation",
+      "id": "int#att0attrtargetmgmt::Att0MeasurableAttribute::revise#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*$tag_t,*",
+      "name": "att0attrtargetmgmt::Att0MeasurableAttribute::revise",
+      "returnConst": "false",
+      "returnDescription": "Failure Code",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ReviseInput",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Revise Input Descriptor",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "pReviseInput"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::vector<Teamcenter::DeepCopyData*>",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Deep Copy Data Vector",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "vecDeepCopyData"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.2.0",
+      "description": "Reivse post operation",
+      "id": "int#att0attrtargetmgmt::Att0MeasurableAttribute::revisePost#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*",
+      "name": "att0attrtargetmgmt::Att0MeasurableAttribute::revisePost",
+      "returnConst": "false",
+      "returnDescription": "Failure Code",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ReviseInput",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Revise Input Descriptor",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "pReviseInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.2.0",
+      "description": "Set properties from revise input Operation",
+      "id": "int#att0attrtargetmgmt::Att0MeasurableAttribute::setPropertiesFromReviseInput#Teamcenter::ReviseInput,*",
+      "name": "att0attrtargetmgmt::Att0MeasurableAttribute::setPropertiesFromReviseInput",
+      "returnConst": "false",
+      "returnDescription": "Failure code",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ReviseInput",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Revise Input Descriptor",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "pReviseInput"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::vector<Teamcenter::DeepCopyData*>",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Deep Copy Data Vector",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "vecDeepCopyData"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc11000.2.0",
+      "description": "Validate Revise Input Operation",
+      "id": "int#att0attrtargetmgmt::Att0MeasurableAttribute::validateReviseInput#Teamcenter::ReviseInput,*$std::vector<Teamcenter::DeepCopyData*>,*",
+      "name": "att0attrtargetmgmt::Att0MeasurableAttribute::validateReviseInput",
+      "returnConst": "false",
+      "returnDescription": "Failure Code",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "tc10000.1.4",
+      "dependencies": "",
+      "description": "This operation gets the list of <b>ItemRevision</b> objects based on given criteria. The <i>DefinitionCriteria</i> holds criteria such as item revision name, item or item revision type name, enabled release status as well as disabled release status; if and only if the latest <b>ItemRevision</b> or sub type objects will be returned when it matches these criteria.",
+      "libraryName": "Att0SoaAttrTargetMgmt",
+      "name": "AttributeTargetManagement",
+      "namespace": "Att0::Soa::AttrTargetMgmt",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The FMS ticket for the Excel file to be imported.",
+          "name": "fileTicket"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::NameValueMap"
+            }
+          ],
+          "description": "A map (string, string) where the key is the name of the tab in the Excel and the value is the BMIDE property defined in the class Attr0AttributeTable to write complex data on.",
+          "name": "sheetNamePropNameMapping"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::NameValueMap"
+            }
+          ],
+          "description": "A map (string, string) where the key is the name of the tab in the Excel and and the value is the BMIDE property defined in the class Attr0ValueTable to write complex data on.",
+          "name": "sheetNameMeasurementPropNameMapping"
+        }
+      ],
+      "createRelease": "tc11000.5.0",
+      "description": "Represents all the data needed to import complex data from Excel.",
+      "isPublished": "true",
+      "name": "AttrFileData",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The header id of the column. It should match with the Index property of column header.",
+          "name": "index"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The actual data to be stored. Data will be always be stored in string format, client need to convert the data to the data type according to type of Attribute.",
+          "name": "data"
+        }
+      ],
+      "createRelease": "tc11000.5.0",
+      "description": "Represents a cell in the column.",
+      "isPublished": "true",
+      "name": "AttrTableCell",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "clientId Identifier defined by client to track the related object.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The object from which complex data on its properties need to be retrieved.",
+          "name": "objectToRetrieve"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The Att0Attributetable property names on which the complex data need to be retrieved for the given object.",
+          "name": "attrPropNames"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The Att0ValueTable property names of Measurements on which the complex data need to be retrieved for the given object.",
+          "name": "measurePropNames"
+        }
+      ],
+      "createRelease": "tc11000.6.0",
+      "description": "This operation gets the complex data for the given Attribute Definition or Measurable Attribute.",
+      "isPublished": "true",
+      "name": "GetAttributeComplexDataIn",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The object from which complex data on its properties need to be retrieved.",
+          "name": "objectToRetrieve"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::PropertyToComplexDataMap"
+            }
+          ],
+          "description": "A map of name of attribute property and its AttributeComplexData to be read from objectToRetrieve.",
+          "name": "attrPropNamesToAttrComplexDataMap"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::PropertyToComplexDataMap"
+            }
+          ],
+          "description": "A map of name of measure property and its AttributeComplexData to be read from objectToRetrieve.",
+          "name": "measurePropNamesToMeasurementComplexDataMap"
+        }
+      ],
+      "createRelease": "tc11000.6.0",
+      "description": "GetAttributeComplexDataOutput structure represents all the information needed to retrieve complex data for properties on Attribute Definition or Measurable Attribute.",
+      "isPublished": "true",
+      "name": "GetAttributeComplexDataOutput",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The ServiceData with partial errors for GetAttributeComplexDataInput identified by its clientID.",
+          "name": "serviceData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement::GetAttributeComplexDataOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "attributeComplexDataOutput represents all the information needed to retrieve complex data for properties on Attribute Definition or Measurable Attribute.",
+          "name": "attributeComplexDataOutput"
+        }
+      ],
+      "createRelease": "tc11000.6.0",
+      "description": "GetAttributeComplexDataInput structure represents all the information needed to retrieve complex data for properties on Attribute Definition or Measurable Attribute.",
+      "isPublished": "true",
+      "name": "GetAttributeComplexDataResp",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "This unique ID is used to identify return data elements and partial errors associated with this input structure.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The object on which complex data needs to be created or updated. The allowed types are: <b>Att0AttributeDefRevision</b> and <b>Att0MeasurableAttribute</b>.",
+          "name": "objectToModify"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::AttrFileData"
+            }
+          ],
+          "description": "Stores all the data related to import of complex data from Excel. If user has provided value of &lsquo;<i>propNameToComplexDataMap</i>&rsquo; or &lsquo;<i>propNameToMeasurementComplexDataMap</i>&rsquo; then value of this parameter is not required.",
+          "name": "fileData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::PropertyToTableDataMap"
+            }
+          ],
+          "description": "Name value pair (string,  AttrTableData) of name of property and list of AttrTableData to be written to objectToModify. The property name is Teamcenter internal name of property on <b>Att0AttributeTable</b>. Supported properties are:  att0GoalTable, att0MinTable and att0MaxTable.",
+          "name": "propNameToTableDataMap"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::PropertyToTableDataMap"
+            }
+          ],
+          "description": "Name value pair (string, AttrTableData) of name of property  list of AttrTableData to be written to to be written to objectToModify.  The property name is Teamcenter internal name of property on <b>Att0ValueTable</b>.  Supported property is: att0ValueTable.",
+          "name": "propNameToMeasurementTableDataMap"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, system will proceed with import of data and show warning to user if there are any validation errors in the input data. If false, system will show the validation error and will not import the data.",
+          "name": "isProceedWithValidationError"
+        }
+      ],
+      "createRelease": "tc11000.5.0",
+      "description": "Represents all the information needed to create or update the complex data on Attribute Definition and Measurable Attribute.",
+      "isPublished": "true",
+      "name": "SetAttributeComplexDataIn",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Identifier defined by client to track the related object. ",
+          "name": "clientID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The parent object holds list of measurable attributes which need to be synchonized.<br /><ul><ul><li type=\"disc\">The parent object type must be defined in \"<i>PLE_InputOutputAttrParentObjectTypes</i>\" preference.</li></ul></ul>",
+          "name": "parentObj"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "att0attrtargetmgmt::Att0MeasurableAttribute"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <b>Att0MeasurableAttribute</b> object which needs to be synzhonized or published.<br /><ul><ul><li type=\"disc\">If this parameter is provided, system will compare candidates with their source <b>Att0MeasurableAttribute</b> object and check if they are are out-of-date; if the candidate is out-of-date system only synchonize/publish these candidates. </li></ul></ul>",
+          "name": "attrCandidates"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "<i>SyncMeasurableAttributeInput</i> structure represents the criteria to synchronize measurable attribute objects. ",
+      "isPublished": "true",
+      "name": "SyncMeasurableAttributeInput",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncDirection"
+            }
+          ],
+          "description": "The <i>SyncDirection</i> which identify the synchornization direction.",
+          "name": "direction"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of relation names from where system traverse a list of  input <b>Att0MeasurableAttribute</b> objects for synchronize.  <br /><ul><ul><li type=\"disc\">If <i>SyncDirection</i> is <i>SyncFromSource</i>, this parameter is used along with <i>parentObj</i> to find a list of <b>Att0MeasurableAttribute</b> which will be updated with latest values from source <b>Att0MeasurableAttribute</b> as well as latest <b>Att0MeasurableValue</b> related to each <b>Att0MeasurableAttribute</b>.</li><li type=\"disc\">If <i>SyncDirection</i> is <i>PublishToSource</i>, this parameter is used along with <i>parentObj</i> to find a list of input <b>Att0MeasurableAttribute</b> objects. If input  <b>Att0MeasurableAttribute</b> objects are out of date, system stops publication.</li></ul></ul>",
+          "name": "inputRelations"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of relation names from where system traverse a list of  <b>outputAtt0MeasurableAttribute</b> objects for synchronization.<br /><ul><ul><li type=\"disc\">If <i>SyncDirection</i> is <i>SyncFromSource</i>, this parameter is used along with <i>parentObj</i> to find a list of output <b>Att0MeasurableAttribute</b>. Then system removes <b>Att0Measurement</b> object for each output <b>Att0MeasurableAttribute</b> object.</li><li type=\"disc\">If <i>SyncDirection</i> is <i>PublishToSource</i>, this parameter is used along with <i>parentObj</i> to find a list of output <b>Att0MeasurableAttribute</b> objects. System will insert the latest <b>Att0MeasurableValue</b> to source <b>Att0MeasurableAttribute</b> for each output <b>Att0MeasurableAttribute</b> object .</li></ul></ul>",
+          "name": "outputRelations"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "<i>SyncMeasurableAttributePref</i> structure represents the synchronization direction(synchonize from source or publish to source), and input relations as well as output relations which are used to find out all input or output measurable attributes.",
+      "isPublished": "true",
+      "name": "SyncMeasurableAttributePref",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The Service Data with partial errors identified by its clientId.",
+          "name": "serviceData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::SyncMeasurableAttributesMap"
+            }
+          ],
+          "description": "Map input client ID to list of <b>Att0MeasurableAttribute</b> objects",
+          "name": "outputMap"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "<i>SyncMeasurableAttributeResponse</i> holds the response of synchronize Measuable Attributes. This output structure contains service data with partial errors and an <i>outputMap</i> which contains list of <b>Att0MeasurableAttribute</b> objects which have been synchronized.",
+      "isPublished": "true",
+      "name": "SyncMeasurableAttributeResponse",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The operation to be performed on the complex data. Supported values are: &ldquo;Add&rdquo;, &ldquo;Update&rdquo;, and &ldquo;Delete&rdquo;.",
+          "name": "operation"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::AttributeComplexData"
+            }
+          ],
+          "description": "The actual complex data to perform operation on.",
+          "name": "complexData"
+        }
+      ],
+      "createRelease": "tc11000.5.0",
+      "description": "Represent information about complex data and operation to be performend on the data.",
+      "isPublished": "true",
+      "name": "AttrTableData",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The unique id for row or column in the table. It will be used by the client of this SOA to show column and row in the correct order and also to make any changes to the row or column.",
+          "name": "index"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the row header or column header. This is an optional field.",
+          "name": "name"
+        }
+      ],
+      "createRelease": "tc11000.5.0",
+      "description": "Represents header information for either row or column. The AttrTableHeader is generic data structure. If it is used in AttrTableRow then this represent information about row else if it is used in column headers then it represents information about column.",
+      "isPublished": "true",
+      "name": "AttrTableHeader",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The header id of the row. It should match with the Index property of row header.",
+          "name": "index"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::AttrTableCell"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Information about various cells of a row which includes header information, its id and actual data.",
+          "name": "cells"
+        }
+      ],
+      "createRelease": "tc11000.5.0",
+      "description": "Represents a single row of data.",
+      "isPublished": "true",
+      "name": "AttrTableRow",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The name of table which represents the complex data.",
+          "name": "tableName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::AttrTableHeader"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <i>AttrTableHeader</i> objects which has Information about various column headers which includes column name, its id and order.",
+          "name": "columnHeaders"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::AttrTableHeader"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <i>AttrTableHeader</i> objects which has information about various row headers which includes row name, its id and order.",
+          "name": "rowHeaders"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::AttrTableRow"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <i>AttrTableRow</i> objects which represents the actual complex data in form of rows. Each row may have have one or more columns which holds the actual data.",
+          "name": "rows"
+        }
+      ],
+      "createRelease": "tc11000.5.0",
+      "description": "Represents the complex data of a property. The complex data includes Table Name, Row Headers, Column Headers and actual data of 2D array. The column headers and row headers are optional.",
+      "isPublished": "true",
+      "name": "AttributeComplexData",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Identifier defined by client to track the related object. ",
+          "name": "clientID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Required. Item or item revision type name which must exist in database.",
+          "name": "itemOrRevType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Optional.The item revision name which is used to perform the search. Wild card \"*\" is supported.",
+          "name": "objectName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Optional. A list of allowed release status names. During the search system checks the latest <b>ItemRevision</b> release status name, if the status name is contained in enabledStatus, then the <b>ItemRevision</b> object will be returned.<br /><ul><ul><li type=\"disc\">If enabledStatus is empty , the latest <b>ItemRevision</b> will be returned </li><li type=\"disc\">If enabledStatus contains multiple values, any release status on latest <b>ItemRevision</b> that is matched will be returned </li><li type=\"disc\">If the latest ItemRevision has multiple release statuses, only check against the newest release status.</li></ul></ul>",
+          "name": "enabledStatus"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of disallowed release status names. During the search system checks the latest <b>ItemRevision</b>'s release status name, if the status name is contained in disabledStatus, the <b>ItemRevision</b> object will be ignored.<br /><ul><ul><li type=\"disc\">If disabledStatus is empty, the latest <b>ItemRevision</b> will be returned </li><li type=\"disc\">If disabledStatus contains multiple values, any release status on latest <b>ItemRevision</b> that is matched will be ignored </li><li type=\"disc\">If the latest <b>ItemRevision</b> has multiple release statuses, only check against the newest release status</li></ul></ul>",
+          "name": "disabledStatus"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "Structure represents the criteria to get latest <b>ItemRevision</b> objects. ",
+      "isPublished": "true",
+      "name": "DefinitionCriteria",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The Service Data with partial errors for <i>DefinitionCriteria</i> identified by its clientId.",
+          "name": "serviceData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement::StrDefinitionsMap"
+            }
+          ],
+          "description": "Map of input client IDs to the list of <b>ItemRevision</b> objects.",
+          "name": "outputMap"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "Holds the response for <i>getLatestDefinitions</i>. This output structure contains                          service data with partial errors and a <i>StrDefinitionMap</i> which contains latest <b>ItemRevision</b> objects based on give criteria for each entry in the <i>DefinitionCriteria</i> input list.",
+      "isPublished": "true",
+      "name": "DefinitionsResponse",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Identifier defined by client to track the related object.",
+          "name": "clientID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The parent object for measurable attributes.",
+          "name": "parentObj"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "att0attrtargetmgmt::Att0MeasurableAttribute"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <b>Att0MeasurableAttribute</b> object which will be deleted from parent object.",
+          "name": "measurableAttributes"
+        }
+      ],
+      "createRelease": "tc10000.1.5",
+      "description": "<i>DeleteMeasurableAttributeInput</i> structure represents list of measurable attributes to be deleted from parent object.",
+      "isPublished": "true",
+      "name": "DeleteMeasurableAttributeInput",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The ServiceData with partial errors for <b>DeletesMeasurableAttributeInput</b> identified by its <b>clientID</b>.",
+          "name": "serviceData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement::FailedToDeleteAttrTagMap"
+            }
+          ],
+          "description": "Represents list of un-deleted objects, identified by its <b>clientID</b>.",
+          "name": "failedToDeleteAttrTagMap"
+        }
+      ],
+      "createRelease": "tc10000.1.5",
+      "description": "Holds the response of <b>deleteMeasuableAttributes</b>. This response structure contains un-deleted objects and service data with partial errors.",
+      "isPublished": "true",
+      "name": "DeleteMeasurableAttributesResponse",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    }
+  ],
+  "TcVersion": "tc13000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "att0attrtargetmgmt::Att0MeasurableAttribute"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc10000.1.5",
+      "description": "Contains <b>clientID</b> and list of input objects <b>Att0MeasurableAttribute</b> that could not be deleted by the system.",
+      "isPublished": "true",
+      "name": "FailedToDeleteAttrTagMap",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_10::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.5.0",
+      "description": "The map will hold a string as key and another string as value.",
+      "isPublished": "true",
+      "name": "NameValueMap",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::AttributeComplexData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.6.0",
+      "description": "This map will hold name of property as key and its corresponding complex data as value.",
+      "isPublished": "true",
+      "name": "PropertyToComplexDataMap",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_11::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement::AttrTableData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc11000.5.0",
+      "description": "This map will hold name of property as key and correspousing table data as value.",
+      "isPublished": "true",
+      "name": "PropertyToTableDataMap",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2018_06::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ItemRevision"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "Contains client Id and the latest <b>ItemRevision</b> objects or its subtype which match search criteria.",
+      "isPublished": "true",
+      "name": "StrDefinitionsMap",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "att0attrtargetmgmt::Att0MeasurableAttribute"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "<i>SyncMeasurableAttributeMap</i> contains client Id and <b>Att0MeasurableAttribute</b> objects which have been synchonized.<br /><ul><ul><li type=\"disc\">If <i>SyncDirection</i> is <i>SyncFromSource</i>, <i>SyncMeasurableAttributeMap</i> contains all input <b>Att0MeasurableAttribute</b> objects that been synchronized successfully.</li><li type=\"disc\">If <i>SyncDirection</i> is <i>PublishToSource</i>, <i>SyncMeasurableAttributeMap</i> contains all source <b>Att0MeasurableAttribute</b> objects that been published successfully.</li></ul></ul>",
+      "isPublished": "true",
+      "name": "SyncMeasurableAttributesMap",
+      "namespace": "Att0::Soa::AttrTargetMgmt::_2015_03::AttributeTargetManagement",
+      "scope": "Att0::Soa::AttrTargetMgmt::AttributeTargetManagement"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

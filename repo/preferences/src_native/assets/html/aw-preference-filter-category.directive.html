@@ -1,0 +1,18 @@
+<div class="aw-ui-filterCategory" title="{{category.value}}">
+    <!-- display expand/collapse icons only when needed -->
+        <aw-icon class="aw-ui-filterCategoryLabelExpand" ng-click="toggleExpansion()" icon-id="miscExpand"
+            ng-if="category.showExpand && category.expand"></aw-icon>
+        <aw-icon class="aw-ui-filterCategoryLabelCollapse" ng-click="toggleExpansion()" icon-id="miscCollapse"
+            ng-if="category.showExpand && !category.expand"></aw-icon>
+
+        <div  class="aw-ui-filterCategoryLabel" ng-class="{'aw-ui-filterCategoryLabelEnabled': category.showEnabled && category.type !== 'ObjectFilter'}"
+              ng-click="select($event)" category-action="categoryAction">
+              {{category.value}}
+        </div>
+        <div ng-if="category.expand">
+            <!-- <aw-org-tree tree="data.orgTreeInput" name="data.orgTreeName">
+                {{node.label}}
+            </aw-org-tree> -->
+            <aw-splm-table gridid="orgTreeTable12" use-tree="true" class="aw-preferences-orgTreeTable"></aw-splm-table>
+        </div>
+</div>

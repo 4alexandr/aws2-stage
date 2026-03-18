@@ -1,0 +1,17 @@
+<aw-command-panel caption="i18n.Add">
+    <aw-form name="createInputs">
+        <aw-add include-types="{{data.createObj}}" visible-tabs="new,palette,search" preferred-type="{{data.preferredType}}" type-filter="{{ctx.typeFilter}}" load-sub-types="true" is-include-sub-types="data.isIncludeSubTypes" max-recent-count="5">
+        </aw-add>
+    </aw-form>
+    <aw-panel-footer>
+        <aw-button action="createObject" visible-when="conditions.isNewTabAddButtonVisible && createInputs.$valid">
+            <aw-i18n>i18n.Add</aw-i18n>
+        </aw-button>
+        <aw-button action="createRelationForPaletteOrSearch" visible-when="conditions.isPalatteTabSelection && data.sourceObjects.length>0">
+            <aw-i18n>i18n.Add</aw-i18n>
+        </aw-button>
+        <aw-button action="createRelationForPaletteOrSearch" visible-when="conditions.isSearchTabSelection && data.sourceObjects.length>0">
+            <aw-i18n>i18n.Add</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

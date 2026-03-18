@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"Odstranit",
+    "pertDeleteDesc": "Odstranit vybrané uzly",
+    "deleteConfirmationMessage": "Opravdu chcete trvale odstranit vybrané uzly Pert?",
+    "missingProcessElements": "Vytvořte proces.",
+    "openPertNodeTitle": "Otevřít",
+    "resetLayoutTitle": "Obnovit rozvržení",
+    "resetLayoutDescription": "Obnovte uzly PERT na výchozí rozvržení."
+}

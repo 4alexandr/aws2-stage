@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"Delete",
+    "pertDeleteDesc": "Delete selected nodes",
+    "deleteConfirmationMessage": "Are you sure you want to permanently delete selected Pert nodes?",
+    "missingProcessElements": "Create a process.",
+    "openPertNodeTitle": "Open",
+    "resetLayoutTitle": "Reset Layout",
+    "resetLayoutDescription": "Reset the PERT nodes to default layout."
+}

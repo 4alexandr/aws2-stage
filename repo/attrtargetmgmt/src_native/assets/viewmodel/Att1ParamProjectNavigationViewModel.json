@@ -1,0 +1,70 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-native-sublocation.directive"
+    ],
+    "actions": {
+        "registerParameterCtx": {
+            "actionType": "JSFunction",
+            "method": "registerParameterCtx",
+            "deps": "js/Att1ConfigureVariantService"
+        },
+        "unregisterParameterCtx": {
+            "actionType": "JSFunction",
+            "method": "unregisterParameterCtx",
+            "deps": "js/Att1ConfigureVariantService"
+        },
+        "clearPWASelection": {
+            "actionType": "JSFunction",
+            "method": "clearPWASelection",
+            "deps": "js/Att1ConfigureVariantService"
+        }
+    },
+    "data": {
+        "_sublocation": {
+            "name": "com.siemens.splm.client.attrtarget.paramProjectSubLocation",
+            "label": "Declarative Navigate",
+            "clientScopeURI": "Att1ProjectNavigation",
+            "nameToken": "com.siemens.splm.client.attrtarget.paramProjectSubLocation:Att1ParamProjectSubLocation",
+            "context": {
+                "search": {
+                    "provider": "Att1ParametersProvider",
+                    "sortType": "Alphabetical"
+                }
+            },
+            "viewBase": "Att1ParamProjectNavigation",
+            "defaultDisplayMode": "TreeSummaryView",
+            "viewModes": {
+                "TreeView": {
+                    "primaryWorkArea": "tree",
+                    "secondaryWorkArea": false
+                },
+                "TreeSummaryView": {
+                    "primaryWorkArea": "tree",
+                    "secondaryWorkArea": true
+                }
+            },
+            "policy": {
+                "types": [ {
+                    "name": "BusinessObject",
+                    "properties": [ {
+                        "name": "object_string"
+                    } ]
+                } ]
+            }
+        }
+    },
+    "onEvent": [ {
+            "eventId": "Att1ParamProjectNavigation.contentLoaded",
+            "action": "registerParameterCtx"
+        },
+        {
+            "eventId": "Att1ParamProjectNavigation.contentUnloaded",
+            "action": "unregisterParameterCtx"
+        }, 
+        {
+            "eventId": "Att1ParamProjectNavigation.clearPWASelection",
+            "action": "clearPWASelection"
+        }
+    ]
+}

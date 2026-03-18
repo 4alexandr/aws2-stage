@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "Pas d'éléments de construction ni d'activités dans \"{0}\".",
+    "noProcesses": "Il n'y a pas de processus dans \"{0}\".",
+    "whereToCreateProcesses": "Les processus peuvent être créés dans la page Unité de travail.",
+    "moveCandidateCmdTitle": "Aller Vers",
+    "moveCandidateCmdDescription": "Désigne les objets à déplacer",
+    "successfullySetSingleMoveCandidate": "\"{0}\" désigné pour être déplacé. Sélectionnez une cible et utilisez le bouton 'Déplacer ici'.",
+    "successfullySetMultipleMoveCandidates": "{0} objets désignés pour être déplacés. Sélectionnez une cible et utilisez le bouton 'Déplacer ici'.",
+    "moveHereTooltipTitle": "Déplacer ici",
+    "moveHereTooltipMsg": "Déplace ces objets vers la cible spécifiée:",
+    "createBuildElementAfter": "Créer un élément de construction Après",
+    "createBuildElementAsChild": "Créer un élément de construction comme Enfant"
+}

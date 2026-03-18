@@ -1,0 +1,24 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2020.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+.aw-comparesplitviewjs-uniqueInSource .aw-widgets-propertyLabelTopValueContainer{
+    border-left-color: $aw-charts-chartColor6;
+}
+
+.aw-comparesplitviewjs-matched .aw-widgets-propertyLabelTopValueContainer{
+    border-left-color: $aw-charts-chartColor3;
+}
+
+.aw-comparesplitviewjs-different .aw-widgets-propertyLabelTopValueContainer{
+    border-left-color: $aw-charts-chartColor4;
+}
+
+.aw-comparesplitviewjs-uniqueInTarget .aw-widgets-propertyLabelTopValueContainer{
+    border-left-color: $aw-charts-chartColor6;
+}

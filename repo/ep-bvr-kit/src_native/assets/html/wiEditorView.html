@@ -1,0 +1,15 @@
+<aw-include exist-when="data.isLoading" name="mfeLoadingMessage"></aw-include>
+<aw-flex-column exist-when="!data.isLoading">
+    <div class="wiEditorPlaceHolder">
+        <div id="WIEditorTop"></div>
+        <aw-scrollpanel class="aw-epInstructionsEditor-wiEditorContainer">
+            <aw-list dataprovider="data.dataProviders.editorsData">
+                <aw-include name="wiStepEditor" sub-panel-context="item">
+                </aw-include>
+                <div class="wi-editor-textarea">
+                    <div id="{{item.editorData.wiStepEditorTextareaId}}"></div>
+                </div>
+            </aw-list>
+        </aw-scrollpanel>
+    </div>
+</aw-flex-column>

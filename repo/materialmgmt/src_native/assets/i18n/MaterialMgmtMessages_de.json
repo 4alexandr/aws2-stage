@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "Hinzufügen zu",
+    "addButtonTitle": "Hinzufügen",
+    "addLabel": "Hinzufügen zu",
+    "newShowAddObjectPresenterBtn": "Neu",
+    "paletteShowAddObjectPresenterBtn": "Palette",
+    "searchShowAddObjectPresenterBtn": "Suchen",
+    "errorInGettingSubtypesofEndItem": "Die Suchergebnisse konnten wegen eines internen Fehlers nicht gefiltert werden.",
+    "FrequentlyUsedSectionTitle": "Häufig verwendet",
+    "addPropertiesLabel": "Eigenschaften hinzufügen",
+    "resultsTabTitle": "Ergebnisse",
+    "filterTabTitle": "Filter",
+    "Mtw0ShowAddObjectDesc": "Zuweisen einer Substanz zum Material.",
+    "view": "Ansicht",
+    "billOfMaterials": "Stückliste",
+    "billOfSubstances" : "Substanzliste"
+}

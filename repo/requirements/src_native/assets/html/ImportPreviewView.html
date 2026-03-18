@@ -1,0 +1,42 @@
+<aw-column width="fill" class="aw-requirement-importPreviewSWA">
+    <div class='aw-requirement-chipList'>
+        <aw-row exist-when="ctx.deriveAndMergeClick">
+            <aw-chip chip="data.staticChips[0]" button-type="accent-positive"></aw-chip><br />
+            <aw-chip chip="data.staticChips[1]" button-type="accent-negative"></aw-chip><br />
+            <aw-chip chip="data.staticChips[2]" button-type="accent-mid-contrast"></aw-chip><br />
+        </aw-row>
+        <aw-row exist-when="!ctx.deriveAndMergeClick">
+            <aw-flex-column width="fill" align-content="start">
+                <aw-chip-list dataprovider="data.dataProviders.specificationSummaryDataProvider"></aw-chip-list>
+            </aw-flex-column>
+            <aw-flex-column align-content="end">
+                <div class="aw-requirements-matrixTypeHelpIcon">
+            <aw-icon icon-id="cmdShowInfoPanel" extended-tooltip="data.previewInfotooltipView"></aw-icon>
+                </div>
+            </aw-flex-column>
+        </aw-row>
+    </div>
+    <aw-row>
+        <div class='aw-richtexteditor-importPreviewPanel'>
+            <aw-scrollpanel>
+            <div id="rmWordImportPreviewDiv" class='aw-richtexteditor-documentPaper aw-richtexteditor-document aw-richtexteditor-documentPanel'>
+            </div>
+            </aw-scrollpanel>
+        </div>
+    </aw-row>
+    <aw-panel-footer exist-when="ctx.deriveAndMergeClick">
+        <aw-action-section>
+            <aw-button size="auto" action="mergeAction">
+                <aw-i18n>i18n.mergeCommandTitle</aw-i18n>
+            </aw-button>
+            <aw-button size="auto" action="reviseAction">
+                <aw-i18n>i18n.revise</aw-i18n>
+            </aw-button>
+        </aw-action-section>
+    </aw-panel-footer>
+</aw-column>
+
+
+
+
+

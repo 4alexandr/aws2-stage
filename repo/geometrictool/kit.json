@@ -1,0 +1,9 @@
+{
+  "name": "geometrictool",
+  "description": "",
+  "modules": [
+    "geometrictool"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

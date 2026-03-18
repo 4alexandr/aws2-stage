@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "Ergebnisse",
+     "filterTabTitle" : "Filter",
+     "searchTabTitle" :"Suche",
+     "paletteTabTitle" :"Palette",
+     "addStockMaterialTitle" : "Hinzufügen",
+     "properties" : "Eigenschaften",
+     "add" : "Hinzufügen",
+     "madeFromFailureMakeFromPrefTrue": "\"{0}\" wurde hinzugefügt, es ist aber nicht bevorzugt in \"{1}\".",
+     "madeFromFailureMakeFromPrefFalse": "\"{0}\" wurde nicht hinzugefügt, da es in \"{1}\" nicht \"Bevorzugt\" ist.",     
+     "dimensionsLabel": "Dimensionen",
+     "Sm1AddStdPartDesc": "Standardteil an das Teil anhängen",
+     "Sm1AddStockMaterialDesc": "Aufmaßmaterial zum Teil hinzufügen",
+     "addPropertiesLabel" : "Eigenschaften hinzufügen"
+}

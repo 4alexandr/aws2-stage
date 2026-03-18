@@ -1,0 +1,9 @@
+{
+  "name": "materialmgmt",
+  "description": "",
+  "modules": [
+    "materialmgmt"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

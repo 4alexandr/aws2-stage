@@ -1,0 +1,57 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+    <linearGradient id="paper_gradient" data-name="paper gradient" x1="15.5044" y1="6.7524" x2="31.5049" y2="22.7529" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.2214" stop-color="#f8f8f8"/>
+      <stop offset="0.5415" stop-color="#e5e5e5"/>
+      <stop offset="0.92" stop-color="#c6c6c6"/>
+      <stop offset="1" stop-color="#bebebe"/>
+    </linearGradient>
+    <linearGradient id="front_-45" data-name="front -45" x1="4.5873" y1="17.6695" x2="26.422" y2="39.5042" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2f2f2"/>
+      <stop offset="0.5" stop-color="#ccc"/>
+      <stop offset="0.6296" stop-color="#c7c7c7"/>
+      <stop offset="0.7792" stop-color="#b9b9b9"/>
+      <stop offset="0.9383" stop-color="#a2a2a2"/>
+      <stop offset="0.99" stop-color="#999"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient" x1="19.0341" y1="28.7941" x2="27.9752" y2="37.7353" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#afd7e1"/>
+      <stop offset="0.1588" stop-color="#a4d0dc"/>
+      <stop offset="0.7059" stop-color="#80bcce"/>
+      <stop offset="1" stop-color="#73b4c8"/>
+    </linearGradient>
+    <linearGradient id="paper_gradient-2" x1="9.5046" y1="28.5092" x2="21.5046" y2="28.5092" xlink:href="#paper_gradient"/>
+    <linearGradient id="paper_gradient-3" x1="28.75" y1="23.25" x2="39.25" y2="33.75" xlink:href="#paper_gradient"/>
+    <linearGradient id="Dark_Blue_Grad_3" data-name="Dark Blue Grad 3" x1="32.5" y1="28.5" x2="40.5" y2="36.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#73b3c6"/>
+      <stop offset="0.1774" stop-color="#6aadc1"/>
+      <stop offset="0.4638" stop-color="#529db3"/>
+      <stop offset="0.8215" stop-color="#2c839c"/>
+      <stop offset="1" stop-color="#16748f"/>
+    </linearGradient>
+    <linearGradient id="Dark_Blue_Grad_3-2" x1="32.5" y1="32.5" x2="40.5" y2="40.5" xlink:href="#Dark_Blue_Grad_3"/>
+    <linearGradient id="Dark_Blue_Grad_3-3" x1="32.5" y1="36.5" x2="40.5" y2="44.5" xlink:href="#Dark_Blue_Grad_3"/>
+    <polyline points="38.005 1 47.005 1 47.005 6 47.005 42 47.005 47 38.005 47" fill="none" stroke="#969696" stroke-miterlimit="10" stroke-width="2"/>
+    <polyline points="10.005 47 1.005 47 1.005 42 1.005 6 1.005 1 10.005 1" fill="none" stroke="#969696" stroke-miterlimit="10" stroke-width="2"/>
+      <polygon points="23.505 24.005 39.505 14.753 39.505 33.169 23.505 42.422 23.505 24.005" fill="#888"/>
+      <polygon points="7.505 14.752 23.478 5.5 39.505 14.753 23.505 24.005 7.505 14.752" fill="url(#paper_gradient)"/>
+      <polygon points="23.505 24.005 23.505 42.422 7.505 33.168 7.505 14.752 23.505 24.005" fill="url(#front_-45)"/>
+      <line x1="23.5046" y1="24.3235" x2="23.5046" y2="42.2059" stroke="#6e6e6e" stroke-linejoin="round" fill="url(#linear-gradient)"/>
+    <polyline points="39.505 14.753 23.505 24.005 7.505 14.752" fill="none" stroke="#6e6e6e" stroke-linejoin="round"/>
+    <polygon points="9.505 20.427 9.505 29.677 21.505 36.592 21.505 27.341 9.505 20.427" stroke="#6e6e6e" stroke-linejoin="round" fill="url(#paper_gradient-2)"/>
+    <line x1="11.5046" y1="23.254" x2="11.5046" y2="29.2829" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+    <line x1="13.5046" y1="24.4064" x2="13.5046" y2="28.9353" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+    <line x1="15.5046" y1="25.635" x2="15.5046" y2="31.6638" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+    <line x1="17.5046" y1="26.7873" x2="17.5046" y2="31.5662" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+    <line x1="19.5046" y1="28" x2="19.5046" y2="34" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+    <line x1="31.479" y1="10.3025" x2="15.7579" y2="19.3934" fill="none" stroke="#6e6e6e" stroke-linejoin="round"/>
+    <polygon points="23.478 5.5 7.505 14.752 7.505 33.168 23.505 42.422 39.505 33.169 39.505 14.753 23.478 5.5" fill="none" stroke="#464646" stroke-linejoin="round"/>
+    <rect x="25.5" y="26.5" width="17" height="4" stroke="#464646" stroke-miterlimit="10" fill="url(#paper_gradient-3)"/>
+    <line x1="27" y1="28.5" x2="37" y2="28.5" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+    <rect x="30.5" y="30.5" width="12" height="4" stroke="#464646" stroke-miterlimit="10" fill="url(#Dark_Blue_Grad_3)"/>
+    <line x1="32" y1="32.5" x2="39" y2="32.5" fill="none" stroke="#fff" stroke-miterlimit="10"/>
+    <rect x="30.5" y="34.5" width="12" height="4" stroke="#464646" stroke-miterlimit="10" fill="url(#Dark_Blue_Grad_3-2)"/>
+    <line x1="32" y1="36.5" x2="38" y2="36.5" fill="none" stroke="#fff" stroke-miterlimit="10"/>
+    <rect x="30.5" y="38.5" width="12" height="4" stroke="#464646" stroke-miterlimit="10" fill="url(#Dark_Blue_Grad_3-3)"/>
+    <line x1="32" y1="40.5" x2="40" y2="40.5" fill="none" stroke="#fff" stroke-miterlimit="10"/>
+</svg>

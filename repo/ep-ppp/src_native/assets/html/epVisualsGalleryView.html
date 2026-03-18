@@ -1,0 +1,7 @@
+<aw-flex-row width="12" exist-when="conditions.showTable" class="aw-epGraphics-galleryPanel afx-alt-content-background">
+    <aw-list class="aw-epGraphics-horizontalList" dataprovider="data.dataProviders.epVisualsListDataProvider">
+        <aw-include name="epVisualsGalleryCell" sub-panel-context="item" class="aw-epGraphics-galleryCell afx-content-background"></aw-include>
+    </aw-list>
+</aw-flex-row>
+<aw-include exist-when="!conditions.hasInput" name="mfeMessage" sub-panel-context="data.messages.selectElement"></aw-include>
+<aw-include exist-when="conditions.noDatasetsToShow" name="mfeMessage" sub-panel-context="data.messages.noVisuals"></aw-include>

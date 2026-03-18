@@ -1,0 +1,24 @@
+<aw-panel-body visible-when="ctx.isPCTypeNotSelected">
+    <aw-panel-section caption="i18n.objectType" ></aw-panel-section>
+    <aw-list dataprovider="data.dataProviders.getCreatablePartnerContractTypes">
+        <aw-type-cell vmo="item"></aw-type-cell>
+    </aw-list>
+</aw-panel-body>
+<aw-form name="commandPanelForm">
+    <aw-panel-body exist-when="!ctx.isPCTypeNotSelected">
+        <aw-panel-section>
+            <aw-xrt type="CREATE"
+                object-type="{{data.dataProviders.getCreatablePartnerContractTypes.selectedObjects[0].props.type_name.dbValue}}">
+            </aw-xrt>
+        </aw-panel-section>
+        <aw-panel-section caption="i18n.vm1PartnerDetails">
+            <aw-widget hint="checkboxoptionlov" prop="data.allContactsData"></aw-widget>
+            <aw-widget hint="checkboxoptionlov" prop="data.allLocationsData"></aw-widget>
+        </aw-panel-section>
+    </aw-panel-body>
+</aw-form>
+<aw-panel-footer>
+    <aw-button action="validateContractDates" visible-when="commandPanelForm.$valid && !ctx.isPCTypeNotSelected">
+        <aw-i18n>i18n.add</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

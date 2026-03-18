@@ -1,0 +1,33 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-model-icon.directive"
+    ],
+
+    "actions":
+    {
+
+    },
+
+    "data":
+    {
+
+    },
+
+    "dataProviders":
+    {},
+
+    "onEvent":
+    [],
+
+    "conditions":
+    {},
+
+    "i18n":
+    {
+        "owner": [ "MatrixMessages" ],
+        "lastModDate": [ "RequirementsManagerMessages" ],
+        "specType": [ "RequirementsCommandPanelsMessages" ]
+    }
+}

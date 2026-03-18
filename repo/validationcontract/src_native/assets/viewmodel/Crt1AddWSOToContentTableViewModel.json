@@ -1,0 +1,258 @@
+{
+"schemaVersion" : "1.0.0",
+"imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-add.directive",
+        "js/visible-when.directive",
+        "js/aw-form.directive",
+        "js/aw-checkbox.directive",
+        "js/aw-panel-body.directive"
+
+    ],
+    "actions":
+    {
+        "createObject":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2016-09-DataManagement",
+            "method": "createAttachAndSubmitObjects",
+            "inputData": {
+                "inputs": "{{function:getCreateInput}}"
+            },
+            "outputData": {
+                "createdMainObject": "output[0].objects[0]",
+                "createdObject": "{{function:getCreatedObject}}"
+            },
+            "events": {
+                "success":
+                [
+                    {
+                        "name": "addObject.addObjectPostProcess"
+                    }
+                ]
+            },
+            "deps": "js/addObjectUtils"
+        },
+
+        "createRelationForPaletteOrSearch":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                 "events":
+                 [
+                     {
+                         "name": "addObject.addObjectPostProcessforPalette"
+                     }
+                 ]
+            }
+        },
+        "populateSavedBookmark":
+        {
+            "actionType": "JSFunction",
+            "method": "populateSavedBookmark",
+            "inputData":
+            {
+                  "data": "{{data}}"
+            },
+             "deps": "js/analysisRequestUtils"
+        },
+        "postProcessVR":
+        {
+            "actionType": "JSFunction",
+            "method": "getManageVRInputToAddToContentsTable",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/addRemoveFromAR",
+            "outputData": {
+                "getManageVRInputToAddToContentsTable": ""
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "manageAnalysisRequests"
+                    }
+                ]
+            }
+        },
+        "postProcessVRForPalette":
+        {
+            "actionType": "JSFunction",
+            "method": "getManageVRInputToAddToContentsTableFromPalette",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/addRemoveFromAR",
+            "outputData": {
+                "getManageVRInputToAddToContentsTable": ""
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "manageAnalysisRequests"
+                    }
+                ]
+            }
+        },
+        "closePanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        },
+        "throwError": {
+            "actionType": "JSFunction",
+            "method": "throwError",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "closePanel"
+                    }
+                ]
+            },
+            "deps": "js/addRemoveFromAR"
+        },
+        "manageAnalysisRequests": {
+            "actionType": "JSFunction",
+            "method": "callManageVerificationSOA",
+            "inputData": {
+                "input": "{{data.getManageVRInputToAddToContentsTable.input}}",
+                "pref": "{{data.getManageVRInputToAddToContentsTable.pref}}",
+                "data":"{{data}}",
+                "tableContext": "contentsTable"
+            },
+            "deps": "js/manageVerificationService",
+            "events": {
+                "success": [
+                    {
+                        "name": "closePanel"
+                    }
+                ]
+            }
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "awXRT.contentLoaded",
+            "action":"populateSavedBookmark"
+        },
+        {
+            "eventId": "addObject.addObjectPostProcess",
+            "action": "postProcessVR"
+        },
+        {
+            "eventId": "addObject.addObjectPostProcessforPalette",
+            "action": "postProcessVRForPalette"
+
+        },
+        {
+            "eventId": "getRecentTypesProvider.selectionChangeEvent",
+            "action": "populateSavedBookmark",
+            "condition": "data.creationType"
+        },
+        {
+            "eventId": "awCrt1CreateAR.inputsReady",
+            "action": "createObjectToAdd"
+        },
+        {
+            "eventId": "manageAnalysisRequests",
+            "action": "manageAnalysisRequests"
+        },
+        {
+            "eventId": "closePanel",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "Crt1AddWSOToContentTable.throwError",
+            "action": "throwError"
+        }
+    ],
+    "data":
+    {
+        "addAsOccurrence": {
+            "displayName": "{{i18n.addAsOccurrence}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_RIGHT"
+        }
+
+    },
+    "conditions":
+    {
+        "isDatasetSelected":{
+            "expression": {
+                "$source": "data.sourceObjects",
+                "$query": {
+                    "$source": "modelType.typeHierarchyArray",
+                    "$query": {
+                        "$notin": [
+                            "Dataset"
+                        ]
+                    }
+                }
+            }
+    },
+    "isNewTabAddButtonVisible":
+    {
+        "expression":"data.selectedTab.panelId==='newTabPageSub' && data.selectedTab.panelId!='paletteTabPageSub' && data.selectedTab.panelId!='searchTabPageSub' && ( data.creationType && data.objCreateInfo ) && ( !conditions.isClipboardObject && !conditions.isFavoriteObject && !conditions.isRecentObject )"
+    },
+    "isPalatteTabSelection": {
+        "expression": "data.selectedTab.panelId==='paletteTabPageSub' && ( conditions.isClipboardObject || conditions.isFavoriteObject || conditions.isRecentObject )"
+    },
+    "isSearchTabSelection": {
+        "expression": "data.selectedTab.panelId!='newTabPageSub' && data.selectedTab.panelId!='paletteTabPageSub'"
+    },
+    "isClipboardObject": {
+        "expression": "ctx.getClipboardProvider && ctx.getClipboardProvider.selectedObjects.length > 0"
+    },
+    "isFavoriteObject": {
+        "expression": "ctx.getFavoriteProvider && ctx.getFavoriteProvider.selectedObjects.length > 0"
+    },
+    "isRecentObject": {
+        "expression": "ctx.getRecentObjsProvider && ctx.getRecentObjsProvider.selectedObjects.length > 0"
+    }
+
+    },
+    "i18n": {
+
+        "AddTitle": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "throwError": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "throwErrorVRNotCreated": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "PartialError": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "addAsOccurrence":[
+            "AnalysisRequestCommandPanelsMessages"
+        ]
+
+    }
+}

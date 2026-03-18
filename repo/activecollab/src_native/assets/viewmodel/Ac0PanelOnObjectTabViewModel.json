@@ -1,0 +1,563 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-label.directive",
+        "js/aw-command-bar.directive",
+        "js/aw-list.directive",
+        "js/aw-avatar.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-chip.directive",
+        "js/aw-parse-html.directive",
+        "js/visible-when.directive",
+        "js/aw-link.directive",
+        "js/aw-click.directive",
+        "js/aw-include.directive",
+        "js/aw-repeat.directive",
+        "js/extended-tooltip.directive",
+        "js/aw-panel-body.directive"
+    ],
+    "actions": {
+
+        "reveal": {
+
+            "actionType": "dataProvider",
+            "method": "conversationDataProvider"
+        },
+
+        "revealSubscripCheck": {
+
+            "actionType": "dataProvider",
+            "method": "subscripCheckDataProvider"
+        },
+
+        "revealConvSubscripCheck": {
+
+            "actionType": "dataProvider",
+            "method": "subscripConvCheckDataProvider"
+        },
+
+        "refreshListOnSelectionChange": {
+
+            "actionType": "dataProvider",
+            "method": "conversationDataProvider"
+        },
+
+        "noop": {
+            "actionType": "JSFunction",
+            "method": "getRandObjId",
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "selectionChange": {
+
+            "actionType": "JSFunction",
+            "method": "onObjectTabSelectionChange",
+            "inputData": {
+                "eventData": "{{data.eventData}}",
+                "vmData": "{{data}}"
+            },
+            "events": {
+
+                "success": [ {
+
+                    "name": "conversationDataProvider.reset"
+                } ]
+
+            },
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "navigateToCreateConv": {
+            "actionType": "JSFunction",
+            "method": "navigateToCreateConv",
+            "deps": "js/Ac0ConversationService",
+            "inputData": {
+                "vmData": "{{data}}"
+            }
+        },
+
+        "modifyConversationsPostLoad": {
+            "actionType": "JSFunction",
+            "method": "modifyConversations",
+            "deps": "js/Ac0ConversationService",
+            "inputData": {
+                "vmData": "{{data}}"
+            }
+        },
+
+        "updateSelectedConversation": {
+            "actionType": "JSFunction",
+            "method": "updateSelectedConversation",
+            "deps": "js/Ac0ConversationService",
+            "inputData": {
+                "vmData": "{{data}}"
+            }
+        },
+
+        "searchConversations": {
+
+            "actionType": "GraphQL",
+            "serviceName": "",
+            "inputData": {
+                "request": {
+                    "query": "query($searchInput:SearchInput){collabConversationList(searchInput:$searchInput){totalFound totalLoaded cursor results{uid type typeHierarchy typeIconURL thumbnailURL collabNumResponses collabCreateUserId{uid user_id object_string} collabDateModified collabCreateDate collabPlainText collabRichText collabOwningConversation collabRootComment collabPrivateParticipants{uid user_id object_string} collabIsNotificationSubscribed collabSourceObjects{uid type object_string cellHeader1}}}}",
+                    "variables": {
+                        "searchInput": {
+                            "searchCriteria": {
+                                "SearchMode": "conversationsForSourceObject",
+                                "ObjectUID": "{{function:getObjectUID}}",
+                                "FmsBaseUrl": "{{function:getFmsBaseURL}}"
+                            },
+                            "maxToLoad": 15,
+                            "maxToReturn": 15,
+                            "searchFilterFieldSortType": "{{ctx.search.sortType}}",
+                            "cursor": {
+                                "startIndex": "{{data.dataProviders.conversationDataProvider.startIndex}}",
+                                "endIndex": "{{function:getCursorEndIndexValue}}",
+                                "startReached": "{{function:getCursorEndReachedValue}}",
+                                "endReached": "{{function:getCursorStartReachedValue}}"
+                            },
+                            "inflateProperties": false
+                        }
+                    }
+                },
+                "endPoint": "graphql"
+            },
+            "dataParsers": [ {
+                "id": "searchConvDataParser",
+                "responseObjs": "data.collabConversationList.results"
+            } ],
+            "outputData": {
+                "totalFound": "data.collabConversationList.totalFound",
+                "searchResults": "data.collabConversationList.results",
+                "dataProviders.conversationDataProvider.cursorObject": "data.collabConversationList.cursor",
+                "dataProviders.conversationDataProvider.cursorObject.startReached": true
+            },
+            "events": {
+                "success": [ {
+
+                    "name": "Ac0Conversation.conversationsLoaded"
+                },
+                {
+
+                    "name": "Ac0Conversation.checkObjSubscriptionEvent"
+                }]
+            },
+            "deps": "js/Ac0ConversationUtils"
+        },
+        "checkObjSubscriptionQuery": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "searchInput": {
+                    "searchCriteria": {
+                        "SearchMode": "checkSubscription",
+                        "ObjectUID": "{{function:getObjectUID}}"
+                    },
+                    "maxToLoad": 1,
+                    "maxToReturn": 1,
+                    "providerName": "Ac0ActiveCollabDataProvider",
+                    "startIndex": 0,
+                    "attributesToInflate": [],
+                    "searchFilterFieldSortType": "Priority",
+                    "searchSortCriteria": "{{ctx.sublocation.sortCriteria}}"
+                },
+                "inflateProperties": false,
+                "noServiceData": false
+
+            },
+            "policy": {},
+            "outputData": {
+                "numSubscriptionsForObj": "totalFound",
+                "ctx.Ac0ConvCtx.ac0NumSubscriptionsForSelectedObj": "totalFound"
+            },
+            "deps": "js/Ac0ConversationUtils"
+        },
+        "checkConvSubscriptionQuery": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "searchInput": {
+                    "searchCriteria": {
+                        "SearchMode": "checkSubscription",
+                        "ObjectUID": "{{ctx.Ac0ConvCtx.currentSelectedConversation.uid}}"
+                    },
+                    "maxToLoad": 0,
+                    "maxToReturn": 0,
+                    "providerName": "Ac0ActiveCollabDataProvider",
+                    "startIndex": 0,
+                    "attributesToInflate": [],
+                    "searchFilterFieldSortType": "Priority",
+                    "searchSortCriteria": "{{ctx.sublocation.sortCriteria}}"
+                },
+                "inflateProperties": false,
+                "noServiceData": false
+
+            },
+            "policy": {},
+            "outputData": {
+                "numSubscriptionsForConv": "totalFound",
+                "ctx.Ac0ConvCtx.ac0NumSubscriptionsForSelectedConv": "totalFound"
+            },
+            "deps": "js/Ac0ConversationUtils"
+        },
+        "selectFirstItem": {
+            "actionType": "JSFunction",
+            "method": "setSelection",
+            "inputData": {
+                "selectionModel": "{{data.dataProviders.imageDataProvider.selectionModel}}",
+                "newSelection": "{{data.searchResults.objects[0].uid}}"
+            },
+            "deps": "js/selectionModelFactory"
+        },
+
+        "clickObjChipAction": {
+            "actionType": "Navigate",
+            "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+            "navigationParams": {
+                "uid": "{{chip.objUid}}"
+            }
+        },
+
+        "conversationSelectionChange": {
+            "actionType": "JSFunction",
+            "method": "conversationSelectionChange",
+            "inputData": {
+                "eventData": "{{data.eventData}}",
+                "vmData": "{{data}}"
+            },
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "setObjectDisplayData": {
+            "actionType": "JSFunction",
+            "method": "setObjectDisplayData",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "confirmDeleteConversationAction": {
+            "actionType": "TcSoaService",
+            "serviceName": "ActiveCollaboration-2020-12-ActiveCollaboration",
+            "method": "deleteConversation",
+            "inputData": {
+                    "objsToDelete": "{{ctx.Ac0ConvCtx.deleteConvObj}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "conversationDeleteSuccess"
+                    }
+                ]
+            }
+        },
+        "updateConversationListAfterDelete": {
+            "actionType": "JSFunction",
+            "method": "removeObjectsFromDPCollection",
+            "inputData": {
+                "vmos": "{{ctx.Ac0ConvCtx.deleteConvObj}}",
+                "dataprovider": "{{data.dataProviders.conversationDataProvider}}"
+            },
+            "deps": "js/Ac0ConversationUtils"
+        },
+        "saveDeleteConvItemInContext": {
+            "actionType": "JSFunction",
+            "method": "saveDeleteConvItemInContext",
+            "inputData": {
+                "data": "{{data.eventMap['Ac0.initiateDeleteConversationEvent']}}"
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "message": "initiateDeleteConversationMessage"
+                    }
+                ]
+            },
+            "deps": "js/Ac0ConversationUtils"
+        }
+    },
+
+    "data": {
+        "selectedObject": {
+
+            "displayName": "Selected",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "{{ctx.Ac0ConvCtx.selected.props.object_name.dbValue}}",
+            "dispValue": "{{ctx.Ac0ConvCtx.selected.props.object_name.uiValue}}"
+        },
+        "staticChip": {
+
+            "chipType": "STATIC",
+            "labelDisplayName": "Conv 1",
+            "labelInternalName": "conv1"
+        },
+        "placeHolderTextBox": {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true"
+        },
+        "oneStringMsg": {
+            "displayName": "",
+            "type": "STRING",
+            "dbValue": "1"
+        }
+    },
+
+    "functions": {
+
+        "getObjectUID": {
+
+            "functionName": "getObjectUID",
+            "parameters": [
+
+                "{{ctx.selected}}"
+            ]
+        },
+        "getCursorEndIndexValue": {
+            "functionName": "getCursorEndIndexValue",
+            "parameters": [ "{{data.dataProviders.conversationDataProvider}}" ]
+        },
+        "getCursorEndReachedValue": {
+            "functionName": "getCursorEndReachedValue",
+            "parameters": [ "{{data.dataProviders.conversationDataProvider}}" ]
+        },
+        "getCursorStartReachedValue": {
+            "functionName": "getCursorStartReachedValue",
+            "parameters": [ "{{data.dataProviders.conversationDataProvider}}" ]
+        },
+        "getFmsBaseURL": {
+
+            "functionName": "getFmsBaseURL",
+            "parameters": []
+        }
+    },
+    "dataProviders": {
+
+        "conversationDataProvider": {
+
+            "action": "searchConversations",
+            "deps": "js/Ac0ConversationService",
+            "response": "{{data.searchResults}}",
+            "selectionModelMode": "none",
+            "totalFound": "{{data.totalFound}}"
+        },
+
+        "subscripCheckDataProvider": {
+            "action": "checkObjSubscriptionQuery",
+            "deps": "js/Ac0ConversationService",
+            "numSubscriptionsForObj": "{{data.numSubscriptionsForObj}}"
+        },
+
+        "subscripConvCheckDataProvider": {
+            "action": "checkConvSubscriptionQuery",
+            "deps": "js/Ac0ConversationService",
+            "numSubscriptionsForObj": "{{data.numSubscriptionsForObj}}"
+        }
+
+    },
+
+    "dataParseDefinitions": {
+        "searchConvDataParser": {
+            "identifier": "{{response.uid}}",
+            "thumbnailUrl": "{{response.thumbnailURL}}",
+            "props": {
+                "userId": {
+                    "name": "userId",
+                    "displayName": "id",
+                    "value": "{{response.collabCreateUserId.uid}}",
+                    "displayValue": "{{response.collabCreateUserId.uid}}",
+                    "type": "STRING"
+                },
+                "userName": {
+                    "name": "userName",
+                    "displayName": "userName",
+                    "value": "{{response.collabCreateUserId.object_string}}",
+                    "displayValue": "{{response.collabCreateUserId.object_string}}",
+                    "type": "STRING"
+                },
+                "modifiedDateTime": {
+                    "name": "modifiedDateTime",
+                    "displayName": "date",
+                    "value": "{{response.collabDateModified}}",
+                    "displayValue": "{{response.collabDateModified}}",
+                    "type": "DATETIME"
+                },
+                "plainText": {
+                    "name": "collabPlainText",
+                    "displayName": "text",
+                    "value": "{{response.collabPlainText}}",
+                    "displayValue": "{{response.collabPlainText}}",
+                    "type": "STRING"
+                },
+                "richText": {
+                    "name": "collabRichText",
+                    "displayName": "text",
+                    "value": "{{response.collabRichText}}",
+                    "displayValue": "{{response.collabRichText}}",
+                    "type": "STRING"
+                },
+                "rootCommentUID": {
+                    "name": "rootCommentUID",
+                    "displayName": "rootComment",
+                    "value": "{{response.collabRootComment}}",
+                    "displayValue": "{{response.collabRootComment}}",
+                    "type": "STRING"
+                },
+                "numReplies": {
+                    "name": "numReplies",
+                    "displayName": "replies",
+                    "value": "{{response.collabNumResponses}}",
+                    "displayValue": "{{response.collabNumResponses}}",
+                    "type": "INTEGER"
+                },
+                "sourceObjList": {
+                    "name": "sourceObjList",
+                    "displayName": "sourceObjects",
+                    "value": "{{response.collabSourceObjects}}",
+                    "displayValue": "{{response.collabSourceObjects}}",
+                    "type": "OBJECT",
+                    "isArray": true
+                },
+                "participantObjList": {
+                    "name": "participantObjList",
+                    "displayName": "participantObjects",
+                    "value": "{{response.collabPrivateParticipants}}",
+                    "displayValue": "{{response.collabPrivateParticipants}}",
+                    "type": "OBJECT",
+                    "isArray": true
+                },
+                "isConvNotificationSubscribed": {
+                    "name": "isConvNotificationSubscribed",
+                    "displayName": "convNotification",
+                    "value": "{{response.collabIsNotificationSubscribed}}",
+                    "displayValue": "{{response.collabIsNotificationSubscribed}}",
+                    "type": "BOOLEAN"
+                }
+            }
+        }
+    },
+
+    "onEvent": [ {
+
+            "eventId": "S2clConv.navigateToCreateConvPanel",
+            "action": "navigateToCreateConv"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+
+                "panelId": "Ac0PanelOnObjectTab"
+            },
+            "action": "reveal"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+
+                "panelId": "Ac0PanelOnObjectTab"
+            },
+            "action": "setObjectDisplayData"
+        },
+        {
+            "eventId": "primaryWorkArea.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "selectionChange"
+        },
+        {
+            "eventId": "S2clConv.quickReply",
+            "cacheEventData": true,
+            "action": "reply"
+        },
+        {
+            "eventId": "conversationDataProvider.reset",
+            "action": "reveal"
+        },
+        {
+            "eventId": "Ac0Conversation.conversationsLoaded",
+            "action": "modifyConversationsPostLoad"
+        },
+        {
+            "eventId": "conversationDataProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "conversationSelectionChange"
+        },
+        {
+            "eventId": "Ac0Conversation.checkObjSubscriptionEvent",
+            "cacheEventData": true,
+            "action": "revealSubscripCheck"
+        },
+        {
+            "eventId": "Ac0Conversation.checkConvSubscriptionEvent",
+            "cacheEventData": true,
+            "action": "revealConvSubscripCheck"
+        },
+        {
+            "eventId": "conversationDeleteSuccess",
+            "action": "updateConversationListAfterDelete"
+        },
+        {
+            "eventId": "Ac0.initiateDeleteConversationEvent",
+            "cacheEventData": true,
+            "action": "saveDeleteConvItemInContext"
+        }
+
+    ],
+
+    "messages": {
+        "initiateDeleteConversationMessage": {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.deleteConversationWarnMsg}}",
+            "messageTextParams": [
+                "{{data.oneStringMsg.dbValue}}"
+            ],
+            "navigationOptions": [ {
+                    "option": "Cancel",
+                    "text": "{{i18n.cancel}}",
+                    "action": ""
+                },
+                {
+                    "option": "Delete",
+                    "text": "{{i18n.delete}}",
+                    "action": "confirmDeleteConversationAction"
+                }
+            ]
+        }
+
+    },
+
+    "i18n": {
+
+        "conversation": [ "ActiveCollabDeclarativeMessages" ],
+        "newConversation": [ "ActiveCollabDeclarativeMessages" ],
+        "reply": [ "ActiveCollabDeclarativeMessages" ],
+        "replies": [ "ActiveCollabDeclarativeMessages" ],
+        "collapse": [ "ActiveCollabDeclarativeMessages" ],
+        "addReply": [ "ActiveCollabDeclarativeMessages" ],
+        "more": [ "ActiveCollabDeclarativeMessages" ],
+        "less": [ "ActiveCollabDeclarativeMessages" ],
+        "follow":[ "ActiveCollabDeclarativeMessages" ],
+        "unfollow":[ "ActiveCollabDeclarativeMessages" ],
+        "delete": [ "ZeroCompileCommandMessages" ],
+        "deleteConversationWarnMsg": [
+            "ActiveCollabDeclarativeMessages"
+        ],
+        "cancel":[
+            "ZeroCompileCommandMessages"
+        ],
+        "followConvDesc": [
+            "ActiveCollabDeclarativeMessages"
+        ],
+        "deleteConvDesc": [
+            "ActiveCollabDeclarativeMessages"
+        ]
+    }
+
+}

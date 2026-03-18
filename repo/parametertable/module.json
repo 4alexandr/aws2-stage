@@ -1,0 +1,632 @@
+{
+  "name": "parametertable",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "themeExtensions": [
+    "parameterTableTheme"
+  ],
+  "commandsViewModel": {
+    "commands": {
+      "Prm1ComparisonViewCmd": {
+        "isGroup": false,
+        "title": "{{i18n.comparisonViewTitle}}",
+        "description": "{{i18n.Prm1ComparisonViewCmdDesc}}"
+      },
+      "Prm1ComparisonViewForProjectCmd": {
+        "iconId": "cmdCompareView",
+        "isGroup": false,
+        "title": "{{i18n.comparisonParamTitle}}",
+        "description": "{{i18n.Prm1ComparisonViewCmdDesc}}"
+      },
+      "Prm1AddRevisionRuleInTable": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.AddRevisionRule}}",
+        "description": "{{i18n.Prm1AddRevisionRuleInTableDesc}}"
+      },
+      "Prm1AddComparisonInProduct": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.AddComparisonCmd}}",
+        "description": "{{i18n.Prm1AddComparisonInProductDesc}}"
+      },
+      "Prm1CmdPinToGateway": {
+        "iconId": "cmdPin",
+        "title": "{{i18n.PinToGatewayCmdTitle}}",
+        "description": "{{i18n.Prm1CmdPinToGatewayDesc}}"
+      },
+      "Prm1ResetFilter": {
+        "iconId": "cmdRefreshFilter",
+        "title": "{{i18n.ResetFilterCmdTitle}}",
+        "description": "{{i18n.Prm1ResetFilterDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "Att1ComparisonViewCommandHandler": {
+        "id": "Prm1ComparisonViewCmd",
+        "action": "OpenComparisonViewAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isOccurrenceManagementSubLocation"
+        },
+        "enableWhen": {
+          "condition": "conditions.canProjectCompare"
+        }
+      },
+      "Att1ComparisonViewForProjectCommandHandler": {
+        "id": "Prm1ComparisonViewForProjectCmd",
+        "action": "OpenComparisonViewAction",
+        "activeWhen": {
+          "condition": "conditions.canProjectParamsCompare"
+        },
+        "visibleWhen": {
+          "condition": "conditions.canProjectParamsCompare"
+        }
+      },
+      "Prm1AddRevisionRuleInTableCommandHandler": {
+        "id": "Prm1AddRevisionRuleInTable",
+        "action": "addRevisionRulePanel",
+        "activeWhen": {
+          "condition": "conditions.canAddRevisionRule"
+        },
+        "visibleWhen": {
+          "condition": "conditions.canAddRevisionRule"
+        }
+      },
+      "Prm1AddComparisonInProductCommandHandler": {
+        "id": "Prm1AddComparisonInProduct",
+        "action": "getProductAddComparisonPanel",
+        "activeWhen": {
+          "condition": "conditions.canAddProductComparison"
+        },
+        "visibleWhen": {
+          "condition": "conditions.canAddProductComparison"
+        }
+      },
+      "Prm1CmdPinToGatewayHandler": {
+        "id": "Prm1CmdPinToGateway",
+        "action": "Prm1CmdPinToGatewayAction",
+        "activeWhen": {
+          "condition": "conditions.showCmdPinToGateway"
+        },
+        "visibleWhen": {
+          "condition": "conditions.showCmdPinToGateway"
+        }
+      },
+      "Prm1ResetFilterHandler": {
+        "id": "Prm1ResetFilter",
+        "action": "activateResetFilter",
+        "activeWhen": {
+          "condition": "conditions.showCmdResetFilter"
+        },
+        "visibleWhen": {
+          "condition": "conditions.showCmdResetFilter"
+        }
+      },
+      "Prm1StartEditTableCommandHandler": {
+        "id": "Awp0StartEditTable",
+        "action": "startEditAction",
+        "activeWhen": {
+          "condition": "conditions.isStartEditVisible"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isStartEditVisible"
+        }
+      },
+      "Prm1PinObjectCommandHandler": {
+        "id": "Awp0PinObject",
+        "activeWhen": {
+          "condition": "conditions.hidePinObjectCmd"
+        },
+        "visibleWhen": false
+      }
+    },
+    "commandPlacements": {
+      "Prm1ComparisonViewCommandPlacement": {
+        "id": "Prm1ComparisonViewCmd",
+        "uiAnchor": "aw_primaryWorkArea",
+        "priority": 20,
+        "parentGroupId": "Awb0CompareGroup"
+      },
+      "Prm1ComparisonViewForProjCommandPlacement": {
+        "id": "Prm1ComparisonViewForProjectCmd",
+        "uiAnchor": "aw_rightWall",
+        "priority": 100,
+        "parentGroupId": "Awp0ViewGroup"
+      },
+      "Prm1AddRevisionRuleInTableCommandPlacement": {
+        "id": "Prm1AddRevisionRuleInTable",
+        "uiAnchor": "aw_addParameterToCompare",
+        "priority": 1
+      },
+      "Prm1AddComparisonInProductCommandPlacement": {
+        "id": "Prm1AddComparisonInProduct",
+        "uiAnchor": "aw_addParameterToCompare",
+        "priority": 2
+      },
+      "Prm1CmdPinToGatewayCommandPlacement": {
+        "id": "Prm1CmdPinToGateway",
+        "uiAnchor": "aw_rightWall",
+        "priority": 120,
+        "parentGroupId": "Awp0ManageGroup"
+      },
+      "Prm1ResetFilterCommandPlacement": {
+        "id": "Prm1ResetFilter",
+        "uiAnchor": "aw_primaryWorkArea",
+        "priority": 1001
+      }
+    },
+    "actions": {
+      "OpenComparisonViewAction": {
+        "actionType": "JSFunction",
+        "method": "goToPreviousIntView",
+        "inputData": {
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/prm1ParameterViewService"
+      },
+      "addRevisionRulePanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "prm1AddRevisionRulePanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "getProductAddComparisonPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "prm1ProductAddComparisonPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "Prm1CmdPinToGatewayAction": {
+        "actionType": "JSFunction",
+        "method": "pinToGateway",
+        "deps": "js/prm1AddViewToGatewayService",
+        "inputData": {
+          "data": "{{data}}",
+          "ctx": "{{ctx}}",
+          "successMsg": "{{i18n.ViewPinedToGatewayMsg}}"
+        }
+      },
+      "activateResetFilter": {
+        "actionType": "JSFunction",
+        "method": "resetFilter",
+        "deps": "js/prm1ResetFilterService",
+        "inputData": {}
+      },
+      "startEditAction": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/startEditGroupCommandService",
+        "inputData": {
+          "handleContext": "TABLE_CONTEXT"
+        }
+      }
+    },
+    "preferences": [],
+    "functions": {},
+    "conditions": {
+      "RevisionRuleCompareView": {
+        "expression": "ctx.sublocation.nameToken === 'prm1RevisionRuleCompare'"
+      },
+      "isStartEditVisible": {
+        "expression": "conditions.RevisionRuleCompareView  && !ctx['NONE'].editInProgress() && !ctx['TABLE_CONTEXT'].editInProgress()"
+      },
+      "canAddRevisionRule": {
+        "expression": "conditions.RevisionRuleCompareView && ctx.paramCompareViewContext.compareType === 'ProjectParamComparison' && ctx.state.params.uid"
+      },
+      "canAddProductComparison": {
+        "expression": "conditions.RevisionRuleCompareView && ctx.paramCompareViewContext.compareType === 'ProductParamComparison' && ctx.state.params.uid"
+      },
+      "showCmdPinToGateway": {
+        "expression": "conditions.RevisionRuleCompareView && ctx.state.params.uid"
+      },
+      "showCmdResetFilter": {
+        "expression": "conditions.RevisionRuleCompareView && ctx.paramCompareViewContext && ctx.paramCompareViewContext.resetFilter"
+      },
+      "hidePinObjectCmd": {
+        "expression": "ctx.sublocation.nameToken === 'prm1RevisionRuleCompare'"
+      },
+      "is4GDBOM": {
+        "expression": "ctx.locationContext.modelObject.uid.endsWith('AWB4GD')"
+      },
+      "canProjectParamsCompare": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.locationContext.modelObject",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$in": [
+                      "Att0ParamProject",
+                      "Att0ParamGroup"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$or": [
+                {
+                  "$source": "ctx.parammgmtctx.selectedProxyParams",
+                  "$query": {
+                    "$isNull": true
+                  }
+                },
+                {
+                  "$source": "ctx.parammgmtctx.selectedProxyParams.length",
+                  "$query": {
+                    "$eq": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "canProjectCompare": {
+        "expression": {
+          "$or": [
+            {
+              "$and": [
+                {
+                  "$source": "ctx.locationContext.modelObject",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$in": [
+                          "Att0ParamProject",
+                          "Att0ParamGroup"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$or": [
+                    {
+                      "$source": "ctx.parammgmtctx.selectedProxyParams",
+                      "$query": {
+                        "$isNull": true
+                      }
+                    },
+                    {
+                      "$source": "ctx.parammgmtctx.selectedProxyParams.length",
+                      "$query": {
+                        "$eq": 0
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "$source": "ctx.locationContext.ActiveWorkspace:SubLocation",
+                  "$query": {
+                    "$eq": "com.siemens.splm.client.occmgmt:OccurrenceManagementSubLocation"
+                  }
+                },
+                {
+                  "$source": "ctx.selected",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$in": [
+                          "Awb0Element"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$source": "ctx.pselected",
+                  "$query": {
+                    "$source": "modelType.typeHierarchyArray",
+                    "$query": {
+                      "$notin": [
+                        "Uml1ModelElement"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$source": "ctx.occmgmtContext.modelObject",
+                  "$query": {
+                    "$source": "modelType.typeHierarchyArray",
+                    "$query": {
+                      "$notin": [
+                        "Uml1ModelElement"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$source": "conditions.is4GDBOM",
+                  "$query": {
+                    "$eq": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "messages": {},
+    "onEvent": [],
+    "i18n": {
+      "AddRevisionRule": [
+        "prm1ParameterTableMessages"
+      ],
+      "ParamAdd": [
+        "prm1ParameterTableMessages"
+      ],
+      "comparisonViewTitle": [
+        "prm1ParameterTableMessages"
+      ],
+      "comparisonParamTitle": [
+        "prm1ParameterTableMessages"
+      ],
+      "PinToGatewayCmdTitle": [
+        "prm1ParameterTableMessages"
+      ],
+      "ViewPinedToGatewayMsg": [
+        "prm1ParameterTableMessages"
+      ],
+      "ResetFilterCmdTitle": [
+        "prm1ParameterTableMessages"
+      ],
+      "gatewayTileTitle": [
+        "prm1ParameterTableMessages"
+      ],
+      "AddComparisonCmd": [
+        "prm1ParameterTableMessages"
+      ],
+      "Prm1ComparisonViewCmdDesc": [
+        "prm1ParameterTableMessages"
+      ],
+      "Prm1AddRevisionRuleInTableDesc": [
+        "prm1ParameterTableMessages"
+      ],
+      "Prm1AddComparisonInProductDesc": [
+        "prm1ParameterTableMessages"
+      ],
+      "Prm1CmdPinToGatewayDesc": [
+        "prm1ParameterTableMessages"
+      ],
+      "Prm1ResetFilterDesc": [
+        "prm1ParameterTableMessages"
+      ]
+    }
+  },
+  "states": {
+    "ParameterComparisonView": {
+      "data": {
+        "browserTitle": {
+          "source": "/i18n/prm1ParameterTableMessages",
+          "key": "ParameterViewBrowserTitle"
+        },
+        "headerTitle": {
+          "source": "/i18n/prm1ParameterTableMessages",
+          "key": "ParameterViewHeaderTitle"
+        },
+        "propertyPolicy": "/policies/ParameterComparisonViewPropertyPolicy.json"
+      },
+      "type": "location",
+      "params": {
+        "uid": null,
+        "cols": null,
+        "filters": null,
+        "sort": null
+      }
+    },
+    "prm1RevisionRuleCompare": {
+      "data": {
+        "priority": 0,
+        "label": {
+          "source": "/i18n/prm1ParameterTableMessages",
+          "key": "RevisionRuleCompareTitle"
+        },
+        "clientScopeURI": "Awp0ShowObject",
+        "breadcrumbConfig": {
+          "type": "TODO"
+        },
+        "nameToken": "prm1RevisionRuleCompare",
+        "viewModes": {
+          "TableView": {
+            "primaryWorkArea": "table",
+            "secondaryWorkArea": false
+          },
+          "TableSummaryView": {
+            "primaryWorkArea": "table",
+            "secondaryWorkArea": true
+          }
+        },
+        "defaultDisplayMode": "TableView",
+        "useDeclarativeSummary": true,
+        "propertyPolicy": "/policies/ParameterComparisonViewPropertyPolicy.json"
+      },
+      "params": {
+        "sel_uids": null,
+        "rv_uids": null,
+        "vrs_uids": null,
+        "rcp_uids": null,
+        "pc_type": null,
+        "l_title": null
+      },
+      "parent": "ParameterComparisonView",
+      "type": "subLocation",
+      "url": "/ParameterComparison"
+    }
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "Att0MeasurableAttribute": {
+        "additionalProperties": [
+          {
+            "name": "att1InContext"
+          },
+          {
+            "name": "object_name"
+          },
+          {
+            "name": "att0CurrentValue"
+          },
+          {
+            "name": "att1OpenedContext"
+          },
+          {
+            "name": "object_desc"
+          }
+        ]
+      },
+      "Att1AttributeAlignmentProxy": {
+        "additionalProperties": [
+          {
+            "name": "att1SourceAttribute",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          },
+          {
+            "name": "att1SourceElement"
+          },
+          {
+            "name": "att1AttrContext",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          },
+          {
+            "name": "att1Parent",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "Att0ParamProject": {
+        "additionalProperties": [
+          {
+            "name": "object_name"
+          },
+          {
+            "name": "Att0HasVariantConfigContext"
+          },
+          {
+            "name": "Att0HasConfigurationContext",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "Att0ParamGroup": {
+        "additionalProperties": [
+          {
+            "name": "object_name"
+          },
+          {
+            "name": "att0ChildParamGroups"
+          },
+          {
+            "name": "att0ChildParamValues"
+          },
+          {
+            "name": "att0ParamProject",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "Att0MeasurableAttributeInt": {
+        "additionalProperties": [
+          {
+            "name": "att0Goal"
+          },
+          {
+            "name": "att0Min"
+          },
+          {
+            "name": "att0Max"
+          }
+        ]
+      },
+      "Att0MeasurableAttributeDbl": {
+        "additionalProperties": [
+          {
+            "name": "att0Goal"
+          },
+          {
+            "name": "att0Min"
+          },
+          {
+            "name": "att0Max"
+          }
+        ]
+      },
+      "Att0MeasurableAttributeBool": {
+        "additionalProperties": [
+          {
+            "name": "att0Goal"
+          }
+        ]
+      },
+      "Att0MeasurableAttributeStr": {
+        "additionalProperties": [
+          {
+            "name": "att0Goal"
+          },
+          {
+            "name": "att0Min"
+          },
+          {
+            "name": "att0Max"
+          }
+        ]
+      },
+      "Att0MeasurableAttributePnt": {
+        "additionalProperties": [
+          {
+            "name": "att0Goal"
+          }
+        ]
+      }
+    }
+  }
+}

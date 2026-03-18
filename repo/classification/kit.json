@@ -1,0 +1,13 @@
+{
+  "name": "classification",
+  "description": "",
+  "modules": [
+    "classification"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Ics1.Soa.IcsAw",
+    "Cla0.Soa.ClassificationCommon"
+  ]
+}

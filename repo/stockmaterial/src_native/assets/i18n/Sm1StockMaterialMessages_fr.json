@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "Résultats",
+     "filterTabTitle" : "Filtres",
+     "searchTabTitle" :"Rechercher",
+     "paletteTabTitle" :"Palette",
+     "addStockMaterialTitle" : "Ajouter",
+     "properties" : "Propriétés",
+     "add" : "Ajouter",
+     "madeFromFailureMakeFromPrefTrue": "\"{0}\" a été ajouté, mais n'est pas préféré dans \"{1}\".",
+     "madeFromFailureMakeFromPrefFalse": "\"{0}\" n'a pas été ajouté car n'est pas Préféré dans \"{1}\".",     
+     "dimensionsLabel": "Dimensions",
+     "Sm1AddStdPartDesc": "Attacher une pièce standard à la pièce.",
+     "Sm1AddStockMaterialDesc": "Ajouter un matériau de brut à la pièce.",
+     "addPropertiesLabel" : "Ajouter des propriétés"
+}

@@ -1,0 +1,167 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-listbox.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-radiobutton.directive"
+    ],
+    "actions": {
+        "getTargetSite": {
+            "actionType": "TcSoaService",
+            "serviceName": "GlobalMultiSite-2007-12-ImportExport",
+            "method": "getRemoteSites",
+            "inputData": {
+                "siteType": "OfflineGMS"
+            },
+            "policy": {
+                "types": [
+                    {
+                        "name": "POM_imc",
+                        "properties": [
+                            {
+                                "name": "name"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "targetSitesListBoxValues": "{{function:getTargetSitesForExport}}"
+            },
+            "deps": "js/exportToBriefcase"
+        },
+        "changeSiteType": {
+            "actionType": "JSFunction",
+            "method": "changeSiteTypeSelection",
+            "inputData": {
+                "data": "{{data}}",
+                "isExportPanel": false
+            },
+            "deps": "js/exportToBriefcase"
+        },
+        "performMarkOwnershipTransfer": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-GlobalMultiSite-2020-01-Briefcase",
+            "method": "addMarkOTForCurrentUser",
+            "inputData": {
+                "objects": "{{function:markOTGetSelectedObjects}}",
+                "targetSiteId": "{{function:getSiteForMarkOwnershipTransfer}}",
+                "appId": "BC"
+            },
+            "outputData": {
+                "errors": "{{function:processMarkOwnershipTransferPartialErrors}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ],
+                "failure": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/briefcaseMarkOT"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "action": "getTargetSite",
+            "condition": "!conditions.isContentLoaded"
+        }
+    ],
+    "messages": {},
+    "functions": {
+        "getTargetSitesForExport": {
+            "functionName": "getTargetSitesForExport",
+            "parameters": [
+                "{{data}}",
+                "{{response}}"
+            ]
+        },
+        "markOTGetSelectedObjects": {
+            "functionName": "getMarkOTSelectedObjects",
+            "parameters": [
+                "{{ctx}}"
+            ]
+        },
+        "getSiteForMarkOwnershipTransfer": {
+            "functionName": "getSiteForMarkOwnershipTransfer",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "processMarkOwnershipTransferPartialErrors": {
+            "functionName": "processMarkOwnershipTransferPartialErrors",
+            "parameters": [
+                "{{ctx}}"
+            ]
+        }
+    },
+    "data": {
+        "isContentLoaded": {
+            "dbValue": false,
+            "type": "BOOLEAN"
+        },
+        "siteTypeRadioButton": {
+            "displayName": "{{i18n.targetType}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": true,
+            "vertical": false,
+            "labelPosition": "NO_PROPERTY_LABEL",
+            "propertyRadioTrueText": "{{i18n.Teamcenter}}",
+            "propertyRadioFalseText": "{{i18n.BriefcaseBrowser}}"
+        },
+        "targetSitesListBox": {
+            "displayName": "{{i18n.targetSites}}",
+            "type": "STRING",
+            "hasLov": true,
+            "dbValue": "",
+            "dispValue": "",
+            "isRequired": "true"
+        }
+    },
+    "conditions": {
+        "isTargetSiteSelected": {
+            "expression": "data.targetSitesListBox.dbValue && data.targetSitesListBox.uiValue.length > 0"
+        },
+        "isContentLoaded": {
+            "expression": "data.isContentLoaded.dbValue === false"
+        }
+    },
+    "i18n": {
+        "cmdMarkOwnershipTransfer": [
+            "tieMessages"
+        ],
+        "targetSites": [
+            "tieMessages"
+        ],
+        "Teamcenter": [
+            "tieMessages"
+        ],
+        "BriefcaseBrowser": [
+            "tieMessages"
+        ],
+        "targetType": [
+            "tieMessages"
+        ],
+        "cmdMark": [
+            "tieMessages"
+        ]
+    }
+}

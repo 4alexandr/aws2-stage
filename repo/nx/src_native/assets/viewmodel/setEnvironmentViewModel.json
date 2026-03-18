@@ -1,0 +1,63 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-link-with-popup-menu.directive",
+        "js/aw-property-label.directive",
+        "js/aw-column.directive"
+    ],
+
+    "actions":
+    {
+        "setApplicationAndEnvironment":
+        {
+            "actionType": "JSFunction",
+            "method": "setApplicationOrEnvironment",
+            "inputData":
+            {
+                "eventData": "{{data.eventData}}"
+            },
+
+            "deps": "js/setApplicationAndEnvironment"
+        }
+    },
+    "conditions":
+    {
+
+    },
+
+    "data":{
+        "environmentInfo":
+        {
+            "displayName": "{{ctx.preferences.TC_NX_Current_Environment[0]}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "dbValue": "{{ctx.preferences.TC_NX_Current_Environment[0]}}"
+        },
+        "environment":
+        {
+            "isNull": false,
+            "propertyDisplayName": "{{i18n.environment}}",
+            "uiValue": "{{i18n.environment}}"
+        }
+    },
+    "i18n":
+    {
+        "environment": [ "NXConstants" ]
+    },
+
+    "onEvent":
+    [
+
+    ],
+
+    "dataProviders":
+    {
+        "environmentLink":
+        {
+            "dataProviderType": "Static",
+            "response": "{{ctx.preferences.TC_NX_Environments}}",
+            "totalFound": "{{ctx.preferences.TC_NX_Environments.length}}"
+        }
+    }
+}

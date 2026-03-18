@@ -1,0 +1,12 @@
+{
+  "name": "projmgmt",
+  "description": "",
+  "modules": [
+    "projmgmt"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Teamcenter.Soa.BusinessModeler"
+  ]
+}

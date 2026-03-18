@@ -1,0 +1,153 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-default-cell.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "dataProvider",
+            "methods": [
+                "getDisciplines"
+            ]
+        },
+        "searchDisciplines": {
+            "actionType": "JSFunction",
+            "method": "getDisciplines",
+            "inputData": {
+                "data": "{{data}}",
+                "dataProvider": "{{data.dataProviders.getDisciplines}}"
+            },
+            "policy": {
+                "types": [ {
+                        "name": "Discipline",
+                        "properties": [ {
+                            "name": "discipline_name"
+                        } ]
+                    },
+                    {
+                        "name": "ScheduleTask",
+                        "properties": [ {
+                            "name": "ResourceAssignment",
+                            "modifiers": [ {
+                                "name": "withProperties",
+                                "Value": "true"
+                            } ]
+                        } ]
+                    }
+                ]
+            },
+            "outputData": {
+                "searchResults": "searchResults",
+                "totalFound": "totalFound",
+                "totalLoaded": "totalLoaded"
+            },
+            "actionMessages": {
+                "failure": [
+                    {
+                        "message": "displayError"
+                    }
+                ]
+            },
+            "deps": "js/ResourcesService"
+        },
+        "addDisciplinesToSchedule": {
+            "actionType": "TcSoaService",
+            "serviceName": "ProjectManagement-2008-06-ScheduleManagement",
+            "method": "addMemberships",
+            "inputData": {
+               "membershipData": [
+                  {
+                     "schedule": "{{ctx.schedule.selectedObject}}",
+                     "resource": "{{data.dataProviders.getDisciplines.selectedObjects[0]}}",
+                     "membershipLevel": "{{function:getMembershipData}}",
+                     "cost": "",
+                     "currency": "0"
+                  }
+               ]
+            },
+            "events": {
+               "success": [
+                  {
+                     "name": "cdm.relatedModified",
+                     "eventData": {
+                        "relatedModified": [
+                           "{{ctx.schedule.selectedObject}}"
+                        ]
+                     }
+                  }
+               ]
+            },
+            "actionMessages": {
+                "success": [
+                   {
+                      "message": "AddMemberComplete"
+                   }
+                ],
+                "failure": [
+                    {
+                        "message": "soaErrorMessage"
+                    }
+                ]
+            },
+            "deps": "js/userListService"
+        }
+    },
+    "data": {
+        "filterBox": {
+            "displayName": "MyFilter",
+            "type": "STRING",
+            "dbValue": ""
+        }
+    },
+
+    "dataProviders": {
+        "getDisciplines": {
+            "action": "searchDisciplines",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "totalLoaded": "{{data.totalLoaded}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Saw1AddDisciplinesToSchedule"
+            },
+            "action": "reveal"
+        },
+        {
+            "eventId": "addDisciplinesToScheduleEvent",
+            "action": "addDisciplinesToSchedule"
+        }
+    ],
+    "messages": {
+        "AddMemberComplete": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.addMemberSuccessful}}",
+            "messageTextParams": [
+                "{{data.dataProviders.getDisciplines.selectedObjects[0]}}"
+            ]
+        },
+        "soaErrorMessage": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        },
+        "displayError": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    },
+    "i18n": {
+        "availableSectionTitle": [
+            "ScheduleManagerMessages"
+        ],
+        "addMemberSuccessful": [
+            "ScheduleManagerMessages"
+        ]
+    }
+}

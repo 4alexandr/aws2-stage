@@ -1,0 +1,19 @@
+{
+    "Awv0PmiCommandTitle": "PMI",
+    "operationName": "PMIパネルを表示",
+    "modelViewsTabTitle": "モデルビュー",
+    "pmiEntitiesTabTitle": "タイプ",
+    "PmiPanelTitle": "PMI",
+    "stepThroughLabel": "ステップスルー",
+    "reorientText": "テキスト位置を再設定",
+    "stepThroughNext": "次へ",
+    "stepThroughPrev": "前へ",
+    "toolPanelTitle": "PMI",
+    "showingPmiFor": "PMIの表示:",
+    "notCurrentlyVisible": "{0}は、完全に表示されているわけではありません。",
+    "hasNoPmi": "{0}は、PMIを含んでいません。 構成内で別の要素を選択してください。",
+    "pmiStepCmdsAnchor": "ステップコマンドアンカ",
+    "Awv0PmiToolDesc": "特定のPMIを表示および非表示にするか、またはモデルビューを適用します。",
+    "PmiStepThroughPrevCommandDesc": "リスト上の前のアイテムに移動します。",
+    "PmiStepThroughNextCommandDesc": "リスト上の次のアイテムに移動します。"
+}

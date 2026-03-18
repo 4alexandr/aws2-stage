@@ -1,0 +1,10 @@
+<div class="aw-widgets-cellListCellTitleBlock" ng-class="{'aw-inbox-unReadCellTitle': isUnRead}">
+    <aw-clickable-title title="{{vmo.cellHeader1}}" cell-title-id="CellTitle" source="list" vmo="vmo"></aw-clickable-title>
+    <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{vmo.cellHeader2}}">{{vmo.cellHeader2}}</label>
+</div>
+<div cell-prop-id="cellProperties" ng-repeat="cellProp in vmo.cellProperties" >
+    <div class="aw-widgets-cellListCellProperties">
+        <label class="aw-widgets-propertyLabel aw-base-small">{{cellProp.key}}:</label>
+        <label class="aw-widgets-propertyValue aw-base-small" title="{{cellProp.value}}">{{cellProp.value}}</label>
+    </div>
+</div>

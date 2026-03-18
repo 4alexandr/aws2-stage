@@ -1,0 +1,13 @@
+{
+    "editSelectedItem": "Editer l'article sélectionné",
+    "overview": "Aperçu",
+    "attachments": "Pièces jointes",
+    "attributeGroups": "Groupes d'attributs",
+    "forms": "Formulaires",
+    "attachFile": "Joindre un fichier",
+    "createAgs": "Créer un groupe d'attributs",
+    "downloadAttachment": "Exporter",
+    "cannotDeleteAGMessage": "Vous n'avez pas l'autorisation de détruire le groupe d'attributs \"{0}\". \n Voulez-vous le supprimer sans le détruire?",
+    "cancel": "Annuler",
+    "remove": "Supprimer"
+}

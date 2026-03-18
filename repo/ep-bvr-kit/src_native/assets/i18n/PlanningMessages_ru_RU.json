@@ -1,0 +1,14 @@
+{
+    "PlanningTitle": "Планирование",
+    "StationOperationsTitle": "Операции",
+    "ProductScopeTitle": "Область продукта",
+    "DeclPlanningTitle": "Планирование области процесса",
+    "graphicsViewerTitle": "Графика",
+    "AvailablePartsPanelTitle": "Продукт",
+    "plantLayoutPanelTitle": "Последовательность процессов",
+    "scopingTitle": "Целевые сборки",
+    "selectProcess": "Выберите элемент для просмотра его назначенных целевых сборок.",
+    "targetAssemblies": "целевые сборки",
+    "scopingSuccessMsg": "Сборка \"{0}\" успешно связана с \"{1}\".",
+    "removeScope": "Удалить целевую сборку"
+}

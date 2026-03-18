@@ -1,0 +1,25 @@
+<aw-panel-section>    
+    <aw-label prop="data.keyWord"></aw-label>
+</aw-panel-section>
+<aw-expandable-search-result-filter filters="ctx.searchResponseInfo"></aw-expandable-search-result-filter>
+
+<!-- Start of the 'navigation' section which contains the hierarchy filters. -->
+<aw-panel-section visible-when="data.categories.navigateCategories && data.categories.navigateCategories.length > 0">
+    <aw-filter-category
+         search-action="selectHierarchyFilter"
+         category="item"
+         aw-repeat="item:data.categories.navigateCategories track by $index" >
+    </aw-filter-category>
+
+    <!-- Separator between the Navigate and Refine filters. Only visible when there are navigation filters present.-->
+    <aw-filter-separator visibleWhen="data.categories.navigateCategories.length > 0"><aw-i18n>i18n.refine</aw-i18n>
+    </aw-filter-separator>
+</aw-panel-section>
+<!-- Start of the 'refine' section. -->
+<aw-panel-section>
+    <aw-filter-category
+         search-action="selectFilter"
+         category="item"
+         aw-repeat="item:data.categories.refineCategories track by $index" >
+    </aw-filter-category>
+</aw-panel-section>

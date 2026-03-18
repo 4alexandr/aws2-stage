@@ -1,0 +1,14 @@
+{
+    "selectType": "タイプの選択",
+    "CreateButtonTitle": "作成",
+    "CreateAndAddMoreObjectButtonTitle": "更に作成して追加",
+    "CancelButtonTitle": "キャンセル",
+    "createOperationCmdTitle": "オペレーションの作成",
+    "createProcessAreaCmdTitle": "プロセス領域を作成",
+    "gotoPreviousPageCmdTitle": "戻る",
+    "assignProjectCmdTitle": "プロジェクトを割当て",
+    "SearchPanelTitle":"検索",
+    "projectsPanelCaption":"プロジェクト",
+    "loading":"ロード中",
+    "addProjectHeaderTitle":"プロジェクトを追加"
+}

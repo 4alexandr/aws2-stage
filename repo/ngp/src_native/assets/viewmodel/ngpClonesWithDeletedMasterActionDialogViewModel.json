@@ -1,0 +1,107 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-radiobutton.directive",
+        "js/aw-i18n.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/exist-when.directive"
+    ],
+    "data": {
+        "warningSingle": {
+            "text": "{{i18n.updateClonesDialogWarningSingle}}",
+            "params": [
+                "{{subPanelContext.cloneUidsWithDeletedMasters.length}}"
+            ]
+        },
+        "warningPlural": {
+            "text": "{{i18n.updateClonesDialogWarningPlural}}",
+            "params": [
+                "{{subPanelContext.cloneUidsWithDeletedMasters.length}}"
+            ]
+        },
+        "handleClonesWithDeletedMasters": {
+            "displayName": "",
+            "type": "STRING",
+            "isEditable": "true",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE",
+            "vertical": true,
+            "dbValue": "SKIP_CLONE"
+        },
+        "handleClonesWithDeletedMastersOptions": {
+            "type": "STRING",
+            "dbValue": [ {
+                    "propDisplayValue": "{{i18n.skipOption}}",
+                    "propInternalValue": "SKIP_CLONE"
+                },
+                {
+                    "propDisplayValue": "{{i18n.deleteOption}}",
+                    "propInternalValue": "DELETE_CLONE"
+                },
+                {
+                    "propDisplayValue": "{{i18n.unlinkOption}}",
+                    "propInternalValue": "UNLINK_CLONE"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "initDialog": {
+            "actionType": "JSFunction",
+            "method": "getUpdateClonesWithDeletedMasterLabel",
+            "inputData": {
+                "numOfClonesWithDeletedMasters": "{{subPanelContext.cloneUidsWithDeletedMasters.length}}"
+            },
+            "outputData": {
+                "handleClonesWithDeletedMasters.propertyDisplayName": "",
+                "handleClonesWithDeletedMasters.displayName": ""
+            },
+            "deps": "js/services/ngpUiCloneService"
+        },
+        "onUpdateClick": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "update"
+                },
+                {
+                    "action": "closeDialog"
+                }
+            ]
+        },
+        "update": {
+            "actionType": "JSFunction",
+            "method": "updateClones",
+            "inputData": {
+                "cloneModelObjects": "{{subPanelContext.scopeObjects}}",
+                "clonesWithDeletedMasterAction": "{{data.handleClonesWithDeletedMasters.dbValue}}"
+            },
+            "deps": "js/services/ngpCloneService"
+        },
+        "closeDialog": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "initDialog"
+    },
+    "i18n": {
+        "updateClonesDialogTitle": [ "NgpCloneMgmtMessages" ],
+        "deleteOption": [ "NgpCloneMgmtMessages" ],
+        "unlinkOption": [ "NgpCloneMgmtMessages" ],
+        "skipOption": [ "NgpCloneMgmtMessages" ],
+        "updateClonesDialogWarningSingle": [ "NgpCloneMgmtMessages" ],
+        "updateClonesDialogWarningPlural": [ "NgpCloneMgmtMessages" ],
+        "update": [ "NgpCloneMgmtMessages" ],
+        "cancel": [ "NgpCloneMgmtMessages" ],
+        "updateClonesDialogFirstMsg": [ "NgpCloneMgmtMessages" ],
+        "updateClonesDialogSecondMsg": [ "NgpCloneMgmtMessages" ]
+    }
+}

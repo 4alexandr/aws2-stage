@@ -1,0 +1,29 @@
+ {
+    "schemaVersion" : "1.0.0",
+    "imports": 
+    [
+        "js/aw-label.directive",
+        "js/aw-parse-html.directive"
+    ],
+    
+
+    "data": 
+    {
+        "richText": 
+        {
+            "displayName": "{{ctx.selected.props.s2clCommentPlainText.propertyDisplayName}}",
+            "dbValue": "{{ctx.selected.props.s2clCommentRichText.uiValue}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "false"           
+        },
+        "helpful":
+        {
+            "displayName": "{{ctx.selected.props.s2clTotalLikesFromSummary.propertyDisplayName}}",
+            "uiValue": "{{ctx.selected.props.s2clTotalLikesFromSummary.uiValue}}",
+            "type": "INTEGER"
+        }         
+    }
+    
+    
+ }

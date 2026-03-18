@@ -1,0 +1,57 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2015.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+/*global
+ define
+ */
+
+/**
+ * Note: This module does not return an API object. The API is only available when the service defined this module is
+ * injected by AngularJS.
+ *
+ * @module js/createLaunchFileRequest
+ */
+import * as app from 'app';
+import frameAdapterService from 'js/frameAdapter.service';
+import appCtxService from 'js/appCtxService';
+import fmsUtils from 'js/fmsUtils';
+
+var exports = {};
+
+/**
+ * Launch the selected model objects
+ *
+ * @param {Array} selectedObjects - Array of selected objects.
+ */
+export let launchObject = function( selectedObjects ) {
+    var productLaunchInfo = appCtxService.getCtx( "occmgmtContext" ).productContextInfo;
+    var archTypeProps = [];
+    selectedObjects.forEach( function( selection ) {
+        var archTypeProp = selection.props.awb0UnderlyingObject;
+        archTypeProps.push( archTypeProp );
+    } );
+    createLaunchFile( productLaunchInfo, archTypeProps );
+};
+
+var createLaunchFile = function( productLaunchInfo, idInfos ) {
+    frameAdapterService.createLaunchFile( productLaunchInfo, idInfos ).then( function( response ) {
+        if( response && response.ticket ) {
+            var fileName = fmsUtils.getFilenameFromTicket( response.ticket );
+            fmsUtils.openFile( response.ticket, fileName );
+        }
+    } );
+};
+
+export default exports = {
+    launchObject
+};
+/**
+ * @member createLaunchFileRequest
+ * @memberof NgServices
+ */
+app.factory( 'createLaunchFileRequest', () => exports );

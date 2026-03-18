@@ -1,0 +1,5 @@
+{
+    "sendToViewMakerCmdTitle": "Открыть мастер создания технологических видов",
+    "sendToViewMakerTooltipMsg": "Мастер создания технологических видов позволяет создавать и управлять видами моделей.",
+    "sendToViewMakerDisabledTooltipMsg": "The command is available for processes that either have assignments, or have predecessors or background processes."
+}

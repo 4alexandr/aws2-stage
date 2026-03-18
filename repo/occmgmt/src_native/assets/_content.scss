@@ -1,0 +1,26 @@
+// Copyright 2020 Siemens Product Lifecycle Management Software Inc.
+.aw-cadbomalignment-buttonProperty  {
+    display: contents;
+}
+
+.aw-cba-clickableCellIcon {
+    cursor: pointer;
+}
+
+.aw-cba-italicText {
+    font-style: italic;
+}
+
+.aw-cba-displayLabel {
+    font-size: $header_fontsize;
+    padding-right: 0.50rem;
+    padding-top: 0.30rem;
+}
+
+span.aw-cba-displayLabel {
+    padding-top: 0.20rem;
+}
+
+.aw-cba-displayLabelContainer {
+    min-width: max-content;
+}

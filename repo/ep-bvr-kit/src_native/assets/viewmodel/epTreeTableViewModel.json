@@ -1,0 +1,134 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive"
+    ],
+    "ports": {
+        "selection": {
+            "onChangeAction": "setSelection",
+            "syncObject": {}
+        }
+    },
+    "actions": {
+        "setSelection": {
+            "actionType": "JSFunction",
+            "method": "setSelection",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.epTreeDataProvider}}",
+                "objectsToSelect": "{{ports.selection.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "updateSelectionPort": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "selection",
+                "syncObject": "{{data.eventData.selectedObjects}}"
+            }
+        },
+        "createColumns": {
+            "actionType": "JSFunction",
+            "method": "createColumns",
+            "inputData": {
+                "preferenceValues": "{{subPanelContext.preferenceName}}",
+                "dataProvider": "{{data.dataProviders.epTreeDataProvider}}",
+                "columnProvider": "{{data.columnProviders.epTreeColumnProvider}}"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "loadDataForTree": {
+            "actionType": "JSFunction",
+            "method": "loadColumnsData",
+            "inputData": {
+                "objectUid": "{{subPanelContext.objectUid}}",
+                "propertiesToLoad": "{{subPanelContext.propertiesToLoad}}",
+                "dataProvider": "{{data.dataProviders.epTreeDataProvider}}"
+            },
+            "outputData": {
+                "rowsObjects": "rowsObjects",
+                "totalRows": "totalRows"
+            },
+            "deps": "js/epTableService"
+        },
+        "createColumnsAndRegisterPolicy": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "createColumns"
+                },
+                {
+                    "action": "registerPolicy"
+                }
+            ]
+        },
+        "registerPolicy": {
+            "actionType": "JSFunction",
+            "method": "register",
+            "inputData": {
+                "policy": "{{data.dataProviders.epTreeDataProvider.policy}}"
+            },
+            "outputData": {
+                "policyId": ""
+            },
+            "deps": "soa/kernel/propertyPolicyService"
+        },
+        "unregisterPolicy": {
+            "actionType": "JSFunction",
+            "method": "unregister",
+            "inputData": {
+                "policyId": "{{data.policyId}}"
+            },
+            "deps": "soa/kernel/propertyPolicyService"
+        }
+    },
+    "onEvent": [{
+        "eventId": "epTreeDataProvider.selectionChangeEvent",
+        "action": "updateSelectionPort",
+        "cacheEventData": true
+    }],
+    "data": {
+        "columns": [{
+            "name": "graphicVisibility",
+            "displayName": "{{i18n.GraphicVisibilityColumnName}}",
+            "clientColumn": true,
+            "columnOrder": 10,
+            "maxWidth": 30,
+            "minWidth": 30,
+            "width": 30,
+            "enableColumnMenu": false,
+            "enableSorting": false,
+            "enableColumnMoving": false,
+            "enableColumnHiding": false
+        }]
+    },
+    "dataProviders": {
+        "epTreeDataProvider": {
+            "action": "loadDataForTree",
+            "focusAction": "loadDataForTree",
+            "response": "{{data.rowsObjects}}",
+            "totalFound": "{{data.totalRows}}",
+            "selectionModelMode": "multiple"
+        }
+    },
+    "columnProviders": {
+        "epTreeColumnProvider": {
+            "loadColumnAction": "createColumns",
+            "clientColumns": "{{data.columns}}"
+        }
+    },
+    "grids": {
+        "epTreeTable": {
+            "dataProvider": "epTreeDataProvider",
+            "columnProvider": "epTreeColumnProvider",
+            "addIconColumn": false
+        }
+    },
+    "i18n": {
+        "GraphicVisibilityColumnName": [
+            "InstructionsMessages"
+        ]
+    },
+    "lifecycleHooks": {
+        "onMount": "createColumnsAndRegisterPolicy",
+        "onUnmount": "unregisterPolicy"
+    }
+}

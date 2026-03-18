@@ -1,0 +1,316 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp05.0.0",
+      "description": "Interface Name for Business Object Awb0ConditionalElement",
+      "libraryName": "awn0nx",
+      "name": "Awb0ConditionalElement",
+      "namespace": "awn0::awn0nx",
+      "primaryInterface": "false",
+      "typeName": "Awb0ConditionalElement"
+    }
+  ],
+  "Date": "Fri Mar 06 02:11:19 PM 2020",
+  "Library": [
+    {
+      "createRelease": "Awp05.0.0",
+      "description": "SOA Library for Active Workspace Nx Integration Framework",
+      "isThirdParty": "false",
+      "name": "Awn0SoaNX",
+      "namespace": "Awn0::Soa::NX",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "base_utils"
+        },
+        {
+          "name": "cxpom"
+        },
+        {
+          "name": "bom"
+        },
+        {
+          "name": "extensionframework"
+        },
+        {
+          "name": "fclasses"
+        },
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "pom"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "textsrv"
+        },
+        {
+          "name": "awb0occmgmt"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Library for Active Workspace Nx Integration Framework",
+      "isThirdParty": "false",
+      "name": "awn0nx",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "This is the verdict if Export To NX is supported for element or not.",
+          "parameterName": "verdict"
+        }
+      ],
+      "canOverride": "true",
+      "component": "",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "This operation will return TRUE if Export To NX is supported.",
+      "exceptionCondition": "",
+      "id": "awn0IsExportToNXSupported#bool,*",
+      "interface": "awn0::awn0nx::Awb0ConditionalElement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "awn0IsExportToNXSupported",
+      "opTemplate": "int#awn0::awn0nx::Awb0ConditionalElement::awn0IsExportToNXSupported#bool,*",
+      "returnDescription": "",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The <i>ExportConfiguredAssyToNXInput</i> structure contains the top <b>Awb0Element</b> element of assembly structure to be exported to NX and map of request preferences for the export operation.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awn0nx",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "The operation exports an assembly configured with revision rule specified in input to native NX.",
+      "exceptionCondition": "",
+      "id": "exportConfiguredAssyToNX#const,Awn0::Soa::Internal::NX::_2020_05::DataManagement::ExportConfiguredAssyToNXInput,&",
+      "interface": "Awn0::Soa::NX::DataManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "exportConfiguredAssyToNX",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Awn0::Soa::NX::DataManagement::exportConfiguredAssyToNX#const,Awn0::Soa::Internal::NX::_2020_05::DataManagement::ExportConfiguredAssyToNXInput,&",
+      "returnDescription": "Only errors are returned as partial errors. The following partial errors may be return:<br />213002&nbsp;&nbsp;&nbsp;&nbsp;Attempt to allocate memory failed.<br />213003&nbsp;&nbsp;&nbsp;&nbsp;Unable to create instance of Dispatcher Request.<br />443001    An internal error has occurred in the Active Workspace NX Integration Framework module.<br />443002&nbsp;&nbsp;&nbsp;&nbsp;&lt;objectString&gt; was not exported due to a system error.<br />443003&nbsp;&nbsp;&nbsp;&nbsp;No UGMASTER attached to &lt;objectString&gt;. Select a valid NX assembly.<br />443004&nbsp;&nbsp;&nbsp;&nbsp;No Files found associated with UGMASTER. Select a valid NX assembly.<br />443005&nbsp;&nbsp;&nbsp;&nbsp;&lt;objectString&gt; is not in sync with UGMASTER.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The <i>ExportConfiguredAssyToNXInput</i> structure contains the top <b>Awb0Element</b> element of assembly structure to be exported to NX and map of request preferences for the export operation.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awb0ActiveWorkspaceBOM",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "The operation exports an assembly configured with revision rule specified in input to native NX<br />asynchronously. The operation will create Fnd0Message object with the status of export operation.",
+      "exceptionCondition": "",
+      "id": "exportConfiguredAssyToNXAsync#const,Awn0::Soa::Internal::NX::_2020_05::DataManagement::ExportConfiguredAssyToNXInput,&",
+      "interface": "Awn0::Soa::NX::DataManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "exportConfiguredAssyToNXAsync",
+      "opTemplate": "void#Awn0::Soa::NX::DataManagement::exportConfiguredAssyToNXAsync#const,Awn0::Soa::Internal::NX::_2020_05::DataManagement::ExportConfiguredAssyToNXInput,&",
+      "returnDescription": "void &ndash; as it does not interact directly with the client, it does not return any data. The success or errors will be conveyed via Fnd0Message object to respective subscriber.",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Awn0::Soa::Internal::NX::_2020_05::DataManagement::ExportConfiguredAssyToNXInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The <i>ExportConfiguredAssyToNXInput</i> structure contains the top <b>Awb0Element</b> element of assembly structure to be exported to NX and map of request preferences for the export operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "The operation exports an assembly configured with revision rule specified in input to native NX.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Awn0::Soa::NX::DataManagement::exportConfiguredAssyToNX#const,Awn0::Soa::Internal::NX::_2020_05::DataManagement::ExportConfiguredAssyToNXInput,&",
+      "name": "Awn0::Soa::NX::DataManagement::exportConfiguredAssyToNX",
+      "returnConst": "false",
+      "returnDescription": "Only errors are returned as partial errors. The following partial errors may be return:<br />213002&nbsp;&nbsp;&nbsp;&nbsp;Attempt to allocate memory failed.<br />213003&nbsp;&nbsp;&nbsp;&nbsp;Unable to create instance of Dispatcher Request.<br />443001    An internal error has occurred in the Active Workspace NX Integration Framework module.<br />443002&nbsp;&nbsp;&nbsp;&nbsp;&lt;objectString&gt; was not exported due to a system error.<br />443003&nbsp;&nbsp;&nbsp;&nbsp;No UGMASTER attached to &lt;objectString&gt;. Select a valid NX assembly.<br />443004&nbsp;&nbsp;&nbsp;&nbsp;No Files found associated with UGMASTER. Select a valid NX assembly.<br />443005&nbsp;&nbsp;&nbsp;&nbsp;&lt;objectString&gt; is not in sync with UGMASTER.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Awn0::Soa::Internal::NX::_2020_05::DataManagement::ExportConfiguredAssyToNXInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The <i>ExportConfiguredAssyToNXInput</i> structure contains the top <b>Awb0Element</b> element of assembly structure to be exported to NX and map of request preferences for the export operation.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "void",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "The operation exports an assembly configured with revision rule specified in input to native NX<br />asynchronously. The operation will create Fnd0Message object with the status of export operation.",
+      "id": "void#Awn0::Soa::NX::DataManagement::exportConfiguredAssyToNXAsync#const,Awn0::Soa::Internal::NX::_2020_05::DataManagement::ExportConfiguredAssyToNXInput,&",
+      "name": "Awn0::Soa::NX::DataManagement::exportConfiguredAssyToNXAsync",
+      "returnConst": "false",
+      "returnDescription": "void &ndash; as it does not interact directly with the client, it does not return any data. The success or errors will be conveyed via Fnd0Message object to respective subscriber.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "This is the verdict if Export To NX is supported for element or not.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Output",
+          "name": "verdict"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "This operation will return TRUE if Export To NX is supported.",
+      "id": "int#awn0::awn0nx::Awb0ConditionalElement::awn0IsExportToNXSupported#bool,*",
+      "name": "awn0::awn0nx::Awb0ConditionalElement::awn0IsExportToNXSupported",
+      "returnConst": "false",
+      "returnDescription": "",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "DataManagement service contains operations that expose the Data Management functionality in Active Workspace (AW).",
+      "libraryName": "Awn0SoaNX",
+      "name": "DataManagement",
+      "namespace": "Awn0::Soa::NX",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::RuntimeBusinessObject"
+            }
+          ],
+          "description": "Top <b>Awb0Element</b> element of assembly structure to be exported to NX.",
+          "name": "elementToExport"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Awn0::Soa::Internal::NX::_2020_05::DataManagement::RequestPreference"
+            }
+          ],
+          "description": "Map (string, list of string) of preference names and values pairs. Preference names are case sensitive. Supported preference names are: <br />&ldquo;exportNonMasters&rdquo;: If true, exports NX non-master named references associated with UGMASTER or UGPART datasets. The non-master named reference are named references (<b>Dataset</b>) with relations IMAN_manifestation, IMAN_specification, IMAN_UG_altrep, IMAN_simulation or IMAN_UG_scenario. If false, the non-masters are not exported.<br />&ldquo;exportAssociatedFiles&rdquo;: If true, exports all the named references associated with UGMASTER <b>Dataset</b>; otherwise, associated files are not exported.",
+          "name": "requestPref"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Contains the top <b>Awb0Element</b> element of the assembly structure to be exported to NX and the map of request preferences.",
+      "isPublished": "false",
+      "name": "ExportConfiguredAssyToNXInput",
+      "namespace": "Awn0::Soa::Internal::NX::_2020_05::DataManagement",
+      "scope": "Awn0::Soa::NX::DataManagement"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Contains the mapping of preference names and values pairs for export operation.",
+      "isPublished": "false",
+      "name": "RequestPreference",
+      "namespace": "Awn0::Soa::Internal::NX::_2020_05::DataManagement",
+      "scope": "Awn0::Soa::NX::DataManagement"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

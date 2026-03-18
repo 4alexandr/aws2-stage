@@ -1,0 +1,22 @@
+{
+    "manageTitle": "Zarządzaj",
+    "createWorkPackageHeaderTitle": "Nowy pakiet roboczy",
+    "manageTitleDecl": "Zarządzaj pakietem roboczym",
+    "epOpenWPTitle": "Otwórz",
+    "epOpenWPDesc": "Otwórz pakiet roboczy",
+    "ebomTileTitle": "EBOM",
+    "mbomTileTitle": "MBOM",
+    "add": "Dodaj",
+    "noEbomSelectedMessage": "Wybierz inżynieryjne zestawienie materiałów przed wybraniem produkcyjnego zestawienia materiałów.",
+    "addEbomCmdToolTipTitle": "Dodaj inżynieryjne zestawienie materiałów",
+    "addEbomCmdToolTipDescription": "Wybierz strukturę inżynieryjnego zestawienia materiałów i dodaj ją do pakietu roboczego.",
+    "addMbomCmdToolTipTitle": "Dodaj produkcyjne zestawienie materiałów",
+    "addMbomCmdToolTipDescription": "Wybierz strukturę produkcyjnego zestawienia materiałów lub wybierz istniejącą i dodaj ją do pakietu roboczego.",
+    "manageWPRightAreaTitle": "Zawartość",
+    "addProduct":"Dodaj produkt",
+    "productSearchPlaceHolder":"Wpisz nazwę produktu",
+    "useExistingMbom": "Użyj istniejącego produkcyjnego zestawienia materiałów",
+    "createNewMbom": "Użyj nowego produkcyjnego zestawienia materiałów",
+    "revisionRule":"Reguła rewizji",
+    "createProductHeaderTitle":"Utwórz produkt"
+}

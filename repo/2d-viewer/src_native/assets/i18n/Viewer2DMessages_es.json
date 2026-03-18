@@ -1,0 +1,21 @@
+{
+    "pageUp": "Página siguiente",
+    "pageDown": "Página anterior",
+    "currentPage": "Página actual",
+    "page": "Página",
+    "numPages": "Número de páginas",
+    "goToPage": "Ir a la página",
+    "pan": "Encuadrar",
+    "zoom": "Zoom",
+    "2DNavigation": "Navegación 2D",
+    "fit": "Ajustar",
+    "viewerNotConfigured2D": "No se activó la renderización 2D en este servidor.",
+    "viewerIssue": "Hubo un problema al renderizar la imagen.",
+    "Aw2dPageUpDesc": "Vea la página siguiente.",
+    "Aw2dPageDownDesc": "Vea la página anterior.",
+    "Aw2dPageDesc": "Vaya a una página específica del documento o vea el número total de páginas.",
+    "Aw2dPan2DDesc": "Encuadre la página actual.",
+    "Aw2dZoom2DDesc": "Aleje o acerque la página actual.",
+    "Aw2dView2DNavigationGroupDesc": "Encuadre, aleje o acerque la página actual.",
+    "Aw2dFit2DDesc": "Aleje o acerque la vista para ajustar los componentes en el área de trabajo."
+}

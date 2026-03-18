@@ -1,0 +1,19 @@
+{
+    "CancelText": "취소",
+    "RemoveText": "제거",
+    "openInEdmViewCommandTitle": "EDM에서 열기",
+    "preferenceNotConfigured": "EDA_EDMHosting.URL 환경설정이 구성되지 않았습니다.",
+    "submitToDesignExchange" : "설계 추가",
+    "newCollaborationCommand" : "공동 설계 생성",
+    "designsTitle" : "설계",
+    "addToCollaboration" : "추가",
+    "routed" : "라우팅됨",
+    "unrouted" : "라우팅 안 됨",
+    "placed" : "배치됨",
+    "unplaced" : "배치 안 됨",
+    "designAddedToCollaboration": "\"{0}\" 설계가 Co-Design에 추가되었습니다.",
+    "openIncrement": "증분 열기",
+    "openObject" : "열기",
+    "removeDesign": "설계 제거",
+    "removeDesignFromCollaboration": "\"{0}\" 및 관련 변경사항이 제거됩니다."
+}

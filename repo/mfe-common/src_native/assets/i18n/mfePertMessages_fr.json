@@ -1,0 +1,6 @@
+{
+    "moveModeCommandTitle":"Mode Déplacer",
+    "moveModeCommandDescription":"Pendant que le mode est activé, cliquez et glissez pour déplacer une boîte.",
+    "editModeCommandTitle":"Mode de création de flux",
+    "editModeCommandDescription":"Pendant que le mode est activé, cliquez et glissez pour connecter un processus à un processus successeur."  
+}

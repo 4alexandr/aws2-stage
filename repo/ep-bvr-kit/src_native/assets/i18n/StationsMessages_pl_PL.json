@@ -1,0 +1,10 @@
+{
+    "StationWorkInstructionsTitle": "Instrukcje pracy",
+    "processTitle": "Proces",
+    "editorTitle": "Edytor ",
+    "noAssemblyStructure": "Nie istnieją odwołania tej struktury złożenia.",
+    "GraphicVisibilityColumnName": "Widoczność grafiki",
+    "syncedToViewer": "Zsynchronizowane z przeglądarką. {@msgTxtLink0}",
+    "syncedToEditor": "Zsynchronizowane z edytorem tekstu. {@msgTxtLink0}",
+    "switchMode": "Przełącz"
+}

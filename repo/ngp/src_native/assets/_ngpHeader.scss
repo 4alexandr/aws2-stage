@@ -1,0 +1,76 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+@mixin text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.aw-ngp-headerTitle {
+    font-size: $fontsize_2x_large;
+    font-weight: normal;
+}
+
+.aw-ngp-headerIcon {
+    .aw-base-icon {
+        max-height: 48px;
+        max-width: 48px;
+    }
+}
+
+.aw-ngp-headerSeparator {
+    height: 24px;
+}
+
+.aw-ngp-chipContainer {
+    @include flexbox();
+
+    .aw-ngp-scopeObjectChips {
+        @include flexbox();
+
+        .aw-ngp-effectivityIndication {
+            .aw-widgets-chip {
+                max-width: 100px;
+            }
+        }
+
+        .aw-ngp-classLibraryIndication {
+            .aw-widgets-chip {
+                max-width: 300px;
+            }
+        }
+
+        .aw-widgets-chipLabel {
+            @include text-overflow;
+        }
+    }
+}
+
+/*=========================== Revision Rule START ===========================*/
+
+.aw-ngp-revisionRuleChip {
+    max-width: 145px;
+    height: 24px;
+    margin: 2px 14px 2px 2px;
+
+    .aw-seperator-style {
+        display: none;
+    }
+
+    .aw-link-with-popup {
+        padding-top: 4px;
+
+        a {
+            @include text-overflow;
+            max-width: 107px;
+        }
+    }
+}
+
+/*=========================== Revision Rule END ===========================*/

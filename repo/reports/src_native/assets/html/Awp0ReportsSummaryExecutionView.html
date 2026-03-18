@@ -1,0 +1,15 @@
+<aw-panel-body>
+    <aw-panel-section caption="i18n.summaryPanel" visible-when="conditions.showForSummary">
+            <aw-widget prop="attribute" aw-repeat="attribute : data.clausesfiltersList"></aw-widget>            
+    </aw-panel-section>
+
+    <aw-panel-section caption="i18n.customPanel" visible-when="!conditions.showForSummary" exist-when="data.customProps != undefined">
+        <aw-widget prop="property" aw-repeat="property : data.customProps"></aw-widget>
+    </aw-panel-section>
+    <aw-panel-section caption="i18n.additionalParams">
+        <aw-report-format data="data" sourcetc="conditions.showifSourceIsTc" officetemplate="conditions.showforOfficeTemplate" runinbackgroundsupported="conditions.isRunInBackgroundSupported"></aw-report-format>
+    </aw-panel-section>
+</aw-panel-body>
+<aw-panel-footer>
+    <aw-button action="callGenerateReport"><aw-i18n>i18n.generateReport</aw-i18n></aw-button>
+</aw-panel-footer>

@@ -1,0 +1,242 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [],
+    "data": {},
+    "actions": {
+        "addElements": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceBom-2019-06-OccurrenceManagement",
+            "method": "addObject2",
+            "inputData": {
+                "input": {
+                    "objectsToBeAdded": "{{function:getElementsToAdd}}",
+                    "parentElement": "{{ctx.aceActiveContext.context.addElement.parent}}",
+                    "siblingElement": "{{ctx.aceActiveContext.context.addElement.siblingElement}}",
+                    "inputCtxt": {
+                        "productContext": "{{ctx.aceActiveContext.context.productContextInfo}}"
+                    },
+                    "sortCriteria": {
+                        "propertyName": "{{ctx.aceActiveContext.context.sortCriteria[0].fieldName}}",
+                        "sortingOrder": "{{ctx.aceActiveContext.context.sortCriteria[0].sortDirection}}"
+                    },
+                    "addObjectIntent": "{{ctx.aceActiveContext.context.addElement.addObjectIntent}}",
+                    "fetchPagedOccurrences": "{{ctx.aceActiveContext.context.addElement.fetchPagedOccurrences}}",
+                    "requestPref": {
+                        "displayMode": [
+                            "{{function:getDisplayMode}}"
+                        ]
+                    },
+                    "numberOfElements": 1
+                }
+            },
+            "outputData": {
+                "addElementResponse": "",
+                "totalObjectsAdded": "{{function:getTotalNumberOfChildrenAdded}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "addElement.elementsAdded",
+                        "eventData": {
+                            "objectsToSelect": "{{function:getNewlyAddedChildElements}}",
+                            "addElementResponse": "{{data.addElementResponse}}",
+                            "addElementInput": "{{data.addElementInput}}",
+                            "viewToReact": "{{ctx.aceActiveContext.key}}"
+                        },
+                        "condition": "_internal.conditionStates.areNewElementsAdded"
+                    },
+                    {
+                        "name": "mrmresource.addResourceElementsPostAction"
+                    },
+                    {
+                        "name": "acePwa.reset",
+                        "condition": "_internal.conditionStates.areNewElementsAdded && !_internal.conditionStates.isTreeMode && _internal.conditionStates.isParentAndOpenedElementSame"
+                    },
+                    {
+                        "name": "addElement.updateSelectionInPWA",
+                        "eventData": {
+                            "objectToSelect": "{{ctx.aceActiveContext.context.addElement.parent.uid}}"
+                        },
+                        "condition": "_internal.conditionStates.areNewElementsAdded && !_internal.conditionStates.isTreeMode && !_internal.conditionStates.isParentAndOpenedElementSame"
+                    }
+                ],
+                "failure": [
+                    {
+                        "name": "acePwa.reset",
+                        "condition": "_internal.conditionStates.areNewElementsAdded && !_internal.conditionStates.isTreeMode  && _internal.conditionStates.isParentAndOpenedElementSame"
+                    },
+                    {
+                        "name": "addElement.updateSelectionInPWA",
+                        "eventData": {
+                            "objectToSelect": "{{ctx.aceActiveContext.context.addElement.parent.uid}}"
+                        },
+                        "condition": "_internal.conditionStates.areNewElementsAdded && ctx.aceActiveContext.context.addElementInput.parentElement.uid !== ctx.aceActiveContext.context.addElement.parent.uid"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "message": "elementAddSuccessfulMessage",
+                        "condition": "data.totalObjectsAdded === 1 "
+                    },
+                    {
+                        "message": "multipleElementAddSuccessfulMessage",
+                        "condition": "data.totalObjectsAdded > 1"
+                    }
+                ],
+                "failure": [
+                    {
+                        "message": "elementsPartiallyAddedMessage",
+                        "condition": "_internal.conditionStates.areNewElementsAdded"
+                    }
+                ]
+            },
+            "deps": "js/MrmAddElementService"
+        },
+        "updateSelectionInPWA": {
+            "actionType": "JSFunction",
+            "method": "updateContextState",
+            "inputData": {
+                "contextKey": "{{ctx.aceActiveContext.key}}",
+                "newState": {
+                    "c_uid": "{{data.eventData.objectToSelect}}"
+                },
+                "mergeWithCurrentState": true
+            },
+            "deps": "js/contextStateMgmtService"
+        },
+        "updatePCIInCtx": {
+            "actionType": "JSFunction",
+            "method": "updateContextState",
+            "inputData": {
+                "contextKey": "{{ctx.aceActiveContext.key}}",
+                "newState": {
+                    "pci_uid": "{{data.eventData.objectToSelect.productCtxInfo.uid}}"
+                },
+                "mergeWithCurrentState": true
+            },
+            "deps": "js/contextStateMgmtService"
+        },
+        "addResourceElementsPostAction": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ResourceManager-2020-12-ResourceOccurrencesManagement",
+            "method": "addResourceElementsPostActions",
+            "inputData": {
+                "successorComponents":"{{data.addElementResponse.selectedNewElementInfo.newElements}}",
+                "predecessorComponent":"{{ctx.selected}}"
+            },
+            "outputData": {
+                "serviceData": "ServiceData"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "acePwa.reset"
+                    }
+                ]
+            },
+            "deps": "js/MrmAddElementService"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "addElement.updateSelectionInPWA",
+            "cacheEventData": true,
+            "action": "updateSelectionInPWA"
+        },
+        {
+            "eventId": "addChild.updatePCIInCtx",
+            "cacheEventData": true,
+            "action": "updatePCIInCtx"
+        },
+        {
+            "eventId": "mrmresource.addResourceElementsPostAction",
+            "action": "addResourceElementsPostAction"
+        }
+    ],
+    "conditions": {
+        "areNewElementsAdded": {
+            "expression": "data.totalObjectsAdded>0"
+        },
+        "isTreeMode": {
+            "expression": "ctx.ViewModeContext && (ctx.ViewModeContext.ViewModeContext === 'TreeView' || ctx.ViewModeContext.ViewModeContext === 'TreeSummaryView')"
+        },
+        "isParentAndOpenedElementSame": {
+            "expression": "ctx.aceActiveContext.context.openedElement.uid === ctx.aceActiveContext.context.addElement.parent.uid "
+        }
+    },
+    "functions": {
+        "getElementsToAdd": {
+            "functionName": "getElementsToAdd",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getNewlyAddedChildElements": {
+            "functionName": "getNewlyAddedChildElements",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "shouldFetchColumnConfig": {
+            "functionName": "shouldFetchColumnConfig",
+            "parameters": []
+        },
+        "getTotalNumberOfChildrenAdded": {
+            "functionName": "getTotalNumberOfChildrenAdded",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getDisplayMode": {
+            "functionName": "getDisplayMode",
+            "parameters": [
+                "",
+                "{{ctx}}",
+                "",
+                "(ctx.ViewModeContext.ViewModeContext === 'TreeView' || ctx.ViewModeContext.ViewModeContext === 'TreeSummaryView') && 'Tree' || 'List'"
+            ]
+        },
+        "getNewlyAddedChildElementsUID": {
+            "functionName": "getNewlyAddedChildElementsUID",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "messages": {
+        "elementsPartiallyAddedMessage": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.multipleElementAddSuccessful}}",
+            "messageTextParams": [
+                "{{data.totalObjectsAdded}}",
+                "{{ctx.aceActiveContext.context.addElement.parent.props.object_string.dbValues[0]}}"
+            ]
+        },
+        "elementAddSuccessfulMessage": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.elementAddSuccessful}}",
+            "messageTextParams": [
+                "{{data.addElementResponse.selectedNewElementInfo.newElements[0].props.object_string.dbValues[0]}}",
+                "{{ctx.aceActiveContext.context.addElement.parent.props.object_string.dbValues[0]}}"
+            ]
+        },
+        "multipleElementAddSuccessfulMessage": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.multipleElementAddSuccessful}}",
+            "messageTextParams": [
+                "{{data.totalObjectsAdded}",
+                "{{ctx.aceActiveContext.context.addElement.parent.props.object_string.dbValues[0]}}"
+            ]
+        }
+    },
+    "i18n": {
+        "multipleElementAddSuccessful": [
+            "OccurrenceManagementMessages"
+        ],
+        "elementAddSuccessful": [
+            "OccurrenceManagementMessages"
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+// Copyright 2019 Siemens Product Lifecycle Management Software Inc.
+
+aw-2d-viewer {
+    width: 100%;
+    min-width: 260px;
+}
+
+// center the decorator
+.aw-viewer-viewer .aw-commands-cellDecorator{
+    top: 0;
+    right: 0;
+}
+
+.aw-commands-cellDecorator .aw-2dviewerjs-pagenumber {
+    position: relative;
+    font-size: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}

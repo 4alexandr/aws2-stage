@@ -1,0 +1,495 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-measure-tree.directive",
+        "js/aw-widget.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "queryPanelRevealed",
+            "inputData":
+            {
+                "treedata": "{{data}}",
+                "localeTextBundle": "{{data.i18n}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treeData",
+                "isSelectedQueryVisibleProp": "isSelectedQueryVisibleProp",
+                "selectedQueryProp": "selectedQueryProp"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisQueryService"
+        },
+
+        "partsCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "partsCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisQueryService"
+        },
+
+        "featuresCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "featuresCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisQueryService"
+        },
+
+        "surfaceCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "surfaceCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisQueryService"
+        },
+
+        "edgeCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "edgeCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisQueryService"
+        },
+
+        "vertexCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "vertexCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisQueryService"
+        },
+
+        "pointCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "pointCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisQueryService"
+        },
+
+        "arcCenterCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "arcCenterCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisQueryService"
+        },
+
+
+
+        "updateSelectedQueryPropertiesView":
+        {
+            "actionType": "JSFunction",
+            "method": "updateSelectedQueryPropertiesView",
+            "inputData":
+            {
+                "localeTextBundle": "{{data.i18n}}"
+            },
+
+            "outputData":
+            {
+                "isSelectedQueryVisibleProp": "isSelectedQueryVisibleProp",
+                "selectedQueryProp": "selectedQueryProp"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisQueryService"
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "viewerMeasurement.selectedMeasurementChanged",
+            "action": "updateSelectedQueryPropertiesView"
+        }
+    ],
+
+    "data":
+    {
+        "partsNodeProp":
+        {
+            "displayName": "{{i18n.partCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Parts",
+                    "tooltip": "{{i18n.partCheckText}}",
+                    "checkAction": "partsCheckValueChanged",
+                    "isChecked": "{{treedata.partsChecked}}"
+                }
+            ]
+        },
+
+        "featuresNodeProp":
+        {
+            "displayName": "{{i18n.featuresCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "SelectFeatures",
+                    "tooltip": "{{i18n.featuresCheckText}}",
+                    "checkAction": "featuresCheckValueChanged",
+                    "isChecked": "{{treedata.featuresChecked}}"
+                }
+            ]
+        },
+
+        "surfaceNodeProp":
+        {
+            "displayName": "{{i18n.surfaceCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Surface",
+                    "tooltip": "{{i18n.surfaceCheckText}}",
+                    "checkAction": "surfaceCheckValueChanged",
+                    "isChecked": "{{treedata.surfaceChecked}}"
+                }
+            ]
+        },
+
+        "edgeNodeProp":
+        {
+            "displayName": "{{i18n.edgeCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Edge",
+                    "tooltip": "{{i18n.edgeCheckText}}",
+                    "checkAction": "edgeCheckValueChanged",
+                    "isChecked": "{{treedata.edgeChecked}}"
+                }
+            ]
+        },
+
+        "vertexNodeProp":
+        {
+            "displayName": "{{i18n.vertexCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Vertex",
+                    "tooltip": "{{i18n.vertexCheckText}}",
+                    "checkAction": "vertexCheckValueChanged",
+                    "isChecked": "{{treedata.vertexChecked}}"
+                }
+            ]
+        },
+
+        "pointNodeProp":
+        {
+            "displayName": "{{i18n.pointCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Point",
+                    "tooltip": "{{i18n.pointCheckText}}",
+                    "checkAction": "pointCheckValueChanged",
+                    "isChecked": "{{treedata.pointChecked}}"
+                }
+            ]
+        },
+
+        "arcCenterNodeProp":
+        {
+            "displayName": "{{i18n.arcCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "ArcCenter",
+                    "tooltip": "{{i18n.arcCheckText}}",
+                    "checkAction": "arcCenterCheckValueChanged",
+                    "isChecked": "{{treedata.arcCenterChecked}}"
+                }
+            ]
+        },
+
+        "analysisQueryMeasurementCommands":"awv0_analysisQueryMeasureCommands",
+
+        "selectedQueryProp":
+        {
+            "isArray": "true",
+            "dbValue": "{{ctx.viewerMeasurement.selectedQueryProperties}}"
+        },
+
+        "isSelectedQueryVisibleProp":
+        {
+            "displayName": "",
+            "type": "BOOLEAN",
+            "dbValue": false
+        }
+    },
+
+    "conditions":
+    {
+        "hasSelectedMeasurement":
+        {
+            "expression": "data.selectedQueryProp !== undefined && data.selectedQueryProp.dbValue !== undefined && data.selectedQueryProp.dbValue.length > 0"
+        },
+
+        "showSelectedMeasurementSection":
+        {
+            "expression": "data.isSelectedQueryVisibleProp.dbValue === true"
+        }
+    },
+
+    "i18n":
+    {
+        "queryTabText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "pickFilteringTitleText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "partCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "featuresCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "surfaceCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "edgeCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "vertexCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "pointCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "arcCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPoint":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyLength":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyCenter":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyRadius":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyAngle":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyNormal":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyArea":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyHeight":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPartName":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyVolume":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyCentroid":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyDistance":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyDeltas":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPrincipalMoments":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPrincipalAxis1":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPrincipalAxis2":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPrincipalAxis3":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyMass":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyType":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyMinimumRadius":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyRadii":
+        [
+            "GeometricAnalysisMessages"
+        ],
+        "measurementPropertySizeX":
+        [
+            "GeometricAnalysisMessages"
+        ],
+        "measurementPropertySizeY":
+        [
+            "GeometricAnalysisMessages"
+        ],
+        "measurementPropertySizeZ":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "querySectionTitleText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "noQuerySelectedText":
+        [
+            "GeometricAnalysisMessages"
+        ]
+    }
+}

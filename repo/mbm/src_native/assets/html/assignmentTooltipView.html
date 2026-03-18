@@ -1,0 +1,12 @@
+<div>
+    <div class="aw-extended-tooltipTitle">
+        {{data[subPanelContext.contextObject.status].title}}
+    </div>
+    <br/>{{data[subPanelContext.contextObject.status].description.text}}
+    <div class="aw-mbm-italicText" exist-when="data[subPanelContext.contextObject.status].clickDescription">
+        <br/>{{data[subPanelContext.contextObject.status].clickDescription}}
+    </div>
+    <div class="aw-mbm-italicText" exist-when="data[subPanelContext.contextObject.status].subDescription">
+        <br/>{{data[subPanelContext.contextObject.status].subDescription}}
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"Usuń",
+    "pertDeleteDesc": "Usuń wybrane węzły",
+    "deleteConfirmationMessage": "Czy na pewno chcesz trwale usunąć wybrane węzły Pert?",
+    "missingProcessElements": "Utwórz proces.",
+    "openPertNodeTitle": "Otwórz",
+    "resetLayoutTitle": "Resetuj układ",
+    "resetLayoutDescription": "Resetuj węzły PERT do układu domyślnego."
+}

@@ -1,0 +1,16 @@
+{
+    "LoadButton": "Wczytaj aktówkę",
+    "loadstatus": "Ładowanie...",
+    "compare": "Zawartość porównania",
+    "locationClickViewerHeaderTitle": "Przeglądarka",
+    "locationOneClickViewerSubTitle": "Przeglądarka",
+    "pickTOSPanel": "Podgląd aktówki",
+    "pickTOSPanelCompare": "Porównaj aktówkę",
+    "transferOptionSet": "Wybierz zestaw opcji transferu",
+    "tosPanelSourceBCZ": "Aktówka źródłowa",
+    "tosPanelTargetBCZ": "Aktówka docelowa",
+    "tosSourceLabel": "Zastosowano zestaw opcji przenoszenia elementów źródłowych",
+    "tosTargetLabel": "Zastosowano zestaw opcji przenoszenia elementów docelowych",
+    "bbrowserCompareViewerDesc": "Wyświetl różnice między plikami aktówki.",
+    "bbrowserOneClickViewerDesc": "Sprawdź zawartość pliku aktówki przed zaimportowaniem."
+}

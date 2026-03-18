@@ -1,0 +1,5 @@
+<aw-include exist-when="!conditions.hasInput" name="mfeMessage" sub-panel-context="data.messages.noElementSelected"></aw-include>
+<aw-include exist-when="conditions.isLoading" name="mfeLoadingMessage"></aw-include>
+<aw-include exist-when="conditions.noAssigned" name="mfeMessage" sub-panel-context="data.messages.noAssigned"></aw-include>
+
+<aw-splm-table class="aw-ep-detailsTable" gridid="epDetailsTable" visible-when="conditions.showTable"></aw-splm-table>

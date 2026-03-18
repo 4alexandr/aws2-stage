@@ -1,0 +1,8 @@
+{
+    "delete":"Удалить",
+    "discard":"Отмена",
+    "DeleteSingleMessage": "Вы действительно хотите удалить \"{0}\"?",
+    "DeleteMultipleMessage": "Вы уверены, что хотите удалить эти {0} объектов?",
+    "epCmdDeleteTitle":"Удалить",
+    "epCmdDeleteDesc": "Удалите выбор."
+}

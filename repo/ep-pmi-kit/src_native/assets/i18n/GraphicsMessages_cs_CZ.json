@@ -1,0 +1,9 @@
+{
+    "noVisuals": "Neexistují žádné grafiky pod tímto prvkem.",
+    "selectElement": "Výběrem objektu zobrazíte jeho grafiky.",
+    "capture2DImage": "Zachytit 2D obrázek",
+    "capture2DImagesSuccess": "2D obrázek je zachycen a připojen k \"{0}\".",
+    "epManageProductViewsCommandTitle":"Spravovat pohledy výrobku v aplikaci Teamcenter Visualization",
+    "3DView": "3D zobrazení",
+    "openInTeamcenterVis":"Otevřít ve vizualizaci Teamcenteru"
+}

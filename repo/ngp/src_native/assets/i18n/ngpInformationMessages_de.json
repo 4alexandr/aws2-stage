@@ -1,0 +1,13 @@
+{
+    "editSelectedItem": "Ausgewähltes Element bearbeiten",
+    "overview": "Übersicht",
+    "attachments": "Anhänge",
+    "attributeGroups": "Attributgruppen",
+    "forms": "Formulare",
+    "attachFile": "Datei anhängen",
+    "createAgs": "Attributgruppe erstellen",
+    "downloadAttachment": "Herunterladen",
+    "cannotDeleteAGMessage": "Sie besitzen nicht die erforderlichen Rechte, um die Attributgruppe \"{0}\" zu löschen.\n Soll Sie ohne zu löschen entfernt werden?",
+    "cancel": "Abbrechen",
+    "remove": "Entfernen"
+}

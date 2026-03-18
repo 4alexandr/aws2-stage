@@ -1,0 +1,191 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-list.directive",
+        "js/aw-property-non-edit-val.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-include.directive"
+    ],
+
+    "data": {
+        "endItem": {
+            "uiValue": "{{i18n.evm1EndItem}}",
+            "type": "STRING"
+        },
+        "effectivityUnitSectionAllUnitsTitle":
+        {
+            "uiValue": "{{i18n.effectivityUnitSectionAllUnitsTitle}}",
+            "type": "STRING"
+        },
+        "effectivityUnitSectionAllUnitsValue":
+        {
+            "uiValue": "{{i18n.effectivityUnitSectionAllUnitsValue}}",
+            "displayName": "{{i18n.effectivityUnitSectionAllUnitsValue}}",
+            "type": "STRING"
+        },
+        "newUnitEffectivity":
+        {
+            "displayName": "",
+            "type": "STRING"
+        },
+        "currentEffectiveUnit":
+        {
+            "uiValue": "{{data.currentEffectiveUnit}}",
+            "type": "STRING"
+        },
+        "effectivityGroups":
+        {
+            "uiValue": "{{i18n.effectivityGroups}}",
+            "type": "STRING"
+        },
+
+        "multipleGroups":
+        {
+            "uiValue": "{{i18n.multipleGroups}}",
+            "type": "STRING"
+        },
+
+        "groupEffectivityFeature":
+        {
+            "dbValue": false,
+            "type": "BOOLEAN"
+        },
+        "subPanelContext": {
+            "provider" : {
+                "viewKey" : "evm1ActiveContextEffectivity"
+            }
+        }
+    },
+
+    "dataProviders": {
+        "getConfiguredEndItems": {
+            "action": "fetchEndItems",
+            "response": "{{data.endItems}}",
+            "uidInResponse": "dbValues[0]",
+            "selectionModelMode": "single"
+        }
+    },
+
+    "actions": {
+
+        "initializeConfigUnitEffectivityView" : {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "initializeEndItemInfo"
+                },
+                {
+                    "action": "initializeUnitEffectivityInfo"
+                }
+            ]
+        },
+
+        "initializeEndItemInfo": {
+            "actionType": "JSFunction",
+            "method": "getEndItemFromContext",
+            "inputData": {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+
+        "revealEndItems": {
+            "actionType": "dataProvider",
+            "method": "getConfiguredEndItems"
+        },
+
+        "fetchEndItems": {
+            "actionType": "JSFunction",
+            "method": "getEndItems",
+            "inputData": {
+
+            },
+            "outputData": {
+                "endItems": "endItems"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+
+        "endItemSelected": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "awPanel.navigate",
+                    "eventData": {
+                        "destPanelId": "Evm1endItemPanel",
+                        "title": "{{data.i18n.endItemMessage}}",
+                        "recreatePanel": true,
+                        "supportGoBack": true
+                    }
+                } ]
+            }
+        },
+        "initializeUnitEffectivityInfo":
+        {
+            "actionType": "JSFunction",
+            "method": "getInitialUnitEffectivityConfigurationData",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+        "selectChangedUnitEffectivity": {
+            "actionType": "JSFunction",
+            "method": "selectChangedUnitEffectivity",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        }
+    },
+
+    "lifecycleHooks": {
+        "onMount": "initializeConfigUnitEffectivityView"
+    },
+
+    "onEvent": [
+        {
+            "eventId": "evm1ConfigPanel.revealEndItems",
+            "action": "revealEndItems"
+        },
+        {
+            "eventId": "awConfigPanel.unitEffectivityChanged",
+            "cacheEventData": true,
+            "condition":"conditions.checkSelectionChange",
+            "action": "selectChangedUnitEffectivity"
+        },
+        {
+            "eventId": "getConfiguredEndItems.selectionChangeEvent",
+            "action": "endItemSelected"
+        },
+        {
+            "eventId": "configPanel.evm1endItemChanged",
+            "action": "initializeEndItemInfo",
+            "cacheEventData": true
+        }
+    ],
+
+    "functions": {
+    },
+
+    "conditions": {
+        "checkSelectionChange":
+        {
+            "expression": "ctx.xrtSummaryContextObject.type === 'Fnd0SearchRecipe'"
+        }
+    },
+
+    "i18n": {
+        "configPanelEffUnitTitle": [ "RecipeCommandPanelsMessages" ],
+        "effectivityUnitSectionAllUnitsTitle": [ "RecipeCommandPanelsMessages" ],
+        "effectivityUnitSectionAllUnitsValue": [ "RecipeCommandPanelsMessages" ],
+        "effectivityGroups": [ "RecipeCommandPanelsMessages" ],
+        "endItemMessage": [ "RecipeCommandPanelsMessages" ],
+        "evm1EndItem": [ "RecipeCommandPanelsMessages" ]
+    }
+}

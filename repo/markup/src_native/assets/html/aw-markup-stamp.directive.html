@@ -1,0 +1,15 @@
+<div ng-if="vmo && vmo.groupName">
+    <aw-icon class="aw-ui-filterCategoryLabelExpand" ng-click="toggleGroup(vmo)"
+    icon-id="miscExpand" ng-show="vmo.expanded"></aw-icon>
+    <aw-icon class="aw-ui-filterCategoryLabelCollapse" ng-click="toggleGroup(vmo)"
+    icon-id="miscCollapse" ng-show="! vmo.expanded"></aw-icon>
+    <div class="aw-ui-filterCategoryLabel aw-ui-filterCategoryLabelEnabled" ng-click="toggleGroup(vmo)">
+       {{vmo.groupName | toI18n }}
+    </div>
+</div>
+<div ng-if="vmo && ! vmo.groupName">
+   <div class="aw-widgets-cellListCellTitleBlock">
+      <h3 class="aw-widgets-cellListCellTitle">{{vmo.stampName}}</h3>
+   </div>
+   <div ng-bind-html="composeHtml(vmo)" title="{{vmo.displayname + '\n' + vmo.date.toLocaleString()}}" ></div>
+</div>

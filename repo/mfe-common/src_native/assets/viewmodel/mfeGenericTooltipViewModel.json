@@ -1,0 +1,14 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-repeat.directive",
+        "js/exist-when.directive"
+    ],
+    "data": {
+        "title": "{{subPanelContext.extendedTooltip.title}}",
+        "messages": "{{subPanelContext.extendedTooltip.messages}}",
+        "instruction": "{{subPanelContext.extendedTooltip.instruction}}",
+        "information": "{{subPanelContext.extendedTooltip.information}}",
+        "className": "{{subPanelContext.extendedTooltip.className}}"
+    }
+}

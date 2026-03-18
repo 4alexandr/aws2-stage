@@ -1,0 +1,62 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-tab-set.directive"
+    ],
+
+    "actions": {
+
+        "clearEndItemInfoSection": {
+            "actionType": "dataProvider",
+            "method": "clearEndItemInfo"
+        },
+
+        "clearEndItemInfo": {
+            "actionType": "JSFunction",
+            "method": "clearEndItemConfigurationData",
+            "inputData": {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/EVM1endItemConfigurationService"
+        }
+    },
+
+    "dataProviders": {
+        "clearEndItemInfo": {
+            "action": "clearEndItemInfo"
+        }
+    },
+
+    "onEvent": [ {
+        "eventId": "awPanel.navigate",
+        "action": "clearEndItemInfoSection",
+        "criteria": {
+            "destPanelId": "Evm1ConfigPanelFilters"
+        }
+    } ],
+
+    "data": {
+        "endItemTabsModel": {
+            "isArray": "true",
+            "dbValue": [ {
+                    "panelId": "Evm1endItemPaletteTab",
+                    "name": "{{i18n.paletteEndItemPresenterBtn}}",
+                    "recreatePanel": true,
+                    "selectedTab": true
+                },
+                {
+                    "panelId": "Evm1endItemSearchTab",
+                    "name": "{{i18n.searchEndItemPresenterBtn}}",
+                    "recreatePanel": true
+                }
+            ]
+        }
+    },
+
+    "i18n": {
+        "paletteEndItemPresenterBtn": [ "OccurrenceManagementConstants" ],
+        "searchEndItemPresenterBtn": [ "OccurrenceManagementConstants" ],
+        "endItemMessage": [ "OccurrenceManagementConstants" ]
+    }
+}

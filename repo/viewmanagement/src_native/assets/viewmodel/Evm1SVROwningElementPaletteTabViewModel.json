@@ -1,0 +1,144 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive"
+    ],
+
+    "actions":
+    {
+        "revealSVROwningItemPaletteTab":
+        {
+            "actionType": "dataProvider",
+            "method": "showPreferredSVROwningItems"
+        },
+
+        "getPreferredSVROwningItems":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceBom-2019-12-OccurrenceConfiguration",
+            "method": "getConfigurationRules2",
+            "inputData":
+            {
+                "input":
+                {
+                    "maxToLoad": 20,
+                    "startIndex": 0,
+                    "searchCriteria": "",
+                    "productContext":
+                    {
+                        "type": "Awb0ProductContextInfo",
+                        "uid": "{{ctx.recipeCtx.productContextInfo.uid}}"
+                    },
+
+                    "typeToFetch": "VariantRule",
+                    "fetchOnlyPreferredConfiguration": true
+                }
+            },
+
+            "outputData":
+            {
+                "svrOwningItems": "{{function:processSVROwningItems}}"
+            },
+            "actionMessages": {
+                "failure":
+                [
+                    {
+                        "message": "errorInGettingPreferredConfigInfo"
+                    }
+                ]
+            },
+        "deps": "js/Evm1ConfigurationPanelService"
+        },
+
+        "frequentlyUsedSVROwningItemSelected":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "configPanel.updateConfigItems"
+                    },
+                    {
+                        "name": "evm1ConfigPanel.svrOwningItemChanged"
+                    },
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData":
+                        {
+                            "destPanelId": "Evm1ConfigPanelFilters"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "updateConfigItems":
+        {
+            "actionType": "JSFunction",
+            "method": "updateConfigItems",
+            "inputData":
+            {
+                "newItemSelected": "{{data.dataProviders.showPreferredSVROwningItems.selectedObjects[0]}}"
+            },
+        "deps": "js/Evm1ConfigurationPanelService"
+        }
+    },
+
+    "functions": {
+        "processSVROwningItems": {
+            "functionName": "processSVROwningItems",
+            "parameters": []
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Evm1SVROwningElementPaletteTab"
+            },
+            "action": "revealSVROwningItemPaletteTab"
+        },
+        {
+            "eventId": "showPreferredSVROwningItems.selectionChangeEvent",
+            "action": "frequentlyUsedSVROwningItemSelected"
+        },
+        {
+            "eventId": "configPanel.updateConfigItems",
+            "action": "updateConfigItems"
+        }
+    ],
+
+    "dataProviders":
+    {
+        "showPreferredSVROwningItems":
+        {
+            "action": "getPreferredSVROwningItems",
+            "response": "{{data.svrOwningItems}}",
+            "uidInResponse": "dbValues[0]",
+            "selectionModelMode": "single"
+        }
+    },
+
+    "messages":
+    {
+        "errorInGettingPreferredConfigInfo":
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.errorInGettingPreferredConfigInfo}}"
+        }
+    },
+
+    "i18n":
+    {
+        "configurationPanelFrequentlyUsedSectionTitle": [ "RecipeCommandPanelsMessages"],
+        "errorInGettingPreferredConfigInfo": ["RecipeCommandPanelsMessages"]
+    }
+}

@@ -1,0 +1,191 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-xrt.directive",
+        "js/aw-form.directive",
+        "js/aw-repeat.directive",
+        "js/visible-when.directive",
+        "js/aw-widget.directive"
+    ],
+
+    "actions": 
+    {
+        "getInputCutDimensionData": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-StockMaterialAW-2017-12-StockMaterial",
+            "method": "getInputCutDimensionData",
+            "inputData": 
+            {
+                "inputObjects": 
+                [
+                    "{{ctx.selectedStdPartOrStockMaterial}}"
+                ]
+            },
+
+            "outputData": 
+            {
+                "inputParameters": "{{function:getCutDimensionList}}"
+            },
+
+            "deps": "js/Sm1StockMaterialService"
+        },
+
+        "executeGetInputCutDimensionAction": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "getInputCutDimensionData.getCutDimensionAction",
+                        "condition": "ctx.selectedStdPartOrStockMaterial.modelType.typeHierarchyArray.indexOf( 'SM0StockMaterial' ) > -1 || ctx.selectedStdPartOrStockMaterial.modelType.typeHierarchyArray.indexOf( 'SM0StockMaterialRevision' ) > -1 "
+                    }
+                ]
+            }
+        },
+
+        "attachStockMaterial": 
+        {
+            "actionType": "JSFunction",
+            "method": "attachStockMaterial",
+            "inputData": 
+            {
+                "data": "{{data}}",
+                "provider": "{{ctx.selectedStdPartOrStockMaterial}}"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": 
+                        {
+                            "relatedModified": 
+                            [
+                                "{{ctx.selected}}"
+                            ]
+                        }
+                    },
+
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ],
+                "failure": 
+                [
+                    {
+                        "condition": "(errorCode.code === 135000 || 135002) && data.preferences.MakeFrom_Without_Program_Preferred[0] === 'true'",
+                        "name": "cdm.relatedModified",
+                        "eventData":
+                        {
+                            "relatedModified": ["{{ctx.selected}}"]
+                        }
+                    }                    
+                ]                
+            },
+
+            "actionMessages": 
+            {
+                "failure": 
+                [
+                    {
+                        "condition": "(errorCode.code===135000) && data.preferences.MakeFrom_Without_Program_Preferred[0] === 'false' ",
+                        "message": "madeFromFailureMakeFromPrefFalse"
+                    },
+                    {
+                        "condition": "(errorCode.code===135000) && data.preferences.MakeFrom_Without_Program_Preferred[0] === 'true' ",
+                        "message": "madeFromFailureMakeFromPrefTrue"
+                    }                     
+                ]
+            },
+
+            "deps": "js/Sm1StockMaterialService"
+        }
+    },
+    "preferences": 
+    [
+         "MakeFrom_Without_Program_Preferred"
+    ], 
+    "messages": 
+    {
+        "madeFromFailureMakeFromPrefFalse": 
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.madeFromFailureMakeFromPrefFalse}}",
+            "messageTextParams": 
+            [
+                "{{ctx.selectedStdPartOrStockMaterial.props.object_string.dbValue}}",
+                "{{ctx.userSession.props.project.uiValue}}"
+            ]
+        },
+        "madeFromFailureMakeFromPrefTrue": 
+        {
+            "messageType": "INFO",
+            "messageText": "{{i18n.madeFromFailureMakeFromPrefTrue}}",
+            "messageTextParams": 
+            [
+                "{{ctx.selectedStdPartOrStockMaterial.props.object_string.dbValue}}",
+                "{{ctx.userSession.props.project.uiValue}}"
+            ]
+        }
+    },
+
+    "onEvent": 
+    [
+        {
+            "eventId": "awPanel.reveal",
+            "action": "executeGetInputCutDimensionAction"
+        },
+
+        {
+            "eventId": "getInputCutDimensionData.getCutDimensionAction",
+            "action": "getInputCutDimensionData"
+        }
+    ],
+    "i18n": 
+    {
+        "properties": 
+        [
+            "Sm1StockMaterialMessages"
+        ],
+
+        "add": 
+        [
+            "Sm1StockMaterialMessages"
+        ],
+
+        "madeFromFailureMakeFromPrefTrue": 
+        [
+            "Sm1StockMaterialMessages"
+        ],
+        
+        "madeFromFailureMakeFromPrefFalse": 
+        [
+            "Sm1StockMaterialMessages"
+        ],        
+        "dimensionsLabel": 
+        [
+            "Sm1StockMaterialMessages"
+        ],
+
+        "addPropertiesLabel": 
+        [
+            "Sm1StockMaterialMessages"
+        ]
+    }
+}

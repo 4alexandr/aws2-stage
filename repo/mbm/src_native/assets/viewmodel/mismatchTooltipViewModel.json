@@ -1,0 +1,73 @@
+{
+    "schemaVersion": "1.0.0",
+    "data":{
+        "2":{
+            "title":"{{i18n.mismatchTitle}}",
+            "description":{
+                "text":"{{i18n.mismatchDesc}}"
+            }
+        },
+        "6":{
+            "title":"{{i18n.mismatchTitle}}",
+            "description":{
+                "text":"{{i18n.mismatchDesc}}"
+            }
+        },
+        "52":{
+            "title":"{{i18n.containsMismatchesEbomTitle}}",
+            "description":{
+                "text":"{{i18n.containsMismatchesEbomDesc}}"
+            }
+        },
+        "54":{
+            "title":"{{i18n.containsMismatchesEbomTitle}}",
+            "description":{
+                "text":"{{i18n.containsMismatchesEbomDesc}}"
+            }
+        },
+        "58":{
+            "title":"{{i18n.mismatchTitle}}",
+            "description":{
+                "text":"{{i18n.mismatchDesc}}"
+            }
+        },
+        "59":{
+            "title":"{{i18n.mbmPackMismatchOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackMismatchOccDesc}}"
+            }
+        },
+        "61":{
+            "title":"{{i18n.mbmPackMismatchOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackMismatchOccDesc}}"
+            }
+        },
+        "62":{
+            "title":"{{i18n.mbmPackMismatchOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackMismatchOccDesc}}"
+            }
+        },
+        "63":{
+            "title":"{{i18n.mbmPackMismatchOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackMismatchOccDesc}}"
+            }
+        },
+        "70":{
+            "title":"{{i18n.mbmPackMismatchOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackMismatchOccDesc}}"
+            }
+        }
+    },
+    "i18n": {
+        "mismatchTitle": ["mbmMessages"],
+        "mismatchDesc": ["mbmMessages"],
+        "containsMismatchesEbomTitle": ["mbmMessages"],
+        "containsMismatchesEbomDesc": ["mbmMessages"],
+        "mbmPackMismatchOccTitle": ["mbmMessages"],
+        "mbmPackMismatchOccDesc": ["mbmMessages"]
+    }
+}

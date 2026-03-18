@@ -1,0 +1,177 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-list-filter.directive"
+    ],
+    "data": {
+        "variantRuleFilterBox": {
+            "displayName": "filter",
+            "type": "STRING",
+            "dbValue": ""
+        },
+        "defaultVariantRule": {
+            "displayName": "{{i18n.variantSectionSavedVariantsValue}}",
+            "uiValue": "{{i18n.variantSectionSavedVariantsValue}}",
+            "type": "STRING"
+        }
+    },
+    "actions": {
+        "validateAndGetConfigPerspective": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "Att1VariantRulePopupContent.getConfigPerspective",
+                        "condition": "ctx.parammgmtctx.paramProject.props.Att0HasVariantConfigContext.dbValues.length > 0"
+                    },
+                    {
+                        "name": "Att1VariantRulePopupContent.getAllVariantRulesAction",
+                        "condition": "ctx.parammgmtctx.paramProject.props.Att0HasVariantConfigContext.dbValues.length  === 0"
+                    }
+                ]
+            }
+        },
+        "getConfigPerspective": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ProductConfiguratorAw-2018-05-ConfiguratorManagement",
+            "method": "variantConfigurationView",
+            "inputData": {
+                "input": {
+                    "activeVariantRules": "{{ctx.variantConfigContext.activeVariantRules}}",
+                    "configPerspective": "{{ctx.variantConfigContext.configPerspective}}",
+                    "requestInfo": {
+                        "requestType": [
+                            "getConfig"
+                        ],
+                        "configurationControlMode": [
+                            "{{function:getConfigurationMode}}"
+                        ],
+                        "switchingToGuideMode": [
+                            ""
+                        ]
+                    },
+                    "scopes": [
+                        ""
+                    ],
+                    "selectedContext": "{{function:getSelectionForVariantContext}}",
+                    "selections": "{{ctx.variantConfigContext.selections}}"
+                }
+            },
+            "outputData": {
+                "configPerspective": "{{function:cacheConfigPerspective}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "Att1VariantRulePopupContent.getAllVariantRulesAction"
+                    }
+                ]
+            },
+            "deps": "js/Att1ConfigureVariantService"
+        },
+        "getAllVariantRulesAction": {
+            "actionType": "dataProvider",
+            "method": "att1VariantRulesDataProvider"
+        },
+        "getAllVariantRules": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "getProperties",
+            "inputData": {
+                "objects": [
+                    "{{ctx.parammgmtctx.configPerspective}}"
+                ],
+                "attributes": [
+                    "cfg0SavedVariantRules"
+                ]
+            },
+            "outputData": {
+                "variantRules": "{{function:processVariantRules}}",
+                "totalFound": "totalFound",
+                "totalLoaded": "totalLoaded"
+            },
+            "actionMessages": {
+                "failure": [
+                    {
+                        "message": "errorInGettingPreferredConfigInfo"
+                    }
+                ]
+            },
+            "deps": "js/Att1VariantInfoConfigurationService"
+        },
+        "applyVariantRuleSelectionChange": {
+            "actionType": "JSFunction",
+            "method": "applyVariantRuleSelectionChange",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Att1VariantInfoConfigurationService"
+        }
+    },
+    "dataProviders": {
+        "att1VariantRulesDataProvider": {
+            "action": "getAllVariantRules",
+            "response": "{{data.variantRules}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "messages": {
+        "errorInGettingPreferredConfigInfo": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.errorInGettingPreferredConfigInfo}}"
+        }
+    },
+    "lifecycleHooks": {
+        "onMount": "validateAndGetConfigPerspective"
+    },
+    "onEvent": [
+        {
+            "eventId": "Att1VariantRulePopupContent.getAllVariantRulesAction",
+            "action": "getAllVariantRulesAction"
+        },
+        {
+            "eventId": "att1VariantRulesDataProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "applyVariantRuleSelectionChange"
+        },
+        {
+            "eventId": "Att1VariantRulePopupContent.getConfigPerspective",
+            "action": "getConfigPerspective"
+        }
+    ],
+    "conditions": {},
+    "functions": {
+        "getConfigurationMode": {
+            "functionName": "getConfigurationMode",
+            "parameters": []
+        },
+        "getSelectionForVariantContext": {
+            "functionName": "getSelectionForVariantContext"
+        },
+        "processVariantRules": {
+            "functionName": "processVariantRules",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "i18n": {
+        "customVariantPanelTitle": [
+            "OccurrenceManagementConstants"
+        ],
+        "customVariantRule": [
+            "OccurrenceManagementConstants"
+        ],
+        "variantSectionSavedVariantsValue": [
+            "OccurrenceManagementConstants"
+        ],
+        "errorInGettingPreferredConfigInfo": [
+            "OccurrenceManagementMessages"
+        ],
+        "new": [
+            "OccurrenceManagementConstants"
+        ]
+    }
+}

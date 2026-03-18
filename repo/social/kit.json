@@ -1,0 +1,12 @@
+{
+  "name": "social",
+  "description": "",
+  "modules": [
+    "social"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "S2Cl"
+  ]
+}

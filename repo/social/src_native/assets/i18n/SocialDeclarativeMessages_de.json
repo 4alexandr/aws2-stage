@@ -1,0 +1,23 @@
+{
+    "addComment": "Kommentar",
+    "addQuestion": "Frage stellen",
+    "addAnswer": "Antwort senden",
+    "addRating": "Bewerten",
+    "name": "Name",
+    "postComment": "Kommentar senden",
+    "postQuestion": "Frage stellen",
+    "postAnswer": "Antwort senden",
+    "postRating": "Bewerten",
+    "subscriptionFailed": "\"{0}\" kann nicht gefolgt werden.",
+    "oneStarRating": "Bewertung - 1 Stern",
+    "twoStarRating": "Bewertung - 2 Sterne",
+    "threeStarRating": "Bewertung - 3 Sterne",
+    "fourStarRating": "Bewertung - 4 Sterne",
+    "fiveStarRating": "Bewertung - 5 Sterne",
+    "allRatings": "Alle Bewertungen",
+    "reply": "Antworten",
+    "S2clSCAddCommentNewDesc": "Kommentar zu einem Objekt veröffentlichen.",
+    "S2clSCAddQuestionNewDesc": "Frage zu einem Objekt stellen.",
+    "S2clSCAddAnswerNewDesc": "Frage zu einem Objekt beantworten.",
+    "S2clSCAddRatingNewDesc": "Bewertung zu einem Objekt hinzufügen."
+}

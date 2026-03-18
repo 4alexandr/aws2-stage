@@ -1,0 +1,13 @@
+{
+  "name": "search",
+  "description": "",
+  "modules": [
+    "search"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Teamcenter.Soa.Query",
+    "Awp0.Soa.AWS2"
+  ]
+}

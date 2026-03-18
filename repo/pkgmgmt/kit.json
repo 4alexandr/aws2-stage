@@ -1,0 +1,9 @@
+{
+  "name": "pkgmgmt",
+  "description": "",
+  "modules": [
+    "pkgmgmt"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

@@ -1,0 +1,41 @@
+<aw-panel-body>
+    <!-- Hierarhcy & Search panel -->
+    <aw-panel-section>
+        <aw-cls-classheader action="revealCreate" caption="i18n.assignedClasses" expansionstate="data.hierarchyExpanded" visible-when="conditions.showHierarchy">
+            <aw-search-box prop="data.searchBox" action="searchEvent" ></aw-search-box>
+            <aw-hierarchical-navigation childNodes="data.children" parentNodes="data.parents"  displayNameProp="'className'" toolTipProp="'id'">
+            </aw-hierarchical-navigation>
+        </aw-cls-classheader>
+        <aw-cls-classheader caption="i18n.assignedClasses" expansionstate="data.hierarchyExpanded" visible-when="!conditions.showHierarchy">
+            <aw-search-box prop="data.searchBox" action="searchEvent" ></aw-search-box>
+            <aw-cls-link aw-repeat="item : data.classificationSearchResults" prop="item" selectedprop="data.selectedSearchResult" action="searchResultSelected"></aw-cls-link>
+            <aw-i18n visible-when="conditions.showNoSearchResultsMessage">i18n.noSearchResults</aw-i18n>
+        </aw-cls-classheader>
+    </aw-panel-section>
+
+    <!-- Class Images Panel-->
+    <aw-panel-section class="aw-cls-imagesPanel">
+        <aw-cls-classheader caption="i18n.images" expansionstate="data.expandImagesPanel" visible-when="conditions.showAttributes && conditions.showClassImagesSection">
+            <aw-image source="imageURL" aw-repeat="imageURL : data.imageURLs"></aw-image>
+        </aw-cls-classheader>
+    </aw-panel-section>
+
+    <!-- Attributes Panel -->
+    <aw-panel-section caption="i18n.properties">
+        <aw-cls-unitsystem prop="data.unitSystem" view="data.activeView"></aw-cls-unitsystem>
+        <span class="aw-search-advancedSearchClearAll">
+            <aw-link prop="data.clearAllButton" action="clearAllProperties" class="aw-cls-panel-clearall" link-id="Clear All" visible-when="data.panelMode === 0 || data.panelMode === 1"></aw-link>
+        </span>
+        <aw-cls-properties exist-when="conditions.showAttributes && !conditions.hasAdvancedData" attributes="data.attr_anno" view="data.panelMode" activeview="data.activeView"></aw-cls-properties>
+    </aw-panel-section>
+    <aw-message-params context="data.selectedClass" params='["className"]'
+    message="{{i18n.advancedDataPanelMessage}}" exist-when="conditions.hasAdvancedData"></aw-message-params>
+</aw-panel-body>
+
+<aw-panel-footer visible-when="!conditions.hasAdvancedData">
+    <aw-button action="fieldValidation" visible-when="awPanelBody.$valid && conditions.showAttributes && conditions.createMode && conditions.multiClassification"><aw-i18n>i18n.Add</aw-i18n></aw-button>
+    <aw-button action="fieldValidation" visible-when="awPanelBody.$valid && conditions.showAttributes && conditions.createMode && !conditions.multiClassification"><aw-i18n>i18n.Classify</aw-i18n></aw-button>
+    <aw-button action="getAttributes" visible-when="conditions.showSetClass"><aw-i18n>i18n.assignClass</aw-i18n></aw-button>
+    <aw-button action="fieldValidation" visible-when="!conditions.standaloneUseExistingMode && (conditions.editMode && awPanelBody.$valid && awPanelBody.$dirty && conditions.showAttributes || conditions.editMode && awPanelBody.$valid && conditions.showAttributes && conditions.hierarchyDirty)"><aw-i18n>i18n.save</aw-i18n></aw-button>
+    <aw-button action="classifyStandalone" visible-when="conditions.editMode && awPanelBody.$valid && conditions.showAttributes && conditions.standaloneUseExistingMode"><aw-i18n>i18n.Classify</aw-i18n></aw-button>
+</aw-panel-footer>

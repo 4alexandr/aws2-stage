@@ -1,0 +1,22 @@
+{
+    "manageTitle": "管理",
+    "createWorkPackageHeaderTitle": "新規作業パッケージ",
+    "manageTitleDecl": "作業パッケージを管理",
+    "epOpenWPTitle": "開く",
+    "epOpenWPDesc": "作業パッケージを開く",
+    "ebomTileTitle": "EBOM",
+    "mbomTileTitle": "MBOM",
+    "add": "追加",
+    "noEbomSelectedMessage": "MBOMを選択する前に、EBOMを選択します。",
+    "addEbomCmdToolTipTitle": "EBOMを追加",
+    "addEbomCmdToolTipDescription": "EBOM構成を選択してそれをワークパッケージに追加します。",
+    "addMbomCmdToolTipTitle": "BOMを追加",
+    "addMbomCmdToolTipDescription": "新しいMBOM構成を作成するかまたは既存を選択して、それをワークパッケージに追加します。",
+    "manageWPRightAreaTitle": "コンテンツ",
+    "addProduct":"製品を追加",
+    "productSearchPlaceHolder":"タイプ製品名",
+    "useExistingMbom": "既存のMBOMを使用",
+    "createNewMbom": "新規MBOMを作成",
+    "revisionRule":"リビジョンルール",
+    "createProductHeaderTitle":"製品を作成"
+}

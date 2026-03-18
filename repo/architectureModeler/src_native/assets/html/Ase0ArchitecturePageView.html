@@ -1,0 +1,17 @@
+<aw-architecture-page>
+    <aw-row height="fill">
+        <aw-column width="fill" height="fill">
+            <aw-row width="fill" height="fill">
+                <aw-include name="Ase0ArchitecturePrimary"></aw-include>
+            </aw-row>
+            <aw-splitter direction="HORIZONTAL" exist-when="ctx.architectureCtx.splitPanelLocation === 'bottom' && ctx.architectureCtx.viewMode !== 'Ase0MatrixView'" ></aw-splitter>
+            <aw-row width="fill" height="30%" exist-when="ctx.architectureCtx.splitPanelLocation === 'bottom' && ctx.architectureCtx.viewMode !== 'Ase0MatrixView'">
+                <aw-include name="Ase0ArchitectureSecondary"></aw-include>
+            </aw-row>
+        </aw-column>
+        <aw-splitter exist-when="ctx.architectureCtx.splitPanelLocation === 'right' && ctx.architectureCtx.viewMode !== 'Ase0MatrixView'" ></aw-splitter>
+        <aw-column width="30%" height="fill" exist-when="ctx.architectureCtx.splitPanelLocation === 'right' && ctx.architectureCtx.viewMode !== 'Ase0MatrixView'">
+            <aw-include name="Ase0ArchitectureSecondary"></aw-include>
+        </aw-column>
+    </aw-row>
+</aw-architecture-page>

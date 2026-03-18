@@ -1,0 +1,9 @@
+<aw-include exist-when="!ports.input_informationSubpage.syncObject.uid" name="mfeLoadingMessage"></aw-include>
+<aw-flex-row exist-when="ports.input_informationSubpage.syncObject.uid">
+    <aw-flex-column width="35f">
+        <aw-include name="ngpAttachmentsInformation" sub-panel-context="ports.input_informationSubpage.syncObject"></aw-include>
+    </aw-flex-column>
+    <aw-flex-column width="fill">
+        <aw-include name="ngpInformationDetails" sub-panel-context="ports.input_informationSubpage.syncObject"></aw-include>
+    </aw-flex-column>
+</aw-flex-row>

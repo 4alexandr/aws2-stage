@@ -1,0 +1,14 @@
+<aw-sublocation fullscreen="ctx.fullscreen" context="commandContext">
+    <aw-sublocation-body ng-if="!validationErrorMessage">
+        <div class="aw-layout-primaryWorkarea aw-layout-flexRowContainer afx-alt-content-background"
+            ng-class="{'aw-layout-primaryWorkareaLeft aw-layout-summaryList': showSecondaryWorkArea && ['table','tree'].indexOf(view) === -1,
+            'aw-layout-primaryWorkareaLeft aw-layout-summaryList aw-layout-tableSummaryList': showSecondaryWorkArea && ['table','tree'].indexOf(view) !== -1,
+            'aw-layout-primaryWorkareaFill': !showSecondaryWorkArea}"
+            ng-hide="showSecondaryWorkArea && ctx.fullscreen">
+            <aw-primary-workarea view-base="viewBase" view="view" context="pwaContext" breadcrumb-config="breadcrumbConfig"></aw-primary-workarea>
+        </div>
+        <aw-splitter min-size-1="317" min-size-2="300" isPrimarySplitter=true direction="vertical" ng-class="{'hidden': !showSecondaryWorkArea || ctx.fullscreen || !objFound}"></aw-splitter>
+        <aw-secondary-workarea ng-if="showSecondaryWorkArea && !secondaryView" selected="modelObjects" context="swaContext"></aw-secondary-workarea>
+        <aw-include exist-when="showSecondaryWorkArea && secondaryView" name="{{secondaryView}}" sub-panel-context="swaContext"></aw-include>        
+    </aw-sublocation-body>
+</aw-sublocation>

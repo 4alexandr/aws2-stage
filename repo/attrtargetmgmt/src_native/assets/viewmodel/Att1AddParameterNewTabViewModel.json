@@ -1,0 +1,143 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+        [
+            "js/aw-search-box.directive",
+            "js/aw-tab-set.directive",
+            "js/visible-when.directive",
+            "js/aw-break.directive",
+            "js/aw-panel-section.directive",
+            "js/aw-panel-body.directive",
+            "js/aw-panel-footer.directive",
+            "js/aw-i18n.directive",
+            "js/aw-button.directive"
+        ],
+        "actions":
+        {
+            "search": {
+                "actionType": "JSFunction",
+                "method": "findPreFiltersAndInvokeSearch",
+                "inputData": {
+                    "input": "{{data}}"
+                },
+                "events": {
+                    "success": [ {
+                        "name": "getMeasurableAttrParentObjectTypes"
+                    } ]
+                },
+                "deps": "js/addMeasurableAttr"
+            },
+            "initiateCreatePanel":
+            {
+                "actionType": "Event",
+                "method": "Event",
+                "inputData":
+                {
+                    "events":
+                    [
+                        {
+                            "name": "awPanel.navigate",
+                            "eventData":
+                            {
+                                "destPanelId": "Att1AddParameterCreate",
+                                "title": "{{data.i18n.backLabel}}",
+                                "recreatePanel": true,
+                                "supportGoBack": true
+                            }
+                        }
+                    ]
+                }
+            },
+            "clearSelectedType": {
+                "actionType": "JSFunction",
+                "method": "clearSelectedType",
+                "inputData": {
+                    "data": "{{data}}"
+                },
+                "deps": "js/addMeasurableAttr"
+            },
+            "getMeasurableAttrParentObjectTypes": {
+                "actionType": "JSFunction",
+                "method": "getMeasurableAttrParentObjectTypes",
+                "inputData": {
+                    "data": "{{data}}"
+                },
+                "deps": "js/attributeDefinitionTypesService"
+            }
+        },
+
+        "data":
+        {
+            "typeFilter":"Att0AttributeDefRevision",
+            "searchBox":
+            {
+                "displayName": "",
+                "type": "STRING",
+                "isRequired": "true",
+                "dbValue":"*"
+            },
+
+            "addObjectSearchTabsModel":
+            {
+                "isArray": "true",
+                "dbValue":
+                [
+                    {
+                        "tabKey": "results",
+                        "panelId": "resultsTabPageSub",
+                        "name": "{{i18n.resultsTabTitle}}"
+                    },
+                    {
+                        "tabKey": "filters",
+                        "panelId": "filtersTabPageSub",
+                        "name": "{{i18n.filterTabTitle}}"
+                    }
+                ]
+            },
+            "keyWord":
+            {
+                "displayName": "Keywords",
+                "type": "STRING",
+                "isEditable": "false",
+                "labelPosition": "PROPERTY_LABEL_AT_TOP",
+                "dispValue": "{{ctx.KeyWordsString}}"
+            }
+        },
+        "conditions":
+        {
+             "showSearchFilterPanel":
+            {
+                "expression": "data.showSearchFilter != undefined && data.showSearchFilter == true"
+            },
+            "isNewTab": {
+                "expression": "data.selectedTab.tabKey==='results' && data.selectedTab.panelId==='resultsTabPageSub'"
+            },
+            "showAddForNew":{
+                "expression": "data.dataProviders.performSearch.selectedObjects.length  === 1 "
+            }
+
+        },
+        "onEvent": [
+            {
+                "eventId": "awPanel.reveal",
+                "condition":"conditions.isNewTab",
+                "action": "search"
+            },
+            {
+                "eventId": "getMeasurableAttrParentObjectTypes",
+                "action": "getMeasurableAttrParentObjectTypes"
+            }
+        ],
+        "messages":
+        {
+
+        },
+        "i18n":
+        {
+            "add":["Att1AttrMappingMessages"],
+            "attributeDefinition": [ "Att1AttrMappingMessages" ],
+            "resultsTabTitle":[ "Att1AttrMappingMessages" ],
+            "filterTabTitle":[ "Att1AttrMappingMessages" ],
+            "backLabel":[ "Att1AttrMappingMessages" ]
+        }
+    }

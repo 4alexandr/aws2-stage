@@ -1,0 +1,18 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "contentPanelData": {
+            "tabs": [ {
+                    "name": "{{i18n.plantLayoutPanelTitle}}",
+                    "tabKey": "epPert"
+                }
+            ]
+        }
+    },
+    "i18n": {
+        "plantLayoutPanelTitle":["PlanningMessages"]
+    }
+}

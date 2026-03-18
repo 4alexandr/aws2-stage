@@ -1,0 +1,145 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":[
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-i18n.directive",
+        "js/exist-when.directive",
+        "js/aw-button.directive",
+        "js/aw-class.directive"
+    ],
+
+    "data":{
+        "subTilesInfo":"subPanelContext",
+        "subTilesTitle":{
+            "eBomContext":"{{i18n.mbmEbomContextTitle}}",
+            "mBomContext":"{{i18n.mbmMbomContextTitle}}",
+            "mBomContextSubParts":"{{i18n.mbmMbomContextSubPartsTitle}}"
+        }
+    },
+
+    "actions":{
+        "propagateAllAction":{
+            "actionType": "JSFunction",
+            "method": "evaluatePropagateChanges",
+            "inputData": {
+                "param":"{{subPanelContext.subTilesInfo.contextInfo}}"
+            },
+            "outputData":{
+                "evaluatedObj":""
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "message": "mbmPropagateAllOverAssigneConfirmMessage",
+                        "condition": "data.evaluatedObj.hasOverAssigned"
+                    }
+                ]
+            },
+            "events": {
+                "success": [
+                    {
+                        "name":"mbm.evaluatePropagateAllActionSuccessEvent",
+                        "condition": "!data.evaluatedObj.hasOverAssigned"
+                    }
+                ]
+            },
+            "deps":"js/mbmChangeSummaryService"
+        },
+
+        "performPropagateChanges":{
+            "actionType": "JSFunctionAsync",
+            "method": "performPropagateChanges",
+            "inputData": {
+                "param":"{{data.evaluatedObj.objectsToPropagate}}"
+            },
+            "events":{
+                "success":[{
+                    "name": "mbm.performPropagateChangesCompleteEvent"
+                }
+                ]
+            },
+            "deps":"js/mbmChangeSummaryService"
+        },
+
+        "removeAllAction":{
+            "actionType": "JSFunctionAsync",
+            "method": "performRemoveChanges",
+            "inputData": {
+                "param":"{{subPanelContext.subTilesInfo.contextInfo}}"
+            },
+            "deps":"js/mbmChangeSummaryService"
+        },
+
+        "removeEvaluatedObject":{
+            "actionType": "JSFunction",
+            "method": "removeEvaluatedObject",
+            "inputData": {
+                "param":"{{data}}"
+            },
+            "deps":"js/mbmChangeSummaryService"
+        },
+
+        "updateChangeSummaryOnSave":{
+            "actionType": "JSFunction",
+            "method": "updateChangeSummaryOnSave",
+            "inputData": {
+                "changeSummary":"{{subPanelContext}}",
+                "eventData":"{{data.eventData}}"
+            },
+
+            "deps":"js/mbmChangeSummaryService"
+        }
+    },
+
+    "onEvent":[
+        {
+            "eventId": "mbm.evaluatePropagateAllActionSuccessEvent",
+            "cacheEventData": true,
+            "action": "performPropagateChanges",
+            "condition":"data.evaluatedObj.propagationActive"
+        },
+        {
+            "eventId": "mbm.performPropagateChangesCompleteEvent",
+            "cacheEventData": true,
+            "action": "removeEvaluatedObject",
+            "condition":"data.evaluatedObj && data.evaluatedObj.propagationActive"
+        },
+        {
+            "eventId": "mbm.saveSuccessEvent",
+            "cacheEventData": true,
+            "action": "updateChangeSummaryOnSave"
+        }
+    ],
+
+    "messages": {
+        "mbmPropagateAllOverAssigneConfirmMessage": {
+          "messageType": "WARNING",
+          "messageText": "{{i18n.mbmOverAssignedPropagateAllMessage}}",
+          "messageTextParams": [
+            "{{subPanelContext.tooltipDisplayName}}"
+          ],
+          "navigationOptions": [
+            {
+              "option": "Cancel",
+              "text": "{{i18n.mbmCancel}}",
+              "action":"removeEvaluatedObject"
+            },
+            {
+              "option": "propagateAll",
+              "text": "{{i18n.mbmPropagateAll}}",
+              "action": "performPropagateChanges"
+            }
+          ]
+        }
+    },
+    "i18n": {
+        "mbmEbomContextTitle":["mbmMessages"],
+        "mbmMbomContextTitle":["mbmMessages"],
+        "mbmMbomContextSubPartsTitle":["mbmMessages"],
+        "mbmPropagateAll":["mbmMessages"],
+        "mbmCancel":["mbmMessages"],
+        "mbmRemoveAll":["mbmMessages"],
+        "mbmOverAssignedPropagateAllMessage":["mbmMessages"]
+    }
+}

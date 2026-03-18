@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "Lokalisierung bearbeiten",
+    "editLocalizationSingleDesc": "Wert für die Eigenschaft in verschiedene Sprachen übersetzen",
+    "masterValue": "Hauptwert",
+    "translationLanguages": "Übersetzungssprachen",
+    "addorRemoveLocales": "Sprachen hinzufügen oder entfernen",
+    "addorRemoveLocalesDesc": "Wählen Sie aus der Liste der Übersetzungssprachen aus",
+    "removeLocale": "Sprache entfernen",
+    "removeLocaleDesc": "Übersetzungssprache entfernen",
+    "propertiesTranslated": "Eigenschaften, die übersetzt werden können",
+    "status": "Status",
+    "saveTranslationsError": "Beim Speichern sind Probleme aufgetreten. {0}",
+    "property": "Eigenschaft"
+}

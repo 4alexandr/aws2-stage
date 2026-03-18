@@ -1,0 +1,19 @@
+{
+    "CancelText": "Annuler",
+    "RemoveText": "Supprimer",
+    "openInEdmViewCommandTitle": "Ouvrir dans EDM",
+    "preferenceNotConfigured": "Préférence EDA_EDMHosting.URL non configurée",
+    "submitToDesignExchange" : "Ajouter Conception",
+    "newCollaborationCommand" : "Créer co-conception",
+    "designsTitle" : "Conceptions",
+    "addToCollaboration" : "Ajouter",
+    "routed" : "Routé",
+    "unrouted" : "Non routé",
+    "placed" : "Placé",
+    "unplaced" : "Non placé",
+    "designAddedToCollaboration": "La conception \"{0}\" a été ajoutée à Co-conception.",
+    "openIncrement": "Ouvrir Incrément",
+    "openObject" : "Ouverte",
+    "removeDesign": "Supprimer Conception",
+    "removeDesignFromCollaboration": "\"{0}\" et les modifications liées seront supprimées."
+}

@@ -1,0 +1,14 @@
+{
+    "Map_Title":"Zuweisung",
+    "MapButton":"Zuweisung",
+    "attributeTitle": "Parameter",
+    "StudyAttributes": "Studienparameter",
+    "SelectStudy": "Wählen Sie Studien aus, um die Parameter anzuzeigen.",
+    "TestEventAttributes": "Testereignis-Parameter",
+    "SelectTestEvent":"Testereignisse zum Anzeigen von Parametern auswählen",
+    "StudyAttributesTC124": "Simulations- und Testanforderungsparameter",
+    "SelectStudyTC124": "Simulations- oder Testanforderungen zum Anzeigen der Parameter auswählen",
+    "RunAttributes": "Parameter ausführen",
+    "SelectRun": "Durchläufe zum Anzeigen von Parametern auswählen",
+    "Measurement_File_Title": "Wertedatei hinzufügen"
+}

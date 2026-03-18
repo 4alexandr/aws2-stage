@@ -1,0 +1,128 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-i18n.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-listbox.directive",
+        "js/aw-button.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive"    
+    ],
+    "data": {
+        "selectedMapping": {
+            "displayName": "{{i18n.transferOptionSet}}",
+            "isSelectOnly": "true",
+            "type": "STRING",
+            "isRequired": "false",
+            "hasLov": true
+        },
+        "selectedTarMapping": {
+            "displayName": "{{i18n.transferOptionSet}}",
+            "isSelectOnly": "true",
+            "type": "STRING",
+            "isRequired": "false",
+            "hasLov": true
+        }
+    },
+    "actions": {
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "getTransferOptionSets",
+            "inputData":
+            {
+                "input": "{{ctx.mselected[0].uid}}",
+                "data": "{{data}}"
+            },
+
+            "outputData":
+            {
+                "mappingList": "",
+                "mappingListTar": ""
+            },
+
+            "deps": "js/bbrowserTableDataService"
+        },
+        "loadBriefcaseWindow": {
+            "actionType": "JSFunction",
+            "method": "launchBriefcaseCompare",
+            "deps": "js/bbrowserCompareService",
+            "inputData": {
+                "srcUID": "{{ctx.mselected[0].uid}}",
+                "targetUID": "{{ctx.mselected[1].uid}}",
+                "srcMapUID": "{{data.selectedMapping}}",
+                "tarcMapUID": "{{data.selectedTarMapping}}"
+            }
+        },
+        "getSourceContexts": {
+            "actionType": "JSFunction",
+            "method": "previewContext",
+            "inputData":{
+                "inf": "{{ctx.mselected[0].uid}}"
+            },
+            "outputData": {
+                "sourceContexts": ""
+            },
+            "deps": "js/bbrowserOneClickViewerService"
+        },
+        
+        "getTargetContexts": {
+            "actionType": "JSFunction",
+            "method": "previewContext",
+            "inputData":{
+                "inf": "{{ctx.mselected[1].uid}}"
+            },
+            "outputData": {
+                "targetContexts": ""
+            },
+            "deps": "js/bbrowserOneClickViewerService"
+        },
+        "revealSource": {
+            "actionType": "dataProvider",
+            "method": "getSourceContextData"
+        },
+        "revealTarget": {
+            "actionType": "dataProvider",
+            "method": "getTargetContextData"
+        }
+    },
+    "dataProviders":{
+        "getSourceContextData": {
+            "action": "getSourceContexts",
+            "response": "{{data.sourceContexts}}",
+            "selectionModelMode": "single"
+        },
+        "getTargetContextData": {
+            "action": "getTargetContexts",
+            "response": "{{data.targetContexts}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "messages": {
+    },
+    "onEvent": [
+        {
+        "eventId": "bbrowserCompareViewer.contentLoaded",
+        "action": "revealSource"
+        },
+        {
+        "eventId": "bbrowserCompareViewer.contentLoaded",
+        "action": "revealTarget"
+        }
+    ],
+    "conditions": {
+    },
+    "functions": {
+    },
+    "i18n": {
+        "pickTOSPanelCompare": ["bbrowserMessages"],
+        "transferOptionSetLabel": ["bbrowserMessages"],
+        "compare": ["bbrowserMessages"],
+        "transferOptionSet" : ["bbrowserMessages"],
+        "tosPanelSourceBCZ" : ["bbrowserMessages"],
+        "tosPanelTargetBCZ" : ["bbrowserMessages"]
+    }
+}

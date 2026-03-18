@@ -1,0 +1,12 @@
+<aw-flex-column class="aw-epGraphics-cellContainer" align-content="center">
+    <aw-flex-row class="aw-epGraphics-thumbnailContainer" justify="center">
+        <aw-panel class="aw-epGraphics-thumbnailPanel">
+            <aw-image source="subPanelContext.thumbnailURL"></aw-image>
+        </aw-panel>
+    </aw-flex-row>
+    <aw-flex-row align-content="center" justify="center">
+        <span class="aw-epGraphics-thumbnailLabel">
+            {{subPanelContext.props.object_string.uiValues[ 0 ]?subPanelContext.props.object_string.uiValues[ 0 ]:subPanelContext.props.object_string.dbValues}}
+        </span>
+    </aw-flex-row>
+</aw-flex-column>

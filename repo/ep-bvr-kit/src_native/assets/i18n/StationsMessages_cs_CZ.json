@@ -1,0 +1,10 @@
+{
+    "StationWorkInstructionsTitle": "Pracovní instrukce",
+    "processTitle": "Proces",
+    "editorTitle": "Editor",
+    "noAssemblyStructure": "Není odkazována žádná struktura sestavy.",
+    "GraphicVisibilityColumnName": "Grafická viditelnost",
+    "syncedToViewer": "Synchronizováno s prohlížečem.  {@msgTxtLink0}",
+    "syncedToEditor": "Synchronizováno s textovým editorem.  {@msgTxtLink0}",
+    "switchMode": "Přepnout"
+}

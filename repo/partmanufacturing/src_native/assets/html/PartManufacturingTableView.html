@@ -1,0 +1,20 @@
+<aw-panel-body>
+        <aw-column width="fill">
+                <aw-panel-header>
+                        <aw-tab-set tabs="data.tabDocAndRes"></aw-tab-set>
+                </aw-panel-header>
+                <aw-panel-section>
+                        <aw-splm-table class="aw-partmfg-resources" gridid="ResourcesTable" exist-when="!data.dataProviders.resourcesDataProvider.noResults && (!ctx.PartMfg || ctx.PartMfg.activeTabIndex===0)"></aw-splm-table>
+                        <aw-splm-table class="aw-partmfg-resources" gridid="NoDataResourcesTable" exist-when="data.dataProviders.resourcesDataProvider.noResults && (!ctx.PartMfg || ctx.PartMfg.activeTabIndex===0)"></aw-splm-table>                        
+                        <aw-splm-table class="aw-partmfg-attachments" gridid="AttachmentsTable" exist-when="!data.dataProviders.attachmentsDataProvider.noResults && ctx.PartMfg && ctx.PartMfg.activeTabIndex===1"></aw-splm-table>
+                        <aw-splm-table class="aw-partmfg-attachments" gridid="NoDataAttachmentsTable" exist-when="data.dataProviders.attachmentsDataProvider.noResults && ctx.PartMfg && ctx.PartMfg.activeTabIndex===1"></aw-splm-table>                        
+                </aw-panel-section>
+                <aw-panel-header>
+                                <aw-tab-set tabs="data.tabAct"></aw-tab-set>
+                </aw-panel-header>
+                <aw-panel-section>
+                        <aw-splm-table class="aw-partmfg-activities" gridid="activitiesTree" use-tree="true" exist-when="!data.dataProviders.gridDataProvider.noResults"></aw-splm-table>
+                        <aw-splm-table class="aw-partmfg-activities" gridid="NoDataActivitiesTree" use-tree="true" exist-when="data.dataProviders.gridDataProvider.noResults"></aw-splm-table>                        
+                </aw-panel-section>
+        </aw-column>
+</aw-panel-body>

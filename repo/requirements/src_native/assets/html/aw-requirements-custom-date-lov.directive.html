@@ -1,0 +1,4 @@
+<aw-listbox prop="data.lovDateProp" list="data.lovDatePropOptions.dbValue"></aw-listbox>
+<aw-property-error>
+    <aw-date prop="data.customDateProp" exist-when="data.lovDateProp.dbValue=='date'" ng-model="prop.dateApi.dateValue"></aw-date>
+</aw-property-error>

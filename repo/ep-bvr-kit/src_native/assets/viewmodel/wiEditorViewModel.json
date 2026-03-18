@@ -1,0 +1,226 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-scrollpanel.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-include.directive",
+        "js/aw-list.directive"
+    ],
+    "dataProviders": {
+        "editorsData": {
+            "action": "initWIData",
+            "inputData": {
+                "selectionModel": "{{data.selectionModel}}"
+            },
+            "response": "{{data.editorsData}}",
+            "totalFound": "{{data.totalFound}}"
+        }
+    },
+    "ports": {
+        "wiEditor_selectedObjects": {
+            "onChangeAction": "selectionSync",
+            "syncObject": {}
+        }
+    },
+    "actions": {
+        "initWIData": {
+            "actionType": "JSFunctionAsync",
+            "method": "onInit",
+            "outputData": {
+                "editorsData": "editorsData"
+            },
+            "deps": "js/wiEditorViewerService"
+        },
+        "updateSelectionPort": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "wiEditor_selectedObjects",
+                "syncObject": "{{data.eventMap['editorsData.selectionChangeEvent'].selectedObjects}}"
+            }
+        },
+        "selectionSync": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "setSelectionFromPort",
+                    "condition": "conditions.isSelectionModelNotNull"
+                },
+                {
+                    "action": "publishFocusSelection"
+                }
+            ]
+        },
+        "publishFocusSelection": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "editorsData.focusSelection"
+                    }
+                ]
+            }
+        },
+        "setSelectionFromStepEditorClickEvent": {
+            "actionType": "JSFunction",
+            "method": "setSelectionInSelectionModel",
+            "inputData": {
+                "selectionModel": "{{data.selectionModel}}",
+                "objectsToSelect": "{{data.eventMap['stepEditor.clicked'].selectedObjects}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "initialize": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "buildSelectionModel"
+                },
+                {
+                    "action": "setSelectionFromPort",
+                    "condition": "conditions.isSelectionModelNotNull"
+                },
+                {
+                    "action": "loadDataProvider",
+                    "condition": "conditions.isEpScopeObjectNotNull"
+                },
+                {
+                    "action": "setLoadingIndicator",
+                    "condition": "conditions.isEpScopeObjectNotNull"
+                }
+            ]
+        },
+        "buildSelectionModel": {
+            "actionType": "JSFunction",
+            "method": "buildSelectionModel",
+            "inputData": {
+                "selectionModelMode": "single"
+            },
+            "outputData": {
+                "selectionModel": ""
+            },
+            "deps": "js/epTableService"
+        },
+        "setSelectionFromPort": {
+            "actionType": "JSFunction",
+            "method": "setSelectionInSelectionModel",
+            "inputData": {
+                "selectionModel": "{{data.selectionModel}}",
+                "objectsToSelect": "{{ports.wiEditor_selectedObjects.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "loadDataProvider": {
+            "actionType": "dataProvider",
+            "method": "editorsData"
+        },
+        "openSearchStandardTextPopup": {
+            "actionType": "JSFunction",
+            "method": "openSearchStandardTextPopup",
+            "inputData": {
+                "popupOffset": "{{data.eventData}}"
+            },
+            "deps": "js/wiEditorViewerService"
+        },
+        "closeSearchStandardTextPopup": {
+            "actionType": "JSFunction",
+            "method": "closeSearchStandardTextPopup",
+            "deps": "js/wiEditorViewerService"
+        },
+        "setLoadingIndicator": {
+            "actionType": "JSFunction",
+            "method": "setLoadingIndicator",
+            "inputData": {
+                "isLoading": false
+            },
+            "outputData": {
+                "isLoading": ""
+            },
+            "deps": "js/mfeMessagesService"
+        },
+        "destroy": {
+            "actionType": "JSFunction",
+            "method": "destroy",
+            "deps": "js/wiEditorViewerService"
+        },
+        "handleSaveEvents": {
+            "actionType": "JSFunction",
+            "method": "handleSaveEvents",
+            "inputData": {
+                "saveEvents": "{{data.eventMap.['ep.saveEvents']}}",
+                "dataProvider":"{{data.dataProviders.editorsData}}"
+            },
+            "deps": "js/wiEditorViewerService"
+        },
+        "handleDeleteEvents": {
+            "actionType": "JSFunction",
+            "method": "handleDeleteEvents",
+            "inputData": {
+                "saveEvents": "{{data.eventData}}",
+                "dataProvider": "{{data.dataProviders.editorsData}}"
+            },
+            "deps": "js/wiEditorViewerService"
+        }
+    },
+    "data": {
+        "isLoading": true
+    },
+    "onEvent": [
+        {
+            "eventId": "editorsData.selectionChangeEvent",
+            "action": "updateSelectionPort",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "stepEditor.clicked",
+            "action": "setSelectionFromStepEditorClickEvent",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "mfe.scopeObjectChanged",
+            "action": "initialize"
+        },
+        {
+            "eventId": "wi.openSearchStandardTextPopup",
+            "cacheEventData": true,
+            "action": "openSearchStandardTextPopup"
+        },
+        {
+            "eventId": "wi.closeSearchStandardTextPopup",
+            "action": "closeSearchStandardTextPopup"
+        },
+        {
+            "eventId": "ep.saveEvents",
+            "cacheEventData": true,
+            "action": "handleSaveEvents"
+        },
+        {
+            "eventId": "ep.deleteEvents",
+            "cacheEventData": true,
+            "action": "handleDeleteEvents"
+        }
+    ],
+    "i18n": {},
+    "conditions": {
+        "isSelectionModelNotNull": {
+            "expression": {
+                "$source": "data.selectionModel",
+                "$query": {
+                    "$notNull": true
+                }
+            }
+        },
+        "isEpScopeObjectNotNull": {
+            "expression": {
+                "$source": "ctx.ep.scopeObject",
+                "$query": {
+                    "$notNull": true
+                }
+            }
+        }
+    },
+    "lifecycleHooks": {
+        "onMount": "initialize",
+        "onUnmount": "destroy"
+    }
+}

@@ -1,0 +1,182 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-button.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-i18n.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-xrt.directive",
+        "js/aw-panel-body.directive"
+    ],
+    "actions": {
+            "createObject": {
+                "actionType": "TcSoaService",
+                "serviceName": "Internal-Core-2012-10-DataManagement",
+                "method": "createRelateAndSubmitObjects",
+                "inputData": {
+                    "inputs": "{{function:getCreateInput}}"
+                },
+                "outputData": {
+                    "outputCreatedObject": "output[0].objects[2]"
+                },
+                "events": {
+                    "success": [
+                        {
+                            "condition": "!isEmptyTestEvent",
+                            "name": "getTestEvent"
+                        },
+                        {
+                            "condition": "isEmptyTestEvent",
+                            "name": "postTECreationEvent"
+                        }
+
+                    ]
+                },
+                "deps": "js/IAV1CreateTestEventService"
+            },
+
+        "closePanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "getTestEvent": {
+            "actionType": "JSFunction",
+            "method": "getTestEvent",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/IAV1CreateTestEventService"
+        },
+
+        "addChildInTestEvent": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceBom-2019-06-OccurrenceManagement",
+            "method": "addObject2",
+            "inputData": {
+                "input": {
+                    "numberOfElements": 1,
+                    "inputCtxt": {
+                        "productContext":{
+                            "uid": "{{ctx.occmgmtContext.productContextInfo.uid}}",
+                            "type": "{{ctx.occmgmtContext.productContextInfo.type}}"
+                        }
+                    },
+                    "objectsToBeAdded": "{{function:getElementsToAdd}}",
+                    "parentElement": {
+                        "type": "{{data.testContext.type}}",
+                        "uid": "{{data.testContext.uid}}"
+                     } 
+                     
+                }
+            },
+            "deps": "js/IAV1CreateTestEventService",
+            "events": {
+                "success": [
+
+                     {
+                         "name": "primaryWorkarea.selectAction",
+                         "eventData": {
+                             "selectAll": false
+                          }
+                     },
+                     {
+                         "name": "cdm.relatedModified",
+                         "eventData": {
+                             "relatedModified": [
+                                 "{{ctx.selected}}"
+                             ],
+                             "refreshLocationFlag": true
+                         }
+                     },
+                     {
+                        "name": "andvm.closePanel"
+                     } 
+                ]
+            }          
+        },
+        "postTECreationEvent":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [  
+                     {
+                         "name": "cdm.relatedModified",
+                         "eventData": {
+                             "relatedModified": [
+                                 "{{ctx.selected}}"
+                             ],
+                             "refreshLocationFlag": true
+                         }
+                     },
+                     {
+                        "name": "andvm.closePanel"
+                     } 
+                ]
+            } 
+        }
+
+ 
+    },
+    "onEvent": [
+        {
+            "eventId": "andvm.closePanel",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "getTestEvent",
+            "action": "getTestEvent"
+        },
+        {
+            "eventId": "addChildInTestEvent1",
+            "action": "addChildInTestEvent"
+        },
+        {
+            "eventId": "postTECreationEvent",
+            "action": "postTECreationEvent"
+        }
+
+    ],
+
+    "functions": {
+        "getCreateInput": {
+            "functionName": "getCreateInput",
+            "parameters": 
+            [
+                "{{data}}"
+            ]
+        },
+        "getElementsToAdd": {
+
+            "functionName": "getElementsToAdd",
+
+            "parameters": [
+                "{{data}}"
+            ]
+
+
+
+
+        }
+    },
+    
+    "i18n": {
+        "TestEventCreatePanelTitle": [
+            "verificationMgmtmMessages"
+        ],
+        "Add": [
+            "verificationMgmtmMessages"
+        ]
+    }
+}

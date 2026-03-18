@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "Keine Build-Elemente oder Aktivitäten in \"{0}\" vorhanden.",
+    "noProcesses": "Keine Prozesse in \"{0}\" vorhanden.",
+    "whereToCreateProcesses": "Prozesse können auf der Seite \"Arbeitseinheit\" erstellt werden.",
+    "moveCandidateCmdTitle": "Verschieben nach",
+    "moveCandidateCmdDescription": "Markiert Objekte, die verschoben werden sollen.",
+    "successfullySetSingleMoveCandidate": "\"{0}\" zur Verschiebung markiert. Bitte wählen Sie ein Ziel aus und verwenden Sie die Schaltfläche \"Hierher verschieben\".",
+    "successfullySetMultipleMoveCandidates": "{0} Objekte zur Verschiebung markiert. Bitte wählen Sie ein Ziel aus und verwenden Sie die Schaltfläche \"Hierher verschieben\".",
+    "moveHereTooltipTitle": "Hierher verschieben",
+    "moveHereTooltipMsg": "Diese Objekte werden zum angegeben Ziel verschieben:",
+    "createBuildElementAfter": "Build-Element erstellen nach",
+    "createBuildElementAsChild": "Build-Element als Unterordnung erstellen"
+}

@@ -1,0 +1,8 @@
+<aw-panel>
+    <aw-panel-body exist-when="ctx.parammgmtctx.showFSC">
+        <aw-include name="Pca0FullScreenConfiguration"></aw-include>
+    </aw-panel-body>
+    <aw-panel-body exist-when="!ctx.parammgmtctx.showFSC">
+        <aw-i18n>i18n.noConfigContextFound</aw-i18n>
+    </aw-panel-body>
+</aw-panel>

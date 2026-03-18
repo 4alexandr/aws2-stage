@@ -1,0 +1,80 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/workinstr-gallery-panel.directive"
+    ],
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "galleryDataProvider"
+        }
+    },
+
+    "dataProviders":
+    {
+        "galleryDataProvider":
+        {
+            "response": "{{activeTab.tab.datasetsToShow}}",
+            "totalFound": "{{activeTab.tab.datasetsToShow.length}}",
+            "selectionModelMode": "single"
+        }
+    },
+
+   "data":
+    {
+        "typeViewer":
+        {
+            "MSWord": "Awp0PDFViewer",
+            "MSWordX": "Awp0PDFViewer",
+            "MSExcel": "Awp0PDFViewer",
+            "MSExcelX": "Awp0PDFViewer",
+            "MSExcelM": "Awp0PDFViewer",
+            "MSPowerPoint": "Awp0PDFViewer",
+            "MSPowerPointX": "Awp0PDFViewer",
+            "TCPublishingPage": "Awp0PDFViewer",
+            "PDF": "Awp0PDFViewer",
+            "JPEG": "Awp0ImageViewer",
+            "Bitmap": "Awp0ImageViewer",
+            "GIF": "Awp0ImageViewer",
+            "PNG": "Awp0ImageViewer",
+            "JPG": "Awp0ImageViewer",
+            "TIF": "Awp0ImageViewer",
+            "Web Link": "workinstrWeblinkViewer",
+            "Text": "Awp0TextViewer",
+            "DirectModel": "workinstrSnapshotViewer",
+            "ItemRevision": "workinstrXRTViewer",
+            "Mfg0MEResourceRevision": "workinstrXRTViewer",
+            "MEOPRevision": "workinstrXRTViewer",
+            "String": "workinstrStringViewer",
+            "CME_Report": "workinstrCmeReportViewer",
+            "VMBFILE": "workinstrCortonaViewer",
+            "SnapShotViewData": "workinstrSnapshotViewer",
+            "FullText": "workinstrFulltextViewer",
+            "mp4": "workinstrVideoViewer",
+            "jpg": "Awp0ImageViewer",
+            "png": "Awp0ImageViewer",
+            "tif": "Awp0ImageViewer",
+            "jpeg": "Awp0ImageViewer",
+            "gif": "Awp0ImageViewer",
+            "htm": "workinstrCmeReportViewer",
+            "html": "workinstrCmeReportViewer",
+            "txt": "Awp0TextViewer",
+            "doc": "Awp0PDFViewer",
+            "docx": "Awp0PDFViewer",
+            "xls": "Awp0PDFViewer",
+            "xlsx": "Awp0PDFViewer",
+            "xlsm": "Awp0PDFViewer",
+            "ppt": "Awp0PDFViewer",
+            "pptx": "Awp0PDFViewer",
+            "jt": "workinstrSnapshotViewer",
+            "pdf": "Awp0PDFViewer",
+            "vsd": "Awp0PDFViewer",
+            "mht": "workinstrMhtViewer",
+            "vmb": "workinstrCortonaViewer",
+            "Epw0WIDataset": "workinstrFulltextViewer"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "结果",
+     "filterTabTitle" : "过滤器",
+     "searchTabTitle" :"搜索",
+     "paletteTabTitle" :"资源板",
+     "addStockMaterialTitle" : "添加",
+     "properties" : "属性",
+     "add" : "添加",
+     "madeFromFailureMakeFromPrefTrue": "“{0}”已添加，但它在“{1}”中并非首选项。",
+     "madeFromFailureMakeFromPrefFalse": "“{0}”尚未添加，因为它在“{1}”中并非首选项。",     
+     "dimensionsLabel": "尺寸",
+     "Sm1AddStdPartDesc": "将标准零件附加到零件。",
+     "Sm1AddStockMaterialDesc": "将库存材料添加到零件。",
+     "addPropertiesLabel" : "添加属性"
+}

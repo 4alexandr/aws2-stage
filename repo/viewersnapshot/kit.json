@@ -1,0 +1,9 @@
+{
+  "name": "viewersnapshot",
+  "description": "",
+  "modules": [
+    "viewersnapshot"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

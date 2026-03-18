@@ -1,0 +1,9 @@
+<div class="aw-widgets-cellListCellTitleBlock" ng-if="vmo.activeView!='Awp0AttachLicense'">
+    <h3 title="{{vmo.cellHeader1}}" class="aw-widgets-cellListCellTitle" cell-title-id="CellTitle">{{vmo.cellHeader1}}</h3>
+    <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{vmo.cellHeader2}}">{{vmo.cellHeader2}}</label>
+</div>
+
+<div id="editableCellProperties" ng-repeat="editCellProp in editableProps">
+   <aw-widget  ng-if="vmo.props[editCellProp]" prop="vmo.props[editCellProp]"  hint="textarea"></aw-widget>
+   <div aw-cell-list-edit class="aw-licensemgmt-eadParagraph aw-jswidgets-editableGridCell" ng-if="!cellEditMode"></div>
+</div>

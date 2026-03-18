@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "결과",
+     "filterTabTitle" : "필터",
+     "searchTabTitle" :"검색",
+     "paletteTabTitle" :"팔레트",
+     "addStockMaterialTitle" : "추가",
+     "properties" : "속성",
+     "add" : "추가",
+     "madeFromFailureMakeFromPrefTrue": "\"{0}\"은(는) \"{1}\"에서 선호되지 않지만 추가되었습니다.",
+     "madeFromFailureMakeFromPrefFalse": "\"{0}\"은(는) \"{1}\"에서 선호되지 않으므로 추가되지 않았습니다.",     
+     "dimensionsLabel": "치수",
+     "Sm1AddStdPartDesc": "표준 파트를 파트에 부착합니다.",
+     "Sm1AddStockMaterialDesc": "재고 재료를 파트에 추가합니다.",
+     "addPropertiesLabel" : "속성 추가"
+}

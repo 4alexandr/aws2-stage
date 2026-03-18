@@ -1,0 +1,19 @@
+{
+    "processDisplayName": "process",
+    "processesDisplayName": "processes",
+    "processDisplayNameCapital": "Process",
+    "activityDisplayName": "activity",
+    "activitiesDisplayName": "activities",
+    "activityDisplayNameCapital": "Activity",
+    "operationDisplayName": "operation",
+    "operationsDisplayName": "operations",
+    "operationDisplayNameCapital": "Operation",
+    "beDisplayName": "build element",
+    "besDisplayName": "build elements",
+    "beDisplayNameCapital": "Build Element",
+    "meDisplayName": "manufacturing element",
+    "mesDisplayName": "manufacturing elements",
+    "meDisplayNameCapital": "Manufacturing Element",
+    "ngpWorkspaceName": "Next Generation Planner",
+    "ngp": "Next Generation Planning"
+}

@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "V \"{0}\" nejsou žádné objekty tvorby nebo aktivity.",
+    "noProcesses": "V \"{0}\" nejsou žádné procesy.",
+    "whereToCreateProcesses": "Procesy mohou být vytvářeny na stránce Pracovní jednotky.",
+    "moveCandidateCmdTitle": "Přesunout do",
+    "moveCandidateCmdDescription": "Označuje objekty, které budou přesunuty",
+    "successfullySetSingleMoveCandidate": "\"{0}\" je označeno pro přesun. Vyberte cíl a použijte tlačítko 'Přesunout sem'.",
+    "successfullySetMultipleMoveCandidates": "{0} objektů je označeno pro přesun. Vyberte cíl a použijte tlačítko 'Přesunout sem'.",
+    "moveHereTooltipTitle": "Přesunout sem",
+    "moveHereTooltipMsg": "Přesune tyto objekty do zadaného cíle:",
+    "createBuildElementAfter": "Vytvořit objekt tvorby po",
+    "createBuildElementAsChild": "Vytvořit objekt tvorby jako podřazenou položku"
+}

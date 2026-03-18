@@ -1,0 +1,31 @@
+
+<aw-panel-body scrollable="false">
+    <!--Removed Aw-include as with scrollable=false an additional space was introduced in the panel header-->
+    <aw-layout-slot name="Awb0ContextFeature_ContextInFilter"  ></aw-layout-slot>
+
+    <!-- Recipe panel -->
+    <div exist-when="data.recipe.length > 0" class="aw-subset-subsetRecipe">
+        <!-- Create a new recipe term for each recipe -->
+        <div aw-repeat="recipeItem : data.recipe | limitTo: !data.showMoreLink.dbValue ? '': 3">
+            <aw-include name="RecipeTerm" sub-panel-context="{'recipeItem':recipeItem,'index':$index, 'isEditable':!(ctx.aceActiveContext.context.supportedFeatures.HideRecipeEditFeature_30 !== undefined && ctx.aceActiveContext.context.supportedFeatures.HideRecipeEditFeature_30===true), 'showfilteroperator': data.showFilterOperator}"></aw-include>
+        </div>
+        <!-- More... and Less... link-->
+        <aw-link prop="data.showMore" exist-when="data.recipe.length > 3 && data.showMoreLink.dbValue" class="aw-uiwidgets-moreLink" action="toggleShowMore"></aw-link>
+        <aw-link prop="data.showLess" exist-when="data.recipe.length > 3 && !data.showMoreLink.dbValue" class="aw-uiwidgets-moreLink" action="toggleShowMore"></aw-link>
+    </div>
+
+    <aw-filter-in-filters-searchbox
+    category="ctx.aceActiveContext.context.categoriesToRender" prop="data.searchBox1" >
+    </aw-filter-in-filters-searchbox>
+    <aw-panel-section>
+    <aw-scrollpanel>
+        <aw-filter-category
+            exist-when="item.categoryType!='Proximity' || (item.categoryType=='Attribute' && item.filterValues.length==1 && item.filterValues[0].internalName=='')"
+            search-action="selectStructureFilterAction"
+            category-action="selectGivenCategory" category="item"
+            aw-repeat="item : ctx.aceActiveContext.context.categoriesToRender | filterInFiltersSearch :data.searchBox1.dbValue:this track by $index">
+            <aw-textbox prop="category.filterValues[0].prop" exist-when="(category.categoryType=='Attribute' && category.filterValues.length==1 && category.filterValues[0].internalName=='')" aw-enter-key="selectStructureFilterAction"></aw-textbox>
+        </aw-filter-category>
+    </aw-scrollpanel>
+</aw-panel-section>
+</aw-panel-body>

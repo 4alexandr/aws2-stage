@@ -1,0 +1,105 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-i18n.directive",
+        "js/aw-include.directive",
+        "js/aw-link.directive",
+        "js/aw-list.directive"
+    ],
+    "data": {
+        "isHistoryOfMCNsView": false,
+        "popupCaption": {
+            "text": "{{i18n.changeManagementFor}}",
+            "params": [
+                "{{ctx.ngp.scopeObject.props.object_name.dbValues[0]}}"
+            ]
+        },
+        "historyOfChangeLinkData": {
+            "displayName": "{{i18n.historyOfChangeLinkTitle}}",
+            "type": "STRING"
+        },
+        "backToChangeManagementLinkData": {
+            "displayName": "{{i18n.backToChangeManagementLinkTitle}}",
+            "type": "STRING"
+        }
+    },
+    "actions": {
+        "initView": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "initActiveMcnDataProvider"
+                },
+                {
+                    "action": "loadRelatedEcnsProp"
+                }
+            ]
+        },
+        "initActiveMcnDataProvider": {
+            "actionType": "dataProvider",
+            "method": "activeMcnDataProvider"
+        },
+        "loadRelatedEcnsProp": {
+            "actionType": "JSFunction",
+            "method": "getProperties",
+            "inputData": {
+                "uids": [ "{{subPanelContext.activeMcnUid}}" ],
+                "propNames": [ "CMImplements" ]
+            },
+            "deps": "soa/dataManagementService"
+        },
+        "loadActiveMcn": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadActiveMcn",
+            "inputData": {
+                "activeMcnUid": "{{subPanelContext.activeMcnUid}}"
+            },
+            "outputData": {
+                "activeMcn": ""
+            },
+            "deps": "js/services/ngpChangeManagementService"
+        },
+        "changeMcnPanelViews": {
+            "actionType": "JSFunction",
+            "method": "getToggledBoolean",
+            "inputData": {
+                "booleanToToggle": "{{data.isHistoryOfMCNsView}}"
+            },
+            "outputData": {
+                "isHistoryOfMCNsView": ""
+            },
+            "deps": "js/mfeViewModelUtils"
+        }
+    },
+    "dataProviders": {
+        "activeMcnDataProvider": {
+            "action": "loadActiveMcn",
+            "response": [ "{{data.activeMcn}}" ],
+            "totalFound": 1,
+            "commandsAnchor": "ngp_changeManagementTile",
+            "selectionModelMode": "none"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "initView"
+    },
+    "i18n": {
+        "changeManagementFor": [ "NgpChangeMgmtMessages" ],
+        "activeManufacturingChangeHeader": [ "NgpChangeMgmtMessages" ],
+        "historyOfChangeLinkTitle": [ "NgpChangeMgmtMessages" ],
+        "backToChangeManagementLinkTitle": [ "NgpChangeMgmtMessages" ],
+        "listOfEcnsHeader": [ "NgpChangeMgmtMessages" ]
+    },
+    "conditions": {
+        "hasHistoryOfMcns": {
+            "expression": "subPanelContext.previousMcnUids.length > 0"
+        },
+        "hasRelatedEcns": {
+            "expression": "data.activeMcn && data.activeMcn.props.CMImplements.dbValues.length > 0 && data.activeMcn.props.CMImplements.dbValues[0] !== '' "
+        }
+    }
+}

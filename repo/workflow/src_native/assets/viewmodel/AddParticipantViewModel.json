@@ -1,0 +1,94 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/aw-init.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive"
+    ],
+
+    "actions":
+    {
+        "addParticipants": {
+            "actionType": "JSFunction",
+            "method": "getAdaptedObjects",
+            "inputData": {
+                "sourceObjects": [
+                    "{{ctx.selected}}"
+                ]
+            },
+            "outputData": {
+                "selectedObj": ""
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "workflow.addParticipants"
+                    }
+                ]
+            },
+            "deps": "js/adapterService"
+        },
+        "addParticipantsInternal":
+        {
+            "actionType": "JSFunction",
+            "method": "addParticipants",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "ctx" : "{{ctx}}"
+            },
+
+            "deps": "js/AddParticipant"
+        },
+        "closePanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "appCtx.register",
+            "condition": "conditions.checkSelectionChange",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "workflow.addParticipants",
+            "action": "addParticipantsInternal"
+        }
+    ],
+    "conditions":
+    {
+        "isValidToAdd":
+        {
+            "expression": "data.selectedObjects != null && data.selectedObjects.length > 0"
+        },
+        "checkSelectionChange":
+        {
+            "expression": "name == 'selected'"
+        }
+    },
+    "i18n":
+    {
+        "Add_Title": [ "WorkflowCommandPanelsMessages"]
+    }
+
+}

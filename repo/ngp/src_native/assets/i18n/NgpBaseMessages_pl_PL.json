@@ -1,0 +1,19 @@
+{
+    "processDisplayName": "proces",
+    "processesDisplayName": "procesy",
+    "processDisplayNameCapital": "Proces",
+    "activityDisplayName": "czynność",
+    "activitiesDisplayName": "czynności",
+    "activityDisplayNameCapital": "Czynność",
+    "operationDisplayName": "operacja",
+    "operationsDisplayName": "operacje",
+    "operationDisplayNameCapital": "Operacja",
+    "beDisplayName": "element tworzenia",
+    "besDisplayName": "elementy tworzenia",
+    "beDisplayNameCapital": "Element tworzenia",
+    "meDisplayName": "element wytwarzania",
+    "mesDisplayName": "elementy wytwarzania",
+    "meDisplayNameCapital": "Element wytwarzania",
+    "ngpWorkspaceName": "Planer następnej generacji",
+    "ngp": "Planowanie następnej generacji"
+}

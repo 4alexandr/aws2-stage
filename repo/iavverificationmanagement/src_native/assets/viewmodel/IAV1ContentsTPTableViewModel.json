@@ -1,0 +1,130 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-command-bar.directive",
+        "js/aw-panel-section.directive"
+
+    ],
+    "actions": {
+        "clearProviderSelectionForTP":{
+            "actionType": "JSFunction",
+            "method": "clearProviderSelectionForTP",
+            "inputData": {
+                "eventData": "{{data}}"
+            },
+            "deps": "js/IAV1ContentsTPTableService"
+        },
+        "loadTPTreeDataForVR": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTPTreeDataForVR",
+            "inputData": {
+                "treeLoadInput": "request.treeLoadInput",
+                "dataProvider": "{{data.dataProviders.contentsTPTableProvider}}"
+            },
+            "outputData": {
+                "ctx.search.totalFound": "result.treeLoadResult.totalChildCount",
+                "ctx.search.totalLoaded": "result.treeLoadResult.childNodes.length",
+                "searchResults": "result.treeLoadResult.childNodes"
+            },
+            "deps": "js/IAV1ContentsTPTableService"
+        },
+
+        "loadTreeTableProperties": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableProperties",
+            "inputData": {
+                "propertyLoadInput": "request.propertyLoadInput"
+            },
+            "outputData": {
+                "dataProviders.contentsTPTableProvider.columnConfig": "result.propertyLoadResult.columnConfig"
+            },
+            "deps": "js/IAV1ContentsTPTableService"
+        },
+        "loadVrTreeColumns": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.contentsTPTableProvider}}",
+                "data": "{{data}}"
+            },
+            "deps": "js/IAV1ContentsTPTableService"
+        },
+        "changeSelection": {
+            "actionType": "JSFunction",
+            "method": "changeSelection",
+            "inputData": {
+                "data":"{{data}}"
+            },
+            "deps": "js/IAV1ContentsTPTableService"
+        },
+        "unregisterCtx":{
+            "actionType": "JSFunction",
+            "method": "unRegisterTMTPTableSelection",
+            "deps": "js/IAV1AddToVRService"
+        },
+        "refreshTPTable": {
+            "actionType": "dataProvider",
+            "method": "contentsTPTableProvider"
+        }
+    },
+    "dataProviders": {
+        "contentsTPTableProvider": {
+            "initializeAction": "loadTPTreeDataForVR",
+            "nextAction": "loadTPTreeDataForVR",
+            "previousAction": "loadTPTreeDataForVR",
+            "editContext": "contentsTPTableProvider",
+            "treeLoadResult": "action.result.treeLoadResult",
+            "selectionModelMode": "multiple",
+            "inputData": {
+                "accessMode": "tree"
+            }
+        },
+        "GridTreePropertyProvider": {
+            "action": "loadTreeTableProperties",
+            "propertyLoadResult": "action.result.propertyLoadResult"
+        }
+    },
+    "columnProviders": {
+        "vrColumnProvider": {
+            "loadColumnAction": "loadVrTreeColumns",
+            "columns": "{{data.columns}}",
+            "enableSorting": false,
+            "id": "Att1ContentsAttrTable"
+        }
+    },
+    "grids": {
+        "contentsTPTable": {
+            "dataProvider": "contentsTPTableProvider",
+            "columnProvider": "vrColumnProvider",
+            "propertyProvider": "GridTreePropertyProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enableSorting": false,
+                "isFilteringEnabled": false
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "contentsTPTableProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "changeSelection"
+        },
+        {
+            "eventId": "IAV1ContentsTPTable.contentUnloaded",
+            "cacheEventData": true,
+            "action": "unregisterCtx"
+        },
+        {
+            "eventId": "contentsTPTableProvider.isSelectionEnabledChanged",
+            "cacheEventData": true,
+            "action":"clearProviderSelectionForTP"
+        },
+        {
+            "eventId": "IAV1ContentsTPTable.refreshTable",
+            "cacheEventData": true,
+            "action": "refreshTPTable"
+        }
+    ]
+}

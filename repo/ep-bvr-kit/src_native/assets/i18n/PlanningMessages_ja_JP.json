@@ -1,0 +1,14 @@
+{
+    "PlanningTitle": "プランニング",
+    "StationOperationsTitle": "オペレーション",
+    "ProductScopeTitle": "製品範囲",
+    "DeclPlanningTitle": "プロセス領域プラニング",
+    "graphicsViewerTitle": "グラフィックス",
+    "AvailablePartsPanelTitle": "製品",
+    "plantLayoutPanelTitle": "プロセスシーケンス",
+    "scopingTitle": "ターゲットアセンブリ",
+    "selectProcess": "要素を選択してその割当てられたターゲットアセンブリを表示します。",
+    "targetAssemblies": "ターゲットアセンブリ",
+    "scopingSuccessMsg": "アセンブリ\"{0}\"は、\"{1}\"に正常に関連付けられました。",
+    "removeScope": "ターゲットアセンブリを除去"
+}

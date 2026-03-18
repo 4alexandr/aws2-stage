@@ -1,0 +1,22 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [],
+    "data": {},
+    "actions": {
+        "initializeData": {
+            "actionType": "JSFunction",
+            "method": "init",
+            "deps": "js/epInitializationService"
+        },
+        "destroy": {
+            "actionType": "JSFunction",
+            "method": "destroy",
+            "deps": "js/epInitializationService"
+        }
+    },
+    "i18n": {},
+    "lifecycleHooks": {
+        "onInit": "initializeData",
+        "onUnmount": "destroy"
+    }
+}

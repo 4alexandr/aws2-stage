@@ -1,0 +1,8 @@
+<div class="aw-widgets-propertyContainer" aw-repeat="variantRule : data.appliedVariantRules">
+    <aw-link-with-popup prop="variantRule">
+        <aw-list-filter prop="filterbox" dataprovider="dataprovider">
+            <div class="aw-widgets-cellTop">{{item.props.object_string.dbValue}}</div>
+            <div class="aw-occmgmtjs-separator aw-theme-xrtLabel" ng-if="item.marker>=0"></div>
+        </aw-list-filter>
+    </aw-link-with-popup>
+</div>

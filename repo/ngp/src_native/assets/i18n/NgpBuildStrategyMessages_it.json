@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "“{0}“ non contiene attività né elementi di costruzione.",
+    "noProcesses": "“{0}“ non contiene processi.",
+    "whereToCreateProcesses": "È possibile creare processi nella pagina Unità di lavoro.",
+    "moveCandidateCmdTitle": "Sposta ",
+    "moveCandidateCmdDescription": "Oggetti designati per lo spostamento",
+    "successfullySetSingleMoveCandidate": "\"{0}\" designato per lo spostamento. Selezionare una destinazione e utilizzare il pulsante \"Sposta qui\".",
+    "successfullySetMultipleMoveCandidates": "{0} oggetti designati per lo spostamento. Selezionare una destinazione e utilizzare il pulsante \"Sposta qui\".",
+    "moveHereTooltipTitle": "Sposta qui",
+    "moveHereTooltipMsg": "Gli oggetti verranno spostati nella destinazione specificata:",
+    "createBuildElementAfter": "Crea elemento di costruzione dopo",
+    "createBuildElementAsChild": "Crea elemento di costruzione come figlio"
+}

@@ -1,0 +1,24 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-column.directive",
+        "js/aw-label.directive"
+    ],
+    "actions": {},
+    "data": {
+        "quickMatrix":{
+            "displayName": "Quick Matrix",
+            "dispValue": "Shows only the direct tracelinks between each row and column."
+        },
+        "fullRollup":{
+            "displayName": "Full Roll up",
+            "dispValue": "Shows full roll-up of tracelinks that includes children of row and column items. This operation will be performed in the background and the processing time depends on the size of the structures."
+        },
+        "dynamic":{
+            "displayName": "Dynamic",
+            "dispValue": "Shows all connections, independent of the structure it is connected to."
+        }
+    },
+    "messages": {},
+    "conditions": {}
+}

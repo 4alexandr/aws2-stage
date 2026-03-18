@@ -1,0 +1,193 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-form.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/aw-init.directive"
+    ],
+
+    "actions": {
+        "reveal": {
+            "actionType": "JSFunction",
+            "method": "initNavigateFunction",
+            "inputData": {
+                "declViewModel": "{{data}}"
+            },
+
+            "deps": "js/saveAsDiagramService"
+        },
+
+        "initiateSelection": {
+            "actionType": "JSFunction",
+            "method": "navigateAndCreateInput",
+            "inputData": {
+                "declViewModel": "{{data}}"
+            },
+
+            "deps": "js/saveAsDiagramService"
+        },
+        "populateSaveAsDiagramPanel": {
+            "actionType": "JSFunction",
+            "method": "populateSaveAsDiagramPanel",
+            "inputData": {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/saveAsDiagramService"
+        },
+
+        "saveAsDiagram": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceSysEng-2014-11-DiagramManagement",
+            "method": "manageDiagram",
+            "inputData": {
+                "input": "{{function:saveDiagramCreateInput}}"
+            },
+
+            "outputData": {
+                "createdDiagramObject": "output[0]",
+                "createdObject": "{{function:getCreatedObject}}"
+            },
+
+            "events": {
+                "success": [ {
+                        "name": "saveAsDiagram.objectCreated",
+                        "eventData": {
+                            "diagramUid": "{{data.createdObject.uid}}"
+                        }
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        },
+                        "condition": "!ctx.architectureCtx.isModelerActive"
+                    }
+                ],
+
+                "failure": [ {
+                    "name": "complete",
+                    "eventData": {
+                        "source": "toolAndInfoPanel"
+                    }
+                } ]
+            },
+
+            "actionMessages": {
+                "success": [ {
+                    "message": "diagramSaveAsSuccessful"
+                } ],
+
+                "failure": [ {
+                    "message": "diagramSaveAsFailed"
+                } ]
+            },
+
+            "deps": "js/saveAsDiagramService"
+        },
+
+        "saveAsDiagramPostProcess": {
+            "actionType": "JSFunction",
+            "method": "saveAsDiagramPostProcess",
+            "inputData": {
+                "data": "{{data}}",
+                "eventMap": "{{data.eventMap}}"
+            },
+            "deps": "js/saveAsDiagramService"
+
+        }      
+
+    },
+
+    "data": {
+        "recentUsedTypes": [
+
+        ],
+        "autoSelectOnUniqueType": true
+    },
+
+    "functions": {
+        "saveDiagramCreateInput": {
+            "functionName": "saveDiagramCreateInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "awTypeSelector.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "initiateSelection"
+        },
+
+        {
+            "eventId": "getRecentTypesProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "initiateSelection"
+        },
+
+        {
+            "eventId": "awXRT.contentLoaded",
+            "action": "populateSaveAsDiagramPanel"
+        },
+        {
+            "eventId": "saveAsDiagram.objectCreated",
+            "cacheEventData": true,
+            "action": "saveAsDiagramPostProcess"
+        }        
+
+    ],
+
+    "conditions": {
+        "isSaveAsButtonVisible": {
+            "expression": "data.creationType"
+        }
+    },
+
+    "messages": {
+        "diagramSaveAsSuccessful": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.diagramSaveAsSuccessful}}",
+            "messageTextParams": [
+                "{{data.createdObject.props.object_string.dbValues[0]}}"
+            ]
+        },
+
+        "diagramSaveAsFailed": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.diagramSaveAsFailed}}",
+            "messageTextParams": [
+                "{{data.creationType}}"
+            ]
+        }
+    },
+
+    "i18n": {
+        "saveasDiagramTitle": [
+            "ArchitectureModelerConstants"
+        ],
+
+        "saveas": [
+            "ArchitectureModelerConstants"
+        ],
+
+        "diagramSaveAsSuccessful": [
+            "ArchitectureModelerMessages"
+        ],
+
+        "diagramSaveAsFailed": [
+            "ArchitectureModelerMessages"
+        ],
+
+        "architectureModelerPageTitle": [
+            "ArchitectureModelerConstants"
+        ]
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports": 
+    [
+        "js/aw-command-sub-panel.directive",
+        "js/visible-when.directive"
+    ],
+    "data" : {},
+    "actions" : {        
+        "updateCtxForAceAddSiblingPanelAction": 
+        {
+            "actionType": "JSFunction",
+            "method": "updateCtxForAceAddSiblingPanel",
+            "inputData": 
+            {
+                "parent" : "{{ctx.selected}}"
+            },
+            "outputData": {},
+
+            "deps": "js/addElementService"
+        },        
+        "initializeCreateOccurrencePanel": {
+            "actionType": "JSFunction",
+            "method": "initializeCreateOccurrencePanel",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/addRevOccService"
+        }
+    },
+    "onEvent": 
+    [
+        {
+            "eventId": "awPanel.reveal",
+            "action": "updateCtxForAceAddSiblingPanelAction",
+            "criteria": {
+                "panelId": "AddSiblingRevisableOccurrence"
+            }
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "action": "initializeCreateOccurrencePanel",
+            "criteria": {
+                "panelId": "AddSiblingRevisableOccurrence"
+            }
+        }
+    ]
+}

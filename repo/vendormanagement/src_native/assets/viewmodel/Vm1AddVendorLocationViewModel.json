@@ -1,0 +1,244 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive"
+    ],
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "searchLocation"
+        },
+        "searchValidVendorLocation":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Query-2014-11-Finder",
+            "method": "performSearch",
+            "inputData":
+            {
+                "searchInput":
+                {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Vm1VendorLocationProvider",
+                    "searchCriteria":
+                    {
+                        "VendorPartOrVendorUID": "{{ctx.selected.uid}}",
+                        "searchString": "{{data.filterBox.dbValue}}"
+                    },
+                    "startIndex": "{{data.dataProviders.searchLocation.startIndex}}"
+                }
+            },
+            "outputData":
+            {
+                "totalFound": "totalFound",
+                "locationResults": "searchResults"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            }
+        },
+        "addLocation":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "VM1AddVendorLocation.AddNewLocation",
+                        "condition": "ctx.selected.props.vm0company_location.dbValues[0]== '' || ctx.selected.props.vm0company_location.dbValues[0]== null"
+                    },
+                    {
+                        "name": "VM1AddVendorLocation.ReplaceExistingLocation",
+                        "condition": "ctx.selected.props.vm0company_location.dbValues[0]!= '' && ctx.selected.props.vm0company_location.dbValues[0]!= null"
+                    }
+                ]
+            }
+        },
+        "addNewLocation":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-09-DataManagement",
+            "method": "setProperties",
+            "inputData":
+            {
+                "info":
+                [
+                    {
+                        "object": "{{ctx.selected}}",
+                        "timestamp": "",
+                        "vecNameVal":
+                        [
+                            {
+                                "name": "vm0company_location",
+                                "values":
+                                [
+                                    "{{data.dataProviders.searchLocation.selectedObjects[0].uid}}"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData":
+                        {
+                            "relatedModified":
+                            [
+                                "{{ctx.selected}}"
+                            ],
+                            "refreshLocationFlag": true
+                        }
+                    },
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            }
+        },
+        "closePanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "data":
+    {
+        "filterBox":
+        {
+            "displayName": "MyFilter",
+            "type": "STRING",
+            "dbValue": ""
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "VM1AddVendorLocation.AddNewLocation",
+            "action": "addNewLocation"
+        },
+        {
+            "eventId": "VM1AddVendorLocation.ReplaceExistingLocation",
+            "message": "replaceExistingLocationConfirmationMessage"
+        },
+        {
+            "eventId": "appCtx.register",
+            "condition": "conditions.checkSelectionChange",
+            "action": "closePanel"
+        }
+    ],
+    "messages":
+    {
+        "replaceExistingLocationConfirmationMessage":
+        {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.replaceExistingVendorLocation}}",
+            "messageTextParams":
+            [
+                "{{ctx.selected.props.vm0company_location.uiValues[0]}}",
+                "{{data.dataProviders.searchLocation.selectedObjects[0].props.object_name.uiValue}}"
+            ],
+            "navigationOptions":
+            [
+                {
+                    "option": "Cancel",
+                    "text": "{{i18n.cancel}}",
+                    "action": ""
+                },
+                {
+                    "option": "Replace",
+                    "text": "{{i18n.replace}}",
+                    "action": "addNewLocation"
+                }
+            ]
+        },
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    },
+    "conditions":
+    {
+        "isLocationSelected":
+        {
+            "expression": "data.dataProviders.searchLocation.getSelectedIndexes()[0]>-1"
+        },
+        "checkSelectionChange":
+        {
+            "expression": "name == 'selected'"
+        }
+    },
+    "i18n":
+    {
+        "add":
+        [
+            "VendorManagementMessages"
+        ],
+        "replaceExistingVendorLocation":
+        [
+            "VendorManagementMessages"
+        ],
+        "cancel":
+        [
+            "VendorManagementMessages"
+        ],
+        "replace":
+        [
+            "VendorManagementMessages"
+        ],
+        "noResultsFound":
+        [
+            "VendorManagementMessages"
+        ]
+    },
+    "dataProviders":
+    {
+        "searchLocation":
+        {
+            "action": "searchValidVendorLocation",
+            "selectionModelMode": "single",
+            "response": "{{data.locationResults}}",
+            "totalFound": "{{data.totalFound}}"
+        }
+    }
+}

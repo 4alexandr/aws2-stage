@@ -1,0 +1,40 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-cls-vnc.directive"
+
+    ],
+    "actions": {
+        "parseVNC": {
+            "actionType": "JSFunction",
+            "method": "parseVNC",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx.clsLocation}}"
+            },
+            "deps": "js/classifyTreeService"
+        }
+    },
+    "onEvent": [ 
+        {
+            "eventId": "getClassTableSummary.VNCisSelectedWhenPanelIsClosed",
+            "action": "parseVNC"
+        }
+    ],
+    "functions": {},
+    "messages": { },
+    "data":{
+        "selectedSearchResult":{}
+    },
+    "conditions": {
+        "showHierarchy": {
+            "expression": "data.hierarchyVisible"
+        }
+    },
+    "i18n":
+    {
+        "assignedClasses": [ "ClassificationPanelMessages" ],
+        "more": [ "ClassificationPanelMessages" ]
+    }
+}

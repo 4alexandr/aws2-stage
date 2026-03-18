@@ -1,0 +1,13 @@
+{
+    "editSelectedItem": "Modifica item selezionato",
+    "overview": "Panoramica",
+    "attachments": "Allegati",
+    "attributeGroups": "Gruppi di attributi",
+    "forms": "Moduli",
+    "attachFile": "Allega file",
+    "createAgs": "Crea gruppo di attributi",
+    "downloadAttachment": "Download",
+    "cannotDeleteAGMessage": "L'utente non dispone dell'autorizzazione per eliminare il gruppo di attributi \"{0}\".\n Rimuoverlo senza eliminarlo?",
+    "cancel": "Annulla",
+    "remove": "Rimuovi"
+}

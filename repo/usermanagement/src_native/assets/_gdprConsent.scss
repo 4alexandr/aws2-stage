@@ -1,0 +1,40 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2018.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+
+.aw-gdprConsent-view {
+    padding: 20px;
+    overflow-y: scroll;
+
+    a {
+        display: inline-block;
+    }
+}
+
+.aw-gdprConsent-SectionTitle {
+    margin-top: 20px;
+    margin-left: 3px;
+}
+
+.aw-gdprConsent-consentStatement {
+    min-height: 90px;
+    max-height: 325px;
+    margin-left: 3px;
+}
+
+.aw-gdprConsent-check {
+    padding-top: 20px;
+    margin-left: -2px;
+}
+
+.aw-gdprConsent-footer {
+    max-width: 420px;
+    margin-left: -10px;
+    margin-right: -10px;
+}

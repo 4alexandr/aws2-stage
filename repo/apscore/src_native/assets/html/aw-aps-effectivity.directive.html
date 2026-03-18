@@ -1,0 +1,24 @@
+<aw-panel-section visible-when="flag=='AUTHOR'">
+    <aw-radiobutton prop="data.dateOrUnitEffectivityTypeRadioButton" ng-click="setOrClearDateOrUnitEffectivity()"></aw-radiobutton>
+</aw-panel-section>
+
+<aw-panel-section visible-when="data.dateOrUnitEffectivityTypeRadioButton.dbValue" class="dateEffectivity">
+    <aw-property-error aw-aps-effectivity-validator="{{flag}}_DATE" ng-model="data.startDate.dbValue" ng-class="{'aw-widgets-propertyError': errorApi.errorMsg, 'changed': prop.dirty}"
+           class="aw-widgets-propertyEditValue" ng-model-options="{ allowInvalid: true }" ng-keydown="evalKey($event)">
+        <aw-date prop="data.startDate"></aw-date>
+    </aw-property-error>
+</aw-panel-section>
+<aw-panel-section visible-when="data.dateOrUnitEffectivityTypeRadioButton.dbValue" class="dateEffectivity">
+    <aw-listbox ng-click="clearEndDate()" prop="data.endDateOptions" list="data.endDateList.dbValue"></aw-listbox>
+    <aw-property-error aw-aps-effectivity-validator="{{flag}}_DATE" ng-model="data.endDate.dbValue" ng-class="{'aw-widgets-propertyError': errorApi.errorMsg, 'changed': prop.dirty}"
+           class="aw-widgets-propertyEditValue" ng-model-options="{ allowInvalid: true }" ng-keydown="evalKey($event)">
+        <aw-date prop="data.endDate" exist-when="data.endDateOptions.dbValue=='Date'" class="aw-endDate-authorEffectivityPanel"></aw-date>
+    </aw-property-error>
+</aw-panel-section>
+
+<aw-panel-section visible-when="!data.dateOrUnitEffectivityTypeRadioButton.dbValue" class="unitEffectivity" ng-init="prop=data.unitRangeText">
+    <aw-property-error aw-aps-effectivity-validator="{{flag}}_UNIT"  ng-model="prop.dbValue" ng-class="{'aw-widgets-propertyError': errorApi.errorMsg, 'changed': prop.dirty}"
+           class="aw-widgets-propertyEditValue" ng-model-options="{ allowInvalid: true }" ng-keydown="evalKey($event)">
+        <aw-textbox title="{{data.i18n.dateEffectivityPlaceholder}}" prop="data.unitRangeText" exist-when="!data.dateOrUnitEffectivityTypeRadioButton.dbValue"></aw-textbox>
+    </aw-property-error>
+</aw-panel-section>

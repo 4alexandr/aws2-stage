@@ -1,0 +1,14 @@
+{
+    "selectType": "Seleziona tipo",
+    "CreateButtonTitle": "Crea",
+    "CreateAndAddMoreObjectButtonTitle": "Crea e aggiungi altri",
+    "CancelButtonTitle": "Annulla",
+    "createOperationCmdTitle": "Crea operazione",
+    "createProcessAreaCmdTitle": "Crea area di procedura",
+    "gotoPreviousPageCmdTitle": "Indietro",
+    "assignProjectCmdTitle": "Assegna progetti",
+    "SearchPanelTitle":"Ricerca",
+    "projectsPanelCaption":"Progetto",
+    "loading":"Caricamento",
+    "addProjectHeaderTitle":"Aggiungi progetto"
+}

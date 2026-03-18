@@ -1,0 +1,17 @@
+<aw-panel-body>
+    <aw-ace-effectivity data="data"></aw-ace-effectivity>
+</aw-panel-body>
+<aw-panel-footer>
+        <div visible-when="$parent.data.isValidEffectivityPanel && ctx.elementEffectivity.currentEffectivityType === 'Element'" >
+            <aw-checkbox prop="$parent.data.isProtected"></aw-checkbox>
+            <aw-button action="editEffectivity" >
+                <aw-i18n>i18n.saveButtonText</aw-i18n>
+            </aw-button>
+        </div>
+        <div visible-when="$parent.data.isValidEffectivityPanel  && ctx.elementEffectivity.currentEffectivityType === 'Release'" >
+            <aw-checkbox prop="$parent.data.isProtected"></aw-checkbox>
+            <aw-button action="editRevisionEffectivity" >
+                <aw-i18n>i18n.saveButtonText</aw-i18n>
+            </aw-button>
+        </div>
+</aw-panel-footer>

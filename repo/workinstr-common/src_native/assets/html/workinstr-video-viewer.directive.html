@@ -1,0 +1,8 @@
+<div id="workinstr-video-viewer" class="aw-workinstr-viewerStyle">
+    <div ng-if="loading" class="aw-jswidgets-text">{{loadingMsg}}</div>
+    <video autoplay controls class="aw-workinstr-viewerStyle" class="aw-workinstr-viewerStyle">
+        <source src="{{videoUrl}}" type="video/mp4">
+        <source src="{{videoUrl}}" type="video/ogg">
+        <source src="{{videoUrl}}" type="video/webm">
+    </video>
+</div>

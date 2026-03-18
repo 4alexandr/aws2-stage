@@ -1,0 +1,486 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-measure-tree.directive",
+        "js/aw-widget.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "measurementPanelRevealed",
+            "inputData":
+            {
+                "treedata": "{{data}}",
+                "localeTextBundle": "{{data.i18n}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treeData",
+                "isSelectedMeasurementVisibleProp": "isSelectedMeasurementVisibleProp",
+                "selectedMeasurementProp": "selectedMeasurementProp"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisMeasureService"
+        },
+
+        "partsCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "partsCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisMeasureService"
+        },
+
+        "featuresCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "featuresCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisMeasureService"
+        },
+
+        "surfaceCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "surfaceCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisMeasureService"
+        },
+
+        "edgeCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "edgeCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisMeasureService"
+        },
+
+        "vertexCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "vertexCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisMeasureService"
+        },
+
+        "pointCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "pointCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisMeasureService"
+        },
+
+        "arcCenterCheckValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "arcCenterCheckValueChanged",
+            "inputData":
+            {
+                "treedata": "{{treedata}}"
+            },
+
+            "outputData":
+            {
+                "treedata": "treedata"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisMeasureService"
+        },
+
+        "updateSelectedMeasurementPropertiesView":
+        {
+            "actionType": "JSFunction",
+            "method": "updateSelectedMeasurementPropertiesView",
+            "inputData":
+            {
+                "localeTextBundle": "{{data.i18n}}"
+            },
+
+            "outputData":
+            {
+                "isSelectedMeasurementVisibleProp": "isSelectedMeasurementVisibleProp",
+                "selectedMeasurementProp": "selectedMeasurementProp"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisMeasureService"
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "viewerMeasurement.selectedMeasurementChanged",
+            "action": "updateSelectedMeasurementPropertiesView"
+        }
+    ],
+
+    "data":
+    {
+        "partsNodeProp":
+        {
+            "displayName": "{{i18n.partCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Parts",
+                    "tooltip": "{{i18n.partCheckText}}",
+                    "checkAction": "partsCheckValueChanged",
+                    "isChecked": "{{treedata.partsChecked}}"
+                }
+            ]
+        },
+
+        "featuresNodeProp":
+        {
+            "displayName": "{{i18n.featuresCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "SelectFeatures",
+                    "tooltip": "{{i18n.featuresCheckText}}",
+                    "checkAction": "featuresCheckValueChanged",
+                    "isChecked": "{{treedata.featuresChecked}}"
+                }
+            ]
+        },
+
+        "surfaceNodeProp":
+        {
+            "displayName": "{{i18n.surfaceCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Surface",
+                    "tooltip": "{{i18n.surfaceCheckText}}",
+                    "checkAction": "surfaceCheckValueChanged",
+                    "isChecked": "{{treedata.surfaceChecked}}"
+                }
+            ]
+        },
+
+        "edgeNodeProp":
+        {
+            "displayName": "{{i18n.edgeCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Edge",
+                    "tooltip": "{{i18n.edgeCheckText}}",
+                    "checkAction": "edgeCheckValueChanged",
+                    "isChecked": "{{treedata.edgeChecked}}"
+                }
+            ]
+        },
+
+        "vertexNodeProp":
+        {
+            "displayName": "{{i18n.vertexCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Vertex",
+                    "tooltip": "{{i18n.vertexCheckText}}",
+                    "checkAction": "vertexCheckValueChanged",
+                    "isChecked": "{{treedata.vertexChecked}}"
+                }
+            ]
+        },
+
+        "pointNodeProp":
+        {
+            "displayName": "{{i18n.pointCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "Point",
+                    "tooltip": "{{i18n.pointCheckText}}",
+                    "checkAction": "pointCheckValueChanged",
+                    "isChecked": "{{treedata.pointChecked}}"
+                }
+            ]
+        },
+
+        "arcCenterNodeProp":
+        {
+            "displayName": "{{i18n.arcCheckText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "ArcCenter",
+                    "tooltip": "{{i18n.arcCheckText}}",
+                    "checkAction": "arcCenterCheckValueChanged",
+                    "isChecked": "{{treedata.arcCenterChecked}}"
+                }
+            ]
+        },
+
+        "measurementCommands":"awv0_measurementCommands",
+
+        "selectedMeasurementProp":
+        {
+            "isArray": "true",
+            "dbValue": "{{ctx.viewerMeasurement.selectedMeasurementProperties}}"
+        },
+
+        "isSelectedMeasurementVisibleProp":
+        {
+            "displayName": "",
+            "type": "BOOLEAN",
+            "dbValue": false
+        }
+    },
+
+    "conditions":
+    {
+        "hasSelectedMeasurement":
+        {
+            "expression": "data.selectedMeasurementProp !== undefined && data.selectedMeasurementProp.dbValue !== undefined && data.selectedMeasurementProp.dbValue.length > 0"
+        },
+
+        "showSelectedMeasurementSection":
+        {
+            "expression": "data.isSelectedMeasurementVisibleProp.dbValue === true"
+        }
+    },
+
+    "i18n":
+    {
+        "measurementTabText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "pickFilteringTitleText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "partCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "featuresCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "surfaceCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "edgeCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "vertexCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "pointCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "arcCheckText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "cancel":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "delete":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPoint":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyLength":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyCenter":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyRadius":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyAngle":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyNormal":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyArea":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyHeight":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPartName":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyVolume":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyCentroid":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyDistance":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyDeltas":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPrincipalMoments":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPrincipalAxis1":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPrincipalAxis2":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyPrincipalAxis3":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyMass":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyType":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementPropertyMinimumDistance":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementSectionTitleText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "noMeasurementSelectedText":
+        [
+            "GeometricAnalysisMessages"
+        ]
+    }
+}

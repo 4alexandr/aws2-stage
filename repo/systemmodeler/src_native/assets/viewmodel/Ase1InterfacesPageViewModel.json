@@ -1,0 +1,213 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/exist-when.directive",
+        "js/aw-row.directive",
+        "js/aw-column.directive",
+        "js/aw-splitter.directive",
+        "js/aw-architecture-page.directive",
+        "js/aw-toolbar.directive"
+    ],
+
+    "actions": {
+        "handleInterfacesPageLoad": {
+            "actionType": "JSFunction",
+            "method": "handleInterfacesPageLoad",
+            "inputData": {},
+            "events": {
+                "success": [ {
+                    "name": "Ase1InterfacesPage.loadTypes"
+                },
+                {
+                    "name": "Ase1InterfacesPage.getInterfaces",
+                    "eventData": {
+                        "navigationMode": "ShowInterfaces",
+                        "systemOfInterest": "{{ctx.selected}}"
+                    }
+                } ]
+            },
+
+            "deps": "js/Ase1InterfacesPageService"
+        },
+
+        "loadInterfaceTypes": {
+            "actionType": "JSFunction",
+            "method": "ensureModelTypesLoaded",
+            "inputData": {
+                "typeNames": [ "Awb0Connection",
+                    "Ase0BundledConnection"
+            ] },
+            "deps": "soa/kernel/soaService"
+        },
+
+        "getInterfaces": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-SystemsModeling-2017-06-DiagramManagement",
+            "method": "getInterfaces",
+            "inputData": {
+                "input": "{{function:getInterfacesInput}}"
+            },
+            "outputData": {
+                "viewData": ""
+            },
+            "events": {
+                "success": [ {
+                    "name": "Ase1InterfacesPage.updateViewModel"
+                } ]
+            },
+            "deps": "js/Ase1InterfacesPageService"
+        },
+
+        "updateInterfacesViewModel": {
+            "actionType": "JSFunction",
+            "method": "updateInterfacesViewModel",
+            "inputData": {
+                "viewData": "{{data.viewData}}"
+            },
+            "deps": "js/Ase1InterfacesPageService"
+        },
+
+        "processObjectDoubleClick": {
+            "actionType": "JSFunction",
+            "method": "processObjectDoubleClick",
+            "inputData": {
+                "doubleClickedObject": "{{data.eventMap['Ase1InterfacesPage.objectDoubleClicked'].doubleClickedObject}}"
+            },
+            "deps": "js/Ase1InterfacesPageService"
+        },
+
+        "processGoUpCommandClick": {
+            "actionType": "JSFunction",
+            "method": "processGoUpCommandClick",
+            "inputData": {},
+            "deps": "js/Ase1InterfacesPageService"
+        },
+        "processFocusOnSystemCommandClick": {
+            "actionType": "JSFunction",
+            "method": "processFocusOnSystemCommandClick",
+            "inputData": {},
+            "deps": "js/Ase1InterfacesPageService"
+        },
+
+        "processSelectionChange": {
+            "actionType": "JSFunction",
+            "method": "processSelectionChange",
+            "inputData": {
+                "secondaryWorkAreaSelection": "{{data.eventMap['Ase1InterfacesPage.selectionChanged'].selection}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "Ase1InterfacesPage.UpdateInterfaceTable",
+                    "eventData": {}
+                } ]
+            },
+
+            "deps": "js/Ase1InterfacesPageService"
+        },
+        "configurationChanged": {
+            "actionType": "JSFunction",
+            "method": "configurationChanged",
+            "inputData": {
+                "eventdata": "{{data.eventData.value}}"
+            },
+
+            "deps": "js/Ase1InterfacesPageService"
+        },
+
+        "resetContent": {
+            "actionType": "JSFunction",
+            "method": "resetContent",
+            "inputData": {},
+            "deps": "js/Ase1InterfacesPageService"
+        },
+        "viewChanged": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "Ase1InterfacesPage.selectionChanged",
+                    "eventData": {
+                        "selection": []
+                    }
+                } ]
+            }
+        }
+    },
+
+    "functions": {
+        "getInterfacesInput": {
+            "functionName": "getInterfacesInput",
+            "parameters": [
+                "{{data.eventMap['Ase1InterfacesPage.getInterfaces']}}",
+                "{{data}}"
+            ]
+        }
+    },
+
+    "preferences": [
+        "ASE1_Interfaces_Node_Label_Property"
+    ],
+
+    "onEvent": [ {
+            "eventId": "Ase1InterfacesPage.contentLoaded",
+            "action": "handleInterfacesPageLoad"
+        },
+        {
+            "eventId": "Ase1InterfacesPage.loadTypes",
+            "action": "loadInterfaceTypes"
+        },
+        {
+            "eventId": "Ase1InterfacesPage.getInterfaces",
+            "action": "getInterfaces",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "Ase1InterfacesPage.updateViewModel",
+            "action": "updateInterfacesViewModel"
+        },
+        {
+            "eventId": "Ase1InterfacesPage.objectDoubleClicked",
+            "condition": "ctx.interfacesCtx.hasSystemModelerLicense",
+            "action": "processObjectDoubleClick",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "Ase1InterfacesPage.GoUpCommandClickedEvent",
+            "condition": "ctx.interfacesCtx.hasSystemModelerLicense",
+            "action": "processGoUpCommandClick"
+        },
+        {
+            "eventId": "Ase1InterfacesPage.selectionChanged",
+            "action": "processSelectionChange",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "Ase1InterfacesPage.FocusOnSystemCommandClickedEvent",
+            "condition": "ctx.interfacesCtx.hasSystemModelerLicense",
+            "action": "processFocusOnSystemCommandClick"
+        },
+        {
+            "eventId": "appCtx.update",
+            "criteria": {
+                "name": "aceActiveContext",
+                "target": "context.configContext"
+            },
+            "action": "configurationChanged",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "appCtx.update",
+            "criteria": {
+                "name": "interfacesViewModeCtx",
+                "target": "viewMode"
+            },
+            "action": "viewChanged"
+        },
+        {
+            "eventId": "ace.ResetContentEvent",
+            "action": "resetContent",
+            "cacheEventData": true
+        }
+    ]
+}

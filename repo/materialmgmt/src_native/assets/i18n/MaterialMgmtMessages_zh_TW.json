@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "新增到",
+    "addButtonTitle": "新增",
+    "addLabel": "新增到",
+    "newShowAddObjectPresenterBtn": "新建",
+    "paletteShowAddObjectPresenterBtn": "資源板",
+    "searchShowAddObjectPresenterBtn": "搜尋",
+    "errorInGettingSubtypesofEndItem": "由於內部錯誤，未能篩選搜尋結果。",
+    "FrequentlyUsedSectionTitle": "常用的",
+    "addPropertiesLabel": "新增屬性",
+    "resultsTabTitle": "結果",
+    "filterTabTitle": "篩選器",
+    "Mtw0ShowAddObjectDesc": "將物質指派給給材質。",
+    "view": "視圖",
+    "billOfMaterials": "物料清單",
+    "billOfSubstances" : "物質清單"
+}

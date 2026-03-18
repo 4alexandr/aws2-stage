@@ -1,0 +1,20 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "actions": {},
+    "data": {
+        "contentPanelData": {
+            "tabs": [ {
+                "name": "{{i18n.messageTitle}}",
+                "tabKey": "epValidationMessage"
+            } ],
+            "removeHiddenTabs": true,
+            "additionalHeaderComponent": "epValidationProcessTreeSelectionLabel"
+        }
+    },
+    "i18n": {
+        "messageTitle": [ "epValidationMessages" ]
+    }
+}

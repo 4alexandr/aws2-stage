@@ -1,0 +1,15 @@
+{
+    "assemblyPmiTitle": "Niveau de l'assemblage PMI",
+    "assemblyPmiTitleWithSelection": "Niveau de l'assemblage PMI pour {0}",
+    "assignedPmiTitle": "PMI",
+    "name": "Nom",
+    "id": "ID",
+    "nominalValue": "Valeur nominale",
+    "uom": "UOM",
+    "selectProcessOrOperation": "Sélectionner un Processus ou une Opération.",
+    "selectProcessOrOperationForPMIs": "Sélectionnez un processus ou une opération pour voir les PMI affectées.",
+    "noAssociatedPMIs": "Le processus\/l'opération sélectionnée n'a pas de PMI associées.",
+    "noAssignedPMIs": "Pas de PMI associées.",
+    "connectedParts" : "Pièces connectées",
+    "more" : "Suite"
+}

@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "Results",
+     "filterTabTitle" : "Filters",
+     "searchTabTitle" :"Search",
+     "paletteTabTitle" :"Palette",
+     "addStockMaterialTitle" : "Add",
+     "properties" : "Properties",
+     "add" : "Add",
+     "madeFromFailureMakeFromPrefTrue": "\"{0}\" was added, but it is not Preferred in \"{1}\".",
+     "madeFromFailureMakeFromPrefFalse": "\"{0}\" was not added because it is not Preferred in \"{1}\".",     
+     "dimensionsLabel": "Dimensions",
+     "Sm1AddStdPartDesc": "Attach a standard part to the part.",
+     "Sm1AddStockMaterialDesc": "Add a stock material to the part.",
+     "addPropertiesLabel" : "Add Properties"
+}

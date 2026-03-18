@@ -1,0 +1,14 @@
+{
+    "PlanningTitle": "Planning",
+    "StationOperationsTitle": "Operations",
+    "ProductScopeTitle": "Product Scope",
+    "DeclPlanningTitle": "Process Area Planning",
+    "graphicsViewerTitle": "Graphics",
+    "AvailablePartsPanelTitle": "Product",
+    "plantLayoutPanelTitle": "Process Sequence",
+    "scopingTitle": "Target Assemblies",
+    "selectProcess": "Select an element to view its assigned target assemblies.",
+    "targetAssemblies": "target assemblies",
+    "scopingSuccessMsg": "Assembly \"{0}\" associated successfully with \"{1}\".",
+    "removeScope": "Remove Target Assembly"
+}

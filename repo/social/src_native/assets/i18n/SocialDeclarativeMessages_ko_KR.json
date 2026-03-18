@@ -1,0 +1,23 @@
+{
+    "addComment": "주석",
+    "addQuestion": "질문하기",
+    "addAnswer": "답변 게시",
+    "addRating": "평가",
+    "name": "이름",
+    "postComment": "주석 게시",
+    "postQuestion": "질문하기",
+    "postAnswer": "답변 게시",
+    "postRating": "평가",
+    "subscriptionFailed": "\"{0}\"을(를) 팔로우할 수 없습니다.",
+    "oneStarRating": "별 1개 등급",
+    "twoStarRating": "별 2개 등급",
+    "threeStarRating": "별 3개 등급",
+    "fourStarRating": "별 4개 등급",
+    "fiveStarRating": "별 5개 등급",
+    "allRatings": "모든 등급",
+    "reply": "회신",
+    "S2clSCAddCommentNewDesc": "개체에 대한 주석을 게시합니다.",
+    "S2clSCAddQuestionNewDesc": "개체에 대한 질문을 합니다.",
+    "S2clSCAddAnswerNewDesc": "개체에 대한 질문에 응답합니다.",
+    "S2clSCAddRatingNewDesc": "개체에 등급을 추가합니다."
+}

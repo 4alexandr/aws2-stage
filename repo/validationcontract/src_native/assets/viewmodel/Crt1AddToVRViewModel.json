@@ -1,0 +1,315 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-form-validator.directive",
+        "js/aw-include.directive",
+        "js/aw-popup2.directive",
+        "js/visible-when.directive",
+        "js/aw-break.directive"
+    ],
+
+    "actions":
+    {
+        "reveal": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-04-DataManagement",
+            "method": "findDisplayableSubBusinessObjectsWithDisplayNames",
+            "inputData":
+            {
+                "input":
+                [
+                    {
+                        "boTypeName": "FND_TraceLink",
+                        "exclusionBOTypeNames":
+                        [
+                            "Fnd0ListsParamReqments",
+                            "Fnd0CAE_TargetOccurrence"
+                        ]
+                    }
+                ]
+            },
+
+            "outputData":
+            {
+                "outTraceLinkTypes":"output"
+            },
+
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "CreateStickyPanelPopup.registerCtx",
+                        "condition": "!ctx.CreateStickyPanelPopupCtx"
+                    },
+                    {
+                        "name": "CreateStickyPanelPopup.initStartItemList"
+                    }
+                ]
+            }
+        },
+        "refreshStickyPanelList":
+        {
+            "actionType": "dataProvider",
+            "method": "stickyPanelList"
+        },
+        "registerStickyPopupCtx": {
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "name": "CreateStickyPanelPopupCtx",
+                "value": true
+            },
+            "deps": "js/appCtxService"
+        },
+        "initStartItemList1": {
+            "actionType": "JSFunction",
+            "method": "initStartItemList1",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/stickyPanelService"
+        },
+
+         "removeFromEndItems": {
+            "actionType": "JSFunction",
+            "method": "removeFromEndItems",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "obj": "{{data.selectedCell}}"
+            },
+             "events": {
+                "success": [
+                    {
+                        "name":"Refresh.stickyPanel"
+                    }
+                ]
+            },
+            "deps": "js/stickyPanelService"
+        },
+        "addToVR": {
+            "actionType": "JSFunction",
+            "method": "addToVR",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "obj": "{{data.selectedCell}}"
+            },
+             "events": {
+                 "success": [ {
+                         "name": "CreateStickyPanelPopup.closePopupPanel"
+                     }
+                 ]
+             },
+            "deps": "js/stickyPanelService"
+        },
+
+        "closePopupPanel": {
+            "actionType": "JSFunction",
+            "method": "unRegisterLocalStorageAndClosePopup",
+            "deps": "js/stickyPanelService",
+            "inputData": {
+                "data": "{{data}}"
+            }
+        },
+        "closePopupPanel1": {
+            "actionType": "JSFunction",
+            "method": "unRegisterLocalStorageAndClosePopup1",
+            "deps": "js/stickyPanelService",
+            "inputData": {
+                "data": "{{data}}",
+                "isLocationChanged": true
+            }
+        },
+        "MoveToOriginalPage": {
+            "actionType": "Navigate",
+            "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+            "navigationParams": {
+                "uid": "{{ctx.openedARObject.uid}}",
+                "pageId": "{{ctx.OriginalPageId}}"
+            },
+            "options": {
+                "top": 10,
+                "left": 10
+            }
+        },
+        "attachVMO1":
+        {
+            "actionType": "JSFunction",
+            "method": "attachVMOToItemLists1",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "isStartItemList": false
+            },
+            "deps": "js/stickyPanelService"
+        }
+
+     },
+
+
+    "onEvent": [
+        {
+            "eventId": "CreateStickyPanelPopup.reveal",
+            "action": "reveal"
+        },
+        {
+            "eventId": "Refresh.stickyPanel",
+            "action": "refreshStickyPanelList"
+        },
+        {
+            "eventId": "CreateStickyPanelPopup.registerCtx",
+            "action": "registerStickyPopupCtx"
+        },
+        {
+            "eventId": "CreateStickyPanelPopup.initStartItemList",
+            "action": "initStartItemList1"
+        },
+        {
+            "eventId": "CreateStickyPanelPopup.MoveToOriginalPage",
+            "action": "MoveToOriginalPage"
+        },
+        {
+            "eventId": "CreateStickyPanelPopup.closePopupPanel",
+            "action": "closePopupPanel"
+        },
+        {
+            "eventId": "LOCATION_CHANGE_COMPLETE",
+            "action": "closePopupPanel1"
+        }
+
+
+
+    ],
+    "dataParseDefinitions": {
+        "convertNvObject": {
+            "outputFormatType": "ViewModelObject",
+            "dataInput": "output[0].objectToRender.modelObject.uid",
+            "operationType": "CREATE"
+        }
+    },
+     "messages":
+    {
+
+    },
+    "data":
+    {
+        "startItemListcommands":"arm0_startItemListcommands",
+        "endItemListcommands":"arm0_endItemListcommands",
+        "startItems1": {
+             "isArray": "true",
+             "dbValue":
+             [
+             ]
+         },
+         "endItems1": {
+             "isArray": "true",
+             "dbValue":
+             [
+             ]
+         },
+          "traceLinkType":
+         {
+             "displayName": "{{i18n.selectTraceLinkType}}",
+             "type": "STRING",
+             "isRequired": "false",
+             "hasLov": true
+         },
+        "isPanelPinned":
+        {
+            "type": "BOOLEAN",
+            "dbValue": false
+        },
+
+        "arm0PinCommand" : "arm0_oneStepPinCommands"
+    },
+    "preferences":
+    [
+        "TraceReport_Default_TraceLink_Type",
+        "RV1_DARB_Filter_Properties"
+    ],
+    "functions":
+    {
+        "getCreateTraceLinkInput":
+        {
+            "functionName": "getCreateTraceLinkInput",
+            "parameters":
+            [
+                "{{data}}"
+            ]
+        }
+    },
+    "dataProviders":
+    {
+      "startItemList":
+        {
+         "commands":
+            {
+                "delete":
+                {
+                    "id": "cmdRemove",
+                    "title": "{{i18n.Remove}}",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "action":"removeFromStartItems",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+
+            },
+            "response":"{{data.startItems1.dbValue}}",
+            "selectionModelMode": "single"
+         },
+      "stickyPanelList":
+        {
+         "commands":
+            {
+                "delete":
+                {
+                    "id": "cmdRemove",
+                    "title": "{{i18n.Remove}}",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "action":"removeFromEndItems",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+
+            },
+            "response":"{{data.endItems1.dbValue}}",
+            "selectionModelMode": "single"
+         }
+
+    },
+    "conditions":
+    {
+
+    },
+
+    "i18n":
+    {
+        "addFromContent":
+        [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "AddTitle":
+        [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "dragAndDropObjectsHere":
+        [
+            "AnalysisRequestCommandPanelsMessages"
+        ]
+    },
+    "lifecycleHooks" : {
+        "onMount": "attachVMO1"
+    }
+}

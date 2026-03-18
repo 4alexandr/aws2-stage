@@ -1,0 +1,90 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-clipboard.directive",
+        "js/aw-favorite.directive",
+        "js/aw-history.directive",
+        "js/aw-panel-section.directive"
+    ],
+
+    "actions": 
+    {
+        "getMadeFromDataClipboard": 
+        {
+            "actionType": "JSFunction",
+            "method": "displayMadeFromPanel",
+            "inputData": 
+            {
+                "data": "{{data}}",
+                "provider": "{{data.dataProviders.getClipboardProvider}}",
+                "label": "{{data.i18n.addPropertiesLabel}}",
+                "selection": "{{data.dataProviders.getClipboardProvider.selectedObjects}}"
+            },
+
+            "deps": "js/Sm1StockMaterialService"
+        },
+
+        "getMadeFromDataFavorite": 
+        {
+            "actionType": "JSFunction",
+            "method": "displayMadeFromPanel",
+            "inputData": 
+            {
+                "data": "{{data}}",
+                "provider": "{{data.dataProviders.getFavoriteProvider}}",
+                "label": "{{data.i18n.addPropertiesLabel}}",
+                "selection": "{{data.dataProviders.getFavoriteProvider.selectedObjects}}"
+            },
+
+            "deps": "js/Sm1StockMaterialService"
+        },
+
+        "getMadeFromDataRecent": 
+        {
+            "actionType": "JSFunction",
+            "method": "displayMadeFromPanel",
+            "inputData": 
+            {
+                "data": "{{data}}",
+                "provider": "{{data.dataProviders.getRecentObjsProvider}}",
+                "label": "{{data.i18n.addPropertiesLabel}}",
+                "selection": "{{data.dataProviders.getRecentObjsProvider.selectedObjects}}"
+            },
+
+            "deps": "js/Sm1StockMaterialService"
+        }
+    },
+
+    "onEvent": 
+    [
+        {
+            "eventId": "getClipboardProvider.selectionChangeEvent",
+            "action": "getMadeFromDataClipboard"
+        },
+
+        {
+            "eventId": "getFavoriteProvider.selectionChangeEvent",
+            "action": "getMadeFromDataFavorite"
+        },
+
+        {
+            "eventId": "getRecentObjsProvider.selectionChangeEvent",
+            "action": "getMadeFromDataRecent"
+        }
+    ],
+
+    "i18n": 
+    {
+        "resultTabTitle": 
+        [
+            "Sm1StockMaterialMessages"
+        ],
+
+        "addPropertiesLabel": 
+        [
+            "Sm1StockMaterialMessages"
+        ]
+    }
+}

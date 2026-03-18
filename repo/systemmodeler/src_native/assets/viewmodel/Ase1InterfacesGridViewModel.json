@@ -1,0 +1,202 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-matrix.directive",
+        "js/aw-column.directive"
+    ],
+    "actions": {
+        "doDataProvider": {
+            "actionType": "dataProvider",
+            "method": "interfacesGridDataProvider"
+        },
+        "updateGridView": {
+            "actionType": "JSFunction",
+            "method": "getColumnInfos",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.interfacesGridDataProvider}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "interfacesGridDataProvider.reset"
+                } ]
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+
+        "loadData": {
+            "actionType": "JSFunction",
+            "method": "loadDataForInterfacesGrid",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "searchResults"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+
+        "loadColumns": {
+            "actionType": "JSFunction",
+            "method": "getColumnInfos",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.interfacesGridDataProvider}}"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+        "setInterfacesCellSelection": {
+            "actionType": "JSFunction",
+            "method": "setInterfacesCellSelection",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+        "interfacesGridCellDeSelection": {
+            "actionType": "JSFunction",
+            "method": "interfacesGridCellDeSelection",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+        "interfacesGridInternalSystemSelection": {
+            "actionType": "JSFunction",
+            "method": "interfacesGridInternalSystemSelection",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+        "interfacesGridExternalSystemSelection": {
+            "actionType": "JSFunction",
+            "method": "interfacesGridExternalSystemSelection",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+        "interfacesGridNavigateExternalSystem": {
+            "actionType": "JSFunction",
+            "method": "interfacesGridNavigateExternalSystem",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+        "interfacesGridNavigateInternalSystem": {
+            "actionType": "JSFunction",
+            "method": "interfacesGridNavigateInternalSystem",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+        "processGridHeaderSeleciton": {
+            "actionType": "JSFunction",
+            "method": "processGridHeaderSeleciton",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        },
+        "pinnedColumnSelection": {
+            "actionType": "JSFunction",
+            "method": "pinnedColumnSelection",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase1InterfacesGridService"
+        }
+    },
+    "dataProviders": {
+        "interfacesGridDataProvider": {
+            "action": "loadData",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "columnProviders": {
+        "clientScopeUI": {
+            "loadColumnAction": "loadColumns",
+            "columns": "{{data.columns}}",
+            "sortCriteria": []
+        }
+    },
+    "grids": {
+        "Ase1InterfacesGrid": {
+            "dataProvider": "interfacesGridDataProvider",
+            "columnProvider": "clientScopeUI",
+            "addIconColumn": false,
+            "enableArrangeMenu": false,
+            "gridOptions": {
+                "enableGridMenu": false,
+                "enableFiltering": false,
+                "enableHorizontalScrollbar": true,
+                "enableVerticalScrollbar": true,
+                "enablePinning": true,
+                "enableRowSelection": false,
+                "rowHeight": 48
+            }
+        }
+    },
+    "data": {
+
+    },
+    "preferences": [
+        "ASE1_Interfaces_Cell_Display"
+    ],
+    "onEvent": [ {
+            "eventId": "Ase1InterfacesPage.modelUpdated",
+            "condition": "conditions.isGridViewActive",
+            "action": "updateGridView"
+        },
+        {
+            "eventId": "Ase1InterfacesGrid.gridCellSelection",
+            "cacheEventData": true,
+            "action": "setInterfacesCellSelection"
+        },
+        {
+            "eventId": "Ase1InterfacesGrid.rowSingleClick",
+            "cacheEventData": true,
+            "action": "interfacesGridInternalSystemSelection"
+        },
+        {
+            "eventId": "Ase1InterfacesGrid.colSingleClick",
+            "cacheEventData": true,
+            "action": "interfacesGridExternalSystemSelection"
+        },
+        {
+            "eventId": "Ase1InterfacesGrid.gridCellDeSelection",
+            "cacheEventData": true,
+            "action": "interfacesGridCellDeSelection"
+        },
+        {
+            "eventId": "Ase1InterfacesGrid.colDoubleClick",
+            "cacheEventData": true,
+            "action": "interfacesGridNavigateExternalSystem"
+        },
+        {
+            "eventId": "Ase1InterfacesGrid.rowDoubleClick",
+            "cacheEventData": true,
+            "action": "interfacesGridNavigateInternalSystem"
+        },
+        {
+            "eventId": "Ase1InterfacesGrid.rowColSelection",
+            "cacheEventData": true,
+            "action": "processGridHeaderSeleciton"
+        },
+        {
+            "eventId": "Ase1InterfacesGrid.pinnedColSelected",
+            "cacheEventData": true,
+            "action": "pinnedColumnSelection"
+        }
+    ],
+    "conditions": {
+        "isGridViewActive": {
+            "expression": "ctx.interfacesCtx.isInterfacesActive && ctx.interfacesViewModeCtx.viewMode === 'Ase1GridView' && ctx.interfacesCtx.systemInView"
+        }
+    }
+
+}

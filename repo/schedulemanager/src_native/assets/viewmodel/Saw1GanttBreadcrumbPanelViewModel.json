@@ -1,0 +1,53 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-search-breadcrumb.directive",
+        "js/aw-panel.directive",
+        "js/exist-when.directive"
+    ],
+    "actions": {
+        "updateBreadcrumbAction": {
+            "actionType": "JSFunction",
+            "method": "updateBreadcrumData",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/SMGanttFilters",
+            "events": {
+                "success": [
+                    {
+                        "name": "updateGanttHeightForBreadCrumb"
+                    }
+                ]
+            }
+        }
+    },
+    "data": {
+        "provider": {
+            "crumbs": []
+        },
+        "breadCrumbConfig": {
+            "saw1GanttBreadcrumbConfig": {
+                "type": "search"
+            }
+        }
+    },
+    "conditions": {
+        "isGanttFilterSelected": {
+            "expression": "ctx.state.params.filter === null"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "updateBreadcrumbEvent",
+            "cacheEventData": true,
+            "action": "updateBreadcrumbAction"
+        }
+    ],
+    "i18n": {
+        "all": [
+            "ScheduleManagerMessages"
+        ]
+    }
+}

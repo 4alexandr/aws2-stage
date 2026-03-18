@@ -1,0 +1,26 @@
+<aw-flex-column width="40f" offset="2f">
+    <aw-flex-row height="3.3f" align-content="center">
+        <aw-advanced-bar type="TOOLBAR">
+            <aw-flex-row height="3.3f" align-content="center">
+                <aw-flex-column offset="1f" align-content="left" class="aw-manageTile-title">
+                    {{subPanelContext.tileName}}
+                </aw-flex-column>
+                <aw-flex-column align-content="end">
+                    <aw-command-bar anchor="{{subPanelContext.viewId}}_uiAnchor" alignment="HORIZONTAL">
+                    </aw-command-bar>
+                </aw-flex-column>
+            </aw-flex-row>
+        </aw-advanced-bar>
+    </aw-flex-row>
+
+    <aw-flex-row exist-when="!subPanelContext.tileInfo">
+        <!--place holder-->
+        <aw-include name="epPlaceHolder" sub-panel-context="subPanelContext" exist-when="subPanelContext.showAddCommand == 'true'" extended-tooltip="mfeGenericTooltip" extended-tooltip-options="{placement : ['left']}" aw-click="data.onClickTile(subPanelContext,$event)" class="aw-mfe-manageTilePlaceHolder"></aw-include>
+        <!--empty tile message hint-->
+        <aw-include name="mfeMessage" sub-panel-context="subPanelContext.message" exist-when="subPanelContext.showAddCommand == 'false'" class="aw-mfe-manageTilePlaceHolderDisabled"></aw-include>
+    </aw-flex-row>
+    <aw-flex-row exist-when="subPanelContext.tileInfo">
+        <!--tile info-->
+        <aw-include name="epManageTile" sub-panel-context="subPanelContext.tileInfo"></aw-include>
+    </aw-flex-row>
+</aw-flex-column>

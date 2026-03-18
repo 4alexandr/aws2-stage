@@ -1,0 +1,13 @@
+<div class="aw-layout-flexRow">
+    <div class="aw-widgets-cellListCellImage">
+        <img class="aw-base-icon aw-type-icon" src="assets/image/typeEffectivity48.svg" draggable="false" ondragstart="return false;" alt=""/>
+    </div>
+        <div class="aw-widgets-cellListCellTitleBlock">
+            <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{subPanelContext.effDisplayString}}">{{subPanelContext.effDisplayString}}</label><br>
+            <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{subPanelContext.effSecondaryDisplayString}}">{{subPanelContext.effSecondaryDisplayString}}</label>
+            <div aw-repeat="str: subPanelContext.formulaStrings">
+                <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{str}}">{{str}}</label>
+            </div>
+        </div>
+    </div>
+</div>

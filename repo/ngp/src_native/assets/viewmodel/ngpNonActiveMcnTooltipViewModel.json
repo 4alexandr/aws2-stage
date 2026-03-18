@@ -1,0 +1,27 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "extendedTooltip": {
+            "title": "{{i18n.nonActiveMcnTooltipTitle}}",
+            "messages": [
+                "{{i18n.nonActiveMcnTooltipMessage}}"
+            ],
+            "instruction": "{{i18n.nonActiveMcnTooltipInstruction}}",
+            "className": "aw-ngp-nonActiveMcnTooltip"
+        }
+    },
+    "i18n": {
+        "nonActiveMcnTooltipTitle": [
+            "NgpChangeMgmtMessages"
+        ],
+        "nonActiveMcnTooltipMessage": [
+            "NgpChangeMgmtMessages"
+        ],
+        "nonActiveMcnTooltipInstruction": [
+            "NgpChangeMgmtMessages"
+        ]
+    }
+}

@@ -1,0 +1,99 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports": 
+    [
+        "js/aw-panel-section.directive",
+       "js/aw-clipboard.directive",
+        "js/aw-favorite.directive",
+        "js/aw-history.directive"    
+    ],
+
+    "actions": 
+    {
+       "initiateRelationPanel": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": 
+                        {
+                            "destPanelId": "Mtw0ShowAddObjectRelation",
+                            "title": "{{i18n.addPropertiesLabel}}",
+                            "recreatePanel": true,
+                            "supportGoBack": true
+                        }
+                    }
+                ]
+            }
+        },
+       "closePanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                 "events":
+                 [
+                     {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+
+                 ]
+            }
+        }                   
+    },
+    "onEvent": [
+      
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "getRecentObjsProvider.selectionChangeEvent",
+            "action": "initiateRelationPanel"
+        },
+        {
+            "eventId": "getClipboardProvider.selectionChangeEvent",
+            "action": "initiateRelationPanel"
+        },
+        {
+            "eventId": "getFavoriteProvider.selectionChangeEvent",
+            "action": "initiateRelationPanel"
+        }
+    ],
+    
+     "functions":
+     {
+      "getInputForCreateObjectSOA": 
+        {
+            "functionName": "getInputForCreateObjectSOA",
+            "parameters": 
+            [
+                "{{data}}",
+                "{{ctx}}"
+            ]
+        },
+       "getClipboardFavouriteRecentSelection":
+       {
+         "functionName": "getClipboardFavouriteRecentSelection",
+            "parameters": 
+            [
+               "{{ctx}}"
+            ]
+       }
+    },
+    "i18n": 
+    {   
+       "addButtonTitle":["MaterialMgmtMessages"],
+       "addPropertiesLabel":["MaterialMgmtMessages"]
+    } 
+}

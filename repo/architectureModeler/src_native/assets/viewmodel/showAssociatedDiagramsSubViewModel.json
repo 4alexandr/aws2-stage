@@ -1,0 +1,415 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-form.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-panel-header.directive"
+    ],
+
+    "actions":{
+
+        "loadData":
+        {
+            "actionType": "dataProvider",
+            "method": "associatedDiagramsList"
+        },
+
+        "openDiagram":
+        {
+            "actionType": "Navigate",
+            "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+            "navigationParams": {
+                "uid": "{{vmo.uid}}",
+                "spageId": "{{i18n.architectureModelerPageTitle}}"
+            }
+        },
+
+        "openDiagramInNewTab":
+        {
+            "actionType": "Navigate",
+            "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+            "navigationParams": {
+                "uid": "{{vmo.uid}}",
+                "spageId": "{{i18n.architectureModelerPageTitle}}"
+            },
+            "navigateIn": "newTab"
+        },
+
+        "updateDiagramViewOnCreate":
+        {
+            "actionType": "JSFunction",
+            "method": "updateDiagramViewOnCreate",
+            "inputData": {
+                "data": "{{data}}",
+                "eventMap": "{{data.eventMap}}",
+                "toOpenDiagram":"{{data.eventMap['CreateDiagramSub.CreateDiagramProcessSuccess'].toOpen}}",
+                "diagramUid" : "{{data.eventMap['CreateDiagramSub.CreateDiagramProcessSuccess'].diagramUid}}"
+            },
+            "deps": "js/showAssociatedDiagramsService"
+        },
+
+        "openNewDiagram": {
+            "actionType": "Navigate",
+            "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+            "navigationParams": {
+                "uid": "{{data.eventMap['showAssociatedDiagramsSub.OpenDiagram'].diagramUid}}",
+                "spageId": "{{data.i18n.architectureModelerPageTitle}}"
+            }
+        },
+
+        "getAssociatedDiagrams":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Query-2014-11-Finder",
+            "method": "performSearch",
+            "inputData":
+            {
+                "searchInput":
+                {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Ase0AssocDiagramProvider",
+                    "searchCriteria": {
+                        "elementUids": "{{ctx.architectureCtx.elementUid}}",
+                        "productContextUids": "{{ctx.occmgmtContext.productContextInfo.uid}}"
+                    },
+                    "startIndex": "{{data.dataProviders.associatedDiagramsList.startIndex}}"
+                }
+            },
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "Ase0AssocRelationProxy",
+                        "properties":
+                        [
+                            {
+                                "name": "ase0EndObject",
+                                "modifiers": [
+                                                 {
+                                                    "name": "withProperties",
+                                                    "Value": "true"
+                                                 }
+                                             ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData":
+            {
+                "totalFound": "totalFound",
+                "searchResults": "searchResults",
+                "searchResultObjects": "ServiceData.modelObjects"
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "showAssociatedDiagramsSub.processResponse"
+                    }
+                ]
+            }
+        },
+
+        "deleteDiagram":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "deleteObjects",
+           "inputData":
+            {
+                "objects": "{{data.dataProviders.associatedDiagramsList.selectedObjects}}"
+            },
+
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "showAssociatedDiagramsSub.updatePanel"
+                    }
+                ]
+            },
+            "outputData":
+            {
+                "ctx.architectureCtx.showDeleteButton": "false"
+            },
+
+            "deps": "js/showAssociatedDiagramsService"
+        },
+
+        "actionFilterList":
+        {
+            "actionType": "JSFunction",
+            "method": "actionFilterList",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/showAssociatedDiagramsService"
+        },
+
+        "confirmDelete":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                 [
+                      {
+                         "name": "showAssociatedDiagramsSub.confirmSingleDelete",
+                         "condition":"data.dataProviders.associatedDiagramsList.selectedObjects.length === 1"
+                      },
+                      {
+                         "name": "showAssociatedDiagramsSub.confirmMultiDelete",
+                         "condition":"data.dataProviders.associatedDiagramsList.selectedObjects.length > 1"
+                      }
+                 ]
+            }
+        },
+
+        "updateDeleteButtonVisibility":
+        {
+            "actionType": "JSFunction",
+            "method": "updateDeleteButtonVisibility",
+            "inputData":
+            {
+                "dataprovider": "{{data.dataProviders.associatedDiagramsList}}"
+            },
+
+            "deps": "js/showAssociatedDiagramsService"
+        },
+
+        "getDiagramTargets":
+        {
+            "actionType": "JSFunction",
+            "method": "getDiagramTargets",
+            "deps": "js/showAssociatedDiagramsService"
+        },
+
+        "initDiagramsPanel":
+        {
+            "actionType": "JSFunction",
+            "method": "initDiagramsPanel",
+            "deps": "js/showAssociatedDiagramsService"
+        },
+
+        "processSoaResponse":
+        {
+            "actionType": "JSFunction",
+            "method": "processSoaResponseFunc",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "showAssociatedDiagramsSub.loadData"
+                    }
+                ]
+            },
+
+            "deps": "js/showAssociatedDiagramsService"
+        }
+    },
+
+   "data":
+    {
+        "showAssociatedDiagramCommands":"ase0_showAssociatedDiagramCommands",
+
+        "relatedDiagramList":
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+
+            ]
+        },
+
+        "relatedDiagramFilterList":
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+
+            ]
+        },
+
+        "filterBox":
+        {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "false",
+            "requiredText": "Filter",
+            "dbValue": ""
+        }
+    },
+
+    "dataProviders":
+    {
+        "associatedDiagramsList":
+        {
+            "action": "actionFilterList",
+            "response": "{{data.relatedDiagramFilterList.dbValue}}",
+            "totalFound": "{{data.relatedDiagramFilterList.dbValue.length}}",
+            "selectionModelMode": "multiple",
+            "commands":
+            {
+               "Awp0ShowObjectCell":
+                {
+                    "id": "cmdOpen",
+                    "title": "Open",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "action": "openDiagram",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                },
+                "Awp0OpenInNewTab":
+                {
+                    "id": "cmdOpenInNewTab",
+                    "title": "Open In New Tab",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 350 ],
+                    "action": "openDiagramInNewTab",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            },
+            "deps": "js/showAssociatedDiagramsService"
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "showAssociatedDiagramsSub.updatePanel",
+            "action": "getAssociatedDiagrams"
+        },
+        {
+            "eventId": "showAssociatedDiagramsSub.processResponse",
+            "action": "processSoaResponse"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria":
+            {
+                "panelId": "showAssociatedDiagramsSub"
+            },
+            "action": "initDiagramsPanel"
+        },
+        {
+            "eventId": "showAssociatedDiagramsSub.loadData",
+            "action": "loadData"
+        },
+        {
+            "eventId": "showAssociatedDiagramsSub.confirmSingleDelete",
+            "message": "confirmSingleDelete"
+        },
+        {
+            "eventId": "showAssociatedDiagramsSub.confirmMultiDelete",
+            "message": "confirmMultiDelete"
+        },
+        {
+            "eventId": "associatedDiagramsList.selectionChangeEvent",
+            "action": "updateDeleteButtonVisibility"
+        },
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "getDiagramTargets"
+        },
+        {
+            "eventId": "CreateDiagramSub.CreateDiagramProcessSuccess",
+            "cacheEventData":true,
+            "action":"updateDiagramViewOnCreate"
+        },
+        {
+            "eventId":"showAssociatedDiagramsSub.OpenDiagram",
+            "cacheEventData": true,
+            "action":"openNewDiagram"
+        },
+        {
+            "eventId": "ase0AssociatedDiagramDeleteCmdEvent",
+            "action": "confirmDelete"
+        }],
+
+     "messages":
+    {
+        "confirmSingleDelete":
+        {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.diagramSingleDeleteConfirmMsg}}",
+            "messageTextParams": [
+                "{{data.dataProviders.associatedDiagramsList.selectedObjects[0].props.object_string.dbValues[0]}}"
+            ],
+            "navigationOptions":
+            [
+                {
+                    "option": "Cancel",
+                    "text": "{{i18n.cancel}}"
+                },
+                {
+                    "option": "Delete",
+                    "text": "{{i18n.delete}}",
+                    "action": "deleteDiagram"
+                }
+            ]
+        },
+        "confirmMultiDelete":
+        {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.diagramMultiDeleteConfirmMsg}}",
+            "messageTextParams": [
+                "{{data.dataProviders.associatedDiagramsList.selectedObjects.length}}"
+            ],
+            "navigationOptions":
+            [
+                {
+                    "option": "Cancel",
+                    "text": "{{i18n.cancel}}"
+                },
+                {
+                    "option": "Delete",
+                    "text": "{{i18n.delete}}",
+                    "action": "deleteDiagram"
+                }
+            ]
+        }
+    },
+
+   "i18n": {
+       "associatedPanelName": [
+           "ArchitectureModelerConstants"
+       ],
+       "diagramSingleDeleteConfirmMsg": [
+           "ArchitectureModelerMessages"
+       ],
+       "add": [
+           "ArchitectureModelerMessages"
+       ],
+       "diagramMultiDeleteConfirmMsg": [
+           "ArchitectureModelerMessages"
+       ],
+       "cancel": [
+           "ArchitectureModelerConstants"
+       ],
+       "delete": [
+           "ArchitectureModelerConstants"
+       ],
+       "architectureModelerPageTitle": [
+           "ArchitectureModelerConstants"
+       ]
+   }
+}

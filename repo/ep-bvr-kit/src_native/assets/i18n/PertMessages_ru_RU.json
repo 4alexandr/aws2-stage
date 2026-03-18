@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"Удалить",
+    "pertDeleteDesc": "Удалить выбранные узлы",
+    "deleteConfirmationMessage": "Вы уверены, что хотите удалить выбранные узлы без возможности восстановления?",
+    "missingProcessElements": "Создайте процесс.",
+    "openPertNodeTitle": "Открыть",
+    "resetLayoutTitle": "Сброс компоновки",
+    "resetLayoutDescription": "Сбросьте узлы PERT до компоновки по умолчанию."
+}

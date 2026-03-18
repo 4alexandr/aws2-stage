@@ -1,0 +1,11 @@
+<aw-command-panel caption="i18n.add">
+    <aw-form name="associateParmDicForm">
+        <aw-add visible-tabs="search,palette" type-filter="{{data.typeFilter}}" target-object="ctx.panelContext.target" relations="{{data.relationType}}"></aw-add>
+    </aw-form>
+    <aw-panel-footer >
+        <!-- panel-footer button for New tab -->
+        <aw-button action="createRelationForPaletteOrSearch" visible-when="associateParmDicForm.$valid && conditions.isAddButtonVisible">
+            <aw-i18n>i18n.add</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

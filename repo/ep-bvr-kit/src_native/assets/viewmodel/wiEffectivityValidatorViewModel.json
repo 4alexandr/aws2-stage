@@ -1,0 +1,25 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-row.directive"
+    ],
+    "data": {
+
+    },
+    "actions": {
+        "initialize": {
+            "actionType": "JSFunction",
+            "method": "initializeEffectivityValidator",
+            "deps": "js/wiValidateEffectivityService"
+        }
+    },
+    "lifecycleHooks": {
+        "onMount": "initialize"
+    },
+    "messages": {
+    },
+    "conditions": {
+    },
+    "i18n": {
+    }
+}

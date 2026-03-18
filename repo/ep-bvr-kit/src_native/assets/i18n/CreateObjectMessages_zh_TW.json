@@ -1,0 +1,14 @@
+{
+    "selectType": "選取類型",
+    "CreateButtonTitle": "建立",
+    "CreateAndAddMoreObjectButtonTitle": "建立並新增更多",
+    "CancelButtonTitle": "取消",
+    "createOperationCmdTitle": "建立工序",
+    "createProcessAreaCmdTitle": "建立工藝區域",
+    "gotoPreviousPageCmdTitle": "後退",
+    "assignProjectCmdTitle": "指派專案",
+    "SearchPanelTitle":"搜尋",
+    "projectsPanelCaption":"專案",
+    "loading":"正在載入",
+    "addProjectHeaderTitle":"新增專案"
+}

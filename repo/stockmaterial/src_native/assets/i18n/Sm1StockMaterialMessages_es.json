@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "Resultados",
+     "filterTabTitle" : "Filtros",
+     "searchTabTitle" :"Búsqueda",
+     "paletteTabTitle" :"Paleta",
+     "addStockMaterialTitle" : "Agregar",
+     "properties" : "Propiedades",
+     "add" : "Agregar",
+     "madeFromFailureMakeFromPrefTrue": "\"{0}\" se agregó, pero no es preferente en \"{1}\".",
+     "madeFromFailureMakeFromPrefFalse": "\"{0}\" no se agregó porque no es preferente en \"{1}\".",     
+     "dimensionsLabel": "Dimensiones",
+     "Sm1AddStdPartDesc": "Adjunta una pieza estándar a la pieza.",
+     "Sm1AddStockMaterialDesc": "Agrega un material de strock a la pieza.",
+     "addPropertiesLabel" : "Agregar propiedades"
+}

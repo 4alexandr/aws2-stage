@@ -1,0 +1,5 @@
+{
+    "sendToViewMakerCmdTitle": "Manufacturing View Maker 열기",
+    "sendToViewMakerTooltipMsg": "Manufacturing View Maker에서 모델 뷰를 만들고 관리할 수 있습니다.",
+    "sendToViewMakerDisabledTooltipMsg": "The command is available for processes that either have assignments, or have predecessors or background processes."
+}

@@ -1,0 +1,21 @@
+<aw-command-panel caption="i18n.viewerSettingsPanelCaption" anchor="data.viewerSettingsPanelCaption_close_anchor">
+    <aw-flex-row>
+        <aw-scrollpanel>
+            <aw-panel-body>
+                <aw-panel-section caption="i18n.performanceSectionCaption" >
+                    <aw-checkbox prop="data.enableCulling" ></aw-checkbox>
+                </aw-panel-section>
+            </aw-panel-body>
+        </aw-scrollpanel>
+    </aw-flex-row>
+    <aw-panel-footer>
+        <aw-action-section>
+            <aw-button action="saveAndClose" size="auto" button-type="base">
+                <aw-i18n>i18n.save</aw-i18n>
+            </aw-button>
+            <aw-button action="closePanel" size="auto" button-type="negative">
+                <aw-i18n>i18n.close</aw-i18n>
+            </aw-button>
+        </aw-action-section>
+    </aw-panel-footer>
+</aw-command-panel>

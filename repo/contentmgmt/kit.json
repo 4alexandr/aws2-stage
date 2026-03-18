@@ -1,0 +1,12 @@
+{
+  "name": "contentmgmt",
+  "description": "",
+  "modules": [
+    "contentmgmt"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Teamcenter.Soa.ContMgmtBase"
+  ]
+}

@@ -1,0 +1,16 @@
+<aw-panel-body aw-init="data.activeView='Ase0SettingsSub'">
+    <aw-panel-section caption="i18n.display">
+        <aw-column width="1f">
+        </aw-column>
+        <aw-column width="fill">
+            <aw-widget prop="labelCategoryType" aw-repeat="labelCategoryType : data.labelCategories">
+            </aw-widget>
+        </aw-column>
+    </aw-panel-section>
+</aw-panel-body>
+<aw-panel-footer>
+    <aw-checkbox prop="data.resetLabelPositions"> </aw-checkbox>
+    <aw-button action="applyLabelSetting" visible-when="awPanelBody.$valid && awPanelBody.$dirty || data.resetLabelPositions.dbValue === true">
+        <aw-i18n>i18n.apply</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

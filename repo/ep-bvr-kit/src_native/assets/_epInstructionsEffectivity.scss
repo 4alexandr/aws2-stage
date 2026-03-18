@@ -1,0 +1,240 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+/*=========================================================================*/
+/*========================== EP Effectivity Popup =========================*/
+/*=========================================================================*/
+
+.aw-epInstructionsEffectivity-wiValidateEffectivityPopup {
+
+    /**======================End Item List=================================*/
+
+    .aw-epValidateEffectivity-endItemFilterBoxContainer {
+        margin-left: 10px;
+        margin-top: auto;
+
+        .aw-jswidgets-choice {
+            padding-right: 20px;
+        }
+
+        .aw-widgets-propertyContainer {
+            align-items: center;
+            display: flex;
+        }
+
+        .aw-widgets-propertyLabelTop {
+            padding: 0 4px 2px 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    .aw-epValidateEffectivity-endItemFilterBoxContainer aw-listbox {
+        display: inline-block;
+    }
+
+    .aw-epValidateEffectivity-endItemRow {
+        width: auto;
+        margin-right: 30px;
+        margin-left: 40px;
+    }
+
+
+    /**======================End Item List ENDS=================================*/
+
+
+
+    .aw-epInstructionsEffectivity-summaryRowContainer {
+        height: 68px;
+        box-shadow: 0 4px 4px -2px;
+        z-index: 2;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .aw-epInstructionsEffectivity-operationsContainer {
+        overflow: hidden;
+        float: left;
+        max-height: 650px;
+        padding: 0 40px;
+        max-width: 100%;
+    }
+
+    .aw-epInstructionsEffectivity-operationPlot {
+        float: left;
+        max-width: calc(100vw - 450px);
+        overflow-y: hidden;
+        position: relative;
+        overflow-x: auto;
+        max-height: 550px;
+        box-shadow: -10px 0 10px -10px inset;
+    }
+
+    .aw-epInstructionsEffectivity-summaryPlot {
+        float: left;
+        position: relative;
+        max-width: calc(100vw - 450px);
+        overflow: hidden;
+    }
+
+    .aw-epInstructionsEffectivity-operationUpCheckbox {
+        float: left;
+        width: auto;
+        max-height: 550px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .aw-epInstructionsEffectivity-SummaryUpCheckbox {
+        float: left;
+        width: auto;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .aw-epInstructionsEffectivity-operationRowName {
+        padding-top: 30px;
+        width: 170px;
+        float: left;
+        max-height: 520px;
+        overflow: hidden;
+    }
+
+    .aw-epInstructionsEffectivity-summaryName {
+        padding-top: 30px;
+        width: 170px;
+        float: left;
+        height: 0px;
+    }
+
+    .aw-layout-panelSection {
+        padding: 0 40px;
+        width: 95%;
+    }
+
+    .aw-layout-panelMain .aw-layout-panelBody .aw-layout-panelSectionContent {
+        width: calc(100% - 10px);
+        padding: 8px 0;
+    }
+
+    .aw-layout-panelFooter {
+        padding-right: 80px;
+    }
+
+    .mfgGeneralUi-popup-largeTitleIconAndText {
+        padding: 24px 0 0 40px;
+    }
+
+    .aw-epInstructionsEffectivity-rowNameElement {
+        font-family: $font-family;
+        height: 78px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0px 24px 0px 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .aw-epInstructionsEffectivity-upCheckboxDefault {
+        height: 16px;
+        width: 16px;
+        border: 2px solid;
+        font-family: Arial;
+        font-size: 10px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        cursor: default;
+    }
+
+    .aw-epInstructionsEffectivity-upCheckboxSummary {
+        height: 20px;
+        width: 20px;
+        border-width: 2px;
+        border-style: solid;
+        font-family: Arial;
+        font-size: 10px;
+        padding: 2px;
+    }
+
+    .aw-epInstructionsEffectivity-upCheckboxSet {
+        height: 16px;
+        width: 16px;
+        border-width: 2px;
+        border-style: solid;
+        font-family: Arial;
+        font-size: 10px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        cursor: default;
+    }
+
+    .aw-epValidateEffectivity-wiEffectivityRowContainer {
+        height: 68px;
+        display: flex;
+        display: inline-block;
+    }
+
+    .aw-epValidateEffectivity-wiEffectivitySliderDiv {
+        position: relative;
+        bottom: 70px;
+    }
+
+    .aw-epValidateEffectivity-wiEffectivitySlider {
+        position: absolute;
+    }
+
+
+    .aw-epValidateEffectivity-wiEffectivityObjectRow {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 3.75px;
+        padding-right: 8px;
+    }
+
+    #wiEffectivityToolTip {
+        padding: 4px 10px;
+        font-family: "Segoe UI";
+        position: absolute;
+        border-width: thin;
+        border-style: solid;
+        display: none;
+        font-size: $fontsize_normal;//12px
+        height: 14px;
+        z-index: 1;
+    }
+
+    #wiEffectivityToolTip::after {
+        content: " ";
+        position: absolute;
+        top: 100%;
+        left: 10px;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+    }
+
+    .aw-epValidateEffectivity-toolTip {
+        position: absolute;
+        display: none;
+    }
+
+    .aw-popup-panel2 .aw-popup-container {
+        max-height: inherit;
+        max-width: inherit;
+    }
+
+}
+.aw-epValidateEffectivity-saveButton .aw-base-blk-button {
+    margin: 6px 10px 0 0;
+    width: 80px;
+}

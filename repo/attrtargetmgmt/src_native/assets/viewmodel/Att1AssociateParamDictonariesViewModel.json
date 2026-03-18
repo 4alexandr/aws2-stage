@@ -1,0 +1,102 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-add.directive",
+        "js/visible-when.directive",
+        "js/aw-form.directive"
+    ],
+    "actions": {
+        "createRelationForPaletteOrSearch":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                 "events":
+                 [
+                     {
+                         "name": "addObject.startCreateRelation"
+                     }
+                 ]
+            }
+        },  "closePanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                 "events":
+                 [
+                     {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+
+                 ]
+            }
+        },
+        "setInputForRegisterPanelContext": {
+            "actionType": "JSFunction",
+            "method": "setTargetObject",
+            "inputData": {
+                "data" :"{{data}}",
+                "ctx" : "{{ctx}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "att1AssociateParamDic.registerPanelContext"
+                } ]
+            },
+            "deps": "js/Att1AssociateParamDictonariesService"
+        },
+        "registerTargetInPanelContext": {
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "deps": "js/appCtxService",
+            "inputData": {
+                "name": "panelContext",
+                "value": {
+                    "target": "{{data.addObjectData.target}}"
+                }
+            }
+        }
+    },
+    "data":{
+        "typeFilter":"Att0ParamDictionary",
+        "relationType":"Att0HasParamDictionary"
+    },
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "action": "setInputForRegisterPanelContext"
+        },
+        {
+            "eventId": "cdm.relatedModified",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "att1AssociateParamDic.registerPanelContext",
+            "action": "registerTargetInPanelContext"
+        }
+    ],
+    "conditions": {
+        "isAddButtonVisible":
+        {
+            "expression":" data.sourceObjects.length > 0 "
+        }
+    },
+    "i18n": {
+        "add": [ "Att1AttrMappingMessages" ]
+    }
+}

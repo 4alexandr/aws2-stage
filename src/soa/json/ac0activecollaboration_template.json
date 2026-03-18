@@ -1,0 +1,759 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Ac0ActiveCollabDataProvider",
+      "libraryName": "Ac0ActiveCollaboration",
+      "name": "Ac0ActiveCollabDataProvider",
+      "namespace": "ac0activecollaboration",
+      "primaryInterface": "true",
+      "typeName": "Ac0ActiveCollabDataProvider"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Ac0Comment",
+      "libraryName": "Ac0ActiveCollaboration",
+      "name": "Ac0Comment",
+      "namespace": "ac0activecollaboration",
+      "primaryInterface": "true",
+      "typeName": "Ac0Comment"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Ac0CommentStatsRecord",
+      "libraryName": "Ac0ActiveCollaboration",
+      "name": "Ac0CommentStatsRecord",
+      "namespace": "ac0activecollaboration",
+      "primaryInterface": "true",
+      "typeName": "Ac0CommentStatsRecord"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Ac0Conversation",
+      "libraryName": "Ac0ActiveCollaboration",
+      "name": "Ac0Conversation",
+      "namespace": "ac0activecollaboration",
+      "primaryInterface": "true",
+      "typeName": "Ac0Conversation"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Ac0ConversationSrcRel",
+      "libraryName": "Ac0ActiveCollaboration",
+      "name": "Ac0ConversationSrcRel",
+      "namespace": "ac0activecollaboration",
+      "primaryInterface": "true",
+      "typeName": "Ac0ConversationSrcRel"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Ac0SubscriptionRecord",
+      "libraryName": "Ac0ActiveCollaboration",
+      "name": "Ac0SubscriptionRecord",
+      "namespace": "ac0activecollaboration",
+      "primaryInterface": "true",
+      "typeName": "Ac0SubscriptionRecord"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Interface Name for Business Object Ac0UserFeedRecord",
+      "libraryName": "Ac0ActiveCollaboration",
+      "name": "Ac0UserFeedRecord",
+      "namespace": "ac0activecollaboration",
+      "primaryInterface": "true",
+      "typeName": "Ac0UserFeedRecord"
+    }
+  ],
+  "Date": "Thu Sep 10 03:15:18 PM 2020",
+  "Library": [
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "sa"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "This library contains the code for the Active Collboration objects",
+      "isThirdParty": "false",
+      "name": "Ac0ActiveCollaboration",
+      "namespace": "",
+      "serviceLibrary": "false"
+    },
+    {
+      "createRelease": "Awp05.1.0",
+      "description": "Ac0SoaActiveCollaboration",
+      "isThirdParty": "false",
+      "name": "Ac0SoaActiveCollaboration",
+      "namespace": "Ac0::Soa::ActiveCollaboration",
+      "serviceLibrary": "true"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "The request is a list of CreateOrUpdateCommentRequest structures which holds the data required to create new <b>Ac0Comment</b> object(s) or update existing  <b>Ac0Comment</b> object(s).",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Ac0activecollaboration",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation creates or updates a comment.",
+      "exceptionCondition": "",
+      "id": "createOrUpdateComment#const,std::vector<Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::CreateOrUpdateCommentRequest>,&",
+      "interface": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createOrUpdateComment",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::createOrUpdateComment#const,std::vector<Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::CreateOrUpdateCommentRequest>,&",
+      "returnDescription": "The ServiceData contains the created or updated objects. The following partial errors may be returned:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455003: The comment could not be created because there is no comment text.",
+      "useCase": "&bull;&nbsp;&nbsp;&nbsp;&nbsp;A user replies to a comment in a conversation.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;A user updates an existing comment in the conversation"
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The request contains a CreateOrUpdateConversationRequest  structure which holds the data required to create a new <b>Ac0Conversation</b> object or update an existing <b>Ac0Conversation</b> object.",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Ac0activecollaboration",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation creates or updates a conversation.",
+      "exceptionCondition": "",
+      "id": "createOrUpdateConversation#const,Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::CreateOrUpdateConversationRequest,&",
+      "interface": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createOrUpdateConversation",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::createOrUpdateConversation#const,Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::CreateOrUpdateConversationRequest,&",
+      "returnDescription": "The created or updated Ac0Conversation objects. The following partial errors     may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455001: The conversation could not be created because the default comment text is blank. <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455002: The conversation could not be created because there is no source object. <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455008: The conversation could not be created because there are invalid source objects.  A source object must be a WorkspaceObject.",
+      "useCase": "&bull;&nbsp;&nbsp;&nbsp;&nbsp;A user creates a new public conversation on any Teamcenter object.<br />Any user can create or update a conversation.  Conversations are typically created through Active Workspace on the conversations panel.  A conversation must have one or more source objects.  A source object can be any Teamcenter WorkspaceObject.  <br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;A user creates a new private conversation on any Teamcenter object.<br />Any user can create or update a conversation.  Conversations are typically created through Active Workspace on the conversations panel.  A conversation must have one or more source objects.  A source object can be any Teamcenter WorkspaceObject.  Private conversations must contain at least one participant.  A participant is a Teamcenter User object."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of <b>Ac0Comment</b> object(s) to be deleted.",
+          "parameterName": "objsToDelete"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Ac0activecollaboration",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation deletes one or more <b>Ac0Comment</b> object(s).",
+      "exceptionCondition": "",
+      "id": "deleteComment#const,std::vector<ac0activecollaboration::Ac0Comment>,&",
+      "interface": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "deleteComment",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::deleteComment#const,std::vector<ac0activecollaboration::Ac0Comment>,&",
+      "returnDescription": "The following partial errors may be returned:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455005: The user does not have permission to delete the comment.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455007: Object not deleted.  The object to delete was not a comment.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "This is a list of <b>Ac0Conversation</b> object(s) to be deleted.",
+          "parameterName": "objsToDelete"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Ac0activecollaboration",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation deletes one or more <b>Ac0Conversation</b> object(s).",
+      "exceptionCondition": "",
+      "id": "deleteConversation#const,std::vector<ac0activecollaboration::Ac0Conversation>,&",
+      "interface": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "deleteConversation",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::deleteConversation#const,std::vector<ac0activecollaboration::Ac0Conversation>,&",
+      "returnDescription": "The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455004: The user does not have permission to delete the conversation.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The list of <b>User</b> objects for which the read privileges of the given objects are desired.",
+          "parameterName": "users"
+        },
+        {
+          "description": "The list of <b>WorkspaceObject</b> objects on which the read privileges for the given users are desired.",
+          "parameterName": "objects"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Ac0activecollaboration",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "Given a list of users and a list of objects, this operation returns the users and objects where the user(s) do not have read access to the object(s).",
+      "exceptionCondition": "",
+      "id": "getReadInfo#const,std::vector<Teamcenter::User>,&$const,std::vector<Teamcenter::BusinessObject>,&",
+      "interface": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getReadInfo",
+      "opTemplate": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::ReadResponse#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::getReadInfo#const,std::vector<Teamcenter::User>,&$const,std::vector<Teamcenter::BusinessObject>,&",
+      "returnDescription": "Two maps with read access information are returned.  The userObjectMap contains a user as the key and source objects for which that user does not have read access.  The second map, the objectUserMap, contains the object as the key and the users that do not have access to the key object.  The following partial errors may be returned:<br /><br /><ul><ul><li type=\"disc\">455009: Read permissions could not be returned because one or more users are required.</li><li type=\"disc\">455010: Read permissions could not be returned because one or more objects is needed.</li><li type=\"disc\">455013: Read permissions could not be returned because there are invalid objects.  An object must be a WorkspaceObject.</li></ul></ul>",
+      "useCase": "&bull;&nbsp;&nbsp;&nbsp;&nbsp;A user creating a conversation needs to know which source objects the given participants do not have read access to.  <br /><br />When creating conversations in Active Workspace, a user can select one or more participants for a conversation on one or more source objects.  The user creating the conversation needs to know which participants do not have read access to all source objects.   <br /><br />For each participant that does not have read access to one or more source objects, the operation returns a mapping of the participant and the source objects for which that participant does not have read access.&nbsp;&nbsp;&nbsp;&nbsp;<br /><br />Using this information, a user creating the conversation can then either know that a participant will not be able to see the message they are writing, or they may do what is needed have the permissions changed for the participant(s) or the source object(s).<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;A user creating a conversation needs to know which participants do not have read access for the source objects on the conversation.<br /><br />When creating conversations in Active Workspace, a user can select one or more participants for a conversation on one or more source objects.  The user creating the conversation needs to know which source objects are not readable by all participants.   <br /><br />For each source object on which any participant does not have read access, the operation returns the source object and the participants that do not have read access to that object. <br /><br />Using this information, a user creating the conversation can then either know that a participants will not be able to see the message they are writing, or they may do what is needed have the permissions changed for the participant(s) or the source object(s)."
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of <b>Ac0Conversation</b> objects that the current user will subscribe or unsubscribe to.  The objects need to be of <b>Ac0Conversation</b> type.",
+          "parameterName": "conversations"
+        },
+        {
+          "description": "A list of source objects that the current user will subscribe or unsubscribe to.  A sourceObject can be any <b>WorkspaceObject</b> users want to have a conversation about.",
+          "parameterName": "sourceObjects"
+        },
+        {
+          "description": "If true subscribe to the list of objects. If false unsubscribe to the list of objects.",
+          "parameterName": "subscriptionFlag"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Ac0activecollaboration",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation subscribes or unsubscribes the current user to a list of <b>Ac0Conversation</b> or source objects. The source objects are expected to be <b>WorkspaceObject</b> type. If user subscribe to an <b>Ac0Conversation</b> object, then when new comments are added to the conversation as replies the user will be notified.  If user subscribe to a <b>WorkspaceObject</b>, then when new conversations are created for that <b>WorkspaceObject</b> or new comments are added as replies to existing Conversations on that <b>WorkspaceObject</b>, the user will be notified.",
+      "exceptionCondition": "",
+      "id": "manageSubscriptions#const,std::vector<ac0activecollaboration::Ac0Conversation>,&$const,std::vector<Teamcenter::BusinessObject>,&$bool",
+      "interface": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "manageSubscriptions",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::manageSubscriptions#const,std::vector<ac0activecollaboration::Ac0Conversation>,&$const,std::vector<Teamcenter::BusinessObject>,&$bool",
+      "returnDescription": "The operation will return <b>ServiceData</b> object. The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;4550011: The subscription or un-subscription could not be processed because there were no conversation or source objects provided.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;4550012:  The subscription or un-subscription could not be processed because there are invalid source objects.  A source object must be a <b>WorkspaceObject</b>.",
+      "useCase": "&bull;&nbsp;&nbsp;&nbsp;&nbsp;Follow or Subscribe to a Conversation<br />When a user clicks on the &ldquo;follow&rdquo; button in an expanded conversation, they will receive notifications when replies are made to the conversation.  A conversation is any <b>Ac0Conversation</b>.<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Unfollow or Unsubscribe to a Conversation<br />If a user has subscribed to a conversation by clicking on the Follow button on the Conversation, they will now see an &ldquo;Unfollow&rdquo; button.  Click the Unfollow button to stop receiving notifications when replies are made to the conversation.  A conversation is any<b> Ac0Conversation</b><br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Follow or Subscribe to Conversations for a source object<br />When a user clicks on the &ldquo;follow&rdquo; button in the Conversation panel, they will receive notifications for any replies to existing conversations, as well as for any new conversations created, where the currently selected business object is a source object on the conversation.  A source object can be any Teamcenter <b>WorkspaceObject</b>.<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;Unfollow or Unsubscribe to Conversations for a source object<br />If a user has subscribed to conversations for a source object, they will now see an &ldquo;Unfollow&rdquo; button next to the selected source object in the conversation panel.  Click the &ldquo;Unfollow&rdquo; button to stop receiving notifications for conversation activity related to the selected source object.  A source object can be any Teamcenter <b>WorkspaceObject</b>."
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::CreateOrUpdateCommentRequest",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The request is a list of CreateOrUpdateCommentRequest structures which holds the data required to create new <b>Ac0Comment</b> object(s) or update existing  <b>Ac0Comment</b> object(s).",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation creates or updates a comment.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::createOrUpdateComment#const,std::vector<Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::CreateOrUpdateCommentRequest>,&",
+      "name": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration::createOrUpdateComment",
+      "returnConst": "false",
+      "returnDescription": "The ServiceData contains the created or updated objects. The following partial errors may be returned:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455003: The comment could not be created because there is no comment text.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::CreateOrUpdateConversationRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The request contains a CreateOrUpdateConversationRequest  structure which holds the data required to create a new <b>Ac0Conversation</b> object or update an existing <b>Ac0Conversation</b> object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation creates or updates a conversation.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::createOrUpdateConversation#const,Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::CreateOrUpdateConversationRequest,&",
+      "name": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration::createOrUpdateConversation",
+      "returnConst": "false",
+      "returnDescription": "The created or updated Ac0Conversation objects. The following partial errors     may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455001: The conversation could not be created because the default comment text is blank. <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455002: The conversation could not be created because there is no source object. <br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455008: The conversation could not be created because there are invalid source objects.  A source object must be a WorkspaceObject.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "ac0activecollaboration::Ac0Comment",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <b>Ac0Comment</b> object(s) to be deleted.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "objsToDelete"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation deletes one or more <b>Ac0Comment</b> object(s).",
+      "id": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::deleteComment#const,std::vector<ac0activecollaboration::Ac0Comment>,&",
+      "name": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration::deleteComment",
+      "returnConst": "false",
+      "returnDescription": "The following partial errors may be returned:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455005: The user does not have permission to delete the comment.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455007: Object not deleted.  The object to delete was not a comment.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "ac0activecollaboration::Ac0Conversation",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "This is a list of <b>Ac0Conversation</b> object(s) to be deleted.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "objsToDelete"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation deletes one or more <b>Ac0Conversation</b> object(s).",
+      "id": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::deleteConversation#const,std::vector<ac0activecollaboration::Ac0Conversation>,&",
+      "name": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration::deleteConversation",
+      "returnConst": "false",
+      "returnDescription": "The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;455004: The user does not have permission to delete the conversation.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::User",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The list of <b>User</b> objects for which the read privileges of the given objects are desired.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "users"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The list of <b>WorkspaceObject</b> objects on which the read privileges for the given users are desired.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "objects"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::ReadResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "Given a list of users and a list of objects, this operation returns the users and objects where the user(s) do not have read access to the object(s).",
+      "id": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::ReadResponse#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::getReadInfo#const,std::vector<Teamcenter::User>,&$const,std::vector<Teamcenter::BusinessObject>,&",
+      "name": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration::getReadInfo",
+      "returnConst": "false",
+      "returnDescription": "Two maps with read access information are returned.  The userObjectMap contains a user as the key and source objects for which that user does not have read access.  The second map, the objectUserMap, contains the object as the key and the users that do not have access to the key object.  The following partial errors may be returned:<br /><br /><ul><ul><li type=\"disc\">455009: Read permissions could not be returned because one or more users are required.</li><li type=\"disc\">455010: Read permissions could not be returned because one or more objects is needed.</li><li type=\"disc\">455013: Read permissions could not be returned because there are invalid objects.  An object must be a WorkspaceObject.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "ac0activecollaboration::Ac0Conversation",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <b>Ac0Conversation</b> objects that the current user will subscribe or unsubscribe to.  The objects need to be of <b>Ac0Conversation</b> type.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "conversations"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of source objects that the current user will subscribe or unsubscribe to.  A sourceObject can be any <b>WorkspaceObject</b> users want to have a conversation about.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "sourceObjects"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": ""
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "If true subscribe to the list of objects. If false unsubscribe to the list of objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "subscriptionFlag"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation subscribes or unsubscribes the current user to a list of <b>Ac0Conversation</b> or source objects. The source objects are expected to be <b>WorkspaceObject</b> type. If user subscribe to an <b>Ac0Conversation</b> object, then when new comments are added to the conversation as replies the user will be notified.  If user subscribe to a <b>WorkspaceObject</b>, then when new conversations are created for that <b>WorkspaceObject</b> or new comments are added as replies to existing Conversations on that <b>WorkspaceObject</b>, the user will be notified.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Ac0::Soa::ActiveCollaboration::ActiveCollaboration::manageSubscriptions#const,std::vector<ac0activecollaboration::Ac0Conversation>,&$const,std::vector<Teamcenter::BusinessObject>,&$bool",
+      "name": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration::manageSubscriptions",
+      "returnConst": "false",
+      "returnDescription": "The operation will return <b>ServiceData</b> object. The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;4550011: The subscription or un-subscription could not be processed because there were no conversation or source objects provided.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;4550012:  The subscription or un-subscription could not be processed because there are invalid source objects.  A source object must be a <b>WorkspaceObject</b>.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This service contains operations for creating and editing content within Active Collaboration. Operations are provided to manage comments, subscriptions, notification preferences, tags and to control subscriptions.",
+      "libraryName": "Ac0SoaActiveCollaboration",
+      "name": "ActiveCollaboration",
+      "namespace": "Ac0::Soa::ActiveCollaboration",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The original formatted text and content entered by the user using ckeditor.",
+          "name": "richText"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "ac0activecollaboration::Ac0Comment"
+            }
+          ],
+          "description": "The <b>Ac0Comment</b>  root comment object.  This will be null if it is the first comment on the conversation.",
+          "name": "rootComment"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "ac0activecollaboration::Ac0Comment"
+            }
+          ],
+          "description": "The <b>Ac0Comment</b>  object to be updated. This is empty if the comment is being created.",
+          "name": "comment"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "ac0activecollaboration::Ac0Conversation"
+            }
+          ],
+          "description": "The <b>Ac0Conversation</b> object this new or updated comment belongs to.",
+          "name": "conversation"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "The CreateOrUpdateCommentRequest is a data structure that contains the parameters required for the create or update comment request.",
+      "isPublished": "true",
+      "name": "CreateOrUpdateCommentRequest",
+      "namespace": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration",
+      "scope": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list   containing <b>BusinessObject</b> objects  that are the conversation&rsquo;s source objects.    A sourceObject can be any <b>WorkspaceObject</b> users want to have a conversation about.",
+          "name": "sourceObjects"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::User"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list  containing <b>User</b> objects that are the conversation&rsquo;s participants.  This field is null for public conversations. For private conversations this is a mandatory parameter.",
+          "name": "listOfPartipants"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The original formatted text and content entered by the user using ckeditor.   This field contains the text of the initial comment on a conversation.",
+          "name": "defaultCommentText"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "ac0activecollaboration::Ac0Conversation"
+            }
+          ],
+          "description": "The <b>Ac0Conversation</b> object if the conversation is being updated.  This parameter is null when the conversation is new.",
+          "name": "conversation"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "The CreateOrUpdateConversationRequest is a data structure that contains the parameters required for a create or update conversation request.",
+      "isPublished": "true",
+      "name": "CreateOrUpdateConversationRequest",
+      "namespace": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration",
+      "scope": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::UserObjectMap"
+            }
+          ],
+          "description": "The map (User, list of BusinessObject) of User entries that correspond to a list of WorkspaceObject objects for which the User does not have read permissions.  The map will be empty if all provided users have read access to all provided objects.",
+          "name": "userObjectMap"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration::ObjectUserMap"
+            }
+          ],
+          "description": "The map (BusinessObject, list of User) of WorkspaceObject entries that correspond to a list of User objects that do not have read permission for the given WorkspaceObject.",
+          "name": "objectUserMap"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The Service Data.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "The ReadResponse is a data structure that holds maps containing the requested users and objects where read privileges have not been granted.",
+      "isPublished": "true",
+      "name": "ReadResponse",
+      "namespace": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration",
+      "scope": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::User"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "The objectUserMap contains objects and a corresponding list of users that do not have read access to the given object.",
+      "isPublished": "true",
+      "name": "ObjectUserMap",
+      "namespace": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration",
+      "scope": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::User"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "The userObjectMap contains user objects and a corresponding list of business objects that the given user does not have read access to.",
+      "isPublished": "true",
+      "name": "UserObjectMap",
+      "namespace": "Ac0::Soa::ActiveCollaboration::_2020_12::ActiveCollaboration",
+      "scope": "Ac0::Soa::ActiveCollaboration::ActiveCollaboration"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

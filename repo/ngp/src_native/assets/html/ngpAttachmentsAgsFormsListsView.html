@@ -1,0 +1,15 @@
+<aw-panel exist-when="conditions.allDataProvidersPopulated" class=aw-ngp-attachmentsPanel>
+    <aw-list class="aw-ngp-attachmentsPanelOverview" dataprovider="data.dataProviders.overviewDataProvider">
+        <aw-i18n class="aw-ngp-attachmentsPanelOverviewLabel">i18n.overview</aw-i18n>
+    </aw-list>
+    <aw-panel-section exist-when="data.dataProviders.attachmentsDataProvider" caption="{{::i18n.attachments}} ({{data.dataProviders.attachmentsDataProvider.viewModelCollection.loadedVMObjects.length}})" name="attachments" collapsed="false">
+        <aw-include name="mfeTypeAndNameCellList" sub-panel-context="data.dataProviders.attachmentsDataProvider"></aw-include>
+    </aw-panel-section>
+    <aw-panel-section  exist-when="data.dataProviders.attributeGroupsDataProvider" caption="{{::i18n.attributeGroups}} ({{data.dataProviders.attributeGroupsDataProvider.viewModelCollection.loadedVMObjects.length}})" name="attributeGroups" collapsed="false">
+        <aw-include name="mfeTypeAndNameCellList" sub-panel-context="data.dataProviders.attributeGroupsDataProvider"></aw-include>
+    </aw-panel-section>
+    <aw-panel-section exist-when="conditions.shouldDisplayForms" caption="{{::i18n.forms}} ({{data.dataProviders.formsDataProvider.viewModelCollection.loadedVMObjects.length}}" name="forms" collapsed="false">
+        <aw-include exist-when="data.dataProviders.formsDataProvider" name="mfeTypeAndNameCellList" sub-panel-context="data.dataProviders.formsDataProvider"></aw-include>
+    </aw-panel-section>
+</aw-panel>
+<aw-include exist-when="!conditions.allDataProvidersPopulated" name="mfeLoadingMessage"></aw-include>

@@ -1,0 +1,276 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-bar.directive",
+        "js/aw-splm-table.directive"
+
+    ],
+
+    "actions": {
+        "getFilterFacets": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-12-Finder",
+            "method": "getFilterValues",
+            "inputData": {
+                "filterFacetInput": {
+                    "columnFilters": "{{filterFacetInput.columnFilters}}",
+                    "columnName": "{{filterFacetInput.column.field}}",
+                    "maxToReturn": "{{filterFacetInput.maxToReturn}}",
+                    "providerName": "Cdm1EventsTableProvider",
+                    "searchCriteria": 
+                    {
+                        "parentUid": "{{ctx.selected.uid}}"
+                    },
+                    "searchFilterMap":  "{{ctx.search.activeFilterMap}}",
+                    "startIndex": "{{filterFacetInput.startIndex}}"
+                }
+            },
+            "outputData": {
+                "filterFacetResults": "{{json:facetValues}}"
+            }
+        },
+        "editEventAction": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "editHandlerStateChange",
+                    "eventData": {
+                        "state": "{{data.eventData.state}}",
+                        "dataSource": "{{data.dataProviders.cdm1EventsTableProvider}}"
+                    },
+                    "condition": "data.eventData.dataSource.name !== 'cdm1EventsTableProvider'"
+                } ]
+            }
+        },
+
+        "getStaticTableData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Cdm0EventsTableColConfig"
+                },
+
+                "searchInput": {
+                    "attributesToInflate": [],
+
+                    "internalPropertyName": "",
+                    "maxToLoad": 60,
+                    "maxToReturn": 60,
+                    "providerName": "Cdm1EventsTableProvider",
+                    "searchCriteria": {
+                        "parentUid": "{{ctx.selected.uid}}"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchFilterMap": {
+
+                    },                    
+                    "searchSortCriteria": "{{data.columnProviders.clientScopeUI.sortCriteria}}",
+                    "startIndex": "{{data.dataProviders.cdm1EventsTableProvider.startIndex}}",
+                    "columnFilters": "{{data.columnProviders.clientScopeUI.columnFilters}}"
+                }
+            },
+
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.cdm1EventsTableProvider.columnConfig": "columnConfig",
+                "ctx.search.totalFound": "totalFound",
+                "ctx.search.totalLoaded": "totalLoaded"
+            },
+
+            "deps": "js/Cdm1EventListService",
+            "policy": {
+                "types": [ {
+                        "name": "Cdm0EventsTable",
+                        "properties": [ {
+                                "name": "cdm0EventListRowSelection"
+                            },
+
+                            {
+                                "name": "cdm0EventName"
+                            },
+
+                            {
+                                "name": "cdm0ScheduleTask"
+                            },
+
+                            {
+                                "name": "cdm0StartDate"
+                            },
+
+                            {
+                                "name": "cdm0EndDate"
+                            },
+
+                            {
+                                "name": "cdm0OffSet"
+                            },
+
+                            {
+                                "name": "cdm0RelativeTo"
+                            },
+
+                            {
+                                "name": "cdm0Recurrence"
+                            },
+
+                            {
+                                "name": "cdm0RecurrenceEndDate"
+                            },
+
+                            {
+                                "name": "cdm0SubmittalDueDate"
+                            }
+                        ]
+                    },
+
+                    {
+                        "name": "ScheduleTask",
+                        "properties": [ {
+                                "name": "fnd0ParentTask"
+                            },
+
+                            {
+                                "name": "start_date"
+                            },
+
+                            {
+                                "name": "finish_date"
+                            },
+
+                            {
+                                "name": "object_name"
+                            }
+                        ]
+                    },
+
+                    {
+                        "name": "Fnd0StaticTable",
+                        "properties": [ {
+                            "name": "fnd0StaticTableData"
+                        } ]
+                    },
+
+                    {
+                        "name": "Cdm0DataReqItemRevision",
+                        "properties": [ {
+                            "name": "cdm0EventList"
+                        } ]
+                    }
+                ]
+            }
+        },
+
+        "addEventDataToNativeData": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "nativeDataLoadEvent",
+                    "eventData": {
+                        "viewModelObjects": "{{data.dataProviders.cdm1EventsTableProvider.viewModelCollection.loadedVMObjects}}"
+                    }
+                } ]
+            }
+        },
+
+        "updateScheduleTaskFieldsInRow": {
+            "actionType": "JSFunction",
+            "method": "updateScheduleTaskFieldsInRow",
+            "inputData": {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/Cdm1EventListService"
+        },
+
+        "createAndSetSelectedRowData": {
+            "actionType": "JSFunction",
+            "method": "createAndSetSelectedRowData",
+            "inputData": {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/Cdm1EventListService"
+        },
+
+        "loadEventListTable": {
+            "actionType": "dataProvider",
+            "method": "cdm1EventsTableProvider"
+        }
+    },
+    "columnProviders": {
+        "clientScopeUI": {
+            "columns": [{}],
+            "saveColumnAndLoadAction" : "saveColumnConfigLoadData",
+            "resetColumnAction" : "resetColumnConfig"           
+        }
+    },
+    "dataProviders": {
+        "cdm1EventsTableProvider": {
+            "action": "getStaticTableData",
+            "editContext": "TABLE_CONTEXT",            
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "multiple",
+            "filterFacetAction": "getFilterFacets",
+            "filterFacetResults": "{{data.filterFacetResults}}"
+        }   
+    },
+
+    "data": {
+        "cdm1EventsTableAnchor": "cdm1AddEventAnchor"
+    },
+
+    "i18n": {
+        "cdm1AddEventTitle": [
+            "contractmanagementMessages"
+        ]
+    },
+
+    "grids": {
+        "eventListTableId": {
+            "dataProvider": "cdm1EventsTableProvider",
+            "columnProvider": "clientScopeUI",
+            "addIconColumn": false,            
+            "gridOptions": {
+                "enablePinning": true,
+                "maxRowsToShow": 5,
+                "isFilteringEnabled": true,
+                "enableSorting": true
+            }
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "cdm1EventsTableProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "addEventDataToNativeData"
+        },
+
+        {
+            "eventId": "eventListTableId.cellStartEdit",
+            "cacheEventData": true,
+            "action": "createAndSetSelectedRowData"
+        },
+
+        {
+            "eventId": "cdm0ScheduleTask.lovValueChanged",
+            "action": "updateScheduleTaskFieldsInRow"
+        },
+
+        {
+            "eventId": "Cdm1AddEvent.contentUnloaded",
+            "action": "loadEventListTable"
+        },
+        {
+            "eventId": "editHandlerStateChange",
+            "cacheEventData": true,
+            "action": "editEventAction"
+        }
+    ]
+}

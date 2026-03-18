@@ -1,0 +1,66 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-social-ratings-overview.directive",
+        "js/aw-panel-section.directive"
+    ],
+    "actions":
+    {
+        "populateRatingProps":
+        {
+            "actionType": "JSFunction",
+            "method": "populateRatingProps",
+            "deps": "js/S2clSocialService",
+            "inputData":
+            {
+                "data": "{{data}}"
+            }
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "ratingOverViewPanel.contentLoaded",
+            "action": "populateRatingProps"
+        }
+    ],
+    "data":
+    {
+        "yourRating":
+        {
+            "displayName": "{{i18n.yourRating}}",
+            "type": "STRING"
+        },
+        "averageRating":
+        {
+            "displayName": "{{i18n.averageRating}}",
+            "type": "DOUBLE",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE",
+            "isEditable": "false"
+        }
+    },
+    "i18n":
+    {
+        "yourRating":
+        [
+            "SocialMessages"
+        ],
+        "averageRating":
+        [
+            "SocialMessages"
+        ]
+    },
+    "functions":
+    {
+        "getRatingProps":
+        {
+            "functionName": "getRatingProps",
+            "parameters":
+            [
+                "{{data}}"
+            ]
+        }
+    }
+}

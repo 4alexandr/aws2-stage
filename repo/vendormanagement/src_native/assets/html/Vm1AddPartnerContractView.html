@@ -1,0 +1,30 @@
+<aw-command-panel caption="i18n.add">
+    <aw-panel-body visible-when="conditions.isPCTypeSelected">
+        <aw-panel-section caption="i18n.objectType" ></aw-panel-section>
+        <aw-list dataprovider="data.dataProviders.getCreatablePartnerContractTypes">
+            <aw-type-cell vmo="item"></aw-type-cell>
+        </aw-list>
+    </aw-panel-body>
+    <aw-form name="createContractForm">
+        <aw-panel-body exist-when="!conditions.isPCTypeSelected">
+            <aw-panel-header>
+                <aw-back-button title="{{data.dataProviders.getCreatablePartnerContractTypes.selectedObjects[0].cellHeader1}}"
+                    action="clearSelectedPCType" exist-when="!conditions.isPCTypeSelected"></aw-back-button>
+            </aw-panel-header>
+            <aw-panel-section>
+                <aw-xrt type="CREATE"
+                    object-type="{{data.dataProviders.getCreatablePartnerContractTypes.selectedObjects[0].props.type_name.dbValue}}">
+                </aw-xrt>
+            </aw-panel-section>
+            <aw-panel-section caption="i18n.vm1PartnerDetails">
+                <aw-widget hint="checkboxoptionlov" prop="data.allContactsData"></aw-widget>
+                <aw-widget hint="checkboxoptionlov" prop="data.allLocationsData"></aw-widget>
+            </aw-panel-section>
+        </aw-panel-body>
+    </aw-form>
+    <aw-panel-footer>
+        <aw-button action="validateContractDates" visible-when="createContractForm.$valid && !conditions.isPCTypeSelected">
+            <aw-i18n>i18n.add</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

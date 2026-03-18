@@ -1,0 +1,70 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports": [
+                    "js/aw-include.directive",
+                    "js/aw-panel-body.directive",
+                    "js/aw-panel.directive",
+                    "js/aw-i18n.directive"
+    ],
+
+    "actions":
+    {
+       "initializeConsumerAppsData":{
+        "actionType": "JSFunction",
+        "method": "initializeConsumerAppsData",
+        "deps": "js/Att1ConfigureVariantService"
+       },
+       "loadParameterVariants":{
+                "actionType": "JSFunction",
+                "method": "loadParameterVariants",
+                "inputData": {
+                    "hasVariantConfigContext": "{{ctx.parammgmtctx.hasVariantConfigContext}}"
+                },
+                "deps": "js/Att1ConfigureVariantService"
+        },
+        "loadParameterVariantsFroSelectionChange":{
+            "actionType": "JSFunction",
+            "method": "loadParameterVariants",
+            "inputData": {
+                "hasVariantConfigContext": "{{ctx.parammgmtctx.hasVariantConfigContext}}",
+                "isSelectionChange":true
+            },
+            "deps": "js/Att1ConfigureVariantService"
+        },
+        "resetConsumerAppsData":{
+            "actionType": "JSFunction",
+            "method": "resetConsumerAppsData",
+            "deps": "js/Att1ConfigureVariantService"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit":"initializeConsumerAppsData",
+        "onMount": "loadParameterVariants"
+    },
+    "onEvent": [
+        {
+            "eventId":"Att1VariantsTab.loadParameterVariants",
+            "action":"loadParameterVariants"
+        },
+        {
+            "eventId":"Pca0VariantsGrid.contentLoaded",
+            "action":"loadParameterVariants",
+            "condition":"ctx.parammgmtctx.hasVariantConfigContext"
+        },
+        {
+            "eventId": "primaryWorkArea.selectionChangeEvent",
+            "action": "loadParameterVariantsFroSelectionChange",
+            "condition":"ctx.parammgmtctx.hasVariantConfigContext"
+        },
+        {
+            "eventId":"Pca0VariantsGrid.contentUnloaded",
+            "action":"resetConsumerAppsData",
+            "condition":"ctx.parammgmtctx.hasVariantConfigContext"
+        }
+    ],
+
+    "i18n": {
+        "noConfigContextFound": [ "Att1AttrMappingMessages" ]
+    }
+
+}

@@ -1,0 +1,14 @@
+<aw-command-panel caption="i18n.vm1AssignPartnerContracts">
+    <aw-panel-body>
+        <aw-scrollpanel>
+            <aw-list dataprovider="data.dataProviders.getPartnerContracts" >
+                    <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+        </aw-scrollpanel>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="attachOrDetachLicenseToVP" visible-when="conditions.showAssignButton">
+            <aw-i18n>i18n.vm1Assign</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

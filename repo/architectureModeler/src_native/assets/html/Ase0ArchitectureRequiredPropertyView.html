@@ -1,0 +1,10 @@
+<aw-command-panel caption="i18n.create">
+    <aw-panel-body>
+        <aw-panel-section>
+          <aw-xrt type="CREATE" object-type="{{ctx.panelContext.modelType}}"></aw-xrt>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="createObject" visible-when="awPanelBody.$valid" ><aw-i18n>i18n.create</aw-i18n></aw-button>
+    </aw-panel-footer>
+ </aw-command-panel>

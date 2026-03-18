@@ -1,0 +1,13 @@
+<aw-popup2 caption="{{i18n.createChangeNotice}}">
+    <aw-include exist-when="conditions.xrtIsLoading" name="mfeLoadingMessage"></aw-include>
+    <aw-form visible-when="!conditions.xrtIsLoading" name="createMcnXrt">
+        <aw-panel-body>
+            <aw-xrt type="CREATE" object-type="{{data.preferences.NGPMCNTypeToCreate[0]}}"></aw-xrt>
+        </aw-panel-body>
+        <aw-panel-footer>
+            <aw-button button-type="base" action="closePopupWindow" aw-class="{'disabled': conditions.submitInProgress}" size="auto">{{i18n.cancel}}</aw-button>
+            <aw-button action="createAndSubmit" enable-when="createMcnXrt.$valid && !data.submitInProgress && !conditions.xrtIsLoading" size="auto">
+                {{i18n.createAndSubmit}}</aw-button>
+        </aw-panel-footer>
+    </aw-form>
+</aw-popup2>

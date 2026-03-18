@@ -1,0 +1,15 @@
+<aw-command-panel caption="i18n.Measurement_File_Title">
+<aw-form name="commandPanelForm" visible-when="data.activeView!='assignProjectSub'&&data.activeView!='addReferenceSub'">
+    <aw-add target-object="ctx.panelContext.target" relations="Att0HasMeasurementFile" include-types="Dataset" type-filter="Dataset" visible-tabs="new,palette,search"></aw-add>
+  </aw-form>
+  <aw-panel-footer visible-when="data.activeView!='assignProjectSub'&&data.activeView!='addReferenceSub'">
+      <!-- panel-footer button for New tab -->
+      <aw-button default="true" action="createObject" enable-when="!ctx.addItemEventProgressing" visible-when="commandPanelForm.$valid&&conditions.isNewTabAddButtonVisible">
+          <aw-i18n>i18n.add</aw-i18n>
+      </aw-button>
+      <!-- panel-footer button for Palette and Search tab -->
+      <aw-button default="true" action="createRelationForPaletteOrSearch" visible-when="conditions.isPaletteSearchTabAddButtonVisible" > 
+          <aw-i18n>i18n.add</aw-i18n>
+      </aw-button> 
+  </aw-panel-footer>
+ </aw-command-panel>

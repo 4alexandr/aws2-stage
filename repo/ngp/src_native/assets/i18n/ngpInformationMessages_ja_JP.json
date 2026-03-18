@@ -1,0 +1,13 @@
+{
+    "editSelectedItem": "選択したアイテムを編集",
+    "overview": "概要",
+    "attachments": "アタッチメント",
+    "attributeGroups": "属性グループ",
+    "forms": "フォーム",
+    "attachFile": "ファイルの添付",
+    "createAgs": "属性グループを作成",
+    "downloadAttachment": "ダウンロード",
+    "cannotDeleteAGMessage": "属性グループ\"{0}\"を削除するパーミッションがありません。\nそれを削除せずに除去しますか?",
+    "cancel": "キャンセル",
+    "remove": "除去"
+}

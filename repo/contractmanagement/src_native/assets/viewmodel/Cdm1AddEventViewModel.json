@@ -1,0 +1,381 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-xrt.directive",
+        "js/aw-form.directive",
+        "js/visible-when.directive",
+        "js/aw-listbox.directive"
+    ],
+    "actions": {
+        "createAndAttachEventsTable": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "cdm0EventsTable.createEventsTable"
+                    }
+                ]
+            }
+        },
+        "createEventsTable": {
+            "actionType": "JSFunction",
+            "method": "createEventsTable",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "createdEventsTable": "output[0]"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "cdm0EventsTable.cdm1AddEventsToDRI",
+                        "condition": "(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Cdm0DataReqItemRevision' )  > -1) && ctx.selected.props.cdm0EventList.dbValues[0] != null"
+                    },
+                    {
+                        "name": "cdm0EventsTable.cdm1AddEventsToDRI",
+                        "condition": "(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Cdm0EventsTable' )  > -1) && ctx.pselected.props.cdm0EventList.dbValues[0] != null"
+                    },
+                    {
+                        "name": "cdm0EventsTable.createAndUpdateEventsTable",
+                        "condition": "(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Cdm0DataReqItemRevision' )  > -1) && ctx.selected.props.cdm0EventList.dbValues[0] == null"
+                    },
+                    {
+                        "name": "cdm0EventsTable.createAndUpdateEventsTable",
+                        "condition": "(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Cdm0EventsTable' )  > -1) && ctx.pselected.props.cdm0EventList.dbValues[0] == null"
+                    }
+                ]
+            },
+            "deps": "js/Cdm1EventListService",
+            "actionMessages": {
+                "failure": [
+                    {
+                        "message": "createEventsTableFailure"
+                    }
+                ]
+            }
+        },
+        "cdm1AddEventsToDRI": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-09-DataManagement",
+            "method": "setProperties",
+            "inputData": {
+                "info": "{{function:getStaticTableSetInput}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "Cdm1Event.Cdm1AddEventCommandClicked",
+                        "eventData": {
+                            "createdEvent": "{{data.createdEventsTable}}",
+                            "isPinnedFlag": "{{data.unpinnedToForm.dbValue}}"
+                        }
+                    },
+                    {
+                        "name": "complete",
+                        "condition": "data.pinnedToForm.dbValue",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    },
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "refreshLocationFlag": true,
+                            "relatedModified": [
+                                "{{ctx.selected}}",
+                                "{{ctx.pselected}}"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "deps": "js/Cdm1EventListService"
+        },
+        "createAndUpdateEventsTable": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-09-DataManagement",
+            "method": "createOrUpdateStaticTableData",
+            "inputData": {
+                "staticTableInfo": {
+                    "tableType": "Fnd0StaticTable"
+                },
+                "rowProperties": "{{function:getCreateOrUpdateStaticTableDataInput}}"
+            },
+            "outputData": {
+                "staticTableObject": "staticTableObject"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "cdm0EventsTable.cdm1AddStaticTableDateToDRI"
+                    }
+                ]
+            },
+            "deps": "js/Cdm1EventListService"
+        },
+        "addStaticTableDateToDRI": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-09-DataManagement",
+            "method": "setProperties",
+            "inputData": {
+                "info": [
+                    {
+                        "object": "{{ctx.selected}}",
+                        "vecNameVal": [
+                            {
+                                "name": "cdm0EventList",
+                                "values": [
+                                    "{{data.staticTableObject.uid}}"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "Cdm1Event.Cdm1AddEventCommandClicked",
+                        "eventData": {
+                            "createdEvent": "{{data.createdEventsTable}}",
+                            "isPinnedFlag": "{{data.unpinnedToForm.dbValue}}"
+                        }
+                    },
+                    {
+                        "name": "complete",
+                        "condition": "data.pinnedToForm.dbValue",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/Cdm1EventListService"
+        },
+        "getContractScheduleTasks": {
+            "actionType": "JSFunction",
+            "method": "getContractScheduleTasks",
+            "inputData": {
+                "input": "{{data}}"
+            },
+            "outputData": {
+                "scheduleTemplates": ""
+            },
+            "deps": "js/Cdm1EventListService"
+        },
+        "updateScheduleTaskFields": {
+            "actionType": "JSFunction",
+            "method": "updateScheduleTaskFields",
+            "inputData": {
+                "selectedScheduleObject": "{{data.cdm0ScheduleTask.dbValue}}",
+                "data": "{{data}}"
+            },
+            "deps": "js/Cdm1EventListService"
+        },
+        "getScheduleTasksPropsAndUpdateFields": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "getProperties",
+            "inputData": {
+                "objects": [
+                    "{{data.cdm0ScheduleTask.dbValue}}"
+                ],
+                "attributes": [
+                    "object_name",
+                    "schedule_tag",
+                    "fnd0ParentTask",
+                    "start_date",
+                    "finish_date"
+                ]
+            },
+            "outputData": {},
+            "policy": {
+                "types": [
+                    {
+                        "name": "ScheduleTask",
+                        "properties": [
+                            {
+                                "name": "fnd0ParentTask",
+                                "modifiers": [
+                                    {
+                                        "name": "withProperties",
+                                        "Value": "true"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "schedule_tag",
+                                "modifiers": [
+                                    {
+                                        "name": "withProperties",
+                                        "Value": "true"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "start_date"
+                            },
+                            {
+                                "name": "finish_date"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "Cdm1Event.getPropertiesFetched",
+                        "condition": "data.cdm0ScheduleTask.dbValue !== null && data.cdm0ScheduleTask.dbValue !== ''"
+                    }
+                ]
+            }
+        },
+        "closePanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        },
+        "setPin": {
+            "actionType": "JSFunction",
+            "method": "setPin",
+            "inputData": {
+                "data": "{{data.eventData.data}}"
+            },
+            "outputData": {},
+            "deps": "js/addObjectUtils"
+        },
+        "setUnPin": {
+            "actionType": "JSFunction",
+            "method": "setUnPin",
+            "inputData": {
+                "data": "{{data.eventData.data}}"
+            },
+            "outputData": {},
+            "deps": "js/addObjectUtils"
+        },
+        "makeEventNameStartDateEndDateReadOnly": {
+            "actionType": "JSFunction",
+            "method": "makeEventNameStartDateEndDateReadOnly",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Cdm1EventListService"
+        }
+    },
+    "functions": {
+        "getStaticTableSetInput": {
+            "functionName": "getStaticTableSetInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getCreateOrUpdateStaticTableDataInput": {
+            "functionName": "getCreateOrUpdateStaticTableDataInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getContractScheduleTasks": {
+            "functionName": "getContractScheduleTasks",
+            "parameters": []
+        }
+    },
+    "i18n": {
+        "add": [
+            "contractmanagementMessages"
+        ],
+        "scheduleTask": [
+            "contractmanagementMessages"
+        ]
+    },
+    "data": {
+        "cdm0ScheduleTask": {
+            "displayName": "{{i18n.scheduleTask}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": true,
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+        "addEventPanelPinCommands": "cdm1AddEventPanel_oneStepPinCommands",
+        "pinnedToForm": {
+            "type": "BOOLEAN",
+            "dbValue": true
+        },
+        "unpinnedToForm": {
+            "type": "BOOLEAN",
+            "dbValue": false
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "cdm0EventsTable.createEventsTable",
+            "action": "createEventsTable"
+        },
+        {
+            "eventId": "cdm0EventsTable.cdm1AddEventsToDRI",
+            "action": "cdm1AddEventsToDRI"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "action": "getContractScheduleTasks"
+        },
+        {
+            "eventId": "cdm0EventsTable.createAndUpdateEventsTable",
+            "action": "createAndUpdateEventsTable"
+        },
+        {
+            "eventId": "cdm0EventsTable.cdm1AddStaticTableDateToDRI",
+            "action": "addStaticTableDateToDRI"
+        },
+        {
+            "eventId": "primaryWorkArea.selectionChangeEvent",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "Cdm1Event.getPropertiesFetched",
+            "action": "updateScheduleTaskFields"
+        },
+        {
+            "eventId": "Cdm1AddEventPanelCommand.Cdm1AddEventPanelSetPin",
+            "cacheEventData": true,
+            "action": "setPin"
+        },
+        {
+            "eventId": "Cdm1AddEventPanelCommand.Cdm1AddEventPanelSetUnPin",
+            "cacheEventData": true,
+            "action": "setUnPin"
+        },
+        {
+            "eventId": "awXRT.contentLoaded",
+            "action": "makeEventNameStartDateEndDateReadOnly"
+        }
+    ],
+    "messages": {
+        "createEventsTableFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    }
+}

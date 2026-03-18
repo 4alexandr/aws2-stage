@@ -1,0 +1,21 @@
+{
+    "loading": "ロードしています...",
+    "rootClassLibraryObjectMsg": "マニュファクチャリングクラスのライブラリ",
+    "addToFavoritesCommandTitle": "お気に入りに追加",
+    "removeFromFavoritesCommandTitle": "お気に入りから除去",
+    "pinObjectCommandTitle": "ホームにピン留め",
+    "unPinObjectCommandTitle": "ホームへのピン留めを外す",
+    "pinnedToHome": "\"{0}\"は、ホームに追加されています。",
+    "unpinnedFromHome": "\"{0}\"は、ホームから除去されています。",
+    "addedToFavorites": "\"{0}\"は、お気に入りに追加されています。",
+    "removedFromFavorites": "\"{0}\"は、お気に入りから除去されています。",
+    "moreActionsCmdTooltip": "{0}での追加アクション",
+    "checkInCmdTitle": "チェックイン",
+    "checkOutCmdTitle": "チェックアウト",
+    "checkoutSuccessful": "オブジェクト\"{0}\"でチェックアウトに成功しました",
+    "checkinSuccessful": "オブジェクト\"{0}\"でチェックインに成功しました",
+    "noChildrenFound": "要素なし",
+    "effectivityTooltip": "ユニット = {0}",
+    "discontinuedSubElementsTooltipTitle": "Pending Deletions",
+    "discontinuedSubElementsTooltipMessage": "Deletion of {0} processes is pending. To release the activity content, including this deletion, submit the activity to workflow while using workflow template \"NGP_ReleasePendingDeletions\"."
+}

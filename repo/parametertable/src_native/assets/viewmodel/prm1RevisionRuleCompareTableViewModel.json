@@ -1,0 +1,385 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-parameter-view-table.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-command-bar.directive"
+    ],
+
+    "actions": {
+        "subLocationLoaded": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [{
+                    "name": "prm1RevisionRuleCompareTable.initSubLocation"
+                }]
+            }
+        },
+        "initSubLocation": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [{
+                    "name": "prm1RevisionRuleCompareTable.initializeTable",
+                    "condition": "conditions.haveParentUid"
+                }]
+            }
+        },
+        "initTableDataProvider": {
+            "actionType": "dataProvider",
+            "method": "tableDataProvider"
+        },
+        "initialTableLoaded": {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "deps": "js/appCtxService",
+            "inputData": {
+                "name": "paramCompareViewContext.initialTableLoaded",
+                "value": true
+            }
+        },
+        "loadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "ParamCompareAttrProxy",
+                    "operationType": ""
+                },
+                "searchInput": {
+                    "maxToLoad": 10000,
+                    "maxToReturn": 10000,
+                    "providerName": "{{function:getProvider}}",
+                    "searchCriteria": {
+                        "openedObjectUid": "{{ctx.state.params.uid}}",
+                        "selectedUids": "{{ctx.state.params.sel_uids}}",
+                        "vrUid": "{{ctx.paramCompareViewContext.currentVariant.dbValues[0]}}",
+                        "revisionRuleUid": "{{ctx.paramCompareViewContext.currentRevRule.dbValues[0]}}",
+                        "revisionRuleUids":"{{ctx.state.params.rv_uids}}",
+                        "vrStudyUids": "{{ctx.state.params.vrs_uids}}",
+                        "recipeUids":"{{ctx.state.params.rcp_uids}}",
+                        "compareSwitch":"{{ctx.paramCompareViewContext.compareSwitch}}"
+                    },
+
+                    "startIndex": "{{data.dataProviders.tableDataProvider.startIndex}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "compareParamResponse" :"",
+                "totalFound": "totalFound",
+                "searchResults": "{{function:makeTableRowVMOs}}",
+                "prm1PartialErrorsMsg": "{{function:processPartialErrors}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "prm1RevisionRuleCompareTable.initialTableLoad",
+                        "condition": "!ctx.paramCompareViewContext.initialTableLoaded"
+                    },
+                    {
+                        "name": "prm1RevisionRuleCompareTable.callGetDef"
+                    },
+                    {
+                        "name": "prm1RevisionRuleCompareTable.openAddRevisonRulePanel",
+                        "condition":"ctx.state.params.rv_uids === null && ctx.paramCompareViewContext.compareType === 'ProjectParamComparison'"
+                    },
+                    {
+                        "name": "prm1RevisionRuleCompareTable.openAddComparisonPanel",
+                        "condition":"ctx.state.params.vrs_uids === null && ctx.state.params.rcp_uids === null && ctx.paramCompareViewContext.compareType === 'ProductParamComparison'"
+                    }
+                ]
+            },
+            "actionMessages":
+            {
+                 "failure":
+                [
+                  {
+                   "message": "prm1HandlePartialErrors"
+                  }
+                ]
+            },
+            "deps": "js/prm1ParameterViewService"
+        },
+        "getComparisonDefs": {
+            "actionType": "JSFunction",
+            "method": "getComparisonDefs",
+            "deps": "js/prm1ParameterViewService",
+            "inputData": {
+                "data": "{{data}}"
+            }
+        },
+        "clearParamCompareCache": {
+            "actionType": "JSFunction",
+            "method": "clearParamCompareCache",
+            "inputData": {
+                "refreshRequired": false
+            },
+            "deps": "js/prm1ParameterViewService"
+        },
+        "clearCacheAfterSaveEdit": {
+            "actionType": "JSFunction",
+            "method": "clearParamCompareCache",
+            "inputData": {
+                "refreshRequired": true
+            },
+            "deps": "js/prm1ParameterViewService"
+        },
+        "launchAddRevisionRulePanel": {
+            "actionType": "JSFunction",
+            "method": "activateCommandPanel",
+            "deps": "js/commandPanel.service",
+            "inputData": {
+                "commandId": "prm1AddRevisionRulePanel",
+                "location": "aw_toolsAndInfo"
+            }
+        },
+        "launchAddVRStudyPanel": {
+            "actionType": "JSFunction",
+            "method": "activateCommandPanel",
+            "deps": "js/commandPanel.service",
+            "inputData": {
+                "commandId": "prm1ProductAddComparisonPanel",
+                "location": "aw_toolsAndInfo"
+            }
+        },
+        "changeSelection": {
+            "actionType": "JSFunction",
+            "method": "changeSelection",
+            "inputData": {
+               "dataProvider":"{{data.dataProviders.tableDataProvider.selectedObjects}}"
+            },
+            "deps": "js/prm1ParameterViewService"
+        },
+        "isAttrItemUpdated": {
+            "actionType": "JSFunction",
+            "method": "isAttrItemUpdated",
+            "inputData": {
+                "eventMap": "{{data.eventMap}}",
+                "refreshEvent": "prmCompareTable.clearCacheAfterSaveEdit"
+            },
+            "deps": "js/attrTableUtils"
+        }
+    },
+
+    "dataProviders": {
+        "tableDataProvider": {
+            "initializeAction": "loadData",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "multiple",
+            "inputData": {
+                "selectionModel": "{{subPanelContext.selectionModel}}"
+            },
+            "editContext": "TABLE_CONTEXT"
+        }
+    },
+
+    "conditions": {
+        "haveParentUid": {
+            "expression": "ctx.state.params.uid"
+        },
+        "isRevRuleSelected":
+        {
+            "expression": "ctx.state.params.rv_uids === null && ctx.paramCompareViewContext.compareType === 'ProjectParamComparison' "
+        },
+        "isVRStudySelected":
+        {
+            "expression": "ctx.state.params.vrs_uids === null && ctx.paramCompareViewContext.compareType === 'ProductParamComparison' "
+        }
+    },
+
+    "functions": {
+        "makeTableRowVMOs":
+        {
+            "functionName": "makeTableRowVMOs",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "useTableCache":
+        {
+            "functionName": "useTableCache",
+            "parameters": [ "{{ctx}}" ]
+        },
+        "getProvider": {
+            "functionName": "getProvider",
+            "parameters": [
+            ]
+        },
+        "processPartialErrors":
+        {
+            "functionName": "processPartialErrors",
+            "parameters":
+            [
+                "{{compareParamResponse}}"
+            ]
+        }
+    },
+    "data":{
+
+    },
+
+    "messages":
+    {
+       "prm1HandlePartialErrors":
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.prm1PartialError}}",
+            "messageTextParams": [
+                "data.prm1PartialErrorsMsg"
+            ]
+        }
+    },
+
+    "onEvent": [{
+        "eventId": "prm1RevisionRuleCompareTable.contentLoaded",
+        "action": "subLocationLoaded"
+    },{
+        "eventId": "prm1RevisionRuleCompareTable.initSubLocation",
+        "action": "initSubLocation"
+    },{
+        "eventId": "prm1RevisionRuleCompareTable.initializeTable",
+        "action": "initTableDataProvider"
+    },{
+        "eventId": "prm1RevisionRuleCompareTable.initialTableLoad",
+        "action": "initialTableLoaded"
+    },{
+        "eventId": "prm1RevisionRuleCompareTable.reset",
+        "action": "initTableDataProvider"
+    },
+    {
+        "eventId": "prm1RevisionRuleCompareTable.callGetDef",
+        "action": "getComparisonDefs"
+    },
+    {
+        "eventId": "prm1RevisionRuleCompareTable.openAddRevisonRulePanel",
+        "action": "launchAddRevisionRulePanel"
+    },
+    {
+        "eventId": "prm1RevisionRuleCompareTable.openAddComparisonPanel",
+        "action": "launchAddVRStudyPanel"
+    },
+    {
+        "eventId": "prm1RevisionRuleCompareTable.contentUnloaded",
+        "action": "clearParamCompareCache"
+    },
+    {
+        "eventId": "tableDataProvider.selectionChangeEvent",
+        "action": "changeSelection"
+    },
+    {
+        "eventId": "prmCompareTable.clearCacheAfterSaveEdit",
+        "action": "clearCacheAfterSaveEdit"
+    },
+    {
+        "eventId": "cdm.updated",
+        "cacheEventData": true,
+        "action": "isAttrItemUpdated"
+    }
+],
+    "i18n": {
+        "ParamColumn_Name": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Description": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Editable": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Status": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Unit": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Source": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_DataType": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_MeasuredValue":[
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Result":[
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_SourceType":[
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Comments":[
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Measurement": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Min": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Min_Operator": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Goal": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Max_Operator": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Max": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_MapFile": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Revision": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamFilter_AllRows": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Latest_Title": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamFilter_SelectedRows": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamFilter_UnselectedRows": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamFilter_SameValues": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamFilter_DifferentValues": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamFilter_HasValue": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamFilter_HasNoValue": [
+            "prm1ParameterTableMessages"
+        ],
+        "OpenAnalysisRequestCmd": [
+            "prm1ParameterTableMessages"
+        ],
+        "RemoveComparisonCmd": [
+            "prm1ParameterTableMessages"
+        ],
+        "ShowHideColumnConfigCmd": [
+            "prm1ParameterTableMessages"
+        ],
+        "NonEditableIcon": [
+            "prm1ParameterTableMessages"
+        ],
+        "Parameters": [
+            "prm1ParameterTableMessages"
+        ],
+        "prm1PartialError": [
+            "prm1ParameterTableMessages"
+        ]
+    }
+}

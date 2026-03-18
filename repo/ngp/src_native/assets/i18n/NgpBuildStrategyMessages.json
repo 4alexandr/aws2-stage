@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "There are no build elements or activities in \"{0}\".",
+    "noProcesses": "There are no processes in \"{0}\".",
+    "whereToCreateProcesses": "Processes can be created in the Work Unit page.",
+    "moveCandidateCmdTitle": "Move To",
+    "moveCandidateCmdDescription": "Designates objects to be moved",
+    "successfullySetSingleMoveCandidate": "\"{0}\" designated to be moved. Please select a target and use the 'Move Here' button.",
+    "successfullySetMultipleMoveCandidates": "{0} objects designated to be moved. Please select a target and use the 'Move Here' button.",
+    "moveHereTooltipTitle": "Move Here",
+    "moveHereTooltipMsg": "Will move these objects to the specified target:",
+    "createBuildElementAfter": "Create Build Element After",
+    "createBuildElementAsChild": "Create Build Element As Child"
+}

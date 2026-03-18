@@ -1,0 +1,68 @@
+// Copyright 2018 Siemens Product Lifecycle Management Software Inc.
+/* validation contract */
+
+.aw-validationcontract-vcDefnDatasetInput {
+    float: left;
+    width: 100%;
+}
+
+.aw-validationcontract-NodeOpacity {
+    fill-opacity: 0.2;
+    /* svg-specific  */
+    stroke-opacity: 0.2
+}
+
+.aw-validationcontract-customPopulationList {
+    height: 100%;
+}
+
+.aw-validationcontract-stickyPanelBody {
+    padding: 0 16px 0 16px;
+}
+.aw-validationcontract-stickyPanelBody .aw-validationcontract-stickyPanel li.aw-widgets-cellListItem {
+    padding: 4px;
+}
+.aw-validationcontract-stickyPanel .aw-widgets-modelObjectList {
+    margin: 0;
+}
+.aw-validationcontract-stickyPanel  aw-list.validationcontracts-Droppable-Lists {
+    width: 100%;
+}
+.aw-validationcontract-stickyPanel .aw-layout-panelSection {
+    margin-bottom: 0;
+}
+.aw-validationcontract-stickyPanel .aw-layout-panelSectionContent {
+    margin-bottom: 0;
+}
+.aw-validationcontract-stickyPanel .aw-validationcontract-swapTracelinkButton .aw-commands-commandIconButton {
+    height: 32px;
+    width: 32px;
+    padding: 5px;
+}
+.aw-validationcontract-stickyPanel .aw-layout-panelSectionTitle {
+    height: 32px;
+    padding-left: 8px;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.aw-stickyPanel-cell {
+    align-items: center;
+}
+.aw-validationcontracts-stickyPanelCellIcon {
+    width: 32px;
+    height: 32px;
+}
+.aw-validationcontracts-stickyPanelCellIcon aw-model-icon .aw-base-icon {
+    padding: 4px;
+}
+
+.aw-validationcontract-hint {
+    font-size: $fontsize_large;
+    font-weight: normal;
+    font-style: italic;
+    clear: both;
+    float: left;
+    width: 100%;
+}
+

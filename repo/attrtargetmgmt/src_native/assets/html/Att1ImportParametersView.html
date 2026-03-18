@@ -1,0 +1,16 @@
+<aw-command-panel caption="i18n.importNewCmdTitle">
+    <aw-panel-body>
+            <div class="aw-requirements-matrixTypeHelpIcon">
+                    <aw-icon visible-when="ctx.panelContext.isNewImport" icon-id="homehelp" extended-tooltip="data.importNewHelpTooltipView"></aw-icon>
+            </div>
+        <aw-panel-section>
+            <aw-file-upload file-change-action="startDataCreation" type-filter=".xlsx,.xlsm,.zip" is-required="true"></aw-file-upload>
+            <aw-link class="aw-attrtargetmgmt-cfxTemplateLink" visible-when="ctx.panelContext.isNewImport" prop="data.importXlsTemplate" action="downloadImportTemplate"></aw-link>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="startImportOrImportChanges" visible-when="awPanelBody.$valid && ( data.fileExt === 'xlsx' ||data.fileExt === 'xlsm' || data.fileExt === 'zip' ) && !data.importFileUploadInProgress">
+            <aw-i18n>i18n.import</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

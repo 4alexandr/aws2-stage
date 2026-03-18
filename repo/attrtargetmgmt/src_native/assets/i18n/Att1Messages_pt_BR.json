@@ -1,0 +1,14 @@
+{
+    "Map_Title":"Mapa",
+    "MapButton":"Mapa",
+    "attributeTitle": "Parâmetros",
+    "StudyAttributes": "Parâmetros de estudo",
+    "SelectStudy": "Selecionar estudos para exibir parâmetros",
+    "TestEventAttributes": "Parâmetros de evento de teste",
+    "SelectTestEvent":"Selecionar eventos de teste para exibir parâmetros",
+    "StudyAttributesTC124": "Simulação e parâmetros de solicitação de teste",
+    "SelectStudyTC124": "Selecionar simulação ou solicitações de teste para exibir parâmetros",
+    "RunAttributes": "Executar parâmetros",
+    "SelectRun": "Selecionar execuções para exibir parâmetros",
+    "Measurement_File_Title": "Adicionar arquivo de valor"
+}

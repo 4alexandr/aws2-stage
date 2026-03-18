@@ -1,0 +1,21 @@
+<aw-flex-row>
+    <aw-flex-column width="fill">
+        <aw-flex-row height="6" justify="left">
+            <aw-include name="mfeContentPanel" sub-panel-context="data.partsContentPanelData"></aw-include>
+        </aw-flex-row>
+        <aw-splitter min-size-1="0" min-size-2="0" direction="HORIZONTAL"></aw-splitter>
+        <aw-flex-row height="6" justify="left">
+                <aw-include name="planningGraphicsArea"></aw-include>
+        </aw-flex-row>
+    </aw-flex-column>
+    <aw-splitter min-size-1="0" min-size-2="0" direction="vertical"></aw-splitter>
+    <aw-flex-column width="fill">
+        <aw-flex-row height="6" justify="right">
+            <aw-include name="planningPlantLayoutArea" sub-panel-context="subPanelContext"></aw-include>
+        </aw-flex-row>
+        <aw-splitter min-size-1="0" min-size-2="0" direction="HORIZONTAL"></aw-splitter>
+        <aw-flex-row height="6" justify="right">
+            <aw-include name="planningDetailsArea" sub-panel-context="subPanelContext"></aw-include>
+        </aw-flex-row>
+    </aw-flex-column>
+</aw-flex-row>

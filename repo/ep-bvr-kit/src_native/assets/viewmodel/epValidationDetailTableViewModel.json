@@ -1,0 +1,115 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive"
+    ],
+
+    "ports": {
+        "epValidationDetailTable_inputObject": {
+            "onChangeAction": "handleInput",
+            "syncObject": {}
+        }
+    },
+
+    "actions": {
+        "handleInput": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "setSelection"
+                },
+                {
+                    "action": "doDataProvider"
+                }
+            ]
+        },
+        "setSelection": {
+            "actionType": "JSFunction",
+            "method": "setInputObject",
+            "inputData": {
+                "data": "{{data}}",
+                "objectsToSelect": "{{ports.epValidationDetailTable_inputObject.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "createColumns": {
+            "actionType": "JSFunction",
+            "method": "createDetailColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.epValidationDetailDataProvider}}",
+                "columns": "{{data}}",
+                "render": false
+            },
+            "deps": "js/epValidationTableService"
+        },
+         "doDataProvider": {
+            "actionType": "dataProvider",
+            "method": "epValidationDetailDataProvider"
+        },
+         "doNothingForTree": {
+            "actionType": "JSFunction",
+            "method": "doNothingForTree",
+            "inputData": {
+                "inputObject": "{{data}}"
+            },
+            "deps": "js/epValidationTableService"
+        },
+        "loadDataForTree": {
+            "actionType": "JSFunction",
+            "method": "getDetailColumnsData",
+            "inputData": {
+                "selectedObject": "{{data}}",
+                "dataProvider": "{{data.dataProviders.epValidationDetailDataProvider}}"
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "searchResults",
+                "searchIndex": "searchIndex"
+            },
+
+            "deps": "js/epValidationTableService"
+
+        }
+    },
+
+
+
+    "data": {
+        "columns": [ "{{i18n.validationDetailTestNameColumn}}", "{{i18n.validationDetailMessageTypeColumn}}", "{{i18n.validationDetailMessageColumn}}" ]
+    },
+
+    "dataProviders": {
+        "epValidationDetailDataProvider": {
+            "action": "loadDataForTree",
+            "focusAction": "loadDataForTree",
+            "nextAction": "doNothingForTree",
+            "previousAction": "doNothingForTree",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "columnProviders": {
+        "epValidationDetailColumnProvider": {
+            "loadColumnAction": "createColumns"
+        }
+    },
+    "i18n": {
+        "validationDetailTestNameColumn": [ "epValidationMessages" ],
+        "validationDetailMessageTypeColumn": [ "epValidationMessages" ],
+        "validationDetailMessageColumn": [ "epValidationMessages" ]
+    },
+    "grids": {
+        "epValidationDetailTable": {
+            "dataProvider": "epValidationDetailDataProvider",
+            "columnProvider": "epValidationDetailColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enablePinning": true,
+                "enableSorting": false,
+                "enableDynamicRowHeight": false,
+                "maxRowsToShow": 25
+            }
+        }
+    }
+}

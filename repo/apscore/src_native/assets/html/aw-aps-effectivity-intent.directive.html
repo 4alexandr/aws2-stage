@@ -1,0 +1,13 @@
+<!-- effectivity intent directive -->
+<div class="aw-layout-flexRowContainer">
+        <aw-label prop="family" title="{{family.famProp.propertyDisplayName}}"></aw-label>
+        <aw-link-with-popup prop="currentValue">
+            <div class= "aw-layout-popup aw-layout-popupOverlay">
+                <div class="aw-layout-flexColumnContainer ng-scope" >
+                    <aw-list dataprovider="intentValuesProvider">
+                        <div class="aw-widgets-cellListWidget">{{item.propertyDisplayName}}</div>
+                    </aw-list>
+                </div>
+            </div>
+        </aw-link-with-popup>
+</div>

@@ -1,0 +1,9 @@
+<div class="aw-cls-classHeader-toggle">
+    <div   class="aw-cls-classHeaderContainerSection" ng-class="{ 'aw-cls-image-chevron': !expansionstate }">
+        <aw-property-image class="aw-cls-headerImage"  name="miscDownArrow_uxRefresh" ng-click="toggleExpansion()" ng-show="expansionstate" id="miscCollapse"></aw-property-image>
+        <aw-property-image class="aw-cls-headerImage" name="miscDownArrow_uxRefresh"   ng-click="toggleExpansion()"   ng-show="!expansionstate" id="miscExpand"></aw-property-image>
+    </div>
+    <label class="aw-cls-classHeaderLabel aw-layout-panelSectionTitle"
+    ng-class="{'aw-cls-hierarchyHeaderLabel': action}" ng-click="resetHierarchy()">{{caption}}</label>
+</div>
+<div class="aw-cls-classHeaderContent" visible-when="expansionstate" aw-transclude></div>

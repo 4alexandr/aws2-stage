@@ -1,0 +1,12 @@
+<aw-command-panel caption="i18n.Pm1OccTypeFiltersTitle">
+    <aw-panel-body>      
+        <aw-panel-section>
+            <aw-filter-category
+                 category-action="selectCategory"
+                 search-action="selectFilter"
+                 category="item"
+                 aw-repeat="item : data.categories.refineCategories track by $index" >
+            </aw-filter-category>
+        </aw-panel-section>   
+    </aw-panel-body>
+</aw-command-panel>

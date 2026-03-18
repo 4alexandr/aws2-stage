@@ -1,0 +1,144 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-header.directive",
+        "js/aw-tab-set.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-panel-section.directive"
+    ],
+    "actions": {
+        "createTraceLink": {
+            "actionType": "TcSoaService",
+            "serviceName": "AWS2-2018-12-RequirementsManagement",
+            "method": "createTracelinks",
+            "inputData": {
+                "input": "{{function:getCreateTraceLinkInput}}"
+            },
+            "outputData": {
+                "outputCreateRelation": "output"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "CreateTracelink.postCreateTracelink"
+                    }
+                ]
+            },
+            "deps": "js/IAV1AssociateCalibInfo"
+        },
+        "postCreateTracelink": {
+            "actionType": "JSFunction",
+            "method": "postCreateTracelink",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "createTracelink.unPinPanelAndCompletePostTLCreation"
+                    },
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "relatedModified": [
+                                "{{ctx.mselected[0]}}"
+                            ],
+                            "refreshLocationFlag": true
+                        }
+                    }
+                ]
+            },
+            "deps": "js/IAV1AssociateCalibInfo"
+        },
+        "unPinPanelAndCompletePostTLCreation": {
+            "actionType": "JSFunction",
+            "method": "setUnPin",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx.createTraceLinkWorkSpace}}"
+            },
+            "outputData": {},
+            "events": {
+                "success": [
+                    {
+                        "condition": "ctx.occmgmtContext",
+                        "name": "requirementDocumentation.updateDocumentationTabPostCTL",
+                        "eventData": {
+                            "startItems": "{{data.startItems.dbValue}}",
+                            "endItems": "{{data.endItems.dbValue}}",
+                            "ctx": "{{ctx}}"
+                        }
+                    },
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "refreshLocationFlag": true,
+                            "relations": "",
+                            "relatedModified": "{{data.startItems.dbValue}}",
+                            "createdObjects": "{{data.createdObject}}"
+                        },
+                        "condition": "ctx.xrtPageContext.secondaryXrtPageID === 'attachments' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Relations'"
+                    },
+                    {
+                        "name": "cdm.updated",
+                        "eventData": {
+                            "updatedObjects": "{{data.endItems.dbValue}}"
+                        },
+                        "condition": "ctx.xrtPageContext.secondaryXrtPageID === 'attachments' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Relations'"
+                    },
+                    {
+                        "name": "primaryWorkarea.reset",
+                        "condition": "ctx.ViewModeContext && ( ctx.ViewModeContext.ViewModeContext === 'ListView' || ctx.ViewModeContext.ViewModeContext === 'SummaryView' )"
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/IAV1AssociateCalibInfo"
+        }
+    },
+    "onEvent": [
+
+        {
+            "eventId": "CreateTracelink.postCreateTracelink",
+            "action": "postCreateTracelink"
+        },
+        {
+            "eventId": "createTracelink.unPinPanelAndCompletePostTLCreation",
+            "action": "unPinPanelAndCompletePostTLCreation"
+        }
+
+    ],
+    "data": {},
+    "messages": {},
+    "functions": {
+
+        "getCreateTraceLinkInput": {
+            "functionName": "getCreateTraceLinkInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+
+    },
+    "conditions": {
+        "visibleFooter": {
+            "expression": "data.endItems.dbValue.length >0 && data.startItems.dbValue.length >0"
+        },
+        "visibleCreateTracelinkButton": {
+            "expression": "conditions.visibleFooter && !conditions.visibleCreateObjectButton"
+        }
+    },
+    "i18n": {
+        "createTraceLink": [
+            "RequirementsCommandPanelsMessages"
+        ]
+    },
+    "dataProviders": {}
+}

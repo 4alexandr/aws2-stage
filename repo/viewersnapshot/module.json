@@ -1,0 +1,355 @@
+{
+  "name": "viewersnapshot",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "commandsViewModel": {
+    "commands": {
+      "SnapshotGroupOneStepCmd": {
+        "iconId": "cmdImage",
+        "isGroup": true,
+        "title": "{{i18n.snapshotGroupCmdTitle}}"
+      },
+      "SnapshotGroupOneStepCmd_scv": {
+        "iconId": "cmdImage",
+        "isGroup": true,
+        "title": "{{i18n.snapshotGroupCmdTitle}}",
+        "description": "{{i18n.addNewSnapshotCommandDesc}}"
+      },
+      "AddSnapshotOneStepCmd": {
+        "iconId": "cmdImage",
+        "isGroup": false,
+        "title": "{{i18n.addNewSnapshot}}"
+      },
+      "AccessSnapshotOneStepCmd": {
+        "iconId": "cmdImage",
+        "isGroup": false,
+        "title": "{{i18n.accessSnapshotOneStepCmdTitle}}"
+      },
+      "AddSnapshotOneStepCmd_scv": {
+        "iconId": "cmdImage",
+        "isGroup": false,
+        "title": "{{i18n.addNewSnapshot}}",
+        "description": "{{i18n.addNewSnapshotCommandDesc}}"
+      },
+      "AccessSnapshotOneStepCmd_scv": {
+        "iconId": "cmdImage",
+        "isGroup": false,
+        "title": "{{i18n.accessSnapshotOneStepCmdTitle}}"
+      },
+      "deleteSnapshotCellCommand": {
+        "iconId": "cmdDelete",
+        "title": "{{i18n.deleteSnapshot}}",
+        "description": "{{i18n.deleteSnapshotCellCommandDesc}}"
+      },
+      "editSnapshotCellCommand": {
+        "iconId": "cmdEdit",
+        "title": "{{i18n.editSnapshot}}",
+        "description": "{{i18n.editSnapshotCellCommandDesc}}"
+      },
+      "addNewSnapshotCommand": {
+        "iconId": "cmdCaptureSnapshot",
+        "title": "{{i18n.captureSnapshot}}",
+        "description": "{{i18n.addNewSnapshotCommandDesc}}"
+      },
+      "deleteAllSnapshots": {
+        "iconId": "cmdDeleteAll",
+        "title": "{{i18n.deleteAll}}",
+        "description": "{{i18n.deleteAllSnapshotsDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "SnapshotGroupOneStepCmdHandler_scv": {
+        "id": "SnapshotGroupOneStepCmd_scv",
+        "activeWhen": false,
+        "visibleWhen": false
+      },
+      "AddSnapshotOneStepCmdHandler": {
+        "id": "AddSnapshotOneStepCmd",
+        "action": "addNewSnapshotCommandAction",
+        "enableWhen": {
+          "condition": "conditions.isViewerRevealedAndIn3DMode"
+        },
+        "activeWhen": true,
+        "visibleWhen": false
+      },
+      "AccessSnapshotOneStepCmdHandler": {
+        "id": "AccessSnapshotOneStepCmd",
+        "action": "showViewerSnapshotPanel",
+        "enableWhen": {
+          "condition": "conditions.isViewerRevealedAndIn3DMode"
+        },
+        "activeWhen": true,
+        "visibleWhen": false
+      },
+      "AddSnapshotOneStepCmdHandler_scv": {
+        "id": "AddSnapshotOneStepCmd_scv",
+        "action": "addNewSnapshotCommandAction_scv",
+        "enableWhen": {
+          "condition": "conditions.isViewerRevealedAndIn3DMode_scv"
+        },
+        "activeWhen": true,
+        "visibleWhen": false
+      },
+      "AccessSnapshotOneStepCmdHandler_scv": {
+        "id": "AccessSnapshotOneStepCmd_scv",
+        "action": "showViewerSnapshotPanel_scv",
+        "enableWhen": {
+          "condition": "conditions.isViewerRevealedAndIn3DMode_scv"
+        },
+        "activeWhen": true,
+        "visibleWhen": false
+      },
+      "addNewSnapshotCommandHandler": {
+        "id": "addNewSnapshotCommand",
+        "action": "addNewSnapshotCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "deleteSnapshotHandler": {
+        "id": "deleteSnapshotCellCommand",
+        "action": "deleteSnapshotCellCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "editSnapshotHandler": {
+        "id": "editSnapshotCellCommand",
+        "action": "editSnapshotCellCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "deleteAllSnapshotsHandler": {
+        "id": "deleteAllSnapshots",
+        "action": "deleteAllSnapshotsCommandAction",
+        "enableWhen": {
+          "condition": "conditions.snapshotsAvailableIntheListCond"
+        },
+        "activeWhen": true,
+        "visibleWhen": true
+      }
+    },
+    "commandPlacements": {
+      "SnapshotGroupOneStepCmdPlacement": {
+        "id": "SnapshotGroupOneStepCmd",
+        "uiAnchor": "aw_3dViewer",
+        "priority": 6
+      },
+      "SnapshotGroupOneStepCmdPlacement_scv": {
+        "id": "SnapshotGroupOneStepCmd_scv",
+        "uiAnchor": "aw_3dViewerRight",
+        "priority": 6
+      },
+      "AddSnapshotOneStepCmdPlacement": {
+        "id": "AddSnapshotOneStepCmd",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 5,
+        "parentGroupId": "SnapshotGroupOneStepCmd",
+        "showGroupSelected": true
+      },
+      "AccessSnapshotOneStepCmdPlacement": {
+        "id": "AccessSnapshotOneStepCmd",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 5,
+        "parentGroupId": "SnapshotGroupOneStepCmd",
+        "showGroupSelected": true
+      },
+      "AddSnapshotOneStepCmdPlacement_scv": {
+        "id": "AddSnapshotOneStepCmd_scv",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 5,
+        "parentGroupId": "SnapshotGroupOneStepCmd_scv",
+        "showGroupSelected": true
+      },
+      "AccessSnapshotOneStepCmdPlacement_scv": {
+        "id": "AccessSnapshotOneStepCmd_scv",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 5,
+        "parentGroupId": "SnapshotGroupOneStepCmd_scv",
+        "showGroupSelected": true
+      },
+      "deleteAllSnapshotsCommandPlacement": {
+        "id": "deleteAllSnapshots",
+        "uiAnchor": "awv0_addNewRemoveAllSnapshotsCommands",
+        "priority": 100
+      },
+      "addNewSnapshotCommandPlacement": {
+        "id": "addNewSnapshotCommand",
+        "uiAnchor": "awv0_addNewRemoveAllSnapshotsCommands",
+        "priority": 200
+      },
+      "deleteSnapshotCellCommandPlacement": {
+        "id": "deleteSnapshotCellCommand",
+        "uiAnchor": "snapshot_list_cell_commands",
+        "priority": 2,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "editSnapshotCellCommandPlacement": {
+        "id": "editSnapshotCellCommand",
+        "uiAnchor": "snapshot_list_cell_commands",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      }
+    },
+    "actions": {
+      "showViewerSnapshotPanel": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "ViewerSnapshot",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awDefaultViewer"
+        }
+      },
+      "addNewSnapshotCommandAction": {
+        "actionType": "JSFunction",
+        "method": "createSnapshotAndNotify",
+        "deps": "js/viewerSnapshotService",
+        "inputData": {
+          "data": "{{data}}",
+          "viewerCtxNamespace": "{{ctx.viewer.activeViewerCommandCtx}}"
+        }
+      },
+      "showViewerSnapshotPanel_scv": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "ViewerSnapshot",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awStructureCompareViewer"
+        }
+      },
+      "addNewSnapshotCommandAction_scv": {
+        "actionType": "JSFunction",
+        "method": "createSnapshotAndNotify",
+        "deps": "js/viewerSnapshotService",
+        "inputData": {
+          "data": "{{data}}",
+          "viewerCtxNamespace": "awStructureCompareViewer"
+        }
+      },
+      "deleteSnapshotCellCommandAction": {
+        "actionType": "JSFunction",
+        "method": "deleteSnapshot",
+        "inputData": {
+          "data": "{{commandContext.vmo}}",
+          "viewModel": "{{data}}"
+        },
+        "deps": "js/viewerSnapshotService"
+      },
+      "editSnapshotCellCommandAction": {
+        "actionType": "JSFunction",
+        "method": "startEditSnapshot",
+        "inputData": {
+          "data": "{{commandContext.vmo}}",
+          "viewModel": "{{data}}"
+        },
+        "deps": "js/viewerSnapshotService"
+      },
+      "deleteAllSnapshotsCommandAction": {
+        "actionType": "JSFunction",
+        "method": "deleteAllSnapshots",
+        "inputData": {
+          "viewModel": "{{data}}"
+        },
+        "deps": "js/viewerSnapshotService"
+      }
+    },
+    "conditions": {
+      "snapshotsAvailableIntheListCond": {
+        "expression": "ctx[ctx.viewer.activeViewerCommandCtx].snapshotCtx.snapshots.length > 0"
+      },
+      "isViewerSessionOptionEnabled": {
+        "expression": "data.preferences.AWC_visExposedBetaFeatures.indexOf('SessionUI') >= 0"
+      },
+      "isTcReleaseAtLeast13": {
+        "expression": "ctx.tcSessionData.tcMajorVersion >=13"
+      },
+      "isToshowSnapshotCommands": {
+        "expression": "conditions.isViewerRevealedAndIn3DMode && conditions.isTcReleaseAtLeast13"
+      },
+      "isToshowSnapshotCommands_scv": {
+        "expression": "conditions.isViewerRevealedAndIn3DMode_scv && conditions.isTcReleaseAtLeast13"
+      }
+    },
+    "preferences": [
+      "AWC_visExposedBetaFeatures"
+    ],
+    "messages": {},
+    "i18n": {
+      "snapshotGroupCmdTitle": [
+        "ViewerSnapshotMessages"
+      ],
+      "accessSnapshotOneStepCmdTitle": [
+        "ViewerSnapshotMessages"
+      ],
+      "deleteSnapshot": [
+        "ViewerSnapshotMessages"
+      ],
+      "editSnapshot": [
+        "ViewerSnapshotMessages"
+      ],
+      "addNewSnapshot": [
+        "ViewerSnapshotMessages"
+      ],
+      "deleteAll": [
+        "ViewerSnapshotMessages"
+      ],
+      "snapshotDeleteConfirmationText": [
+        "ViewerSnapshotMessages"
+      ],
+      "deleteText": [
+        "ViewerSnapshotMessages"
+      ],
+      "cancelText": [
+        "ViewerSnapshotMessages"
+      ],
+      "snapshotDeletedSuccussfully": [
+        "ViewerSnapshotMessages"
+      ],
+      "snapshotDeleteFailed": [
+        "ViewerSnapshotMessages"
+      ],
+      "allSnapshotDeleteConfirmationText": [
+        "ViewerSnapshotMessages"
+      ],
+      "allSnapshotDeletedSuccussfully": [
+        "ViewerSnapshotMessages"
+      ],
+      "snapshotCreatedSuccessfully": [
+        "ViewerSnapshotMessages"
+      ],
+      "snapshotCreationFailed": [
+        "ViewerSnapshotMessages"
+      ],
+      "deleteSnapshotCellCommandDesc": [
+        "ViewerSnapshotMessages"
+      ],
+      "editSnapshotCellCommandDesc": [
+        "ViewerSnapshotMessages"
+      ],
+      "addNewSnapshotCommandDesc": [
+        "ViewerSnapshotMessages"
+      ],
+      "deleteAllSnapshotsDesc": [
+        "ViewerSnapshotMessages"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "manageTitle": "Gestionar",
+    "createWorkPackageHeaderTitle": "Paquete de trabajo nuevo",
+    "manageTitleDecl": "Gestionar el paquete de trabajo",
+    "epOpenWPTitle": "Abrir",
+    "epOpenWPDesc": "Abrir el paquete de trabajo",
+    "ebomTileTitle": "EBOM",
+    "mbomTileTitle": "MBOM",
+    "add": "Agregar",
+    "noEbomSelectedMessage": "Seleccione la EBOM antes de seleccionar la MBOM.",
+    "addEbomCmdToolTipTitle": "Agregar EBOM",
+    "addEbomCmdToolTipDescription": "Seleccione una estructura EBOM y agréguela al paquete de trabajo.",
+    "addMbomCmdToolTipTitle": "Agregar MBOM",
+    "addMbomCmdToolTipDescription": "Cree una estructura MBOM nueva o seleccione una existente y agréguela al paquete de trabajo.",
+    "manageWPRightAreaTitle": "Contenido",
+    "addProduct":"Agregar producto",
+    "productSearchPlaceHolder":"Nombre de producto de tipo",
+    "useExistingMbom": "Utilizar la MBOM existente",
+    "createNewMbom": "Crear una MBOM nueva",
+    "revisionRule":"Regla de revisión",
+    "createProductHeaderTitle":"Crear producto"
+}

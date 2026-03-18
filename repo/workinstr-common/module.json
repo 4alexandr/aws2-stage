@@ -1,0 +1,1786 @@
+{
+  "name": "workinstr-common",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "commandsViewModel": {
+    "commands": {
+      "workinstr0ViewerMarkupFreehand": {
+        "iconId": "cmdFreehand",
+        "title": "{{i18n.newFreehandMarkup}}"
+      },
+      "workinstr0ViewerMarkup": {
+        "iconId": "cmdShowMarkupPanel",
+        "title": "{{i18n.showMarkupPanel}}"
+      },
+      "workinstr0MarkupDocument": {
+        "iconId": "cmdMarkup",
+        "title": "{{i18n.markupDocument}}"
+      },
+      "workinstr0MarkupHighlightDocument": {
+        "iconId": "cmdHighlight",
+        "title": "{{i18n.newHighlightMarkup}}"
+      },
+      "workinstr0MarkupFreehandDocument": {
+        "iconId": "cmdFreehand",
+        "title": "{{i18n.newHighlightMarkup}}"
+      },
+      "workinstr0CellOpen": {
+        "iconId": "cmdOpen",
+        "title": "{{i18n.showObjectCommandTitle}}"
+      },
+      "workinstr0ImageCapture": {
+        "iconId": "cmdCaptureImage",
+        "title": "{{i18n.captureToolPanelTitle}}"
+      },
+      "workinstr0GeometricAnalysisMeasure": {
+        "iconId": "cmdGeometricMeasure",
+        "isGroup": false,
+        "title": "{{i18n.measurementTabText}}"
+      },
+      "workinstr0GeometricAnalysisQuery": {
+        "iconId": "cmdGeometricQuery",
+        "isGroup": false,
+        "title": "{{i18n.queryTabText}}"
+      },
+      "workinstr0GeometricAnalysisSection": {
+        "iconId": "cmdGeometricCrossSection",
+        "isGroup": false,
+        "title": "{{i18n.sectionTabText}}"
+      },
+      "workinstr0Pan": {
+        "iconId": "cmdPan",
+        "isGroup": false,
+        "title": "{{i18n.NavigationPanTitle}}"
+      },
+      "workinstr0PopupPan": {
+        "iconId": "cmdPan",
+        "isGroup": false,
+        "title": "{{i18n.NavigationPanTitle}}"
+      },
+      "workinstr0Rotate": {
+        "iconId": "cmdRotate",
+        "isGroup": false,
+        "title": "{{i18n.NavigationRotateTitle}}"
+      },
+      "workinstr0PopupRotate": {
+        "iconId": "cmdRotate",
+        "isGroup": false,
+        "title": "{{i18n.NavigationRotateTitle}}"
+      },
+      "workinstr0Zoom": {
+        "iconId": "cmdZoom",
+        "isGroup": false,
+        "title": "{{i18n.NavigationZoomTitle}}"
+      },
+      "workinstr0PopupZoom": {
+        "iconId": "cmdZoom",
+        "isGroup": false,
+        "title": "{{i18n.NavigationZoomTitle}}"
+      },
+      "workinstr0ViewNavigationGroup": {
+        "iconId": "cmdRotate",
+        "isShuttle": true,
+        "title": "{{i18n.3DNavigation}}"
+      },
+      "workinstr0PopupViewNavigationGroup": {
+        "iconId": "cmdRotate",
+        "isShuttle": true,
+        "title": "{{i18n.3DNavigation}}"
+      },
+      "workinstr0UseTransparency": {
+        "iconId": "cmdUseTransparencyOn",
+        "isGroup": false,
+        "title": "{{i18n.UseTransparencyOnTitle}}",
+        "selected": {
+          "iconId": "cmdUseTransparencyOn",
+          "title": "{{i18n.UseTransparencyOffTitle}}"
+        }
+      },
+      "workinstr0PopupUseTransparency": {
+        "iconId": "cmdUseTransparencyOn",
+        "isGroup": false,
+        "title": "{{i18n.UseTransparencyOnTitle}}",
+        "selected": {
+          "iconId": "cmdUseTransparencyOn",
+          "title": "{{i18n.UseTransparencyOffTitle}}"
+        }
+      },
+      "workinstr0QuickMeasure": {
+        "iconId": "cmdMeasureTape",
+        "isGroup": false,
+        "title": "{{i18n.quickMeasure}}",
+        "selected": {
+          "iconId": "cmdMeasureTape",
+          "title": "{{i18n.cancelQuickMeasure}}"
+        }
+      },
+      "workinstr0PopupQuickMeasure": {
+        "iconId": "cmdMeasureTape",
+        "isGroup": false,
+        "title": "{{i18n.quickMeasure}}",
+        "selected": {
+          "iconId": "cmdMeasureTape",
+          "title": "{{i18n.cancelQuickMeasure}}"
+        }
+      },
+      "workinstr0SelectParts": {
+        "iconId": "cmdSelectParts",
+        "isGroup": false,
+        "title": "{{i18n.pickParts}}"
+      },
+      "workinstr0PopupSelectParts": {
+        "iconId": "cmdSelectParts",
+        "isGroup": false,
+        "title": "{{i18n.pickParts}}"
+      },
+      "workinstr0SelectFeatures": {
+        "iconId": "cmdSelectFeatures",
+        "isGroup": false,
+        "title": "{{i18n.pickFeatures}}"
+      },
+      "workinstr0PopupSelectFeatures": {
+        "iconId": "cmdSelectFeatures",
+        "isGroup": false,
+        "title": "{{i18n.pickFeatures}}"
+      },
+      "workinstr0MeasurementFilterGroup": {
+        "iconId": "cmdSelectFeatures",
+        "isShuttle": true,
+        "title": "{{i18n.pickFilter}}"
+      },
+      "workinstr0PopupMeasurementFilterGroup": {
+        "iconId": "cmdSelectFeatures",
+        "isShuttle": true,
+        "title": "{{i18n.pickFilter}}"
+      },
+      "workinstr0ViewOrientationGroup": {
+        "iconId": "cmdOrientISO",
+        "isGroup": true,
+        "title": "{{i18n.standardViews}}"
+      },
+      "workinstr0PopupViewOrientationGroup": {
+        "iconId": "cmdOrientISO",
+        "isGroup": true,
+        "title": "{{i18n.standardViews}}"
+      },
+      "workinstr0OrientIsometric": {
+        "iconId": "cmdOrientISO",
+        "isGroup": false,
+        "title": "{{i18n.isometric}}"
+      },
+      "workinstr0PopupOrientIsometric": {
+        "iconId": "cmdOrientISO",
+        "isGroup": false,
+        "title": "{{i18n.isometric}}"
+      },
+      "workinstr0OrientTrimetric": {
+        "iconId": "cmdOrientTrimetric",
+        "isGroup": false,
+        "title": "{{i18n.trimetric}}"
+      },
+      "workinstr0PopupOrientTrimetric": {
+        "iconId": "cmdOrientTrimetric",
+        "isGroup": false,
+        "title": "{{i18n.trimetric}}"
+      },
+      "workinstr0OrientTop": {
+        "iconId": "cmdOrientTop",
+        "isGroup": false,
+        "title": "{{i18n.top}}"
+      },
+      "workinstr0PopupOrientTop": {
+        "iconId": "cmdOrientTop",
+        "isGroup": false,
+        "title": "{{i18n.top}}"
+      },
+      "workinstr0OrientFront": {
+        "iconId": "cmdOrientFront",
+        "isGroup": false,
+        "title": "{{i18n.front}}"
+      },
+      "workinstr0PopupOrientFront": {
+        "iconId": "cmdOrientFront",
+        "isGroup": false,
+        "title": "{{i18n.front}}"
+      },
+      "workinstr0OrientRight": {
+        "iconId": "cmdOrientRight",
+        "isGroup": false,
+        "title": "{{i18n.right}}"
+      },
+      "workinstr0PopupOrientRight": {
+        "iconId": "cmdOrientRight",
+        "isGroup": false,
+        "title": "{{i18n.right}}"
+      },
+      "workinstr0OrientBack": {
+        "iconId": "cmdOrientBack",
+        "isGroup": false,
+        "title": "{{i18n.back}}"
+      },
+      "workinstr0PopupOrientBack": {
+        "iconId": "cmdOrientBack",
+        "isGroup": false,
+        "title": "{{i18n.back}}"
+      },
+      "workinstr0OrientBottom": {
+        "iconId": "cmdOrientBottom",
+        "isGroup": false,
+        "title": "{{i18n.bottom}}"
+      },
+      "workinstr0PopupOrientBottom": {
+        "iconId": "cmdOrientBottom",
+        "isGroup": false,
+        "title": "{{i18n.bottom}}"
+      },
+      "workinstr0OrientLeft": {
+        "iconId": "cmdOrientLeft",
+        "isGroup": false,
+        "title": "{{i18n.left}}"
+      },
+      "workinstr0PopupOrientLeft": {
+        "iconId": "cmdOrientLeft",
+        "isGroup": false,
+        "title": "{{i18n.left}}"
+      },
+      "workinstr0Fit": {
+        "iconId": "cmdFitToWindow",
+        "isGroup": false,
+        "title": "{{i18n.fit}}"
+      },
+      "workinstr0PopupFit": {
+        "iconId": "cmdFitToWindow",
+        "isGroup": false,
+        "title": "{{i18n.fit}}"
+      },
+      "workinstr0ShowObject": {
+        "iconId": "cmdOpen",
+        "title": "{{i18n.Awp0OpenGroupTitle}}"
+      },
+      "workinstr0Download": {
+        "iconId": "cmdDownload",
+        "title": "{{i18n.Awp0ViewFileTitle}}"
+      },
+      "workinstr0DownloadSnapshotImg": {
+        "iconId": "cmdDownload",
+        "title": "{{i18n.Awp0ViewFileTitle}}"
+      },
+      "workinstr0OpenInNewWindow": {
+        "iconId": "cmdOpen",
+        "title": "{{i18n.Awp0OpenGroupTitle}}"
+      },
+      "workinstr0ListDisplayToggles": {
+        "iconId": "cmdTableView",
+        "isShuttle": true,
+        "title": "{{i18n.Awp0ShowTableViewTitle}}"
+      },
+      "workinstr0ShowListView": {
+        "iconId": "cmdListView",
+        "title": "{{i18n.Awp0ShowListViewTitle}}"
+      },
+      "workinstr0ShowTableView": {
+        "iconId": "cmdTableView",
+        "title": "{{i18n.Awp0ShowTableViewTitle}}"
+      }
+    },
+    "commandHandlers": {
+      "workinstr0ViewerMarkupFreehandCommandHandler": {
+        "id": "workinstr0ViewerMarkupFreehand",
+        "action": "newFreehandMarkup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0ViewerMarkupCommandCondition"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0ViewerMarkupFreehandSelected"
+        },
+        "enableWhen": {
+          "condition": "conditions.workinstr0ViewerMarkupFreehandEnable"
+        }
+      },
+      "workinstr0ViewerMarkupCommandHandler": {
+        "id": "workinstr0ViewerMarkup",
+        "action": "workinstr0ActivateMarkupPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0ViewerMarkupCommandCondition"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0ViewerMarkupSelectedCondition"
+        }
+      },
+      "workinstr0MarkupDocumentCommandHandler": {
+        "id": "workinstr0MarkupDocument",
+        "action": "workinstr0MarkupDocumentCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0MarkupDocumentCommandCondition"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0MarkupDocumentSelectedCondition"
+        }
+      },
+      "workinstr0MarkupHighlightDocumentCommandHandler": {
+        "id": "workinstr0MarkupHighlightDocument",
+        "action": "newHighlightMarkup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0MarkupDocumentCommandCondition"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0MarkupHighlightDocumentSelected"
+        },
+        "enableWhen": {
+          "condition": "conditions.workinstr0MarkupHighlightDocumentVisible"
+        }
+      },
+      "workinstr0MarkupFreehandDocumentCommandHandler": {
+        "id": "workinstr0MarkupFreehandDocument",
+        "action": "newFreehandMarkup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0MarkupDocumentCommandCondition"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0MarkupFreehandDocumentSelected"
+        },
+        "enableWhen": {
+          "condition": "conditions.workinstr0MarkupFreehandDocumentVisible"
+        }
+      },
+      "workinstr0CellOpenCommandHandler": {
+        "id": "workinstr0CellOpen",
+        "action": "workinstr0CellOpenCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "workinstr0ImageCaptureCommandHandler": {
+        "id": "workinstr0ImageCapture",
+        "action": "workinstr0ImageCaptureCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0CaptureCondition"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0CaptureSelectedCondition"
+        }
+      },
+      "workinstr0GeometricAnalysisMeasureCommandHandler": {
+        "id": "workinstr0GeometricAnalysisMeasure",
+        "action": "workinstr0GeometricAnalysisMeasureCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0GeoToolsCommandVisibility"
+        }
+      },
+      "workinstr0GeometricAnalysisQueryCommandHandler": {
+        "id": "workinstr0GeometricAnalysisQuery",
+        "action": "workinstr0GeometricAnalysisQueryCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0GeoToolsCommandVisibility"
+        }
+      },
+      "workinstr0GeometricAnalysisSectionCommandHandler": {
+        "id": "workinstr0GeometricAnalysisSection",
+        "action": "workinstr0GeometricAnalysisSectionCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0GeoToolsCommandVisibility"
+        }
+      },
+      "workinstr0PanCommandHandler": {
+        "id": "workinstr0Pan",
+        "action": "setWorkinstrNavigationModePan",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.isPan"
+        }
+      },
+      "workinstr0PopupPanCommandHandler": {
+        "id": "workinstr0PopupPan",
+        "action": "setPopupNavigationModePan",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.isPan"
+        }
+      },
+      "workinstr0RotateCommandHandler": {
+        "id": "workinstr0Rotate",
+        "action": "setWorkinstrNavigationModeRotate",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.isRotate"
+        }
+      },
+      "workinstr0PopupRotateCommandHandler": {
+        "id": "workinstr0PopupRotate",
+        "action": "setPopupNavigationModeRotate",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.isRotate"
+        }
+      },
+      "workinstr0ZoomCommandHandler": {
+        "id": "workinstr0Zoom",
+        "action": "setWorkinstrNavigationModeZoom",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.isZoom"
+        }
+      },
+      "workinstr0PopupZoomCommandHandler": {
+        "id": "workinstr0PopupZoom",
+        "action": "setPopupNavigationModeZoom",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.isZoom"
+        }
+      },
+      "workinstr0ViewNavigationGroupCommandHandler": {
+        "id": "workinstr0ViewNavigationGroup",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "workinstr0PopupViewNavigationGroupCommandHandler": {
+        "id": "workinstr0PopupViewNavigationGroup",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "workinstr0UseTransparencyOnCommandHandler": {
+        "id": "workinstr0UseTransparency",
+        "action": "toggleWorkinstrUseTransparency",
+        "activeWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        },
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0useTransparencySelectionDisplay"
+        }
+      },
+      "workinstr0PopupUseTransparencyOnCommandHandler": {
+        "id": "workinstr0PopupUseTransparency",
+        "action": "togglePopupUseTransparency",
+        "activeWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        },
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0PopupUseTransparencySelectionDisplay"
+        }
+      },
+      "workinstr0QuickMeasureCommandHandler": {
+        "id": "workinstr0QuickMeasure",
+        "action": "toggleWorkinstrQuickMeasure",
+        "activeWhen": {
+          "condition": "conditions.workinstr0quickMeasureCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.workinstr0quickMeasureCommandVisibility"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0quickMeasureCommandToggle"
+        }
+      },
+      "workinstr0PopupQuickMeasureCommandHandler": {
+        "id": "workinstr0PopupQuickMeasure",
+        "action": "togglePopupQuickMeasure",
+        "activeWhen": {
+          "condition": "conditions.workinstr0PopupQuickMeasureCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupQuickMeasureCommandVisibility"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0PopupquickMeasureCommandToggle"
+        }
+      },
+      "workinstr0MeasurementFilterGroupCommandHandler": {
+        "id": "workinstr0MeasurementFilterGroup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0PopupMeasurementFilterGroupCommandHandler": {
+        "id": "workinstr0PopupMeasurementFilterGroup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0SelectPartsCommandHandler": {
+        "id": "workinstr0SelectParts",
+        "action": "setWorkinstrQuickMeasurePickParts",
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.workinstr0quickMeasureFilterCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0IsQuickMeasurePickParts"
+        }
+      },
+      "workinstr0PopupSelectPartsCommandHandler": {
+        "id": "workinstr0PopupSelectParts",
+        "action": "setPopupQuickMeasurePickParts",
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.workinstr0PopupQuickMeasureFilterCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0PopupIsQuickMeasurePickParts"
+        }
+      },
+      "workinstr0SelectFeaturesCommandHandler": {
+        "id": "workinstr0SelectFeatures",
+        "action": "setWorkinstrQuickMeasurePickFeatures",
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.workinstr0quickMeasureFilterCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0IsQuickMeasurePickFeatures"
+        }
+      },
+      "workinstr0PopupSelectFeaturesCommandHandler": {
+        "id": "workinstr0PopupSelectFeatures",
+        "action": "setPopupQuickMeasurePickFeatures",
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.workinstr0PopupQuickMeasureFilterCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0PopupIsQuickMeasurePickFeatures"
+        }
+      },
+      "workinstr0viewOrientationCommandHandler": {
+        "id": "workinstr0ViewOrientationGroup",
+        "activeWhen": true
+      },
+      "workinstr0PopupviewOrientationCommandHandler": {
+        "id": "workinstr0PopupViewOrientationGroup",
+        "activeWhen": true
+      },
+      "workinstr0orientIsometricCommandHandler": {
+        "id": "workinstr0OrientIsometric",
+        "action": "executeWorkinstrOrientIsometricCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0PopuporientIsometricCommandHandler": {
+        "id": "workinstr0PopupOrientIsometric",
+        "action": "executePopupOrientIsometricCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0orientTrimetricCommandHandler ": {
+        "id": "workinstr0OrientTrimetric",
+        "action": "executeWorkinstrOrientTrimetricCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0PopuporientTrimetricCommandHandler ": {
+        "id": "workinstr0PopupOrientTrimetric",
+        "action": "executePopupOrientTrimetricCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0orientTopCommandHandler": {
+        "id": "workinstr0OrientTop",
+        "action": "executeWorkinstrOrientTopCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0PopuporientTopCommandHandler": {
+        "id": "workinstr0PopupOrientTop",
+        "action": "executePopupOrientTopCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0orientFrontCommandHandler": {
+        "id": "workinstr0OrientFront",
+        "action": "executeWorkinstrOrientFrontCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0PopuporientFrontCommandHandler": {
+        "id": "workinstr0PopupOrientFront",
+        "action": "executePopupOrientFrontCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0orientRightCommandHandler": {
+        "id": "workinstr0OrientRight",
+        "action": "executeWorkinstrOrientRightCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0PopuporientRightCommandHandler": {
+        "id": "workinstr0PopupOrientRight",
+        "action": "executePopupOrientRightCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0orientBackCommandHandler": {
+        "id": "workinstr0OrientBack",
+        "action": "executeWorkinstrOrientBackCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0PopuporientBackCommandHandler": {
+        "id": "workinstr0PopupOrientBack",
+        "action": "executePopupOrientBackCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0orientBottomCommandHandler": {
+        "id": "workinstr0OrientBottom",
+        "action": "executeWorkinstrOrientBottomCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0PopuporientBottomCommandHandler": {
+        "id": "workinstr0PopupOrientBottom",
+        "action": "executePopupOrientBottomCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0orientLeftCommandHandler": {
+        "id": "workinstr0OrientLeft",
+        "action": "executeWorkinstrOrientLeftCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0isViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0PopuporientLeftCommandHandler": {
+        "id": "workinstr0PopupOrientLeft",
+        "action": "executePopupOrientLeftCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode"
+        }
+      },
+      "workinstr0fitCommandHandler": {
+        "id": "workinstr0Fit",
+        "action": "executeWorkinstrFitCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0fitCommandVisibility"
+        }
+      },
+      "workinstr0PopupfitCommandHandler": {
+        "id": "workinstr0PopupFit",
+        "action": "executePopupFitCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0PopupFitCommandVisibility"
+        }
+      },
+      "workinstr0ShowObjectCommandHandler": {
+        "id": "workinstr0ShowObject",
+        "action": "workinstr0ShowObjectCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0ShowObjectCommandCondition"
+        }
+      },
+      "workinstr0DownloadCommandHandler": {
+        "id": "workinstr0Download",
+        "action": "workinstr0DownloadCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0DownloadCommandCondition"
+        }
+      },
+      "workinstr0DownloadSnapshotImgCommandHandler": {
+        "id": "workinstr0DownloadSnapshotImg",
+        "action": "workinstr0DownloadSnapshotImgCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0DownloadSnapshotImgCommandCondition"
+        }
+      },
+      "workinstr0OpenInNewWindowCommandHandler": {
+        "id": "workinstr0OpenInNewWindow",
+        "action": "workinstr0OpenInNewWindowCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0OpenInNewWindowCommandCondition"
+        }
+      },
+      "workinstr0ListDisplayTogglesHandler": {
+        "id": "workinstr0ListDisplayToggles",
+        "activeWhen": true
+      },
+      "workinstr0ShowListViewHandler": {
+        "id": "workinstr0ShowListView",
+        "action": "workinstr0switchToListView",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0ShowListTableCondition"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0isListView"
+        }
+      },
+      "workinstr0ShowTableHandler": {
+        "id": "workinstr0ShowTableView",
+        "action": "workinstr0switchToTableView",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.workinstr0ShowListTableCondition"
+        },
+        "selectWhen": {
+          "condition": "conditions.workinstr0isTableView"
+        }
+      }
+    },
+    "commandPlacements": {
+      "workinstr0ViewerMarkupFreehandDisplay": {
+        "id": "workinstr0ViewerMarkupFreehand",
+        "uiAnchor": "workinstrPanel",
+        "priority": 302
+      },
+      "workinstr0ViewerMarkupDisplay": {
+        "id": "workinstr0ViewerMarkup",
+        "uiAnchor": "workinstrPanel",
+        "priority": 300
+      },
+      "workinstr0MarkupDocumenDisplay": {
+        "id": "workinstr0MarkupDocument",
+        "uiAnchor": "workinstrPanel",
+        "priority": 300
+      },
+      "workinstr0MarkupHighlightDocumenDisplay": {
+        "id": "workinstr0MarkupHighlightDocument",
+        "uiAnchor": "workinstrPanel",
+        "priority": 301
+      },
+      "workinstr0MarkupFreehandDocumenDisplay": {
+        "id": "workinstr0MarkupFreehandDocument",
+        "uiAnchor": "workinstrPanel",
+        "priority": 302
+      },
+      "workinstr0CellOpenDisplay": {
+        "id": "workinstr0CellOpen",
+        "uiAnchor": "workinstrCellCommands",
+        "priority": 0,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "workinstr0ImageCapture": {
+        "id": "workinstr0ImageCapture",
+        "uiAnchor": "workinstrPanel",
+        "priority": 6
+      },
+      "workinstr0GeometricAnalysisMeasure": {
+        "id": "workinstr0GeometricAnalysisMeasure",
+        "uiAnchor": "workinstrPanel",
+        "priority": 30
+      },
+      "workinstr0GeometricAnalysisQuery": {
+        "id": "workinstr0GeometricAnalysisQuery",
+        "uiAnchor": "workinstrPanel",
+        "priority": 40
+      },
+      "workinstr0GeometricAnalysisSection": {
+        "id": "workinstr0GeometricAnalysisSection",
+        "uiAnchor": "workinstrPanel",
+        "priority": 50
+      },
+      "workinstr0UseTransparency": {
+        "id": "workinstr0UseTransparency",
+        "uiAnchor": "workinstrPanel",
+        "priority": 300
+      },
+      "workinstr0PopupUseTransparency": {
+        "id": "workinstr0PopupUseTransparency",
+        "uiAnchor": "workinstrPanel",
+        "priority": 300
+      },
+      "workinstr0MeasurementFilterGroup": {
+        "id": "workinstr0MeasurementFilterGroup",
+        "uiAnchor": "workinstrPanel",
+        "relativeTo": "workinstr0QuickMeasure",
+        "priority": 250
+      },
+      "workinstr0PopupMeasurementFilterGroup": {
+        "id": "workinstr0PopupMeasurementFilterGroup",
+        "uiAnchor": "workinstrPanel",
+        "relativeTo": "workinstr0PopupQuickMeasure",
+        "priority": 250
+      },
+      "workinstr0SelectParts": {
+        "id": "workinstr0SelectParts",
+        "uiAnchor": "workinstrPanel",
+        "priority": 250,
+        "parentGroupId": "workinstr0MeasurementFilterGroup",
+        "showGroupSelected": true
+      },
+      "workinstr0PopupSelectParts": {
+        "id": "workinstr0PopupSelectParts",
+        "uiAnchor": "workinstrPanel",
+        "priority": 250,
+        "parentGroupId": "workinstr0PopupMeasurementFilterGroup",
+        "showGroupSelected": true
+      },
+      "workinstr0SelectFeatures": {
+        "id": "workinstr0SelectFeatures",
+        "uiAnchor": "workinstrPanel",
+        "priority": 250,
+        "parentGroupId": "workinstr0MeasurementFilterGroup",
+        "showGroupSelected": true
+      },
+      "workinstr0PopupSelectFeatures": {
+        "id": "workinstr0PopupSelectFeatures",
+        "uiAnchor": "workinstrPanel",
+        "priority": 250,
+        "parentGroupId": "workinstr0PopupMeasurementFilterGroup",
+        "showGroupSelected": true
+      },
+      "workinstr0QuickMeasure": {
+        "id": "workinstr0QuickMeasure",
+        "uiAnchor": "workinstrPanel",
+        "priority": 240
+      },
+      "workinstr0PopupQuickMeasure": {
+        "id": "workinstr0PopupQuickMeasure",
+        "uiAnchor": "workinstrPanel",
+        "priority": 240
+      },
+      "workinstr0ViewNavigationGroup": {
+        "id": "workinstr0ViewNavigationGroup",
+        "uiAnchor": "workinstrPanel",
+        "relativeTo": "workinstr0Fit",
+        "priority": 370
+      },
+      "workinstr0PopupViewNavigationGroup": {
+        "id": "workinstr0PopupViewNavigationGroup",
+        "uiAnchor": "workinstrPanel",
+        "relativeTo": "workinstr0PopupFit",
+        "priority": 370
+      },
+      "workinstr0Rotate": {
+        "id": "workinstr0Rotate",
+        "uiAnchor": "workinstrPanel",
+        "priority": 370,
+        "parentGroupId": "workinstr0ViewNavigationGroup"
+      },
+      "workinstr0PopupRotate": {
+        "id": "workinstr0PopupRotate",
+        "uiAnchor": "workinstrPanel",
+        "priority": 370,
+        "parentGroupId": "workinstr0PopupViewNavigationGroup"
+      },
+      "workinstr0Pan": {
+        "id": "workinstr0Pan",
+        "uiAnchor": "workinstrPanel",
+        "priority": 370,
+        "parentGroupId": "workinstr0ViewNavigationGroup"
+      },
+      "workinstr0PopupPan": {
+        "id": "workinstr0PopupPan",
+        "uiAnchor": "workinstrPanel",
+        "priority": 370,
+        "parentGroupId": "workinstr0PopupViewNavigationGroup"
+      },
+      "workinstr0Zoom": {
+        "id": "workinstr0Zoom",
+        "uiAnchor": "workinstrPanel",
+        "priority": 370,
+        "parentGroupId": "workinstr0ViewNavigationGroup"
+      },
+      "workinstr0PopupZoom": {
+        "id": "workinstr0PopupZoom",
+        "uiAnchor": "workinstrPanel",
+        "priority": 370,
+        "parentGroupId": "workinstr0PopupViewNavigationGroup"
+      },
+      "workinstr0ViewOrientationGroup": {
+        "id": "workinstr0ViewOrientationGroup",
+        "uiAnchor": "workinstrPanel",
+        "relativeTo": "workinstr0MeasurementFilterGroup",
+        "priority": 370
+      },
+      "workinstr0PopupViewOrientationGroup": {
+        "id": "workinstr0PopupViewOrientationGroup",
+        "uiAnchor": "workinstrPanel",
+        "relativeTo": "workinstr0PopupMeasurementFilterGroup",
+        "priority": 370
+      },
+      "workinstr0OrientIsometric": {
+        "id": "workinstr0OrientIsometric",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0ViewOrientationGroup"
+      },
+      "workinstr0PopupOrientIsometric": {
+        "id": "workinstr0PopupOrientIsometric",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0PopupViewOrientationGroup"
+      },
+      "workinstr0OrientTrimetric": {
+        "id": "workinstr0OrientTrimetric",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0ViewOrientationGroup"
+      },
+      "workinstr0PopupOrientTrimetric": {
+        "id": "workinstr0PopupOrientTrimetric",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0PopupViewOrientationGroup"
+      },
+      "workinstr0OrientTop": {
+        "id": "workinstr0OrientTop",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0ViewOrientationGroup"
+      },
+      "workinstr0PopupOrientTop": {
+        "id": "workinstr0PopupOrientTop",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0PopupViewOrientationGroup"
+      },
+      "workinstr0OrientFront": {
+        "id": "workinstr0OrientFront",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0ViewOrientationGroup"
+      },
+      "workinstr0PopupOrientFront": {
+        "id": "workinstr0PopupOrientFront",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0PopupViewOrientationGroup"
+      },
+      "workinstr0OrientRight": {
+        "id": "workinstr0OrientRight",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0ViewOrientationGroup"
+      },
+      "workinstr0PopupOrientRight": {
+        "id": "workinstr0PopupOrientRight",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0PopupViewOrientationGroup"
+      },
+      "workinstr0OrientBack": {
+        "id": "workinstr0OrientBack",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0ViewOrientationGroup"
+      },
+      "workinstr0PopupOrientBack": {
+        "id": "workinstr0PopupOrientBack",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0PopupViewOrientationGroup"
+      },
+      "workinstr0OrientBottom": {
+        "id": "workinstr0OrientBottom",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0ViewOrientationGroup"
+      },
+      "workinstr0PopupOrientBottom": {
+        "id": "workinstr0PopupOrientBottom",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0PopupViewOrientationGroup"
+      },
+      "workinstr0OrientLeft": {
+        "id": "workinstr0OrientLeft",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0ViewOrientationGroup"
+      },
+      "workinstr0PopupOrientLeft": {
+        "id": "workinstr0PopupOrientLeft",
+        "uiAnchor": "workinstrPanel",
+        "priority": 270,
+        "parentGroupId": "workinstr0PopupViewOrientationGroup"
+      },
+      "workinstr0Fit": {
+        "id": "workinstr0Fit",
+        "uiAnchor": "workinstrPanel",
+        "priority": 350
+      },
+      "workinstr0PopupFit": {
+        "id": "workinstr0PopupFit",
+        "uiAnchor": "workinstrPanel",
+        "priority": 350
+      },
+      "workinstr0ShowObjectDisplay": {
+        "id": "workinstr0ShowObject",
+        "uiAnchor": "workinstrPanel",
+        "priority": 0
+      },
+      "workinstr0DownloadDisplay": {
+        "id": "workinstr0Download",
+        "uiAnchor": "workinstrPanel",
+        "priority": 470
+      },
+      "workinstr0DownloadSnapshotImgDisplay": {
+        "id": "workinstr0DownloadSnapshotImg",
+        "uiAnchor": "workinstrPanel",
+        "priority": 470
+      },
+      "workinstr0OpenInNewWindowDisplay": {
+        "id": "workinstr0OpenInNewWindow",
+        "uiAnchor": "workinstrPanel",
+        "priority": 0
+      },
+      "workinstr0ListDisplayTogglesDisplay": {
+        "id": "workinstr0ListDisplayToggles",
+        "uiAnchor": "workinstrPanel",
+        "priority": 40,
+        "showGroupSelected": false
+      },
+      "workinstr0ShowListViewDisplay": {
+        "id": "workinstr0ShowListView",
+        "uiAnchor": "workinstrPanel",
+        "priority": 41,
+        "parentGroupId": "workinstr0ListDisplayToggles"
+      },
+      "workinstr0ShowTableDisplay": {
+        "id": "workinstr0ShowTableView",
+        "uiAnchor": "workinstrPanel",
+        "priority": 42,
+        "parentGroupId": "workinstr0ListDisplayToggles"
+      }
+    },
+    "actions": {
+      "workinstr0MarkupDocumentCommandAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "workinstr.updateMarkupPanel",
+              "condition": "!(conditions.workinstr0MarkupDocumentSelectedCondition)"
+            }
+          ]
+        }
+      },
+      "workinstr0UpdateMarkupPanel": {
+        "actionType": "JSFunction",
+        "method": "setMarkupContext",
+        "inputData": {
+          "commandCtx": "{{commandContext}}",
+          "currViewerCtx": "{{ctx.viewerContext}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "workinstr.activateMarkupPanel",
+              "condition": "!(ctx.activeToolsAndInfoCommand && ctx.activeToolsAndInfoCommand.commandId === 'Awp0MarkupMain') && ctx.viewerContext"
+            }
+          ]
+        },
+        "deps": "js/workinstrUtilsService"
+      },
+      "workinstr0ActivateMarkupPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Awp0MarkupMain",
+          "location": "aw_toolsAndInfo",
+          "context": null,
+          "push": true
+        }
+      },
+      "workinstr0CellOpenCommandAction": {
+        "actionType": "JSFunction",
+        "method": "navigateToObject",
+        "inputData": {
+          "selectedUid": "{{commandContext.vmo.uid}}"
+        },
+        "deps": "js/workinstrUtilsService"
+      },
+      "setWorkinstr0ViewerData": {
+        "actionType": "JSFunction",
+        "method": "setViewerCtxData",
+        "inputData": {
+          "viewerCtxNamespace": "workinstrViewer",
+          "rootModelObjectPath": "workinstrViewer.rootModelObject"
+        },
+        "deps": "js/workinstrSnapshotService"
+      },
+      "workinstr0ImageCaptureCommandAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "workinstr.setWorkinstr0ViewerData"
+            },
+            {
+              "name": "workinstr.showWorkinstr0ImageCapturePanel"
+            }
+          ]
+        }
+      },
+      "showWorkinstr0ImageCapturePanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "inputData": {
+          "commandId": "Awv0ImageCapture",
+          "location": "aw_toolsAndInfo",
+          "context": null,
+          "push": true,
+          "closeWhenCommandHidden": false
+        },
+        "deps": "js/commandPanel.service"
+      },
+      "workinstr0GeometricAnalysisMeasureCommandAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "workinstr.setWorkinstr0ViewerData"
+            },
+            {
+              "name": "workinstr.showWorkinstr0GeometricAnalysisMeasurePanel"
+            }
+          ]
+        }
+      },
+      "showWorkinstr0GeometricAnalysisMeasurePanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisMeasure",
+          "location": "aw_toolsAndInfo",
+          "context": null,
+          "push": true,
+          "closeWhenCommandHidden": false
+        },
+        "deps": "js/commandPanel.service"
+      },
+      "workinstr0GeometricAnalysisQueryCommandAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "workinstr.setWorkinstr0ViewerData"
+            },
+            {
+              "name": "workinstr.showWorkinstr0GeometricAnalysisQueryPanel"
+            }
+          ]
+        }
+      },
+      "showWorkinstr0GeometricAnalysisQueryPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisQuery",
+          "location": "aw_toolsAndInfo",
+          "context": null,
+          "push": true,
+          "closeWhenCommandHidden": false
+        },
+        "deps": "js/commandPanel.service"
+      },
+      "workinstr0GeometricAnalysisSectionCommandAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "workinstr.setWorkinstr0ViewerData"
+            },
+            {
+              "name": "workinstr.showWorkinstr0GeometricAnalysisSectionPanel"
+            }
+          ]
+        }
+      },
+      "showWorkinstr0GeometricAnalysisSectionPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisSection",
+          "location": "aw_toolsAndInfo",
+          "context": null,
+          "push": true,
+          "closeWhenCommandHidden": false
+        },
+        "deps": "js/commandPanel.service"
+      },
+      "setWorkinstrNavigationModePan": {
+        "actionType": "JSFunction",
+        "method": "setNavigationMode",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "navigationModeStr": "PAN"
+        }
+      },
+      "setPopupNavigationModePan": {
+        "actionType": "JSFunction",
+        "method": "setNavigationMode",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "navigationModeStr": "PAN"
+        }
+      },
+      "setWorkinstrNavigationModeRotate": {
+        "actionType": "JSFunction",
+        "method": "setNavigationMode",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "navigationModeStr": "ROTATE"
+        }
+      },
+      "setPopupNavigationModeRotate": {
+        "actionType": "JSFunction",
+        "method": "setNavigationMode",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "navigationModeStr": "ROTATE"
+        }
+      },
+      "setWorkinstrNavigationModeZoom": {
+        "actionType": "JSFunction",
+        "method": "setNavigationMode",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "navigationModeStr": "ZOOM"
+        }
+      },
+      "setPopupNavigationModeZoom": {
+        "actionType": "JSFunction",
+        "method": "setNavigationMode",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "navigationModeStr": "ZOOM"
+        }
+      },
+      "toggleWorkinstrUseTransparency": {
+        "actionType": "JSFunction",
+        "method": "toggleUseTransparency",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer"
+        }
+      },
+      "togglePopupUseTransparency": {
+        "actionType": "JSFunction",
+        "method": "toggleUseTransparency",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer"
+        }
+      },
+      "toggleWorkinstrQuickMeasure": {
+        "actionType": "JSFunction",
+        "method": "toggleQuickMeasurementMode",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer"
+        }
+      },
+      "togglePopupQuickMeasure": {
+        "actionType": "JSFunction",
+        "method": "toggleQuickMeasurementMode",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer"
+        }
+      },
+      "setWorkinstrQuickMeasurePickParts": {
+        "actionType": "JSFunction",
+        "method": "setQuickMeasurementPickFilter",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "pickFiltersToBeSelected": "PICK_PARTS"
+        }
+      },
+      "setPopupQuickMeasurePickParts": {
+        "actionType": "JSFunction",
+        "method": "setQuickMeasurementPickFilter",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "pickFiltersToBeSelected": "PICK_PARTS"
+        }
+      },
+      "setWorkinstrQuickMeasurePickFeatures": {
+        "actionType": "JSFunction",
+        "method": "setQuickMeasurementPickFilter",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "pickFiltersToBeSelected": "PICK_FEATURES_ALL"
+        }
+      },
+      "setPopupQuickMeasurePickFeatures": {
+        "actionType": "JSFunction",
+        "method": "setQuickMeasurementPickFilter",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "pickFiltersToBeSelected": "PICK_FEATURES_ALL"
+        }
+      },
+      "executeWorkinstrOrientIsometricCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "cameraOrientation": "ISOMETRIC"
+        }
+      },
+      "executePopupOrientIsometricCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "cameraOrientation": "ISOMETRIC"
+        }
+      },
+      "executeWorkinstrOrientTrimetricCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "cameraOrientation": "TRIMETRIC"
+        }
+      },
+      "executePopupOrientTrimetricCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "cameraOrientation": "TRIMETRIC"
+        }
+      },
+      "executeWorkinstrOrientTopCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "cameraOrientation": "TOP"
+        }
+      },
+      "executePopupOrientTopCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "cameraOrientation": "TOP"
+        }
+      },
+      "executeWorkinstrOrientFrontCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "cameraOrientation": "FRONT"
+        }
+      },
+      "executePopupOrientFrontCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "cameraOrientation": "FRONT"
+        }
+      },
+      "executeWorkinstrOrientRightCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "cameraOrientation": "RIGHT"
+        }
+      },
+      "executePopupOrientRightCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "cameraOrientation": "RIGHT"
+        }
+      },
+      "executeWorkinstrOrientBackCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "cameraOrientation": "BACK"
+        }
+      },
+      "executePopupOrientBackCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "cameraOrientation": "BACK"
+        }
+      },
+      "executeWorkinstrOrientBottomCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "cameraOrientation": "BOTTOM"
+        }
+      },
+      "executePopupOrientBottomCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "cameraOrientation": "BOTTOM"
+        }
+      },
+      "executeWorkinstrOrientLeftCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer",
+          "cameraOrientation": "LEFT"
+        }
+      },
+      "executePopupOrientLeftCommand": {
+        "actionType": "JSFunction",
+        "method": "executeViewOrientationCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer",
+          "cameraOrientation": "LEFT"
+        }
+      },
+      "executeWorkinstrFitCommand": {
+        "actionType": "JSFunction",
+        "method": "executeFitCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrViewer"
+        }
+      },
+      "executePopupFitCommand": {
+        "actionType": "JSFunction",
+        "method": "executeFitCommand",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "viewerContextNamespace": "workinstrPopupViewer"
+        }
+      },
+      "workinstr0ShowObjectCommandAction": {
+        "actionType": "JSFunction",
+        "method": "navigateToObject",
+        "inputData": {
+          "selectedUid": "{{commandContext.datasetData.uid}}"
+        },
+        "deps": "js/workinstrUtilsService"
+      },
+      "workinstr0DownloadCommandAction": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/viewFileCommandHandler",
+        "inputData": {
+          "vmo": "{{commandContext.datasetData}}"
+        }
+      },
+      "workinstr0DownloadSnapshotImgCommandAction": {
+        "actionType": "JSFunction",
+        "method": "downloadFile",
+        "inputData": {
+          "fileTicket": "{{commandContext.fileData.fileUrl}}"
+        },
+        "deps": "js/workinstrFileTicketService"
+      },
+      "workinstr0OpenInNewWindowCommandAction": {
+        "actionType": "JSFunction",
+        "method": "openUrlInNewWindow",
+        "inputData": {
+          "url": "{{commandContext.fileData.fileUrl}}"
+        },
+        "deps": "js/workinstrFileTicketService"
+      },
+      "workinstr0switchToListView": {
+        "actionType": "JSFunction",
+        "method": "changeViewMode",
+        "deps": "js/workinstrTableService",
+        "inputData": {
+          "viewerData": "{{commandContext}}",
+          "newViewMode": "list"
+        }
+      },
+      "workinstr0switchToTableView": {
+        "actionType": "JSFunction",
+        "method": "changeViewMode",
+        "deps": "js/workinstrTableService",
+        "inputData": {
+          "viewerData": "{{commandContext}}",
+          "newViewMode": "table"
+        }
+      }
+    },
+    "onEvent": [
+      {
+        "eventId": "workinstr.updateMarkupPanel",
+        "action": "workinstr0UpdateMarkupPanel"
+      },
+      {
+        "eventId": "workinstr.activateMarkupPanel",
+        "action": "workinstr0ActivateMarkupPanel"
+      },
+      {
+        "eventId": "workinstr.setWorkinstr0ViewerData",
+        "action": "setWorkinstr0ViewerData"
+      },
+      {
+        "eventId": "workinstr.showWorkinstr0ImageCapturePanel",
+        "action": "showWorkinstr0ImageCapturePanel"
+      },
+      {
+        "eventId": "workinstr.showWorkinstr0GeometricAnalysisMeasurePanel",
+        "action": "showWorkinstr0GeometricAnalysisMeasurePanel"
+      },
+      {
+        "eventId": "workinstr.showWorkinstr0GeometricAnalysisQueryPanel",
+        "action": "showWorkinstr0GeometricAnalysisQueryPanel"
+      },
+      {
+        "eventId": "workinstr.showWorkinstr0GeometricAnalysisSectionPanel",
+        "action": "showWorkinstr0GeometricAnalysisSectionPanel"
+      }
+    ],
+    "conditions": {
+      "workinstr0ViewerMarkupFreehandEnable": {
+        "expression": "conditions.workinstr0ViewerMarkupSelectedCondition && !ctx.markup.editMode && ctx.markup.supportedTools.freehand"
+      },
+      "workinstr0ViewerMarkupFreehandSelected": {
+        "expression": "conditions.workinstr0ViewerMarkupSelectedCondition && ctx.markup.selectedTool==='freehand'"
+      },
+      "workinstr0ImageCapturePanelOpenCondition": {
+        "expression": "ctx.activeToolsAndInfoCommand && ctx.activeToolsAndInfoCommand.commandId === 'Awv0ImageCapture'"
+      },
+      "workinstr0CaptureSelectedCondition": {
+        "expression": "conditions.workinstr0ImageCapturePanelOpenCondition && ( conditions.workinstr0isViewerRevealedAndIn3DMode || ( commandContext.tab.workareaName !== 'popupMainPanelTabs' && commandContext.fileData.file.type === 'SnapShotViewData' ) )"
+      },
+      "workinstr0CaptureCondition": {
+        "expression": "conditions.workinstr0isViewerRevealedAndIn3DMode || ( commandContext.tab.workareaName !== 'popupMainPanelTabs' && conditions.workinstr0ImageCapturePanelOpenCondition && commandContext.fileData.file.type === 'SnapShotViewData' )"
+      },
+      "workinstr0ViewerMarkupCommandCondition": {
+        "expression": "( ctx.activeToolsAndInfoCommand && ( ctx.activeToolsAndInfoCommand.commandId === 'Awp0MarkupMain' || ctx.activeToolsAndInfoCommand.commandId === 'Awv0ImageCapture' ) ) && commandContext.fileData.file.type === 'SnapShotViewData' && commandContext.tab.workareaName !== 'popupMainPanelTabs' && ctx.workinstrViewer.viewerViewMode === 'VIEWER2D'"
+      },
+      "workinstr0ViewerMarkupSelectedCondition": {
+        "expression": "commandContext.fileData.file.type === 'SnapShotViewData' && commandContext.tab.workareaName !== 'popupMainPanelTabs' && ctx.workinstrViewer.viewerViewMode === 'VIEWER2D' && ctx.activeToolsAndInfoCommand && ctx.activeToolsAndInfoCommand.commandId === 'Awp0MarkupMain'"
+      },
+      "workinstr0MarkupDocumentCommandCondition": {
+        "expression": "commandContext.fileData.file.type === 'PDF' && commandContext.tab.workareaName !== 'popupMainPanelTabs'"
+      },
+      "workinstr0MarkupDocumentSelectedCondition": {
+        "expression": "commandContext === ctx.viewerContext.commandCtx && ctx.activeToolsAndInfoCommand && ctx.activeToolsAndInfoCommand.commandId === 'Awp0MarkupMain'"
+      },
+      "workinstr0MarkupHighlightDocumentVisible": {
+        "expression": "conditions.workinstr0MarkupDocumentCommandCondition && conditions.workinstr0MarkupDocumentSelectedCondition && !ctx.markup.editMode && ctx.markup.supportedTools.highlight"
+      },
+      "workinstr0MarkupHighlightDocumentSelected": {
+        "expression": "conditions.workinstr0MarkupDocumentSelectedCondition && ctx.markup.selectedTool==='highlight'"
+      },
+      "workinstr0MarkupFreehandDocumentVisible": {
+        "expression": "conditions.workinstr0MarkupDocumentCommandCondition && conditions.workinstr0MarkupDocumentSelectedCondition && !ctx.markup.editMode && ctx.markup.supportedTools.freehand"
+      },
+      "workinstr0MarkupFreehandDocumentSelected": {
+        "expression": "conditions.workinstr0MarkupDocumentSelectedCondition && ctx.markup.selectedTool==='freehand'"
+      },
+      "workinstr0is3dView": {
+        "expression": "commandContext.tab.workareaName !== 'popupMainPanelTabs' && ( commandContext.fileData.viewer === 'Awp0JTViewer' || commandContext.fileData.viewer === 'workinstrSnapshotViewer' )"
+      },
+      "workinstr0Popupis3dView": {
+        "expression": "commandContext.tab.workareaName === 'popupMainPanelTabs' && ( commandContext.fileData.viewer === 'Awp0JTViewer' || commandContext.fileData.viewer === 'workinstrSnapshotViewer' )"
+      },
+      "workinstr0isViewerRevealedAndIn3DMode": {
+        "expression": "conditions.workinstr0is3dView && ctx.workinstrViewer.viewerViewMode === 'VIEWER3D' && ctx.workinstrViewer.isViewerRevealed"
+      },
+      "workinstr0PopupisViewerRevealedAndIn3DMode": {
+        "expression": "conditions.workinstr0Popupis3dView && ctx.workinstrPopupViewer.viewerViewMode === 'VIEWER3D' && ctx.workinstrPopupViewer.isViewerRevealed"
+      },
+      "workinstr0PopupUseTransparencySelectionDisplay": {
+        "expression": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode && commandContext.tab.workareaName === 'popupMainPanelTabs' && ctx.viewer.preference.AWC_visSelectionDisplay"
+      },
+      "workinstr0useTransparencySelectionDisplay": {
+        "expression": "conditions.workinstr0isViewerRevealedAndIn3DMode && commandContext.tab.workareaName !== 'popupMainPanelTabs' && ctx.viewer.preference.AWC_visSelectionDisplay"
+      },
+      "workinstr0isLogicalNotSelected": {
+        "expression": "!ctx.workinstrViewer.isLogicalSelected"
+      },
+      "workinstr0GeoToolsCommandVisibility": {
+        "expression": "conditions.workinstr0isLogicalNotSelected && conditions.workinstr0isViewerRevealedAndIn3DMode"
+      },
+      "workinstr0quickMeasureCommandVisibility": {
+        "expression": "conditions.workinstr0isViewerRevealedAndIn3DMode && conditions.workinstr0isLogicalNotSelected && (!ctx.workinstrViewer.viewerMeasurement || !ctx.workinstrViewer.viewerMeasurement.isMeasurementPanelRevealed || ctx.workinstrViewer.viewerMeasurement.isMeasurementPanelRevealed === 'false')"
+      },
+      "workinstr0IsQuickMeasurePickParts": {
+        "expression": "ctx.workinstrViewer.viewerMeasurement.selectedQuickMeasurementPickFilters[0]==='PICK_PARTS'"
+      },
+      "workinstr0PopupIsQuickMeasurePickParts": {
+        "expression": "ctx.workinstrPopupViewer.viewerMeasurement.selectedQuickMeasurementPickFilters[0]==='PICK_PARTS'"
+      },
+      "workinstr0IsQuickMeasurePickFeatures": {
+        "expression": "ctx.workinstrViewer.viewerMeasurement.selectedQuickMeasurementPickFilters[0]==='PICK_FEATURES_ALL'"
+      },
+      "workinstr0PopupIsQuickMeasurePickFeatures": {
+        "expression": "ctx.workinstrPopupViewer.viewerMeasurement.selectedQuickMeasurementPickFilters[0]==='PICK_FEATURES_ALL'"
+      },
+      "workinstr0PopupIsLogicalNotSelected": {
+        "expression": "!ctx.workinstrPopupViewer.isLogicalSelected"
+      },
+      "workinstr0PopupQuickMeasureCommandVisibility": {
+        "expression": "conditions.workinstr0PopupIsLogicalNotSelected && conditions.workinstr0PopupisViewerRevealedAndIn3DMode && (!ctx.workinstrPopupViewer.viewerMeasurement || !ctx.workinstrPopupViewer.viewerMeasurement.isMeasurementPanelRevealed || ctx.workinstrPopupViewer.viewerMeasurement.isMeasurementPanelRevealed === 'false')"
+      },
+      "workinstr0quickMeasureCommandToggle": {
+        "expression": "conditions.workinstr0is3dView && ctx.workinstrViewer.viewerMeasurement.isQuickMeasureModeEnabled === 'true'"
+      },
+      "workinstr0PopupquickMeasureCommandToggle": {
+        "expression": "conditions.workinstr0Popupis3dView && ctx.workinstrPopupViewer.viewerMeasurement.isQuickMeasureModeEnabled === 'true'"
+      },
+      "workinstr0quickMeasureFilterCommandVisibility": {
+        "expression": "conditions.workinstr0quickMeasureCommandVisibility && ctx.workinstrViewer.viewerMeasurement.isQuickMeasureModeEnabled === 'true'"
+      },
+      "workinstr0PopupQuickMeasureFilterCommandVisibility": {
+        "expression": "conditions.workinstr0PopupQuickMeasureCommandVisibility && ctx.workinstrPopupViewer.viewerMeasurement.isQuickMeasureModeEnabled === 'true'"
+      },
+      "workinstr0fitCommandVisibility": {
+        "expression": "conditions.workinstr0isViewerRevealedAndIn3DMode && (!ctx.workinstrViewer.AllInvisibleCSIDs || ctx.workinstrViewer.AllInvisibleCSIDs.indexOf('') === -1 || (ctx.workinstrViewer.AllInvisibleExceptionCSIDs && ctx.workinstrViewer.AllInvisibleExceptionCSIDs.length > 0)) "
+      },
+      "workinstr0PopupFitCommandVisibility": {
+        "expression": "conditions.workinstr0PopupisViewerRevealedAndIn3DMode && (!ctx.workinstrPopupViewer.AllInvisibleCSIDs || ctx.workinstrPopupViewer.AllInvisibleCSIDs.indexOf('') === -1 || (ctx.workinstrPopupViewer.AllInvisibleExceptionCSIDs && ctx.workinstrPopupViewer.AllInvisibleExceptionCSIDs.length > 0))"
+      },
+      "workinstr0ShowObjectCommandCondition": {
+        "expression": "commandContext.fileData.viewer === 'Awp0PDFViewer' || commandContext.fileData.viewer === 'Awp0TextViewer'"
+      },
+      "workinstr0DownloadCommandCondition": {
+        "expression": "commandContext.fileData.viewer === 'Awp0PDFViewer' || commandContext.fileData.viewer === 'Awp0TextViewer' || ( commandContext.fileData.viewer === 'Awp0ImageViewer' && commandContext.fileData.file.type !== 'SnapShotViewData' ) || commandContext.fileData.viewer === 'workinstrVideoViewer' || commandContext.fileData.viewer === 'workinstrMhtViewer' || commandContext.fileData.viewer === 'workinstrCortonaViewer'"
+      },
+      "workinstr0DownloadSnapshotImgCommandCondition": {
+        "expression": "commandContext.fileData.viewer === 'Awp0ImageViewer' && commandContext.fileData.file.type === 'SnapShotViewData'"
+      },
+      "workinstr0OpenInNewWindowCommandCondition": {
+        "expression": "commandContext.fileData.viewer === 'workinstrWeblinkViewer'"
+      },
+      "workinstr0ShowListTableCondition": {
+        "expression": "conditions.workinstr0isListView || conditions.workinstr0isTableView"
+      },
+      "workinstr0isListView": {
+        "expression": "commandContext.tab.viewMode.tableMode === 'list'"
+      },
+      "workinstr0isTableView": {
+        "expression": "commandContext.tab.viewMode.tableMode === 'table'"
+      }
+    },
+    "i18n": {
+      "markupDocument": [
+        "WorkinstrMessages"
+      ]
+    }
+  }
+}

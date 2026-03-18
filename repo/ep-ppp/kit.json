@@ -1,0 +1,12 @@
+{
+  "name": "ep-ppp",
+  "description": "",
+  "modules": [
+    "ep-ppp"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "extraDeps": [
+    "js/epGraphicsServiceProxy"
+  ]
+}

@@ -1,0 +1,31 @@
+<aw-sublocation exist-when="subPanelContext.isMbmLicenseValidated === true">
+    <aw-sublocation-body>
+        <aw-flex-column width="3" exist-when="subPanelContext.cnObject">
+            <aw-include name="mbmChangeSummary" sub-panel-context="subPanelContext.cnObject"></aw-include>
+        </aw-flex-column>
+        <aw-splitter min-size-1="200" min-size-2="0" direction="vertical" exist-when="subPanelContext.cnObject"></aw-splitter>
+        <aw-flex-row aw-class="[subPanelContext.cnObject ? 'aw-mbm-alignmentContentWithChangeSummary':'aw-mbm-alignmentContent']">
+            <aw-flex-column width="6" class="aw-layout-flexColumnContainer aw-mbm-ebomContent" aw-click="data.mbmContextViewerClickEvent(data._ebomSublocation.viewKey)">
+                <aw-flex-row aw-class="['aw-mbm-gridContent',{'height-3':ctx.mbmAlignmentState.ebomContext.showGraphics}]">
+                    <mfe-bom-panel exist-when="subPanelContext.modelObjectsToOpen.ebomContextInfo" provider="data._ebomSublocation" base-selection="subPanelContext.modelObjectsToOpen.ebomContextInfo">
+                    </mfe-bom-panel>
+                </aw-flex-row>
+                <aw-splitter min-size-1="0" min-size-2="0" direction="HORIZONTAL" aw-class="[{'hidden':!ctx.mbmAlignmentState.ebomContext.showGraphics}]"></aw-splitter>
+                <aw-flex-row height="fill" exist-when="ctx.mbmAlignmentState.ebomContext.initialize3DViewer" aw-class="[{'hidden':!ctx.mbmAlignmentState.ebomContext.showGraphics}]">
+                    <aw-include name="mbm3D" sub-panel-context="{contextKey:'ebomContext'}"></aw-include>
+                </aw-flex-row>
+            </aw-flex-column>
+            <aw-splitter min-size-1="0" min-size-2="0" direction="vertical"></aw-splitter>
+            <aw-flex-column width="6" class="aw-layout-flexColumnContainer aw-mbm-mbomContent" aw-click="data.mbmContextViewerClickEvent(data._mbomSublocation.viewKey)">
+                <aw-flex-row aw-class="['aw-mbm-gridContent',{'height-3':ctx.mbmAlignmentState.mbomContext.showGraphics}]">
+                    <mfe-bom-panel exist-when="subPanelContext.modelObjectsToOpen.mbomContextInfo" provider="data._mbomSublocation" base-selection="subPanelContext.modelObjectsToOpen.mbomContextInfo">
+                    </mfe-bom-panel>
+                </aw-flex-row>
+                <aw-splitter min-size-1="0" min-size-2="0" direction="HORIZONTAL" aw-class="[{'hidden':!ctx.mbmAlignmentState.mbomContext.showGraphics}]"></aw-splitter>
+                <aw-flex-row height="fill" exist-when="ctx.mbmAlignmentState.mbomContext.initialize3DViewer" aw-class="[{'hidden':!ctx.mbmAlignmentState.mbomContext.showGraphics}]">
+                    <aw-include name="mbm3D" sub-panel-context="{contextKey:'mbomContext'}"></aw-include>
+                </aw-flex-row>
+            </aw-flex-column>
+        </aw-flex-row>
+    </aw-sublocation-body>
+</aw-sublocation>

@@ -1,0 +1,6 @@
+<aw-include exist-when="!conditions.hasValidInput" name="mfeMessage" sub-panel-context="data.messages.noValidInput"></aw-include>
+<aw-include exist-when="conditions.hasNoAssociatedPMIs" name="mfeMessage" sub-panel-context="data.messages.noAssociatedPMIs"></aw-include>
+<aw-include exist-when="conditions.isLoading" name="mfeLoadingMessage"></aw-include>
+<aw-splm-table visible-when="conditions.showTable" gridid="assemblyPmiTable"></aw-splm-table>
+
+

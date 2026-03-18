@@ -1,0 +1,24 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-icon.directive",
+        "js/aw-chip.directive",
+        "js/extended-tooltip.directive"
+
+    ],
+    "data":{
+        "readOnlyChip": {
+            "chipType": "STATIC",
+            "iconId":"indicatorReadOnly",
+            "labelDisplayName": "{{i18n.mbmReadOnly}}",
+            "labelInternalName": "mbmReadOnly",
+            "showIcon":"true"
+        }
+    },
+
+    "i18n": {
+        "mbmReadOnly":["mbmMessages"]
+    }
+}

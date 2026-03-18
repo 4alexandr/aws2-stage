@@ -1,0 +1,19 @@
+{
+    "CancelText": "Cancelar",
+    "RemoveText": "Quitar",
+    "openInEdmViewCommandTitle": "Abrir en EDM",
+    "preferenceNotConfigured": "No se ha configurado la preferencia EDA_EDMHosting.URL.",
+    "submitToDesignExchange" : "Agregar un diseño",
+    "newCollaborationCommand" : "Crear un codiseño",
+    "designsTitle" : "Diseños",
+    "addToCollaboration" : "Agregar",
+    "routed" : "Enrutado",
+    "unrouted" : "Sin enrutar",
+    "placed" : "Emplazado",
+    "unplaced" : "Sin emplazar",
+    "designAddedToCollaboration": "\"{0}\" diseño agregado como diseño conjunto.",
+    "openIncrement": "Abrir incremento",
+    "openObject" : "Abierto",
+    "removeDesign": "Quitar el diseño",
+    "removeDesignFromCollaboration": "Se quitarán \"{0}\" y los cambios relacionados."
+}

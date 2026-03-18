@@ -1,0 +1,768 @@
+{
+  "name": "social",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "aliasRegistry": {
+    "typeComment48": [
+      "S2clCommentary"
+    ],
+    "typeAnswer48": [
+      "S2clAnswer"
+    ],
+    "typeQuestion48": [
+      "S2clQuestion"
+    ],
+    "typeHalfFilledStar48": [
+      "S2clScalarRating"
+    ],
+    "homeQuestion64": [
+      "questions"
+    ],
+    "homeFeedback64": [
+      "feedback"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "S2clSCAddCommentNew": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.postComment}}",
+        "description": "{{i18n.S2clSCAddCommentNewDesc}}"
+      },
+      "S2clSCAddQuestionNew": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.postQuestion}}",
+        "description": "{{i18n.S2clSCAddQuestionNewDesc}}"
+      },
+      "S2clSCAddAnswerNew": {
+        "iconId": "cmdReply",
+        "isGroup": false,
+        "title": "{{i18n.reply}}",
+        "description": "{{i18n.S2clSCAddAnswerNewDesc}}"
+      },
+      "S2clSCAddRatingNew": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.postRating}}",
+        "description": "{{i18n.S2clSCAddRatingNewDesc}}"
+      },
+      "S2clAlreadyHelpful": {
+        "iconId": "cmdThumbsUpFilled",
+        "isGroup": false,
+        "title": "{{i18n.helpfulLabel}}",
+        "description": "{{i18n.S2clAlreadyHelpfulDesc}}"
+      },
+      "S2clHelpful": {
+        "iconId": "cmdThumbsUp",
+        "isGroup": false,
+        "title": "{{i18n.helpfulLabel}}",
+        "description": "{{i18n.S2clHelpfulDesc}}"
+      },
+      "S2clSocialCollaborationOpen": {
+        "iconId": "cmdOpen",
+        "isGroup": false,
+        "title": "{{i18n.openLabel}}",
+        "description": "{{i18n.S2clSocialCollaborationOpenDesc}}"
+      },
+      "S2clReplyCommand": {
+        "iconId": "cmdReply",
+        "isGroup": false,
+        "title": "{{i18n.postAnswer}}"
+      }
+    },
+    "commandHandlers": {
+      "S2clstartEditHandler": {
+        "id": "Awp0StartEdit",
+        "activeWhen": {
+          "condition": "conditions.S2clstartEditOverride"
+        },
+        "visibleWhen": false
+      },
+      "S2claddCommentHandler": {
+        "id": "S2clSCAddCommentNew",
+        "action": "S2claddCommentAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "S2claddQuestionHandler": {
+        "id": "S2clSCAddQuestionNew",
+        "action": "S2claddQuestionAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "S2claddAnswerHandler": {
+        "id": "S2clSCAddAnswerNew",
+        "action": "S2claddAnswerAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isQuestion"
+        }
+      },
+      "S2claddRatingHandler": {
+        "id": "S2clSCAddRatingNew",
+        "action": "S2claddRatingAction",
+        "activeWhen": true,
+        "visibleWhen": false
+      },
+      "S2clrateHelpfulCommentHandler": {
+        "id": "S2clHelpful",
+        "action": "S2clrateHelpfulCommentAction",
+        "activeWhen": {
+          "condition": "conditions.isComment"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isComment"
+        }
+      },
+      "S2clrateHelpfulAnswerHandler": {
+        "id": "S2clHelpful",
+        "action": "S2clrateHelpfulAnswerAction",
+        "activeWhen": {
+          "condition": "conditions.isAnswer"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isAnswer"
+        }
+      },
+      "S2clAlreadyHelpfulHandler": {
+        "id": "S2clAlreadyHelpful",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isAlreadyHelpful"
+        }
+      },
+      "S2clopenTargetHandler": {
+        "id": "S2clSocialCollaborationOpen",
+        "action": "S2clopenTargetAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showOpenOnQuestion"
+        }
+      },
+      "socialCollaborationOpenInRACDisableCommand": {
+        "id": "Awp0OpenInRAC",
+        "activeWhen": {
+          "condition": "conditions.socialObjectOpenInRACActiveCondition"
+        },
+        "visibleWhen": false
+      },
+      "socialCollaborationCheckOutDisableCommand": {
+        "id": "Awp0Checkout",
+        "activeWhen": {
+          "condition": "conditions.socialObjectCheckOutActiveCondition"
+        },
+        "visibleWhen": false
+      },
+      "socialCopyCommandHandler": {
+        "id": "Awp0Copy",
+        "activeWhen": {
+          "condition": "conditions.isSocialType"
+        },
+        "enableWhen": false
+      },
+      "socialCopyContextMenuCommandHandler": {
+        "id": "Awp0CopyContextMenu",
+        "activeWhen": {
+          "condition": "conditions.isSocialType"
+        },
+        "visibleWhen": false
+      }
+    },
+    "commandPlacements": {
+      "S2clComment": {
+        "id": "S2clSCAddCommentNew",
+        "uiAnchor": "S2cl_addComment",
+        "isIcon": true,
+        "priority": 100
+      },
+      "S2clQuestion": {
+        "id": "S2clSCAddQuestionNew",
+        "uiAnchor": "S2cl_addQuestion",
+        "isIcon": true,
+        "priority": 150
+      },
+      "S2clOpen": {
+        "id": "S2clSocialCollaborationOpen",
+        "uiAnchor": "S2clCommands",
+        "areas": [
+          "com.siemens.splm.clientfx.ui.modelObjectListActionCommands"
+        ],
+        "priority": 300,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "S2clAnswer": {
+        "id": "S2clSCAddAnswerNew",
+        "uiAnchor": "S2clCommands",
+        "areas": [
+          "com.siemens.splm.clientfx.ui.modelObjectListActionCommands"
+        ],
+        "priority": 301,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "S2clAlreadyHelpfulPlacement": {
+        "id": "S2clAlreadyHelpful",
+        "uiAnchor": "S2clCommands",
+        "areas": [
+          "com.siemens.splm.clientfx.ui.modelObjectListActionCommands"
+        ],
+        "priority": 302,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "S2clHelpful": {
+        "id": "S2clHelpful",
+        "uiAnchor": "S2clCommands",
+        "areas": [
+          "com.siemens.splm.clientfx.ui.modelObjectListActionCommands"
+        ],
+        "priority": 302,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      }
+    },
+    "actions": {
+      "S2claddCommentAction": {
+        "actionType": "JSFunction",
+        "method": "addCommentary",
+        "deps": "js/S2clSocialService",
+        "inputData": {
+          "commandId": "S2clSCAddCommentNew",
+          "objects": [
+            {
+              "uid": "{{ctx.selected.uid}}",
+              "type": "{{ctx.selected.type}}"
+            }
+          ]
+        }
+      },
+      "S2claddQuestionAction": {
+        "actionType": "JSFunction",
+        "method": "addCommentary",
+        "deps": "js/S2clSocialService",
+        "inputData": {
+          "commandId": "S2clSCAddQuestionNew",
+          "objects": [
+            {
+              "uid": "{{ctx.selected.uid}}",
+              "type": "{{ctx.selected.type}}"
+            }
+          ]
+        }
+      },
+      "S2claddAnswerAction": {
+        "actionType": "JSFunction",
+        "method": "addCommentary",
+        "deps": "js/S2clSocialService",
+        "inputData": {
+          "commandId": "S2clSCAddAnswerNew",
+          "objects": [
+            {
+              "uid": "{{commandContext.vmo.uid}}",
+              "type": "{{commandContext.vmo.type}}"
+            }
+          ]
+        }
+      },
+      "S2claddRatingAction": {
+        "actionType": "JSFunction",
+        "method": "addCommentary",
+        "deps": "js/S2clSocialService",
+        "inputData": {
+          "commandId": "S2clSCAddRatingNew",
+          "objects": [
+            {
+              "uid": "{{commandContext.vmo.uid}}",
+              "type": "{{commandContext.vmo.type}}",
+              "rating": "{{ctx.Social.rating}}"
+            }
+          ]
+        }
+      },
+      "S2clrateHelpfulAnswerAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Services-2012-10-SocialCollaboration",
+        "method": "createComment",
+        "inputData": {
+          "request": {
+            "commentType": "S2clToggleRating",
+            "contextObjectUids": [],
+            "objectName": "",
+            "plainText": "",
+            "ratingValue": 1,
+            "richText": "",
+            "sendToObjectUids": [],
+            "tagNameString": "",
+            "targetObjectUid": "{{commandContext.vmo.uid}}"
+          }
+        },
+        "outputData": {
+          "isSuccess": "isSuccess",
+          "message": "message"
+        },
+        "deps": "js/S2clSocialService",
+        "events": {
+          "success": [
+            {
+              "name": "S2clrateHelpfulAnswer.completed"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "postFailed"
+            }
+          ]
+        }
+      },
+      "S2clrateHelpfulCommentAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Services-2012-10-SocialCollaboration",
+        "method": "createComment",
+        "inputData": {
+          "request": {
+            "commentType": "S2clToggleRating",
+            "contextObjectUids": [],
+            "objectName": "",
+            "plainText": "",
+            "ratingValue": 1,
+            "richText": "",
+            "sendToObjectUids": [],
+            "tagNameString": "",
+            "targetObjectUid": "{{commandContext.vmo.uid}}"
+          }
+        },
+        "outputData": {
+          "isSuccess": "isSuccess",
+          "message": "message"
+        },
+        "deps": "js/S2clSocialService",
+        "events": {
+          "success": [
+            {
+              "name": "S2clrateHelpfulComment.completed"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "postFailed"
+            }
+          ]
+        }
+      },
+      "S2clopenTargetAction": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": "{{commandContext.vmo.uid}}"
+        }
+      }
+    },
+    "conditions": {
+      "isComment": {
+        "expression": "commandContext.vmo.type ===  'S2clCommentary' && !commandContext.vmo.isHelpfulByThisUser"
+      },
+      "isAnswer": {
+        "expression": "commandContext.vmo.type === 'S2clAnswer' && !commandContext.vmo.isHelpfulByThisUser"
+      },
+      "isAlreadyHelpful": {
+        "expression": " commandContext.vmo.isHelpfulByThisUser "
+      },
+      "isQuestion": {
+        "expression": " (commandContext.vmo.type ===  'S2clQuestion') "
+      },
+      "showOpenOnQuestion": {
+        "expression": "ctx.xrtSummaryContextObject.type !== 'S2clQuestion' || ctx.xrtSummaryContextObject.type === 'S2clQuestion' && commandContext.vmo.type !== 'S2clQuestion'"
+      },
+      "isSocialType": {
+        "expression": "ctx.selected && (ctx.selected.modelType.typeHierarchyArray.indexOf( 'S2clQuestion' ) > -1 || ctx.selected.modelType.typeHierarchyArray.indexOf( 'S2clAnswer' ) > -1 || ctx.selected.modelType.typeHierarchyArray.indexOf( 'S2clCommentary' ) > -1)"
+      },
+      "isSocialPage": {
+        "expression": "ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Collaboration' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Collaboration'"
+      },
+      "S2clstartEditOverride": {
+        "expression": "conditions.isStartEditAllowed && ( conditions.isSocialPage || conditions.isSocialType )"
+      },
+      "socialObjectOpenInRACActiveCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.awp0OpenInRACCommandCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "ctx.selected",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": [
+                    "S2clQuestion",
+                    "S2clAnswer",
+                    "S2clCommentary"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "socialObjectCheckOutActiveCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.checkSelections",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "ctx.selected",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": [
+                    "S2clQuestion",
+                    "S2clAnswer",
+                    "S2clCommentary"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "messages": {
+      "postFailed": {
+        "messageType": "INFO",
+        "messageText": "{{message}}"
+      }
+    },
+    "functions": {
+      "getObjectUID": {
+        "functionName": "getObjectUID",
+        "parameters": [
+          "{{ctx.xrtSummaryContextObject}}"
+        ]
+      },
+      "getTargetObjectUID": {
+        "functionName": "getTargetObjectUID",
+        "parameters": []
+      }
+    },
+    "i18n": {
+      "postComment": [
+        "SocialDeclarativeMessages"
+      ],
+      "postQuestion": [
+        "SocialDeclarativeMessages"
+      ],
+      "postAnswer": [
+        "SocialDeclarativeMessages"
+      ],
+      "reply": [
+        "SocialDeclarativeMessages"
+      ],
+      "postRating": [
+        "SocialDeclarativeMessages"
+      ],
+      "helpfulLabel": [
+        "SocialMessages"
+      ],
+      "openLabel": [
+        "SocialMessages"
+      ],
+      "S2cl_addComment": [
+        "SocialMessages"
+      ],
+      "S2cl_addQuestion": [
+        "SocialMessages"
+      ],
+      "S2clCommands": [
+        "SocialMessages"
+      ],
+      "S2clSCAddCommentNewDesc": [
+        "SocialDeclarativeMessages"
+      ],
+      "S2clSCAddQuestionNewDesc": [
+        "SocialDeclarativeMessages"
+      ],
+      "S2clSCAddAnswerNewDesc": [
+        "SocialDeclarativeMessages"
+      ],
+      "S2clSCAddRatingNewDesc": [
+        "SocialDeclarativeMessages"
+      ],
+      "S2clAlreadyHelpfulDesc": [
+        "SocialMessages"
+      ],
+      "S2clHelpfulDesc": [
+        "SocialMessages"
+      ],
+      "S2clSocialCollaborationOpenDesc": [
+        "SocialMessages"
+      ]
+    }
+  },
+  "states": {
+    "com_siemens_splm_client_social_QuestionsLocation": {
+      "data": {
+        "browserSubTitle": {
+          "source": "/i18n/SocialMessages",
+          "key": "questionsAppDisplayName"
+        },
+        "headerTitle": {
+          "source": "/i18n/SocialMessages",
+          "key": "questionsAppDisplayName"
+        }
+      },
+      "type": "location"
+    },
+    "allQuestions": {
+      "data": {
+        "breadcrumbConfig": {
+          "type": "search",
+          "vm": "searchBreadCrumb",
+          "noUpdate": true,
+          "popuplist": "/html/defaultbreadcrumblist.html",
+          "overflowIndex": 0,
+          "inContentBoxNotActive": true
+        },
+        "priority": 0,
+        "label": {
+          "source": "/i18n/SocialMessages",
+          "key": "allQuestions"
+        },
+        "clientScopeURI": "Awp0SearchResults",
+        "nameToken": "com.siemens.splm.client.social:allQuestionsSubLocation",
+        "context": {
+          "socialQuestions": {
+            "provider": "Awp0FullTextSearchProvider",
+            "criteria": {
+              "searchString": "Type:S2clQuestion"
+            },
+            "sortType": "Priority",
+            "sortCriteria": []
+          }
+        },
+        "selectionMode": "single",
+        "viewModes": {
+          "SummaryView": {
+            "primaryWorkArea": "list",
+            "secondaryWorkArea": true
+          },
+          "ListView": {
+            "primaryWorkArea": "list",
+            "secondaryWorkArea": false
+          }
+        },
+        "viewBase": "S2clAllQuestions"
+      },
+      "parent": "com_siemens_splm_client_social_QuestionsLocation",
+      "type": "subLocation",
+      "url": "/allQuestions",
+      "params": {
+        "filter": ""
+      }
+    },
+    "answeredQuestions": {
+      "data": {
+        "breadcrumbConfig": {
+          "type": "search",
+          "vm": "searchBreadCrumb",
+          "noUpdate": true,
+          "popuplist": "/html/defaultbreadcrumblist.html",
+          "overflowIndex": 0,
+          "inContentBoxNotActive": true
+        },
+        "priority": 1,
+        "label": {
+          "source": "/i18n/SocialMessages",
+          "key": "answeredQuestions"
+        },
+        "clientScopeURI": "Awp0SearchResults",
+        "nameToken": "com.siemens.splm.client.social:answeredQuestionsSubLocation",
+        "context": {
+          "socialQuestions": {
+            "provider": "Awp0FullTextSearchProvider",
+            "criteria": {
+              "searchString": "Type:S2clQuestion NOT \"Total Answered\":0"
+            },
+            "sortType": "Priority",
+            "sortCriteria": []
+          },
+          "search": {}
+        },
+        "selectionMode": "single",
+        "viewModes": {
+          "SummaryView": {
+            "primaryWorkArea": "list",
+            "secondaryWorkArea": true
+          },
+          "ListView": {
+            "primaryWorkArea": "list",
+            "secondaryWorkArea": false
+          }
+        },
+        "viewBase": "S2clAnsweredQuestions"
+      },
+      "parent": "com_siemens_splm_client_social_QuestionsLocation",
+      "type": "subLocation",
+      "url": "/answeredQuestions",
+      "params": {
+        "filter": ""
+      }
+    },
+    "unAnsweredQuestions": {
+      "data": {
+        "breadcrumbConfig": {
+          "type": "search",
+          "vm": "searchBreadCrumb",
+          "noUpdate": true,
+          "popuplist": "/html/defaultbreadcrumblist.html",
+          "overflowIndex": 0,
+          "inContentBoxNotActive": true
+        },
+        "priority": 2,
+        "label": {
+          "source": "/i18n/SocialMessages",
+          "key": "unAnsweredQuestions"
+        },
+        "clientScopeURI": "Awp0SearchResults",
+        "nameToken": "com.siemens.splm.client.social:unAnsweredQuestionsSubLocation",
+        "context": {
+          "socialQuestions": {
+            "provider": "Awp0FullTextSearchProvider",
+            "criteria": {
+              "searchString": "Type:S2clQuestion AND \"Total Answered\":0"
+            },
+            "sortType": "Priority",
+            "sortCriteria": []
+          },
+          "search": {}
+        },
+        "selectionMode": "single",
+        "viewModes": {
+          "SummaryView": {
+            "primaryWorkArea": "list",
+            "secondaryWorkArea": true
+          },
+          "ListView": {
+            "primaryWorkArea": "list",
+            "secondaryWorkArea": false
+          }
+        },
+        "viewBase": "S2clUnansweredQuestions"
+      },
+      "parent": "com_siemens_splm_client_social_QuestionsLocation",
+      "type": "subLocation",
+      "url": "/unAnsweredQuestions",
+      "params": {
+        "filter": ""
+      }
+    }
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "WorkspaceObject": {
+        "additionalProperties": [
+          {
+            "name": "object_name"
+          },
+          {
+            "name": "s2clCommentaryObjects"
+          },
+          {
+            "name": "s2clCommentaryRatingObjects"
+          },
+          {
+            "name": "s2clTotal1StarFromSummary"
+          },
+          {
+            "name": "s2clTotal2StarFromSummary"
+          },
+          {
+            "name": "s2clTotal3StarFromSummary"
+          },
+          {
+            "name": "s2clTotal4StarFromSummary"
+          },
+          {
+            "name": "s2clTotal5StarFromSummary"
+          },
+          {
+            "name": "s2clAverageRatingFmSy"
+          },
+          {
+            "name": "s2clUserRatingValue"
+          },
+          {
+            "name": "s2clTotalRatingsFromSummary"
+          }
+        ]
+      },
+      "S2clCommentary": {
+        "additionalProperties": [
+          {
+            "name": "s2clParentRootComment"
+          },
+          {
+            "name": "s2clTotalCommentsFmSy"
+          },
+          {
+            "name": "s2clTotalFollowsFromSummary"
+          },
+          {
+            "name": "s2clTotalLikesFromSummary"
+          },
+          {
+            "name": "s2clCellProperties"
+          },
+          {
+            "name": "s2clTargetObject"
+          },
+          {
+            "name": "s2clCommentPlainText"
+          },
+          {
+            "name": "s2clTargetObjectName"
+          },
+          {
+            "name": "s2clCommentRichText"
+          },
+          {
+            "name": "s2clRatingValue"
+          }
+        ]
+      }
+    }
+  }
+}

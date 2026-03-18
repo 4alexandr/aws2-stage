@@ -1,0 +1,22 @@
+{
+    "manageTitle": "管理",
+    "createWorkPackageHeaderTitle": "新工作包",
+    "manageTitleDecl": "管理工作包",
+    "epOpenWPTitle": "打开",
+    "epOpenWPDesc": "打开工作包",
+    "ebomTileTitle": "EBOM",
+    "mbomTileTitle": "MBOM",
+    "add": "添加",
+    "noEbomSelectedMessage": "先选择 EBOM 再选择 MBOM。",
+    "addEbomCmdToolTipTitle": "添加 EBOM",
+    "addEbomCmdToolTipDescription": "选择一个 EBOM 结构并将其添加到工作包。",
+    "addMbomCmdToolTipTitle": "添加 MBOM",
+    "addMbomCmdToolTipDescription": "创建一个新的 MBOM 结构或选择一个现有的 MBOM 结构，并将其添加到工作包。",
+    "manageWPRightAreaTitle": "内容",
+    "addProduct":"添加产品",
+    "productSearchPlaceHolder":"键入产品名称",
+    "useExistingMbom": "使用现有 MBOM",
+    "createNewMbom": "新建 MBOM",
+    "revisionRule":"版本规则",
+    "createProductHeaderTitle":"创建产品"
+}

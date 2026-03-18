@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "Отсутствуют элементы построения или действия в \"{0}\".",
+    "noProcesses": "Отсутствуют процессы в \"{0}\".",
+    "whereToCreateProcesses": "Процессы можно создать на странице Рабочий объект.",
+    "moveCandidateCmdTitle": "Переместить",
+    "moveCandidateCmdDescription": "Обозначает объекты для перемещения",
+    "successfullySetSingleMoveCandidate": "\"{0}\" обозначен для перемещения. Выберите целевое расположение и используйте кнопку Переместить сюда.",
+    "successfullySetMultipleMoveCandidates": "Объекты {0} обозначены для перемещения. Выберите целевое расположение и используйте кнопку Переместить сюда.",
+    "moveHereTooltipTitle": "Переместить сюда",
+    "moveHereTooltipMsg": "Эти объекты будут перемещены в заданное расположение:",
+    "createBuildElementAfter": "Создать элемент построения позже",
+    "createBuildElementAsChild": "Создать элемент построения как дочерний"
+}

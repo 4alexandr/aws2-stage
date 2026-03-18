@@ -1,0 +1,47 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-sub-panel.directive"
+    ],
+
+    "actions": {
+        "initTable": {
+            "actionType": "JSFunction",
+            "method": "initTable",
+            "inputData": {
+                "ctx": "{{ctx}}",
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1InterfaceSecondaryTableService"
+        },
+
+        "rowSelected": {
+            "actionType": "JSFunction",
+            "method": "rowSelected",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1InterfaceSecondaryTableService"
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Crt1InterfaceSecondaryTable"
+            },
+            "action": "initTable"
+        },
+
+        {
+            "eventId": "appCtx.register",
+            "criteria": {
+                "name": "selected"
+            },
+            "action": "rowSelected",
+            "cacheEventData": true
+        }
+
+    ]
+
+}

@@ -1,0 +1,20 @@
+<aw-panel-body exist-when="ctx.architectureCtx.splitPanelLocation == 'bottom'">
+        <aw-column width="fill">
+            <aw-command-sub-panel panel-id="interfacePrimaryTable"></aw-command-sub-panel>
+        </aw-column>
+        <aw-splitter exist-when="ctx.interfaceDetails.isPortSelected || (ctx.interfaceDetails.isConnectionSelected && ctx.preferences.AWC_Enable_Interface_Panel)"> </aw-splitter>
+        <aw-column width="fill">
+            <aw-command-sub-panel panel-id="interfaceSecondaryTable"></aw-command-sub-panel>
+        </aw-column>
+    </aw-panel-body>
+
+
+    <aw-panel-body exist-when="ctx.architectureCtx.splitPanelLocation == 'right'">
+        <aw-row height="fill">
+            <aw-command-sub-panel panel-id="interfacePrimaryTable"></aw-command-sub-panel>
+        </aw-row>
+        <aw-splitter exist-when="ctx.interfaceDetails.isPortSelected || (ctx.interfaceDetails.isConnectionSelected && ctx.preferences.AWC_Enable_Interface_Panel)" direction="HORIZONTAL"> </aw-splitter>
+        <aw-row height="fill">
+            <aw-command-sub-panel panel-id="interfaceSecondaryTable"></aw-command-sub-panel>
+        </aw-row>
+</aw-panel-body>

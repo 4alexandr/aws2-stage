@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "Добавить к",
+    "addButtonTitle": "Добавить",
+    "addLabel": "Добавить к",
+    "newShowAddObjectPresenterBtn": "Новое",
+    "paletteShowAddObjectPresenterBtn": "Палитра",
+    "searchShowAddObjectPresenterBtn": "Поиск",
+    "errorInGettingSubtypesofEndItem": "Не удалось применить фильтр к результатам поиска, поскольку возникла внутренняя ошибка.",
+    "FrequentlyUsedSectionTitle": "Часто используемые",
+    "addPropertiesLabel": "Добавить свойства",
+    "resultsTabTitle": "Результаты",
+    "filterTabTitle": "Фильтр",
+    "Mtw0ShowAddObjectDesc": "Назначить вещество для материала.",
+    "view": "Вид",
+    "billOfMaterials": "Спецификация",
+    "billOfSubstances" : "Спецификация веществ"
+}

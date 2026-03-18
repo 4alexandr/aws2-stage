@@ -1,0 +1,136 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/visible-when.directive",
+        "js/aw-add.directive",
+        "js/aw-form.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-i18n.directive"
+    ],
+    "actions": {
+        "createRelationForPaletteOrSearchID": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "createRelations",
+            "inputData": {
+                "input": "{{function:prepareCreateRelationInput}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "interfaceDefinitionTable.plTable.reload"
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ],
+                "failure": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/Ase1AddInterfaceDefinitionService"
+        },
+        "createObjectID": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-Core-2012-10-DataManagement",
+            "method": "createRelateAndSubmitObjects",
+            "inputData": {
+                "inputs": "{{function:processCreateInput}}"
+            },
+            "outputData": {
+                "createdMainObject": "output[0].objects[0]"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "addObjectID.assignProjects",
+                        "condition": "data.dataProviders.getAssignedProjectsProvider.viewModelCollection.loadedVMObjects.length>0"
+                    },
+                    {
+                        "name": "interfaceDefinitionTable.plTable.reload"
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ],
+                "failure": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/Ase1AddInterfaceDefinitionService"
+        },
+        "assignProjectsToCreatedObject": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-09-ProjectLevelSecurity",
+            "method": "assignOrRemoveObjects",
+            "inputData": {
+                "assignedOrRemovedobjects": [
+                    {
+                        "projects": "{{data.dataProviders.getAssignedProjectsProvider.viewModelCollection.loadedVMObjects}}",
+                        "objectToAssign": [
+                            "{{data.createdMainObject}}"
+                        ],
+                        "objectToRemove": []
+                    }
+                ]
+            }
+        }
+    },
+    "conditions": {
+        "isNewTabAddButtonVisible": {
+            "expression": "data.selectedTab.panelId==='newTabPageSub' && data.creationType"
+        },
+        "isPaletteSearchTabAddButtonVisible": {
+            "expression": "data.selectedTab.panelId!='newTabPageSub' && data.sourceObjects.length>0"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "addObjectID.assignProjects",
+            "action": "assignProjectsToCreatedObject"
+        }
+    ],
+    "functions": {
+        "processCreateInput": {
+            "functionName": "processCreateInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "prepareCreateRelationInput": {
+            "functionName": "prepareCreateRelationInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getCreatedObjectID": {
+            "functionName": "getCreatedObjectID",
+            "parameters": [
+                "{{data.outputResponsse}}"
+            ]
+        }
+    },
+    "i18n": {
+        "ADD_BUTTON_TITLE": [
+            "BaseMessages"
+        ]
+    }
+}

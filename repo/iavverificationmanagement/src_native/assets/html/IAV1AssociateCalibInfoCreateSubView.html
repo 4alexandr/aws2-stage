@@ -1,0 +1,21 @@
+<aw-panel-body>
+    <div class="aw-requirement-createTracelink">
+        <aw-command-panel-section caption="i18n.startLink" anchor="data.startItemListcommands" context="data">
+            <aw-include name="Arm0RequirementHint" exist-when="conditions.showDropHintForStartBucket" sub-panel-context="data"></aw-include>
+            <aw-list dataprovider="data.dataProviders.startItemList" show-drop-area="true" name="startItemList">
+                <aw-default-cell vmo="item" data="data">
+                </aw-default-cell>
+            </aw-list>
+        </aw-command-panel-section>
+    </div>
+
+    <div class="aw-requirement-createTracelink">
+        <aw-command-panel-section caption="i18n.endLink" anchor="data.endItemListcommands" context="data">
+            <aw-include name="Arm0RequirementHint" exist-when="conditions.showDropHintForEndBucket" sub-panel-context="data"></aw-include>
+            <aw-list dataprovider="data.dataProviders.endItemList" show-drop-area="true" name="endItemList">
+                <aw-default-cell vmo="item" data="data">
+                </aw-default-cell>
+            </aw-list>
+        </aw-command-panel-section>
+    </div>
+</aw-panel-body>

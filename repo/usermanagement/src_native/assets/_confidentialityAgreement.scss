@@ -1,0 +1,36 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2016.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+
+.aw-confidentialityAgreement-view {
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.aw-confidentialityAgreement-SectionTitle {
+    margin-top: 20px;
+    margin-left: 3px;
+}
+
+.aw-confidentialityAgreement-confidentialStatement {
+    min-height: 90px;
+    max-height: 325px;
+    margin-left: 3px;
+}
+
+.aw-confidentialityAgreement-confidentialCheck {
+    padding-top: 20px;
+    margin-left: -2px;
+}
+
+.aw-confidentialityAgreement-footer {
+    max-width: 420px;
+    margin-left: -10px;
+    margin-right: -10px;
+}

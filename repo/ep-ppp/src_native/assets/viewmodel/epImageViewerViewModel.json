@@ -1,0 +1,12 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-image.directive"
+    ],
+    "ports": {
+        "epImageViewer_inputObject": {
+            "syncObject": {}
+        }
+    }
+}

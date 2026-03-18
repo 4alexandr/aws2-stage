@@ -1,0 +1,9 @@
+{
+  "name": "relations",
+  "description": "",
+  "modules": [
+    "relations"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

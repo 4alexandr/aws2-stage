@@ -1,0 +1,12 @@
+<aw-command-panel caption="i18n.add">
+    <aw-form name="createVendorPartForm">
+        <aw-panel-body>
+            <aw-add include-types='ManufacturerPart' load-sub-types="true" auto-select-on-unique-type="true" type-filter="ManufacturerPart" visible-tabs="new"></aw-add>
+        </aw-panel-body>
+    </aw-form>
+    <aw-panel-footer>
+        <aw-button action="createVendorPartObject" visible-when="createVendorPartForm.$valid">
+            <aw-i18n>i18n.add</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

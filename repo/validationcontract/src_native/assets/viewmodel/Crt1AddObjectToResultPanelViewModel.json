@@ -1,0 +1,376 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":[
+        "js/aw-command-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/visible-when.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-add.directive",
+        "js/aw-form.directive"
+    ],
+    "actions":
+    {
+        "addObjectFromNew":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-Core-2012-10-DataManagement",
+            "method": "createRelateAndSubmitObjects",
+            "inputData":
+            {
+                "inputs": "{{function:getCreateInput}}"
+            },
+            "outputData":
+            {
+                "createdMainObject": "output[0].objects[0]",
+                "createdObject": "{{function:getCreatedObject}}"
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name" : "addObjectToResult"
+                    },
+                    {
+                        "name": "assignProjects"
+                    }
+                ]
+            },
+            "deps": "js/addObjectUtils"
+        },
+        "addObject":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "ValidationContractAW-2015-03-VCManagement",
+            "method": "addValidationResults",
+            "inputData":
+            {
+                 "input": "{{function:addValidationResultsInput}}"
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData":
+                        {
+                            "relatedModified": ["{{ctx.vcRevision}}"]
+                        }
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/analysisRequestUtils"
+        },
+        "createDatasetforfileupload":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-04-DataManagement",
+            "method": "createDatasets",
+            "inputData":
+            {
+                "input":
+                [
+                    {
+                        "clientId": "{{data.datasetName.dbValue}}",
+                        "container":
+                        {
+                            "uid": "AAAAAAAAAAAAAA",
+                            "type": "unknownType"
+                        },
+
+                        "datasetFileInfos":
+                        [
+                            {
+                                "allowReplace": false,
+                                "clientId": "",
+                                "fileName": "{{data.fileName}}",
+                                "isText": "{{function:getFileFormat}}",
+                                "namedReferenceName": "{{data.reference.dbValue.referenceName}}"
+                            }
+                        ],
+
+                        "relationType": "",
+                        "description": "{{data.datasetDesc.dbValue}}",
+                        "name": "{{data.datasetName.dbValue}}",
+                        "type": "{{data.datasetType.dbValue.props.object_string.dbValues[0]}}"
+                    }
+                ]
+            },
+            "outputData":
+            {
+                "fmsTicket": "datasetOutput[0].commitInfo[0].datasetFileTicketInfos[0].ticket",
+                "commitInfos": "datasetOutput[0].commitInfo[0]",
+                "relatedModified": "datasetOutput[0].dataset",
+                "createdObject": "datasetOutput[0].dataset"
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name" : "deliverableFmsTicketUpdate"
+                    }
+                ]
+            },
+            "deps": "js/addObjectUtils"
+        },
+        "updateDeliverableFormData":
+        {
+            "actionType": "JSFunction",
+            "method": "updateFormData",
+            "inputData":
+            {
+                "fileData":
+                {
+                    "key"  : "fmsTicket",
+                    "value": "{{data.fmsTicket}}"
+                },
+
+                "data":"{{data}}"
+            },
+            "events":
+            {
+                "success":
+                [
+
+                    {
+                        "name": "uploadService"
+                    }
+                ]
+            },
+
+            "deps": "js/declUtils"
+        },
+        "identifyFromWhereAddButtonIsFired":
+        {
+            "actionType": "JSFunction",
+            "method": "identifyFromWhereAddButtonIsFired",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "outputData":
+            {
+                "SoaToBeCalled": ""
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "condition":"data.SoaToBeCalled=='notADataset'",
+                        "name": "newtabfunctionality"
+                    },
+                    {
+                        "condition":"data.SoaToBeCalled=='dataset'",
+                        "name": "fileupload"
+                    }
+                ]
+            },
+            "deps": "js/analysisRequestUtils"
+        },
+        "assignProjectsToCreatedObject":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-09-ProjectLevelSecurity",
+            "method": "assignOrRemoveObjects",
+            "inputData":
+            {
+                "assignedOrRemovedobjects":
+                [
+                    {
+                        "projects": "{{data.dataProviders.getUserProjectsProvider.selectedObjects}}",
+                        "objectToAssign":
+                        [
+                            "{{data.createdMainObject}}"
+                        ],
+                        "objectToRemove": []
+                    }
+                ]
+            }
+        },
+        "commitFileSOA":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-FileManagement",
+            "method": "commitDatasetFiles",
+            "inputData":
+            {
+                "commitInput":
+                [
+                    {
+                        "dataset": "{{data.commitInfos.dataset}}",
+                        "createNewVersion": true,
+                        "datasetFileTicketInfos":
+                        [
+                            {
+                                "datasetFileInfo":
+                                {
+
+                                    "clientId": "{{data.commitInfos.datasetFileTicketInfos[0].datasetFileInfo.clientId}}",
+                                    "fileName": "{{data.commitInfos.datasetFileTicketInfos[0].datasetFileInfo.fileName}}",
+                                    "namedReferencedName": "{{data.commitInfos.datasetFileTicketInfos[0].datasetFileInfo.namedReferenceName}}",
+                                    "isText": "{{data.commitInfos.datasetFileTicketInfos[0].datasetFileInfo.isText}}",
+                                    "allowReplace": "{{data.commitInfos.datasetFileTicketInfos[0].datasetFileInfo.allowReplace}}"
+                                },
+                                "ticket": "{{data.fmsTicket}}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                         "name": "addObjectToResult"
+                    }
+                ],
+                "failure":
+                [
+                    {
+                        "name": "commitFailed"
+                    }
+                ]
+            }
+        },
+        "upload" :
+        {
+            "actionType": "RESTService",
+            "serviceName": "",
+            "method": "POST",
+            "inputData":
+            {
+                "request":
+                {
+                    "method": "POST",
+                    "url": "{{Constants.fmsUrl}}",
+                    "headers":
+                    {
+                         "Content-type":"undefined"
+                    },
+                    "data": "{{data.formData}}"
+                }
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "commitFile"
+                    }
+                ],
+                "failure":
+                [
+                    {
+                        "name": "commitFailed"
+                    }
+                ]
+            }
+        },
+        "deleteDataset":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "deleteObjects",
+            "inputData":
+            {
+                "objects":
+                [
+                    "{{data.createdObject}}"
+                ]
+            }
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId":"addObjectToResult",
+            "action":"addObject"
+        },
+        {
+            "eventId":"fileupload",
+            "action":"createDatasetforfileupload"
+        },
+        {
+            "eventId":"newtabfunctionality",
+            "action":"addObjectFromNew"
+        },
+        {
+            "eventId":"assignProjects",
+            "action":"assignProjectsToCreatedObject"
+        },
+        {
+            "eventId":"commitFile",
+            "action":"commitFileSOA"
+        },
+        {
+            "eventId":"uploadService",
+            "action": "upload"
+        },
+        {
+            "eventId":"commitFailed",
+            "action":"deleteDataset"
+        },
+        {
+            "eventId" : "deliverableFmsTicketUpdate",
+            "action" : "updateDeliverableFormData"
+        }
+
+    ],
+    "functions":
+    {
+        "getCreateInput":
+        {
+            "functionName": "getCreateInput",
+            "parameters":
+            [
+                "{{data}}"
+            ]
+        },
+        "getCreatedObject":
+        {
+            "functionName": "getCreatedObject",
+            "parameters": []
+        },
+        "addValidationResultsInput":
+        {
+            "functionName": "addValidationResultsInput",
+            "parameters":
+            [
+                "{{data}}",
+                "{{ctx.locationContext.modelObject.uid}}"
+            ]
+        }
+    },
+    "conditions":
+    {
+        "isNewTabAddButtonVisible":
+        {
+          "expression":"data.selectedTab.panelId==='newTabPageSub' && (data.creationType || data.isDatasetCreate)"
+        },
+        "isPaletteTabAddButtonVisible":
+        {
+          "expression":"data.selectedTab.panelId==='paletteTabPageSub' && (ctx.getClipboardProvider.selectedObjects.length > 0 || ctx.getFavoriteProvider.selectedObjects.length > 0  || ctx.getRecentObjsProvider.selectedObjects.length > 0)"
+        },
+        "isSearchTabAddButtonVisible":
+        {
+          "expression":"data.selectedTab.panelId!='newTabPageSub' && data.selectedTab.panelId!='paletteTabPageSub' && data.dataProviders.performSearch.selectedObjects.length > 0"
+        }
+    },
+    "i18n":
+     {
+         "AddObjectToResultCommandTitle" : ["AnalysisRequestCommandPanelsMessages"],
+         "AddTitle" : ["AnalysisRequestCommandPanelsMessages"]
+     }
+
+}

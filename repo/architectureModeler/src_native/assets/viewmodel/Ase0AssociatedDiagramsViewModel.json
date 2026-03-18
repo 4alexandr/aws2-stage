@@ -1,0 +1,58 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/visible-when.directive",
+        "js/aw-init.directive"
+    ],
+
+    "actions": {
+
+        "navigateDiagramsPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "awPanel.navigate",
+                    "eventData": {
+                        "destPanelId": "showAssociatedDiagramsSub",
+                        "recreatePanel": "false"
+                    }
+                } ]
+            }
+        },
+        "closeDiagramsPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                } ]
+            }
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "complete.subPanel",
+            "criteria": {
+                "source": "createDiagramSub"
+            },
+            "action": "navigateDiagramsPanel"
+        },
+        {
+            "eventId": "Ase0ArchitecturePrimary.contentUnloaded",
+            "action": "closeDiagramsPanel"
+        }
+    ],
+    "i18n": {
+        "diagramsPanelTitle": [
+            "ArchitectureModelerConstants"
+        ]
+    }
+}

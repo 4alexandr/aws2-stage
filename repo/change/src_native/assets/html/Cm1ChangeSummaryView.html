@@ -1,0 +1,20 @@
+<div class="aw-viewer-gallery aw-change-changeSummaryViewer">
+    <div class="aw-layout-panelSection">
+        <div class="aw-commands-commandBar">
+            <div class="aw-commandBar-container">
+                <aw-command-panel-section caption="i18n.aw_changeSummary" anchor="data.changeSummaryAnchor" collapsed="false">
+                    <aw-splm-table class="aw-change-changeSummaryTable" use-tree="true" gridid="changeSummaryGrid" ></aw-splm-table>
+                </aw-command-panel-section>
+                <div exist-when="conditions.isRowSelectedInChangeSummaryTable">
+                    <div class="aw-layout-panelSectionTitle">
+                        <span>{{data.i18n.relatedChangeSummaryTableCaption}}</span>
+                    </div>
+                    <div class="aw-widgets-comparePanel">
+                        <aw-compare2 gridid="propertyCompareGrid" ></aw-compare2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

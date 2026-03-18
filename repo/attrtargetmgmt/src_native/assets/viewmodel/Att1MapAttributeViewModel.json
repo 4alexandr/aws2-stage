@@ -1,0 +1,280 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-default-cell.directive",
+        "js/visible-when.directive",
+        "js/aw-i18n.directive",
+        "js/aw-button.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "performSearch"
+        },
+
+        "closeMapAttribPanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "Att1MapAttribute.panelCloseSuccessful"
+                    },
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "search":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2016-03-Finder",
+            "method": "performSearch",
+            "inputData":
+            {
+                "columnConfigInput":
+                {
+                    "clientName": "{{ctx.Att1ShowMappedAttribute.clientName}}",
+                    "clientScopeURI": "{{ctx.Att1ShowMappedAttribute.clientScopeURI}}"
+                },
+                "searchInput":
+                {
+                    "internalPropertyName": "",
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Att1AttributeMapProvider",
+                    "searchCriteria":
+                    {
+                        "parentUids": "{{ctx.selectedProxyObjectUids}}",
+                        "searchString": "{{data.filterBox.dbValue}}",
+                        "productContextUids": "{{ctx.Att1ShowMappedAttribute.productContextUids}}",
+                        "rootElementUids": "{{ctx.Att1ShowMappedAttribute.rootElementUids}}"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchFilterMap": {},
+                    "searchSortCriteria": [],
+                    "startIndex": "{{data.dataProviders.performSearch.startIndex}}"
+               }
+            },
+
+           "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "Att1AttributeAlignmentProxy",
+                        "properties":
+                        [
+                            {
+                                "name": "att1SourceAttribute"
+                            },
+                            {
+                                "name": "att1SourceDirection"
+                            },
+                            {
+                                "name": "att1SourceElement"
+                            },
+                            {
+                                "name": "att1TargetAttribute"
+                            },
+                            {
+                                "name": "att1TargetDirection"
+                            },
+                            {
+                                "name": "att1TargetElement"
+                            },
+                            {
+                                "name": "att1ContextObject",
+                                "modifiers": [ {
+                                    "name": "withProperties",
+                                    "Value": "true"
+                                } ]
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            "outputData":
+            {
+                "searchResults": "searchResults",
+                "totalFound": "totalFound",
+                "totalLoaded": "totalLoaded"
+             }
+        },
+
+        "mapAttributes":
+        {
+            "actionType": "JSFunction",
+            "method": "mapAttributes",
+            "inputData":
+            {
+                "inputProxyObjects": "{{ctx.selectedProxyObjects}}",
+                "selectedProxyObjects": "{{data.dataProviders.performSearch.selectedObjects}}"
+            },
+            "deps": "js/Att1AttrMappingTableMapService"
+        },
+
+        "proxyListSelection":
+        {
+            "actionType": "JSFunction",
+            "method": "proxyListSelection",
+            "inputData":
+            {
+                "selectedProxyObjects": "{{data.dataProviders.performSearch.selectedObjects}}"
+            },
+
+            "deps": "js/Att1AttrMappingTableSelectService"
+        },
+
+        "mapAttributesSOA":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "AttrTargetMgmtAW-2017-12-AttributeTargetManagement",
+            "method": "mapMeasurableAttributes",
+            "inputData":
+            {
+                "inputs": "{{ctx.mapObjectAttributeInput}}",
+                "pref":
+                {
+                    "mapObjType": "Att0AttributeMapping",
+                    "alignmentObjType": "Att0AttributeAlignment",
+                    "toDeleteUnalignment": false,
+                    "toCreateResultAttr": false
+                }
+
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "Att1MapAttribute.addMappedAttrsToTable"
+                    },
+                    {
+                        "name": "gridDataProvider.resetState"
+                    },
+                    {
+                        "name": "displayErrorMessage",
+                        "condition": "ctx.nonMappableObjects.nonModifialbleAttributesList.length > 0"
+                    },
+                    {
+                        "condition": "ctx.nonMappableObjects.nonModifialbleAttributesList.length > 0",
+                        "name": "updateAttrMapping"
+                    },
+                    {
+                        "condition": "data.pinnedToForm.dbValue",
+                        "name": "closeAttrMapping"
+                    },
+                    {
+                        "condition": "data.unpinnedToForm.dbValue",
+                        "name": "updateAttrMapping"
+                    }
+                ]
+            }
+        },
+
+        "addMappedAttrsToTable":
+        {
+            "actionType": "JSFunction",
+            "method": "addMappedAttrsToTable",
+            "deps": "js/Att1AttrMappingTableMapService"
+        }
+    },
+
+    "data":
+    {
+        "filterBox":
+        {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "false",
+            "dbValue": ""
+        },
+
+        "mapAttributePanelPinCommands": "mapAttributePanel_oneStepPinCommands",
+
+        "pinnedToForm":
+        {
+            "type": "BOOLEAN",
+            "dbValue": true
+        },
+
+        "unpinnedToForm":
+        {
+            "type": "BOOLEAN",
+            "dbValue": false
+        }
+    },
+
+    "dataProviders":
+    {
+        "performSearch":
+        {
+            "action": "search",
+            "response":"{{data.searchResults}}",
+            "totalFound":"{{data.totalFound}}",
+            "selectionModelMode": "multiple"
+        }
+    },
+
+    "conditions":
+    {
+        "isValidToShowMapButton":
+        {
+            "expression": "data.dataProviders.performSearch.selectedObjects.length>0  && ctx.selectedListAlignmentObjectsModifiable"
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "updateAttrMapping",
+            "action": "reveal"
+        },
+
+        {
+            "eventId": "closeAttrMapping",
+            "action": "closeMapAttribPanel"
+        },
+
+        {
+            "eventId": "performSearch.selectionChangeEvent",
+            "action": "proxyListSelection"
+        },
+
+        {
+            "eventId": "Att1MapAttribute.mapAttributesSOA",
+            "action": "mapAttributesSOA"
+        },
+
+        {
+            "eventId": "Att1MapAttribute.addMappedAttrsToTable",
+            "action": "addMappedAttrsToTable"
+        }
+     ],
+
+    "i18n":
+    {
+       "map": [ "Att1AttrMappingMessages"],
+       "multipleMappingSuccessful": ["Att1AttrMappingMessages"],
+       "mapFailure": ["Att1AttrMappingMessages"]
+    }
+}

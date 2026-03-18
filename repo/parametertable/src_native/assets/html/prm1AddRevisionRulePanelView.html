@@ -1,0 +1,14 @@
+<aw-command-panel caption="i18n.ParamAdd">
+    <aw-panel-body>
+        <aw-panel-section caption="i18n.RevisionRuleTitle">
+            <aw-list dataprovider="data.dataProviders.revisionRuleListProvider">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="addRevRuleToCompare" visible-when="conditions.isAddButtonVisible">
+            <aw-i18n>i18n.ParamAdd</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

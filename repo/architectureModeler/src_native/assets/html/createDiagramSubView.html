@@ -1,0 +1,12 @@
+<aw-form name="commandPanelForm">
+    <aw-panel-body aw-init="data.includeTypes='Ase0Diagram';data.typeOverrideId='Ase0Diagram';data.maxRecentCount=0">
+        <aw-command-sub-panel panel-id="newTabPageSub"></aw-command-sub-panel>
+        <aw-checkbox prop="data.openOnCreate" visible-when="data.creationType"></aw-checkbox>
+    </aw-panel-body>
+</aw-form>
+<aw-panel-footer visible-when="conditions.showFooter">
+     <!-- panel-footer button for New tab -->     
+     <aw-button action="createObject" visible-when="commandPanelForm.$valid&&conditions.isNewTabAddButtonVisible">
+         <aw-i18n>i18n.add</aw-i18n>
+     </aw-button>
+</aw-panel-footer>

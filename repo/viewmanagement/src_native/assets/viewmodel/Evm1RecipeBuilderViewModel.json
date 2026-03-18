@@ -1,0 +1,679 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-section.directive",
+        "js/aw-label.directive",
+        "js/aw-icon-button.directive",
+        "js/aw-widget.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-include.directive",
+        "js/aw-splm-table.directive",
+        "js/aw-checkbox.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive"
+    ],
+
+    "data": {
+        "showConfig": true,
+        "showSeedsTree": false,
+        "seedSelectionLabel": {
+            "displayName": "{{i18n.Selection}}",
+            "type": "STRING"
+        },
+        "addSeedSelection": {
+            "action": "addSeedSelectionAction",
+            "iconName": "{{i18n.Add}}",
+            "tooltip": "{{i18n.Add}}"
+        },
+        "removeSeedSelection": {
+            "action": "removeSeedSelectionAction",
+            "iconName": "{{i18n.Remove}}",
+            "tooltip": "{{i18n.Remove}}"
+        },
+        "closureRuleValues": {
+            "displayName": "{{i18n.ClosureRule}}",
+            "type": "STRINGARRAY",
+            "isArray": true,
+            "dataProvider": "closureRuleProvider",
+            "isEditable": false,
+            "isEnabled": false
+        },
+        "closureRuleValuesLabel": {
+            "type": "STRING",
+            "displayName": "{{i18n.ClosureRule}}"
+        },
+        "sqlLabel": {
+            "displayName": "{{i18n.Sql}}",
+            "type": "STRING"
+        },
+        "lwqEditor": {
+            "editedData": ""
+        },
+        "lwqConfig": {
+            "language": "sql",
+            "theme": "vs",
+            "automaticLayout": true,
+            "readOnly": true
+        },
+        "configPanelLabel": {
+            "displayName": "{{i18n.configPanelLabel}}",
+            "type": "STRING"
+        },
+        "configurationPanel": {
+            "action": "configPanelAddConfirmAction",
+            "iconName": "{{i18n.configPanelLabel}}",
+            "tooltip": "{{i18n.configPanelLabel}}"
+        },
+        "revisionRule": {
+            "displayName": "{{i18n.revisionRuleLabel}}",
+            "type": "STRING",
+            "isEditable": "false",
+            "labelPosition": "PROPERTY_LABEL_AT_LEFT"
+        },
+        "effecDate": {
+            "displayName": "{{i18n.dateLabel}}",
+            "type": "DATE",
+            "isEditable": "false",
+            "labelPosition": "PROPERTY_LABEL_AT_RIGHT"
+        },
+        "effecUnits": {
+            "displayName": "{{i18n.unitsLabel}}",
+            "type": "INTEGER",
+            "isEditable": "false",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "variantRule": {
+            "displayName": "{{i18n.variantRuleLabel}}",
+            "type": "STRING",
+            "isEditable": "false",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+        "configuration": {
+            "displayName": "{{i18n.configPanelLabel}}",
+            "type": "STRING",
+            "labelPosition": "PROPERTY_LABEL_AT_LEFT",
+            "contentStyleClass": "aw-widgets-label aw-base-normal aw-graph-label"
+        },
+        "effectivityUnitSectionAllUnitsValue": {
+            "uiValue": "{{i18n.effectivityUnitSectionAllUnitsValue}}",
+            "displayName": "{{i18n.effectivityUnitSectionAllUnitsValue}}",
+            "dbValue": "-1",
+            "type": "STRING"
+        },
+        "occurrenceManagementTodayTitle": {
+            "uiValue": "{{i18n.occurrenceManagementTodayTitle}}",
+            "displayName": "{{i18n.occurrenceManagementTodayTitle}}",
+            "type": "STRING"
+        },
+        "multipleGroups": {
+            "uiValue": "{{i18n.multipleGroups}}",
+            "type": "STRING"
+        },
+        "defaultVariantRule": {
+            "displayName": "{{i18n.variantSectionSavedVariantsValue}}",
+            "uiValue": "{{i18n.variantSectionSavedVariantsValue}}",
+            "type": "STRING"
+        },
+        "inContext": {
+            "displayName": "{{i18n.evm1InContext}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": false,
+            "labelPosition": "PROPERTY_LABEL_AT_RIGHT"
+        }
+    },
+
+    "dataProviders": {
+        "seedSelectionProvider": {
+            "action": "getSeedSelectionValues",
+            "response": "{{data.seedObjects}}",
+            "commandsAnchor": "aw_default_cell"
+        },
+        "closureRuleProvider": {
+            "initializeAction": "getClosureRuleValues",
+            "nextAction": "getClosureRuleValues",
+            "validateAction": "validateClosureRule",
+            "response": "{{data.closureRuleList}}",
+            "valid": "{{data.valid}}",
+            "message": "{{data.message}}"
+        },
+        "seedTreeDataProvider": {
+            "action": "loadSeedTreeData",
+            "initializeAction": "loadSeedTreeData",
+            "nextAction": "getSeedTreeChildren",
+            "treeLoadResult": "{{data.treeLoadResult}}",
+            "inputData": {
+                "accessMode": "tree",
+                "topNodeUid": "top"
+            }
+        }
+    },
+
+    "columnProviders": {
+        "seedTreeColumnProvider": {
+            "columns": [ {
+                    "name": "object_string",
+                    "displayName": "{{i18n.evm1NameColumn}}",
+                    "minWidth": 150,
+                    "width": 400,
+                    "isTreeNavigation": true
+                },
+                {
+                    "name": "CustType",
+                    "displayName": "{{i18n.evm1CategoryColumn}}",
+                    "minWidth": 125,
+                    "width": 150
+                },
+                {
+                    "name": "item_revision_id",
+                    "displayName": "{{i18n.evm1RevisionColumn}}",
+                    "minWidth": 100,
+                    "width": 125
+                },
+                {
+                    "name": "evm1Include",
+                    "displayName": "{{i18n.evm1IncludeColumn}}",
+                    "minWidth": 65,
+                    "width": 75
+                },
+                {
+                    "name": "owning_user",
+                    "displayName": "{{i18n.evm1OwnerColumn}}",
+                    "minWidth": 150,
+                    "width": 200
+                }
+            ]
+        }
+    },
+
+    "grids": {
+        "seedTreeGrid": {
+            "dataProvider": "seedTreeDataProvider",
+            "columnProvider": "seedTreeColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enableGridMenu": false,
+                "enablePinning": false,
+                "enableSorting": false,
+                "useStaticFirstCol": true
+            }
+        }
+    },
+
+    "actions": {
+        "getSeedTreeChildren": {
+            "actionType": "JSFunction",
+            "method": "getSeedTreeChildren",
+            "inputData": {
+                "data": "{{data}}",
+                "treeLoadInput": "request.treeLoadInput"
+            },
+            "outputData": {
+                "treeLoadResult": "treeLoadResult"
+            },
+            "deps": "js/Evm1RecipeSeedTreeTableService"
+        },
+        "loadSeedTreeData": {
+            "actionType": "JSFunction",
+            "method": "loadSeedTreeData",
+            "inputData": {
+                "data": "{{data}}",
+                "treeLoadInput": "request.treeLoadInput"
+            },
+            "outputData": {
+                "treeLoadResult": "treeLoadResult"
+            },
+            "deps": "js/Evm1RecipeSeedTreeTableService"
+        },
+        "processSeedTreeSelection": {
+            "actionType": "JSFunction",
+            "method": "processSeedTreeSelection",
+            "inputData": {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Evm1RecipeSeedTreeTableService"
+        },
+        "addSeedSelectionAction": {
+            "actionType": "JSFunction",
+            "method": "activateCommandPanel",
+            "deps": "js/commandPanel.service",
+            "inputData": {
+                "commandId": "Evm1SeedSelectionCmdPanel",
+                "location": "aw_toolsAndInfo"
+            }
+        },
+        "removeSeedSelectionAction": {
+            "actionType": "JSFunction",
+            "method": "deleteSeedSelection",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1RecipeSeedTreeTableService"
+        },
+        "configPanelAddConfirmAction": {
+            "actionType": "JSFunction",
+            "method": "confirmConfigAdd",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1RecipeBuilderService"
+        },
+        "configurationPanelAction": {
+            "actionType": "JSFunction",
+            "method": "activateCommandPanel",
+            "deps": "js/commandPanel.service",
+            "inputData": {
+                "commandId": "Evm1ConfigurationPanel",
+                "location": "aw_toolsAndInfo"
+            }
+        },
+        "getSeedSelectionValues": {
+            "actionType": "JSFunction",
+            "method": "getSeedSelections",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "seedObjects": "seedObjects"
+            },
+            "deps": "js/Evm1RecipeSeedTreeTableService"
+        },
+        "storeSeedSelectionFromEvent": {
+            "actionType": "JSFunction",
+            "method": "storeSeedSelectionFromEvent",
+            "inputData": {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Evm1RecipeSeedTreeTableService"
+        },
+        "seedSelectionProviderReset": {
+            "actionType": "dataProvider",
+            "method": "seedSelectionProvider"
+        },
+        "getClosureRuleValues": {
+            "actionType": "JSFunctionAsync",
+            "method": "closureRulesSOA",
+            "inputData": {
+                "schemaFormat": "ALL",
+                "scope": "ALL",
+                "filter": "request.listLoadInput.filter",
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "closureRuleList": "{{function:getClosureRuleList}}"
+            },
+            "deps": "js/Evm1RecipeBuilderService"
+        },
+        "validateClosureRule": {
+            "actionType": "JSFunctionAsync",
+            "method": "validateClosureRule",
+            "inputData": {
+                "data": "{{data}}",
+                "selected": "request.selected",
+                "suggestion": "request.suggestion"
+            },
+            "outputData": {
+                "valid": "valid",
+                "message": "message"
+            },
+            "deps": "js/Evm1RecipeBuilderService"
+        },
+        "editRecipeBuilderAction": {
+            "actionType": "JSFunction",
+            "method": "editRecipeBuilder",
+            "inputData": {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "outputData": {
+                "data": "data"
+            },
+            "deps": "js/Evm1EditHandlerService"
+        },
+        "generateShowResultTable": {
+            "actionType": "JSFunction",
+            "method": "generateShowResultTable",
+            "deps": "js/Evm1RecipeBuilderService",
+            "inputData": {
+                "data": "{{data}}"
+            }
+        },
+        "unloadContent": {
+            "actionType": "JSFunction",
+            "method": "unloadContent",
+            "deps": "js/Evm1RecipeBuilderService",
+            "inputData": {}
+        },
+        "executeManageRecipeAction": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ViewMgmtAW-2019-12-ViewDataManagement",
+            "method": "manageRecipes3",
+            "inputData": {
+                "inputs": "{{function:getManageRecipeInput}}"
+            },
+            "policy": {
+                "types": [ {
+                        "name": "Awb0Element",
+                        "properties": [ {
+                                "name": "awb0UnderlyingObject"
+                            },
+                            {
+                                "name": "awb0Parent"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "ItemRevision",
+                        "properties": [ {
+                            "name": "item_revision_id"
+                        } ]
+                    },
+                    {
+                        "name": "WorkspaceObject",
+                        "properties": [ {
+                            "name": "owning_user"
+                        } ]
+                    },
+                    {
+                        "name": "Awb0ProductContextInfo",
+                        "properties": [ {
+                                "name": "awb0Product"
+                            },
+                            {
+                                "name": "awb0CurrentRevRule"
+                            },
+                            {
+                                "name": "awb0EffDate"
+                            },
+                            {
+                                "name": "awb0EffUnitNo"
+                            },
+                            {
+                                "name": "awb0StartEffDates"
+                            },
+                            {
+                                "name": "awb0EndEffDates"
+                            },
+                            {
+                                "name": "awb0StartEffUnits"
+                            },
+                            {
+                                "name": "awb0EndEffUnits"
+                            },
+                            {
+                                "name": "awb0EffEndItem"
+                            },
+                            {
+                                "name": "awb0CurrentVariantRule"
+                            },
+                            {
+                                "name": "awb0CurrentVariantRules"
+                            },
+                            {
+                                "name": "awb0VariantRules"
+                            },
+                            {
+                                "name": "awb0VariantRuleOwningRev"
+                            },
+                            {
+                                "name": "awb0EffectivityGroups"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            "outputData": {
+                "response": "{{function:getManageRecipeResponse}}"
+            },
+            "events": {
+                "failure": [ {
+                    "condition": "errorCode.code === 26025",
+                    "name": "view.noLicense"
+                } ]
+            },
+            "deps": "js/Evm1RecipeBuilderService"
+        },
+        "evm1ManageRecipeReadEvent": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "emv1ManageRecipeSOA",
+                    "eventData": {
+                        "manageAction": "Read"
+                    }
+                } ]
+            }
+        },
+        "initializeBuilderConfigAction": {
+            "actionType": "JSFunction",
+            "method": "initializeBuilderConfig",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1RecipeBuilderService"
+        },
+        "closureRuleProviderReset": {
+            "actionType": "dataProvider",
+            "method": "closureRuleProvider"
+        },
+        "cacheBuilderWidgetsInCtxAction": {
+            "actionType": "JSFunction",
+            "method": "cacheBuilderWidgetsInCtx",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1EditHandlerService"
+        },
+        "populateConfiguration": {
+            "actionType": "JSFunction",
+            "method": "populateConfiguration",
+            "inputData": {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Evm1RecipeBuilderService"
+        },
+        "evm1RevRuleChangedAction": {
+            "actionType": "JSFunction",
+            "method": "updateRevisionRuleNB",
+            "inputData": {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Evm1RecipeBuilderService"
+        },
+        "processNoLicense": {
+            "actionType": "JSFunction",
+            "method": "disableCommandsVisibility",
+            "deps": "js/Evm1RecipeBuilderService"
+        },
+        "seedTreeDataProviderReset": {
+            "actionType": "dataProvider",
+            "method": "seedTreeDataProvider"
+        },
+        "updateSeedTreeOnObjectChanged": {
+            "actionType": "JSFunction",
+            "method": "updateSeedTreeOnObjectChanged",
+            "inputData": {
+                "updatedObjects": "{{data.eventMap['cdm.updated'].updatedObjects}}",
+                "seedTreeNodes": "{{data.dataProviders.seedTreeDataProvider.viewModelCollection.loadedVMObjects}}"
+            },
+            "deps": "js/Evm1RecipeSeedTreeTableService"
+        },
+        "updateLoadedSeedTreeNodes": {
+            "actionType": "JSFunction",
+            "method": "updateLoadedSeedTreeNodes",
+            "inputData": {
+                "seedTreeNodes": "{{data.dataProviders.seedTreeDataProvider.viewModelCollection.loadedVMObjects}}"
+            },
+            "deps": "js/Evm1RecipeSeedTreeTableService"
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "evm1SeedSelectionAdded",
+            "action": "storeSeedSelectionFromEvent",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "evm1SeedSelectionProvider.reset",
+            "action": "seedSelectionProviderReset"
+        },
+        {
+            "eventId": "emv1ManageRecipeSOA",
+            "action": "executeManageRecipeAction",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "Evm1RecipeBuilder.contentLoaded",
+            "action": "evm1ManageRecipeReadEvent",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "Evm1RecipeBuilder.contentLoaded",
+            "action": "initializeBuilderConfigAction",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "evm1InitializeBuilderConfig",
+            "action": "initializeBuilderConfigAction",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "Evm1RecipeBuilder.contentUnloaded",
+            "action": "unloadContent"
+        },
+        {
+            "eventId": "editHandlerStateChange",
+            "action": "editRecipeBuilderAction",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "evm1ReadManageResponseCompleted",
+            "action": "cacheBuilderWidgetsInCtxAction",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "evm1ConfigPanel.configAdded",
+            "action": "populateConfiguration",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "evm1ConfigurationChanged",
+            "action": "executeManageRecipeAction",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "evm1RevRuleChanged",
+            "action": "evm1RevRuleChangedAction",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "evm1ShowExecuteRecipeResults",
+            "action": "generateShowResultTable",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "view.noLicense",
+            "action": "processNoLicense"
+        },
+        {
+            "eventId": "evm1ConfigPanelConfirmation",
+            "action": "configurationPanelAction"
+        },
+        {
+            "eventId": "seedTreeGrid.gridSelection",
+            "cacheEventData": true,
+            "action": "processSeedTreeSelection"
+        },
+        {
+            "eventId": "evm1seedTreeDataProvider.reset",
+            "action": "seedTreeDataProviderReset"
+        },
+        {
+            "eventId": "cdm.updated",
+            "action": "updateSeedTreeOnObjectChanged",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "seedTreeDataProvider.treeNodesLoaded",
+            "action": "updateLoadedSeedTreeNodes"
+        }
+    ],
+    "functions": {
+        "getManageRecipeInput": {
+            "functionName": "getManageRecipeInput",
+            "parameters": [
+                "{{data.eventData}}"
+            ]
+        },
+        "getManageRecipeResponse": {
+            "functionName": "getManageRecipeResponse",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getRevisionRuleList": {
+            "functionName": "getRevisionRuleList",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "conditions": {
+        "addQueryCondition": {
+            "expression": "ctx.recipeCtxEditMode.isEditing"
+        },
+        "hasViewManagementLicense": {
+            "expression": "ctx.recipeCtx.hasViewManagementLicense"
+        },
+        "isRecipeExecuting": {
+            "expression": "ctx.recipeCtx.isRecipeExecuting"
+        },
+        "isInScopeNavCheckboxVisible": {
+            "expression": "ctx.recipeCtx.isInScopeNavigationVisible"
+        }
+    },
+    "i18n": {
+        "inclusionRule": [ "RecipeCommandPanelsMessages" ],
+        "query": [ "RecipeCommandPanelsMessages" ],
+        "results": [ "RecipeCommandPanelsMessages" ],
+        "Add": [ "RecipeCommandPanelsMessages" ],
+        "Selection": [ "RecipeCommandPanelsMessages" ],
+        "Sql": [ "RecipeCommandPanelsMessages" ],
+        "RevisionRule": [ "RecipeCommandPanelsMessages" ],
+        "ClosureRule": [ "RecipeCommandPanelsMessages" ],
+        "showResults": [ "RecipeCommandPanelsMessages" ],
+        "effectivityUnitSectionAllUnitsValue": [ "RecipeCommandPanelsMessages" ],
+        "occurrenceManagementTodayTitle": [ "RecipeCommandPanelsMessages" ],
+        "multipleGroups": [ "RecipeCommandPanelsMessages" ],
+        "variantSectionSavedVariantsValue": [ "RecipeCommandPanelsMessages" ],
+        "closureRuleValidateMessage": [ "RecipeCommandPanelsMessages" ],
+        "configPanelLabel": [ "RecipeCommandPanelsMessages" ],
+        "revisionRuleLabel": [ "RecipeCommandPanelsMessages" ],
+        "dateLabel": [ "RecipeCommandPanelsMessages" ],
+        "unitsLabel": [ "RecipeCommandPanelsMessages" ],
+        "variantRuleLabel": [ "RecipeCommandPanelsMessages" ],
+        "evm1CancelBtn": [ "RecipeCommandPanelsMessages" ],
+        "evm1AddBtn": [ "RecipeCommandPanelsMessages" ],
+        "evm1UpdateSeedMsg": [ "RecipeCommandPanelsMessages" ],
+        "evm1NameColumn": [ "RecipeCommandPanelsMessages" ],
+        "evm1CategoryColumn": [ "RecipeCommandPanelsMessages" ],
+        "evm1RevisionColumn": [ "RecipeCommandPanelsMessages" ],
+        "evm1OwnerColumn": [ "RecipeCommandPanelsMessages" ],
+        "evm1TOPBOMNode": [ "RecipeCommandPanelsMessages" ],
+        "evm1TOPBOMNodeAndSeed": [ "RecipeCommandPanelsMessages" ],
+        "evm1Context": [ "RecipeCommandPanelsMessages" ],
+        "evm1ContextAndSeed": [ "RecipeCommandPanelsMessages" ],
+        "evm1InContext": [ "RecipeCommandPanelsMessages" ],
+        "evm1InBom": [ "RecipeCommandPanelsMessages" ],
+        "evm1Seeds": [ "RecipeCommandPanelsMessages" ],
+        "evm1IncludeColumn": [ "RecipeCommandPanelsMessages" ]
+    }
+}

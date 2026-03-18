@@ -1,0 +1,22 @@
+{
+    "UseTransparencyOnTitle": "啟用透明選項顯示模式",
+    "UseTransparencyOffTitle": "停用透明選項顯示模式",
+    "NavigationRotateTitle": "旋轉",
+    "NavigationPanTitle": "平移",
+    "NavigationZoomTitle": "縮放",
+    "GeometricAnalysisPanelTitle": "幾何分析",
+    "GeometricAnalysisMeasurementTitle": "測量",
+    "GeometricAnalysisSectionTitle": "截面",
+    "GeometricAnalysisQueryTitle": "查詢",
+    "GeometricAnalysisVolumeTitle": "體積",
+    "GeometricAnalysisProximityTitle": "鄰近度",
+    "LoadingViewer": "正在載入...",
+    "MMVSessionWarning": "階段作業尚不能保留 MMV 資料的快照。",
+    "Checkout": "您目前使用的該階段作業不再是最新版本。是否要建立新的階段作業？",
+    "InternalError": "此階段作業中的視覺化資料未儲存。",
+    "Cancel":"取消",
+    "Create":"建立",
+    "OwningModel":"所有權模型",
+    "OwningUser":"所有權使用者",
+    "modelViewProxyListPanelTitle":"披露模型視圖"
+}

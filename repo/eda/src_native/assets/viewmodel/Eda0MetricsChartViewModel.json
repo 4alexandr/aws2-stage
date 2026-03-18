@@ -1,0 +1,49 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-chart.directive",
+        "js/aw-row.directive"
+    ],
+    "actions": {
+        "routingChartProgress": {
+            "actionType": "JSFunction",
+            "method": "createRoutingPieChart",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "chartProviders.routingChartProvider.chartPoints": ""
+            },
+            "deps": "js/Eda0EdmViewerService"
+        }
+    },
+    "chartProviders": {
+        "routingChartProvider": {
+            "chartType": "pie",
+            "loadDataAction": "routingChartProgress",
+            "chartConfig": {
+                "isChartZoomable": true,
+                "isYAxisLinearOrLogarithmic": "logarithmic",
+                "xAxisLabel": "",
+                "yAxisLabel": "",
+                "isDataLabelOnChartEnabled": true
+            }
+        }
+    },
+    "i18n": {
+        "pieSelectedMessage": [
+            "EdaMessages"
+        ],
+        "pieUnselectedMessage": [
+            "EdaMessages"
+        ],
+        "routed" : [
+            "EdaMessages"
+        ],
+        "unrouted" : [
+            "EdaMessages"
+        ]
+    }
+}

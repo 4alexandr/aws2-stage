@@ -1,0 +1,23 @@
+{
+    "addComment": "Comentário",
+    "addQuestion": "Fazer Pergunta",
+    "addAnswer": "Publicar Resposta",
+    "addRating": "Taxa",
+    "name": "Nome",
+    "postComment": "Publicar Comentário",
+    "postQuestion": "Fazer Pergunta",
+    "postAnswer": "Publicar Resposta",
+    "postRating": "Taxa",
+    "subscriptionFailed": "\"{0}\" não pode ser seguido.",
+    "oneStarRating": "Classificação 1 estrela",
+    "twoStarRating": "Classificação 2 estrelas",
+    "threeStarRating": "Classificação 3 estrelas",
+    "fourStarRating": "Classificação 4 estrelas",
+    "fiveStarRating": "Classificação 5 estrelas",
+    "allRatings": "Todas as classificações",
+    "reply": "Responder",
+    "S2clSCAddCommentNewDesc": "Publique um comentário sobre um objeto.",
+    "S2clSCAddQuestionNewDesc": "Faça uma pergunta sobre um objeto.",
+    "S2clSCAddAnswerNewDesc": "Responda a uma pergunta sobre um objeto.",
+    "S2clSCAddRatingNewDesc": "Adicione sua classificação para um objeto."
+}

@@ -1,0 +1,9 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-column.directive"
+    ],
+    "i18n": {
+        "loading": [ "mfeMessagesMessages" ]
+    }
+}

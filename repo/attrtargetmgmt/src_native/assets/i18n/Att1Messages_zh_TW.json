@@ -1,0 +1,14 @@
+{
+    "Map_Title":"映射",
+    "MapButton":"映射",
+    "attributeTitle": "參數",
+    "StudyAttributes": "研究參數",
+    "SelectStudy": "選取要顯示參數的研究",
+    "TestEventAttributes": "測試事件參數",
+    "SelectTestEvent":"選取要顯示參數的測試事件",
+    "StudyAttributesTC124": "模擬和測試要求參數",
+    "SelectStudyTC124": "選取要顯示參數的模擬或測試要求",
+    "RunAttributes": "執行參數",
+    "SelectRun": "選取要顯示參數的執行",
+    "Measurement_File_Title": "新增值檔案"
+}

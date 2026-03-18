@@ -1,0 +1,13 @@
+{
+    "editSelectedItem": "Editar item selecionado",
+    "overview": "Visão geral",
+    "attachments": "Anexos",
+    "attributeGroups": "Grupos atributos",
+    "forms": "Formulários",
+    "attachFile": "Anexar arquivo",
+    "createAgs": "Criar grupo de atributos",
+    "downloadAttachment": "Download",
+    "cannotDeleteAGMessage": "Você não tem permissão para excluir o grupo de atributos \"{0}\".\n Deseja removê-lo sem excluí-lo?",
+    "cancel": "Cancelar",
+    "remove": "Remover"
+}

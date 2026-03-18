@@ -1,0 +1,23 @@
+{
+    "addComment": "评论",
+    "addQuestion": "提问",
+    "addAnswer": "张贴答复",
+    "addRating": "评级",
+    "name": "名称",
+    "postComment": "张贴评论",
+    "postQuestion": "提问",
+    "postAnswer": "张贴答复",
+    "postRating": "评级",
+    "subscriptionFailed": "“{0}”不能被关注。",
+    "oneStarRating": "评级为一星",
+    "twoStarRating": "评级为二星",
+    "threeStarRating": "评级为三星",
+    "fourStarRating": "评级为四星",
+    "fiveStarRating": "评级为五星",
+    "allRatings": "所有评级",
+    "reply": "回复",
+    "S2clSCAddCommentNewDesc": "张贴有关对象的评论。",
+    "S2clSCAddQuestionNewDesc": "提出有关对象的问题。",
+    "S2clSCAddAnswerNewDesc": "回复有关对象的问题。",
+    "S2clSCAddRatingNewDesc": "将评级添加到对象。"
+}

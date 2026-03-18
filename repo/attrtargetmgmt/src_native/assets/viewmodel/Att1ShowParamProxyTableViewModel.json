@@ -1,0 +1,276 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-attrproxy-table-commands.directive"
+    ],
+    "actions": {
+        "editEventAction": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "plTable.editStateChange",
+                        "eventData": {
+                            "state": "{{data.eventData.state}}",
+                            "dataSource": {
+                                "dataProviders": "{{data.dataProviders}}"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "addEventDataToNativeData": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "nativeDataLoadEvent",
+                        "eventData": {
+                            "viewModelObjects": "{{data.dataProviders.showParamProxyTableProvider.viewModelCollection.loadedVMObjects}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "changeSelectionToAttribute": {
+            "actionType": "JSFunction",
+            "method": "changeSelectionToAttribute",
+            "inputData": {
+                "data": "{{data.dataProviders.showParamProxyTableProvider}}"
+            },
+            "deps": "js/Att1ShowParamProxyTableService"
+        },
+        "initializeParentAccess":{
+            "actionType": "JSFunction",
+            "method": "resetParentAccess",
+            "deps": "js/Att1ParameterMgmtUtilService"
+        },
+        "clearProxySelection": {
+            "actionType": "JSFunction",
+            "method": "clearSelection",
+            "inputData": {
+                "data": "{{data.dataProviders.showParamProxyTableProvider}}"
+            },
+            "deps": "js/Att1ShowParamProxyTableService"
+        },
+
+        "refreshParamProxyTable": {
+            "actionType": "dataProvider",
+            "method": "showParamProxyTableProvider"
+        },
+        "syncSelectionAndRefreshreParamProxyTable": {
+            "actionType": "JSFunction",
+            "method": "syncSelection",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "showParamProxyTable.plTable.reload"
+                } ]
+            },
+            "deps": "js/Att1ShowParamProxyTableService"
+        },
+        "doArrangeEvent": {
+            "actionType": "JSFunctionAsync",
+            "method": "arrangeColumns",
+            "inputData": {
+                "declViewModel": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/columnArrangeService"
+        },
+        "saveColumnConfigLoadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "operationType": "as_arranged",
+                    "clientScopeURI": "Att1ProjectParameterTable"
+                },
+                "saveColumnConfigData": {
+                    "clientScopeURI": "Att1ProjectParameterTable",
+                    "columnConfigId": "{{data.dataProviders.showParamProxyTableProvider.columnConfig.columnConfigId}}",
+                    "columns": "{{data.dataProviders.showParamProxyTableProvider.newColumns}}",
+                    "scope": "LoginUser",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Att1ParametersProvider",
+                    "searchCriteria": {
+                        "openedObjectUid": "{{ctx.xrtSummaryContextObject.uid}}",
+                        "dcpSortByDataProvider":"true",                        
+                        "parentUid": "{{function:getParentUid}}",
+                        "showChildGroups":"false"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchSortCriteria": "{{data.columnProviders.showParamProxyColumnProvider.sortCriteria}}",
+                    "startIndex": "{{data.dataProviders.showParamProxyTableProvider.startIndex}}",
+                    "columnFilters": "{{data.columnProviders.showParamProxyColumnProvider.columnFilters}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.showParamProxyTableProvider.columnConfig": "columnConfig"
+            },
+            "deps": "js/Att1ShowParamProxyTableService"
+        },
+        "resetColumnConfig": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "inputData": {
+                "getOrResetUiConfigsIn": [
+                    {
+                        "scope": "LoginUser",
+                        "scopeName": "",
+                        "clientName": "AWClient",
+                        "resetColumnConfig": true,
+                        "columnConfigQueryInfos": [
+                            {
+                                "clientScopeURI": "Att1ProjectParameterTable",
+                                "operationType": "configured",
+                                "typeNames": [
+                                    "WorkspaceObject"
+                                ],
+                                "columnsToExclude": []
+                            }
+                        ],
+                        "businessObjects": [
+                            {}
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "dataProviders.showParamProxyTableProvider.resetColumnConfigs": "columnConfigurations"
+            },
+            "deps": "js/Att1ShowParamProxyTableService"
+        },
+        "loadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Att1ProjectParameterTable"
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Att1ParametersProvider",
+                    "searchCriteria": {
+                        "openedObjectUid": "{{ctx.xrtSummaryContextObject.uid}}",
+                        "dcpSortByDataProvider":"true",
+                        "parentUid": "{{function:getParentUid}}",
+                        "showChildGroups":"false"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchSortCriteria": "{{data.columnProviders.showParamProxyColumnProvider.sortCriteria}}",
+                    "startIndex": "{{data.dataProviders.showParamProxyTableProvider.startIndex}}",
+                    "columnFilters": "{{data.columnProviders.showParamProxyColumnProvider.columnFilters}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.showParamProxyTableProvider.columnConfig": "columnConfig"
+            },
+            "deps": "js/Att1ShowParamProxyTableService"
+        }
+
+    },
+    "functions": {
+        "getParentUid": {
+            "functionName": "getParentUid",
+            "parameters": []
+        }
+    },
+    "columnProviders": {
+        "showParamProxyColumnProvider": {
+            "saveColumnAndLoadAction": "saveColumnConfigLoadData",
+            "resetColumnAction": "resetColumnConfig",
+            "sortCriteria": []
+        }
+    },
+    "dataProviders": {
+        "showParamProxyTableProvider": {
+            "action": "loadData",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "multiple",
+            "commandsAnchor": "show_object_command"
+        }
+    },
+    "grids": {
+        "showParamProxyTable": {
+            "columnProvider": "showParamProxyColumnProvider",
+            "dataProvider": "showParamProxyTableProvider",
+            "enableArrangeMenu": true,
+            "gridOptions": {
+                "enableSorting": true,
+                "maxRowsToShow": 18,
+                "isFilteringEnabled": true
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "doArrangeEvent"
+        },
+        {
+            "eventId": "showParamProxyTableProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "changeSelectionToAttribute"
+        },
+        {
+            "eventId": "Att1ShowParamProxyTable.contentLoaded",
+            "action": "initializeParentAccess"
+        },
+        {
+            "eventId": "Att1ShowParamProxyTable.contentUnloaded",
+            "action": "clearProxySelection"
+        },
+        {
+            "eventId": "showParamProxyTableProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "addEventDataToNativeData"
+        },
+        {
+            "eventId": "editHandlerStateChange",
+            "cacheEventData": true,
+            "action": "editEventAction"
+        },
+        {
+            "eventId":"refreshAtt1ShowParamProxyTable",
+            "cacheEventData": true,
+            "action": "syncSelectionAndRefreshreParamProxyTable"
+        },
+        {
+            "eventId":"Att1ShowParamProxyTable.refreshParamProxyTable",
+            "cacheEventData": true,
+            "action": "refreshParamProxyTable"
+        }
+
+    ],
+    "i18n": {
+        "attributeTitle": [
+            "Att1Messages"
+        ]
+    }
+}

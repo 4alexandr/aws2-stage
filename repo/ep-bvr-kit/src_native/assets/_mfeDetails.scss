@@ -1,0 +1,30 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+/*========================================================================*/
+/*============================= SPLM tables ==============================*/
+/*========================================================================*/
+
+#epMbomTreeTable, #epTreeTable{
+    height: 100%;
+    border-width: 0;
+}
+#epMbomTreeTable .aw-splm-tableCanvas,
+#epTreeTable .aw-splm-tableCanvas {
+    height: 100%;
+    .aw-ep-highlightScopes{
+        border-bottom-width: 2px;
+        margin-bottom: 0;
+    }
+}
+
+#epMbomTreeTable .aw-splm-tableRow,
+#epMbomTreeTable .ui-grid-row {
+    border-width: 0;
+}
+
+/*========================================================================*/

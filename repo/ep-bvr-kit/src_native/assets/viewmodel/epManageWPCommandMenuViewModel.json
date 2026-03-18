@@ -1,0 +1,74 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup-panel2.directive",
+        "js/aw-list.directive",
+        "js/aw-icon.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive"
+    ],
+    "data": {
+        "contextMenuObjects": "{{subPanelContext.commandMenuCmds}}"
+    },
+    "dataProviders": {
+        "contextMenuDataProvider": {
+            "dataProviderType": "Static",
+            "response": "{{data.contextMenuObjects}}",
+            "totalFound": 2
+        }
+    },
+    "actions": {
+        "contextMenuProvider": {
+            "actionType": "dataProvider",
+            "method": "contextMenuDataProvider"
+        },
+        "notifyCmdSelectionChange": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "ep.manageWPCmdEvent",
+                        "eventData": {
+                            "command": "{{data.dataProviders.contextMenuDataProvider.selectedObjects[0].internalName}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "closePopup": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupEl": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+        "removeCmdMenuVisibility": {
+            "actionType": "JSFunction",
+            "method": "updateCmdMenuVisibility",
+            "inputData": {
+                "removeCmdMenuVisibilityFlag": true
+            },
+            "deps": "js/manageWorkPackageService"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "contextMenuProvider",
+        "onUnmount": "removeCmdMenuVisibility"
+    },
+    "onEvent": [
+        {
+            "eventId": "contextMenuDataProvider.selectionChangeEvent",
+            "action": "notifyCmdSelectionChange"
+        },
+        {
+            "eventId": "ep.manageWPCmdEvent",
+            "action": "closePopup"
+        },
+        {
+            "eventId": "ep.updateCmdMenuVisibility",
+            "action": "closePopup"
+        }
+    ]
+}

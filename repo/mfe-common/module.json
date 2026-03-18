@@ -1,0 +1,34 @@
+{
+  "name": "mfe-common",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "commandsViewModel": {
+    "conditions": {
+      "isReadOnlyMode": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.mfgReadOnlyMode.readOnlyMode",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "themeExtensions": [
+    "_mfeMessageTheme",
+    "_mfePertTheme",
+    "_mfeUiTheme"
+  ]
+}

@@ -1,0 +1,98 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":[
+        "js/aw-panel.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-i18n.directive",
+        "js/aw-repeat.directive",
+        "js/aw-default-cell.directive",
+        "js/exist-when.directive",
+        "js/aw-icon.directive",
+        "js/aw-include.directive",
+        "js/aw-class.directive"
+    ],
+
+    "actions":{
+        "loadChangeSummaryData":{
+            "actionType":"JSFunctionAsync",
+            "method":"loadChangeSummaryData",
+            "inputData":{
+                "ecnObject":"{{subPanelContext}}"
+            },
+            "outputData":{
+                "changeSummaries":"result.changeSummaries",
+                "changeNoticeInfo":"result.changeNoticeInfo"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "mbm.changeSummaryLoadedEvent",
+                        "eventData":{
+                            "changeNoticeInfo":"{{data.changeNoticeInfo}}"
+                        }
+                    }
+                ]
+            },
+            "deps":"js/mbmChangeSummaryService"
+        },
+
+        "updateChangeNoticeInfo":{
+            "actionType": "JSFunction",
+            "method": "setChangeNoticeInfo",
+            "inputData": {
+                "changeNoticeInfo":"{{data.changeNoticeInfo}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "mbm.changeNoticeInfoUpdatedEvent"
+                    }
+                ]
+            },
+            "deps": "js/mbmCompareUtils"
+        },
+
+        "mbmChangeRecordsStatusLoaded":{
+            "actionType":"JSFunction",
+            "method":"updateChangeRecordsStatus",
+            "inputData":{
+                "changeSummaries":"{{data.changeSummaries}}",
+                "changeRecordsStatus":"{{data.eventData}}"
+
+            },
+            "deps":"js/mbmChangeSummaryService"
+        }
+    },
+    "data":{
+        "changeTypeTitle":{
+            "MBMBOM_Added":"{{i18n.mbmChangeTypeAdded}}",
+            "MBMBOM_Removed":"{{i18n.mbmChangeTypeRemoved}}",
+            "MBMBOM_Updated":"{{i18n.mbmChangeTypeUpdated}}",
+            "MBMBOM_Occurrence_Updated":"{{i18n.mbmChangeTypeUpdated}}"
+        }
+    },
+    "lifecycleHooks":{
+        "onMount":"loadChangeSummaryData"
+    },
+    "onEvent":[
+        {
+            "eventId": "mbm.changeSummaryLoadedEvent",
+            "action": "updateChangeNoticeInfo"
+        },
+        {
+            "eventId": "mbm.changeRecordsStatusLoadedEvent",
+            "cacheEventData": true,
+            "action": "mbmChangeRecordsStatusLoaded"
+        }
+    ],
+
+    "i18n": {
+        "mbmChangeSummaryHeaderTitle":["mbmMessages"],
+        "mbmChangesInParentContext":["mbmMessages"],
+        "mbmNoChanges":["mbmMessages"],
+        "mbmChangeTypeAdded":["mbmMessages"],
+        "mbmChangeTypeRemoved":["mbmMessages"],
+        "mbmChangeTypeUpdated":["mbmMessages"]
+    }
+}

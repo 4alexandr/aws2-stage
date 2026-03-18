@@ -1,0 +1,18 @@
+{
+    "requirementsManagerDisplayName": "Gerenciador de requisitos",
+    "RequirementsManager": "Gerenciador de requisitos",
+    "recents": "Recentes",
+    "getStarted": "Iniciar",
+    "TcRMWorkspaceName": "Gerenciador de requisitos",
+    "arm0_recentCommands": "Subcomandos recentes",
+    "Arm0RecentPrevCmdDesc": "Anterior",
+    "Arm0RecentNextCmdDesc": "Avançar",
+    "creationDate": "Data de Criação" ,
+    "lastModDate": "Data da última modificação",
+    "noRecentReq": "Nada recente ainda",
+    "arm0_recentNext": "Comando Avançar",
+    "arm0_recentPrev": "Comando anterior",
+    "summaryTable": "Tabela de Resumo",
+    "selectionMode": "Modo de Seleção",
+    "summaryTableMultiSelectDesc": "Ative ou desative o modo de seleção para fazer múltiplas seleções. Desativar o modo de seleção limpará as seleções."
+}

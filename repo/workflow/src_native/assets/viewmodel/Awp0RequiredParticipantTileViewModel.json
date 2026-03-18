@@ -1,0 +1,65 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-required-participant-cell.directive",
+        "js/aw-panel.directive"
+    ],
+    "actions": {
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "createRequiredParticipantData",
+            "inputData":
+            {
+                "requiredValue": "{{i18n.required}}",
+                "data": "{{data}}"
+            },
+            "outputData":
+            {
+                "requiredParticipant" :""
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "workflowRequiredParticipant.PropertiesLoaded"
+                    }
+                ]
+            },
+
+            "deps": "js/Awp0RequiredParticipantTile"
+        },
+
+        "refreshRequiredParticipant":
+        {
+            "actionType": "JSFunction",
+            "method": "refreshRequiredParticipant",
+            "inputData":
+            {
+                "data":"{{data}}"
+
+            },
+            "deps": "js/Awp0RequiredParticipantTile"
+        }
+
+    },
+    "functions": {},
+    "conditions": {},
+    "data": {},
+    "dataProviders": {
+    },
+    "i18n": {
+        "required": [ "WorkflowCommandPanelsMessages" ]
+    },
+    "messages": {},
+    "onEvent":
+    [
+        {
+            "eventId": "workflow.updateRequiredParticipant",
+            "cacheEventData": true,
+            "action": "refreshRequiredParticipant"
+
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/aw-guidance-message.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-icon.directive"
+    ],
+    "data": {
+        "processTreeContext": {
+            "objectUid": "{{ctx.epPageContext.loadedObject.uid}}",
+            "isTopNode": true,
+            "propertiesToLoad": ["Mfg0sub_elements"],
+            "preferenceName": "EP_ProcessStructureWorkInstructionsColumnPreference",
+            "isLeafProperty": "mbc0hasSubElements",
+            "additionalPolicyObjects": {
+                "types": [{
+                    "name": "BOMLine",
+                    "properties": [{
+                                "name": "mbc0hasSubElements"
+                    }]
+                },
+                {
+                    "name": "Mfg0BvrOperation",
+                    "properties": [ {
+                        "name": "bl_parent"
+                    } ]
+                },
+                {
+                    "name": "Mfg0BvrProcess",
+                    "properties": [ {
+                        "name": "bl_parent"
+                    } ]
+                }]
+            },
+            "customColumns":
+            [
+                {
+                    "clientColumn": true,
+                    "name": "graphicVisibility",
+                    "propertyDisplayName": "{{i18n.GraphicVisibilityColumnName}}"
+                }
+            ],
+            "propertyToSort": "bl_sequence_no"
+        },
+        "toggleSyncLink": {
+            "displayName": "{{i18n.switchMode}}",
+            "type": "STRING"
+        }
+    },
+    "actions": {
+        "initialize": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "initializeSelectionMode"
+                },
+                {
+                    "action": "getTabContext"
+                }
+            ]
+        },
+        "updateCommandContext": {
+            "actionType": "JSFunction",
+            "method": "setCommandContext",
+            "inputData": {
+                "tabModel": "{{data.tabContext}}",
+                "commandContext": {
+                    "selection": "{{data.eventMap['epProcessTreeDataProvider.selectionChangeEvent'].selectedObjects}}"
+                }
+            },
+            "deps": "js/mfeContentPanelUtil"
+        },
+        "initializeSelectionMode": {
+            "actionType": "JSFunction",
+            "method": "initializeSelectionMode",
+            "deps": "js/wiSelectionModeUtil"
+        },
+        "toggleSyncAction": {
+            "actionType": "JSFunction",
+            "method": "toggleSelectionMode",
+            "deps": "js/wiSelectionModeUtil"
+        },
+        "getTabContext": {
+            "actionType": "JSFunction",
+            "method": "getTabContext",
+            "inputData": {
+                "tabData": "{{subPanelContext}}"
+            },
+            "outputData": {
+                "processTreeContext.tabContext": ""
+            },
+            "deps": "js/epTableService"
+        }
+    },
+    "lifecycleHooks": {
+        "onMount": "initialize"
+    },
+    "messages": {
+        "syncedToEditorMessage": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.syncedToEditor}}",
+            "messageTextLinks": [{
+                "prop": "data.toggleSyncLink",
+                "action": "toggleSyncAction"
+            }]
+        },
+        "syncedToViewerMessage": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.syncedToViewer}}",
+            "messageTextLinks": [{
+                "prop": "data.toggleSyncLink",
+                "action": "toggleSyncAction"
+            }]
+        }
+    },
+    "conditions": {
+        "isSyncedWithViewer": {
+            "expression": "ctx.epWiSelectionMode === 'GRAPHICS'"
+        }
+    },
+    "i18n": {
+        "noAssemblyStructure": [ "InstructionsMessages" ],
+        "GraphicVisibilityColumnName":[ "InstructionsMessages" ],
+        "syncedToViewer":[ "InstructionsMessages" ],
+        "syncedToEditor":[ "InstructionsMessages" ],
+        "switchMode":[ "InstructionsMessages" ]
+    }
+}

@@ -1,0 +1,10 @@
+<aw-panel>
+    <div id="{{subPanelContext.editorData.wiStepEditorDivId}}">
+        <div class="wi-editor-header" aw-class="{'wi-editor-header-selection': subPanelContext.selected}">
+            <div class="wi-stepHeader-content">
+                <span class="WIEditorHeaderContent">{{subPanelContext.props.object_string.uiValues[0]}}</span>
+            </div>
+            <aw-command-bar exist-when="subPanelContext.editorData.isClassicBop" anchor="WI_StepHeader" alignment="HORIZONTAL" class="wi-stepHeader-commandBar" context="subPanelContext.editorData"></aw-command-bar>
+        </div>
+    </div>
+</aw-panel>

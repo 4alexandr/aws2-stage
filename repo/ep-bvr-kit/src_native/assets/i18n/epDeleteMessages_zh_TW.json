@@ -1,0 +1,8 @@
+{
+    "delete":"刪除",
+    "discard":"取消",
+    "DeleteSingleMessage": "確定要刪除 \"{0}\" 嗎？",
+    "DeleteMultipleMessage": "確定要刪除這 {0} 個物件嗎？",
+    "epCmdDeleteTitle":"刪除",
+    "epCmdDeleteDesc": "刪除選定物件。"
+}

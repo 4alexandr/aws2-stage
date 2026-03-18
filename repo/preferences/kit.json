@@ -1,0 +1,12 @@
+{
+  "name": "preferences",
+  "description": "",
+  "modules": [
+    "preferences"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Teamcenter.Soa.Administration.PreferenceManagement"
+  ]
+}

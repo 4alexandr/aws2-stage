@@ -1,0 +1,564 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-checkbox.directive",
+        "js/aw-chip-list.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-i18n.directive",
+        "js/aw-button.directive",
+        "js/aw-label.directive",
+        "js/visible-when.directive",
+        "js/exist-when.directive",
+        "js/aw-break.directive",
+        "js/aw-command-bar.directive",
+        "js/aw-guidance-message.directive"
+    ],
+    "actions":
+    {
+        "doCreateCollabPanelInit": {
+            "actionType": "JSFunction",
+            "method": "initCreateCollabObjectPanel",
+            "inputData": {
+                "vmData": "{{data}}"
+            },
+            "deps": "js/Ac0CreateCollabObjectService"
+        },
+        "changeConvType": {
+            "actionType": "JSFunction",
+            "method": "changeConvType",
+            "deps": "js/Ac0CreateCollabObjectService",
+            "inputData": {
+                "vmData": "{{data}}"
+            }
+        },
+
+        "removeSrcObjAction": {
+            "actionType": "JSFunction",
+            "method": "removeChipObj",
+            "inputData": {
+                "chipArray": "{{data.srcObjChips}}",
+                "chipToRemove": "{{chip}}"
+            },
+            "parameters": {
+                "chip": "{{chip}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "srcObjDataProvider.reset"
+                    }
+                ]
+            },
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "postComment":
+        {
+            "actionType": "JSFunctionAsync",
+            "method": "postComment",
+            "deps": "js/Ac0ConversationService",
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "S2clConvCreateNew.newConvSuccess"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "displayErrorCode"
+                } ]
+            }
+
+        },
+
+        "postConversation":
+        {
+            "actionType": "JSFunctionAsync",
+            "method": "postConversation",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/Ac0ConversationService",
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "S2clConvCreateNew.newConvSuccess"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "displayErrorCode"
+                } ]
+            }
+
+        },
+        "getParticipantSourceReadAccessInfo": {
+            "actionType": "TcSoaService",
+            "serviceName": "ActiveCollaboration-2020-12-ActiveCollaboration",
+            "method": "getReadInfo",
+            "inputData": {
+                "users": "{{function:getUserObjects}}",
+                "objects": "{{function:getSourceObjects}}"
+            },
+            "outputData": {
+                "ctx.Ac0ConvCtx.objectUserMap": "objectUserMap",
+                "ctx.Ac0ConvCtx.userObjectMap": "userObjectMap",
+                "ctx.Ac0ConvCtx.showWarnMsg" : false
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "Ac0.getReadInfoComplete"
+                    }
+                ]
+            },
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "navigateToUnivPanelPostSuccess":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": {
+                            "destPanelId": "Ac0UnivConvPanelSub",
+                            "recreatePanel": true,
+                            "isolateMode": false,
+                            "supportGoBack": false
+                        }
+                    }
+                ]
+            }
+        },
+
+        "addSourceObjects": {
+            "actionType": "JSFunction",
+            "method": "addSourceObjects",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "srcObjDataProvider.reset"
+                    },
+                    {
+                        "name": "Ac0.validateParticipantSourceReadAccess"
+                    }
+                ]
+            },
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "removeUserAction": {
+            "actionType": "JSFunction",
+            "method": "removeChipObj",
+            "inputData": {
+                "chipArray": "{{data.userChips}}",
+                "chipToRemove": "{{chip}}"
+            },
+            "parameters": {
+                "chip": "{{chip}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "userDataProvider.reset"
+                    }
+                ]
+            },
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "addUserObjs": {
+            "actionType": "JSFunction",
+            "method": "addUserObjs",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "userDataProvider.reset"
+                    },
+                    {
+                        "name": "Ac0.validateParticipantSourceReadAccess"
+                    }
+                ]
+            },
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "showRichTextEditor":
+        {
+            "actionType": "JSFunction",
+            "method": "showRichTextEditor",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Ac0CreateCollabObjectService"
+        },
+
+        "isInputTextValidAction":
+        {
+            "actionType": "JSFunction",
+            "method": "isInputTextValid",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/Ac0CreateCollabObjectService"
+        },
+
+
+        "warnParticipantSourceNoReadAccess":
+        {
+            "actionType": "JSFunction",
+            "method": "warnParticipantSourceNoReadAccess",
+            "inputData": {},
+            "deps": "js/Ac0CreateCollabObjectService"
+        },
+
+        "insertObjInCKEditor": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-01-FileManagement",
+            "method": "getTransientFileTicketsForUpload",
+            "inputData": {
+                "transientFileInfos": [
+                    {
+                        "fileName": "{{data.datasetInfo.fileName}}",
+                        "isBinary": true,
+                        "deleteFlag": false
+                    }
+                ]
+            },
+            "outputData": {
+                "fmsTicket": "transientFileTicketInfos[0].ticket"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "ac0activeCollaboration.updateFormData"
+                    }
+                ]
+            }
+        },
+
+        "updateFormData": {
+            "actionType": "JSFunction",
+            "method": "updateFormData",
+            "inputData": {
+                "fileData": {
+                    "key": "fmsTicket",
+                    "value": "{{data.fmsTicket}}"
+                },
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "ac0activeCollaboration.uploadFile"
+                } ]
+            },
+            "deps": "js/Ac0CreateCollabObjectService"
+        },
+
+        "uploadFile": {
+            "actionType": "RESTService",
+            "serviceName": "",
+            "method": "POST",
+            "inputData": {
+                "request": {
+                    "method": "POST",
+                    "url": "{{Constants.fmsUrl}}",
+                    "headers": {
+                        "Content-type": "undefined"
+                    },
+                    "data": "{{data.formData}}"
+                }
+            },
+            "events": {
+                "success": [ {
+                    "name": "ac0activeCollaboration.insertImage"
+                } ]
+            }
+        },
+
+        "insertImage": {
+            "actionType": "JSFunction",
+            "method": "insertImage",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Ac0CreateCollabObjectService"
+        },
+
+        "showNoAccessParticipants": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "Ac0.noAccessParticipantsLinkClicked"
+                    }
+                ]
+            }
+       }
+    },
+
+    "data": {
+        "convType": {
+            "dbValue": ""
+        },
+        "convTypeChk": {
+            "displayName": "{{i18n.convPrivateMsg}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_RIGHT"
+        },
+        "srcObjChips": [
+            {
+                "chipType": "BUTTON",
+                "labelDisplayName": "{{ctx.Ac0ConvCtx.selected.props.object_name.dbValues[0]}}",
+                "labelInternalName": "{{ctx.Ac0ConvCtx.selected.props.object_name.dbValues[0]}}",
+                "theObject": "{{ctx.Ac0ConvCtx.selected}}"
+            }
+        ],
+        "sourceLabel": {
+            "displayName": "{{i18n.source}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "participantLabel": {
+            "displayName": "{{i18n.participant}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "messageLabel": {
+            "displayName": "{{i18n.message}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "addSourceObjectCommand": "ac0_addSourceObjectCommand",
+        "userChips": [
+            {
+
+                "chipType": "BUTTON",
+                "labelDisplayName": "{{ctx.userSession.props.user_id.uiValues[0]}}",
+                "labelInternalName": "{{ctx.userSession.props.user_id.uiValues[0]}}",
+                "theObject": "{{ctx.user}}"
+            }
+        ],
+        "addUserCommand": "ac0_addUserCommand",
+        "showWarnMsg": false,
+        "warnMsgText": "",
+        "moreLinkLabel": {
+            "displayName": "{{i18n.more}}",
+            "type": "STRING"
+        }
+    },
+
+
+    "conditions":
+    {
+        "validInputData":
+        {
+            "expression":"data.isInputTextValid && ( !data.convTypeChk.dbValue || ( data.convTypeChk.dbValue && data.userChips.length > 1 ) )"
+        },
+        "isConversationContext":
+        {
+            "expression": "ctx.Ac0ConvCtx.createNewConversation"
+        },
+        "isConvMessage":
+        {
+            "expression": "data.convType.dbValue === 'message'"
+        },
+        "executeReadAccessSOACall":
+        {
+            "expression": "(data.userChips.length > 1 && data.srcObjChips.length > 0) || ( data.userChips.length > 0 && data.srcObjChips.length > 0 && ctx.Ac0ConvCtx.showWarnMsg )"
+        }
+    },
+
+    "functions":
+    {
+        "getPlainText":
+        {
+           "functionName": "getPlainText",
+           "parameters":  []
+        },
+        "getSourceObjects":
+        {
+           "functionName": "getSourceObjects",
+           "parameters":  ["{{data}}"]
+        },
+        "getUserObjects":
+        {
+           "functionName": "getUserObjects",
+           "parameters":  ["{{data}}"]
+        }
+    },
+
+    "dataProviders":
+    {
+        "srcObjDataProvider": {
+            "type": "Static",
+            "response": "{{data.srcObjChips}}",
+            "selectionModelMode": "none"
+        },
+        "userDataProvider": {
+            "type": "Static",
+            "response": "{{data.userChips}}",
+            "selectionModelMode": "none"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "action": "showRichTextEditor",
+            "criteria": { "panelId": "Ac0CreateNewCollabObj" }
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "action": "doCreateCollabPanelInit",
+            "criteria": { "panelId": "Ac0CreateNewCollabObj" }
+        },
+        {
+            "eventId": "isInputTextValidEvent",
+            "action": "isInputTextValidAction"
+        },
+        {
+            "eventId": "S2clConvCreateNew.newConvSuccess",
+            "action": "navigateToUnivPanelPostSuccess"
+        },
+        {
+            "eventId": "createNewConv.addSourceObject",
+            "action": "addSourceObjects",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria":
+            {
+                "panelId": "Ac0CreateNewCollabObj",
+                "condition": "conditions.isConversationContext"
+            },
+            "action": "srcObjDataProvider"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria":
+            {
+                "panelId": "Ac0CreateNewCollabObj",
+                "condition": "conditions.isConversationContext"
+            },
+            "action": "userDataProvider"
+        },
+        {
+            "eventId": "createNewConv.addUsers",
+            "action": "addUserObjs",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "Ac0.validateParticipantSourceReadAccess",
+            "condition": "conditions.executeReadAccessSOACall",
+            "action": "getParticipantSourceReadAccessInfo"
+        },
+        {
+            "eventId": "Ac0.getReadInfoComplete",
+            "action": "warnParticipantSourceNoReadAccess"
+        },
+        {
+            "eventId": "ac0activeCollaboration.InsertObjInCKEditor",
+            "action": "insertObjInCKEditor"
+        },
+        {
+            "eventId": "ac0activeCollaboration.updateFormData",
+            "action": "updateFormData"
+        },
+        {
+            "eventId": "ac0activeCollaboration.uploadFile",
+            "action": "uploadFile"
+        },
+        {
+            "eventId": "ac0activeCollaboration.insertImage",
+            "action": "insertImage"
+        },
+        {
+            "eventId": "Ac0.noAccessParticipantsLinkClicked",
+            "message": "participantSourceNoAccessDetails"
+        }
+    ],
+
+    "messages": {
+        "participantSourceReadAccessWarningMsg": {
+            "messageType": "WARNING",
+            "messageText": "{0} {@msgTxtLink0}",
+            "messageTextParams": [
+                "{{data.i18n.participantReadAccessWarningMsg}}"
+            ],
+            "messageTextLinks": [
+                {
+                    "prop": "data.moreLinkLabel",
+                    "action": "showNoAccessParticipants"
+                }
+            ]
+        },
+        "participantSourceNoAccessDetails": {
+            "messageType": "WARNING",
+            "messageText": "{{ctx.Ac0ConvCtx.warnMsgText}}"
+        },
+        "displayErrorCode": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    },
+
+    "lifecycleHooks": {
+        "onMount": "doCreateCollabPanelInit"
+    },
+
+    "i18n":
+    {
+        "conversation": [ "ActiveCollabDeclarativeMessages" ],
+        "convType": ["ActiveCollabDeclarativeMessages"],
+        "convPost": ["ActiveCollabDeclarativeMessages"],
+        "convMessage": ["ActiveCollabDeclarativeMessages"],
+        "newConversation": ["ActiveCollabDeclarativeMessages"],
+        "source": ["ActiveCollabDeclarativeMessages"],
+        "message": ["ActiveCollabDeclarativeMessages"],
+        "postConversation": ["ActiveCollabDeclarativeMessages"],
+        "user":  ["ActiveCollabDeclarativeMessages"],
+        "participant": ["ActiveCollabDeclarativeMessages"],
+        "participantReadAccessWarningMsg": ["ActiveCollabDeclarativeMessages"],
+        "individualReadAccessWarnDesc": ["ActiveCollabDeclarativeMessages"],
+        "convPrivateMsg": ["ActiveCollabDeclarativeMessages"],
+        "more": ["ActiveCollabDeclarativeMessages"]
+    }
+
+}

@@ -1,0 +1,143 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports": 
+    [
+    ],
+    
+    "actions": 
+    {
+        "selectAll":
+        {
+            "actionType": "JSFunction",
+            "method": "selectCells",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "selectionMode": "selectAll"
+            },
+            "deps": "js/Cm1CreateChangeService"
+        },
+        "selectNone":
+        {
+            "actionType": "JSFunction",
+            "method": "selectCells",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "selectionMode": "selectNone"
+            },
+            "deps": "js/Cm1CreateChangeService"
+        },
+        "handleSelectionModel":
+        {
+            "actionType": "JSFunction",
+            "method": "handleSelectionModel",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/Cm1CreateChangeService"
+        }
+    },
+    "conditions":
+    {
+        "canSelectAll":
+        {
+            "expression": "data.canSelectAll.dbValue"
+        },
+        "canDeselectAll":
+        {
+            "expression": "data.canDeselectAll.dbValue"
+        }
+    },    
+    "data":
+    {
+        "displayedType": 
+        {
+            "displayName": "Test",
+            "type": "STRING"           
+        },
+        "canSelectAll":
+        {
+            "dbValue": false,
+            "type": "BOOLEAN"        
+        },        
+        "canDeselectAll": 
+        {
+            "dbValue": false,
+            "type": "BOOLEAN"
+        },
+        "showList": 
+        {
+            "dbValue": true,
+            "type": "BOOLEAN"
+        },
+        "selectAllCommand":{
+         "isArray":"true",
+         "dbValue":[
+            {               
+                "iconName": "Checkmark",
+                "tooltip": "{{i18n.selectAll}}",
+                "action": "selectAll",
+                "condition": "conditions.canSelectAll"   
+            }
+         ]
+      },
+      "deSelectAllCommand":{
+         "isArray":"true",
+         "dbValue":[            
+            {               
+                "iconName": "Checkmark",
+                "tooltip": "{{i18n.clearSelections}}",
+                "action": "selectNone" ,
+                "condition": "conditions.canDeselectAll"      
+            }
+         ]
+      },
+      "countLabel": 
+        {
+            "displayName": "{{i18n.countLabel}}",
+            "type": "STRING",
+            "isRequired": "false"
+        }
+    },
+    
+    "onEvent":        
+     [
+     
+        {
+            "eventId": "getPropagateRelationProvider.selectionChangeEvent",
+            "action": "handleSelectionModel"
+        }
+    ],
+    
+    "dataProviders":
+    {
+        "getPropagateRelationProvider":
+        {
+            "response": "{{data.relatedObjects}}",
+            "totalFound": "{{data.relatedObjects.length}}",
+            "commands":
+            {
+                "Awp0ShowObjectCell":
+                {
+                    "id": "cmdOpen",
+                    "title": "Open",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ], 
+                    "priorities": [ 300 ],
+                    "dependencies": [ "js/showObjectCommandHandler","js/showObjectDatasetCommandHandler" ],
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            },
+            "selectionModelMode": "multiple"
+        }
+    },
+    "i18n": 
+    {   
+        "countLabel": ["ChangeMessages"],
+        "selectAll": ["ChangeMessages"],
+        "clearSelections": ["ChangeMessages"]
+    }
+  
+}

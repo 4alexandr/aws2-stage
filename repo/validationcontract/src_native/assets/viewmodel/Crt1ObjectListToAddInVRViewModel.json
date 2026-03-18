@@ -1,0 +1,107 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-list.directive",
+        "js/aw-model-icon.directive",
+        "js/aw-clickable-title.directive"
+    ],
+
+    "actions":
+    {
+        "removeFromEndItems": {
+            "actionType": "JSFunction",
+            "method": "removeFromEndItems",
+            "inputData":
+            {
+                "data": "{{subPanelContext}}",
+                "obj": "{{data.selectedCell}}"
+            },
+            "deps": "js/stickyPanelService"
+        },
+        "refreshStickyPanelList":
+        {
+            "actionType": "dataProvider",
+            "method": "stickyPanelList"
+        },
+        "attachVMO1":
+        {
+            "actionType": "JSFunction",
+            "method": "attachVMOToItemLists1",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "isStartItemList": false
+            },
+            "deps": "js/stickyPanelService"
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "Refresh.stickyPanel",
+            "action": "refreshStickyPanelList"
+        }
+    ],
+    "dataParseDefinitions": {
+
+    },
+     "messages":
+    {
+
+    },
+    "data":
+    {
+        "endItemListcommands":"arm0_endItemListcommands",
+        "endItems": {
+            "isArray": "true",
+            "dbValue":
+            [
+            ]
+        }
+    },
+    "functions":
+    {
+
+    },
+    "dataProviders":
+    {
+        "stickyPanelList":
+        {
+
+         "commands":
+            {
+                "delete":
+                {
+                    "id": "cmdDelete",
+                    "title": "{{i18n.Remove}}",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "action":"removeFromEndItems",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+
+            },
+            "response":"{{subPanelContext.endItems.dbValue}}",
+            "selectionModelMode": "single"
+         }
+    },
+    "conditions":
+    {
+
+    },
+
+    "i18n":
+    {
+        "Remove":
+        [
+          "AnalysisRequestCommandPanelsMessages"
+        ]
+
+    },
+    "lifecycleHooks" : {
+        "onMount": "attachVMO1"
+    }
+
+}

@@ -1,0 +1,6489 @@
+{
+  "name": "ep-bvr-kit",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "themeExtensions": [
+    "_epAdminUiTheme",
+    "_epInstructionsEditorTheme",
+    "_epInstructionsEffectivityTheme",
+    "epDetailsTheme",
+    "epMaturityTheme",
+    "epPageTheme",
+    "epPertTheme",
+    "epValidationUiTheme",
+    "lineLayoutTheme"
+  ],
+  "actionTemplateDefs": {
+    "epNavigationAction": {
+      "actionType": "JSFunction",
+      "method": "navigateToObject",
+      "inputData": {
+        "objectToNavigate": "{{inputData.objectToNavigate}}",
+        "mcn": "{{inputData.mcn}}",
+        "navigateIn": "{{inputData.navigateIn}}",
+        "keepSameState": "{{inputData.keepSameState}}",
+        "ignoreMCN": "{{inputData.ignoreMCN}}",
+        "stateName": "{{inputData.stateName}}"
+      },
+      "deps": "js/epNavigationService"
+    },
+    "epDeleteAction": {
+      "actionType": "JSFunction",
+      "method": "deleteObjects",
+      "inputData": {
+        "objectsToDelete": "{{inputData.objectsToDelete}}",
+        "connectToObject": "{{inputData.connectToObject}}",
+        "relatedDataset": "{{inputData.relatedDataset}}"
+      },
+      "deps": "js/epDeleteService"
+    },
+    "epCopyAction": {
+      "actionType": "JSFunction",
+      "method": "copy",
+      "inputData": {
+        "objectToCopy": "{{inputData.objectsToCopy}}"
+      },
+      "deps": "js/epCutCopyService"
+    },
+    "epCutAction": {
+      "actionType": "JSFunction",
+      "method": "cut",
+      "inputData": {
+        "objectToCopy": "{{inputData.objectsToCopy}}"
+      },
+      "deps": "js/epCutCopyService"
+    }
+  },
+  "aliasRegistry": {
+    "typeMEProcess48": [
+      "MEProcess"
+    ],
+    "typeMEProcessRevision48": [
+      "MEProcessRevision",
+      "Mfg0BvrProcess"
+    ],
+    "typeMEOperation48": [
+      "MEOP"
+    ],
+    "typeMEOperationRevision48": [
+      "MEOPRevision",
+      "Mfg0BvrOperation"
+    ],
+    "typeMECollaborativeContext48": [
+      "MECollaborationContext"
+    ],
+    "typeActivity48": [
+      "CfgActivityLine"
+    ],
+    "typeStationRevision48": [
+      "Mfg0BvrProcessStation",
+      "Mfg0MEProcStatnRevision",
+      "MEStationRevision",
+      "Mfg0MEProcStatn"
+    ],
+    "typeStation48": [
+      "MEStation"
+    ],
+    "typeLineRevision48": [
+      "Mfg0BvrProcessLine",
+      "Mfg0MEProcLineRevision",
+      "MELineRevision",
+      "Mfg0MEProcLine"
+    ],
+    "typeLine48": [
+      "MELine"
+    ],
+    "typePlantBOPRevision48": [
+      "Mfg0BvrPlantBOP",
+      "Mfg0MEPlantBOPRevision"
+    ],
+    "typeZoneRevision48": [
+      "Mfg0BvrProcessArea",
+      "Mfg0MEProcAreaRevision",
+      "MEZoneRevision",
+      "Mfg0MEProcArea"
+    ],
+    "typeZone48": [
+      "MEZone"
+    ],
+    "typePlantRevision48": [
+      "MEPlantRevision"
+    ],
+    "typePlant48": [
+      "MEPlant"
+    ],
+    "typeWorkAreaRevision48": [
+      "MEWorkareaRevision"
+    ],
+    "typeWorkArea48": [
+      "MEWorkarea"
+    ],
+    "typeMEResourceRevision48": [
+      "Mfg0BvrResource",
+      "Mfg0MEResourceRevision"
+    ],
+    "typeMEResource48": [
+      "Mfg0MEResource"
+    ],
+    "homeCreateWorkPackage64": [
+      "createPackage"
+    ],
+    "homeTiconDashboard64": [
+      "ticonDashboard"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "PreviousOperationCommand": {
+        "iconId": "miscBackward",
+        "isGroup": false,
+        "title": "{{i18n.previousOperation}}"
+      },
+      "NextOperationCommand": {
+        "iconId": "miscForward",
+        "isGroup": false,
+        "title": "{{i18n.nextOperation}}"
+      },
+      "cmdManageWorkPackage": {
+        "iconId": "cmdManageWorkPackage",
+        "isGroup": false,
+        "title": "{{i18n.ManageToolTip}}"
+      },
+      "createNewWorkPackage": {
+        "isGroup": false,
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "epOpenWP": {
+        "iconId": "cmdOpen",
+        "title": "{{i18n.epOpenWPTitle}}",
+        "description": "{{i18n.epOpenWPDesc}}"
+      },
+      "backToBalancingCommand": {
+        "iconId": "cmdBackToBalancing",
+        "title": "{{i18n.backToBalancingTitle}}"
+      },
+      "cmdCreateAlternative": {
+        "iconId": "cmdCreateAlternative",
+        "title": "{{i18n.createAlternativeTitle}}"
+      },
+      "cmdManageAlternativesGroup": {
+        "iconId": "cmdManageAlternatives",
+        "isGroup": true,
+        "title": "{{i18n.manageAlternativeTitle}}"
+      },
+      "cmdCreatePartialAlternative": {
+        "iconId": "cmdManageAlternatives",
+        "title": "{{i18n.createPartialAlternativeTitle}}"
+      },
+      "cmdSearchPartialAlternative": {
+        "iconId": "cmdManageAlternatives",
+        "title": "{{i18n.searchPartialAlternatives}}"
+      },
+      "cmdGoToMaster": {
+        "iconId": "cmdManageAlternatives",
+        "title": "{{i18n.goToMasterTitle}}"
+      },
+      "cmdCloneAlternative": {
+        "iconId": "cmdCreateAlternative",
+        "title": "{{i18n.cloneAlternativeTitle}}"
+      },
+      "configureBOPbyEffectivityCommand": {
+        "title": "{{i18n.configureBOPByEffectivityTitle}}",
+        "iconId": "cmdViewPlanInAnotherConfiguration"
+      },
+      "epCheckOut": {
+        "iconId": "cmdCheckout",
+        "title": "{{i18n.checkOutTooltip}}"
+      },
+      "epCheckIn": {
+        "iconId": "cmdCheckin",
+        "title": "{{i18n.checkInTooltip}}"
+      },
+      "cmdCreateReport": {
+        "iconId": "cmdGenerateReport",
+        "title": "{{i18n.createReportCommandTitle}}"
+      },
+      "EPStartEdit": {
+        "iconId": "cmdEdit",
+        "isGroup": false,
+        "title": "{{i18n.Awp0StartEditTitle}}"
+      },
+      "EPSaveEdits": {
+        "iconId": "cmdSave",
+        "title": "{{i18n.saveEditsTitle}}"
+      },
+      "EPCancelEdits": {
+        "iconId": "cmdCancelEdit",
+        "isGroup": false,
+        "title": "{{i18n.cancelEditsTitle}}"
+      },
+      "epUnassign": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.unassign}}"
+      },
+      "epRemoveWorkarea": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.removeWorkarea}}"
+      },
+      "epAssignWorkarea": {
+        "iconId": "cmdAssignWorkArea",
+        "title": "{{i18n.assignWorkarea}}"
+      },
+      "epStartEditInformation": {
+        "iconId": "cmdEdit",
+        "isGroup": false,
+        "title": "{{i18n.Awp0StartEditTitle}}"
+      },
+      "epSaveEditsInformation": {
+        "iconId": "cmdSave",
+        "title": "{{i18n.saveEditsTitle}}"
+      },
+      "epCancelEditsInformation": {
+        "iconId": "cmdCancelEdit",
+        "isGroup": false,
+        "title": "{{i18n.cancelEditsTitle}}"
+      },
+      "epAttachFileLaunchPopupCommand": {
+        "iconId": "cmdAttach",
+        "title": "{{i18n.attachFile}}",
+        "description": "{{i18n.attachFileCmdDesc}}"
+      },
+      "epDownloadAttachmentCommand": {
+        "iconId": "cmdDownload",
+        "title": "{{i18n.downloadAttachment}}",
+        "description": "{{i18n.downloadAttachmentDescription}}"
+      },
+      "epDeleteAttachmentCommand": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.deleteAttachment}}",
+        "description": "{{i18n.deleteAttachmentDescription}}"
+      },
+      "epUnassignDocumentItem": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.delete}}"
+      },
+      "epPasteDocumentItem": {
+        "iconId": "cmdPaste",
+        "title": "{{i18n.paste}}"
+      },
+      "epCreateOperation": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.createOperationCmdTitle}}"
+      },
+      "epCreateProcessArea": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.createProcessAreaCmdTitle}}"
+      },
+      "epAssignProject": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.assignProjectCmdTitle}}"
+      },
+      "OpenPertNodeCommand": {
+        "iconId": "cmdOpen",
+        "title": "{{i18n.openPertNodeTitle}}",
+        "description": "{{i18n.openPertNodeTitle}}"
+      },
+      "resetLayoutCommand": {
+        "iconId": "cmdAutoLayout",
+        "title": "{{i18n.resetLayoutTitle}}",
+        "description": "{{i18n.resetLayoutDescription}}"
+      },
+      "epCmdDelete": {
+        "iconId": "cmdDelete",
+        "title": "{{i18n.epCmdDeleteTitle}}",
+        "description": "{{i18n.epCmdDeleteDesc}}",
+        "isGroup": false
+      },
+      "epValidationRunCommand": {
+        "iconId": "cmdPlay",
+        "isGroup": false,
+        "title": "{{i18n.runValidationsCommandTitle}}"
+      },
+      "epValidationOpenValidationsPanelCommand": {
+        "iconId": "cmdOpenValidationChecks",
+        "isGroup": false,
+        "title": "{{i18n.openValidationsPanelCommandTitle}}",
+        "selected": {
+          "iconId": "cmdOpenValidationChecks",
+          "title": "{{i18n.closeValidationsPanelCommandTitle}}"
+        }
+      },
+      "assignResourceSelectedInClassificationPopup": {
+        "iconId": "typeClassificationElement",
+        "isGroup": false
+      },
+      "showAssignFromClassificationCommand": {
+        "iconId": "cmdClassificationSearch",
+        "title": "{{i18n.classificationTitle}}",
+        "description": "{{i18n.classificationTooltip}}",
+        "isGroup": false
+      },
+      "submitToWorkflowCommand": {
+        "iconId": "cmdSubmitToWorkflow",
+        "title": "{{i18n.submitToWorkflowTitle}}",
+        "description": "{{i18n.submitToWorkflowDescription}}"
+      },
+      "epOpenTimeDistribution": {
+        "iconId": "cmdVariantAnalysis",
+        "title": "{{i18n.openTimeDistributionTooltip}}"
+      },
+      "epOpenLineLayoutInNewTab": {
+        "iconId": "cmdViewLineLayout",
+        "title": "{{i18n.openLineLayout}}"
+      },
+      "epRemoveScope": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.removeScope}}"
+      },
+      "syncPlantToBOPCommand": {
+        "iconId": "cmdSync",
+        "title": "{{i18n.syncBOE}}",
+        "description": "{{i18n.syncPlantDesc}}",
+        "isGroup": false
+      },
+      "syncBOPtoPlantCommand": {
+        "iconId": "cmdSync",
+        "title": "{{i18n.syncBOE}}",
+        "description": "{{i18n.syncPlantBOPDesc}}",
+        "isGroup": false
+      },
+      "wiCmdPasteInto": {
+        "iconId": "cmdPaste",
+        "title": "{{i18n.wiCmdPasteIntoTitle}}"
+      },
+      "wiCmdPasteGroup": {
+        "iconId": "cmdPaste",
+        "title": "{{i18n.wiCmdPasteGroupTitle}}",
+        "isGroup": true
+      },
+      "wiCmdPasteBefore": {
+        "iconId": "cmdPaste",
+        "title": "{{i18n.wiCmdPasteBeforeTitle}}"
+      },
+      "wiCmdPasteAfter": {
+        "iconId": "cmdPaste",
+        "title": "{{i18n.wiCmdPasteAfterTitle}}"
+      },
+      "WISaveInstructionsCommand": {
+        "iconId": "cmdSave",
+        "title": "{{i18n.save}}"
+      },
+      "stepGroupCommands": {
+        "iconId": "cmdMoreVertical",
+        "isGroup": true,
+        "title": "{{i18n.more}}"
+      },
+      "WIValidateOccEffectivityCommand": {
+        "iconId": "cmdApplyEffectiveDate",
+        "isGroup": false,
+        "title": "{{i18n.validateEffectivityPopupTitle}}"
+      },
+      "WICloseValidateEffectivityPopupCommand": {
+        "iconId": "cmdClosePanel",
+        "isGroup": false,
+        "title": "Close"
+      },
+      "setEffectivityStepCommand": {
+        "iconId": "cmdOpenSharedEffectivity",
+        "title": "{{i18n.setEffectivity}}",
+        "description": "{{i18n.setEffectivityDesc}}"
+      },
+      "removeEffectivityCommand": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.deleteEffectivity}}"
+      },
+      "addEffectivityCommand": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.createEffectivity}}"
+      },
+      "editEffectivityCommand": {
+        "iconId": "cmdEdit",
+        "title": "{{i18n.editEffectivity}}"
+      }
+    },
+    "commandHandlers": {
+      "PreviousOperationCommandHandler": {
+        "id": "PreviousOperationCommand",
+        "action": "openPrevOperationAction",
+        "activeWhen": {
+          "condition": "conditions.prevOperationCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isOperationCondition"
+        },
+        "enableWhen": {
+          "condition": "conditions.prevOperationCondition"
+        }
+      },
+      "NextOperationCommandHandler": {
+        "id": "NextOperationCommand",
+        "action": "openNextOperationAction",
+        "activeWhen": {
+          "condition": "conditions.nextOperationCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isOperationCondition"
+        },
+        "enableWhen": {
+          "condition": "conditions.nextOperationCondition"
+        }
+      },
+      "EasyPlanObjectNavigationCommandHandler": {
+        "id": "Awp0ShowObjectCell",
+        "action": "openInEasyPlanDelegateAction",
+        "activeWhen": {
+          "condition": "conditions.openInEP"
+        },
+        "visibleWhen": {
+          "condition": "conditions.openInEP"
+        }
+      },
+      "cmdManageWorkPackageCommandHandler": {
+        "id": "cmdManageWorkPackage",
+        "action": "openManageWorkPackagePage",
+        "activeWhen": {
+          "condition": "conditions.openInEP"
+        },
+        "visibleWhen": {
+          "condition": "conditions.openInEP"
+        }
+      },
+      "OpenInEPWithMCNCommandHandler": {
+        "id": "Awp0ShowObjectCell",
+        "action": "openInEPWithMCNAction",
+        "activeWhen": {
+          "condition": "conditions.openInEPWithMCN"
+        },
+        "visibleWhen": {
+          "condition": "conditions.openInEPWithMCN"
+        }
+      },
+      "tools_info_OpenInEasyPlanCommandHandler": {
+        "id": "Awp0ShowObject",
+        "action": "tools_info_OpenInEasyPlanAction",
+        "activeWhen": {
+          "condition": "conditions.tool_info_open"
+        },
+        "visibleWhen": {
+          "condition": "conditions.tool_info_open"
+        }
+      },
+      "openInNewWindowEasyPlanCommandHandler": {
+        "id": "Awp0OpenInNewWindow",
+        "action": "openInNewWindowInEasyPlanAction",
+        "activeWhen": {
+          "condition": "conditions.tool_info_open"
+        },
+        "visibleWhen": {
+          "condition": "conditions.tool_info_open"
+        }
+      },
+      "openInNewTabEasyPlanCommandHandler": {
+        "id": "Awp0OpenInNewTab",
+        "action": "openInNewTabInEasyPlanAction",
+        "activeWhen": {
+          "condition": "conditions.tool_info_open"
+        },
+        "visibleWhen": {
+          "condition": "conditions.tool_info_open"
+        }
+      },
+      "openObjectCellHandlerInTableHandler": {
+        "id": "Awp0ShowObjectCellForObjectNavigation",
+        "action": "openInEasyPlanDelegateAction",
+        "activeWhen": {
+          "condition": "conditions.open_in_table_cell"
+        },
+        "visibleWhen": {
+          "condition": "conditions.open_in_table_cell"
+        }
+      },
+      "tools_info_OpenInEasyPlanWithMCNCommandHandler": {
+        "id": "Awp0ShowObject",
+        "action": "tools_info_OpenInEasyPlanWithMCNAction",
+        "activeWhen": {
+          "condition": "conditions.toolInfoOpenWithMCN"
+        },
+        "visibleWhen": {
+          "condition": "conditions.toolInfoOpenWithMCN"
+        }
+      },
+      "openInNewWindowEasyPlanWithMCNCommandHandler": {
+        "id": "Awp0OpenInNewWindow",
+        "action": "openInNewWindowInEasyPlanWithMCNAction",
+        "activeWhen": {
+          "condition": "conditions.toolInfoOpenWithMCN"
+        },
+        "visibleWhen": {
+          "condition": "conditions.toolInfoOpenWithMCN"
+        }
+      },
+      "openInNewTabEasyPlanWithMCNCommandHandler": {
+        "id": "Awp0OpenInNewTab",
+        "action": "openInNewTabInEasyPlanWithMCNAction",
+        "activeWhen": {
+          "condition": "conditions.toolInfoOpenWithMCN"
+        },
+        "visibleWhen": {
+          "condition": "conditions.toolInfoOpenWithMCN"
+        }
+      },
+      "AddToMyChangesHandler": {
+        "id": "Cm1AddToMyChanges",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "ExistingTraceLinkCommandHandler": {
+        "id": "Arm0ExistingTraceLink",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "CreateTraceLinkCtxHandler": {
+        "id": "Arm0CreateTraceLinkCtx",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "CreateTraceLinkHandler": {
+        "id": "Arm0CreateTraceLink",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "OverrideAwb0ViewGroupHandler": {
+        "id": "Awb0ViewGroup",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "Awb0ConfigGroupHandler": {
+        "id": "Awb0ConfigurationGroup",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "Awb0ResetStructureHandler": {
+        "id": "Awb0ResetStructure",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "Awp0ViewGroupHandler": {
+        "id": "Awp0ViewGroup",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "openInIllustratorHandler": {
+        "id": "openInIllustrator",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "Cm1ShowCreateChangeHandler": {
+        "id": "Cm1ShowCreateChange",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "Cm1ShowCreateChangeInContextHandler": {
+        "id": "Cm1ShowCreateChangeInContext",
+        "activeWhen": {
+          "condition": "conditions.IsMEPlantContext"
+        },
+        "visibleWhen": false
+      },
+      "Evm1ExecuteRecipeCmdHandler": {
+        "id": "Evm1ExecuteRecipe",
+        "activeWhen": {
+          "condition": "conditions.RecipeCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Evm1CreateRecipeCmdHandler": {
+        "id": "Evm1CreateRecipe",
+        "activeWhen": {
+          "condition": "conditions.RecipeCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Att1SetFreezePointCmdHandler": {
+        "id": "Att1SetFreezePoint",
+        "activeWhen": {
+          "condition": "conditions.FreezePointCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "CreateARCmdHandler": {
+        "id": "Crt1CreateValidationContract",
+        "activeWhen": {
+          "condition": "conditions.CreateARCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Sc1CreateExchangeCmdHandler": {
+        "id": "Sc1CreateExchange",
+        "activeWhen": {
+          "condition": "conditions.ShowCreateEventCmdVisiblity"
+        },
+        "visibleWhen": false
+      },
+      "Arm0GenerateTraceabilityMatrixCmdHandler": {
+        "id": "Arm0GenerateTraceabilityMatrix",
+        "activeWhen": {
+          "condition": "conditions.GenerateTraceabilityMatrixCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "AddInspectionDefCmdHandler": {
+        "id": "Aqc0AddCharRepresentation",
+        "activeWhen": {
+          "condition": "conditions.AddInspectionDefCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Smr1CreateAsMaintainedStructureCmdHandler": {
+        "id": "Smr1CreateAsMaintainedStructure",
+        "activeWhen": {
+          "condition": "conditions.CreateAsMaintainedStructureCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Smr1CreateAsBuiltStructureCmdHandler": {
+        "id": "Smr1CreateAsBuiltStructure",
+        "activeWhen": {
+          "condition": "conditions.CreateAsBuiltStructureCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Sc1CreateLineItemCmdHandler": {
+        "id": "Sc1CreateLineItem",
+        "activeWhen": {
+          "condition": "conditions.ShowCreateEventCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Awb0CreateSessionCmdHandler": {
+        "id": "Awb0CreateSessionCommand",
+        "activeWhen": {
+          "condition": "conditions.CreateSessionCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Awb0SaveWorkingContextCmdHandler": {
+        "id": "Awb0SaveWorkingContext",
+        "activeWhen": {
+          "condition": "conditions.CreateSWCCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Eda1NewCollaborationCmdHandler": {
+        "id": "Eda1NewCollaboration",
+        "activeWhen": {
+          "condition": "conditions.NewCollaborationCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Qfm0GenerateFmeaCmdHandler": {
+        "id": "Qfm0GenerateFmea",
+        "activeWhen": {
+          "condition": "conditions.GenerateFmeaCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Arm0ImportFromOfficeCmdHandler": {
+        "id": "Arm0ImportFromOffice",
+        "activeWhen": {
+          "condition": "conditions.ImportCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "AssignFinishCmdHandler": {
+        "id": "Fsh1AssignFinish",
+        "activeWhen": {
+          "condition": "conditions.AssignFinishCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "MarkAndSuspectCmdHandler": {
+        "id": "Arm0MarkAndSuspect",
+        "activeWhen": {
+          "condition": "conditions.MarkAsSuspectCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "ImportBOMCmdHandler": {
+        "id": "Awb0ImportFromExcel",
+        "activeWhen": {
+          "condition": "conditions.ImportBOMCmdVisibility"
+        },
+        "visibleWhen": false
+      },
+      "assignBOECmdHandler": {
+        "id": "assignResourceSelectedInClassificationPopup",
+        "action": "addElements",
+        "visibleWhen": {
+          "condition": "conditions.isAceOccurenceSublocation"
+        },
+        "activeWhen": {
+          "condition": "conditions.isAceOccurenceSublocation"
+        }
+      },
+      "OpenDefaultContextInEasyPlanCommandHandler": {
+        "id": "epOpenWP",
+        "action": "openDefaultContextInEasyPlanAction",
+        "activeWhen": {
+          "condition": "conditions.openDefaultContext"
+        },
+        "visibleWhen": {
+          "condition": "conditions.openDefaultContext"
+        }
+      },
+      "createNewWorkPackageHandler": {
+        "id": "createNewWorkPackage",
+        "action": "OpenCreateWorkPackagePopup",
+        "activeWhen": true
+      },
+      "backToBalancingCommandHandler": {
+        "id": "backToBalancingCommand",
+        "action": "goBackToBalancingAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isValidToGoBackToBalancing"
+        }
+      },
+      "cmdCreateAlternativeCommandHandler": {
+        "id": "cmdCreateAlternative",
+        "action": "createAlternativeCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isValidToCreateAlt"
+        }
+      },
+      "cmdManageAlternativesGroupCommandHandler": {
+        "id": "cmdManageAlternativesGroup",
+        "activeWhen": {
+          "condition": "conditions.isMasterCC"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isMasterCC"
+        }
+      },
+      "cmdCreatePartialAlternativeCommandHandler": {
+        "id": "cmdCreatePartialAlternative",
+        "action": "createPartialAlternativeCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isMasterCC"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isMasterCC"
+        }
+      },
+      "cmdSearchPartialAlternativeCommandHandler": {
+        "id": "cmdSearchPartialAlternative",
+        "action": "searchPartialAlternativeCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isMasterCC"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isMasterCC"
+        }
+      },
+      "cmdGoToMasterCommandHandler": {
+        "id": "cmdGoToMaster",
+        "action": "goToMasterCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isAlternativeCC"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isAlternativeCC"
+        }
+      },
+      "cmdCloneAlternativeCommandHandler": {
+        "id": "cmdCloneAlternative",
+        "action": "createAlternativeCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isValidToCloneAlt"
+        }
+      },
+      "configureBOPbyEffectivityCommandHandler": {
+        "id": "configureBOPbyEffectivityCommand",
+        "action": "configureBOPbyEffectivityCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.configureBOPbyEffectivityCommandVisibility"
+        }
+      },
+      "epCheckOutCommandHandler": {
+        "id": "epCheckOut",
+        "action": "epCheckOutCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.epShowCheckOut"
+        }
+      },
+      "epCheckInCommandHandler": {
+        "id": "epCheckIn",
+        "action": "epPopulateCheckInConfirmationMsgInput",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.epShowCheckIn"
+        }
+      },
+      "cmdCreateReportCommandHandler": {
+        "id": "cmdCreateReport",
+        "action": "createReportCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isValidToCreateReport"
+        }
+      },
+      "EPStartEditCommandHandler": {
+        "id": "EPStartEdit",
+        "action": "epStartEditSummary",
+        "activeWhen": {
+          "condition": "conditions.isStartEditAllowedEP"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isStartEditAllowedEP"
+        }
+      },
+      "EPSaveEditsHandler": {
+        "id": "EPSaveEdits",
+        "action": "saveEdits",
+        "activeWhen": {
+          "condition": "conditions.saveEditsCommandActiveEP"
+        },
+        "visibleWhen": {
+          "condition": "conditions.saveEditsCommandActiveEP"
+        }
+      },
+      "EPCancelEditsHandler": {
+        "id": "EPCancelEdits",
+        "action": "isDirtyOnCancelEdits",
+        "activeWhen": {
+          "condition": "conditions.cancelEditsCommandActiveEP"
+        },
+        "visibleWhen": {
+          "condition": "conditions.cancelEditsCommandActiveEP"
+        }
+      },
+      "epUnassignHandler": {
+        "id": "epUnassign",
+        "action": "epUnassignAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isChangeOnSelectionAllowed"
+        }
+      },
+      "epRemoveWorkareaHandler": {
+        "id": "epRemoveWorkarea",
+        "action": "epRemoveWorkareaAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isChangeOnSelectionAllowed"
+        }
+      },
+      "epAssignWorkareaHandler": {
+        "id": "epAssignWorkarea",
+        "action": "epAssignWorkareaAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isAssignWorkareaAllowed"
+        }
+      },
+      "epStartEditInformationCommandHandler": {
+        "id": "epStartEditInformation",
+        "action": "epStartEditInformation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isStartEditInformationAllowed"
+        }
+      },
+      "epSaveEditsInformationCommandHandler": {
+        "id": "epSaveEditsInformation",
+        "action": "saveEdits",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.saveEditsInformationCommandActive"
+        }
+      },
+      "epCancelEditsInformationCommandHandler": {
+        "id": "epCancelEditsInformation",
+        "action": "isDirtyOnCancelEdits",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.cancelEditsInformationCommandActive"
+        }
+      },
+      "epAttachFileCommandHandler": {
+        "id": "epAttachFileLaunchPopupCommand",
+        "action": "launchAttachFilePopupAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isChangeOnSingleSelectionObjectAllowed"
+        }
+      },
+      "epDownloadAttachmentCommandHandler": {
+        "id": "epDownloadAttachmentCommand",
+        "action": "downloadAttachment",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isAttachmentSelected"
+        }
+      },
+      "epDeleteAttachmentCommandHandler": {
+        "id": "epDeleteAttachmentCommand",
+        "action": "deleteAttachment",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isDeleteOperationAllowed"
+        }
+      },
+      "epUnassignDocumentItemCommandHandler": {
+        "id": "epUnassignDocumentItem",
+        "action": "epUnassignDocumentItemCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isChangeOnSelectionAllowed"
+        }
+      },
+      "epPasteDocumentItemCommandHandler": {
+        "id": "epPasteDocumentItem",
+        "action": "epPasteDocumentItemCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isPasteDocumentItemAllowed"
+        }
+      },
+      "epDownloadAttachmentOnPreviewCmdHandler": {
+        "id": "Awp0ViewFileForUV",
+        "activeWhen": {
+          "condition": "conditions.isDownloadAttachmentOnPreviewEnabled"
+        },
+        "visibleWhen": false
+      },
+      "AssignProjectCmdHandler": {
+        "id": "epAssignProject",
+        "action": "openProjectSection",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": true
+      },
+      "CreateOperationCommandHandler": {
+        "id": "epCreateOperation",
+        "action": "createOperationCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showCreateOperationCmd"
+        }
+      },
+      "CreateProcessAreaCommandHandler": {
+        "id": "epCreateProcessArea",
+        "action": "createProcessAreaCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showCreateAreaCmd"
+        }
+      },
+      "OpenPertNodeCommandHandler": {
+        "id": "OpenPertNodeCommand",
+        "action": "openPertNodeAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "deletePertEdgesCommandHandler": {
+        "id": "epCmdDelete",
+        "action": "deletePertEdgeAction",
+        "activeWhen": {
+          "condition": "conditions.isEdgeSelected"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isEdgeSelected"
+        }
+      },
+      "deletePertEdgesNodeCommandHandler": {
+        "id": "epCmdDelete",
+        "action": "deletePertEdgeNodeAction",
+        "activeWhen": {
+          "condition": "conditions.isEdgeNodeSelected"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isEdgeNodeSelected"
+        }
+      },
+      "resetLayoutCommandHandler": {
+        "id": "resetLayoutCommand",
+        "action": "resetLayout",
+        "activeWhen": {
+          "condition": "conditions.isGraphRendered"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isGraphRendered"
+        }
+      },
+      "deletePertNodeCommandHandler": {
+        "id": "epCmdDelete",
+        "action": "deletePertNodeAction",
+        "activeWhen": {
+          "condition": "conditions.isPertNodeSelected"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isPertNodeSelected"
+        }
+      },
+      "epCmdDeleteCommandHandler": {
+        "id": "epCmdDelete",
+        "action": "epCmdDeleteCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isObjectSelected"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isObjectSelected"
+        }
+      },
+      "epCmdCopyCommandHandler": {
+        "id": "Awp0Copy",
+        "action": "epCmdCopyCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isEPPages"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isAllOperation"
+        }
+      },
+      "epCmdCutCommandHandler": {
+        "id": "Awp0Cut",
+        "action": "epCmdCutCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isEPPages"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isCutCommandEnabled"
+        }
+      },
+      "epValidationRunCommandHandler": {
+        "id": "epValidationRunCommand",
+        "action": "epValidationRunCommandAction",
+        "enableWhen": {
+          "condition": "conditions.hasValidationInput"
+        },
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "epValidationOpenValidationsPanelCommandHandler": {
+        "id": "epValidationOpenValidationsPanelCommand",
+        "action": "epValidationOpenValidationsPanelCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isOnWIPage"
+        },
+        "selectWhen": {
+          "condition": "conditions.isOpenValidationsPanel"
+        }
+      },
+      "classiCommandHandler": {
+        "id": "showAssignFromClassificationCommand",
+        "action": "classicCommandAction",
+        "visibleWhen": {
+          "condition": "conditions.hasInputSelected"
+        },
+        "activeWhen": {
+          "condition": "conditions.hasInputSelected"
+        }
+      },
+      "assignCmdHandler": {
+        "id": "assignResourceSelectedInClassificationPopup",
+        "action": "assignResourceFromClassification",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "submitToWorkflowCommandHandler": {
+        "id": "submitToWorkflowCommand",
+        "action": "submitToWorkflowCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isSubmitToWorkflowCommandEnabled"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isSubmitToWorkflowCommandEnabled"
+        }
+      },
+      "epOpenTimeDistributionCommandHandler": {
+        "id": "epOpenTimeDistribution",
+        "action": "epOpenTimeDistributionAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.epIsLineBalancingSublocation"
+        }
+      },
+      "epOpenLineLayoutCommandHandler": {
+        "id": "epOpenLineLayoutInNewTab",
+        "action": "epOpenLineLayoutAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.epViewLineLayout"
+        }
+      },
+      "epRemoveScopeHandler": {
+        "id": "epRemoveScope",
+        "action": "epRemoveScopeAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isRemoveScopeValid"
+        }
+      },
+      "syncCommandHandler": {
+        "id": "syncPlantToBOPCommand",
+        "action": "syncPlantToBOPCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isTwinPlantBOPAssociatedCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isTwinPlantBOPAssociatedCondition"
+        }
+      },
+      "syncBOPtoPlantCommandHandler": {
+        "id": "syncBOPtoPlantCommand",
+        "action": "syncBOPToPlantCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isTwinPlantAssociatedCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isTwinPlantAssociatedCondition"
+        }
+      },
+      "wiCmdPasteIntoHandler": {
+        "id": "wiCmdPasteInto",
+        "enableWhen": {
+          "condition": "conditions.wiCmdPasteIntoEnabledCondition"
+        },
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.wiCmdPasteIntoCondition"
+        },
+        "action": "wiCmdPasteIntoAction"
+      },
+      "wiCmdPasteGroupHandler": {
+        "id": "wiCmdPasteGroup",
+        "activeWhen": true
+      },
+      "wiCmdPasteBeforeHandler": {
+        "id": "wiCmdPasteBefore",
+        "enableWhen": {
+          "condition": "conditions.wiCmdPasteBeforeEnableCondition"
+        },
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.wiCmdPasteBeforeCondition"
+        },
+        "action": "wiCmdPasteBeforeAction"
+      },
+      "wiCmdPasteAfterHandler": {
+        "id": "wiCmdPasteAfter",
+        "enableWhen": {
+          "condition": "conditions.wiCmdPasteBeforeEnableCondition"
+        },
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.wiCmdPasteBeforeCondition"
+        },
+        "action": "wiCmdPasteAfterAction"
+      },
+      "WISaveInstructionsCommandHandler": {
+        "id": "WISaveInstructionsCommand",
+        "activeWhen": true,
+        "action": "WISaveWorkInstructions",
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.isSaveWorkInstrictionsEnabled"
+        }
+      },
+      "stepCommandsHandler": {
+        "id": "stepGroupCommands",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "epWICmdDeleteCommandHandler": {
+        "id": "epCmdDelete",
+        "action": "epCmdDeleteCommandAction",
+        "activeWhen": {
+          "condition": "conditions.isStepHeaderObject"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isRemoveOperationAllowed"
+        }
+      },
+      "WIValidateOccEffectivityCommandHandler": {
+        "id": "WIValidateOccEffectivityCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isMultipleObjSelected"
+        },
+        "selectWhen": true,
+        "action": "openValidateOccEffectifityPopup"
+      },
+      "validateEffectivityPopupCloseCommandHandler": {
+        "id": "WICloseValidateEffectivityPopupCommand",
+        "action": "validateEffectivityPopupCloseAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "setEffectivityStepCommandHandler": {
+        "id": "setEffectivityStepCommand",
+        "action": "setEffectivityStepCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.isReadOnly"
+        }
+      },
+      "removeEffectivityCommandHandler": {
+        "id": "removeEffectivityCommand",
+        "action": "removeEffectivityCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "addEffectivityCommandHandler": {
+        "id": "addEffectivityCommand",
+        "action": "addEffectivityCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "editEffectivityCommandHandler": {
+        "id": "editEffectivityCommand",
+        "action": "editEffectivityCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      }
+    },
+    "actions": {
+      "openPrevOperationAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.ep.prevOp.uid}}"
+        }
+      },
+      "tools_info_OpenInEasyPlanAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.selected.uid}}"
+        }
+      },
+      "openInNewWindowInEasyPlanAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.selected.uid}}",
+          "navigateIn": "newWindow"
+        }
+      },
+      "openInNewTabInEasyPlanAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.selected.uid}}",
+          "navigateIn": "newTab"
+        }
+      },
+      "openNextOperationAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.ep.nextOp.uid}}"
+        }
+      },
+      "openInEasyPlanDelegateAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{commandContext.vmo}}"
+        }
+      },
+      "openManageWorkPackagePage": {
+        "actionType": "JSFunction",
+        "method": "navigateToManagePage",
+        "deps": "js/epNavigationService",
+        "inputData": {
+          "objectToNavigate": "{{commandContext.vmo}}"
+        }
+      },
+      "openInEPWithMCNAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{commandContext.vmo.props.object_type.intermediateObjectUids[0]}}",
+          "mcn": "{{data.vmo.uid}}"
+        }
+      },
+      "tools_info_OpenInEasyPlanWithMCNAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.selected.uid}}",
+          "mcn": "{{ctx.pselected.uid}}"
+        }
+      },
+      "openInNewWindowInEasyPlanWithMCNAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.selected.uid}}",
+          "mcn": "{{ctx.pselected.uid}}",
+          "navigateIn": "newWindow"
+        }
+      },
+      "openInNewTabInEasyPlanWithMCNAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.selected.uid}}",
+          "mcn": "{{ctx.pselected.uid}}",
+          "navigateIn": "newTab"
+        }
+      },
+      "addElements": {
+        "actionType": "TcSoaService",
+        "serviceName": "Internal-ActiveWorkspaceBom-2019-06-OccurrenceManagement",
+        "method": "addObject2",
+        "inputData": {
+          "input": {
+            "objectsToBeAdded": "{{ctx.resourceContext.selectedNodes}}",
+            "parentElement": "{{ctx.aceActiveContext.context.selectedModelObjects[0]}}",
+            "siblingElement": "{{ctx.aceActiveContext.context.addElement.siblingElement}}",
+            "inputCtxt": {
+              "productContext": "{{ctx.aceActiveContext.context.productContextInfo}}"
+            },
+            "sortCriteria": {
+              "propertyName": "{{ctx.aceActiveContext.context.sortCriteria[0].fieldName}}",
+              "sortingOrder": "{{ctx.aceActiveContext.context.sortCriteria[0].sortDirection}}"
+            },
+            "addObjectIntent": "{{ctx.aceActiveContext.context.addElement.addObjectIntent}}",
+            "fetchPagedOccurrences": "{{ctx.aceActiveContext.context.addElement.fetchPagedOccurrences}}",
+            "requestPref": {
+              "displayMode": [
+                "{{function:getDisplayMode}}"
+              ]
+            },
+            "numberOfElements": 1
+          }
+        },
+        "outputData": {
+          "addElementResponse": "",
+          "totalObjectsAdded": "{{function:getTotalNumberOfChildrenAdded}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "mfeLargePopup.closeRequest"
+            }
+          ]
+        },
+        "deps": "js/addElementService"
+      },
+      "closePopupWindow": {
+        "actionType": "JSFunction",
+        "method": "hide",
+        "inputData": {
+          "popupId": "{{data.popupId}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "addElement.updateSelectionInPWA",
+              "eventData": {
+                "objectToSelect": "{{ctx.aceActiveContext.context.selectedModelObjects[0].uid}}"
+              }
+            }
+          ]
+        },
+        "deps": "js/popupService"
+      },
+      "openDefaultContextInEasyPlanAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.epPageContext.collaborationContext.uid}}"
+        }
+      },
+      "OpenCreateWorkPackagePopup": {
+        "actionType": "JSFunctionAsync",
+        "method": "showNewWorkPackagePopup",
+        "inputData": {
+          "data": {
+            "declView": "epCreateObject",
+            "locals": {
+              "caption": "{{i18n.createWorkPackageHeaderTitle}}"
+            },
+            "options": {
+              "height": "500",
+              "width": "450"
+            },
+            "subPanelContext": {
+              "objectBaseType": "MECollaborationContext",
+              "subTypeExclusionList": [],
+              "hideCreateAndAddMoreButton": true
+            }
+          }
+        },
+        "outputData": {
+          "popupId": ""
+        },
+        "deps": "js/createWorkPackagePopupUtils"
+      },
+      "goBackToBalancingAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.ep.backToBalancing.uid}}",
+          "stateName": "LineBalancing"
+        }
+      },
+      "createAlternativeCommandAction": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "alternative",
+            "options": {
+              "height": "420",
+              "width": "410"
+            },
+            "subPanelContext": {
+              "workflowCandidates": "{{ctx.ep.scopeObject}}"
+            }
+          }
+        },
+        "deps": "js/popupService"
+      },
+      "createPartialAlternativeCommandAction": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "alternative",
+            "options": {
+              "height": "420",
+              "width": "410"
+            },
+            "subPanelContext": {
+              "workflowCandidates": "{{ctx.ep.scopeObject}}"
+            }
+          }
+        },
+        "deps": "js/popupService"
+      },
+      "goToMasterCommandAction": {
+        "actionType": "JSFunction",
+        "method": "goToMaster",
+        "deps": "js/mfeAlternativeService"
+      },
+      "searchPartialAlternativeCommandAction": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "getListOfAlternatives"
+          },
+          {
+            "action": "showSearch",
+            "condition": "conditions.isPartialAlternativeExist"
+          }
+        ]
+      },
+      "getListOfAlternatives": {
+        "actionType": "JSFunction",
+        "method": "searchPartialAlternative",
+        "deps": "js/mfeAlternativeService"
+      },
+      "showSearch": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "searchAlternatives",
+            "locals": {
+              "anchor": "closePopupAnchor"
+            },
+            "options": {
+              "height": "420",
+              "width": "410"
+            },
+            "subPanelContext": {
+              "workflowCandidates": "{{ctx.ep.scopeObject}}"
+            }
+          }
+        },
+        "deps": "js/popupService"
+      },
+      "configureBOPbyEffectivityCommandAction": {
+        "actionType": "JSFunction",
+        "method": "displayPopup",
+        "inputData": {
+          "data": {
+            "declView": "epConfigureBOPbyEffectivity",
+            "locals": {
+              "caption": "{{i18n.epConfigureBOPbyEffectivityPopupHeaderCaption}}"
+            },
+            "options": {
+              "height": "auto",
+              "width": "450",
+              "draggable": true
+            }
+          }
+        },
+        "outputData": {
+          "popupId": "id"
+        },
+        "deps": "js/epConfigureBOPbyEffectivityService"
+      },
+      "epCheckOutCommandAction": {
+        "actionType": "JSFunction",
+        "method": "checkInOut",
+        "inputData": {
+          "objToCheckOut": "{{ctx.epPageContext.loadedObject}}",
+          "objectsToModifyEntry": {
+            "Object": {
+              "nameToValuesMap": {
+                "id": [
+                  "{{ctx.epPageContext.loadedObject.uid}}"
+                ]
+              }
+            },
+            "CICO": {
+              "nameToValuesMap": {
+                "Type": [
+                  "CheckOut"
+                ]
+              }
+            }
+          }
+        },
+        "deps": "js/epCheckInOutService"
+      },
+      "epPopulateCheckInConfirmationMsgInput": {
+        "actionType": "JSFunction",
+        "method": "getParentOfCheckedOutObject",
+        "inputData": {
+          "checkedOutObjectUid": "{{ctx.epPageContext.loadedObject}}"
+        },
+        "outputData": {
+          "checkedOutParent": ""
+        },
+        "deps": "js/epCheckInOutService",
+        "actionMessages": {
+          "success": [
+            {
+              "message": "epCheckInConfirmationMessage"
+            }
+          ]
+        }
+      },
+      "epCheckInCommandAction": {
+        "actionType": "JSFunction",
+        "method": "checkInOut",
+        "inputData": {
+          "objToCheckOut": "{{ctx.epPageContext.loadedObject}}",
+          "objectsToModifyEntry": {
+            "Object": {
+              "nameToValuesMap": {
+                "id": [
+                  "{{ctx.epPageContext.loadedObject.uid}}"
+                ]
+              }
+            },
+            "CICO": {
+              "nameToValuesMap": {
+                "Type": [
+                  "CheckIn"
+                ]
+              }
+            }
+          }
+        },
+        "deps": "js/epCheckInOutService"
+      },
+      "createReportCommandAction": {
+        "actionType": "JSFunction",
+        "method": "showCreateReportPopup",
+        "inputData": {
+          "data": {
+            "declView": "createReport",
+            "locals": {
+              "caption": "{{i18n.createReportPopupTitle}}"
+            },
+            "options": {
+              "height": "auto",
+              "width": 400
+            }
+          }
+        },
+        "deps": "js/epBvrReportsService"
+      },
+      "epStartEditSummary": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/epStartEditCommandService",
+        "inputData": {
+          "handleContext": "NONE",
+          "object": "{{ctx.ep.scopeObject}}",
+          "view": "{{ctx.ViewModeContext.ViewModeContext}}"
+        }
+      },
+      "epUnassignAction": {
+        "actionType": "JSFunction",
+        "method": "removeOrAddObjects",
+        "inputData": {
+          "actionType": "Remove",
+          "inputObj": "{{commandContext.inputObject}}",
+          "selectedObjects": "{{commandContext.selection}}",
+          "entryName": "AssignedParts",
+          "relationType": "MEConsumed"
+        },
+        "deps": "js/epTableService"
+      },
+      "epRemoveWorkareaAction": {
+        "actionType": "JSFunction",
+        "method": "removeOrAddObjects",
+        "inputData": {
+          "actionType": "Remove",
+          "inputObj": "{{commandContext.inputObject}}",
+          "selectedObjects": "{{commandContext.selection}}",
+          "entryName": "AssignedTools",
+          "relationType": "MEWorkArea"
+        },
+        "deps": "js/epTableService"
+      },
+      "epAssignWorkareaAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "epOpenAssignWorkareaPopup",
+              "condition": "ctx.epPageContext.rootPlant"
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "condition": "!ctx.epPageContext.rootPlant",
+              "message": "noPlantStructureAvailableErrorMessage"
+            }
+          ]
+        }
+      },
+      "epOpenAssignWorkareaPopup": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "epAssignWorkareaPopup",
+            "locals": {
+              "caption": "{{i18n.assignWorkarea}}"
+            },
+            "options": {
+              "height": "500",
+              "width": "700",
+              "draggable": true
+            },
+            "subPanelContext": {
+              "scopeObject": "{{commandContext.inputObject}}"
+            }
+          }
+        },
+        "deps": "js/popupService"
+      },
+      "epStartEditInformation": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/epStartEditCommandService",
+        "inputData": {
+          "handleContext": "NONE",
+          "object": "{{commandContext.inputObject}}"
+        }
+      },
+      "launchAttachFilePopupAction": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "epAttachFilePopup",
+            "locals": {
+              "caption": "{{i18n.attachFile}}"
+            },
+            "options": {
+              "width": "400"
+            },
+            "subPanelContext": {
+              "scopeObject": "{{commandContext.selection}}"
+            }
+          }
+        },
+        "deps": "js/popupService"
+      },
+      "downloadAttachment": {
+        "actionType": "JSFunction",
+        "method": "downloadAttachment",
+        "inputData": {
+          "files": "{{commandContext.selectedAttachment}}"
+        },
+        "deps": "js/epFileAttachmentService"
+      },
+      "deleteAttachment": {
+        "actionType": "epDeleteAction",
+        "inputData": {
+          "objectsToDelete": "{{commandContext.selectedAttachment[0].datasetRelation}}",
+          "connectToObject": "{{commandContext.selection}}",
+          "relatedDataset": "{{commandContext.selectedAttachment[0]}}"
+        }
+      },
+      "epUnassignDocumentItemCommandAction": {
+        "actionType": "epDeleteAction",
+        "inputData": {
+          "objectsToDelete": "{{commandContext.selection}}",
+          "connectToObject": "{{commandContext.inputObject}}"
+        }
+      },
+      "epPasteDocumentItemCommandAction": {
+        "actionType": "JSFunction",
+        "method": "removeOrAddObjects",
+        "inputData": {
+          "actionType": "Add",
+          "inputObj": "{{commandContext.inputObject}}",
+          "selectedObjects": "{{ctx.awClipBoardProvider}}",
+          "entryName": "AssignedParts",
+          "relationType": "Mbc0EPDocument"
+        },
+        "deps": "js/epTableService"
+      },
+      "openProjectSection": {
+        "actionType": "JSFunction",
+        "method": "updateCtx",
+        "inputData": {
+          "name": "showAddProjectSection",
+          "value": true
+        },
+        "deps": "js/appCtxService"
+      },
+      "createOperationCommandAction": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "getOperationParent"
+          },
+          {
+            "action": "showCreateOperationPopup"
+          }
+        ]
+      },
+      "getOperationParent": {
+        "actionType": "JSFunction",
+        "method": "getOperationParent",
+        "inputData": {
+          "inputObject": "{{commandContext.inputObject}}"
+        },
+        "outputData": {
+          "scopeObjectForCreatePopup": "modelObject"
+        },
+        "deps": "js/epStructureService"
+      },
+      "showCreateOperationPopup": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "epCreateObject",
+            "locals": {
+              "caption": "{{i18n.createOperationCmdTitle}}"
+            },
+            "options": {
+              "height": "500",
+              "width": "450",
+              "draggable": true
+            },
+            "subPanelContext": {
+              "objectBaseType": "MEOP",
+              "subTypeExclusionList": [],
+              "scopeObject": "{{data.scopeObjectForCreatePopup}}",
+              "reloadType": "{{commandContext.reloadType}}",
+              "selectedObject": "{{commandContext.inputObject}}",
+              "isResequenceNeeded": "{{commandContext.isResequenceNeeded}}"
+            }
+          }
+        },
+        "deps": "js/popupService"
+      },
+      "createProcessAreaCommandAction": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "epCreateObject",
+            "locals": {
+              "caption": "{{i18n.createProcessAreaCmdTitle}}"
+            },
+            "options": {
+              "height": "500",
+              "width": "450",
+              "draggable": true
+            },
+            "subPanelContext": {
+              "objectBaseType": "Mfg0MEProcArea",
+              "subTypeExclusionList": [
+                "Mfg0ProcResource",
+                "Mfg0MEPlantBOP"
+              ],
+              "scopeObject": "{{ctx.ep.scopeObject}}"
+            }
+          }
+        },
+        "outputData": {
+          "popupId": "createId"
+        },
+        "deps": "js/popupService"
+      },
+      "openPertNodeAction": {
+        "actionType": "epNavigationAction",
+        "inputData": {
+          "objectToNavigate": "{{ctx.graph.commandContextItem.model.id}}"
+        }
+      },
+      "deletePertEdgeAction": {
+        "actionType": "JSFunction",
+        "method": "removeEdge",
+        "inputData": {
+          "edgesToDelete": "{{commandContext.edgeSelections}}",
+          "graphModel": "{{commandContext.graphModel}}",
+          "tabContext": "{{commandContext}}"
+        },
+        "deps": "js/epPertEditService"
+      },
+      "deletePertEdgeNodeAction": {
+        "actionType": "epDeleteAction",
+        "inputData": {
+          "objectsToDelete": "{{commandContext.selection}}"
+        }
+      },
+      "resetLayout": {
+        "actionType": "JSFunction",
+        "method": "resetLayout",
+        "inputData": {
+          "graphModel": "{{commandContext.graphModel}}"
+        },
+        "deps": "js/epPertEditService"
+      },
+      "deletePertNodeAction": {
+        "actionType": "epDeleteAction",
+        "inputData": {
+          "objectsToDelete": "{{commandContext.selection}}",
+          "connectToObject": "{{ctx.ep.scopeObject}}"
+        }
+      },
+      "epCmdDeleteCommandAction": {
+        "actionType": "epDeleteAction",
+        "inputData": {
+          "objectsToDelete": "{{commandContext.selection}}"
+        }
+      },
+      "epCmdCopyCommandAction": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "epCmdCopyAction"
+          },
+          {
+            "action": "epRefreshTableAction"
+          }
+        ]
+      },
+      "epCmdCopyAction": {
+        "actionType": "epCopyAction",
+        "inputData": {
+          "objectsToCopy": "{{commandContext.selection}}"
+        }
+      },
+      "epCmdCutCommandAction": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "epCutAction"
+          },
+          {
+            "action": "epRefreshTableAction"
+          }
+        ]
+      },
+      "epCutAction": {
+        "actionType": "epCutAction",
+        "inputData": {
+          "objectsToCopy": "{{commandContext.selection}}"
+        }
+      },
+      "epRefreshTableAction": {
+        "actionType": "JSFunction",
+        "method": "refreshTable",
+        "inputData": {
+          "tableId": "{{commandContext.tableId}}"
+        },
+        "deps": "js/mfeTableService"
+      },
+      "epValidationRunCommandAction": {
+        "actionType": "JSFunction",
+        "method": "runValidationChecks",
+        "deps": "js/epValidationTableService"
+      },
+      "epValidationOpenValidationsPanelCommandAction": {
+        "actionType": "JSFunction",
+        "method": "toggleValidationMode",
+        "deps": "js/epValidationModeUtil"
+      },
+      "assignResourceFromClassification": {
+        "actionType": "JSFunction",
+        "method": "assignResourceFromClassification",
+        "inputData": {
+          "selection": "{{ctx.mselected}}",
+          "resource": "{{commandContext}}"
+        },
+        "deps": "js/classificationResourceService"
+      },
+      "showPopupAction": {
+        "actionType": "JSFunction",
+        "method": "showLargePopup",
+        "inputData": {
+          "params": {
+            "declView": "classificationPopUp",
+            "subPanelContext": {
+              "inputObject": "{{commandContext}}"
+            }
+          }
+        },
+        "deps": "js/mfeLargePopupUtils"
+      },
+      "updateCtx": {
+        "actionType": "JSFunction",
+        "method": "updateCtxVariables",
+        "deps": "js/classificationResourceService",
+        "inputData": {
+          "name": [
+            "locationContext",
+            "sublocation",
+            "ViewModeContext",
+            "selected",
+            "pselected",
+            "mselected"
+          ]
+        }
+      },
+      "updatelocationCtx": {
+        "actionType": "JSFunction",
+        "method": "updateCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "name": "locationContext",
+          "value": {
+            "ActiveWorkspace:Location": "com.siemens.splm.classificationLocation"
+          }
+        }
+      },
+      "updateSublocationCtx": {
+        "actionType": "JSFunction",
+        "method": "updateCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "name": "locationContext",
+          "value": {
+            "ActiveWorkspace:SubLocation": "showClassification"
+          }
+        }
+      },
+      "resetClsLocation": {
+        "actionType": "JSFunction",
+        "method": "setNoneSelection",
+        "deps": "js/classificationResourceService",
+        "inputData": {
+          "ctx": "{{ctx}}"
+        }
+      },
+      "classicCommandAction": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "updateCtx"
+          },
+          {
+            "action": "updateSublocationCtx",
+            "condition": "conditions.isOccurenceSublocation"
+          },
+          {
+            "action": "updatelocationCtx",
+            "condition": "conditions.isOccurenceSublocation"
+          },
+          {
+            "action": "resetClsLocation"
+          },
+          {
+            "action": "showPopupAction"
+          }
+        ]
+      },
+      "submitToWorkflowCommandAction": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "showSubmitToWorkflowPopup"
+          }
+        ]
+      },
+      "showSubmitToWorkflowPopup": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "epSubmitToWorkflow",
+            "options": {
+              "height": "450",
+              "width": "360",
+              "draggable": true
+            },
+            "subPanelContext": "{{commandContext}}"
+          }
+        },
+        "outputData": {
+          "popupId": "submitToWorkflow"
+        },
+        "deps": "js/popupService"
+      },
+      "epOpenTimeDistributionAction": {
+        "actionType": "JSFunction",
+        "method": "postMessageToHostedWindow",
+        "inputData": {
+          "type": "epOpenTimeDistribution"
+        },
+        "deps": "js/services/mfeHostingMessagingService"
+      },
+      "epOpenLineLayoutAction": {
+        "actionType": "Navigate",
+        "navigateTo": "lineLayoutPage",
+        "navigationParams": {
+          "uid": "{{ctx.epPageContext.loadedObject.uid}}"
+        },
+        "navigateIn": "newTab"
+      },
+      "epRemoveScopeAction": {
+        "actionType": "JSFunction",
+        "method": "removeOrAddObjects",
+        "inputData": {
+          "actionType": "Remove",
+          "inputObj": "{{commandContext.inputObject}}",
+          "selectedObjects": "{{commandContext.selection}}",
+          "entryName": "ProductScopes"
+        },
+        "deps": "js/epTableService"
+      },
+      "syncBOPToPlantCommandAction": {
+        "actionType": "JSFunction",
+        "method": "createSync",
+        "deps": "js/syncOperationService",
+        "inputData": {
+          "objToSync": "{{ctx.epPageContext.loadedObject}}",
+          "isRemoveObsoleteTwin": "{{ctx.preferences.EP_RemoveObsoleteOnSyncTwin}}"
+        }
+      },
+      "syncPlantToBOPCommandAction": {
+        "actionType": "JSFunction",
+        "method": "createSync",
+        "deps": "js/syncOperationService",
+        "inputData": {
+          "objToSync": "{{ctx.mselected}}",
+          "isRemoveObsoleteTwin": "{{ctx.preferences.EP_RemoveObsoleteOnSyncTwin}}"
+        }
+      },
+      "wiCmdPasteIntoAction": {
+        "actionType": "JSFunction",
+        "method": "pasteInto",
+        "inputData": {
+          "selectedVmo": "{{commandContext.selection[0]}}"
+        },
+        "deps": "js/wiPasteService"
+      },
+      "wiCmdPasteBeforeAction": {
+        "actionType": "JSFunction",
+        "method": "pasteBefore",
+        "inputData": {
+          "selectedVmo": "{{commandContext.selection[0]}}"
+        },
+        "deps": "js/wiPasteService"
+      },
+      "wiCmdPasteAfterAction": {
+        "actionType": "JSFunction",
+        "method": "pasteAfter",
+        "inputData": {
+          "selectedVmo": "{{commandContext.selection[0]}}"
+        },
+        "deps": "js/wiPasteService"
+      },
+      "WISaveWorkInstructions": {
+        "actionType": "JSFunction",
+        "method": "saveWorkInstructions",
+        "deps": "js/wiEditor.service"
+      },
+      "openValidateOccEffectifityPopup": {
+        "actionType": "JSFunction",
+        "method": "initializeValidateEffectivityPopup",
+        "inputData": {
+          "inputObj": "{{commandContext.selection}}"
+        },
+        "deps": "js/wiValidateEffectivityService"
+      },
+      "validateEffectivityPopupCloseAction": {
+        "actionType": "JSFunction",
+        "method": "closePopup",
+        "inputData": {
+          "inputObj": "{{commandContext.selection}}"
+        },
+        "deps": "js/wiValidateEffectivityService"
+      },
+      "setEffectivityStepCommandAction": {
+        "actionType": "batchJob",
+        "steps": [
+          {
+            "action": "loadEffectivities"
+          },
+          {
+            "action": "openWIEffectivityPopup"
+          }
+        ]
+      },
+      "loadEffectivities": {
+        "actionType": "JSFunction",
+        "method": "loadEffectivities",
+        "inputData": {
+          "inputObject": "{{commandContext.inputObject}}"
+        },
+        "outputData": {
+          "effectivityObjs": "effectivityObjs",
+          "selectedObject": "selectedObject"
+        },
+        "deps": "js/wiSetEffectivityService"
+      },
+      "openWIEffectivityPopup": {
+        "actionType": "JSFunction",
+        "method": "show",
+        "inputData": {
+          "data": {
+            "declView": "wiSetEffectivity",
+            "locals": {
+              "anchor": "closePopupAnchor"
+            },
+            "options": {
+              "height": "454",
+              "width": "400",
+              "clickOutsideToClose": false
+            },
+            "subPanelContext": {
+              "selectedObject": "{{data.selectedObject}}",
+              "effectivityObjs": "{{data.effectivityObjs}}"
+            }
+          }
+        },
+        "deps": "js/popupService"
+      },
+      "removeEffectivityCommandAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "wi.handleRemoveEffectivity",
+              "eventData": {
+                "effectivityObj": "{{commandContext.vmo}}"
+              }
+            }
+          ]
+        }
+      },
+      "addEffectivityCommandAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "wi.addOrEditEffectivity"
+            }
+          ]
+        }
+      },
+      "editEffectivityCommandAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "wi.addOrEditEffectivity",
+              "eventData": {
+                "effectivityObj": "{{commandContext.vmo}}"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "conditions": {
+      "IsEPWorkspaceSelected": {
+        "expression": {
+          "$source": "ctx.workspace.workspaceId",
+          "$query": {
+            "$in": [
+              "IEWorkspace",
+              "WIWorkspace"
+            ]
+          }
+        }
+      },
+      "openInEP": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.cmdAwp0ShowObjectCellBaseVisibleCondition",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "commandContext.vmo",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": [
+                    "MECollaborationContext"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "conditions.IsEPWorkspaceSelected",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "tool_info_open": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.selected.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "MECollaborationContext"
+                ]
+              }
+            },
+            {
+              "$source": "conditions.IsEPWorkspaceSelected",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "open_in_table_cell": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.vmo.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "MECollaborationContext"
+                ]
+              }
+            },
+            {
+              "$source": "conditions.IsEPWorkspaceSelected",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "prevOperationCondition": {
+        "expression": "(ctx.ep.prevOp.uid !== '')"
+      },
+      "nextOperationCondition": {
+        "expression": "(ctx.ep.nextOp.uid !== '')"
+      },
+      "isOperationCondition": {
+        "expression": {
+          "$source": "ctx.epPageContext.loadedObject.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mfg0BvrOperation"
+            ]
+          }
+        }
+      },
+      "openInEPWithMCN": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.cmdAwp0ShowObjectCellBaseVisibleCondition",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "commandContext.vmo.props.object_type.dbValues",
+              "$query": {
+                "$in": [
+                  "MECollaborationContext"
+                ]
+              }
+            },
+            {
+              "$source": "conditions.IsEPWorkspaceSelected",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "toolInfoOpenWithMCN": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.selected.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "MECollaborationContext"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.pselected",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": [
+                    "ChangeNoticeRevision"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "conditions.IsEPWorkspaceSelected",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "IsMEPlantContext": {
+        "expression": {
+          "$source": "ctx.state.params.cc_uid",
+          "$query": {
+            "$notNull": true
+          }
+        }
+      },
+      "RecipeCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "conditions.executeRecipeCommandCondition",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      },
+      "FreezePointCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "conditions.att1setFreezePointCommandVisibilityCond",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      },
+      "CreateARCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "conditions.createARVisibleCond",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      },
+      "ShowCreateEventCmdVisiblity": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "conditions.sc1ShowCreateEventCmdCond",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      },
+      "GenerateTraceabilityMatrixCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "conditions.visibleGenerateTraceabilityMatrix",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      },
+      "AddInspectionDefCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isAddCharRepVisible",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "CreateAsMaintainedStructureCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.createAsMaintainedStructureCommandActive",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "CreateAsBuiltStructureCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.createAsBuiltStructureCommandActive",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "ShowCreateEventCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.sc1ShowCreateEventCmdCond",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "CreateSessionCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isAwb0CreateSessionAllowed",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "CreateSWCCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isCreateSWCCommandVisible",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "NewCollaborationCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.Eda1NewCollaboration",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "GenerateFmeaCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.Qfm0GenerateFmeaCond",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "ImportCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isImportCmdVisible",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "AssignFinishCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isAssignFinishCommandVisible",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "MarkAsSuspectCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isMarkAsSuspectCommandVisible",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "ImportBOMCmdVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.enableImportBOMCommand",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "isItemSelected": {
+        "expression": {
+          "$source": "ctx.selected",
+          "$query": {
+            "$notNull": true
+          }
+        }
+      },
+      "isAceOccurenceSublocation": {
+        "expression": {
+          "$source": "ctx.aceActiveContext.key",
+          "$query": {
+            "$eq": "occmgmtContext"
+          }
+        }
+      },
+      "isAllowToAssignTool": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isOccurenceSublocation",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isItemSelected",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "openDefaultContext": {
+        "expression": {
+          "$source": "ctx.ep.scopeObject.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "MECollaborationContext"
+            ]
+          }
+        }
+      },
+      "isFromProdBopScope": {
+        "expression": {
+          "$source": "ctx.ep.backToBalancing.isFromProdBopScope",
+          "$query": {
+            "$eq": true
+          }
+        }
+      },
+      "hasBackToBalancing": {
+        "expression": {
+          "$source": "ctx.ep.backToBalancing.uid",
+          "$query": {
+            "$ne": ""
+          }
+        }
+      },
+      "isOperationOrPbopLoadedCondition": {
+        "expression": {
+          "$source": "ctx.epPageContext.loadedObject.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mfg0BvrOperation",
+              "Mfg0BvrProductBOP"
+            ]
+          }
+        }
+      },
+      "isValidToGoBackToBalancing": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.hasBackToBalancing",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isFromProdBopScope",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isOperationOrPbopLoadedCondition",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "isMasterCC": {
+        "expression": "(ctx.epPageContext.loadedObject.type !== 'Mfg0BvrPlantBOP') && (conditions.isProcessAreaPlanningPage || conditions.isBalancingPage) && !(ctx.epPageContext.collaborationContext.props.mbc0masterCC && ctx.epPageContext.collaborationContext.props.mbc0masterCC.dbValues[0])"
+      },
+      "isAlternativeCC": {
+        "expression": "(ctx.epPageContext.loadedObject.type !== 'Mfg0BvrPlantBOP') && (conditions.isProcessAreaPlanningPage || conditions.isBalancingPage) && (ctx.epPageContext.collaborationContext.props.mbc0masterCC && ctx.epPageContext.collaborationContext.props.mbc0masterCC.dbValues[0] !== '')"
+      },
+      "isProcessAreaPlanningPage": {
+        "expression": "ctx.sublocation.nameToken === 'ProcessAreaSubLocation'"
+      },
+      "isBalancingPage": {
+        "expression": "ctx.sublocation.nameToken === 'LineBalancing'"
+      },
+      "isValidToCreateAlt": {
+        "expression": "(conditions.isManagePlantBopPackagePage) && ctx.epPageContext.processStructure && ctx.epPageContext.processStructure.type==='Mfg0BvrPlantBOP' && !(ctx.epPageContext.collaborationContext.props.mbc0masterCC.dbValues[0])"
+      },
+      "isValidToCloneAlt": {
+        "expression": "(conditions.isManagePlantBopPackagePage) && ctx.epPageContext.processStructure && ctx.epPageContext.processStructure.type==='Mfg0BvrPlantBOP' && ctx.epPageContext.collaborationContext.props.mbc0masterCC.dbValues[0]"
+      },
+      "isManagePlantBopPackagePage": {
+        "expression": "ctx.sublocation.nameToken == 'ManagePlantBopPackageSubLocation'"
+      },
+      "isPartialAlternativeExist": {
+        "expression": "ctx.allAltCCsList.length > 0"
+      },
+      "isOfTypeProductBop": {
+        "expression": {
+          "$source": "ctx.ep.scopeObject",
+          "$query": {
+            "$source": "modelType.typeHierarchyArray",
+            "$query": {
+              "$in": [
+                "Mfg0BvrProductBOP",
+                "Mfg0BvrProductBOP"
+              ]
+            }
+          }
+        }
+      },
+      "isMECollaborationContext": {
+        "expression": {
+          "$source": "ctx.ep.scopeObject",
+          "$query": {
+            "$source": "modelType.typeHierarchyArray",
+            "$query": {
+              "$in": [
+                "MECollaborationContext"
+              ]
+            }
+          }
+        }
+      },
+      "configureBOPbyEffectivityCommandVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isOfTypeProductBop",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "conditions.isMECollaborationContext",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isCheckedOutAllowedSublocation": {
+        "expression": {
+          "$source": "ctx.sublocation.nameToken",
+          "$query": {
+            "$in": [
+              "LineBalancing",
+              "workInstructions",
+              "processSubpageSubLocation"
+            ]
+          }
+        }
+      },
+      "epIsCheckedOut": {
+        "expression": "ctx.ep.scopeObject.props.bl_rev_checked_out_user && ctx.ep.scopeObject.props.bl_rev_checked_out_user.dbValues[0] !== ' '"
+      },
+      "epShowCheckOut": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isCheckedOutAllowedSublocation",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.epIsCheckedOut",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "epIsCheckedOutBySameUser": {
+        "expression": "ctx.ep.scopeObject.props.bl_rev_checked_out_user && ctx.ep.scopeObject.props.bl_rev_checked_out_user.dbValues[0] === ctx.userSession.props.user.displayValues[0]"
+      },
+      "epShowCheckIn": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isCheckedOutAllowedSublocation",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.epIsCheckedOut",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.epIsCheckedOutBySameUser",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isOfTypePlantBop": {
+        "expression": {
+          "$source": "ctx.ep.scopeObject",
+          "$query": {
+            "$source": "modelType.typeHierarchyArray",
+            "$query": {
+              "$in": [
+                "Mfg0BvrPlantBOP"
+              ]
+            }
+          }
+        }
+      },
+      "isOfTypeProcess": {
+        "expression": {
+          "$source": "ctx.ep.scopeObject",
+          "$query": {
+            "$source": "modelType.typeHierarchyArray",
+            "$query": {
+              "$in": [
+                "Mfg0BvrProcess"
+              ]
+            }
+          }
+        }
+      },
+      "isOfTypeCC": {
+        "expression": {
+          "$source": "ctx.ep.scopeObject",
+          "$query": {
+            "$source": "modelType.typeHierarchyArray",
+            "$query": {
+              "$in": [
+                "MECollaborationContext"
+              ]
+            }
+          }
+        }
+      },
+      "isValidToCreateReport": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isOfTypeProductBop",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "conditions.isOfTypePlantBop",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "conditions.isOfTypeProcess",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "conditions.isOfTypeCC",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isStartEditAllowedEP": {
+        "expression": "ctx.sublocation.nameToken === '4gProperties' && !ctx.editInProgress"
+      },
+      "saveEditsCommandActiveEP": {
+        "expression": "ctx.sublocation.nameToken === '4gProperties' && ctx.editInProgress"
+      },
+      "cancelEditsCommandActiveEP": {
+        "expression": "ctx.sublocation.nameToken === '4gProperties' && ctx.editInProgress"
+      },
+      "hasSelection": {
+        "expression": "commandContext.selection.length > 0"
+      },
+      "isChangeOnSelectionAllowed": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.hasSelection",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "hasSingleInputObject": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.inputObject",
+              "$query": {
+                "$notNull": true
+              }
+            },
+            {
+              "$source": "commandContext.inputObject.uid",
+              "$query": {
+                "$notNull": true
+              }
+            }
+          ]
+        }
+      },
+      "isChangeOnSingleInputObjectAllowed": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.hasSingleInputObject",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "hasDocumentItemInClipboard": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.awClipBoardProvider.length",
+              "$query": {
+                "$gt": 0
+              }
+            },
+            {
+              "$source": "ctx.awClipBoardProvider",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$in": [
+                      "Document",
+                      "DocumentRevision"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "isPasteDocumentItemAllowed": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isChangeOnSingleInputObjectAllowed",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.hasDocumentItemInClipboard",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "hasSingleSelectionObject": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.selection",
+              "$query": {
+                "$notNull": true
+              }
+            },
+            {
+              "$source": "commandContext.selection.uid",
+              "$query": {
+                "$notNull": true
+              }
+            }
+          ]
+        }
+      },
+      "isChangeOnSingleSelectionObjectAllowed": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.hasSingleSelectionObject",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isInputObject": {
+        "expression": "commandContext.inputObject !== undefined && commandContext.inputObject.uid"
+      },
+      "isStartEditInfoCommandEnabledWithoutReadOnly": {
+        "expression": "conditions.isInputObject && (ctx.editInProgress === undefined || !ctx.editInProgress)"
+      },
+      "isStartEditInformationAllowed": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isStartEditInfoCommandEnabledWithoutReadOnly",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "saveEditsInformationCommandActive": {
+        "expression": "ctx.editInProgress"
+      },
+      "cancelEditsInformationCommandActive": {
+        "expression": "ctx.editInProgress"
+      },
+      "isAttachmentSelected": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.hasSingleSelectionObject",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "commandContext.selectedAttachment.length",
+              "$query": {
+                "$gt": "0"
+              }
+            }
+          ]
+        }
+      },
+      "isDeleteOperationAllowed": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isAttachmentSelected",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isDownloadAttachmentOnPreviewEnabled": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.locationContext",
+              "$query": {
+                "$source": "ActiveWorkspace:SubLocation",
+                "$query": {
+                  "$eq": [
+                    "ProcessAreaPlanning"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "conditions.universalViewerPopupCommandsActive",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "isAssignWorkareaAllowed": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.locationContext",
+              "$query": {
+                "$source": "ActiveWorkspace:Location",
+                "$query": {
+                  "$eq": [
+                    "easyplan"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "conditions.isChangeOnSingleInputObjectAllowed",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "showCreateOperationCmd": {
+        "expression": "commandContext.inputObject.type === 'Mfg0BvrProcessStation' || commandContext.inputObject.type === 'Mfg0BvrOperation' || commandContext.inputObject.type === 'Mfg0BvrProcess'"
+      },
+      "showCreateAreaCmd": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.ep.scopeObject.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrPlantBOP",
+                  "Mfg0BvrProcessArea",
+                  "Mfg0BvrProcessLine"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.ep.scopeObject.modelType.typeHierarchyArray",
+              "$query": {
+                "$notin": [
+                  "Mfg0BvrProcessStation"
+                ]
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isEdgeSelected": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.edgeSelections.length",
+              "$query": {
+                "$gt": "0"
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isEdgeNodeSelected": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.edgeSelections.length",
+              "$query": {
+                "$gt": "0"
+              }
+            },
+            {
+              "$source": "commandContext.selection.length",
+              "$query": {
+                "$gt": "0"
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isGraphRendered": {
+        "expression": {
+          "$source": "ctx.ep.scopeObject.props.Mfg0sub_elements.dbValues.length",
+          "$query": {
+            "$gt": 0
+          }
+        }
+      },
+      "isPertNodeSelected": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.selection.length",
+              "$query": {
+                "$gt": "0"
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isObjectSelected": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.selection.length",
+              "$query": {
+                "$gt": "0"
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isEPPages": {
+        "expression": "ctx.locationContext['ActiveWorkspace:Location'] === 'easyplan'"
+      },
+      "isAllOperation": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.selection",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$in": [
+                      "Mfg0BvrOperation"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isCutCommandEnabled": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isAllOperation",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "commandContext.selection.length",
+              "$query": {
+                "$eq": "1"
+              }
+            }
+          ]
+        }
+      },
+      "hasValidationInput": {
+        "expression": " ctx.epValidationContext.epValidationInput.inputObject.length > 0 "
+      },
+      "isOpenValidationsPanel": {
+        "expression": " epPageContext.commandPanelLarge === 'epValidation'"
+      },
+      "isOnWIPage": {
+        "expression": "ctx.sublocation.nameToken === 'workInstructions'"
+      },
+      "hasInputObject": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "commandContext.inputObject.uid",
+              "$query": {
+                "$notNull": true
+              }
+            }
+          ]
+        }
+      },
+      "assignCmdVisibilityBOE": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.IsMEPlantContext",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "conditions.isItemSelected",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      },
+      "hasInputSelected": {
+        "expression": {
+          "$or": [
+            {
+              "$source": "conditions.hasInputObject",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.assignCmdVisibilityBOE",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "isBOESelected": {
+        "expression": {
+          "$source": "ctx.aceActiveContext",
+          "$query": {
+            "$notNull": true
+          }
+        }
+      },
+      "isSelectionAvailable": {
+        "expression": {
+          "$source": "commandContext.selection.length",
+          "$query": {
+            "$gt": "0"
+          }
+        }
+      },
+      "isSubmitToWorkflowCommandEnabled": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isSelectionAvailable",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "epIsLineBalancingSublocation": {
+        "expression": "ctx.sublocation.nameToken === 'LineBalancing'"
+      },
+      "epViewLineLayout": {
+        "expression": "ctx.sublocation.nameToken === 'LineBalancing'"
+      },
+      "isRemoveScopeValid": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.selection.length",
+              "$query": {
+                "$gt": "0"
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isProcessAreaSublocation": {
+        "expression": "ctx.locationContext['ActiveWorkspace:SubLocation'] === 'ProcessArea' || ctx.locationContext['ActiveWorkspace:SubLocation'] === 'Station' || ctx.locationContext['ActiveWorkspace:SubLocation'] === 'ProcessAreaPlanning' "
+      },
+      "isOccurenceSublocation": {
+        "expression": "ctx.locationContext['ActiveWorkspace:SubLocation'] === 'com.siemens.splm.client.occmgmt:OccurrenceManagementSubLocation'"
+      },
+      "isPlantBOPAssociatedCondition": {
+        "expression": {
+          "$source": "ctx.state.params.cc_uid",
+          "$query": {
+            "$notNull": true
+          }
+        }
+      },
+      "isPlantAssociatedCondition": {
+        "expression": {
+          "$source": "ctx.epPageContext.loadedObject.props.Mfg0LinkedBOELine.dbValues.length",
+          "$query": {
+            "$gt": "0"
+          }
+        }
+      },
+      "isTwinPlantBOPAssociatedCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isPlantBOPAssociatedCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isOccurenceSublocation",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "conditions.isTCPlatformValidForSync",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "isTwinPlantAssociatedCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isPlantAssociatedCondition",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isProcessAreaSublocation",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "conditions.isTCPlatformValidForSync",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "isTCMajorVersionGreaterThan12": {
+        "expression": {
+          "$source": "ctx.tcSessionData.tcMajorVersion",
+          "$query": {
+            "$gt": "12"
+          }
+        }
+      },
+      "isTCMajorVersionEqualTo12": {
+        "expression": {
+          "$source": "ctx.tcSessionData.tcMajorVersion",
+          "$query": {
+            "$eq": "12"
+          }
+        }
+      },
+      "isTCMinorVersionGreaterThan4": {
+        "expression": {
+          "$source": "ctx.tcSessionData.tcMinorVersion",
+          "$query": {
+            "$gt": "4"
+          }
+        }
+      },
+      "isTCMinorVersionEqualTo4": {
+        "expression": {
+          "$source": "ctx.tcSessionData.tcMinorVersion",
+          "$query": {
+            "$eq": "4"
+          }
+        }
+      },
+      "isTCQRMNumberGreaterThanOrEqual0": {
+        "expression": {
+          "$source": "ctx.tcSessionData.tcQRMNumber",
+          "$query": {
+            "$gte": "0"
+          }
+        }
+      },
+      "isTCPhaseVersionGreaterThanOrEqualTo10": {
+        "expression": {
+          "$source": "ctx.tcSessionData.phaseVersion",
+          "$query": {
+            "$gte": "10"
+          }
+        }
+      },
+      "isTCVersionGreaterThan_12_4": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isTCMajorVersionEqualTo12",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isTCMinorVersionGreaterThan4",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "isTCVersionGreaterThanOrEqualTo_12_4_0_1": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isTCMajorVersionEqualTo12",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isTCMinorVersionEqualTo4",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isTCQRMNumberGreaterThanOrEqual0",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "conditions.isTCPhaseVersionGreaterThanOrEqualTo10",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      },
+      "isTCPlatformValidForSync": {
+        "expression": {
+          "$or": [
+            {
+              "$source": "conditions.isTCMajorVersionGreaterThan12",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isTCVersionGreaterThan_12_4",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isTCVersionGreaterThanOrEqualTo_12_4_0_1",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "wiCmdPasteIntoCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.selection.length",
+              "$query": {
+                "$eq": 1
+              }
+            },
+            {
+              "$source": "ctx.awClipBoardProvider.length",
+              "$query": {
+                "$gt": 0
+              }
+            }
+          ]
+        }
+      },
+      "wiCmdPasteIntoEnabledCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.selection",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$in": [
+                      "Mfg0BvrProcess"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "conditions.wiCutPasteIntoCommandEnable",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "wiCmdPasteBeforeCondition": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.selection.length",
+              "$query": {
+                "$eq": 1
+              }
+            },
+            {
+              "$source": "ctx.awClipBoardProvider.length",
+              "$query": {
+                "$gt": 0
+              }
+            }
+          ]
+        }
+      },
+      "wiCmdPasteBeforeEnableCondition": {
+        "expression": "conditions.wiCutPasteBeforeCommandEnable && commandContext.selection[0].uid !== ctx.epPageContext.loadedObject.uid"
+      },
+      "wiCutPasteBeforeCommandEnable": {
+        "expression": "conditions.wiAreObjectsCut ? commandContext.selection[0].props.bl_parent.dbValues[0] === ctx.awClipBoardProvider[0].props.bl_parent.dbValues[0]  : true"
+      },
+      "wiCutPasteIntoCommandEnable": {
+        "expression": "conditions.wiAreObjectsCut ? commandContext.selection[0].uid === ctx.awClipBoardProvider[0].props.bl_parent.dbValues[0]  : true"
+      },
+      "wiAreObjectsCut": {
+        "expression": "commandContext.areOperationsCut"
+      },
+      "isReadOnly": {
+        "expression": "ctx.mfeReadOnlyMode.readOnlyMode === false || !ctx.mfeReadOnlyMode"
+      },
+      "isProcessIDLoaded": {
+        "expression": "ctx.preferences.WI_ProcessIdForCloneOperation && ctx.preferences.WI_ProcessIdForCloneOperation[0]"
+      },
+      "isSaveWorkInstrictionsEnabled": {
+        "expression": "conditions.isReadOnly && ctx.wiEditor && ctx.wiEditor.isSaveWorkInstrictionsEnabled"
+      },
+      "isRemoveOperationAllowed": {
+        "expression": "commandContext.selection.length > 0 && commandContext.selection[0].type === 'Mfg0BvrOperation'"
+      },
+      "isStepHeaderObject": {
+        "expression": "commandContext.wiStepObject"
+      },
+      "isMultipleObjSelected": {
+        "expression": "commandContext.selection.length > 1"
+      }
+    },
+    "commandPlacements": {
+      "PreviousOperationCommandDisplay": {
+        "id": "PreviousOperationCommand",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 999
+      },
+      "NextOperationCommandDisplay": {
+        "id": "NextOperationCommand",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 1000
+      },
+      "openManageWorkPackagePageCellOnHover": {
+        "id": "cmdManageWorkPackage",
+        "uiAnchor": "com.siemens.splm.clientfx.tcui.commands.modelObjectCellListActionCommands",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "BOTTOM_RIGHT",
+          "selected": true
+        }
+      },
+      "openManageWorkPackagePageCellOnHoverInFolders": {
+        "id": "cmdManageWorkPackage",
+        "uiAnchor": "com.siemens.splm.clientfx.tcui.commands.modelObjectObjectNavigationCellListActionCommands",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "BOTTOM_RIGHT",
+          "selected": true
+        }
+      },
+      "openMCNFromEPCommandPlacement": {
+        "id": "Awp0ShowObjectCell",
+        "uiAnchor": "epMCNToolTipCommandBarSlot",
+        "priority": 1000
+      },
+      "aceClassificationCommandPlacement": {
+        "id": "showAssignFromClassificationCommand",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 100,
+        "parentGroupId": "Awb0AddGroup"
+      },
+      "EasyPlanObjectNavigationOneStepCommandPlacement": {
+        "id": "epOpenWP",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 999
+      },
+      "EpManageAddToFavorites": {
+        "id": "Awp0AddToFavorites",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 310
+      },
+      "EpManageRemoveFromFavorites": {
+        "id": "Awp0RemoveFromFavorites",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 310
+      },
+      "backToBalancingDisplay": {
+        "id": "backToBalancingCommand",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 1
+      },
+      "cmdCreateAlternativeDisplay": {
+        "id": "cmdCreateAlternative",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 100
+      },
+      "cmdManageAlternativesGroupDisplay": {
+        "id": "cmdManageAlternativesGroup",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "showGroupSelected": false,
+        "priority": 100
+      },
+      "cmdCreatePartialAlternativeDisplay": {
+        "id": "cmdCreatePartialAlternative",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "parentGroupId": "cmdManageAlternativesGroup",
+        "priority": 100
+      },
+      "cmdSearchPartialAlternativeDisplay": {
+        "id": "cmdSearchPartialAlternative",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "parentGroupId": "cmdManageAlternativesGroup",
+        "priority": 100
+      },
+      "cmdGoToMasterDisplay": {
+        "id": "cmdGoToMaster",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 100
+      },
+      "cmdCloneAlternativeDisplay": {
+        "id": "cmdCloneAlternative",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 100
+      },
+      "configureBOPbyEffectivityCommandDisplay": {
+        "id": "configureBOPbyEffectivityCommand",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 100
+      },
+      "epCheckOutDisplay": {
+        "id": "epCheckOut",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 1
+      },
+      "epCheckInDisplay": {
+        "id": "epCheckIn",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 1
+      },
+      "cmdCreateReportDisplay": {
+        "id": "cmdCreateReport",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 200
+      },
+      "EPStartEdit": {
+        "id": "EPStartEdit",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": -3
+      },
+      "EPSaveEdits": {
+        "id": "EPSaveEdits",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": -2
+      },
+      "EPCancelEdits": {
+        "id": "EPCancelEdits",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": -1
+      },
+      "epUnassignPartCommandDisplay": {
+        "id": "epUnassign",
+        "uiAnchor": "epPartsTable_uiAnchor",
+        "priority": 1
+      },
+      "epUnassignResourceCommandDisplay": {
+        "id": "epUnassign",
+        "uiAnchor": "epResourcesTable_uiAnchor",
+        "priority": 1
+      },
+      "epRemoveWorkareaCommandDisplay": {
+        "id": "epRemoveWorkarea",
+        "uiAnchor": "epWorkareaTable_uiAnchor",
+        "priority": 1
+      },
+      "epAssignWorkareaCommandDisplay": {
+        "id": "epAssignWorkarea",
+        "uiAnchor": "epWorkareaTable_uiAnchor",
+        "priority": 1
+      },
+      "epStartEditInformationCommandDisplay": {
+        "id": "epStartEditInformation",
+        "uiAnchor": "epInformation_uiAnchor",
+        "priority": -3
+      },
+      "epSaveEditInformationCommandDisplays": {
+        "id": "epSaveEditsInformation",
+        "uiAnchor": "epInformation_uiAnchor",
+        "priority": -2
+      },
+      "epCancelEditsInformationCommandDisplay": {
+        "id": "epCancelEditsInformation",
+        "uiAnchor": "epInformation_uiAnchor",
+        "priority": -1
+      },
+      "epAttachFileCommandOnDisplay": {
+        "id": "epAttachFileLaunchPopupCommand",
+        "uiAnchor": "epFiles_uiAnchor",
+        "priority": 1002
+      },
+      "epDownloadAttachmentCommandDisplay": {
+        "id": "epDownloadAttachmentCommand",
+        "uiAnchor": "epFiles_uiAnchor",
+        "priority": 1001
+      },
+      "epDeleteAttachmentCommandDisplay": {
+        "id": "epDeleteAttachmentCommand",
+        "uiAnchor": "epFiles_uiAnchor",
+        "priority": 1003
+      },
+      "epUnassignDocumentItemCommandDisplay": {
+        "id": "epUnassignDocumentItem",
+        "uiAnchor": "epDocuments_uiAnchor",
+        "priority": 1
+      },
+      "epPasteDocumentItemCommandDisplay": {
+        "id": "epPasteDocumentItem",
+        "uiAnchor": "epDocuments_uiAnchor",
+        "priority": 1
+      },
+      "pertDeleteCommandDisplay": {
+        "id": "epCmdDelete",
+        "uiAnchor": "epPert_uiAnchor",
+        "priority": 1003
+      },
+      "OpenPertNodeCommandDisplay": {
+        "id": "OpenPertNodeCommand",
+        "uiAnchor": "aw_graph_node",
+        "priority": 200
+      },
+      "resetLayoutCommandDisplay": {
+        "id": "resetLayoutCommand",
+        "uiAnchor": "epPert_uiAnchor",
+        "priority": 1005
+      },
+      "submitToWorkflowCommandDisplay": {
+        "id": "submitToWorkflowCommand",
+        "uiAnchor": "epPert_uiAnchor",
+        "priority": 1004
+      },
+      "epValidationRunCommandPlacement": {
+        "id": "epValidationRunCommand",
+        "uiAnchor": "epValidationMessage_uiAnchor",
+        "priority": 100
+      },
+      "epValidationRunCommandPlacement1": {
+        "id": "epValidationRunCommand",
+        "uiAnchor": "epValidationResultTable_uiAnchor",
+        "priority": 50
+      },
+      "epValidationOpenValidationsPanelCommandPlacement": {
+        "id": "epValidationOpenValidationsPanelCommand",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 10
+      },
+      "classiCommandPlacement": {
+        "id": "showAssignFromClassificationCommand",
+        "uiAnchor": "wiResourcesTable_uiAnchor",
+        "priority": 95
+      },
+      "epOpenTimeDistribution": {
+        "id": "epOpenTimeDistribution",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 20
+      },
+      "epOpenLineLayoutInNewTabDisplay": {
+        "id": "epOpenLineLayoutInNewTab",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 30
+      },
+      "CreateOperationCommandDisplay": {
+        "id": "epCreateOperation",
+        "uiAnchor": "epPert_uiAnchor",
+        "priority": 1001
+      },
+      "CreateProcessCommandDisplay": {
+        "id": "epCreateProcessArea",
+        "uiAnchor": "epPert_uiAnchor",
+        "priority": 1002
+      },
+      "AssignProjectCmdPlacement": {
+        "id": "epAssignProject",
+        "uiAnchor": "ep_projectSectionCommands",
+        "priority": 100
+      },
+      "epRemoveScopeCommandDisplay": {
+        "id": "epRemoveScope",
+        "uiAnchor": "epScoping_uiAnchor",
+        "priority": 1
+      },
+      "syncCommandPlacement": {
+        "id": "syncPlantToBOPCommand",
+        "uiAnchor": "aw_workArea_right",
+        "priority": 95
+      },
+      "syncBOPtoPlantCommandPlacement": {
+        "id": "syncBOPtoPlantCommand",
+        "uiAnchor": "ep_commandBarRightSlot",
+        "priority": 95
+      },
+      "wiUnassignPartCommandDisplay": {
+        "id": "epUnassign",
+        "uiAnchor": "wiPartsTable_uiAnchor",
+        "priority": 1
+      },
+      "wiUnassignResourceCommandDisplay": {
+        "id": "epUnassign",
+        "uiAnchor": "wiResourcesTable_uiAnchor",
+        "priority": 1
+      },
+      "epCmdCopyCommandDisplay": {
+        "id": "Awp0Copy",
+        "uiAnchor": "wiProcessTree_uiAnchor",
+        "priority": -1
+      },
+      "wiCmdPasteIntoDisplay": {
+        "id": "wiCmdPasteInto",
+        "uiAnchor": "wiProcessTree_uiAnchor",
+        "priority": 1,
+        "parentGroupId": "wiCmdPasteGroup"
+      },
+      "wiCmdPasteGroupDisplay": {
+        "id": "wiCmdPasteGroup",
+        "uiAnchor": "wiProcessTree_uiAnchor",
+        "priority": 1
+      },
+      "epCmdCutCommandDisplay": {
+        "id": "Awp0Cut",
+        "uiAnchor": "wiProcessTree_uiAnchor",
+        "priority": -1
+      },
+      "wiCmdPasteBeforeDisplay": {
+        "id": "wiCmdPasteBefore",
+        "uiAnchor": "wiProcessTree_uiAnchor",
+        "priority": 1,
+        "parentGroupId": "wiCmdPasteGroup"
+      },
+      "wiCmdPasteAfterDisplay": {
+        "id": "wiCmdPasteAfter",
+        "uiAnchor": "wiProcessTree_uiAnchor",
+        "priority": 1,
+        "parentGroupId": "wiCmdPasteGroup"
+      },
+      "wiCmdSubmitToWorkflowDisplay": {
+        "id": "submitToWorkflowCommand",
+        "uiAnchor": "wiProcessTree_uiAnchor",
+        "priority": 1
+      },
+      "WISaveInstructionsCommandDisplay": {
+        "id": "WISaveInstructionsCommand",
+        "uiAnchor": "wiEditor_uiAnchor",
+        "priority": -1
+      },
+      "showStepCommands": {
+        "id": "stepGroupCommands",
+        "uiAnchor": "WI_StepHeader",
+        "priority": -1
+      },
+      "addNewStepCommandDisplay": {
+        "id": "epCreateOperation",
+        "uiAnchor": "WI_StepHeader",
+        "priority": -1,
+        "parentGroupId": "stepGroupCommands"
+      },
+      "epDeleteCommandDisplay": {
+        "id": "epCmdDelete",
+        "uiAnchor": "WI_StepHeader",
+        "priority": -1,
+        "parentGroupId": "stepGroupCommands"
+      },
+      "wiValidateOccEffectivityCommandDisplay": {
+        "id": "WIValidateOccEffectivityCommand",
+        "uiAnchor": "wiProcessTree_uiAnchor",
+        "priority": -1
+      },
+      "validateEffectivityPopupCloseCommandPlacement": {
+        "id": "WICloseValidateEffectivityPopupCommand",
+        "uiAnchor": "closeValidateEffectivityPopupAnchor",
+        "priority": 300
+      },
+      "setEffectivityStepCommandDisplay": {
+        "id": "setEffectivityStepCommand",
+        "uiAnchor": "WI_StepHeader",
+        "priority": -1,
+        "parentGroupId": "stepGroupCommands"
+      },
+      "removeEffectivityCommandPlacement": {
+        "id": "removeEffectivityCommand",
+        "uiAnchor": "setEffectivity",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "BOTTOM_RIGHT",
+          "selected": true
+        }
+      },
+      "addEffectivityCommandPlacement": {
+        "id": "addEffectivityCommand",
+        "uiAnchor": "addEffectivity",
+        "priority": 1
+      },
+      "editEffectivityCommandPlacement": {
+        "id": "editEffectivityCommand",
+        "uiAnchor": "setEffectivity",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      }
+    },
+    "i18n": {
+      "previousOperation": [
+        "PageMessages"
+      ],
+      "nextOperation": [
+        "PageMessages"
+      ],
+      "ManageToolTip": [
+        "EPMessages"
+      ],
+      "createWorkPackageHeaderTitle": [
+        "AdminMessages"
+      ],
+      "epOpenWPTitle": [
+        "AdminMessages"
+      ],
+      "epOpenWPDesc": [
+        "AdminMessages"
+      ],
+      "backToBalancingTitle": [
+        "FunctionalPlanMessages"
+      ],
+      "createAlternativeTitle": [
+        "AlternativeMessages"
+      ],
+      "createPartialAlternativeTitle": [
+        "AlternativeMessages"
+      ],
+      "manageAlternativeTitle": [
+        "AlternativeMessages"
+      ],
+      "searchPartialAlternatives": [
+        "AlternativeMessages"
+      ],
+      "goToMasterTitle": [
+        "AlternativeMessages"
+      ],
+      "cloneAlternativeTitle": [
+        "AlternativeMessages"
+      ],
+      "configureBOPByEffectivityTitle": [
+        "epBvrMaturityMessages"
+      ],
+      "epConfigureBOPbyEffectivityPopupHeaderCaption": [
+        "epBvrMaturityMessages"
+      ],
+      "ok": [
+        "EPMessages"
+      ],
+      "cancel": [
+        "EPMessages",
+        "InstructionsEditorMessages"
+      ],
+      "checkOutTooltip": [
+        "epBvrMaturityMessages"
+      ],
+      "checkInTooltip": [
+        "epBvrMaturityMessages"
+      ],
+      "checkInConfirmation": [
+        "epBvrMaturityMessages"
+      ],
+      "createReportPopupTitle": [
+        "ReportsMessages"
+      ],
+      "createReportCommandTitle": [
+        "ReportsMessages"
+      ],
+      "unassign": [
+        "DetailsMessages"
+      ],
+      "removeWorkarea": [
+        "DetailsMessages"
+      ],
+      "assignWorkarea": [
+        "DetailsMessages"
+      ],
+      "noPlantStructureAvailableErrorMessage": [
+        "DetailsMessages"
+      ],
+      "attachFile": [
+        "DetailsMessages"
+      ],
+      "attachFileCmdDesc": [
+        "DetailsMessages"
+      ],
+      "downloadAttachment": [
+        "DetailsMessages"
+      ],
+      "downloadAttachmentDescription": [
+        "DetailsMessages"
+      ],
+      "deleteAttachment": [
+        "DetailsMessages"
+      ],
+      "deleteAttachmentDescription": [
+        "DetailsMessages"
+      ],
+      "delete": [
+        "epDeleteMessages"
+      ],
+      "paste": [
+        "DetailsMessages"
+      ],
+      "createOperationCmdTitle": [
+        "CreateObjectMessages"
+      ],
+      "createProcessAreaCmdTitle": [
+        "CreateObjectMessages"
+      ],
+      "assignProjectCmdTitle": [
+        "CreateObjectMessages"
+      ],
+      "openPertNodeTitle": [
+        "PertMessages"
+      ],
+      "resetLayoutTitle": [
+        "PertMessages"
+      ],
+      "resetLayoutDescription": [
+        "PertMessages"
+      ],
+      "epCmdDeleteTitle": [
+        "epDeleteMessages"
+      ],
+      "epCmdDeleteDesc": [
+        "epDeleteMessages"
+      ],
+      "runValidationsCommandTitle": [
+        "epValidationMessages"
+      ],
+      "openValidationsPanelCommandTitle": [
+        "epValidationMessages"
+      ],
+      "closeValidationsPanelCommandTitle": [
+        "epValidationMessages"
+      ],
+      "classificationTitle": [
+        "classificationResourceMessages"
+      ],
+      "classificationTooltip": [
+        "classificationResourceMessages"
+      ],
+      "submitToWorkflowTitle": [
+        "WorkflowMessages"
+      ],
+      "submitToWorkflowDescription": [
+        "WorkflowMessages"
+      ],
+      "openTimeDistributionTooltip": [
+        "BalancingMessages"
+      ],
+      "openLineLayout": [
+        "LayoutMessages"
+      ],
+      "removeScope": [
+        "PlanningMessages"
+      ],
+      "syncBOE": [
+        "TwinMessages"
+      ],
+      "syncPlantDesc": [
+        "TwinMessages"
+      ],
+      "syncPlantBOPDesc": [
+        "TwinMessages"
+      ],
+      "wiCmdPasteIntoTitle": [
+        "InstructionsMessages"
+      ],
+      "wiCmdPasteGroupTitle": [
+        "InstructionsMessages"
+      ],
+      "wiCmdPasteBeforeTitle": [
+        "InstructionsMessages"
+      ],
+      "wiCmdPasteAfterTitle": [
+        "InstructionsMessages"
+      ],
+      "more": [
+        "InstructionsEditorMessages"
+      ],
+      "clone": [
+        "InstructionsEditorMessages"
+      ],
+      "save": [
+        "InstructionsEditorMessages",
+        "InstructionsEffectivityMessages"
+      ],
+      "validateEffectivityPopupTitle": [
+        "InstructionsEffectivityMessages"
+      ],
+      "setEffectivity": [
+        "InstructionsEffectivityMessages"
+      ],
+      "setEffectivityDesc": [
+        "InstructionsEffectivityMessages"
+      ],
+      "deleteEffectivity": [
+        "InstructionsEffectivityMessages"
+      ],
+      "createEffectivity": [
+        "InstructionsEffectivityMessages"
+      ],
+      "editEffectivity": [
+        "InstructionsEffectivityMessages"
+      ],
+      "addEffectivity": [
+        "InstructionsEffectivityMessages"
+      ]
+    },
+    "onEvent": [
+      {
+        "eventId": "mfeLargePopup.closeRequest",
+        "action": "closePopupWindow"
+      },
+      {
+        "eventId": "epOpenAssignWorkareaPopup",
+        "cacheEventData": true,
+        "action": "epOpenAssignWorkareaPopup"
+      }
+    ],
+    "messages": {
+      "epCheckInConfirmationMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.checkInConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.epPageContext.loadedObject.props.bl_rev_object_name.dbValues[0]}}",
+          "{{data.checkedOutParent}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}"
+          },
+          {
+            "option": "OK",
+            "text": "{{i18n.ok}}",
+            "action": "epCheckInCommandAction"
+          }
+        ]
+      },
+      "noPlantStructureAvailableErrorMessage": {
+        "messageType": "ERROR",
+        "messageText": "{{i18n.noPlantStructureAvailableErrorMessage}}",
+        "messageTextParams": [
+          "{{ctx.epPageContext.collaborationContext.props.object_string.uiValues[0]}}"
+        ]
+      }
+    },
+    "preferences": [
+      "AWC_CancelEdit_Confirmation"
+    ],
+    "schemaVersion": "1.0.0",
+    "data": {
+      "inputObject": "{{ports.epValidationMessage_inputObject.syncObject[0]}}"
+    }
+  },
+  "layoutSlots": {
+    "slots": {
+      "mfeEpOldHeaderSlot": {
+        "name": "mfe_header",
+        "view": "epHeader",
+        "activeWhen": {
+          "condition": "conditions.isOnEPPage"
+        }
+      },
+      "mfeEpOldTaskBarSlot": {
+        "name": "mfe_taskBar",
+        "view": "mfeOldTaskbar",
+        "activeWhen": {
+          "condition": "conditions.isOnEPPage"
+        }
+      },
+      "mfeEpTaskHeaderSlot": {
+        "name": "mfe_header",
+        "view": "epTaskHeader",
+        "activeWhen": {
+          "condition": "conditions.isOnEPTaskPage"
+        }
+      },
+      "mfeEpTaskBarSlot": {
+        "name": "mfe_taskBar",
+        "view": "mfeTaskbar",
+        "activeWhen": {
+          "condition": "conditions.isOnEPTaskPage"
+        }
+      },
+      "mfeEpToolbarRightSlot": {
+        "name": "mfe_toolbar",
+        "view": "epToolBar",
+        "activeWhen": {
+          "condition": "conditions.isOnEPPageOREPTaskPage"
+        }
+      },
+      "mfeEpAdminCreateSubPageHeaderTitleSlot": {
+        "name": "aw_headerTitle",
+        "view": "commonHeaderTitle",
+        "activeWhen": {
+          "condition": "conditions.isOnEPAdminCreatePage"
+        }
+      },
+      "mfeEpAdminCreateSubPageHeaderContentSlot": {
+        "name": "aw_headerContent",
+        "view": "epAdminCreateSubPageHeader",
+        "activeWhen": {
+          "condition": "conditions.isOnEPAdminCreatePage"
+        }
+      },
+      "epAdditionalLogosSlot": {
+        "name": "ep_additionalLogos",
+        "view": "epTiconLogo",
+        "activeWhen": {
+          "condition": "conditions.showTiconLogo"
+        }
+      },
+      "mfeEpIndicationbarSlot": {
+        "name": "mfe_taskbarLeftSlot",
+        "view": "wiScopeLabel",
+        "activeWhen": {
+          "condition": "conditions.isOnWIPage"
+        }
+      }
+    },
+    "conditions": {
+      "isOnEPPage": {
+        "expression": "ctx.locationContext['ActiveWorkspace:Location'] === 'com.siemens.splm.client.mfg.easyplan' || ctx.locationContext['ActiveWorkspace:Location'] === 'com.siemens.splm.client.mfg.easyplan.admin.package'"
+      },
+      "isOnEPTaskPage": {
+        "expression": "ctx.locationContext['ActiveWorkspace:Location'] === 'easyplan'"
+      },
+      "isOnEPPageOREPTaskPage": {
+        "expression": "ctx.locationContext['ActiveWorkspace:Location'] === 'com.siemens.splm.client.mfg.easyplan' || ctx.locationContext['ActiveWorkspace:Location'] === 'easyplan' || ctx.locationContext['ActiveWorkspace:Location'] === 'com.siemens.splm.client.mfg.easyplan.admin.package'"
+      },
+      "isOnEPAdminCreatePage": {
+        "expression": "ctx.locationContext['ActiveWorkspace:Location'] === 'com.siemens.splm.client.mfg.easyplan.admin.package.create'"
+      },
+      "showTiconLogo": {
+        "expression": {
+          "$source": "ctx.locationContext",
+          "$query": {
+            "$source": "ActiveWorkspace:SubLocation",
+            "$query": {
+              "$in": [
+                "ticonHeaderSubpage",
+                "ticonStructureSubpage",
+                "ticonTimesSubpage",
+                "ticonIndicator1Subpage",
+                "ticonIndicator2Subpage",
+                "ticonIndicator3Subpage"
+              ]
+            }
+          }
+        }
+      },
+      "isOnWIPage": {
+        "expression": "ctx.sublocation.nameToken === 'workInstructions'|| (ctx.mfeLargePopup.isNewState && ctx.workspace.workspaceId === 'WIWorkspace')"
+      }
+    }
+  },
+  "states": {
+    "com_siemens_splm_client_mfg_easyplan": {
+      "data": {
+        "browserSubTitle": {
+          "source": "/i18n/EPMessages",
+          "key": "browserSubTitle"
+        },
+        "headerTitle": {
+          "source": "/i18n/EPMessages",
+          "key": "headerTitle"
+        },
+        "loading": {
+          "source": "/i18n/EPMessages",
+          "key": "headerTitle"
+        }
+      },
+      "abstract": false,
+      "view": "mfeCommonLocation",
+      "parent": "root",
+      "url": "/com.siemens.splm.client.mfg.easyplan?mcn&uid&selectedProc"
+    },
+    "easyplan": {
+      "data": {
+        "browserSubTitle": {
+          "source": "/i18n/EPMessages",
+          "key": "browserSubTitle"
+        },
+        "headerTitle": {
+          "source": "/i18n/EPMessages",
+          "key": "headerTitle"
+        },
+        "loading": {
+          "source": "/i18n/EPMessages",
+          "key": "headerTitle"
+        }
+      },
+      "abstract": false,
+      "view": "mfeCommonLocation",
+      "parent": "root",
+      "url": "/com.siemens.splm.client.mfg.easyplan?mcn&uid&selectedProc"
+    },
+    "com_siemens_splm_clientfx_tcui_xrt_showObject": {
+      "params": {
+        "cc_uid": null
+      },
+      "type": "parameter"
+    },
+    "AssignmentActivities": {
+      "controller": "HostedViewCtrl",
+      "type": "subLocation",
+      "url": "/AssignmentActivities",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "data": {
+        "label": {
+          "source": "/i18/TimeMessages",
+          "key": "ActivitiesTitle"
+        },
+        "nameToken": "AssignmentActivities",
+        "clientScopeURI": "AssignmentActivities",
+        "priority": 1,
+        "hostApplication": "EasyPlan"
+      },
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrOperation"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.preferences.EP_TimeAnalysisMode.0",
+              "$query": {
+                "$in": [
+                  "ACTIVITIES"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "activities": {
+      "controller": "HostedViewCtrl",
+      "type": "subLocation",
+      "url": "/activities",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "data": {
+        "label": {
+          "source": "/i18/TimeMessages",
+          "key": "ActivitiesTitle"
+        },
+        "nameToken": "activities",
+        "clientScopeURI": "activities",
+        "priority": 1,
+        "hostApplication": "EasyPlan"
+      },
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mfg0BvrOperation"
+            ]
+          }
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "com_siemens_splm_client_mfg_easyplan_admin_package": {
+      "data": {
+        "browserSubTitle": {
+          "source": "/i18n/EPMessages",
+          "key": "browserSubTitle"
+        },
+        "headerTitle": {
+          "source": "/i18n/EPMessages",
+          "key": "headerTitle"
+        }
+      },
+      "abstract": false,
+      "view": "mfeCommonLocation",
+      "parent": "root",
+      "url": "/com.siemens.splm.client.mfg.easyplan.admin.package?mcn&uid"
+    },
+    "manageWorkPackageNew": {
+      "data": {
+        "label": {
+          "source": "/i18n/AdminMessages",
+          "key": "manageTitleDecl"
+        },
+        "priority": 1,
+        "nameToken": "manageWorkPackageNewSubLocation",
+        "clientScopeURI": "manageWorkPackageNewSubLocation"
+      },
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "MECollaborationContext"
+            ]
+          }
+        }
+      },
+      "url": "/manageWorkPackageNew",
+      "type": "subLocation",
+      "abstract": false,
+      "view": "epManageWorkPackageSubpage",
+      "parent": "easyplan"
+    },
+    "com_siemens_splm_client_mfg_easyplan_admin_package_create": {
+      "data": {
+        "browserSubTitle": {
+          "source": "/i18n/EPMessages",
+          "key": "browserSubTitle"
+        },
+        "headerTitle": {
+          "source": "/i18n/AdminMessages",
+          "key": "createWorkPackageHeaderTitle"
+        }
+      },
+      "abstract": false,
+      "view": "commonLocation",
+      "parent": "root",
+      "url": "/com.siemens.splm.client.mfg.easyplan.admin.package"
+    },
+    "createWorkPackage": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/createWorkPackage",
+      "parent": "com_siemens_splm_client_mfg_easyplan_admin_package_create",
+      "data": {
+        "label": {
+          "source": "",
+          "key": ""
+        },
+        "nameToken": "epCreateWorkPackageSubPageSubLocation",
+        "clientScopeURI": "",
+        "hostApplication": "EasyPlan"
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "managePlantBopPackage": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/managePlantBopPackage",
+      "parent": "com_siemens_splm_client_mfg_easyplan_admin_package",
+      "data": {
+        "label": {
+          "source": "/i18n/AdminMessages",
+          "key": "manageTitle"
+        },
+        "priority": 1,
+        "nameToken": "ManagePlantBopPackageSubLocation",
+        "clientScopeURI": "ManagePlantBopPackageSubLocation",
+        "hostApplication": "EasyPlan"
+      },
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "MECollaborationContext"
+            ]
+          }
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "manageLegacyBopPackage": {
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/manageLegacyBopPackage",
+      "parent": "com_siemens_splm_client_mfg_easyplan_admin_package",
+      "data": {
+        "label": {
+          "source": "/i18n/AdminMessages",
+          "key": "manageTitle"
+        },
+        "priority": 1,
+        "nameToken": "manageLegacyBopPackageSubpageSubLocation",
+        "clientScopeURI": "manageLegacyBopPackageSubpageSubLocation",
+        "hostApplication": "EasyPlan"
+      },
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "MECollaborationContext"
+            ]
+          }
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "functionalPlan": {
+      "data": {
+        "label": {
+          "source": "/i18/FunctionalPlanMessages",
+          "key": "ProductBOPTitle"
+        },
+        "nameToken": "functionalPlan",
+        "clientScopeURI": "functionalPlan",
+        "priority": 1,
+        "hostApplication": "EasyPlan"
+      },
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/functionalPlan",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mfg0BvrProductBOP"
+            ]
+          }
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "4gProperties": {
+      "type": "subLocation",
+      "url": "/4gProperties",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "view": "epDetails",
+      "data": {
+        "label": {
+          "source": "/i18/InformationMessages",
+          "key": "detailsTitle"
+        },
+        "nameToken": "4gProperties",
+        "clientScopeURI": "4gProperties",
+        "priority": 11
+      },
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mfg0BvrPlantBOP",
+              "Mfg0BvrProcessArea",
+              "Mfg0BvrProcessLine",
+              "Mfg0BvrProcessStation",
+              "Mfg0BvrOperation",
+              "Mfg0BvrProductBOP"
+            ]
+          }
+        }
+      }
+    },
+    "ticonRoot": {
+      "abstract": true,
+      "view": "ticonRoot",
+      "parent": "root"
+    },
+    "ticon_time_element": {
+      "abstract": false,
+      "parent": "ticonRoot",
+      "params": {
+        "uid": null
+      },
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ],
+      "data": {
+        "hostApplication": "EasyPlan"
+      },
+      "url": "/ticon_time_element"
+    },
+    "ticon": {
+      "abstract": false,
+      "parent": "ticonRoot",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "controller": "HostedViewCtrl",
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ],
+      "data": {
+        "browserSubTitle": {
+          "source": "/i18n/TiconMessages",
+          "key": "ticonPageHeader"
+        },
+        "headerTitle": {
+          "source": "/i18n/TiconMessages",
+          "key": "ticonPageHeader"
+        },
+        "hostApplication": "EasyPlan"
+      },
+      "url": "/ticon"
+    },
+    "ticon_admin": {
+      "abstract": false,
+      "parent": "ticonRoot",
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ],
+      "data": {
+        "browserSubTitle": {
+          "source": "/i18n/TiconMessages",
+          "key": "ticonPageHeader"
+        },
+        "headerTitle": {
+          "source": "/i18n/TiconMessages",
+          "key": "ticonPageHeader"
+        },
+        "hostApplication": "EasyPlan"
+      },
+      "url": "/ticon_admin"
+    },
+    "ticonHeaderSubpage": {
+      "controller": "HostedViewCtrl",
+      "type": "subLocation",
+      "url": "/header",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "data": {
+        "label": {
+          "source": "/i18n/TiconMessages",
+          "key": "HeaderTitle"
+        },
+        "priority": 500,
+        "defaultSubpagePriority": 2,
+        "hostApplication": "EasyPlan",
+        "stayOnPage": true
+      },
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrOperation"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.preferences.EP_TimeAnalysisMode.0",
+              "$query": {
+                "$in": [
+                  "TICON"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "ticonStructureSubpage": {
+      "controller": "HostedViewCtrl",
+      "type": "subLocation",
+      "url": "/structure",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "data": {
+        "label": {
+          "source": "/i18n/TiconMessages",
+          "key": "StructureTitle"
+        },
+        "priority": 600,
+        "defaultSubpagePriority": 1,
+        "hostApplication": "EasyPlan",
+        "stayOnPage": true
+      },
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrOperation"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.preferences.EP_TimeAnalysisMode.0",
+              "$query": {
+                "$in": [
+                  "TICON"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "ticonTimesSubpage": {
+      "controller": "HostedViewCtrl",
+      "type": "subLocation",
+      "url": "/times",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "data": {
+        "label": {
+          "source": "/i18n/TiconMessages",
+          "key": "TimesTitle"
+        },
+        "priority": 700,
+        "defaultSubpagePriority": 3,
+        "hostApplication": "EasyPlan",
+        "stayOnPage": true
+      },
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrOperation"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.preferences.EP_TimeAnalysisMode.0",
+              "$query": {
+                "$in": [
+                  "TICON"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "ticonIndicator1Subpage": {
+      "controller": "HostedViewCtrl",
+      "type": "subLocation",
+      "url": "/indicator1",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "data": {
+        "label": {
+          "source": "/i18n/TiconMessages",
+          "key": "Indicator1Title"
+        },
+        "priority": 800,
+        "defaultSubpagePriority": 4,
+        "hostApplication": "EasyPlan",
+        "stayOnPage": true
+      },
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrOperation"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.preferences.EP_TimeAnalysisMode.0",
+              "$query": {
+                "$in": [
+                  "TICON"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "ticonIndicator2Subpage": {
+      "controller": "HostedViewCtrl",
+      "type": "subLocation",
+      "url": "/indicator2",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "data": {
+        "label": {
+          "source": "/i18n/TiconMessages",
+          "key": "Indicator2Title"
+        },
+        "priority": 900,
+        "defaultSubpagePriority": 5,
+        "hostApplication": "EasyPlan",
+        "stayOnPage": true
+      },
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrOperation"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.preferences.EP_TimeAnalysisMode.0",
+              "$query": {
+                "$in": [
+                  "TICON"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "ticonIndicator3Subpage": {
+      "controller": "HostedViewCtrl",
+      "type": "subLocation",
+      "url": "/indicator3",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "data": {
+        "label": {
+          "source": "/i18n/TiconMessages",
+          "key": "Indicator3Title"
+        },
+        "priority": 1000,
+        "defaultSubpagePriority": 6,
+        "hostApplication": "EasyPlan",
+        "stayOnPage": true
+      },
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrOperation"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.preferences.EP_TimeAnalysisMode.0",
+              "$query": {
+                "$in": [
+                  "TICON"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "LineBalancing": {
+      "controller": "HostedViewCtrl",
+      "type": "subLocation",
+      "url": "/LineBalancing",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "data": {
+        "label": {
+          "source": "/i18/BalancingMessages",
+          "key": "BalancingTitle"
+        },
+        "priority": 2,
+        "clientScopeURI": "LineBalancing",
+        "nameToken": "LineBalancing",
+        "hostApplication": "EasyPlan"
+      },
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrProcessArea"
+                ]
+              }
+            },
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$notin": [
+                  "Mfg0BvrProcessStation",
+                  "Mfg0BvrPlantBOP"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "lineLayoutPage": {
+      "url": "/lineLayoutPage",
+      "params": {
+        "uid": null
+      },
+      "view": "lineLayoutPage"
+    },
+    "process": {
+      "type": "subLocation",
+      "url": "/process",
+      "parent": "easyplan",
+      "data": {
+        "label": {
+          "source": "/i18/ClassicBopMessages",
+          "key": "PlanningTitle"
+        },
+        "priority": 1,
+        "nameToken": "processSubpageSubLocation",
+        "clientScopeURI": "Process",
+        "hostApplication": "EasyPlan"
+      },
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mfg0BvrProcess"
+            ]
+          }
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "ProcessArea": {
+      "data": {
+        "label": {
+          "source": "/i18/PlanningMessages",
+          "key": "PlanningTitle"
+        },
+        "nameToken": "ProcessAreaSubLocation",
+        "clientScopeURI": "ProcessArea",
+        "priority": 1,
+        "hostApplication": "EasyPlan"
+      },
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/ProcessArea",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.preferences.EP_DisplayLegacyPlanningPage",
+              "$query": {
+                "$eq": "true"
+              }
+            },
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrPlantBOP",
+                  "Mfg0BvrProcessArea",
+                  "Mfg0BvrProcessLine"
+                ]
+              }
+            },
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$notin": [
+                  "Mfg0BvrProcessStation"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "Station": {
+      "data": {
+        "label": {
+          "source": "/i18/PlanningMessages",
+          "key": "PlanningTitle"
+        },
+        "nameToken": "StationPlanningSubLocation",
+        "clientScopeURI": "",
+        "priority": 1,
+        "hostApplication": "EasyPlan"
+      },
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/Station",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mfg0BvrProcessStation"
+            ]
+          }
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "StationOperations": {
+      "data": {
+        "label": {
+          "source": "/i18/PlanningMessages",
+          "key": "StationOperationsTitle"
+        },
+        "nameToken": "StationOperationsSubLocation",
+        "clientScopeURI": "",
+        "priority": 2,
+        "hostApplication": "EasyPlan"
+      },
+      "controller": "HostedViewCtrl",
+      "templateUrl": "/html/aw-hostView.directive.html",
+      "type": "subLocation",
+      "url": "/StationOperations",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mfg0BvrProcessStation"
+            ]
+          }
+        }
+      },
+      "dependencies": [
+        "js/mfe-hostView.controller"
+      ]
+    },
+    "ProcessAreaPlanning": {
+      "data": {
+        "label": {
+          "source": "/i18/PlanningMessages",
+          "key": "PlanningTitle"
+        },
+        "nameToken": "ProcessAreaSubLocation",
+        "clientScopeURI": "",
+        "priority": 1
+      },
+      "view": "processAreaPlanningSubpage",
+      "type": "subLocation",
+      "url": "/ProcessAreaPlanning",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.preferences.EP_DisplayLegacyPlanningPage.0",
+              "$query": {
+                "$ne": "true"
+              }
+            },
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrPlantBOP",
+                  "Mfg0BvrProcessArea",
+                  "Mfg0BvrProcessLine"
+                ]
+              }
+            },
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$notin": [
+                  "Mfg0BvrProcessStation"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "workInstructions": {
+      "type": "subLocation",
+      "url": "/workInstructions",
+      "parent": "easyplan",
+      "view": "workInstructionsClassicSubpage",
+      "data": {
+        "label": {
+          "source": "/i18/InstructionsMessages",
+          "key": "WorkInstructionsTitle"
+        },
+        "priority": 3,
+        "clientScopeURI": "workInstructions",
+        "nameToken": "workInstructions"
+      },
+      "abstract": false,
+      "visibleWhen": {
+        "expression": {
+          "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+          "$query": {
+            "$in": [
+              "Mfg0BvrProcess"
+            ]
+          }
+        }
+      }
+    },
+    "stationWorkInstructions": {
+      "type": "subLocation",
+      "url": "/stationWorkInstructions",
+      "parent": "com_siemens_splm_client_mfg_easyplan",
+      "view": "workInstructionsStationSubpage",
+      "data": {
+        "label": {
+          "source": "/i18n/StationsMessages",
+          "key": "StationWorkInstructionsTitle"
+        },
+        "priority": 3,
+        "clientScopeURI": "stationWorkInstructions",
+        "nameToken": "stationWorkInstructions"
+      },
+      "visibleWhen": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "epObjectToNavigate.modelType.typeHierarchyArray",
+              "$query": {
+                "$in": [
+                  "Mfg0BvrProcessStation"
+                ]
+              }
+            },
+            {
+              "$source": "ctx.preferences.WI_Support.0",
+              "$query": {
+                "$eq": "true"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "BOMLine": {
+        "displayProperty": "bl_rev_object_name",
+        "additionalProperties": []
+      }
+    }
+  },
+  "headerContributions": [
+    {
+      "view": "epAceTags",
+      "visibleWhen": "ctx.state.params.cc_uid != undefined && ctx.state.params.cc_uid != ''",
+      "priority": "1000"
+    }
+  ],
+  "propertyRendererTemplates": {
+    "epDetailsGraphicVisibilityColumn_template": {
+      "grids": [
+        "epDetailsTable"
+      ],
+      "columns": [
+        "graphicVisibility"
+      ],
+      "renderFunction": "rendererGraphicVisibilityIndication",
+      "deps": "js/epGraphicVisibilityTablePropertyRenderer",
+      "headerTemplateUrl": "/propRenderTemplates/epColumnHeaderRenderer.html"
+    },
+    "epGraphicVisibilityColumn_template": {
+      "grids": [
+        "epProcessTreeTable",
+        "epMbomTreeTable"
+      ],
+      "columns": [
+        "graphicVisibility"
+      ],
+      "renderFunction": "rendererGraphicVisibilityIndication",
+      "deps": "js/epGraphicVisibilityTablePropertyRenderer",
+      "headerTemplateUrl": "/propRenderTemplates/epColumnHeaderRenderer.html"
+    },
+    "is_modifiable_template": {
+      "grids": [
+        "studyGridTable"
+      ],
+      "columns": [
+        "is_modifiable"
+      ],
+      "tooltip": [
+        "is_modifiable"
+      ],
+      "template": "",
+      "templateUrl": "/html/propRenderTemplates/isModifiablePropertyRenderer.html",
+      "headerTemplateUrl": "/html/propRenderTemplates/isModifiableHeaderRenderer.html",
+      "renderFunction": "",
+      "deps": "",
+      "dependentServices": []
+    },
+    "study_owning_user_template": {
+      "grids": [
+        "studyGridTable"
+      ],
+      "columns": [
+        "owning_user"
+      ],
+      "tooltip": [
+        "owning_user"
+      ],
+      "template": "",
+      "templateUrl": "/html/propRenderTemplates/studyOwnerPropertyRenderer.html",
+      "renderFunction": "",
+      "deps": "",
+      "dependentServices": []
+    }
+  },
+  "syncStrategy": {
+    "schemaVersion": "1.0.0",
+    "syncStrategies": {
+      "filesTabListSummarySyncStrategy": {
+        "source": {
+          "view": "epFiles",
+          "port": "epFiles_selectedObjects"
+        },
+        "target": {
+          "view": "epFiles/epInformation",
+          "port": "epInformation_inputObject"
+        }
+      },
+      "documensTabListSummarySyncStrategy": {
+        "source": {
+          "view": "epDocuments",
+          "port": "epDocuments_selectedObjects"
+        },
+        "target": {
+          "view": "epDocuments/epInformation",
+          "port": "epInformation_inputObject"
+        }
+      },
+      "syncStrategyEpValidationResultTableToEpValidationDetailTable": {
+        "source": {
+          "view": "epValidationResultTable",
+          "port": "epValidationResultTable_selectedObjects"
+        },
+        "target": {
+          "view": "epValidationDetailTable",
+          "port": "epValidationDetailTable_inputObject"
+        }
+      },
+      "syncStrategyEpValidationResultTableToEpValidation": {
+        "source": {
+          "view": "epValidationResultTable",
+          "port": "epValidationResultTable_selectedObjects"
+        },
+        "target": {
+          "view": "epValidation",
+          "port": "epValidation_inputObject"
+        }
+      },
+      "syncStrategyEpValidationResultTableToEpValidationResultSelectionLabel": {
+        "source": {
+          "view": "epValidationResultTable",
+          "port": "epValidationResultTable_selectedObjects"
+        },
+        "target": {
+          "view": "epValidationResultSelectionLabel",
+          "port": "epValidationResultSelectionLabel_inputObject"
+        }
+      },
+      "syncStrategyEpValidationResultTableToWiProcessTree": {
+        "source": {
+          "view": "epValidationResultTable",
+          "port": "epValidationResultTable_selectedObjects"
+        },
+        "target": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        }
+      },
+      "pertViewFilesTabSyncStrategy": {
+        "source": {
+          "view": "epPert",
+          "port": "epPert_singleSelection"
+        },
+        "target": {
+          "view": "epFiles",
+          "port": "epFiles_inputObjects"
+        }
+      },
+      "pertViewSummarySyncStrategy": {
+        "source": {
+          "view": "epPert",
+          "port": "epPert_singleSelection"
+        },
+        "target": {
+          "view": "epInformation",
+          "port": "epInformation_inputObject"
+        }
+      },
+      "syncStrategyPertNodeToScoping": {
+        "source": {
+          "view": "epPert",
+          "port": "epPert_singleSelection"
+        },
+        "target": {
+          "view": "epScoping/epDetailsTable",
+          "port": "epDetails_inputObject"
+        }
+      },
+      "syncStrategyPertNodeToPlanningDetailsArea": {
+        "source": {
+          "view": "epPert",
+          "port": "epPert_singleSelection"
+        },
+        "target": {
+          "view": "planningDetailsArea",
+          "port": "planningDetailsArea_inputObject"
+        }
+      },
+      "syncStrategyPlanningMBOMTreeVisibilityToPlanningVisViewer": {
+        "source": {
+          "view": "epAvailableParts/epMbomTreeTable",
+          "port": "epMbomTreeTable_setVisibility"
+        },
+        "target": {
+          "view": "planningVisViewer",
+          "port": "setVisibility"
+        }
+      },
+      "syncStrategyPlanningMBOMTreeSelectionToPlanningVisViewer": {
+        "source": {
+          "view": "epAvailableParts/epMbomTreeTable",
+          "port": "epMbomTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "planningVisViewer",
+          "port": "setSelection"
+        }
+      },
+      "syncStrategyPlanningVisViewerVisibilityToPlanningMBOMTree": {
+        "source": {
+          "view": "planningVisViewer",
+          "port": "publishVisibilityChanged"
+        },
+        "target": {
+          "view": "epAvailableParts/epMbomTreeTable",
+          "port": "epMbomTreeTable_getVisibility"
+        }
+      },
+      "pertViewDocumentsSyncStrategy": {
+        "source": {
+          "view": "epPert",
+          "port": "epPert_singleSelection"
+        },
+        "target": {
+          "view": "epDocuments",
+          "port": "epDocuments_inputObject"
+        }
+      },
+      "syncStrategyWiAssemblyTreeSelectionToWiVisViewer14": {
+        "source": {
+          "view": "wiAssemblyTree/epMbomTreeTable",
+          "port": "epMbomTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "wiVisViewer",
+          "port": "setSelection"
+        }
+      },
+      "syncStrategyWiAssemblyTreeVisibilityToWiVisViewer19": {
+        "source": {
+          "view": "wiAssemblyTree/epMbomTreeTable",
+          "port": "epMbomTreeTable_setVisibility"
+        },
+        "target": {
+          "view": "wiVisViewer",
+          "port": "setVisibility"
+        }
+      },
+      "syncStrategyWiVisViewerVisibilityToWiAssemblyTree20": {
+        "source": {
+          "view": "wiVisViewer",
+          "port": "publishVisibilityChanged"
+        },
+        "target": {
+          "view": "wiAssemblyTree/epMbomTreeTable",
+          "port": "epMbomTreeTable_getVisibility"
+        }
+      },
+      "syncStrategyWiProcessTreeToWiScopeLabel1": {
+        "source": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        }
+      },
+      "syncStrategyWiProcessTreeSelectionToWiVisViewer2": {
+        "source": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "wiVisViewer",
+          "port": "setSelection"
+        }
+      },
+      "syncStrategyWiProcessTreeVisibilityToWiVisViewer21": {
+        "source": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_setVisibility"
+        },
+        "target": {
+          "view": "wiVisViewer",
+          "port": "setVisibility"
+        }
+      },
+      "syncStrategyWiVisViewerVisibilityToWiProcessTree22": {
+        "source": {
+          "view": "wiVisViewer",
+          "port": "publishVisibilityChanged"
+        },
+        "target": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_getVisibility"
+        }
+      },
+      "syncStrategyWiScopeLabelToWiProcessTree12": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        }
+      },
+      "syncStrategyWiScopeLabelToEpPartsTable4": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "wiPartsTable/epPartsTable/epDetailsTable",
+          "port": "epDetails_inputObject"
+        }
+      },
+      "syncStrategyWiVisViewerVisibilityToWiPartsTable24": {
+        "source": {
+          "view": "wiVisViewer",
+          "port": "publishVisibilityChanged"
+        },
+        "target": {
+          "view": "wiPartsTable/epPartsTable/epDetailsTable",
+          "port": "epDetailsTable_getVisibility"
+        }
+      },
+      "syncStrategyWiVisViewerVisibilityToWiResourcesTable25": {
+        "source": {
+          "view": "wiVisViewer",
+          "port": "publishVisibilityChanged"
+        },
+        "target": {
+          "view": "wiResourcesTable/epResourcesTable/epDetailsTable",
+          "port": "epDetailsTable_getVisibility"
+        }
+      },
+      "syncStrategyWiScopeLabelToEpResourcesTable5": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "wiResourcesTable/epResourcesTable/epDetailsTable",
+          "port": "epDetails_inputObject"
+        }
+      },
+      "syncStrategyWiScopeLabelToEpWorkareaTable6": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "epWorkareaTable/epDetailsTable",
+          "port": "epDetails_inputObject"
+        }
+      },
+      "syncStrategyWiScopeLabelToEpInformation7": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "epInformation",
+          "port": "epInformation_inputObject"
+        }
+      },
+      "syncStrategyWiScopeLabelToEpFilesTab26": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "epFiles",
+          "port": "epFiles_inputObjects"
+        }
+      },
+      "syncStrategyWiScopeLabelToEpDocuments8": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "epDocuments",
+          "port": "epDocuments_inputObject"
+        }
+      },
+      "syncStrategyWiScopeLabelToWiEditor15": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "wiEditor",
+          "port": "wiEditor_selectedObjects"
+        }
+      },
+      "syncStrategyWiScopeLabelToWiAssemblyPmiTable16": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "wiAssemblyPmiTable",
+          "port": "wiAssemblyPmiTable_inputObject"
+        }
+      },
+      "syncStrategyWiScopeLabelToWiAssignedPmiTable17": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "wiAssignedPmiTable",
+          "port": "wiAssignedPmiTable_inputObject"
+        }
+      },
+      "syncStrategyWiEditorToWiScopeLabel18": {
+        "source": {
+          "view": "wiEditor",
+          "port": "wiEditor_selectedObjects"
+        },
+        "target": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        }
+      },
+      "syncStrategyWiScopeLabelToWiVisualsList23": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "epVisualsGallery",
+          "port": "epVisualsGallery_inputObject"
+        }
+      },
+      "syncStrategyWiVisViewerVisibilityToWiVisualsList27": {
+        "source": {
+          "view": "wiVisViewer",
+          "port": "publishVisWebInstanceId"
+        },
+        "target": {
+          "view": "epVisualsGallery",
+          "port": "epVisualsGallery_visViewerInstanceId"
+        }
+      },
+      "syncStrategyWiVisualsListToEpImageViewer1": {
+        "source": {
+          "view": "epVisualsGallery",
+          "port": "epVisualsGallery_selectedObjects"
+        },
+        "target": {
+          "view": "wiViewerArea/epImageViewer",
+          "port": "epImageViewer_inputObject"
+        }
+      },
+      "syncStrategyWiScopeLabelToWiDetailsArea28": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "wiDetailsArea",
+          "port": "wiDetailsArea_inputObjects"
+        }
+      },
+      "syncStrategyWiProcessTreeToEpValidationResultTable": {
+        "source": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "epValidationResultTable",
+          "port": "epValidationResultTable_inputObject"
+        }
+      },
+      "syncStrategyWiProcessTreeToEpValidationMessage": {
+        "source": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "epValidationMessage",
+          "port": "epValidationMessage_inputObject"
+        }
+      },
+      "syncStrategyWiProcessTreeToEpValidationProcessTreeSelectionLabel": {
+        "source": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "epValidationProcessTreeSelectionLabel",
+          "port": "epValidationProcessTreeSelectionLabel_inputObject"
+        }
+      },
+      "syncStrategyWiProcessTreeToEpValidationProcessTreeSelectionLabelOnResults": {
+        "source": {
+          "view": "wiProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "epValidationProcessTreeSelectionLabelOnResults",
+          "port": "epValidationProcessTreeSelectionLabelOnResults_inputObject"
+        }
+      },
+      "syncStrategyStationProcessTreeToWiScopeLabel1": {
+        "source": {
+          "view": "stationProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        }
+      },
+      "syncStrategyStationProcessTreeSelectionToWiVisViewer2": {
+        "source": {
+          "view": "stationProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "wiVisViewer",
+          "port": "setSelection"
+        }
+      },
+      "syncStrategyWiVisViewerSelectionToStationProcessTree11": {
+        "source": {
+          "view": "wiVisViewer",
+          "port": "publishSelection"
+        },
+        "target": {
+          "view": "stationProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        }
+      },
+      "syncStrategyStationProcessTreeVisibilityToWiVisViewer21": {
+        "source": {
+          "view": "stationProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_setVisibility"
+        },
+        "target": {
+          "view": "wiVisViewer",
+          "port": "setVisibility"
+        }
+      },
+      "syncStrategyWiVisViewerVisibilityToStationProcessTree22": {
+        "source": {
+          "view": "wiVisViewer",
+          "port": "publishVisibilityChanged"
+        },
+        "target": {
+          "view": "stationProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_getVisibility"
+        }
+      },
+      "syncStrategyWiScopeLabelToStationProcessTree12": {
+        "source": {
+          "view": "wiScopeLabel",
+          "port": "wiScopeLabel_inputObject"
+        },
+        "target": {
+          "view": "stationProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        }
+      },
+      "syncStrategyStationProcessTreeToEpValidationProcessTreeSelectionLabel": {
+        "source": {
+          "view": "stationProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "epValidationProcessTreeSelectionLabel",
+          "port": "epValidationProcessTreeSelectionLabel_inputObject"
+        }
+      },
+      "syncStrategyStationProcessTreeToEpValidationProcessTreeSelectionLabelOnResults": {
+        "source": {
+          "view": "stationProcessTree/epProcessTreeTable",
+          "port": "epProcessTreeTable_selectedObjects"
+        },
+        "target": {
+          "view": "epValidationProcessTreeSelectionLabelOnResults",
+          "port": "epValidationProcessTreeSelectionLabelOnResults_inputObject"
+        }
+      }
+    },
+    "syncStrategyHandlers": {
+      "filesTabHandler": {
+        "id": "filesTabListSummarySyncStrategy",
+        "activeWhen": true
+      },
+      "documensTabHandler": {
+        "id": "documensTabListSummarySyncStrategy",
+        "activeWhen": true
+      },
+      "EpValidationHandler3": {
+        "id": "syncStrategyEpValidationResultTableToEpValidationDetailTable",
+        "activeWhen": true
+      },
+      "EpValidationHandler4": {
+        "id": "syncStrategyEpValidationResultTableToEpValidation",
+        "activeWhen": true
+      },
+      "EpValidationHandler5": {
+        "id": "syncStrategyEpValidationResultTableToEpValidationResultSelectionLabel",
+        "activeWhen": true
+      },
+      "EpValidationHandler6": {
+        "id": "syncStrategyEpValidationResultTableToWiProcessTree",
+        "activeWhen": true
+      },
+      "pertViewHandler": {
+        "id": "pertViewFilesTabSyncStrategy",
+        "activeWhen": true
+      },
+      "scopingPertSyncHandler": {
+        "id": "syncStrategyPertNodeToScoping",
+        "activeWhen": true
+      },
+      "summaryTabHandler": {
+        "id": "pertViewSummarySyncStrategy",
+        "activeWhen": true
+      },
+      "graphicsVisibilityHandler": {
+        "id": "syncStrategyPlanningMBOMTreeVisibilityToPlanningVisViewer",
+        "action": "convertPlanningMbomTreeVisibilityToPlanningVisViewer",
+        "activeWhen": true
+      },
+      "graphicsSelectionHandler": {
+        "id": "syncStrategyPlanningMBOMTreeSelectionToPlanningVisViewer",
+        "activeWhen": true
+      },
+      "graphicsColumnVisibilityHandler": {
+        "id": "syncStrategyPlanningVisViewerVisibilityToPlanningMBOMTree",
+        "activeWhen": true
+      },
+      "documentsTabHandler": {
+        "id": "pertViewDocumentsSyncStrategy",
+        "activeWhen": true
+      },
+      "pertNodeToPlanningDetailsAreaHandle": {
+        "id": "syncStrategyPertNodeToPlanningDetailsArea",
+        "activeWhen": true
+      },
+      "WiSyncHandler14": {
+        "id": "syncStrategyWiAssemblyTreeSelectionToWiVisViewer14",
+        "activeWhen": true
+      },
+      "WiSyncHandler19": {
+        "id": "syncStrategyWiAssemblyTreeVisibilityToWiVisViewer19",
+        "action": "convertWiAssemblyTreeVisibilityToWiVisViewer19",
+        "activeWhen": true
+      },
+      "WiSyncHandler20": {
+        "id": "syncStrategyWiVisViewerVisibilityToWiAssemblyTree20",
+        "activeWhen": true
+      },
+      "WiSyncHandler2": {
+        "id": "syncStrategyWiProcessTreeSelectionToWiVisViewer2",
+        "action": "convertWiProcessTreeSelectionToWiVisViewer2",
+        "activeWhen": {
+          "condition": "conditions.isSelectionForGraphicsViewerEnabled"
+        }
+      },
+      "WiSyncHandler21": {
+        "id": "syncStrategyWiProcessTreeVisibilityToWiVisViewer21",
+        "action": "convertWiProcessTreeVisibilityToWiVisViewer21",
+        "activeWhen": true
+      },
+      "WiSyncHandler22": {
+        "id": "syncStrategyWiVisViewerVisibilityToWiProcessTree22",
+        "activeWhen": true
+      },
+      "WiSyncHandler1": {
+        "id": "syncStrategyWiProcessTreeToWiScopeLabel1",
+        "activeWhen": {
+          "condition": "conditions.isSelectionForEditorEnabled"
+        }
+      },
+      "WiSyncHandler12": {
+        "id": "syncStrategyWiScopeLabelToWiProcessTree12",
+        "activeWhen": true
+      },
+      "WiSyncHandler4": {
+        "id": "syncStrategyWiScopeLabelToEpPartsTable4",
+        "activeWhen": true
+      },
+      "WiSyncHandler24": {
+        "id": "syncStrategyWiVisViewerVisibilityToWiPartsTable24",
+        "activeWhen": true
+      },
+      "WiSyncHandler25": {
+        "id": "syncStrategyWiVisViewerVisibilityToWiResourcesTable25",
+        "activeWhen": true
+      },
+      "WiSyncHandler5": {
+        "id": "syncStrategyWiScopeLabelToEpResourcesTable5",
+        "activeWhen": true
+      },
+      "WiSyncHandler6": {
+        "id": "syncStrategyWiScopeLabelToEpWorkareaTable6",
+        "activeWhen": true
+      },
+      "WiSyncHandler7": {
+        "id": "syncStrategyWiScopeLabelToEpInformation7",
+        "activeWhen": true
+      },
+      "WiSyncHandler26": {
+        "id": "syncStrategyWiScopeLabelToEpFilesTab26",
+        "activeWhen": true
+      },
+      "WiSyncHandler8": {
+        "id": "syncStrategyWiScopeLabelToEpDocuments8",
+        "activeWhen": true
+      },
+      "WiSyncHandler15": {
+        "id": "syncStrategyWiScopeLabelToWiEditor15",
+        "activeWhen": true
+      },
+      "WiSyncHandler16": {
+        "id": "syncStrategyWiScopeLabelToWiAssemblyPmiTable16",
+        "activeWhen": true,
+        "action": "convertSelectionToAssemblyPmiTable"
+      },
+      "WiSyncHandler17": {
+        "id": "syncStrategyWiScopeLabelToWiAssignedPmiTable17",
+        "activeWhen": true
+      },
+      "WiSyncHandler18": {
+        "id": "syncStrategyWiEditorToWiScopeLabel18",
+        "activeWhen": {
+          "condition": "conditions.isInputObjectUpdatedWiEditorToWiScopeLabel"
+        }
+      },
+      "WiSyncHandler23": {
+        "id": "syncStrategyWiScopeLabelToWiVisualsList23",
+        "activeWhen": true
+      },
+      "WiSyncHandler27": {
+        "id": "syncStrategyWiVisViewerVisibilityToWiVisualsList27",
+        "activeWhen": true
+      },
+      "WiSyncHandler33": {
+        "id": "syncStrategyWiVisualsListToEpImageViewer1",
+        "activeWhen": true
+      },
+      "WiSyncHandler28": {
+        "id": "syncStrategyWiScopeLabelToWiDetailsArea28",
+        "activeWhen": true
+      },
+      "WiSyncHandler29": {
+        "id": "syncStrategyWiProcessTreeToEpValidationResultTable",
+        "activeWhen": true
+      },
+      "WiSyncHandler30": {
+        "id": "syncStrategyWiProcessTreeToEpValidationMessage",
+        "activeWhen": true
+      },
+      "WiSyncHandler31": {
+        "id": "syncStrategyWiProcessTreeToEpValidationProcessTreeSelectionLabel",
+        "activeWhen": true
+      },
+      "WiSyncHandler32": {
+        "id": "syncStrategyWiProcessTreeToEpValidationProcessTreeSelectionLabelOnResults",
+        "activeWhen": {
+          "condition": "conditions.epValidationSyncResultLabel"
+        }
+      },
+      "StationSyncHandler2": {
+        "id": "syncStrategyStationProcessTreeSelectionToWiVisViewer2",
+        "action": "convertStationProcessTreeSelectionToWiVisViewer2",
+        "activeWhen": {
+          "condition": "conditions.isSelectionForGraphicsViewerEnabled"
+        }
+      },
+      "StationSyncHandler11": {
+        "id": "syncStrategyWiVisViewerSelectionToStationProcessTree11",
+        "activeWhen": true
+      },
+      "StationSyncHandler21": {
+        "id": "syncStrategyStationProcessTreeVisibilityToWiVisViewer21",
+        "action": "convertStationProcessTreeVisibilityToWiVisViewer21",
+        "activeWhen": true
+      },
+      "StationSyncHandler22": {
+        "id": "syncStrategyWiVisViewerVisibilityToStationProcessTree22",
+        "activeWhen": true
+      },
+      "StationSyncHandler1": {
+        "id": "syncStrategyStationProcessTreeToWiScopeLabel1",
+        "activeWhen": {
+          "condition": "conditions.isSelectionForEditorEnabled"
+        }
+      },
+      "StationSyncHandler12": {
+        "id": "syncStrategyWiScopeLabelToStationProcessTree12",
+        "activeWhen": true
+      },
+      "StationSyncHandler31": {
+        "id": "syncStrategyStationProcessTreeToEpValidationProcessTreeSelectionLabel",
+        "activeWhen": true
+      },
+      "StationSyncHandler32": {
+        "id": "syncStrategyStationProcessTreeToEpValidationProcessTreeSelectionLabelOnResults",
+        "activeWhen": {
+          "condition": "conditions.epValidationSyncResultLabel"
+        }
+      }
+    },
+    "actions": {
+      "convertPlanningMbomTreeVisibilityToPlanningVisViewer": {
+        "actionType": "JSFunction",
+        "method": "convertToVisibilityData",
+        "inputData": {
+          "vmo": "{{syncContext.sourceViewModel.ports.epMbomTreeTable_setVisibility.syncObject}}"
+        },
+        "outputData": {
+          "id": "uid",
+          "show": "show"
+        },
+        "deps": "js/mfeSyncUtils"
+      },
+      "convertWiAssemblyTreeVisibilityToWiVisViewer19": {
+        "actionType": "JSFunction",
+        "method": "convertToVisibilityData",
+        "inputData": {
+          "vmo": "{{syncContext.sourceViewModel.ports.epMbomTreeTable_setVisibility.syncObject}}"
+        },
+        "outputData": {
+          "id": "uid",
+          "show": "show"
+        },
+        "deps": "js/mfeSyncUtils"
+      },
+      "convertWiProcessTreeSelectionToWiVisViewer2": {
+        "actionType": "JSFunction",
+        "method": "convertToVisibilityData",
+        "inputData": {
+          "vmo": "{{syncContext.sourceViewModel.ports.epProcessTreeTable_selectedObjects.syncObject}}"
+        },
+        "outputData": {
+          "id": "uid",
+          "show": "show"
+        },
+        "deps": "js/mfeSyncUtils"
+      },
+      "convertWiProcessTreeVisibilityToWiVisViewer21": {
+        "actionType": "JSFunction",
+        "method": "convertToVisibilityData",
+        "inputData": {
+          "vmo": "{{syncContext.sourceViewModel.ports.epProcessTreeTable_setVisibility.syncObject}}"
+        },
+        "outputData": {
+          "id": "uid",
+          "show": "show"
+        },
+        "deps": "js/mfeSyncUtils"
+      },
+      "convertSelectionToAssemblyPmiTable": {
+        "actionType": "JSFunction",
+        "method": "filterOnlyProcessOrOperation",
+        "inputData": {
+          "selection": "{{syncContext.sourceViewModel.ports.wiScopeLabel_inputObject.syncObject}}"
+        },
+        "outputData": {
+          "context": "context"
+        },
+        "deps": "js/wiPmiService"
+      },
+      "convertStationProcessTreeSelectionToWiVisViewer2": {
+        "actionType": "JSFunction",
+        "method": "convertToVisibilityData",
+        "inputData": {
+          "vmo": "{{syncContext.sourceViewModel.ports.epProcessTreeTable_selectedObjects.syncObject}}"
+        },
+        "outputData": {
+          "id": "uid",
+          "show": "show"
+        },
+        "deps": "js/mfeSyncUtils"
+      },
+      "convertStationProcessTreeVisibilityToWiVisViewer21": {
+        "actionType": "JSFunction",
+        "method": "convertToVisibilityData",
+        "inputData": {
+          "vmo": "{{syncContext.sourceViewModel.ports.epProcessTreeTable_setVisibility.syncObject}}"
+        },
+        "outputData": {
+          "id": "uid",
+          "show": "show"
+        },
+        "deps": "js/mfeSyncUtils"
+      }
+    },
+    "conditions": {
+      "isSelectionForEditorEnabled": {
+        "expression": "ctx.epWiSelectionMode === 'EDITOR' && (syncContext.sourceViewModel.ports.epProcessTreeTable_selectedObjects.syncObject.uid ? syncContext.sourceViewModel.ports.epProcessTreeTable_selectedObjects.syncObject.uid !== syncContext.targetViewModel.ports.wiScopeLabel_inputObject.syncObject.uid : syncContext.sourceViewModel.ports.epProcessTreeTable_selectedObjects.syncObject[0].uid !== syncContext.targetViewModel.ports.wiScopeLabel_inputObject.syncObject.uid)"
+      },
+      "isSelectionForGraphicsViewerEnabled": {
+        "expression": "ctx.epWiSelectionMode === 'GRAPHICS'"
+      },
+      "epValidationSyncResultLabel": {
+        "expression": "ctx.epValidationContext.epValidationResultLabelSync === 'true'"
+      },
+      "isInputObjectUpdatedWiEditorToWiScopeLabel": {
+        "expression": "syncContext.sourceViewModel.ports.wiEditor_selectedObjects.syncObject.uid ? syncContext.sourceViewModel.ports.wiEditor_selectedObjects.syncObject.uid !== syncContext.targetViewModel.ports.wiScopeLabel_inputObject.syncObject.uid : syncContext.sourceViewModel.ports.wiEditor_selectedObjects.syncObject[0].uid !== syncContext.targetViewModel.ports.wiScopeLabel_inputObject.syncObject.uid"
+      }
+    }
+  },
+  "epViewModelProperties": {
+    "schemaVersion": "1.0.0",
+    "updateVMOHandler": {
+      "updateVMOWorkFlow": {
+        "action": "updateVMOForWorkflow",
+        "activeWhen": true
+      }
+    },
+    "actions": {
+      "updateVMOWorkFlow": {
+        "actionType": "JSFunction",
+        "method": "updateVmoToWorkflow",
+        "deps": "js/epWorkflowIndicationService",
+        "inputData": {
+          "targetObject": "{{epVMOPropertyContext.vmo}}"
+        }
+      }
+    }
+  },
+  "dragAndDrop": {
+    "actions": {
+      "wi_dragOverAction": {
+        "actionType": "syncFunction",
+        "method": "dragOver",
+        "deps": "js/wiDragAndDropService"
+      },
+      "wi_dropAction": {
+        "actionType": "syncFunction",
+        "method": "drop",
+        "deps": "js/wiDragAndDropService"
+      }
+    },
+    "dropHandlers": {
+      "wiAssignPartDropHandler": {
+        "activeWhen": {
+          "condition": "conditions.isWIWorpkspace"
+        },
+        "views": [
+          "epDetailsTable"
+        ],
+        "dropActions": {
+          "dragOver": "wi_dragOverAction",
+          "drop": "wi_dropAction"
+        }
+      }
+    },
+    "conditions": {
+      "isWIWorpkspace": {
+        "expression": {
+          "$source": "ctx.workspace.workspaceId",
+          "$query": {
+            "$eq": "WIWorkspace"
+          }
+        }
+      }
+    }
+  }
+}

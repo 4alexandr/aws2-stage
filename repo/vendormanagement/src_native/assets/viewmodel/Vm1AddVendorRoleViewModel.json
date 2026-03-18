@@ -1,0 +1,272 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-widget.directive",
+        "js/visible-when.directive",
+        "js/aw-listbox.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2013-05-LOV",
+            "method": "getInitialLOVValues",
+            "inputData":
+            {
+                "initialData":
+                {
+                    "lovInput":
+                    {
+                        "owningObject": null,
+                        "boName": "VendorRole",
+                        "operationName": "Search"
+                    },
+
+                    "propertyName": "vendor_role_name"
+                }
+            },
+
+            "outputData":
+            {
+                "vendorRoleList": "{{function:processVendorRoleList}}"
+            },
+
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+
+            "deps": "js/Vm1VendorRoleService"
+        },
+
+        "updateAddVendorRolePanelView":
+        {
+            "actionType": "JSFunction",
+            "method": "updateAddVendorRolePanelView",
+            "inputData":
+            {
+               "data" : "{{data}}"
+            }
+            ,
+            "deps": "js/Vm1VendorRoleService"
+        },
+
+        "addVendorRole":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Vendormanagement-2012-09-VendorManagement",
+            "method": "addRemoveVendorRoles",
+            "inputData":
+            {
+                "vendorRoles":
+                [
+                    {
+                        "clientId": "",
+                        "description": "VendorRole",
+                        "roleType": "{{data.vendorRoleName.dbValue.internalValue}}",
+                        "remove": false
+                    }
+                ],
+                "vendorRevRef":
+                {
+                    "uid": "{{ctx.mselected[0].uid}}",
+                    "type": "{{ctx.mselected[0].type}}"
+                }
+            },
+
+            "outputData":
+            {
+                "searchResultObjects": "{{function:getFormObject}}"
+            },
+
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData":
+                        {
+                            "relatedModified":
+                            [
+                                "{{ctx.selected}}"
+                            ],
+                            "refreshLocationFlag": true
+                        }
+                    },
+                    {
+                        "name": "closePanel"
+                    },
+                    {
+                        "name": "updateVendorRoleInfo",
+                        "condition": "data.searchResultObjects !== null"
+                    }
+                ],
+                "failure":
+                [
+                    {
+                        "name": "closePanel"
+                    }
+                ]
+            },
+
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+
+            "deps": "js/Vm1VendorRoleService"
+        },
+
+        "closePanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "updateVendorRoleInfo":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-01-DataManagement",
+            "method": "createOrUpdateForms",
+            "inputData":
+            {
+                "info":
+                [
+                    {
+                        "clientId": "1",
+                        "description": "",
+                        "name":"",
+                        "saveDB": true,
+                        "formObject": "{{data.searchResultObjects}}",
+                        "formType":"{{data.vendorRoleName.dbValue.internalValue + 'Info'}}",
+                        "attributesMap": "{{function:getFormAttributesForVendorRoleInfo}}"
+
+                    }
+                ]
+            },
+
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+
+            "deps": "js/Vm1VendorRoleService"
+        }
+    },
+
+    "i18n": {
+        "add": [
+            "VendorManagementMessages"
+        ],
+        "vendorRoleName": [
+            "VendorManagementMessages"
+        ],
+        "vendorStatus": [
+            "VendorManagementMessages"
+        ],
+        "certificationStatus": [
+            "VendorManagementMessages"
+        ]
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "updateAddVendorRolePanelView",
+            "action": "updateAddVendorRolePanelView"
+        },
+        {
+            "eventId": "updateVendorRoleInfo",
+            "action": "updateVendorRoleInfo"
+        },
+        {
+            "eventId": "closePanel",
+            "action": "closePanel"
+        }
+    ],
+
+    "functions":
+    {
+        "processVendorRoleList":
+        {
+            "functionName": "processVendorRoleList",
+            "parameters": []
+        },
+        "updateAddVendorRolePanelView":
+        {
+            "functionName": "updateAddVendorRolePanelView",
+            "parameters": []
+        },
+        "getFormObject":
+        {
+            "functionName": "getFormObject",
+            "parameters": [  "{{data}}"  ]
+        },
+        "getFormAttributesForVendorRoleInfo":
+        {
+            "functionName": "getFormAttributesForVendorRoleInfo",
+            "parameters": [  "{{data}}"  ]
+        }
+    },
+
+    "data":
+    {
+        "vendorRoleName":
+        {
+            "type": "STRING",
+            "displayName": "{{i18n.vendorRoleName}}",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP",
+            "isRequired": "true",
+            "hasLov": true
+        },
+        "vendorStatus":
+        {
+            "type": "STRING",
+            "displayName": "{{i18n.vendorStatus}}",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+        "certificationStatus":
+        {
+            "type": "STRING",
+            "displayName": "{{i18n.certificationStatus}}",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+        "isVendorStatusDisplay":
+        {
+            "type": "BOOLEAN"
+        },
+        "isCertificationStatusDisplay":
+        {
+            "type": "BOOLEAN"
+        }
+    },
+    "messages": {
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    }
+}

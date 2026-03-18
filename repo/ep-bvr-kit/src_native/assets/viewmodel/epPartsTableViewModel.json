@@ -1,0 +1,83 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+
+    "data": {
+        "preferenceName": "EP_AssignedPartsAreaColumnConfiguration",
+        "relationName": "Mfg0consumed_material",
+        "loadInputObject": {
+            "loadType": "getProperties",
+            "propertiesToLoad": [ "Mfg0consumed_material" ]
+        },
+        "messages": {
+            "noElementSelected": [{
+                "text": "{{i18n.selectProcessOrOperation}}",
+                "textParams": [
+                    "{{i18n.parts}}"
+                ]
+            }],
+            "noAssigned": [
+                {
+                    "text": "{{i18n.noAssigned}}",
+                    "textParams": [
+                        "{{i18n.parts}}"
+                    ]
+                },
+                {
+                    "iconId": "miscDropIndication"
+                },
+                {
+                    "text": "{{i18n.dropToAssign}}"
+                }
+            ]
+        }
+    },
+
+    "actions": {
+        "initDataFromSubPanelContext": {
+            "actionType": "batchJob",
+            "steps": [
+                { "action": "getTabContext" },
+                { "action": "getCustomColumns" }
+            ]
+        },
+
+        "getTabContext": {
+            "actionType": "JSFunction",
+            "method": "getTabContext",
+            "inputData": {
+                "tabData": "{{subPanelContext.tabContext}}"
+            },
+            "outputData": {
+                "tabContext": ""
+            },
+            "deps": "js/epTableService"
+        },
+
+        "getCustomColumns": {
+            "actionType": "JSFunction",
+            "method": "getCustomColumns",
+            "inputData": {
+                "subPanelContextCustomColumns": "{{subPanelContext.customColumns}}",
+                "genericCustomColumns": []
+            },
+            "outputData": {
+                "customColumns": ""
+            },
+            "deps": "js/epTableService"
+        }
+    },
+
+    "lifecycleHooks": {
+        "onMount": "initDataFromSubPanelContext"
+    },
+
+    "i18n": {
+        "parts": ["DetailsMessages"],
+        "selectProcessOrOperation": [ "DetailsMessages" ],
+        "noAssigned": [ "DetailsMessages" ],
+        "dropToAssign": [ "DetailsMessages" ]
+    }
+}

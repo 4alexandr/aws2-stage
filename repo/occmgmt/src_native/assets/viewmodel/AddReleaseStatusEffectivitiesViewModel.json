@@ -1,0 +1,209 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":[ "js/aw-tab-set.directive",
+                "js/exist-when.directive",
+                "js/aw-panel-footer.directive",
+                "js/aw-checkbox.directive",
+                "js/aw-button.directive",
+                "js/aw-i18n.directive",
+                "js/aw-panel-body.directive"
+                ],
+    "i18n":
+    {
+        "sharedEffectivities":[ "OccurrenceManagementConstants"],
+        "searchEndItemPresenterBtn":[ "OccurrenceManagementConstants"],
+        "new":[ "OccurrenceManagementConstants"],
+        "endItemMessage":[ "OccurrenceManagementConstants"],
+        "addElementBtn":["OccurrenceManagementConstants"],
+        "protect":[ "OccurrenceManagementConstants" ],
+        "replaceElementBtn":["OccurrenceManagementConstants"]
+    },
+    "data" :
+    {
+        "tabsModel":
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "panelId": "AuthorEffectivityForRelStatus",
+                    "name": "{{i18n.new}}",
+                    "selectedTab": true
+                },
+                {
+                    "panelId": "SearchEffectivitiesForRelStatus",
+                    "name": "{{i18n.searchEndItemPresenterBtn}}"
+                }
+            ]
+        },
+        "isProtected":{
+            "displayName": "{{i18n.protect}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": false,
+            "labelPosition":"PROPERTY_LABEL_AT_RIGHT"
+        }
+    },
+    "actions":
+    {
+        "getInfoForAddElementAction": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceBom-2019-12-OccurrenceManagement",
+            "method": "getInfoForAddElement3",
+            "inputData": {
+                "getInfoForElementIn":{
+                    "parentElement": "{{ctx.selected}}"
+                }
+            },
+            "outputData": {
+                "typeFilter": "{{function:setTypeFilterInfoFromResponse}}"
+            },
+            "deps": "js/sharedEffectivityService"
+        },
+
+        "addSearchButtonClicked":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-EffectivityManagment",
+            "method": "addOrRemoveRelStatusEffectivities",
+            "inputData":
+            {
+                "input":
+                {
+                    "status": "{{ctx.editEffectivityContext.selectedReleaseStatus}}",
+                    "effectivities": "{{data.dataProviders.performSearchForSharedEffectivities.selectedObjects}}",
+                    "addOrRemove": true
+                }
+            },
+            "outputData":
+            {
+                "occurrenceConfigured": "updated",
+                "occurrenceUnconfigured": "deleted"
+            },
+            "events":
+            {
+                "success": [
+                    {
+                        "name" : "releaseStatusUpdatedByEffectivityEvent"
+                    },
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData":
+                        {
+                            "destPanelId": "DisplayAndRemoveEffectivitiesForRelStatus"
+                        }
+                    }
+                ],
+                "failure": [
+                    {
+                        "name" : "releaseStatusUpdatedByEffectivityEvent"
+                    }
+                ]
+            },
+             "actionMessages":
+             {
+                 "failure":
+                 [
+                     {
+                         "condition": "errorCode.code!==710079",
+                         "message": "failedToApplyEffectivityMessage"
+                     },
+                     {
+                        "condition": "errorCode.code==710079",
+                        "message" : "duplicateAppliedEffectivityErrorMessage"
+                     }
+                 ]
+             },
+             "deps":"js/sharedEffectivityService"
+        },
+
+        "authorRevisionEffectivity":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "StructureManagement-2014-12-Effectivity",
+            "method": "createReleaseStatusEffectivity",
+            "inputData":
+            {
+                    "input": [
+                        {
+                            "releaseStatus":"{{ctx.editEffectivityContext.selectedReleaseStatus}}",
+                            "effectivityInfoInput":
+                            {
+                                "effectivityId":"{{function:getEffectivityName}}",
+                                "endItem":
+                                {
+                                    "uid": "{{ctx.elementEffectivity.author.endItem.uid}}",
+                                    "type": "{{ctx.elementEffectivity.author.endItem.type}}"
+                                },
+                                "unitRangeText":"{{data.unitRangeText.dbValue}}",
+                                "dateRange":"{{function:getDateRangeText}}",
+                                "openEndedStatus":"{{data.endDate.openEndedStatus}}",
+                                "isProtected":"{{data.isProtected.dbValue}}"
+                            }
+                        }
+                    ]
+            },
+            "outputData":
+            {
+
+            },
+            "events":
+            {
+                "success": [
+                    {
+                        "name": "releaseStatusUpdatedByEffectivityEvent"
+                    },
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData":
+                        {
+                            "destPanelId": "DisplayAndRemoveEffectivitiesForRelStatus"
+                        }
+                    }
+                ]
+            },
+            "actionMessages":
+             {
+               "failure":
+                 [
+                     {
+                        "condition": "errorCode.code!==710079",
+                        "message": "failedToApplyEffectivityMessage"
+                     },
+                     {
+                        "condition": "errorCode.code==710079",
+                        "message": "duplicateEffectivityCreationErrorMessage"
+                     }
+                 ]
+             },
+            "deps": "js/sharedEffectivityService"
+        },
+        "refreshSelectedObject":{
+            "actionType":"JSFunction",
+            "method":"updateEffectivities",
+            "inputData":{
+                "selectedModelObject":"{{ctx.selected}}"
+            },
+            "deps": "js/sharedEffectivityService"
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "awPanel.reveal",
+            "action":  "getInfoForAddElementAction",
+            "criteria": {
+                "panelId": "AddReleaseStatusEffectivities",
+                "data._internal.panelId" : "Awb0ReleaseStatusEffectivity"
+            }
+        },
+        {
+            "eventId": "releaseStatusUpdatedByEffectivityEvent",
+            "action":  "refreshSelectedObject",
+            "criteria": {
+                "data.activeView": "AddReleaseStatusEffectivities"
+            }
+        }
+    ]
+}

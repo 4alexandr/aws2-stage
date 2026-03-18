@@ -1,0 +1,1094 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "tc11000.5.0",
+      "description": "Interface Name for Business Object Crt0AttributeElement",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0AttributeElement",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0AttributeElement"
+    },
+    {
+      "createRelease": "tc11000.5.0",
+      "description": "Interface Name for Business Object Crt0GDERef",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0GDERef",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0GDERef"
+    },
+    {
+      "createRelease": "tc10000.1.5",
+      "description": "Interface Name for Business Object Crt0SimulationEngineer",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0SimulationEngineer",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0SimulationEngineer"
+    },
+    {
+      "createRelease": "tc10000.1.5",
+      "description": "Interface Name for Business Object Crt0StudyRevision",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0StudyRevision",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0StudyRevision"
+    },
+    {
+      "createRelease": "tc10000.1.5",
+      "description": "Interface Name for Business Object Crt0SystemsDesigner",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0SystemsDesigner",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0SystemsDesigner"
+    },
+    {
+      "createRelease": "tc10000.1.2",
+      "description": "Interface Name for Business Object Crt0VCDefn",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0VCDefn",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0VCDefn"
+    },
+    {
+      "createRelease": "tc10000.1.2",
+      "description": "Interface Name for Business Object Crt0VCDefnRevision",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0VCDefnRevision",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0VCDefnRevision"
+    },
+    {
+      "createRelease": "tc10000.1.2",
+      "description": "Interface Name for Business Object Crt0ValidationLink",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0ValidationLink",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0ValidationLink"
+    },
+    {
+      "createRelease": "tc10000.1.2",
+      "description": "Interface Name for Business Object Crt0VldnContract",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0VldnContract",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0VldnContract"
+    },
+    {
+      "createRelease": "tc10000.1.2",
+      "description": "Interface Name for Business Object Crt0VldnContractRevision",
+      "libraryName": "Crt0ValidationContract",
+      "name": "Crt0VldnContractRevision",
+      "namespace": "crt0validationcontract",
+      "primaryInterface": "true",
+      "typeName": "Crt0VldnContractRevision"
+    }
+  ],
+  "Date": "Thu Oct 01 05:48:45 PM 2020",
+  "Library": [
+    {
+      "DependentOn": [
+        {
+          "name": "tccore"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "Service library for Validation Contract",
+      "isThirdParty": "false",
+      "name": "Crt0SoaValidationContract",
+      "namespace": "Crt0::Soa::ValidationContract",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "Validation Contract Library",
+      "isThirdParty": "false",
+      "name": "Crt0ValidationContract",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of <i>CreateVerificationRequestInputData</i> structure.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Crt0ValidationContract",
+      "createRelease": "tc13000.1.0",
+      "dependencies": "",
+      "description": "This operation creates <b>Crt0VldnContractRevision</b> object with given content.",
+      "exceptionCondition": "",
+      "id": "createVerificationRequest#const,std::vector<Crt0::Soa::ValidationContract::_2020_12::VCManagement::CreateVerificationRequestInputData>,&",
+      "interface": "Crt0::Soa::ValidationContract::VCManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createVerificationRequest",
+      "opTemplate": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::CreateVerificationRequestResponse#Crt0::Soa::ValidationContract::VCManagement::createVerificationRequest#const,std::vector<Crt0::Soa::ValidationContract::_2020_12::VCManagement::CreateVerificationRequestInputData>,&",
+      "returnDescription": "Contains created Verification Request objects and associated parameters. Any failures will be returned with the client id mapped to error message in the ServiceData list of partial errors:<br /><ul><ul><li type=\"disc\">188027: The current user does not have write privileges to the Verification Request.</li><li type=\"disc\">188028: An invalid name has been provided in <i>verificationRequestName</i> input argument. Please provide a valid value.</li><li type=\"disc\">188029: An invalid type has been provided in <i>verificationRequestType</i> input argument. Please provide a valid value.</li><li type=\"disc\">188030: An invalid option has been provided in <i>createParameterCopyOptions</i> input argument. Please provide a valid value.</li><li type=\"disc\">188030: An invalid object has been provided in <i>objectToBeAdded</i> input argument. Please provide a valid value.</li><li type=\"disc\">188031: An invalid object has been provided in <i>contextForObjectToBeAdded</i> input argument. Please provide a valid value.</li><li type=\"disc\">188033: An invalid property provided in <i>verificationRequestProps</i> input argument. Please provide a valid value.</li><li type=\"disc\">188033: An invalid Object provided in <i>reviseVerificationRequestRevision</i> input argument. Please provide a valid value.</li><li type=\"disc\">188035: An invalid name has been provided in <i>recipe</i> input argument. Please provide a valid value.</li><li type=\"disc\">188036: An invalid name has been provided in <i>workflowNameToInitiate</i> input argument. Please provide a valid value.</li><li type=\"disc\">188037: An invalid state has been provided in autoWorkflowState input argument. Please provide a valid value.</li><li type=\"disc\">188038: An invalid object has been provided in parentVerificationRequest input argument. Please provide a valid value.</li><li type=\"disc\">188039: An invalid option has been provided in <i>populateFromParent</i> input argument. Please provide a valid value.</li><li type=\"disc\">188040: An invalid object has been provided in <i>parameter</i> input argument. Please provide a valid value.</li><li type=\"disc\">188041: An invalid name has been provided in <i>direction </i> input argument. Please provide a valid value.</li><li type=\"disc\">188042: An invalid object has been provided in <i>verificationRequestDefinition</i> input argument. Please provide a valid value.</li><li type=\"disc\">188043: An invalid object provided in user input argument. Please provide a valid value.</li><li type=\"disc\">188044: An invalid value provided in role input argument. Please provide a valid value.</li><li type=\"disc\">188011: The object cannot be added to the Verification Request, because it has already been added to it.</li><li type=\"disc\">188014: The Verification Request was not created because invalid type of Verification Definition.</li><li type=\"disc\">188015: The Verification Request was not created because object has not been released.</li><li type=\"disc\">188017: The value for the property cannot be changed, because objects have already been added to the Verification Request.</li><li type=\"disc\">188018: Verification Request cannot be modified in the state.</li><li type=\"disc\">188019: A Study with name cannot be created, because the Verification Request already has a Study with the same name.</li><li type=\"disc\">188020: The name of the Study cannot be changed, because the Verification Request already contains a Study with that name.</li></ul></ul>",
+      "useCase": "Use case 1: Create Verification Request with occurrences or <b>WorkspaceObject</b> .<br />For each occurrence, the system creates the <b>Crt0ValidationLink</b> between Verification Request (primary) and occurrence (secondary). For each <b>WorkspaceObject</b>, the system creates the <b>Crt0ValidationLink</b> between <b>Crt0VldnContractRevision</b> (primary) and <b>WorkspaceObject</b> (secondary).<br /><ul><ul><li type=\"disc\">Create Verification Request with valid type <b>Crt0VldnContractRevision</b> or custom type and add content as occurrence or <b>WorkspaceObject</b>.</li><li type=\"disc\">Create empty Verification Request.</li><li type=\"disc\">Revise existing Verification Request object and then add given contents to revised Verification Request object.</li><li type=\"disc\">Add parameters of content to Verification Request object with direction &ldquo;Input&rdquo; or &ldquo;Output&rdquo;. </li><li type=\"disc\">Execute recipe and add its results to Verification Request object.</li><li type=\"disc\">Set additional properties to Verification Request object.</li></ul></ul><br /><br />Use case 2: Create Sub-types of Verification Request with occurrences or <b>WorkspaceObject</b> under parent Verification Request object.<br />For each occurrence, the system creates the <b>Crt0ValidationLink</b> between Verification Request (primary) and occurrence (secondary). For each <b>WorkspaceObject</b>, the system creates the <b>Crt0ValidationLink</b> between <b>Crt0VldnContractRevision</b> (primary) and <b>WorkspaceObject</b> (secondary).<br /><ul><ul><li type=\"disc\">Create sub-types of Verification Request &ldquo;Simulation Request&rdquo;, &ldquo;Test Request&rdquo; or &ldquo;Run&rdquo;. System adds created sub-type object as child to parent Verification Request.</li><li type=\"disc\">Valid sub-types are <b>Crt0StudyRevision</b>, <b>IAV0TestStudyRevision</b> and <b>Crt0RunRevision</b> or custom sub-type.</li><li type=\"disc\">Add content as occurrence or <b>WorkspaceObject</b>.</li><li type=\"disc\">Populate contents of given parent to Verification Request object. Parent Verification Request object is mandatory.</li><li type=\"disc\">Execute recipe and add its results to Verification Request object.</li><li type=\"disc\">Set additional properties to Verification Request object.</li><li type=\"disc\">Add parameters of content to Verification Request object with direction &ldquo;Input&rdquo; or &ldquo;Output&rdquo;. </li></ul></ul><br /><br />Use case 3: Add Parameters to Verification Request.<br />User may want to add Parameters object to Verification Request.<br />For each occurrence or <b>WorkspaceObject</b>, system adds required Parameters to Verification Request<br /><ul><ul><li type=\"disc\">Set direction &ldquo;Input&rdquo; or &ldquo;Output&rdquo; to given parameters of content and add to Verification Request object. For other content parameters not in input, system adds such parameters with default direction to Verification Request object. </li><li type=\"disc\">Add all parameters of given content with default direction.</li><li type=\"disc\">Create parameter copies based on given option. If not provided follow parameter preference to create parameter copies or add directly to Verification Request object.</li></ul></ul><br /><br />Use case 4: Add Participants and Participant role to Verification Request.<br />User may want to add Participant and Participant role during creation of Verification Request<br /><ul><ul><li type=\"disc\">Add given user as Participant to Verification Request object.</li><li type=\"disc\">Set given role to given user. Valid role is &ldquo;Systems Designer&rdquo; or &ldquo;Simulation Engineer&rdquo;.</li><li type=\"disc\">If Participant not provided, system sets current user as participant with role as &ldquo;Systems Designer&rdquo;.</li></ul></ul><br /><br />Use case 5: Initiate Workflow for Verification Request and set automatic Workflow state.<br />User may want to initiate Workflow and set Workflow state during creation of Verification Request.<br /><ul><ul><li type=\"disc\">Initiate given Workflow to created Verification Request object. Workflow can be custom workflow.</li><li type=\"disc\">Set Workflow state to given Workflow. Valid Workflow to set state is &ldquo;Verification Request State Workflow&rdquo;.</li></ul></ul>"
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Participant business object type.",
+          "parameterName": "participantType"
+        },
+        {
+          "description": "Returns the result as true if current user belongs to given participant type, otherwise returns the result as false.",
+          "parameterName": "result"
+        }
+      ],
+      "canOverride": "true",
+      "component": "",
+      "createRelease": "tc10000.1.5",
+      "dependencies": "",
+      "description": "",
+      "exceptionCondition": "",
+      "id": "crt0IsParticipant#const,std::string,&$bool,*",
+      "interface": "crt0validationcontract::Crt0VldnContractRevision",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "crt0IsParticipant",
+      "opTemplate": "int#crt0validationcontract::Crt0VldnContractRevision::crt0IsParticipant#const,std::string,&$bool,*",
+      "returnDescription": "",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Uid of Contract Definition object",
+          "parameterName": "tcUidContractDefn"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc10000.1.2",
+      "dependencies": "",
+      "description": "Validates the attached Contract Package",
+      "exceptionCondition": "",
+      "id": "crt0ValidateContractPackage#const,std::string,*",
+      "interface": "crt0validationcontract::Crt0VCDefn",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "crt0ValidateContractPackage",
+      "opTemplate": "int#crt0validationcontract::Crt0VCDefn::crt0ValidateContractPackage#const,std::string,*",
+      "returnDescription": "Returns true or false based on the result of validation",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Uid of Contract Definition object.",
+          "parameterName": "tcUidofContractDefn"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc10000.1.2",
+      "dependencies": "",
+      "description": "Validates the attached Contract Package.",
+      "exceptionCondition": "",
+      "id": "crt0ValidateContractPackage#const,std::string,*",
+      "interface": "crt0validationcontract::Crt0VCDefnRevision",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "crt0ValidateContractPackage",
+      "opTemplate": "int#crt0validationcontract::Crt0VCDefnRevision::crt0ValidateContractPackage#const,std::string,*",
+      "returnDescription": "Returns true or false based on the result of validation of the attached Contract Package.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Vector of inputs for getting details of the Contract Definition object",
+          "parameterName": "inputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Crt0ValidationContract",
+      "createRelease": "tc10000.1.4",
+      "dependencies": "",
+      "description": "This operation retrieves the details of the input Contract Definitions by reading the attached Contract Package. The operation will return the details only if the package is valid.<br /><br />For a Contract Package to be valid:<br /><ul><ul><li type=\"disc\">It must adhere to the Contract schema. The schema can be found in the dataset \"Crt0ContractPkgSchema\" which gets deployed to Teamcenter database during installation of the \"Validation Contract\" feature.</li><li type=\"disc\">Business objects used in the package must exist in Teamcenter.</li><li type=\"disc\">Property names used in the package must exist in Teamcenter.</li></ul></ul>",
+      "exceptionCondition": "",
+      "id": "getContractDefnDetails#const,std::vector<crt0validationcontract::Crt0VCDefnRevision>,&",
+      "interface": "Crt0::Soa::ValidationContract::VCManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getContractDefnDetails",
+      "opTemplate": "Crt0::Soa::ValidationContract::_2015_03::VCManagement::ContractDefnResponse#Crt0::Soa::ValidationContract::VCManagement::getContractDefnDetails#const,std::vector<crt0validationcontract::Crt0VCDefnRevision>,&",
+      "returnDescription": "Detailed information about Contract Definitions is returned. Information contains the Section Group names, display names of each section, object types allowed in each section, common properties for the object types in each section, etc.<br /><br />The following partial errors may be returned in the ServiceData:<br /><ul><ul><li type=\"disc\">188001: &nbsp;&nbsp;&nbsp;&nbsp;The Contract Package is invalid. Either the XML has a syntax error or it does not confirm to the Contract schema. The schema can be found in the dataset \"Crt0ContractPkgSchema\".</li><li type=\"disc\">188002:&nbsp;&nbsp;&nbsp;&nbsp;The Contract Package is invalid. The specified Teamcenter business object does not exist.</li><li type=\"disc\">188003:&nbsp;&nbsp;&nbsp;&nbsp;The Contract Package is invalid. The specified property for the Teamcenter business object does not exist.</li><li type=\"disc\">188005: There is no Contract Package associated to the Contract Definition object.</li></ul></ul>",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::CreateVerificationRequestInputData",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of <i>CreateVerificationRequestInputData</i> structure.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::CreateVerificationRequestResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc13000.1.0",
+      "description": "This operation creates <b>Crt0VldnContractRevision</b> object with given content.",
+      "id": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::CreateVerificationRequestResponse#Crt0::Soa::ValidationContract::VCManagement::createVerificationRequest#const,std::vector<Crt0::Soa::ValidationContract::_2020_12::VCManagement::CreateVerificationRequestInputData>,&",
+      "name": "Crt0::Soa::ValidationContract::VCManagement::createVerificationRequest",
+      "returnConst": "false",
+      "returnDescription": "Contains created Verification Request objects and associated parameters. Any failures will be returned with the client id mapped to error message in the ServiceData list of partial errors:<br /><ul><ul><li type=\"disc\">188027: The current user does not have write privileges to the Verification Request.</li><li type=\"disc\">188028: An invalid name has been provided in <i>verificationRequestName</i> input argument. Please provide a valid value.</li><li type=\"disc\">188029: An invalid type has been provided in <i>verificationRequestType</i> input argument. Please provide a valid value.</li><li type=\"disc\">188030: An invalid option has been provided in <i>createParameterCopyOptions</i> input argument. Please provide a valid value.</li><li type=\"disc\">188030: An invalid object has been provided in <i>objectToBeAdded</i> input argument. Please provide a valid value.</li><li type=\"disc\">188031: An invalid object has been provided in <i>contextForObjectToBeAdded</i> input argument. Please provide a valid value.</li><li type=\"disc\">188033: An invalid property provided in <i>verificationRequestProps</i> input argument. Please provide a valid value.</li><li type=\"disc\">188033: An invalid Object provided in <i>reviseVerificationRequestRevision</i> input argument. Please provide a valid value.</li><li type=\"disc\">188035: An invalid name has been provided in <i>recipe</i> input argument. Please provide a valid value.</li><li type=\"disc\">188036: An invalid name has been provided in <i>workflowNameToInitiate</i> input argument. Please provide a valid value.</li><li type=\"disc\">188037: An invalid state has been provided in autoWorkflowState input argument. Please provide a valid value.</li><li type=\"disc\">188038: An invalid object has been provided in parentVerificationRequest input argument. Please provide a valid value.</li><li type=\"disc\">188039: An invalid option has been provided in <i>populateFromParent</i> input argument. Please provide a valid value.</li><li type=\"disc\">188040: An invalid object has been provided in <i>parameter</i> input argument. Please provide a valid value.</li><li type=\"disc\">188041: An invalid name has been provided in <i>direction </i> input argument. Please provide a valid value.</li><li type=\"disc\">188042: An invalid object has been provided in <i>verificationRequestDefinition</i> input argument. Please provide a valid value.</li><li type=\"disc\">188043: An invalid object provided in user input argument. Please provide a valid value.</li><li type=\"disc\">188044: An invalid value provided in role input argument. Please provide a valid value.</li><li type=\"disc\">188011: The object cannot be added to the Verification Request, because it has already been added to it.</li><li type=\"disc\">188014: The Verification Request was not created because invalid type of Verification Definition.</li><li type=\"disc\">188015: The Verification Request was not created because object has not been released.</li><li type=\"disc\">188017: The value for the property cannot be changed, because objects have already been added to the Verification Request.</li><li type=\"disc\">188018: Verification Request cannot be modified in the state.</li><li type=\"disc\">188019: A Study with name cannot be created, because the Verification Request already has a Study with the same name.</li><li type=\"disc\">188020: The name of the Study cannot be changed, because the Verification Request already contains a Study with that name.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "crt0validationcontract::Crt0VCDefnRevision",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Vector of inputs for getting details of the Contract Definition object",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Crt0::Soa::ValidationContract::_2015_03::VCManagement::ContractDefnResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc10000.1.4",
+      "description": "This operation retrieves the details of the input Contract Definitions by reading the attached Contract Package. The operation will return the details only if the package is valid.<br /><br />For a Contract Package to be valid:<br /><ul><ul><li type=\"disc\">It must adhere to the Contract schema. The schema can be found in the dataset \"Crt0ContractPkgSchema\" which gets deployed to Teamcenter database during installation of the \"Validation Contract\" feature.</li><li type=\"disc\">Business objects used in the package must exist in Teamcenter.</li><li type=\"disc\">Property names used in the package must exist in Teamcenter.</li></ul></ul>",
+      "id": "Crt0::Soa::ValidationContract::_2015_03::VCManagement::ContractDefnResponse#Crt0::Soa::ValidationContract::VCManagement::getContractDefnDetails#const,std::vector<crt0validationcontract::Crt0VCDefnRevision>,&",
+      "name": "Crt0::Soa::ValidationContract::VCManagement::getContractDefnDetails",
+      "returnConst": "false",
+      "returnDescription": "Detailed information about Contract Definitions is returned. Information contains the Section Group names, display names of each section, object types allowed in each section, common properties for the object types in each section, etc.<br /><br />The following partial errors may be returned in the ServiceData:<br /><ul><ul><li type=\"disc\">188001: &nbsp;&nbsp;&nbsp;&nbsp;The Contract Package is invalid. Either the XML has a syntax error or it does not confirm to the Contract schema. The schema can be found in the dataset \"Crt0ContractPkgSchema\".</li><li type=\"disc\">188002:&nbsp;&nbsp;&nbsp;&nbsp;The Contract Package is invalid. The specified Teamcenter business object does not exist.</li><li type=\"disc\">188003:&nbsp;&nbsp;&nbsp;&nbsp;The Contract Package is invalid. The specified property for the Teamcenter business object does not exist.</li><li type=\"disc\">188005: There is no Contract Package associated to the Contract Definition object.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "*"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Uid of Contract Definition object",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "tcUidContractDefn"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc10000.1.2",
+      "description": "Validates the attached Contract Package",
+      "id": "int#crt0validationcontract::Crt0VCDefn::crt0ValidateContractPackage#const,std::string,*",
+      "name": "crt0validationcontract::Crt0VCDefn::crt0ValidateContractPackage",
+      "returnConst": "false",
+      "returnDescription": "Returns true or false based on the result of validation",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "*"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Uid of Contract Definition object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "tcUidofContractDefn"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc10000.1.2",
+      "description": "Validates the attached Contract Package.",
+      "id": "int#crt0validationcontract::Crt0VCDefnRevision::crt0ValidateContractPackage#const,std::string,*",
+      "name": "crt0validationcontract::Crt0VCDefnRevision::crt0ValidateContractPackage",
+      "returnConst": "false",
+      "returnDescription": "Returns true or false based on the result of validation of the attached Contract Package.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Participant business object type.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "participantType"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "Returns the result as true if current user belongs to given participant type, otherwise returns the result as false.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Output",
+          "name": "result"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc10000.1.5",
+      "description": "",
+      "id": "int#crt0validationcontract::Crt0VldnContractRevision::crt0IsParticipant#const,std::string,&$bool,*",
+      "name": "crt0validationcontract::Crt0VldnContractRevision::crt0IsParticipant",
+      "returnConst": "false",
+      "returnDescription": "",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "tc10000.1.4",
+      "dependencies": "",
+      "description": "The VCManagement service exposes operations to manage Contract Definitions and Validation Contracts.<br /><br />The service provides the following use cases to manage Validation Contracts<br /><br />Get the details of Contract Definition object<br />",
+      "libraryName": "Crt0SoaValidationContract",
+      "name": "VCManagement",
+      "namespace": "Crt0::Soa::ValidationContract",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The object  (<b>BOMLine</b> or <b>WorkspaceObject</b>) that is to be added.",
+          "name": "objectToBeAdded"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "PS Occurrence Thread child path. If <i>objectToBeAdded</i> is empty, object determined from <i>childPathObjectToBeAdded</i> will be added to Verification Request. System considers either <i>objectToBeAdded</i> or <i>childPathObjectToBeAdded</i> to add to Verification Request. <i>childPathObjectToBeAdded</i> works on existing BOM window in system. The BOM window must be available in system to determine and add object to Verification Request.",
+          "name": "childPathObjectToBeAdded"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The context (<b>BOMLine</b>) in which <b>Tracelink</b> is to be created. This is required when <i>objectToBeAdded</i> is of type <b>BOMLine</b>, and ignored when <i>objectToBeAdded</i> is of type <b>WorkspaceObject</b>.",
+          "name": "contextForObjectToBeAdded"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "PS Occurrence Thread child path. If <i>contextForObjectToBeAdded</i> is empty, context of <i>objectToBeAdded</i> will be determined from <i>childPathContextToBeAdded</i>. System considers either <i>contextForObjectToBeAdded</i> or <i>childPathContextToBeAdded</i> as context. <i>childPathContextToBeAdded</i> works on existing BOM window in system. The BOM window must be available in system to determine and add object to Verification Request.",
+          "name": "childPathContextToBeAdded"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::PropertyMap"
+            }
+          ],
+          "description": "Additional properties for <i>objectToBeAdded</i>.",
+          "name": "additionalProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::ParameterInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <i>ParameterInfo</i> structure. Represents parameter and parameter direction of content to be set to Verification Request object. If empty, system adds all associated parameters of content to Verification Request object.",
+          "name": "parameters"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Structure representing the objects to add and its parameters to the Verification Request.",
+      "isPublished": "true",
+      "name": "AddObjectInput",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Section group name (Example: View, Results, etc)<br />",
+          "name": "groupName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2015_03::VCManagement::ContractDefnSection"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of ContractDefnSection objects detailing Section information.",
+          "name": "contractDefnSections"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "This structure contains detailed information of the Contract Definition (i.e. the Contract Package that is attached to the Contract Definition)",
+      "isPublished": "true",
+      "name": "ContractDefnOutput",
+      "namespace": "Crt0::Soa::ValidationContract::_2015_03::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "att0attrtargetmgmt::Att0MeasurableAttribute"
+            }
+          ],
+          "description": "This <b>Att0MeasurableAttribute</b> object to be added to Verification Request as Input or Output for the <i>objectToBeAdded</i> in <i>AddObjectInput</i>.",
+          "name": "parameter"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The direction to be set for <i>parameter</i>. Valid values are: &ldquo;Input&rdquo;, &ldquo;Output&rdquo; or empty.  &ldquo;Input&rdquo; or empty direction parameters will be set as input to Verification Request. &ldquo;Output&rdquo; direction parameters will be set as output of Verification Request.",
+          "name": "direction"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Structure representing the Parameter to add to the Verification Request for the given object.",
+      "isPublished": "true",
+      "name": "ParameterInfo",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::User"
+            }
+          ],
+          "description": "The <b>User</b> object to be added as Participant to Verification Request.",
+          "name": "user"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Role of <i>user</i> as participant to be added to Verification Request. Valid values for role are &ldquo;Systems Designer&rdquo; and &ldquo;Simulation Engineer&rdquo;.",
+          "name": "role"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Structure representing the Participant to add to Verification Request object.",
+      "isPublished": "true",
+      "name": "ParticipantInfo",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the <b>Fnd0Recipe</b> object to be executed for the given content.",
+          "name": "recipeName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The <b>Fnd0Recipe</b> object UID to be executed for the given content.",
+          "name": "recipeUid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BOMWindow"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of optional <b>BOMWindow</b> objects to which qualified business objects are resolved.",
+          "name": "bomWindows"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Structure represents Information about recipe to be executed on the given content.",
+      "isPublished": "true",
+      "name": "RecipeData",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2015_03::VCManagement::ContractDefnOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of ContractDefnOutput objects detailing information of the Contract Definition.",
+          "name": "contractDefnOutputs"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "This is an SOA Service Data structure.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "This structure contains detailed information about Contract Definitions. The information contains  Section Group names, Section display names, allowed object types for each Section, and common properties for the object types in each Section, etc.",
+      "isPublished": "true",
+      "name": "ContractDefnResponse",
+      "namespace": "Crt0::Soa::ValidationContract::_2015_03::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Display name of Contract Definition Section",
+          "name": "displayName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2015_03::VCManagement::ObjectInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of object types and quantities that must be displayed in a section.",
+          "name": "objectInfos"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Teamcenter object properties that must be displayed in a section. These properties are common to all the objects in the section.",
+          "name": "propertyNames"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Teamcenter object property's display name.",
+          "name": "propertyDisplayNames"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "This structure contains detailed information of the sections specified within a group in a Contract Definition.",
+      "isPublished": "true",
+      "name": "ContractDefnSection",
+      "namespace": "Crt0::Soa::ValidationContract::_2015_03::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "This unique Id is used to identify return data elements and partial errors associated with this input structure.",
+          "name": "clientID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "crt0validationcontract::Crt0VldnContractRevision"
+            }
+          ],
+          "description": "Created Verification Request Object.",
+          "name": "verificationRequest"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::ElementData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A List of <i>ElementData</i> structure. Represents details of elements of Verification Request Object.",
+          "name": "elements"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Structure represents created Verification Request object and related data.",
+      "isPublished": "true",
+      "name": "CreateVerificationRequestData",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "This unique ID is used to identify return data elements and partial errors associated with this input structure.",
+          "name": "clientID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Verification Request object name. It is mandatory input to create <b>Crt0VldnContractRevision</b> object.",
+          "name": "verificationRequestName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Workflow to initiate for Verification Request object. Workflow can be custom Workflow or default system workflow &ldquo;Verification Request State Workflow&rdquo;.   Default system workflow &ldquo;Verification Request State Workflow&rdquo; manages Verification Request with states &ldquo;Authoring&rdquo;, &quot;Submitted&quot;, &quot;Analyzed&quot;, &quot;Publishing&quot; and &quot;Complete&quot;. If empty, no workflow will be set to Verification Request.",
+          "name": "workflowNameToInitiate"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, created Verification Request is populated from given <i>parentVerificationRequest</i> parent  content. If false, content of <i>parentVerificationRequest</i> parent will not be populated to created Verification Request.",
+          "name": "populateFromParent"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "crt0validationcontract::Crt0VldnContractRevision"
+            }
+          ],
+          "description": "Parent Verification Request Object for creating sub-type of Verification Request object. It is mandatory only for creation of sub-types of Verification Request object.",
+          "name": "parentVRObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Verification Request object type. Valid types are <b>Crt0VldnContractRevision</b> and its sub-types",
+          "name": "verificationRequestType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "crt0validationcontract::Crt0VldnContractRevision"
+            }
+          ],
+          "description": "Optional <b>Crt0VCDefnRevision</b> object. If not empty , system sets given Verification Definition Revision to created  Verification Request object. If empty, Verification Definition Revision information will be empty for created  Verification Request object.",
+          "name": "verificationRequestDefinition"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "crt0validationcontract::Crt0VldnContractRevision"
+            }
+          ],
+          "description": "Existing <b>Crt0VldnContractRevision</b> Verification Request Object. If not empty, system performs Revise operation on existing Verification Request and adds given input objects to revised Verification Request object.  If empty, system creates new Verification Request object and adds given input objects.",
+          "name": "reviseVerificationRequestRevision"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::AddObjectInput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <i>AddObjectInput</i> structure. Represents content and parameters details to add to Verification Request Object.",
+          "name": "verificationRequestContent"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "This option to set given parameter directly or create copy and then set to Verification Request object.  <br />The parameter copy options are: &ldquo;Input&rdquo;, &ldquo;Output&rdquo; or &ldquo;Input,Output&rdquo; and &ldquo;&rdquo; (empty).<br />&ldquo;Input&rdquo; - copies of input parameters are created.  <br />&ldquo;Output&rdquo; - copies of output parameters are created.<br />&ldquo;Input,Output&rdquo; - copies of input and output parameters are created. <br />&ldquo;&rdquo; (empty) &ndash; system preference &quot;PLE_AnalysisRequest_CopyAttribute&quot; is used to determine what parameters are copied.",
+          "name": "createParameterCopyOptions"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::PropertyMap"
+            }
+          ],
+          "description": "Additional properties to set on Verification Request object.",
+          "name": "verificationRequestProps"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::RecipeData"
+            }
+          ],
+          "description": "The recipe to be executed on given <i>verificationRequestContent</i> content . The results are added to the Verification Request.",
+          "name": "recipeData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::ParticipantInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <i>ParticipantInfo</i> structure. Represents details about participants to be added to Verification Request object. If empty, current user will be set as Participant with role as &ldquo;Systems Designer&rdquo;.",
+          "name": "participants"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Structure required to create Verification Request with given Verification Request content.",
+      "isPublished": "true",
+      "name": "CreateVerificationRequestInputData",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::CreateVerificationRequestData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <i>CreateVerificationRequestData</i> structure.",
+          "name": "verificationRequestData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The Service Data with partial errors for <i>createVerificationRequest </i>operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Structure represents created Verification Request object details.",
+      "isPublished": "true",
+      "name": "CreateVerificationRequestResponse",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Verification Reequest content object.",
+          "name": "element"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Crt0::Soa::ValidationContract::_2020_12::VCManagement::ParameterData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of <i>ParameterData</i> structure. Represents details of parameters of Verification Request Object.",
+          "name": "parameters"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Details of Verification Request content object.",
+      "isPublished": "true",
+      "name": "ElementData",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Teamcenter Business object type",
+          "name": "type"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Number of objects of a given type. Allowed values are: <br />a.&nbsp;&nbsp;&nbsp;&nbsp;\"0\" (Zero)<br /><br />b.&nbsp;&nbsp;&nbsp;&nbsp;Any positive number<br />    Example: Value of 1 allows only one object of the given type in the section.<br /><br />c.&nbsp;&nbsp;&nbsp;&nbsp;\"*\". Value of * allows any number of objects of the given type in the section.<br />",
+          "name": "quantity"
+        }
+      ],
+      "createRelease": "tc10000.1.4",
+      "description": "This structure contains information of the object types and their quantities that are expected to appear in a section.",
+      "isPublished": "true",
+      "name": "ObjectInfo",
+      "namespace": "Crt0::Soa::ValidationContract::_2015_03::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "att0attrtargetmgmt::Att0MeasurableAttribute"
+            }
+          ],
+          "description": "<b>Att0MeasurableAttribute</b> object associated with Verification Request.",
+          "name": "parameter"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Direction of <i>parameter</i> object. Supported values are &ldquo;Input&rdquo; and &ldquo;Output&rdquo;.<br />&quot;Input&quot; parameter represents input to Verification Request.<br />&quot;Output&quot; parameter represents output of Verification Request.",
+          "name": "direction"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Structure represents parameter data of created Verification Request object.",
+      "isPublished": "true",
+      "name": "ParameterData",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    }
+  ],
+  "TcVersion": "tc13000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc13000.1.0",
+      "description": "Property map with key and list of values.",
+      "isPublished": "true",
+      "name": "PropertyMap",
+      "namespace": "Crt0::Soa::ValidationContract::_2020_12::VCManagement",
+      "scope": "Crt0::Soa::ValidationContract::VCManagement"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

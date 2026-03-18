@@ -1,0 +1,54 @@
+<aw-popup2>
+    <aw-panel-header aw-class="['aw-mbm-comparePopupHeaderTitle']">
+        <aw-i18n>i18n.mbmComparingInstances</aw-i18n>
+        <aw-i18n aw-class="['aw-mbm-changeText']">i18n.mbmEbom</aw-i18n>
+        <span>-</span>
+        <aw-i18n aw-class="['aw-mbm-oldText']">{{i18n.mbmMbom}}.</aw-i18n>
+    </aw-panel-header>
+    <aw-scrollpanel aw-class="['aw-mbm-comparePopupContent']">
+        <!--Revision property start-->
+        <div exist-when="data.compareInfo.propertyInfo.length>0" aw-repeat="prop: data.compareInfo.propertyInfo" aw-class="['aw-mbm-comparePopupPropertyContent']">
+            <div aw-class="['aw-mbm-comparePopupPropertyInfo']">
+                <div aw-class="['aw-widgets-cellListCellTitleBlock']">
+                    <h3 aw-class="['aw-widgets-cellListCellTitle']">{{prop.propertyDisplayName}}</h3>
+                </div>
+                <span aw-class="['aw-jswidgets-change']" title="{{prop.propertyCurrentValue}}">{{prop.propertyCurrentValue}}</span>
+                <span aw-class="['aw-jswidgets-oldText']" title="{{prop.propertyOldValue}}">{{prop.propertyOldValue}}</span>
+            </div>
+        </div>
+
+        <!--Revision property end-->
+        <!--Occurrance property start-->
+        <div exist-when="data.compareInfo.occPropertyInfo.length>0" >
+            <div aw-class="['aw-mbm-changeSummaryTilesSeparator']"></div>
+            <div>
+                <div aw-class="['aw-widgets-cellListCellTitleBlock','aw-mbm-comparePopupPropertyInfoSubHeader']">
+                    <h3 aw-class="['aw-widgets-cellListCellTitle']">
+                        <aw-i18n >i18n.mbmChangesInParentContext</aw-i18n>
+                    </h3>
+                </div>
+                <div  aw-repeat="occProp: data.compareInfo.occPropertyInfo" aw-class="['aw-mbm-comparePopupPropertyContent','aw-mbm-comparePopupPropertyInfo']">
+                    <div aw-class="['aw-widgets-cellListCellTitleBlock']">
+                        <h3 aw-class="['aw-widgets-cellListCellTitle']">{{occProp.propertyDisplayName}}</h3>
+                    </div>
+                    <span aw-class="['aw-jswidgets-change']" title="{{occProp.propertyCurrentValue}}">{{occProp.propertyCurrentValue}}</span>
+                    <span aw-class="['aw-jswidgets-oldText']" title="{{occProp.propertyOldValue}}">{{occProp.propertyOldValue}}</span>
+                </div>
+            </div>
+        </div>
+        <!--Occurrance property end-->
+    </aw-scrollpanel>
+    <aw-flex-row  height="3.4f" justify="right">
+        <aw-flex-column width="18f" offset-right="1f" justify="top">
+            <aw-flex-row justify="space-between" offset-bottom="1f">
+                <aw-flex-column width="10f">
+                    <aw-button button-type="base" action="evaluatePropagateAction" enable-when="data.compareInfo"><aw-i18n>i18n.mbmUpdateMbom</aw-i18n></aw-button>
+                </aw-flex-column >
+                <aw-flex-column width="7f" justify="top">
+                    <aw-button  action="closeAction"><aw-i18n>i18n.mbmClose</aw-i18n></aw-button>
+                </aw-flex-column>
+            </aw-flex-row>
+        </aw-flex-column>
+
+    </aw-flex-row>
+</aw-popup2>

@@ -1,0 +1,76 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-command-sub-panel.directive",
+        "js/aw-command-panel.directive",
+        "js/visible-when.directive"
+    ],
+    "data":
+    {
+        "pinnedToForm":
+        {
+
+            "propType": "BOOLEAN",
+            "dbValue": true
+        },
+        "unpinnedToForm":
+        {
+
+            "propType": "BOOLEAN",
+            "dbValue": false
+        },
+        "Pm1Pincommands": "Pm1_oneStepPinCommands"
+    },
+    "actions":
+    {
+        "Pm1SetPin":
+        {
+            "actionType": "JSFunction",
+            "method": "setPin",
+            "inputData":
+            {
+                "data": "{{data.eventData.data}}"
+            },
+            "outputData": {},
+            "deps": "js/addObjectUtils"
+        },
+
+        "Pm1SetUnPin":
+        {
+            "actionType": "JSFunction",
+            "method": "setUnPin",
+            "inputData":
+            {
+                "data": "{{data.eventData.data}}"
+            },
+            "outputData": {},
+            "deps": "js/addObjectUtils"
+        }
+    },
+    "onEvent":
+    [
+         {
+           "eventId": "addResource.Pm1SetPin",
+           "cacheEventData": true,
+           "action": "Pm1SetPin"
+         },
+         {
+           "eventId": "addResource.Pm1SetUnPin",
+           "cacheEventData": true,
+           "action": "Pm1SetUnPin"
+         }
+    ],
+    "i18n":
+    {
+       "Pm1AddResourceTitle": [
+           "partmanufacturingMessages"
+        ],
+       "Pm1PinButtonToolTip": [
+           "partmanufacturingMessages"
+       ],
+       "Pm1UnpinButtonToolTip": [
+           "partmanufacturingMessages"
+       ]
+    }
+}

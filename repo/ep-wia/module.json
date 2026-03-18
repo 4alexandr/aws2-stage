@@ -1,0 +1,242 @@
+{
+  "name": "ep-wia",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "mfeWorkspaceConfig": {
+    "WIWorkspace": {
+      "defaultStructure": "Mfg0BvrProcess",
+      "defaultError": "noProcessStructureError"
+    }
+  },
+  "commandsViewModel": {
+    "commands": {
+      "WICapture2DCommand": {
+        "iconId": "cmdCaptureImage",
+        "isGroup": false,
+        "title": "{{i18n.capture2DImage}}",
+        "selected": {
+          "iconId": "cmdCaptureImage",
+          "title": "{{i18n.capture2DImage}}"
+        }
+      },
+      "epManageProductViewsCommand": {
+        "iconId": "cmdModelViewPalette",
+        "title": "{{i18n.epManageProductViewsCommandTitle}}"
+      },
+      "WIReturnTo3DViewCommand": {
+        "iconId": "cmd3DView",
+        "isGroup": false,
+        "title": "{{i18n.3DView}}",
+        "selected": {
+          "iconId": "cmd3DView",
+          "title": "{{i18n.3DView}}"
+        }
+      },
+      "epOpenBopStructureInTeamcenterVisCommand": {
+        "iconId": "cmdModelViewPalette",
+        "title": "{{i18n.openInTeamcenterVis}}"
+      }
+    },
+    "commandHandlers": {
+      "WICapture2DCommandHandler": {
+        "id": "WICapture2DCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isCaptureSanpshotAllowed"
+        },
+        "action": "capture2DSnapshot"
+      },
+      "WIReturnTo3DViewCommandHandler": {
+        "id": "WIReturnTo3DViewCommand",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isImageViewerLoaded"
+        },
+        "action": "returnTo3DView"
+      },
+      "epOpenBopStructureInTeamcenterVisCommandHandler": {
+        "id": "epOpenBopStructureInTeamcenterVisCommand",
+        "activeWhen": {
+          "condition": "conditions.isProcessAreaPlanningPage"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isOpenBopInVizCommandVisible"
+        },
+        "action": "openBopInVis"
+      },
+      "WIManageProductViewsCommandHandler": {
+        "id": "epManageProductViewsCommand",
+        "activeWhen": {
+          "condition": "conditions.isWorkInstructionPage"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isSingleObjectSelected"
+        },
+        "action": "openInVis"
+      }
+    },
+    "conditions": {
+      "isProcOpSelected": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "commandContext.inputObject",
+              "$query": {
+                "$notNull": true
+              }
+            },
+            {
+              "$source": "commandContext.inputObject.uid",
+              "$query": {
+                "$notNull": true
+              }
+            }
+          ]
+        }
+      },
+      "isImageViewerLoaded": {
+        "expression": {
+          "$source": "ctx.wiPageContext.isImageViewer",
+          "$query": {
+            "$eq": true
+          }
+        }
+      },
+      "isCaptureSanpshotAllowed": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isProcOpSelected",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isReadOnlyMode",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "conditions.isImageViewerLoaded",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isOpenBopInVizCommandVisible": {
+        "expression": "commandContext.selection.length === 1"
+      },
+      "isProcessAreaPlanningPage": {
+        "expression": "ctx.locationContext['ActiveWorkspace:SubLocation'] === 'ProcessAreaPlanning'"
+      },
+      "isWorkInstructionPage": {
+        "expression": "ctx.locationContext['ActiveWorkspace:SubLocation'] === 'workInstructions'"
+      },
+      "isSingleObjectSelected": {
+        "expression": "commandContext.inputObject !== undefined && commandContext.inputObject.uid"
+      }
+    },
+    "commandPlacements": {
+      "WICapture2DCommandDisplay": {
+        "id": "WICapture2DCommand",
+        "uiAnchor": "epVisualsGallery_uiAnchor",
+        "priority": 1
+      },
+      "WIReturnTo3DViewCommandDisplay": {
+        "id": "WIReturnTo3DViewCommand",
+        "uiAnchor": "epVisualsGallery_uiAnchor",
+        "priority": 2
+      },
+      "epOpenBopStructureInTeamcenterVisCommandDisplay": {
+        "id": "epOpenBopStructureInTeamcenterVisCommand",
+        "uiAnchor": "epPert_uiAnchor",
+        "priority": 1006
+      },
+      "WIManageProductViewsCommandDisplay": {
+        "id": "epManageProductViewsCommand",
+        "uiAnchor": "epVisualsGallery_uiAnchor",
+        "priority": -1
+      }
+    },
+    "actions": {
+      "capture2DSnapshot": {
+        "actionType": "JSFunction",
+        "method": "capture2DSnapshot",
+        "inputData": {
+          "visId": "{{commandContext.visInstanceId}}",
+          "selectedObj": [
+            "{{commandContext.inputObject}}"
+          ]
+        },
+        "deps": "js/epCapture2DService"
+      },
+      "returnTo3DView": {
+        "actionType": "JSFunction",
+        "method": "updatePartialCtx",
+        "inputData": {
+          "name": "wiPageContext.isImageViewer",
+          "value": false
+        },
+        "deps": "js/appCtxService"
+      },
+      "openBopInVis": {
+        "actionType": "JSFunction",
+        "method": "openInVis",
+        "inputData": {
+          "datasetsToShow": "",
+          "selectedObjects": "{{commandContext.selection[0]}}"
+        },
+        "deps": "js/epManageProductViewsService"
+      },
+      "openInVis": {
+        "actionType": "JSFunction",
+        "method": "openInVis",
+        "inputData": {
+          "datasetsToShow": "{{commandContext.datasetsToShow}}",
+          "currentScope": "{{ctx.epPageContext.loadedObject}}"
+        },
+        "deps": "js/epManageProductViewsService"
+      }
+    },
+    "i18n": {
+      "capture2DImage": [
+        "GraphicsMessages"
+      ],
+      "epManageProductViewsCommandTitle": [
+        "GraphicsMessages"
+      ],
+      "3DView": [
+        "GraphicsMessages"
+      ],
+      "openInTeamcenterVis": [
+        "GraphicsMessages"
+      ]
+    }
+  },
+  "visConfiguration": {
+    "schemaVersion": "1.0.0",
+    "wiVisViewer": {
+      "serviceProxy": "js/epGraphicsServiceProxy",
+      "licenseKey": "EKXVvqXVO04ND+1ztoizu5tzvE3D2apW4OlYDDGDQLNojtvz5gNKxD2NS9aGLe5uD1e2sJUmeD6l7yeMDocFhg=="
+    },
+    "visViewer": {
+      "serviceProxy": "js/epGraphicsServiceProxy",
+      "licenseKey": "EKXVvqXVO04ND+1ztoizu5tzvE3D2apW4OlYDDGDQLNojtvz5gNKxD2NS9aGLe5uD1e2sJUmeD6l7yeMDocFhg=="
+    },
+    "planningVisViewer": {
+      "serviceProxy": "js/epGraphicsServiceProxy",
+      "licenseKey": "EKXVvqXVO04ND+1ztoizu5tzvE3D2apW4OlYDDGDQLNojtvz5gNKxD2NS9aGLe5uD1e2sJUmeD6l7yeMDocFhg=="
+    }
+  }
+}

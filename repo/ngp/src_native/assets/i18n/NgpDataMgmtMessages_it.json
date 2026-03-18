@@ -1,0 +1,23 @@
+{
+    "cancel": "Annulla",
+    "submit": "Invia",
+    "continue": "Continua",
+    "reviseCmdTitle": "Revisiona",
+    "workflowTemplatesLabel": "Template di workflow",
+    "workflowNameLabel": "Nome workflow",
+    "workflowDescriptionLabel": "Descrizione",
+    "noWorkflowTemplatesMsg": "Nessun template di workflow trovato per gli oggetti selezionati.",
+    "submitToWorkflowCmdTitle": "Invia a workflow",
+    "submitToWorkflowTooltipMsg": "Inviare {0} al workflow.",
+    "submitToWorkflowInformationMsg": "Eliminazione di {0} procedure in sospeso. Per rilasciare il contenuto dell'attività, inclusa l'eliminazione, inviare l'attività al workflow quando si utilizza il template di workflow \"NGP_ReleasePendingDeletions\".",
+    "successfullySubmitToWorkflowSingle": "\"{0}\" è stato inviato al workflow.",
+    "successfullySubmitToWorkflowMultiple": "{0} oggetti inviati al workflow.",
+    "parentAutoReviseSingleConfirmation": "Se si revisiona \"{0}\", verrà revisionato anche \"{1}\". Continuare?",
+    "parentAutoReviseMultipleConfirmation": "Se si revisionano le operazioni selezionate, verrà revisionata anche \"{0}\". Continuare?",
+    "successfulReviseAction": "Nuova revisione creata correttamente per \"{0}\".",
+    "submitSelectedToWorkflow": "Inviare gli elementi selezionati al workflow.",
+    "singleDeleteMessage": "Eliminare \"{0}\"?",
+    "multipleDeleteMessage": "Eliminare questi {0} oggetti?",
+    "deleteTooltipMsg": "Elimina",
+    "deleteSelectedObjectsCmdDescription": "Eliminare gli oggetti selezionati"    
+}

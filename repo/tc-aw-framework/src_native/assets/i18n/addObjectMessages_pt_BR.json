@@ -1,0 +1,4 @@
+{
+    "invalidObjectWarning": "\"{0}\" não é um arquivo válido para o conjunto de objetos \"{1}\". O objeto recém-criado não aparecerá no conjunto de objetos.",
+    "addedObjectIsNotUnique": "O objeto \"{1}-{0}\" não foi salvo porque \"ID = {1}\" não é único."
+}

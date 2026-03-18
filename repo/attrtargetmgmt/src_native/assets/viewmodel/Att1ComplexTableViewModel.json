@@ -1,0 +1,315 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-column.directive",
+        "js/exist-when.directive",
+        "js/aw-row.directive",
+        "js/aw-panel.directive"
+    ],
+    "actions": {
+        "editEventAction": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "plTable.editStateChange",
+                        "eventData": {
+                            "state": "{{data.eventData.state}}",
+                            "dataSource": {
+                                "dataProviders": "{{data.dataProviders}}"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "getDataForGoalTable": {
+            "actionType": "JSFunction",
+            "method": "getDataForTable",
+            "inputData": {
+                "data": "{{data}}",
+                "tableName": "goalTable"
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "searchResults"
+            },
+            "deps": "js/Att1ComplexDataService"
+        },
+        "getDataForMinTable": {
+            "actionType": "JSFunction",
+            "method": "getDataForTable",
+            "inputData": {
+                "data": "{{data}}",
+                "tableName": "minTable"
+            },
+            "outputData": {
+                "totalFound2": "totalFound",
+                "searchResults2": "searchResults"
+            },
+            "deps": "js/Att1ComplexDataService"
+        },
+        "getDataForMaxTable": {
+            "actionType": "JSFunction",
+            "method": "getDataForTable",
+            "inputData": {
+                "data": "{{data}}",
+                "tableName": "maxTable"
+            },
+            "outputData": {
+                "totalFound3": "totalFound",
+                "searchResults3": "searchResults"
+            },
+            "deps": "js/Att1ComplexDataService"
+        },
+        "getDataForMeasureValueTable": {
+            "actionType": "JSFunction",
+            "method": "getDataForTable",
+            "inputData": {
+                "data": "{{data}}",
+                "tableName": "valueTable"
+            },
+            "outputData": {
+                "totalFound4": "totalFound",
+                "searchResults4": "searchResults"
+            },
+            "deps": "js/Att1ComplexDataService"
+        },
+        "loadColumnsForGoal": {
+            "actionType": "JSFunction",
+            "method": "loadColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.goalTableProvider}}",
+                "tableName": "goalTable"
+            },
+            "deps": "js/Att1ComplexDataService"
+        },
+        "loadColumnsForMin": {
+            "actionType": "JSFunction",
+            "method": "loadColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.minTableProvider}}",
+                "tableName": "minTable"
+            },
+            "deps": "js/Att1ComplexDataService"
+        },
+        "loadColumnsForMax": {
+            "actionType": "JSFunction",
+            "method": "loadColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.maxTableProvider}}",
+                "tableName": "maxTable"
+            },
+            "deps": "js/Att1ComplexDataService"
+        },
+        "loadColumnsForMeasureValue": {
+            "actionType": "JSFunction",
+            "method": "loadColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.measureValueTableProvider}}",
+                "tableName": "valueTable"
+            },
+            "deps": "js/Att1ComplexDataService"
+        },
+        "addEventDataToNativeDataForGoalTable": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "nativeDataLoadEvent",
+                        "eventData": {
+                            "viewModelObjects": "{{data.dataProviders.goalTableProvider.viewModelCollection.loadedVMObjects}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "addEventDataToNativeDataForMinTable": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "nativeDataLoadEvent",
+                        "eventData": {
+                            "viewModelObjects": "{{data.dataProviders.minTableProvider.viewModelCollection.loadedVMObjects}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "addEventDataToNativeDataForMaxTable": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "nativeDataLoadEvent",
+                        "eventData": {
+                            "viewModelObjects": "{{data.dataProviders.maxTableProvider.viewModelCollection.loadedVMObjects}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "addEventDataToNativeDataForValueTable": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "nativeDataLoadEvent",
+                        "eventData": {
+                            "viewModelObjects": "{{data.dataProviders.measureValueTableProvider.viewModelCollection.loadedVMObjects}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "getComplexData": {
+            "actionType": "JSFunctionAsync",
+            "method": "getComplexData",
+            "deps": "js/Att1ComplexDataService"
+        }
+    },
+    "dataProviders": {
+        "goalTableProvider": {
+            "action": "getDataForGoalTable",
+            "selectionModelMode": "single",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "searchIndex": "{{data.searchIndex}}"
+        },
+        "minTableProvider": {
+            "action": "getDataForMinTable",
+            "selectionModelMode": "single",
+            "response": "{{data.searchResults2}}",
+            "totalFound": "{{data.totalFound2}}",
+            "searchIndex": "{{data.searchIndex2}}"
+        },
+        "maxTableProvider": {
+            "action": "getDataForMaxTable",
+            "selectionModelMode": "single",
+            "response": "{{data.searchResults3}}",
+            "totalFound": "{{data.totalFound3}}",
+            "searchIndex": "{{data.searchIndex3}}"
+        },
+        "measureValueTableProvider": {
+            "action": "getDataForMeasureValueTable",
+            "selectionModelMode": "single",
+            "response": "{{data.searchResults4}}",
+            "totalFound": "{{data.totalFound4}}",
+            "searchIndex": "{{data.searchIndex4}}"
+        }
+    },
+    "columnProviders": {
+        "goalColumnProvider": {
+            "loadColumnAction": "loadColumnsForGoal",
+            "columns": "{{data.columns}}",
+            "sortCriteria": []
+        },
+        "minColumnProvider": {
+            "loadColumnAction": "loadColumnsForMin",
+            "columns": "{{data.columns}}",
+            "sortCriteria": []
+        },
+        "maxColumnProvider": {
+            "loadColumnAction": "loadColumnsForMax",
+            "columns": "{{data.columns}}",
+            "sortCriteria": []
+        },
+        "measureValueColumnProvider": {
+            "loadColumnAction": "loadColumnsForMeasureValue",
+            "columns": "{{data.columns}}",
+            "sortCriteria": []
+        }
+    },
+    "grids": {
+        "goalTable": {
+            "dataProvider": "goalTableProvider",
+            "columnProvider": "goalColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "maxRowsToShow": 11
+            }
+        },
+        "minTable": {
+            "dataProvider": "minTableProvider",
+            "columnProvider": "minColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "maxRowsToShow": 11
+            }
+        },
+        "maxTable": {
+            "dataProvider": "maxTableProvider",
+            "columnProvider": "maxColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "maxRowsToShow": 11
+            }
+        },
+        "measureValueTable": {
+            "dataProvider": "measureValueTableProvider",
+            "columnProvider": "measureValueColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "maxRowsToShow": 11
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "editHandlerStateChange",
+            "cacheEventData": true,
+            "action": "editEventAction"
+        },
+        {
+            "eventId": "goalTableProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "addEventDataToNativeDataForGoalTable"
+        },
+        {
+            "eventId": "minTableProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "addEventDataToNativeDataForMinTable"
+        },
+        {
+            "eventId": "maxTableProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "addEventDataToNativeDataForMaxTable"
+        },
+        {
+            "eventId": "measureValueTableProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "addEventDataToNativeDataForValueTable"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Att1ComplexTable"
+            },
+            "action": "getComplexData",
+            "condition": "((ctx.tcSessionData.tcMajorVersion === 11 && ctx.tcSessionData.tcMinorVersion === 2 && ctx.tcSessionData.tcQRMNumber > 6 ) || (ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion > 0) || ctx.tcSessionData.tcMajorVersion > 12) && (ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0AttributeDefRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Att0MeasurableAttribute' ) > -1)"
+        }
+    ],
+    "conditions": {},
+    "i18n": {
+        "goalTitle": [
+            "Att1AttrMappingMessages"
+        ],
+        "minTitle": [
+            "Att1AttrMappingMessages"
+        ],
+        "maxTitle": [
+            "Att1AttrMappingMessages"
+        ],
+        "measuredValueTitle": [
+            "Att1AttrMappingMessages"
+        ]
+    }
+}

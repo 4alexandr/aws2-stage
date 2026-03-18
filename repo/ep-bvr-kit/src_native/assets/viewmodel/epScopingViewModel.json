@@ -1,0 +1,52 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "preferenceName": "EP_TargetAssembliesTabTableColumnConfiguration",
+        "loadInputObject": {
+            "loadType": "GetScopeAssembly",
+            "loadedObjectMapKey": "associatedAssembly"
+        },
+        "relationName": "ScopingRelation",
+        "messages": {
+            "noElementSelected": [{
+                "text": "{{i18n.selectProcess}}"
+            }],
+            "noAssigned": [{
+                "text": "{{i18n.noAssigned}}",
+                "textParams": [
+                    "{{i18n.targetAssemblies}}"
+                ]
+            }]
+        }
+    },
+    "actions": {
+        "getTabContext": {
+            "actionType": "JSFunction",
+            "method": "getTabContext",
+            "inputData": {
+                "tabData": "{{subPanelContext}}"
+            },
+            "outputData": {
+                "tabContext": ""
+            },
+            "deps": "js/epTableService"
+        }
+    },
+    "lifecycleHooks": {
+        "onMount": "getTabContext"
+    },
+    "i18n": {
+        "selectProcess": [
+            "PlanningMessages"
+        ],
+        "noAssigned": [
+            "DetailsMessages"
+        ],
+        "targetAssemblies": [
+            "PlanningMessages"
+        ]
+    }
+}

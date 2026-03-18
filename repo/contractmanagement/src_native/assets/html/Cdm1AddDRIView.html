@@ -1,0 +1,10 @@
+<aw-command-panel caption="i18n.add" anchor="data.addObjectPanelPinCommands" context="data">
+    <aw-form name="cdm1addDriForm" visible-when="data.activeView!='assignProjectSub'&&data.activeView!='addReferenceSub'">
+        <aw-add target-object="ctx.selected" include-types="Cdm0DataReqItem" type-filter="Cdm0DataReqItem"  visible-tabs="new"></aw-add>
+    </aw-form>    
+    <aw-panel-footer visible-when="data.activeView!='assignProjectSub'&&data.activeView!='addReferenceSub'">
+        <aw-button action="createAndAddDRI" visible-when="cdm1addDriForm.$valid"><aw-i18n>i18n.add</aw-i18n></aw-button>
+    </aw-panel-footer>
+</aw-command-panel>
+
+

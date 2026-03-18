@@ -1,0 +1,13 @@
+<aw-column width="fill" exist-when="ctx.xrtPageContext.secondaryXrtPageID=='tc_xrt_Overview' || ctx.xrtPageContext.secondaryXrtPageID=='Ase0ArchitectureFeature' || ctx.xrtPageContext.secondaryXrtPageID=='tc_xrt_SystemRequirements' || ctx.xrtPageContext.secondaryXrtPageID=='tc_xrt_Documentation'">
+    <div class="aw-layout-panelSectionTitle" >
+        <span>{{data.i18n.attributeMapping}}</span>
+    </div>
+    <aw-attr-table-commands></aw-attr-table-commands>
+    <aw-splm-table gridid="mappedAttrTable" use-tree="true"></aw-splm-table>
+</aw-column>
+
+<aw-panel-section caption="i18n.attributeMapping" collapsed="false" exist-when="ctx.xrtPageContext.secondaryXrtPageID =='Att1ShowMappedAttribute'||ctx.xrtPageContext.secondaryXrtPageID=='tc_xrt_AttributesForDCP'">
+    <aw-attr-table-commands></aw-attr-table-commands>
+    <aw-splm-table gridid="mappedAttrTable" use-tree="true"></aw-splm-table>
+</aw-panel-section>
+

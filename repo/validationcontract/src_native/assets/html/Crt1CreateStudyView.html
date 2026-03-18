@@ -1,0 +1,54 @@
+<aw-command-panel caption="i18n.CreateStudyTitle" visible-when="ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0VldnContractRevision' ) > -1 && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1)">
+    <aw-form name="createInputs">
+
+        <aw-panel-body visible-when="!conditions.noStudyTypeSelected">
+            <aw-panel-section caption="i18n.CreateTypeHeader"></aw-panel-section>
+            <aw-list dataprovider="data.dataProviders.getStudyTypes">
+                <aw-type-cell vmo="item"></aw-type-cell>
+            </aw-list>
+        </aw-panel-body>
+
+        <aw-panel-body visible-when="conditions.noStudyTypeSelected">
+
+                <aw-panel-section>
+                        <aw-title-link prop="data.displayedType" action="clearSelectedType"></aw-title-link>
+                    </aw-panel-section>
+
+            <aw-xrt type="CREATE" object-type="{{data.selectedType.dbValue}}"></aw-xrt>
+            <aw-panel-section caption="i18n.PopulationHeader">
+                 <aw-listbox prop="data.populationValues" list="data.population" ></aw-listbox>
+            </aw-panel-section>
+        </aw-panel-body>
+
+    </aw-form>
+    <aw-panel-footer>
+        <aw-button action="createStudyInit" visible-when="conditions.noStudyTypeSelected && createInputs.$valid"><aw-i18n>i18n.CreateButtonText</aw-i18n></aw-button>
+    </aw-panel-footer>
+</aw-command-panel>
+
+
+<aw-command-panel caption="i18n.CreateStudyTitle" visible-when="ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1">
+    <aw-form name="createInputs">
+
+        <aw-panel-body visible-when="conditions.noStudyTypeSelected">
+            <aw-panel-section caption="i18n.CreateTypeHeader"></aw-panel-section>
+            <aw-list dataprovider="data.dataProviders.getStudyTypes">
+                <aw-type-cell vmo="item"></aw-type-cell>
+            </aw-list>
+        </aw-panel-body>
+
+        <aw-panel-body exist-when="!conditions.noStudyTypeSelected">
+            <aw-panel-section>
+                <aw-title-link prop="data.displayedType" action="clearSelectedType"></aw-title-link>
+            </aw-panel-section>
+            <aw-xrt type="CREATE" object-type="{{data.selectedType.dbValue}}"></aw-xrt>
+            <aw-panel-section caption="i18n.PopulationHeader">
+                 <aw-listbox prop="data.populationValues" list="data.population" ></aw-listbox>
+            </aw-panel-section>
+        </aw-panel-body>
+
+    </aw-form>
+    <aw-panel-footer>
+        <aw-button action="createStudyInit" visible-when="!conditions.noStudyTypeSelected && createInputs.$valid"><aw-i18n>i18n.CreateButtonText</aw-i18n></aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

@@ -1,0 +1,23 @@
+{
+    "addComment": "評論",
+    "addQuestion": "提問",
+    "addAnswer": "張貼答覆",
+    "addRating": "評級",
+    "name": "名稱",
+    "postComment": "張貼評論",
+    "postQuestion": "提問",
+    "postAnswer": "張貼答覆",
+    "postRating": "評級",
+    "subscriptionFailed": "「{0}」不能被關注。",
+    "oneStarRating": "評級為一星",
+    "twoStarRating": "評級為二星",
+    "threeStarRating": "評級為三星",
+    "fourStarRating": "評級為四星",
+    "fiveStarRating": "評級為五星",
+    "allRatings": "所有評級",
+    "reply": "回復",
+    "S2clSCAddCommentNewDesc": "張貼有關物件的評論。",
+    "S2clSCAddQuestionNewDesc": "提出有關物件的問題。",
+    "S2clSCAddAnswerNewDesc": "回復有關物件的問題。",
+    "S2clSCAddRatingNewDesc": "將評級新增到物件。"
+}

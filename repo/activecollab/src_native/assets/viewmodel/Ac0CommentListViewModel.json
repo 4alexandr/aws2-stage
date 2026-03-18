@@ -1,0 +1,279 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-list.directive",
+        "js/aw-avatar.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-parse-html.directive",
+        "js/visible-when.directive",
+        "js/aw-link.directive",
+        "js/aw-click.directive",
+        "js/aw-textbox.directive",
+        "js/aw-button.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-include.directive",
+        "js/aw-enter-key.directive"
+    ],
+    "actions": {
+        "doCommentsDataProvider": {
+            "actionType": "dataProvider",
+            "method": "commentsDataProvider"
+        },
+
+        "searchComments": {
+            "actionType": "GraphQL",
+            "serviceName": "",
+            "inputData": {
+                "request": {
+                    "query": "query($searchInput:SearchInput){collabCommentList(searchInput:$searchInput){totalFound totalLoaded cursor results{uid type typeHierarchy typeIconURL thumbnailURL collabPlainText collabRichText collabCreateUserId{uid user_id object_string} collabNumResponses collabDateModified collabRootComment}}}",
+                    "variables": {
+                        "searchInput": {
+                            "searchCriteria": {
+                                "SearchMode": "commentsForConversation",
+                                "ObjectUID": "{{function:getConvObjectUID}}"
+                            },
+                            "maxToLoad": 5,
+                            "maxToReturn": 5,
+                            "searchFilterFieldSortType": "{{ctx.search.sortType}}",
+                            "cursor": {
+                                "startIndex": "{{data.dataProviders.commentsDataProvider.startIndex}}",
+                                "endIndex": "{{function:getCursorEndIndexValue}}",
+                                "startReached": "{{function:getCursorEndReachedValue}}",
+                                "endReached": "{{function:getCursorStartReachedValue}}"
+                            },
+                            "inflateProperties": false
+                        }
+                    }
+                },
+                "endPoint": "graphql"
+            },
+            "outputData": {
+                "totalFound": "data.collabCommentList.totalFound",
+                "searchResults": "data.collabCommentList.results",
+                "dataProviders.commentsDataProvider.cursorObject": "data.collabCommentList.cursor",
+                "dataProviders.commentsDataProvider.cursorObject.startReached": true
+            },
+            "dataParsers": [{
+                "id": "searchCommDataParser",
+                "responseObjs": "data.collabCommentList.results"
+            }],
+            "events": {
+                "success": [ {
+                    "name": "Ac0Conversation.commentsListLoaded"
+                } ]
+            },
+            "deps": "js/Ac0ConversationUtils"
+        },
+
+        "noop": {
+            "actionType": "JSFunction",
+            "method": "getRandObjId",
+            "deps": "js/Ac0ConversationService"
+        },
+
+        "reply": {
+            "actionType": "JSFunctionAsync",
+            "method": "replyBoxAction",
+            "deps": "js/Ac0ConversationService",
+            "inputData": {
+                "convData": "{{subPanelContext}}",
+                "vmData": "{{data}}"
+            }
+        },
+
+        "loadMore": {
+            "actionType": "JSFunction",
+            "method": "loadMoreAction",
+            "deps": "js/Ac0ConversationService",
+            "inputData": {
+                "vmData": "{{data}}",
+                "currentCommentCtx": "{{subPanelContext}}"
+            }
+        },
+
+        "invokeAdvanced": {
+            "actionType": "JSFunction",
+            "method": "navigateToCreateComment",
+            "deps": "js/Ac0ConversationService",
+            "inputData": {
+                "vmData": "{{data}}",
+                "convData": "{{subPanelContext}}"
+            }
+
+        },
+
+        "modifyCommentsPostLoad": {
+            "actionType": "JSFunction",
+            "method": "modifyComments",
+            "deps": "js/Ac0ConversationService",
+            "inputData": {
+                "vmData": "{{data}}",
+                "convData": "{{subPanelContext}}"
+            }
+        },
+
+        "teardownCommentsPanel": {
+            "actionType": "JSFunction",
+            "method": "teardownCommentsPanel",
+            "deps": "js/Ac0ConversationUtils",
+            "inputData": {
+                "vmData": "{{data}}",
+                "convContext": "{{subPanelContext}}"
+            }
+        },
+
+        "initCommentsPanel": {
+            "actionType": "JSFunction",
+            "method": "initCommentsPanel",
+            "deps": "js/Ac0ConversationUtils",
+            "inputData": {
+                "vmData": "{{data}}",
+                "convContext": "{{subPanelContext}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "Ac0Conversation.initCommentsPanelComplete"
+                } ]
+            }
+        }
+
+    },
+
+    "data": {
+        "replyPlaceHolder": {
+            "displayName": "Add Reply",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true"
+        },
+        "advancedButton": "Advanced",
+        "replyButton": "Reply",
+        "loadMoreButton": "More Replies",
+        "loadMoreComments": false,
+        "hideReplyBox": true,
+        "hideMoreRepliesButton": true,
+        "moreCommentsAvailable": true,
+        "commentsDataProviderNotCalled": true
+
+    },
+
+    "functions": {
+        "reOrderQuestionAndAnswer": {
+            "functionName": "reOrderQuestionAndAnswer",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+
+        "getConvObjectUID": {
+            "functionName": "getConvObjectUID",
+            "parameters": [
+                "{{subPanelContext}}"
+            ]
+        },
+        "getCursorEndIndexValue": {
+            "functionName": "getCursorEndIndexValue",
+            "parameters": [ "{{data.dataProviders.commentsDataProvider}}" ]
+        },
+        "getCursorEndReachedValue": {
+            "functionName": "getCursorEndReachedValue",
+            "parameters": [ "{{data.dataProviders.commentsDataProvider}}" ]
+        },
+        "getCursorStartReachedValue": {
+            "functionName": "getCursorStartReachedValue",
+            "parameters": [ "{{data.dataProviders.commentsDataProvider}}" ]
+        }
+    },
+
+    "dataParseDefinitions": {
+        "searchCommDataParser": {
+            "identifier": "{{response.uid}}",
+            "thumbnailUrl": "{{response.thumbnailURL}}",
+            "props": {
+                "userId": {
+                    "name": "userId",
+                    "displayName": "id",
+                    "value": "{{response.collabCreateUserId.uid}}",
+                    "displayValue": "{{response.collabCreateUserId.uid}}",
+                    "type": "STRING"
+                },
+                "userName": {
+                    "name": "userName",
+                    "displayName": "userName",
+                    "value": "{{response.collabCreateUserId.object_string}}",
+                    "displayValue": "{{response.collabCreateUserId.object_string}}",
+                    "type": "STRING"
+                },
+                "modifiedDateTime": {
+                    "name": "modifiedDateTime",
+                    "displayName": "date",
+                    "value": "{{response.collabDateModified}}",
+                    "displayValue": "{{response.collabDateModified}}",
+                    "type": "DATETIME"
+                },
+                "plainText": {
+                    "name": "collabPlainText",
+                    "displayName": "text",
+                    "value": "{{response.collabPlainText}}",
+                    "displayValue": "{{response.collabPlainText}}",
+                    "type": "STRING"
+                },
+                "richText": {
+                    "name": "collabRichText",
+                    "displayName": "text",
+                    "value": "{{response.collabRichText}}",
+                    "displayValue": "{{response.collabRichText}}",
+                    "type": "STRING"
+                }
+            }
+        }
+    },
+
+    "dataProviders": {
+        "commentsDataProvider": {
+            "action": "searchComments",
+            "deps": "js/Ac0ConversationService",
+            "response": "{{data.searchResults}}",
+            "selectionModelMode": "none",
+            "totalFound": "{{data.totalFound}}"
+        }
+
+    },
+    "onEvent": [ {
+            "eventId": "S2clConvComment.commentsLoaded",
+            "action": "postCommentsLoadedAction"
+        },
+        {
+            "eventId": "Ac0Conversation.commentsListLoaded",
+            "action": "modifyCommentsPostLoad"
+        },
+        {
+            "eventId": "Ac0Conversation.initCommentsPanelComplete",
+            "condition": "conditions.commentsDataProviderNotCalled",
+            "action": "doCommentsDataProvider"
+        }
+    ],
+
+    "conditions": {
+        "commentsDataProviderNotCalled": {
+            "expression": "data.commentsDataProviderNotCalled === true"
+        }
+    },
+
+    "lifecycleHooks": {
+        "onMount": "initCommentsPanel",
+        "onUnmount": "teardownCommentsPanel"
+    },
+
+    "i18n": {
+        "conversation": [ "ActiveCollabDeclarativeMessages" ],
+        "newConversation": [ "ActiveCollabDeclarativeMessages" ],
+        "newComment": [ "ActiveCollabDeclarativeMessages" ],
+        "more": [ "ActiveCollabDeclarativeMessages" ],
+        "less": [ "ActiveCollabDeclarativeMessages" ],
+        "reply": [ "ActiveCollabDeclarativeMessages" ],
+        "replies": [ "ActiveCollabDeclarativeMessages" ]
+    }
+
+}

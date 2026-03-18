@@ -1,0 +1,196 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-sub-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-form.directive",
+        "js/aw-init.directive",
+        "js/enable-when.directive"
+    ],
+
+    "actions": {
+        "reveal": {
+            "actionType": "JSFunction",
+            "method": "initNavigateFunction",
+            "inputData": {
+                "declViewModel": "{{data}}"
+            },
+
+            "deps": "js/Att1AddParameterGroupService"
+        },
+        "initiateSelection": {
+            "actionType": "JSFunction",
+            "method": "navigateAndCreateInput",
+            "inputData": {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/Att1AddParameterGroupService"
+        },
+        "startParameterGroupCreation": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                        "name": "Att1AddParameterGroup.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": true
+                        }
+                    },
+                    {
+                        "name": "Att1AddParameterGroup.createParameterGroup"
+                    }
+                ]
+            }
+        },
+        "createParameterGroup": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-Core-2012-10-DataManagement",
+            "method": "createRelateAndSubmitObjects",
+            "inputData": {
+                "inputs": "{{function:getCreateInput}}"
+            },
+            "outputData": {
+                "createdObject": "{{function:getCreatedObject}}"
+            },
+            "events": {
+                "success": [ {
+                        "name": "Att1AddParameterGroup.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": false
+                        }
+                    },
+                    {
+                        "name": "Att1AddParamGroup.completed",
+                        "eventData": {
+                            "createdObjects": [ "{{data.createdObject}}" ],
+                            "relatedModified": [ "{{ctx.selected}}" ]
+                        }
+                    }
+                ],
+                "failure": [ {
+                        "name": "Att1AddParameterGroup.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": false
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "success": [ {
+                    "message": "paramGroupAddSuccessful"
+                } ],
+
+                "failure": [ {
+                    "message": "paramGroupAddFailed"
+                } ]
+            },
+            "deps": "js/Att1AddParameterGroupService"
+        },
+        "setItemEventProgressing": {
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "name": "addItemEventProgressing",
+                "value": "{{data.eventMap['Att1AddParameterGroup.setItemEventProgressing'].valueToSet}}"
+            },
+            "deps": "js/appCtxService"
+        }
+
+    },
+
+    "conditions": {
+        "isValidToCreateObjects": {
+            "expression": "true"
+        },
+        "isNewTabAddButtonVisible": {
+            "expression": "data.creationType"
+        },
+        "isRefreshRequired": {
+            "expression": "!data.unpinnedToForm.dbValue"
+        },
+        "showFooter": {
+            "expression": "data.activeView==='Att1AddParameterGroupSub'"
+        }
+    },
+
+    "data": {
+        "openOnCreate": {
+            "displayName": "{{i18n.addAndOpen}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": true,
+            "labelPosition": "PROPERTY_LABEL_AT_RIGHT"
+        },
+        "autoSelectOnUniqueType": true,
+        "recentUsedTypes": []
+    },
+
+    "onEvent": [ {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Att1AddParameterGroupSub"
+            },
+            "action": "reveal"
+        },
+        {
+            "eventId": "awTypeSelector.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "initiateSelection"
+        },
+        {
+            "eventId": "Att1AddParameterGroup.setItemEventProgressing",
+            "cacheEventData": true,
+            "action": "setItemEventProgressing"
+        },
+        {
+            "eventId": "Att1AddParameterGroup.createParameterGroup",
+            "action": "createParameterGroup"
+        }
+
+    ],
+
+    "functions": {
+        "getCreateInput": {
+            "functionName": "getCreateInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getCreatedObject": {
+            "functionName": "getCreatedObject",
+            "parameters": []
+        }
+
+    },
+    "messages": {
+        "paramGroupAddSuccessful": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.paramGroupAddSuccessful}}",
+            "messageTextParams": [
+                "{{data.createdObject.props.object_string.dbValues[0]}}"
+            ]
+        },
+
+        "paramGroupAddFailed": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.paramGroupAddFailed}}",
+            "messageTextParams": [
+                "{{data.creationType}}"
+            ]
+        }
+    },
+
+    "i18n": {
+        "paramGroup": [ "Att1AttrMappingMessages" ],
+        "add": [ "Att1AttrMappingMessages" ],
+        "paramGroupAddSuccessful": [ "Att1AttrMappingMessages" ],
+        "paramGroupAddFailed": [ "Att1AttrMappingMessages" ],
+        "loadingOther": [ "Att1AttrMappingMessages" ]
+
+    }
+}

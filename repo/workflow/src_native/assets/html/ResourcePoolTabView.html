@@ -1,0 +1,10 @@
+<aw-panel-body scrollable="false">
+    <aw-listbox prop="data.projectObject" list="data.projectObjectList" visible-when="!conditions.isProjectObjectListEmpty" action="resourcepoolProjectChangeAction"></aw-listbox>
+    <aw-list-filter id="resourcePoolListFilter" prop="data.resourceFilterBox" dataprovider="data.dataProviders.resourcePoolPerformSearch">
+        <aw-userpanel-cell vmo="item"></aw-userpanel-cell>
+    </aw-list-filter>
+</aw-panel-body>
+
+<aw-panel-footer>
+    <aw-button action="addUsers" visible-when="conditions.isValidObjectToAdd"><aw-i18n>i18n.Add_Title</aw-i18n></aw-button>
+</aw-panel-footer>

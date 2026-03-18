@@ -1,0 +1,31 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-chip.directive",
+        "js/exist-when.directive"
+    ],
+    "data": {
+        "effectivityValue": "",
+        "chipData": {
+            "chipType": "STATIC",
+            "labelDisplayName": ""
+        }
+    },
+    "actions": {
+        "getEffectivityValue": {
+            "actionType": "JSFunctionAsync",
+            "method": "getProductEffectivityValue",
+            "inputData": {
+                "modelObject": "{{ctx.ngp.scopeObject}}"
+            },
+            "outputData": {
+                "chipData.labelDisplayName": "displayValue",
+                "effectivityValue": "effectivityValue"
+            },
+            "deps": "js/services/ngpEffectivityService"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "getEffectivityValue"
+    }
+}

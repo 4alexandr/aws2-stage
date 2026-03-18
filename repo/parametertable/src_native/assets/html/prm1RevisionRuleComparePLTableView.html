@@ -1,0 +1,17 @@
+<aw-panel-section caption="i18n.Parameters" collapsed="false">
+    <div class="aw-xrt-objectSetToolbar">
+        <aw-command-bar anchor="aw_addParameterToCompare" class="aw-commands-commandBarHorizontalRight"
+            alignment="HORIZONTAL"></aw-command-bar>
+    </div>
+    <aw-row>
+        <aw-column>
+            <label> Latest working PL Table </label>
+            <aw-splm-table gridid="showParamLatestViewTable" ></aw-splm-table>
+        </aw-column>
+        <aw-column>
+            <label> Comparison PL Table</label>
+            <aw-splm-table exist-when="data.comparisonDefs && data.comparisonDefs.length > 0"
+                gridid="showParamComparisonViewTable" />
+        </aw-column>
+    </aw-row>
+</aw-panel-section>

@@ -1,0 +1,9 @@
+{
+
+    "FgfNone": "Ninguno",
+    "OrganizationSchemeSectionName": "Organización",
+    "Unassigned":"No asignada",
+    "Awb0UnassignedDesc":"Vea todos los miembros no asignados en una organización. Utilice la acción Arrastrar y soltar para asignar los miembros. Seleccione No asignado, Dividido o el botón Atrás para salir.",
+    "Partition":"Particiones",
+    "Awb0PartitionDesc":"Gestione el contenido estructural de la BOM organizado dentro de las particiones"
+}

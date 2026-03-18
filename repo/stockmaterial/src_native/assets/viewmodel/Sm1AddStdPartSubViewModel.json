@@ -1,0 +1,62 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-tab-set.directive"
+    ],
+
+    "actions": 
+    {
+        "handleTabSelectionChange": 
+        {
+            "actionType": "JSFunction",
+            "method": "handleTabSelectionChange",
+            "inputData": 
+            {
+                "input": "{{data}}"
+            },
+
+            "deps": "js/Sm1StockMaterialService"
+        }
+    },
+
+    "data": 
+    {
+        "paletteAndSearchPanelTabs": 
+        [
+            {
+                "tabKey": "palette",
+                "panelId": "Sm1StdPartPaletteTab",
+                "name": "{{i18n.paletteTabTitle}}"
+            },
+
+            {
+                "tabKey": "search",
+                "panelId": "Sm1StdPartSearchTab",
+                "name": "{{i18n.searchTabTitle}}",
+                "recreatePanel": true
+            }
+        ]
+    },
+
+    "onEvent": 
+    [
+        {
+            "eventId": "awTab.selected",
+            "action": "handleTabSelectionChange"
+        }
+    ],
+
+    "i18n": 
+    {
+        "searchTabTitle": 
+        [
+            "Sm1StockMaterialMessages"
+        ],
+
+        "paletteTabTitle": 
+        [
+            "Sm1StockMaterialMessages"
+        ]
+    }
+}

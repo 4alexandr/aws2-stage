@@ -1,0 +1,80 @@
+/* Copyright 2019 Siemens Product Lifecycle Management Software Inc. */
+div.aw-parameter-view-table div.aw-parameter-view-table-header {
+    color:    $brand_secondary_text; /* $aw_text_read_only */
+    background-color: $brand_table_header_background; /* $table_header_background_color */
+}
+
+div.aw-parameter-view-table div.aw-parameter-view-table-scroll-cols div.aw-parameter-view-table-header {
+    background-color: inherit;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell .aw-parameter-view-table-cell-icon {
+    color: $brand_secondary_text; /* $aw_text_read_only */
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-rows .aw-parameter-view-table-row {
+    background-color: $brand_primary_content_background; /* $aw_matrix_oddcell $aw_primary_background */
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-rows .aw-parameter-view-table-row:hover {
+    background-color: $brand_selection_background_hover; /* $aw_hover */
+    fill:  $brand_selection_background_hover; /* $aw_hover */
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-rows .aw-parameter-view-table-row.prm1-selected {
+    background-color: $brand_selection_background_active; /* $aw_matrix_selectedcell */
+    fill: $brand_selection_background_active; /* $aw_matrix_selectedcell */
+}
+
+div.aw-parameter-view-table .aw-parameter-view-comparison-buttons-container .aw-parameter-view-comparison-button-spacer,
+div.aw-parameter-view-table .aw-parameter-view-comparison-buttons-container .aw-parameter-view-icon-button {
+    background-color: $brand_table_header_background; /* $aw_primary_background */ /* eliminate SVG transparency */
+}
+
+div.aw-parameter-view-table .aw-parameter-view-icon-button:hover {
+    background-color: $brand_selection_background_hover; /* $aw_hover2 */
+}
+
+aw-parameter-view-table-resizer,
+div.aw-parameter-view-table .prm1-variable-table-right-border {
+    background-color: $brand_secondary_text; /* $Pure_Black_4 $PL_Black_10 */
+}
+
+div.aw-parameter-view-table div.aw-parameter-view-table-header {
+    border-bottom-color: $brand_secondary_text; /* $Pure_Black_4 $PL_Black_10 */
+}
+
+div.aw-parameter-view-table div.aw-parameter-view-table-header div.aw-parameter-view-table-cell {
+    border-right-color: $file_upload_input_color;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-header .aw-parameter-view-table-cell.aw-parameter-view-table-cell-attr-title {
+    border-bottom-color: $file_upload_input_color;
+}
+
+div.aw-parameter-view-table div.aw-parameter-view-table-cell {
+    border-right-color: $brand_secondary_border; /* $table_border_color */
+    border-bottom-color: $brand_secondary_border; /* $table_border_color */
+}
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell select:hover {
+    border-color: $brand_secondary_accent_button_background_hover; /* $aw_line_color */
+}
+
+div.aw-parameter-view-table aw-param-column-resizer {
+    border-color: transparent;
+}
+
+div.aw-parameter-view-table .prm1-filter-highlight {
+    border: $AW_SiemensAccentBlue3;
+}
+
+
+
+div.aw-parameter-view-table .aw-parameter-view-table-cell-value-different .aw-widgets-propertyNonEditValue {
+    color: $AW_Red;
+}
+
+div.aw-parameter-view-table .aw-parameter-view-result-success .aw-widgets-propertyNonEditValue {
+    color: $AW_Green;
+}

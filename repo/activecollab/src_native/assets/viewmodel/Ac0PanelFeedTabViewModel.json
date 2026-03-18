@@ -1,0 +1,50 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-label.directive",
+        "js/aw-panel-body.directive"
+    ],
+    "actions":
+    {
+
+
+    },
+
+    "data": {
+        "feedTab":
+            {
+                "displayName": "Tab",
+                "type": "STRING",
+                "isRequired": "false",
+                "isEditable": "true",
+                "dbValue": "Feed tab",
+                "dispValue": "Feed tab"
+            }
+    },
+
+    "functions":
+    {
+
+    },
+    "dataProviders":
+    {
+
+
+    },
+    "onEvent": [
+        {
+            "eventId": "primaryWorkArea.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "selectionChange"
+        }
+
+    ],
+
+    "i18n":
+    {
+        "conversation": [ "ActiveCollabDeclarativeMessages" ],
+        "newConversation": [ "ActiveCollabDeclarativeMessages" ]
+    }
+
+}

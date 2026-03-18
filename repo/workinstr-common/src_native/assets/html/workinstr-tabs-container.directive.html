@@ -1,0 +1,28 @@
+<div class="aw-workinstr-tabLayoutMainPanel">
+    <div class="aw-workinstr-tabLayoutTitleContainer">
+        <!--  Tab title -->
+        <div class="aw-layout-flexColumn aw-workinstr-tabContainer">
+            <aw-tab-container tab-container-model="filteredTabs" callback="selectTab">
+                <aw-tab tab-model="tab" ng-repeat="tab in tabs | filter:{filterCondition:true}" ></aw-tab>
+            </aw-tab-container>
+        </div>
+
+        <!-- Commands bar -->
+        <div class="aw-workinstr-commandsBar">
+            <div class="aw-commands-commandBar">
+                <aw-command-bar anchor="workinstrPanel" class="aw-commands-nativeCommandBar aw-commands-commandBarContainer aw-commands-commandBarHorizontalRight" alignment="HORIZONTAL" context="viewerData"></aw-command-bar>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab content -->
+    <div class="aw-workinstr-tabLayoutContentContainer aw-theme-alternateBorder">
+        <div class="aw-workinstr-mainPanel">
+            <!-- In case all tabs panel are empty -->
+            <div class="aw-ewi-workInstructionStyle" ng-if="allEmpty"><aw-i18n>i18n.noDataToDisplay</aw-i18n></div>
+
+            <!-- Display the selected tab content -->
+            <aw-include ng-repeat="tab in tabs" ng-if="!allEmpty && activeTab.tab === tab && tab.viewMode" name="{{tab.viewMode.name}}" sub-panel-context="activeTab" class="aw-workinstr-contentArea"></aw-include>
+        </div>
+    </div>
+</div>

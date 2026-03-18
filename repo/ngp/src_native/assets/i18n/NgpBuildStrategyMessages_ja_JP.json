@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "\"{0}\"において、構築要素またはアクティビティがありません。",
+    "noProcesses": "\"{0}\"において、プロセスがありません。",
+    "whereToCreateProcesses": "プロセスは作業単位パッケージ内に作成することが可能です。",
+    "moveCandidateCmdTitle": "移動先:",
+    "moveCandidateCmdDescription": "移動されるオブジェクトを指定",
+    "successfullySetSingleMoveCandidate": "\"{0}\"は移動されるように指定されています。 ターゲットを選択して、「ここに移動」ボタンを使用してください。",
+    "successfullySetMultipleMoveCandidates": "{0}は移動されるように指定されています。 ターゲットを選択して、「ここに移動」ボタンを使用してください。",
+    "moveHereTooltipTitle": "ここに移動",
+    "moveHereTooltipMsg": "これらのオブジェクトを指定したターゲットに移動:",
+    "createBuildElementAfter": "次の後に構築要素を作成:",
+    "createBuildElementAsChild": "構築要素を子として作成"
+}

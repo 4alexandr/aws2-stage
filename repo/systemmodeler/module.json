@@ -1,0 +1,1460 @@
+{
+  "name": "systemmodeler",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "adapters": [
+    {
+      "conditions": {
+        "modelType.typeHierarchyArray": {
+          "$in": "Seg0Implements"
+        }
+      },
+      "target": {
+        "prop": "secondary_object",
+        "method": "getAlternateSelectedObjects",
+        "deps": "js/selection.service"
+      }
+    }
+  ],
+  "aliasRegistry": {
+    "typeAlignmentDecision48": [
+      "Seg0Alignment"
+    ],
+    "typeAlignmentMap48": [
+      "Seg0AlignmentMap",
+      "Seg0AlignmentMapRevision"
+    ],
+    "typeInterfaceDefinition48": [
+      "Seg0IntfSpec",
+      "Seg0IntfSpecRevision"
+    ],
+    "typeExchangeElement48": [
+      "Ase1IntfElementProxy"
+    ],
+    "typeInteraction48": [
+      "Seg0Interconnection"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "Ase1TableCellOpen": {
+        "iconId": "cmdOpen",
+        "isGroup": false,
+        "title": "{{i18n.Ase0ReqTableCellOpenTitle}}",
+        "description": "{{i18n.Ase1TableCellOpenDesc}}"
+      },
+      "Ase1StartEditInteractionTable": {
+        "iconId": "cmdEdit",
+        "isGroup": false,
+        "title": "{{i18n.StartEdit}}",
+        "description": "{{i18n.Ase1StartEditInteractionTableDesc}}"
+      },
+      "Ase1CancelEditInteractionTable": {
+        "iconId": "cmdCancelEdit",
+        "isGroup": false,
+        "title": "{{i18n.CancelEdit}}",
+        "description": "{{i18n.Ase1CancelEditInteractionTableDesc}}"
+      },
+      "Ase1SaveEditInteractionTable": {
+        "iconId": "cmdSave",
+        "isGroup": false,
+        "title": "{{i18n.SaveEdit}}",
+        "description": "{{i18n.Ase1SaveEditInteractionTableDesc}}"
+      },
+      "StartEditInterfaceDefinitionTable": {
+        "iconId": "cmdEdit",
+        "isGroup": false,
+        "title": "{{i18n.StartEdit}}",
+        "description": "{{i18n.StartEditInterfaceDefinitionTableDesc}}"
+      },
+      "SaveEditInterfaceDefinitionTable": {
+        "iconId": "cmdSave",
+        "isGroup": false,
+        "title": "{{i18n.SaveEdit}}",
+        "description": "{{i18n.SaveEditInterfaceDefinitionTableDesc}}"
+      },
+      "CancelEditInterfaceDefinitionTable": {
+        "iconId": "cmdCancelEdit",
+        "isGroup": false,
+        "title": "{{i18n.CancelEdit}}",
+        "description": "{{i18n.CancelEditInterfaceDefinitionTableDesc}}"
+      },
+      "Ase1AddInterfaceDefinition": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.Add}}",
+        "description": "{{i18n.Ase1AddInterfaceDefinitionDesc}}"
+      },
+      "Ase1RemoveInterfaceDefinition": {
+        "iconId": "cmdRemove",
+        "isGroup": false,
+        "title": "{{i18n.Remove}}",
+        "description": "{{i18n.Ase1RemoveInterfaceDefinitionDesc}}"
+      },
+      "Ase1AddMeasurableAttribute": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.Add}}",
+        "description": "{{i18n.Ase1AddAttrFromTableDesc}}"
+      },
+      "Ase1DeleteMeasurableAttribute": {
+        "iconId": "cmdDelete",
+        "isGroup": false,
+        "title": "{{i18n.Delete}}",
+        "description": "{{i18n.Ase1DeleteMeasurableAttributeDesc}}"
+      },
+      "StartEditMeasurableAttributeTable": {
+        "iconId": "cmdEdit",
+        "isGroup": false,
+        "title": "{{i18n.StartEdit}}",
+        "description": "{{i18n.StartEditMeasurableAttributeTableDesc}}"
+      },
+      "SaveEditAttributeTable": {
+        "iconId": "cmdSave",
+        "isGroup": false,
+        "title": "{{i18n.SaveEdit}}",
+        "description": "{{i18n.SaveEditAttributeTableDesc}}"
+      },
+      "CancelEditAttributeTable": {
+        "iconId": "cmdCancelEdit",
+        "isGroup": false,
+        "title": "{{i18n.CancelEdit}}",
+        "description": "{{i18n.CancelEditAttributeTableDesc}}"
+      },
+      "Ase1SyncInteractionsCommand": {
+        "iconId": "cmdAutomap",
+        "isGroup": false,
+        "title": "{{i18n.synchronize}}",
+        "description": "{{i18n.Ase1SyncInteractionsCommandDesc}}"
+      },
+      "DeleteInteractionCommand": {
+        "iconId": "cmdDelete",
+        "isGroup": false,
+        "title": "{{i18n.Delete}}",
+        "description": "{{i18n.DeleteInteractionCommandDesc}}"
+      },
+      "Ase1ExportInterfaceElement": {
+        "iconId": "cmdExport",
+        "title": "{{i18n.exportInterfaceTitle}}",
+        "description": "{{i18n.Ase1ExportInterfaceElementDesc}}"
+      },
+      "Ase1GoUpCommand": {
+        "iconId": "cmdUp",
+        "isGroup": false,
+        "title": "{{i18n.goUp}}",
+        "description": "{{i18n.Ase1GoUpCommandDesc}}"
+      },
+      "Ase1ShowInterfaceSplitPanelGroup": {
+        "iconId": "cmdShowTable",
+        "isGroup": true,
+        "title": "{{i18n.showInterfaces}}",
+        "description": "{{i18n.Ase1ShowInterfaceSplitPanelGroupDesc}}"
+      },
+      "Ase1ShowInterfaceSplitPanelRight": {
+        "isGroup": false,
+        "title": "{{i18n.cmdRight}}",
+        "description": "{{i18n.Ase1ShowInterfaceSplitPanelRightDesc}}"
+      },
+      "Ase1ShowInterfaceSplitPanelBottom": {
+        "isGroup": false,
+        "title": "{{i18n.cmdBottom}}",
+        "description": "{{i18n.Ase1ShowInterfaceSplitPanelBottomDesc}}"
+      },
+      "Ase1ShowLabel": {
+        "iconId": "cmdToggleLabel",
+        "isGroup": false,
+        "title": "{{i18n.label}}",
+        "description": "{{i18n.Ase1ShowLabelDesc}}"
+      },
+      "Ase1FocusOnSystemCommand": {
+        "iconId": "cmdFocusOn",
+        "isGroup": false,
+        "title": "{{i18n.cmdFocusOnSystem}}",
+        "description": "{{i18n.Ase1FocusOnSystemCommandDesc}}"
+      },
+      "Ase1GraphGridViewGroupCommand": {
+        "isShuttle": true,
+        "title": "{{i18n.graphGridView}}",
+        "description": "{{i18n.Ase0ViewModeGroupCommandDesc}}"
+      },
+      "Ase1InterfacesGraphView": {
+        "iconId": "cmdNestedOnOff",
+        "isGroup": false,
+        "title": "{{i18n.graphView}}",
+        "description": "{{i18n.Ase1InterfacesGraphViewDesc}}"
+      },
+      "Ase1InterfacesGridView": {
+        "iconId": "cmdMatrixView",
+        "isGroup": false,
+        "title": "{{i18n.gridView}}",
+        "description": "{{i18n.Ase1InterfacesGridViewDesc}}"
+      },
+      "Ase1FocusOnSystemGroupCmd": {
+        "isGroup": true,
+        "title": "{{i18n.focusOnSystem}}"
+      },
+      "Ase1FocusOnSystemContextCmd": {
+        "iconId": "cmdFocusOn",
+        "title": "{{i18n.cmdFocusOnSystem}}"
+      },
+      "Ase1ShowInterfacesPanel": {
+        "iconId": "cmdShowInterfaces",
+        "isGroup": false,
+        "title": "{{i18n.showInterfacesPanelToolTip}}",
+        "description": "{{i18n.Ase1ShowInterfacesPanelDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "Ase1TableCellOpenCmdHandler": {
+        "id": "Ase1TableCellOpen",
+        "action": "tableCellOpenAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "StartEditInterfaceDefinitionCommandHandler": {
+        "id": "StartEditInterfaceDefinitionTable",
+        "action": "startEditInterfaceDefinition",
+        "activeWhen": {
+          "condition": "conditions.checkEditModeIsOffForInterfaceTableAndModifiable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditModeIsOffForInterfaceTableAndModifiable"
+        }
+      },
+      "SaveEditInterfaceDefinitionCommandHandler": {
+        "id": "SaveEditInterfaceDefinitionTable",
+        "action": "saveEditInterfaceDefinition",
+        "activeWhen": {
+          "condition": "conditions.checkEditModeIsOnForInterfaceTable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditModeIsOnForInterfaceTable"
+        }
+      },
+      "CancelEditInterfaceDefinitionCommandHandler": {
+        "id": "CancelEditInterfaceDefinitionTable",
+        "action": "cancelEditInterfaceDefinition",
+        "activeWhen": {
+          "condition": "conditions.checkEditModeIsOnForInterfaceTable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditModeIsOnForInterfaceTable"
+        }
+      },
+      "StartEditInteractionCommandHandler": {
+        "id": "Ase1StartEditInteractionTable",
+        "action": "startEditInteraction",
+        "activeWhen": {
+          "condition": "conditions.checkEditModeIsOffForInteractionTableAndModifiable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditModeIsOffForInteractionTableAndModifiable"
+        }
+      },
+      "SaveEditInteractionCommandHandler": {
+        "id": "Ase1SaveEditInteractionTable",
+        "action": "saveEditInteraction",
+        "activeWhen": {
+          "condition": "conditions.checkEditModeIsOnForInteractionTable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditModeIsOnForInteractionTable"
+        }
+      },
+      "CancelEditInteractionCommandHandler": {
+        "id": "Ase1CancelEditInteractionTable",
+        "action": "cancelEditInteraction",
+        "activeWhen": {
+          "condition": "conditions.checkEditModeIsOnForInteractionTable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditModeIsOnForInteractionTable"
+        }
+      },
+      "AddInterfaceDefinitionTableCommandHandler": {
+        "id": "Ase1AddInterfaceDefinition",
+        "action": "activateAddinterfaceDefinitionPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.checkAddInterfaceDefinitionCommandCond"
+        }
+      },
+      "RemoveInterfaceDefinitionTableCommandHandler": {
+        "id": "Ase1RemoveInterfaceDefinition",
+        "action": "showConfirmationMsgForRemoveIntrfceDefn",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.checkRemoveInterfaceDefinitionCommandCond"
+        }
+      },
+      "AddMeasurableAttributeTableCommandHandler": {
+        "id": "Ase1AddMeasurableAttribute",
+        "action": "activateAddMeasurableAttributePanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.checkAddMeasurableAttributeCommandCond"
+        }
+      },
+      "AddMeasurableAttrFromTableAtt1CommandHandler": {
+        "id": "Att1AddMeasurableAttrFromTable",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.checkAddMeasurableAttributeAtt1CommandCond"
+        },
+        "visibleWhen": false
+      },
+      "RemoveMeasurableAttributeTableCommandHandler": {
+        "id": "Ase1DeleteMeasurableAttribute",
+        "action": "showConfirmationMsgForRemoveMeasurableAttribute",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.checkRemoveMeasurableAttributeCommandCond"
+        }
+      },
+      "StartEditMeasurableAttributeCommandHandler": {
+        "id": "StartEditMeasurableAttributeTable",
+        "action": "startEditAttributeTable",
+        "activeWhen": {
+          "condition": "conditions.checkEditModeIsOffForAttributeTableAndModifiable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditModeIsOffForAttributeTableAndModifiable"
+        }
+      },
+      "SaveEditAttributeCommandHandler": {
+        "id": "SaveEditAttributeTable",
+        "action": "saveEditAttributeTable",
+        "activeWhen": {
+          "condition": "conditions.checkEditModeIsOnForAttributeTable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditModeIsOnForAttributeTable"
+        }
+      },
+      "CancelEditAttributeCommandHandler": {
+        "id": "CancelEditAttributeTable",
+        "action": "cancelEditAttributeTable",
+        "activeWhen": {
+          "condition": "conditions.checkEditModeIsOnForAttributeTable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditModeIsOnForAttributeTable"
+        }
+      },
+      "SynchronizeInteractionsCommandHandler": {
+        "id": "Ase1SyncInteractionsCommand",
+        "action": "activateSynchronizePanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.syncInteractionsCommandVisibilityCond"
+        }
+      },
+      "DeleteInteractionCommandHandler": {
+        "id": "DeleteInteractionCommand",
+        "action": "showConfirmationMsgForDeleteInteractions",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.checkDeleteInteractionsCommandCond"
+        }
+      },
+      "ExportInterfaceCommandHandler": {
+        "id": "Ase1ExportInterfaceElement",
+        "action": "activateExportInterfacePanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isExportInterfaceCommandVisible"
+        }
+      },
+      "Ase1GoUpCommandHandler": {
+        "id": "Ase1GoUpCommand",
+        "action": "goUpAction",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.goUpButtonVisibleCond"
+        }
+      },
+      "ShowInterfaceSplitPanelGroupCommandHandler": {
+        "id": "Ase1ShowInterfaceSplitPanelGroup",
+        "action": "",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActive"
+        }
+      },
+      "ShowInterfaceSplitPanelRightCommandHandler": {
+        "id": "Ase1ShowInterfaceSplitPanelRight",
+        "action": "changeInterfacePanelToRight",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActive"
+        },
+        "selectWhen": {
+          "condition": "conditions.selectShowInterfacesSplitPanelRightCond"
+        }
+      },
+      "Ase1FocusOnSystemCommandHandler": {
+        "id": "Ase1FocusOnSystemCommand",
+        "action": "focusOnSystemAction",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.focusOnSystemCommandVisibleCond"
+        }
+      },
+      "Ase1FocusOnSystemContextCmdHandler": {
+        "id": "Ase1FocusOnSystemContextCmd",
+        "action": "focusOnSystemContextMenuAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Ase1HasSystemModelerLicense"
+        }
+      },
+      "ShowInterfaceSplitPanelBottomCommandHandler": {
+        "id": "Ase1ShowInterfaceSplitPanelBottom",
+        "action": "changeInterfacePanelToBottom",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActive"
+        },
+        "selectWhen": {
+          "condition": "conditions.selectShowInterfacesSplitPanelBottomCond"
+        }
+      },
+      "Ase1ShowLabelCommandHandler": {
+        "id": "Ase1ShowLabel",
+        "action": "showSelectedLabelPanel",
+        "activeWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActive"
+        },
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActiveAndHasSystemModelerLicense"
+        }
+      },
+      "Ase1GraphGridViewGroupCommandHandler": {
+        "id": "Ase1GraphGridViewGroupCommand",
+        "action": "",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActiveAndHasSystemModelerLicense"
+        }
+      },
+      "Ase1InterfacesGraphViewCommandHandler": {
+        "id": "Ase1InterfacesGraphView",
+        "action": "graphViewChangeAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActiveAndHasSystemModelerLicense"
+        },
+        "selectWhen": {
+          "condition": "conditions.graphViewModeActive"
+        }
+      },
+      "Ase1InterfacesGridViewCommandHandler": {
+        "id": "Ase1InterfacesGridView",
+        "action": "gridViewChangeAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActiveAndHasSystemModelerLicense"
+        },
+        "selectWhen": {
+          "condition": "conditions.gridViewModeActive"
+        }
+      },
+      "Ase1InterfacesRemoveElementCommandHandler": {
+        "id": "Awb0RemoveElement",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.Ase1InterfacesRemoveElementCommandCond"
+        },
+        "visibleWhen": false
+      },
+      "Ase1ShowInterfacesPanelCommandHandler": {
+        "id": "Ase1ShowInterfacesPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Ase1CanShowInterfacesPanelCommand"
+        },
+        "action": "Ase1ShowInterfacesPanelAction"
+      },
+      "PinToHomeCommandDelegateHandler": {
+        "id": "Awp0PinObject",
+        "action": "loadPropertiesForPinHomeAction",
+        "activeWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActive"
+        },
+        "visibleWhen": {
+          "condition": "conditions.Awp0PinObjectVisible"
+        }
+      },
+      "UnPinFromHomeCommandDelegateHandler": {
+        "id": "Awp0UnPinObject",
+        "action": "loadPropertiesForUnPinHomeAction",
+        "activeWhen": {
+          "condition": "conditions.Ase1IsInterfacesTabActive"
+        },
+        "visibleWhen": {
+          "condition": "conditions.Awp0UnPinObjectVisible"
+        }
+      },
+      "AddToFavoritiesCommandDelegateHandler": {
+        "id": "Awp0AddToFavorites",
+        "action": "loadPropertiesForAddToFavoritiesAction",
+        "activeWhen": {
+          "condition": "conditions.Ase1AddToFavoritesActiveCond"
+        },
+        "visibleWhen": {
+          "condition": "conditions.AddToFavoritesVisibility"
+        }
+      },
+      "RemoveFromFavoritiesCommandDelegateHandler": {
+        "id": "Awp0RemoveFromFavorites",
+        "action": "loadPropertiesForAddToFavoritiesAction",
+        "activeWhen": {
+          "condition": "conditions.Ase1RemoveFromFavoritesActiveCond"
+        },
+        "visibleWhen": {
+          "condition": "conditions.RemoveFromFavoritesVisibility"
+        }
+      }
+    },
+    "commandPlacements": {
+      "StartEditInterfaceDefinitionCommandPlacement": {
+        "id": "StartEditInterfaceDefinitionTable",
+        "uiAnchor": "aw_interfaceTableCommandbar",
+        "priority": 100
+      },
+      "CancelEditInterfaceDefinitionCommandPlacement": {
+        "id": "CancelEditInterfaceDefinitionTable",
+        "uiAnchor": "aw_interfaceTableCommandbar",
+        "priority": 60
+      },
+      "SaveEditInterfaceDefinitionCommandPlacement": {
+        "id": "SaveEditInterfaceDefinitionTable",
+        "uiAnchor": "aw_interfaceTableCommandbar",
+        "priority": 40
+      },
+      "StartEditInteractionCommandPlacement": {
+        "id": "Ase1StartEditInteractionTable",
+        "uiAnchor": "aw_interactionTableCommandbar",
+        "priority": 100
+      },
+      "CancelEditInteractionCommandPlacement": {
+        "id": "Ase1CancelEditInteractionTable",
+        "uiAnchor": "aw_interactionTableCommandbar",
+        "priority": 60
+      },
+      "SaveEditInteractionCommandPlacement": {
+        "id": "Ase1SaveEditInteractionTable",
+        "uiAnchor": "aw_interactionTableCommandbar",
+        "priority": 40
+      },
+      "AddInterfaceDefinitionTableCommandPlacement": {
+        "id": "Ase1AddInterfaceDefinition",
+        "uiAnchor": "aw_interfaceTableCommandbar",
+        "priority": 200
+      },
+      "RemoveInterfaceDefinitionTableCommandPlacement": {
+        "id": "Ase1RemoveInterfaceDefinition",
+        "uiAnchor": "aw_interfaceTableCommandbar",
+        "priority": 150
+      },
+      "AddMeasurableAttributeTableCommandPlacement": {
+        "id": "Ase1AddMeasurableAttribute",
+        "uiAnchor": "aw_attributesTableCommandbar",
+        "priority": 300
+      },
+      "RemoveMeasurableAttributeTableCommandPlacement": {
+        "id": "Ase1DeleteMeasurableAttribute",
+        "uiAnchor": "aw_attributesTableCommandbar",
+        "priority": 250
+      },
+      "StartEditAttributeCommandPlacement": {
+        "id": "StartEditMeasurableAttributeTable",
+        "uiAnchor": "aw_attributesTableCommandbar",
+        "priority": 80
+      },
+      "CancelEditAttributeCommandPlacement": {
+        "id": "CancelEditAttributeTable",
+        "uiAnchor": "aw_attributesTableCommandbar",
+        "priority": 60
+      },
+      "SaveEditAttributeCommandPlacement": {
+        "id": "SaveEditAttributeTable",
+        "uiAnchor": "aw_attributesTableCommandbar",
+        "priority": 40
+      },
+      "syncInteractionsCommandPlacement": {
+        "id": "Ase1SyncInteractionsCommand",
+        "uiAnchor": "aw_interactionTableCommandbar",
+        "priority": 80
+      },
+      "DeleteInteractionsCommandPlacement": {
+        "id": "DeleteInteractionCommand",
+        "uiAnchor": "aw_interactionTableCommandbar",
+        "priority": 300
+      },
+      "ExportInterfaceCommandPlacement-classic": {
+        "id": "Ase1ExportInterfaceElement",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 100,
+        "parentGroupId": "Awp0ExportGroup"
+      },
+      "ExportInterfaceCommandPlacement": {
+        "id": "Ase1ExportInterfaceElement",
+        "uiAnchor": "aw_rightWall",
+        "priority": 60,
+        "parentGroupId": "Awp0ShareGroup"
+      },
+      "Ase1GoUpCommandOneStep": {
+        "id": "Ase1GoUpCommand",
+        "uiAnchor": "aw_interfacesViewer",
+        "priority": 4
+      },
+      "ShowInterfaceSplitPanelGroupCommandPlacement": {
+        "id": "Ase1ShowInterfaceSplitPanelGroup",
+        "uiAnchor": "aw_interfacesViewer",
+        "priority": 1
+      },
+      "ShowInterfaceSplitPanelRightCommandPlacement-classic": {
+        "id": "Ase1ShowInterfaceSplitPanelRight",
+        "uiAnchor": "aw_display",
+        "parentGroupId": "Ase1ShowInterfaceSplitPanelGroup",
+        "showGroupSelected": true
+      },
+      "ShowInterfaceSplitPanelRightCommandPlacement": {
+        "id": "Ase1ShowInterfaceSplitPanelRight",
+        "uiAnchor": "aw_primaryWorkArea",
+        "parentGroupId": "Ase1ShowInterfaceSplitPanelGroup",
+        "showGroupSelected": true,
+        "priority": 380
+      },
+      "ShowInterfaceSplitPanelBottomCommandPlacement-classic": {
+        "id": "Ase1ShowInterfaceSplitPanelBottom",
+        "uiAnchor": "aw_display",
+        "parentGroupId": "Ase1ShowInterfaceSplitPanelGroup",
+        "showGroupSelected": true
+      },
+      "ShowInterfaceSplitPanelBottomCommandPlacement": {
+        "id": "Ase1ShowInterfaceSplitPanelBottom",
+        "uiAnchor": "aw_primaryWorkArea",
+        "parentGroupId": "Ase1ShowInterfaceSplitPanelGroup",
+        "showGroupSelected": true,
+        "priority": 370
+      },
+      "Ase1ShowLabelCommandPlacement": {
+        "id": "Ase1ShowLabel",
+        "uiAnchor": "aw_interfacesViewer",
+        "priority": 3
+      },
+      "Ase1FocusOnSystemCommandOneStep": {
+        "id": "Ase1FocusOnSystemCommand",
+        "uiAnchor": "aw_interfacesViewer",
+        "priority": 5
+      },
+      "Ase1FocusOnSystemGroupCmdGraph": {
+        "id": "Ase1FocusOnSystemGroupCmd",
+        "uiAnchor": "aw_graph_node",
+        "priority": 50
+      },
+      "Ase1FocusOnSystemContextCmdGraph": {
+        "id": "Ase1FocusOnSystemContextCmd",
+        "uiAnchor": "aw_graph_node",
+        "priority": -1,
+        "parentGroupId": "Ase1FocusOnSystemGroupCmd"
+      },
+      "Ase1GraphGridViewGroupCommandPlacement": {
+        "id": "Ase1GraphGridViewGroupCommand",
+        "uiAnchor": "aw_interfacesViewer",
+        "priority": 2
+      },
+      "Ase1GraphViewCommandPlacement-classic": {
+        "id": "Ase1InterfacesGraphView",
+        "uiAnchor": "aw_oneStep",
+        "parentGroupId": "Ase1GraphGridViewGroupCommand"
+      },
+      "Ase1GraphViewCommandPlacement": {
+        "id": "Ase1InterfacesGraphView",
+        "uiAnchor": "aw_architectureViewer",
+        "parentGroupId": "Ase1GraphGridViewGroupCommand"
+      },
+      "Ase1GridViewCommandPlacement-classic": {
+        "id": "Ase1InterfacesGridView",
+        "uiAnchor": "aw_oneStep",
+        "parentGroupId": "Ase1GraphGridViewGroupCommand"
+      },
+      "Ase1GridViewCommandPlacement": {
+        "id": "Ase1InterfacesGridView",
+        "uiAnchor": "aw_architectureViewer",
+        "parentGroupId": "Ase1GraphGridViewGroupCommand"
+      },
+      "Ase1ShowInterfacesPanelCommandPlacement": {
+        "id": "Ase1ShowInterfacesPanel",
+        "uiAnchor": "aw_rightWall",
+        "priority": 180,
+        "parentGroupId": "Awp0ViewGroup"
+      },
+      "Ase1TableCellOpenCommandPlacement": {
+        "id": "Ase1TableCellOpen",
+        "uiAnchor": "table_cell_commands",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      }
+    },
+    "actions": {
+      "tableCellOpenAction": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": {
+            "$adapt": "{{commandContext.vmo}}",
+            "path": "uid"
+          }
+        }
+      },
+      "startEditInterfaceDefinition": {
+        "actionType": "JSFunction",
+        "method": "startEditInterfaceDefinitionTable",
+        "deps": "js/interfaceDefinitionTableService"
+      },
+      "saveEditInterfaceDefinition": {
+        "actionType": "JSFunction",
+        "method": "saveEditInterfaceDefinitionTable",
+        "deps": "js/interfaceDefinitionTableService"
+      },
+      "cancelEditInterfaceDefinition": {
+        "actionType": "JSFunction",
+        "method": "cancelEditInterfaceDefinitionTable",
+        "deps": "js/interfaceDefinitionTableService"
+      },
+      "startEditInteraction": {
+        "actionType": "JSFunction",
+        "method": "startEditInteractionTable",
+        "deps": "js/interactionTableService"
+      },
+      "saveEditInteraction": {
+        "actionType": "JSFunction",
+        "method": "saveEditInteractionTable",
+        "deps": "js/interactionTableService"
+      },
+      "cancelEditInteraction": {
+        "actionType": "JSFunction",
+        "method": "cancelEditInteractionTable",
+        "deps": "js/interactionTableService"
+      },
+      "activateAddinterfaceDefinitionPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Ase1AddInterfaceDefinition",
+          "location": "aw_toolsAndInfo",
+          "commandLocation": "aw_interfaceTableCommandbar"
+        }
+      },
+      "showConfirmationMsgForRemoveIntrfceDefn": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "IDRemovalSingleConfirmationMessage",
+              "condition": "ctx.mselected.length == '1'"
+            },
+            {
+              "name": "IDRemovalMultiConfirmationMessage",
+              "condition": "ctx.mselected.length > '1'"
+            }
+          ]
+        }
+      },
+      "idToRemove": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteRelations",
+        "inputData": {
+          "input": "{{function:removeEventChangeOperation2}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "interfaceDefinitionTable.plTable.reload"
+            },
+            {
+              "name": "gwt.SplitPanelDeSelectEvent"
+            }
+          ]
+        },
+        "deps": "js/interfaceDefinitionTableService"
+      },
+      "showConfirmationMsgForRemoveMeasurableAttribute": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "MARemovalConfirmationMeassage",
+              "condition": ""
+            }
+          ]
+        }
+      },
+      "maToRemove": {
+        "actionType": "TcSoaService",
+        "serviceName": "AttrTargetMgmt-2015-10-AttributeTargetManagement",
+        "method": "deleteMeasurableAttributes",
+        "inputData": {
+          "inputs": "{{function:removeEventChangeOperation2}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "attributesTable.plTable.reload"
+            },
+            {
+              "name": "interfaceTable.MeasurableAttrDeselectedEvent"
+            }
+          ]
+        },
+        "deps": "js/attributesTableService"
+      },
+      "startEditAttributeTable": {
+        "actionType": "JSFunction",
+        "method": "startEditAttributeTable",
+        "deps": "js/attributesTableService"
+      },
+      "cancelEditAttributeTable": {
+        "actionType": "JSFunction",
+        "method": "CancelEditAttributeTable",
+        "deps": "js/attributesTableService"
+      },
+      "saveEditAttributeTable": {
+        "actionType": "JSFunction",
+        "method": "saveEditAttributeTable",
+        "deps": "js/attributesTableService"
+      },
+      "activateSynchronizePanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Ase1SyncInteractionsCommand",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "showConfirmationMsgForDeleteInteractions": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "InteractionDeletionSingleConfirmationMessage"
+            }
+          ]
+        }
+      },
+      "interactionToDelete": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteObjects",
+        "inputData": {
+          "objects": "{{function:deleteEventChangeOperation}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "interactionTable.plTable.reload"
+            },
+            {
+              "name": "gwt.SplitPanelDeSelectEvent"
+            }
+          ]
+        },
+        "deps": "js/interactionTableService"
+      },
+      "activateExportInterfacePanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Ase1ExportInterfaceElement",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "goUpAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "Ase1InterfacesPage.GoUpCommandClickedEvent"
+            }
+          ]
+        }
+      },
+      "changeInterfacePanelToRight": {
+        "actionType": "JSFunction",
+        "method": "updatePartialCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "path": "interfacesViewModeCtx.selectedSplitPanelLocation",
+          "value": "right"
+        }
+      },
+      "changeInterfacePanelToBottom": {
+        "actionType": "JSFunction",
+        "method": "updatePartialCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "path": "interfacesViewModeCtx.selectedSplitPanelLocation",
+          "value": "bottom"
+        }
+      },
+      "showSelectedLabelPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Ase1ShowLabel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "focusOnSystemAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "Ase1InterfacesPage.FocusOnSystemCommandClickedEvent"
+            }
+          ]
+        }
+      },
+      "focusOnSystemContextMenuAction": {
+        "actionType": "JSFunctionAsync",
+        "method": "getProperties",
+        "deps": "soa/dataManagementService",
+        "inputData": {
+          "uids": [
+            "{{ctx.graph.commandContextItem.modelObject.uid}}"
+          ],
+          "propNames": [
+            "awb0Parent"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "aceElementsSelectedEvent",
+              "eventData": {
+                "elementsToSelect": [
+                  "{{ctx.graph.commandContextItem.modelObject}}"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "graphViewChangeAction": {
+        "actionType": "JSFunction",
+        "method": "updatePartialCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "path": "interfacesViewModeCtx.viewMode",
+          "value": "Ase1GraphView"
+        }
+      },
+      "gridViewChangeAction": {
+        "actionType": "JSFunction",
+        "method": "updatePartialCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "path": "interfacesViewModeCtx.viewMode",
+          "value": "Ase1GridView"
+        }
+      },
+      "activateAddMeasurableAttributePanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Att1AddParameterPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "Ase1ShowInterfacesPanelAction": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Ase1ShowInterfacesPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "loadPropertiesForPinHomeAction": {
+        "actionType": "JSFunctionAsync",
+        "method": "getProperties",
+        "deps": "soa/dataManagementService",
+        "inputData": {
+          "uids": [
+            "{{ctx.selected.uid}}"
+          ],
+          "propNames": [
+            "awb0UnderlyingObject"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "ase1PinToHomeEvent"
+            }
+          ]
+        }
+      },
+      "loadPropertiesForUnPinHomeAction": {
+        "actionType": "JSFunctionAsync",
+        "method": "getProperties",
+        "deps": "soa/dataManagementService",
+        "inputData": {
+          "uids": [
+            "{{ctx.selected.uid}}"
+          ],
+          "propNames": [
+            "awb0UnderlyingObject"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "ase1UnPinFromHomeEvent"
+            }
+          ]
+        }
+      },
+      "loadPropertiesForAddToFavoritiesAction": {
+        "actionType": "JSFunctionAsync",
+        "method": "getProperties",
+        "deps": "soa/dataManagementService",
+        "inputData": {
+          "uids": [
+            "{{ctx.selected.uid}}"
+          ],
+          "propNames": [
+            "awb0UnderlyingObject"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "ase1AddRemoveFavorities"
+            }
+          ]
+        }
+      }
+    },
+    "conditions": {
+      "checkEditModeIsOnForInterfaceTable": {
+        "expression": "ctx.isInterfaceTableEditing"
+      },
+      "checkEditModeIsOffForInterfaceTableAndModifiable": {
+        "expression": "ctx.isInterfaceTableEditing == false && ctx.isInterfaceTableEditable && conditions.hasSystemModelerLicense"
+      },
+      "checkEditModeIsOnForInteractionTable": {
+        "expression": "ctx.isInteractionTableEditing"
+      },
+      "checkEditModeIsOffForInteractionTableAndModifiable": {
+        "expression": "ctx.interfaceDetails.totalInteractionsFound > 0 && ctx.isInteractionTableEditing == false && ctx.isInteractionTableEditable && ctx.isAttributeTableEditing == false && !ctx.isMappingTableEditing && conditions.hasSystemModelerLicense"
+      },
+      "checkAddInterfaceDefinitionCommandCond": {
+        "expression": "!ctx.isInterfaceTableEditing && ctx.visibleServerCommands.Ase1AddInterfaceDefinition && conditions.hasSystemModelerLicense"
+      },
+      "checkRemoveInterfaceDefinitionCommandCond": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Seg0IntfSpecRevision') > -1 && conditions.hasSystemModelerLicense"
+      },
+      "checkEditModeIsOffForAttributeTableAndModifiable": {
+        "expression": "ctx.isAttributeTableEditing == false && ctx.isAttributeTableEditable && ctx.interfaceDetails.showAttributesTable && conditions.hasSystemModelerLicense"
+      },
+      "checkEditModeIsOnForAttributeTable": {
+        "expression": "ctx.isAttributeTableEditing"
+      },
+      "checkAddMeasurableAttributeCommandCond": {
+        "expression": "!ctx.isAttributeTableEditing && ctx.visibleServerCommands.Ase1AddMeasurableAttribute && conditions.hasSystemModelerLicense"
+      },
+      "isTcReleaseAtleast114Cond": {
+        "expression": "( ctx.tcSessionData.tcMajorVersion===11 && ctx.tcSessionData.tcMinorVersion===2 && ctx.tcSessionData.tcQRMNumber >= 5 ) || ( ctx.tcSessionData.tcMajorVersion > 11 ) "
+      },
+      "checkRemoveMeasurableAttributeCommandCond": {
+        "expression": "ctx.visibleServerCommands.Ase1RemoveMeasurableAttribute && conditions.isTcReleaseAtleast114Cond && ctx.pselected && ctx.pselected.modelType.typeHierarchyArray.indexOf('Seg0IntfSpecRevision') > -1 && conditions.hasSystemModelerLicense"
+      },
+      "syncInteractionsCommandVisibilityCond": {
+        "expression": "ctx.architectureCtx.isModelerActive && conditions.hasSystemModelerLicense && ctx.visibleServerCommands.Ase1SyncInteractionsCommand && ctx.mselected.length === 1 && ctx.architectureCtx.diagram.selection.edgeModels.length === 1 && ctx.architectureCtx.diagram.selection.edgeModels[0].modelType.typeHierarchyArray.indexOf('Awb0Connection') > -1"
+      },
+      "checkDeleteInteractionsCommandCond": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Seg0Interconnection') > -1 && conditions.hasSystemModelerLicense"
+      },
+      "isExportInterfaceCommandVisible": {
+        "expression": "ctx.visibleServerCommands.Ase1ExportInterfaceElement"
+      },
+      "Ase1IsInterfacesTabActive": {
+        "expression": "ctx.interfacesCtx.isInterfacesActive"
+      },
+      "goUpButtonVisibleCond": {
+        "expression": "conditions.Ase1IsInterfacesTabActive && ctx.interfacesCtx.internalSystemsExists && conditions.Ase1HasSystemModelerLicense"
+      },
+      "selectShowInterfacesSplitPanelBottomCond": {
+        "expression": "ctx.interfacesViewModeCtx.selectedSplitPanelLocation === 'bottom'"
+      },
+      "selectShowInterfacesSplitPanelRightCond": {
+        "expression": "ctx.interfacesViewModeCtx.selectedSplitPanelLocation === 'right'"
+      },
+      "focusOnSystemCommandVisibleCond": {
+        "expression": "conditions.Ase1IsInterfacesTabActive && ctx.interfacesCtx.selectedNodes.length === 1 && ctx.interfacesCtx.selectedNodes[0].uid !== ctx.interfacesCtx.systemOfInterest.nodeObject.uid && conditions.Ase1HasSystemModelerLicense"
+      },
+      "graphViewModeActive": {
+        "expression": "ctx.interfacesViewModeCtx.viewMode === 'Ase1GraphView'"
+      },
+      "gridViewModeActive": {
+        "expression": "ctx.interfacesViewModeCtx.viewMode === 'Ase1GridView'"
+      },
+      "Ase1InterfacesRemoveElementCommandCond": {
+        "expression": "conditions.isRemoveCommandSupported && ctx.interfacesCtx.isInterfacesActive"
+      },
+      "Ase1HasSystemModelerLicense": {
+        "expression": "ctx.interfacesCtx.hasSystemModelerLicense"
+      },
+      "Ase1IsInterfacesTabActiveAndHasSystemModelerLicense": {
+        "expression": "conditions.Ase1IsInterfacesTabActive && conditions.Ase1HasSystemModelerLicense"
+      },
+      "Ase1AddMeasurableAttrVisibility": {
+        "expression": "ctx.visibleServerCommands.Att1AddMeasurableAttrFromTable  && ctx.visibleServerCommands.Att1AddMeasurableAttrFromTable === true && (((ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_AttributesForDCP' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_AttributesForDCP' || ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Attributes' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Attributes') && ((ctx.pselected && ctx.pselected.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') === -1) || (ctx.pselected === undefined && ctx.selected && ctx.selected.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') === -1))) || (ctx.Att1ShowMappedAttribute && ctx.xrtPageContext.secondaryXrtPageID === 'Ase0ArchitectureFeature' && ctx.Att1ShowMappedAttribute.parentUids.split(' ').length === 1 && (ctx.openedARObject.modelType.typeHierarchyArray.indexOf('Crt0VldnContractRevision') === -1 || ctx.openedARObject === undefined)))"
+      },
+      "checkAddMeasurableAttributeAtt1CommandCond": {
+        "expression": "conditions.Ase1AddMeasurableAttrVisibility && conditions.isNativeArchitectureVisible && ctx.interfaceDetails.isConnectionSelected"
+      },
+      "Ase1CanShowInterfacesPanelCommand": {
+        "expression": "conditions.is3DViewerRevealed && ctx.awDefaultViewer.isSelectionTracelinkTraversalType && ctx.mselected.length === 1"
+      },
+      "Ase1AddToFavoritesActiveCond": {
+        "expression": "conditions.AddToFavoritesVisibility && conditions.Ase1IsInterfacesTabActive"
+      },
+      "Ase1RemoveFromFavoritesActiveCond": {
+        "expression": "conditions.RemoveFromFavoritesVisibility && conditions.Ase1IsInterfacesTabActive"
+      }
+    },
+    "messages": {
+      "removeInterfaceDefinitionSingleConfirmationMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.removeSingleElementConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.selected.props.object_string.dbValues[0]}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Remove",
+            "text": "{{i18n.Remove}}",
+            "action": "idToRemove"
+          }
+        ]
+      },
+      "removeInterfaceDefinitionMultiConfirmationMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.removeMultipleElementsConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Remove",
+            "text": "{{i18n.Remove}}",
+            "action": "idToRemove"
+          }
+        ]
+      },
+      "removeMeasurableAttributeConfirmationMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.removeMeasurableAttributeMessage}}",
+        "messageTextParams": [
+          "{{ctx.selected.props.object_string.dbValues[0]}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.Cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.Delete}}",
+            "action": "maToRemove"
+          }
+        ]
+      },
+      "deleteInteractionsSingleConfirmationMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.deleteSingleInteractionConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.selected.props.object_string.dbValues[0]}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.delete}}",
+            "action": "interactionToDelete"
+          }
+        ]
+      }
+    },
+    "i18n": {
+      "showInterfacesPanelToolTip": [
+        "SystemModelerConstants"
+      ],
+      "StartEdit": [
+        "SystemModelerConstants"
+      ],
+      "SaveEdit": [
+        "SystemModelerConstants"
+      ],
+      "CancelEdit": [
+        "SystemModelerConstants"
+      ],
+      "deleteSingleInteractionConfirmation": [
+        "SystemModelerMessages"
+      ],
+      "removeSingleElementConfirmation": [
+        "SystemModelerMessages"
+      ],
+      "removeMultipleElementsConfirmation": [
+        "SystemModelerMessages"
+      ],
+      "removeMeasurableAttributeMessage": [
+        "SystemModelerMessages"
+      ],
+      "exportInterfaceTitle": [
+        "SystemModelerMessages"
+      ],
+      "aw_interfaceTableCommandbar": [
+        "SystemModelerMessages"
+      ],
+      "aw_interactionTableCommandbar": [
+        "SystemModelerMessages"
+      ],
+      "aw_attributesTableCommandbar": [
+        "SystemModelerMessages"
+      ],
+      "aw_interfacesViewer": [
+        "SystemModelerMessages"
+      ],
+      "table_cell_commands": [
+        "SystemModelerMessages"
+      ],
+      "Remove": [
+        "SystemModelerConstants"
+      ],
+      "Cancel": [
+        "SystemModelerConstants"
+      ],
+      "Delete": [
+        "SystemModelerConstants"
+      ],
+      "synchronize": [
+        "SystemModelerConstants"
+      ],
+      "goUp": [
+        "SystemModelerConstants"
+      ],
+      "showInterfaces": [
+        "SystemModelerConstants"
+      ],
+      "cmdRight": [
+        "SystemModelerConstants"
+      ],
+      "cmdBottom": [
+        "SystemModelerConstants"
+      ],
+      "label": [
+        "SystemModelerConstants"
+      ],
+      "cmdFocusOnSystem": [
+        "SystemModelerConstants"
+      ],
+      "graphView": [
+        "SystemModelerConstants"
+      ],
+      "gridView": [
+        "SystemModelerConstants"
+      ],
+      "Ase0ReqTableCellOpenTitle": [
+        "ArchitectureModelerConstants"
+      ],
+      "Ase1TableCellOpenDesc": [
+        "ArchitectureModelerConstants"
+      ],
+      "Ase1StartEditInteractionTableDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1CancelEditInteractionTableDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1SaveEditInteractionTableDesc": [
+        "SystemModelerConstants"
+      ],
+      "StartEditInterfaceDefinitionTableDesc": [
+        "SystemModelerConstants"
+      ],
+      "SaveEditInterfaceDefinitionTableDesc": [
+        "SystemModelerConstants"
+      ],
+      "CancelEditInterfaceDefinitionTableDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1RemoveInterfaceDefinitionDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1DeleteMeasurableAttributeDesc": [
+        "SystemModelerConstants"
+      ],
+      "StartEditMeasurableAttributeTableDesc": [
+        "SystemModelerConstants"
+      ],
+      "SaveEditAttributeTableDesc": [
+        "SystemModelerConstants"
+      ],
+      "CancelEditAttributeTableDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1SyncInteractionsCommandDesc": [
+        "SystemModelerConstants"
+      ],
+      "DeleteInteractionCommandDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1ExportInterfaceElementDesc": [
+        "SystemModelerMessages"
+      ],
+      "Ase1GoUpCommandDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1ShowInterfaceSplitPanelGroupDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1ShowInterfaceSplitPanelRightDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1ShowInterfaceSplitPanelBottomDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1ShowLabelDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1FocusOnSystemCommandDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1InterfacesGraphViewDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1InterfacesGridViewDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1ShowInterfacesPanelDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1AddInterfaceDefinitionDesc": [
+        "SystemModelerConstants"
+      ],
+      "Ase1AddMeasurableAttributeDesc": [
+        "SystemModelerConstants"
+      ],
+      "graphGridView": [
+        "SystemModelerConstants"
+      ],
+      "focusOnSystem": [
+        "SystemModelerConstants"
+      ],
+      "Ase1AddAttrFromTableDesc": [
+        "SystemModelerConstants"
+      ]
+    },
+    "onEvent": [
+      {
+        "eventId": "IDRemovalSingleConfirmationMessage",
+        "message": "removeInterfaceDefinitionSingleConfirmationMessage"
+      },
+      {
+        "eventId": "IDRemovalMultiConfirmationMessage",
+        "message": "removeInterfaceDefinitionMultiConfirmationMessage"
+      },
+      {
+        "eventId": "MARemovalConfirmationMeassage",
+        "message": "removeMeasurableAttributeConfirmationMessage"
+      },
+      {
+        "eventId": "InteractionDeletionSingleConfirmationMessage",
+        "message": "deleteInteractionsSingleConfirmationMessage"
+      },
+      {
+        "eventId": "ase1PinToHomeEvent",
+        "action": "getPinInputs"
+      },
+      {
+        "eventId": "ase1UnPinFromHomeEvent",
+        "action": "getUnPinInputs"
+      },
+      {
+        "eventId": "ase1AddRemoveFavorities",
+        "action": "updateFavorites"
+      }
+    ],
+    "functions": {
+      "removeEventChangeOperation2": {
+        "functionName": "removeEventChangeOperation",
+        "parameters": []
+      },
+      "deleteEventChangeOperation": {
+        "functionName": "deleteEventChangeOperation",
+        "parameters": []
+      }
+    }
+  },
+  "contributions": {
+    "archModelerSecondaryPanelKey": [
+      "js/Ase1InterfacesDetailsPanel.archModelerSecondaryPanelKey"
+    ]
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "Ase1IntfElementProxy": {
+        "displayProperty": "ase1ExchangeName",
+        "additionalProperties": []
+      }
+    }
+  }
+}

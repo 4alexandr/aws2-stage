@@ -1,0 +1,134 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "ports": {
+        "planningDetailsArea_inputObject": {
+            "onChangeAction": "handleInputToPlanningDetailsArea",
+            "syncObject": {}
+        }
+    },
+    "data": {
+        "contentPanelData": {
+            "tabs": [{
+                    "name": "{{i18n.summaryTitle}}",
+                    "tabKey": "epInformation",
+                    "xrtType": "SUMMARY",
+                    "noElementSelectedMessageForXRT": {
+                        "text": "{{i18n.epInformationNoSelectionMessage}}"
+                    }
+                },
+                {
+                    "name": "{{i18n.filesTitle}}",
+                    "namePrefix": "{{i18n.filesTitle}}",
+                    "tabKey": "epFiles",
+                    "xrtType":"SUMMARY",
+                    "loadInputObject":{
+                        "propertiesToLoad": [ "mbc0AttachedFiles" ]
+                    }
+                },
+                {
+                    "name": "{{i18n.documentsTitle}}",
+                    "namePrefix": "{{i18n.documentsTitle}}",
+                    "tabKey": "epDocuments",
+                    "xrtType":"SUMMARY",
+                    "loadInputObject":{
+                        "propertiesToLoad": [ "mbc0AssignedDocuments" ]
+                    }
+                },
+                {
+                    "name": "{{i18n.scopingTitle}}",
+                    "namePrefix": "{{i18n.scopingTitle}}",
+                    "tabKey": "epScoping",
+                    "loadInputObject":{
+                        "loadType":"GetScopeAssembly",
+                        "additionalPropertiesToLoad": [ "ScopingRelation" ],
+                        "loadedObjectMapKey":"associatedAssembly"
+                    }
+                }
+            ]
+        }
+    },
+    "actions":{
+        "initDisplayNameWithQuantityData": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "getListOfTabsToDisplayNameWithQuantity"
+                },
+                {
+                    "action": "getAllPropertiesToLoad"
+                }
+            ]
+        },
+
+        "getListOfTabsToDisplayNameWithQuantity": {
+            "actionType": "JSFunction",
+            "method": "getListOfTabsToDisplayNameWithQuantity",
+            "inputData": {
+                "tabsData": "{{data.contentPanelData}}"
+            },
+            "deps": "js/epTabsService"
+        },
+
+        "getAllPropertiesToLoad": {
+            "actionType": "JSFunction",
+            "method": "getAllPropertiesToLoad",
+            "inputData": {
+                "tabsData": "{{data.contentPanelData}}"
+            },
+            "deps": "js/epTabsService"
+        },
+        "handleInputToPlanningDetailsArea":{
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "getSingleInputObj"
+                },
+                {
+                    "action": "calculateContentCountForEachTab",
+                    "condition": "conditions.isInputObjectUpdated"
+                }
+            ]
+        },
+        "getSingleInputObj": {
+            "actionType": "JSFunction",
+            "method": "handleNewInputForSingleObject",
+            "inputData": {
+                "data": "{{data}}",
+                "input": "{{ports.planningDetailsArea_inputObject.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "calculateContentCountForEachTab": {
+            "actionType": "JSFunction",
+            "method": "calculateContentCountForEachTab",
+            "inputData": {
+                "objUid": "{{data.inputObject.uid}}",
+                "tabsData": "{{data.contentPanelData}}"
+            },
+            "deps": "js/epTabsService"
+        }
+    },
+    "conditions": {
+        "isInputObjectUpdated": {
+            "expression": {
+                "$source": "data.isInputObjectUpdated",
+                "$query": {
+                    "$eq": true
+                }
+            }
+        }
+    },
+    "i18n": {
+        "summaryTitle": [ "DetailsMessages" ],
+        "documentsTitle": [ "DetailsMessages" ],
+        "scopingTitle": [ "PlanningMessages" ],
+        "filesTitle": [ "DetailsMessages" ],
+        "epInformationNoSelectionMessage": [ "DetailsMessages" ]
+    },
+    "lifecycleHooks": {
+        "onMount": "initDisplayNameWithQuantityData"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/visible-when.directive",
+        "js/aw-init.directive"
+    ],
+    "actions": {
+        "changeTabSelection": {
+            "actionType": "JSFunction",
+            "method": "changeTabSelection",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        }
+    },
+    "onEvent": [ {
+        "eventId": "awPanel.reveal",
+        "action": "changeTabSelection",
+        "criteria": {
+            "panelId": "Att1AddParameterPanel"
+        },
+        "condition": "ctx.panelContext && ctx.panelContext.selectTab"
+    } ],
+    "conditions": {
+    },
+    "i18n": {
+        "add": [ "Att1AttrMappingMessages" ]
+    }
+}

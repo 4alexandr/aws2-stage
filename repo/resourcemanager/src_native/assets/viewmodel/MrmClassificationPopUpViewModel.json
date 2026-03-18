@@ -1,0 +1,57 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "popupData": {
+            "viewName": "MrmClassificationResource",
+            "header": {
+                "title": "{{i18n.AddMrmClassificationDialogTitle}}",
+                "iconName": "typeClassificationElement",
+                "subtitle": "{{i18n.AddMrmClassificationDialogSubTitle}}"
+            }
+        }
+
+    },
+    "actions": {
+        "updateViewModeCtx": {
+            "actionType": "JSFunction",
+            "method": "restoreCtxVariables",
+            "inputData": {
+                "eventdata": "ViewModeContext"
+            },
+            "deps": "js/MrmClassificationResourceService"
+        },
+        "resetCtx": {
+            "actionType": "JSFunction",
+            "method": "restoreCtxVariables",
+            "deps": "js/MrmClassificationResourceService",
+            "inputData": {
+                "name": ["locationContext",
+                "selected",
+                "pselected",
+                "mselected"]
+            }
+        }
+    },
+    "i18n": {
+        "AddMrmClassificationDialogTitle": [
+            "mrmMessages"
+        ],
+        "AddMrmClassificationDialogSubTitle": [
+            "mrmMessages"
+        ]
+    },
+    "onEvent": [ {
+        "eventId": "mrmLargePopup.closeRequest",
+        "action": "resetCtx"
+    },
+    {
+        "eventId": "appCtx.update",
+        "condition": "name === 'ViewModeContext'",
+        "action": "updateViewModeCtx"
+    }
+ ]
+}

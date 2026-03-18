@@ -1,0 +1,61 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-panel.directive",
+        "js/aw-checkbox.directive"
+    ],
+
+    "actions":
+    {
+
+    },
+
+    "data":
+    {
+        "revision__referenceOnly": {
+            "displayName": "{{i18n.referenceOnly}}",
+            "displayName": "{{i18n.referenceOnly}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": "{{i18n.referenceOnly}}",
+            "labelPosition": "PROPERTY_LABEL_AT_RIGHT"
+        }
+    },
+
+    "dataProviders":
+    {
+
+    },
+
+    "functions":
+    {
+    },
+
+    "onEvent":
+    [
+
+    ],
+
+    "conditions":
+    {
+
+    },
+
+    "preferences":
+    [
+
+    ],
+
+    "messages":
+    {
+
+    },
+
+    "i18n":
+    {
+        "referenceOnly": [ "ContentMgmtMessages" ]
+    }
+}

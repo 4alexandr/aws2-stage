@@ -1,0 +1,9 @@
+{
+
+    "FgfNone": "Keine",
+    "OrganizationSchemeSectionName": "Organisation",
+    "Unassigned":"Nicht zugewiesen",
+    "Awb0UnassignedDesc":"Zeigen Sie alle nicht zugewiesenen Mitglieder in einer Organisation an. Verwenden Sie Drag & Drop, um die Mitglieder zuzuweisen. Wählen Sie \"Nicht zugewiesen\", \"Splitten\" oder \"Zurück\" aus, um diesen Bildschirm zu verlassen.",
+    "Partition":"Partitionen",
+    "Awb0PartitionDesc":"In Partitionen organisierten Stücklistenstrukturinhalt verwalten"
+}

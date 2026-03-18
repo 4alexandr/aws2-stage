@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "지역화 편집",
+    "editLocalizationSingleDesc": "속성에 대한 값을 다른 언어로 변환",
+    "masterValue": "마스터 값",
+    "translationLanguages": "변환 언어",
+    "addorRemoveLocales": "언어 추가 또는 제거",
+    "addorRemoveLocalesDesc": "변환할 언어 리스트에서 선택",
+    "removeLocale": "언어 제거",
+    "removeLocaleDesc": "변환 언어 제거",
+    "propertiesTranslated": "변환할 수 있는 속성",
+    "status": "상태",
+    "saveTranslationsError": "저장하려고 하는 동안 문제가 발생했습니다. {0}",
+    "property": "속성"
+}

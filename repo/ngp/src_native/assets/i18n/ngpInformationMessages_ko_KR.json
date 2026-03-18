@@ -1,0 +1,13 @@
+{
+    "editSelectedItem": "선택한 아이템 편집",
+    "overview": "개요",
+    "attachments": "첨부물",
+    "attributeGroups": "속성 그룹",
+    "forms": "폼",
+    "attachFile": "파일 첨부",
+    "createAgs": "속성 그룹 생성",
+    "downloadAttachment": "다운로드",
+    "cannotDeleteAGMessage": "속성 그룹 \"{0}\"을(를) 삭제할 수 있는 권한이 없습니다.\n 삭제하지 않고 제거하겠습니까?",
+    "cancel": "취소",
+    "remove": "제거"
+}

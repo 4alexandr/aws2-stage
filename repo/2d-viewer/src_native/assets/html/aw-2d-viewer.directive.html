@@ -1,0 +1,19 @@
+
+<div id="aw-2d-viewer" class="aw-viewer-viewer">
+    <div ng-if="viewerHeaderProperties" class="aw-viewerjs-header">
+        <aw-viewer-header data="viewerHeaderProperties"></aw-viewer-header>
+    </div>
+
+    <div ng-style="{'height': twoDViewerHeight, 'width': twoDViewerWidth}">
+        <div ng-show="viewerLoading" id="aw2dViewerLoading" class="aw-jswidgets-text">{{loadingMsg}}</div>
+        <div ng-show="viewerError" id="aw2dViewerError" class="aw-jswidgets-text">{{viewerIssueMsg}}</div>
+        <div ng-show="showViewerProgress" class="aw-viewer-viewLoadProgressContainer" ng-style="{'height': twoDViewerHeight, 'width': twoDViewerWidth}">
+            <div class="aw-viewer-loadProgress" ng-style="{'height': loadProgressIndicatorWidth, 'width': loadProgressIndicatorWidth}"></div>
+        </div>
+        <div ng-show="showViewerEmmProgress" class="aw-viewer-viewEmmLoadProgressContainer" ng-style="{'height': twoDViewerHeight, 'width': twoDViewerWidth}">
+            <div class="aw-viewer-emmLoadProgress" ng-style="{'height': emmProgressIndicatorWidth, 'width': emmProgressIndicatorWidth}"></div>
+        </div>
+        <div ng-show="!viewerLoading && !viewerError" id="awImageViewer" ng-style="{'height': twoDViewerHeight, 'width': twoDViewerWidth, 'position': 'relative'}"></div>
+    </div>
+</div>
+

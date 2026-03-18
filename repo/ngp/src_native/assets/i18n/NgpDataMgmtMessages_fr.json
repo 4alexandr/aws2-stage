@@ -1,0 +1,23 @@
+{
+    "cancel": "Annuler",
+    "submit": "Soumettre",
+    "continue": "Continuer",
+    "reviseCmdTitle": "Réviser",
+    "workflowTemplatesLabel": "Modèle-type de Traitement",
+    "workflowNameLabel": "Nom du Traitement",
+    "workflowDescriptionLabel": "Description",
+    "noWorkflowTemplatesMsg": "Aucun modèle-type de Traitement n'a été trouvé pour les objets sélectionnés.",
+    "submitToWorkflowCmdTitle": "Soumettre au Traitement",
+    "submitToWorkflowTooltipMsg": "Soumettre {0} au Traitement.",
+    "submitToWorkflowInformationMsg": "La suppression de {0} processus est en attente. Pour libérer le contenu de l'activité, y compris cette suppression, soumettez l'activité au traitement en utilisant le modèle-type de Traitement \"NGP_ReleasePendingDeletions\".",
+    "successfullySubmitToWorkflowSingle": "\"{0}\" a été soumis au Traitement.",
+    "successfullySubmitToWorkflowMultiple": "{0} objets ont été soumis au Traitement.",
+    "parentAutoReviseSingleConfirmation": "La révision de \"{0}\" révisera également \"{1}\". Voulez-vous continuer?",
+    "parentAutoReviseMultipleConfirmation": "La révision des opérations sélectionnées révisera également \"{0}\". Voulez-vous continuer?",
+    "successfulReviseAction": "Une nouvelle révision a été créée avec succès pour \"{0}\".",
+    "submitSelectedToWorkflow": "Soumettre les éléments sélectionnés au Traitement.",
+    "singleDeleteMessage": "Confirmez-vous de détruire \"{0}\"?",
+    "multipleDeleteMessage": "Confirmez-vous la suppression de ces {0} objets?",
+    "deleteTooltipMsg": "Détruire",
+    "deleteSelectedObjectsCmdDescription": "Détruire les objets sélectionnés"    
+}

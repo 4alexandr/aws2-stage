@@ -1,0 +1,16 @@
+{
+    "LoadButton": "載入公事包",
+    "loadstatus": "正在載入...",
+    "compare": "比較內容",
+    "locationClickViewerHeaderTitle": "檢視器",
+    "locationOneClickViewerSubTitle": "檢視器",
+    "pickTOSPanel": "預覽公事包",
+    "pickTOSPanelCompare": "比較公事包",
+    "transferOptionSet": "選取傳遞選項集",
+    "tosPanelSourceBCZ": "來源公事包",
+    "tosPanelTargetBCZ": "目標公事包",
+    "tosSourceLabel": "來源傳遞選項集已套用",
+    "tosTargetLabel": "目標傳遞選項集已套用",
+    "bbrowserCompareViewerDesc": "檢視公事包檔案之間的差異。",
+    "bbrowserOneClickViewerDesc": "檢查公事包檔案的內容，然後再匯入。"
+}

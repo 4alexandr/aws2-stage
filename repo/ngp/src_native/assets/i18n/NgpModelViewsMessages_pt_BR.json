@@ -1,0 +1,5 @@
+{
+    "sendToViewMakerCmdTitle": "Abrir Manufacturing View Maker",
+    "sendToViewMakerTooltipMsg": "O Manufacturing View Maker permite criar e gerenciar suas exibições de modelos.",
+    "sendToViewMakerDisabledTooltipMsg": "The command is available for processes that either have assignments, or have predecessors or background processes."
+}

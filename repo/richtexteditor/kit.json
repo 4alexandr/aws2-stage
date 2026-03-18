@@ -1,0 +1,12 @@
+{
+  "name": "richtexteditor",
+  "description": "",
+  "modules": [
+    "richtexteditor"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Arm1.Soa.AwReqMgmtSe"
+  ]
+}

@@ -1,0 +1,9 @@
+<aw-column width=fill class="aw-occmgmt-tooltip-list">
+    <aw-label class="aw-occmgmt-labelAlignmentInTooltip aw-occmgmt-labelHeight" prop="data.effectivityTooltipLabel"></aw-label>
+    <aw-panel>
+        <aw-list dataprovider="data.dataProviders.effectivityDataProvider">
+            <aw-default-cell vmo="item"></aw-default-cell>
+        </aw-list>
+    </aw-panel>
+    <aw-link prop="data.moreEffectivitiesLink" action="selectAndLaunchEffPanel" visible-when="data.enableMoreLink.dbValue"></aw-link>
+</aw-column>

@@ -1,0 +1,9 @@
+{
+
+    "FgfNone": "なし",
+    "OrganizationSchemeSectionName": "組織",
+    "Unassigned":"未割当て",
+    "Awb0UnassignedDesc":"組織内ですべての未割当てのメンバを表示します。 ドラッグアンドドロップを使用して、メンバを割当てます。 未割当て、分割または戻るボタンを選択して、終了します。",
+    "Partition":"パーティション",
+    "Awb0PartitionDesc":"パーティション内部で編成されているBOM構成コンテンツを管理"
+}

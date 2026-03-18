@@ -1,0 +1,288 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-column.directive",
+        "js/aw-am-table-panel.directive",
+        "js/aw-toolbar.directive",
+        "js/visible-when.directive"
+    ],
+
+    "actions": {
+        "processPortSelection": {
+            "actionType": "JSFunctionAsync",
+            "method": "showInterfaceDefinitionTable",
+            "inputData": {
+                "input": "{{data.dataProviders.interfaceDefinitionDataProvider}}"
+            },
+
+            "events": {
+                "success": [ {
+                    "name": "interfaceDefinitionTable.plTable.reload"
+                } ]
+            },
+
+            "deps": "js/interfaceDefinitionTableService"
+        },
+
+        "updateEditStateForInterfaceDefinition": {
+            "actionType": "JSFunction",
+            "method": "updateEditState",
+            "inputData": {
+                "input": "{{data.dataProviders.interfaceDefinitionDataProvider}}",
+                "eventData": "{{data.eventData}}"
+            },
+
+            "deps": "js/interfaceDefinitionTableService"
+        },
+        "doArrangeEvent": {
+            "actionType": "JSFunctionAsync",
+            "method": "arrangeColumns",
+            "inputData": {
+                "declViewModel": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/columnArrangeService"
+        },
+        "resetColumnConfig": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "inputData": {
+                "getOrResetUiConfigsIn": [ {
+                    "scope": "LoginUser",
+                    "scopeName": "",
+                    "clientName": "AWClient",
+                    "resetColumnConfig": false,
+                    "columnConfigQueryInfos": [ {
+                        "clientScopeURI": "{{ctx.interfaceDetails.clientScopeURI}}",
+                        "operationType": "",
+                        "typeNames": [
+                            "WorkspaceObject"
+                        ],
+                        "columnsToExclude": []
+                    } ],
+                    "businessObjects": [ {} ]
+                } ]
+            },
+            "outputData": {
+                "dataProviders.interfaceDefinitionDataProvider.columnConfig": "columnConfigurations"
+            }
+        },
+
+        "doInterfaceDefinitionGridDataProvider": {
+            "actionType": "dataProvider",
+            "method": "interfaceDefinitionDataProvider"
+        },
+
+        "saveColumnConfigLoadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "operationType": "as_arranged",
+                    "clientScopeURI": "{{ctx.interfaceDetails.clientScopeURI}}"
+                },
+
+                "saveColumnConfigData": {
+                    "clientScopeURI": "{{ctx.interfaceDetails.clientScopeURI}}",
+                    "columnConfigId": "{{data.dataProviders.interfaceDefinitionDataProvider.columnConfig.columnConfigId}}",
+                    "columns": "{{data.dataProviders.interfaceDefinitionDataProvider.newColumns}}",
+                    "scope": "LoginUser",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "maxToLoad": 15,
+                    "maxToReturn": 15,
+                    "providerName": "Ase1InterfaceElementsProvider",
+                    "searchCriteria": {
+                        "parentUids": "{{ctx.interfaceDetails.targetModelObjectUid}}"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchFilterMap6": {},
+                    "searchSortCriteria": [],
+                    "startIndex": "{{data.dataProviders.interfaceDefinitionDataProvider.startIndex}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.interfaceDefinitionDataProvider.columnConfig": "columnConfig"
+            }
+        },
+
+        "loadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.interfaceDetails.clientScopeURI}}"
+                },
+                "inflateProperties": true,
+                "searchInput": {
+                    "maxToLoad": 15,
+                    "maxToReturn": 15,
+                    "providerName": "Ase1InterfaceElementsProvider",
+                    "searchCriteria": {
+                        "parentUids": "{{ctx.interfaceDetails.targetModelObjectUid}}"
+                    },
+
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchFilterMap6": {
+
+                    },
+
+                    "searchSortCriteria": [
+
+                    ],
+
+                    "startIndex": 0
+                }
+            },
+
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.interfaceDefinitionDataProvider.columnConfig": "columnConfig"
+            },
+
+            "policy": {
+                "types": [ {
+                    "name": "Seg0Implements",
+                    "properties": [ {
+                        "name": "secondary_object",
+                        "modifiers": [ {
+                            "name": "withProperties",
+                            "Value": "true"
+                        } ]
+                    } ]
+                } ]
+            }
+        },
+
+        "initialiseContext": {
+            "actionType": "JSFunction",
+            "method": "initialiseContext",
+            "inputData": {
+                "input": "{{data.dataProviders.interfaceDefinitionDataProvider}}"
+            },
+            "deps": "js/interfaceDefinitionTableService"
+        },
+
+        "processInterfaceDefnTableSelection": {
+            "actionType": "JSFunction",
+            "method": "handleTableSelection",
+            "inputData": {
+                "dataprovider": "{{data.dataProviders.interfaceDefinitionDataProvider}}",
+                "selection": "{{data.eventData.selectedObjects}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "interfaceDefinitionTable.updateAttributeTableOnIDSelection",
+                    "eventData": {
+                        "selectedIDObjects": "{{data.eventData.selectedObjects}}"
+                    }
+
+                } ]
+            },
+
+            "deps": "js/interfaceDefinitionTableService"
+        },
+        "processSplitPanelDeSelectEvent": {
+            "actionType": "JSFunction",
+            "method": "processSplitPanelDeSelectEvent",
+            "deps": "js/interfaceDefinitionTableService"
+        },
+        "updateNodeAndPortInGraph": {
+            "actionType": "JSFunction",
+            "method": "updateNodeAndPortInGraph",
+            "inputData": {
+                "updatedModelObjects": "{{data.eventMap['cdm.updated'].updatedObjects}}"
+            },
+            "deps": "js/interfaceDefinitionTableService"
+        }
+
+    },
+
+    "dataProviders": {
+        "interfaceDefinitionDataProvider": {
+            "action": "loadData",
+            "editContext": "INTERFACE_DEFINATION_CONTEXT",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "multiple",
+            "commandsAnchor": "table_cell_commands"
+        }
+    },
+
+    "columnProviders": {
+        "interfaceDefinitionClientScopeUI": {
+            "saveColumnAndLoadAction": "saveColumnConfigLoadData",
+            "resetColumnAction": "resetColumnConfig",
+            "sortCriteria": []
+        }
+    },
+
+    "grids": {
+        "interfaceDefinitionTable": {
+            "dataProvider": "interfaceDefinitionDataProvider",
+            "columnProvider": "interfaceDefinitionClientScopeUI",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enableGridMenu": false,
+                "enableSorting": false
+            }
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "interfaceDefinitionDataProvider.modelObjectsUpdated",
+            "action": "initialiseContext"
+        },
+        {
+            "eventId": "gwt.GraphPortSelectionChangeEvent",
+            "action": "processPortSelection"
+        },
+        {
+            "eventId": "editHandlerStateChange",
+            "cacheEventData": true,
+            "action": "updateEditStateForInterfaceDefinition"
+        },
+        {
+            "eventId": "interfaceDefinitionTable.gridSelection",
+            "cacheEventData": true,
+            "action": "processInterfaceDefnTableSelection"
+        },
+        {
+            "eventId": "GraphPortSelectionChangeEvent",
+            "action": "processPortSelection"
+        },
+        {
+            "eventId": "gwt.SplitPanelDeSelectEvent",
+            "action": "processSplitPanelDeSelectEvent"
+
+        },
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "doArrangeEvent"
+        },
+        {
+            "eventId": "cdm.updated",
+            "action": "updateNodeAndPortInGraph",
+            "cacheEventData": true
+        }
+    ],
+
+    "i18n": {
+        "interfaceDefinitions": [
+            "SystemModelerConstants"
+        ]
+    }
+}

@@ -1,0 +1,181 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-default-cell.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "dataProvider",
+            "method": "getEligibleUsers"
+        },
+        "searchEligibleUsers": {
+            "actionType": "TcSoaService",
+            "serviceName": "Query-2014-11-Finder",
+            "method": "performSearch",
+            "inputData": {
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Vm1VendorLocationProvider",
+                    "searchCriteria": {
+                        "VendorPartOrVendorUID": "{{ctx.selected.uid}}",
+                        "searchString": "{{data.filterBox.dbValue}}"
+                    },
+                    "startIndex": "{{data.dataProviders.getEligibleUsers.startIndex}}"
+                }
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResponse": "searchResults"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            }
+        },
+        "addUser": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "createRelations",
+            "inputData": {
+                "input": [
+                    {
+                        "clientId": "",
+                        "relationType": "Vm0PartnerUser",
+                        "primaryObject": "{{ctx.selected}}",
+                        "secondaryObject": "{{data.dataProviders.getEligibleUsers.selectedObjects[0]}}",
+                        "userData": ""
+                    }
+                ]
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "vm1attachIPLicenseToUserName",
+                        "condition":true
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            }
+        },
+        "vm1attachIPLicenseToUserAction": {
+            "actionType": "TcSoaService",
+            "serviceName": "AuthorizedDataAccess-2018-06-LicenseManagement",
+            "method": "createOrUpdateLicense",
+            "inputData": {
+                "licenseInfo": "{{function:createOrUpdateSoaInputFn}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "addUserEvent"
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    },
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "refreshLocationFlag": true,
+                            "relations": "",
+                            "relatedModified": [
+                                "{{ctx.selected}}"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1IPLicenseService"
+        }
+    },
+    "functions": {
+        "search": {
+            "functionName": "searchForUsers",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getLicenseListInput":{
+            "functionName":"getLicenseListInputFunction",
+            "parameters": [
+                 "{{ctx}}"
+            ]
+        },
+        "createOrUpdateSoaInputFn": {
+            "functionName": "createOrUpdateSoaInput",
+            "parameters": [
+                "{{ctx}}",
+                "{{data}}",
+                "add"
+            ]
+        }
+    },
+    "data": {
+        "filterBox": {
+            "displayName": "MyFilter",
+            "type": "STRING",
+            "dbValue": ""
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "dataProvider.reset",
+            "action": "reveal"
+        },
+        {
+            "eventId": "vm1attachIPLicenseToUserName",
+            "action": "vm1attachIPLicenseToUserAction"
+        },
+        {
+            "eventId":"addUserEvent",
+            "action":"addUser"
+        }
+    ],
+    "conditions": {
+        "isUserSelected": {
+            "expression": "data.dataProviders.getEligibleUsers.selectedObjects.length > 0"
+        },
+        "checkSelectionChange": {
+            "expression": "name == 'selected'"
+        }
+    },
+    "i18n": {
+        "Vm1AddUserToContact": [
+            "VendorManagementMessages"
+        ]
+    },
+    "dataProviders": {
+        "getEligibleUsers": {
+            "action": "searchEligibleUsers",
+            "selectionModelMode": "single",
+            "response": "{{data.searchResponse}}",
+            "totalFound": "{{data.totalFound}}"
+        }
+    },
+    "messages": {
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    }
+}

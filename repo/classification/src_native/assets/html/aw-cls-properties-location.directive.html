@@ -1,0 +1,14 @@
+<div aw-repeat="attribute : attributes">
+    <!-- Attribute -->
+    <div exist-when="attribute.type !== 'Block' && !attribute.isCardinalControl">
+        <div ng-if="attribute.visible">
+            <div ng-if="view === -1 && (showallprop || attribute.vmos[0].uiValue.length > 0)" class="aw-classification-pairView">
+                <aw-widget prop="attribute.vmos[0]" exist-when="view === -1" class="aw-classification-widgetView"></aw-widget>
+                <div class="aw-widgets-propertyLabelTop aw-classification-extendedPropView">{{attribute.vmos[1].propertyDisplayName}}</div>
+            </div>
+            <div ng-if="view !== -1">
+                <aw-cls-attribute-annotation-location prop="attribute.vmos" attribute="attribute"></aw-cls-attribute-annotation-location>
+            </div>
+        </div>
+    </div>
+</div>

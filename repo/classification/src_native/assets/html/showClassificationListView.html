@@ -1,0 +1,17 @@
+<aw-scrollpanel>
+    <div exist-when="!ctx.clsLocation.isFiltersVisible && ctx.ViewModeContext.ViewModeContext==='ListView'">
+        <div class="aw-clsLocation-fullViewVncFlexBox aw-xrt-columnContentPanel">
+            <!-- Hierarchy & Search panel -->
+            <aw-cls-vnc vnc="ctx.clsLocation"></aw-cls-vnc>
+        </div>
+    </div>
+    <div visible-when="ctx.clsLocation.isFiltersVisible">
+        <aw-list dataprovider="data.dataProviders.listDataProvider" show-check-box="subPanelContext.showCheckBox"
+            show-decorators="true" show-context-menu="true">
+            <aw-default-cell vmo="item"></aw-default-cell>
+        </aw-list>
+    </div>
+    <div class="aw-cls-noSearchResultsFound">
+        <aw-property-non-edit-val prop="ctx.clsLocation.noSearchResultsFound" visible-when="ctx.search.totalFound===0"></aw-property-non-edit-val>
+    </div>
+</aw-scrollpanel>

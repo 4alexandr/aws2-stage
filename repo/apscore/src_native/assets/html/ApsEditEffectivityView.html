@@ -1,0 +1,11 @@
+<aw-panel-body exist-when="ctx.effIntents.isAddEffectivity===false">
+    <aw-aps-effectivity data="data"></aw-aps-effectivity>
+    <aw-include class="aw-aps-effectivityIntentContainer" name="ApsEffectivityIntentSub"></aw-include>
+</aw-panel-body>
+<aw-panel-footer>
+    <div exist-when="$parent.data.isValidEffectivityPanel">
+        <aw-button action="editEffectivity">
+            <aw-i18n>i18n.save</aw-i18n>
+        </aw-button>
+    </div>
+</aw-panel-footer>

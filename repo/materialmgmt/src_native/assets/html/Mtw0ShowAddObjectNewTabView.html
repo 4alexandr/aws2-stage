@@ -1,0 +1,17 @@
+
+<aw-form name="createAndRelateForm">
+<aw-panel-body>
+
+ <aw-panel-section>
+        <aw-xrt type="CREATE" object-type="{{ctx.secondaryObjForXrtCreate}}"></aw-xrt>
+  </aw-panel-section>
+ <aw-panel-section>
+                <aw-xrt type="CREATE" object-type="{{ctx.relation}}"></aw-xrt>
+  </aw-panel-section>
+ </aw-panel-body>
+ </aw-form>
+
+<aw-panel-footer>
+         <aw-button action="createRelateAndSubmitSOA" visible-when="createAndRelateForm.$valid && data.relationObjectInfo!=undefined && data.selectedTab.panelId === 'Mtw0ShowAddObjectNewTab'"> <aw-i18n>i18n.addButtonTitle</aw-i18n> </aw-button>
+</aw-panel-footer>
+

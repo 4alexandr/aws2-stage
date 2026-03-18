@@ -1,0 +1,29 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-section.directive",
+        "js/aw-cls-property-group-tree-section.directive",
+        "js/aw-cls-fullview-classheader.directive"
+    ],
+    "actions": {
+        "resetAttributeFilter": {
+            "actionType": "JSFunction",
+            "method": "resetAttributeFilter",
+            "inputData": {
+                "data":"{{data}}"
+            },
+            "deps": "js/classifyFullViewService"
+        }
+    },
+    "functions": {
+    },
+    "conditions": {
+        "classHasBlocks": {
+            "expression": "data.hasBlocks"
+        }
+    },
+    "i18n": {
+        "propertyGroups": [ "ClassificationPanelMessages" ],
+        "searchPlaceholder": [ "ClassificationPanelMessages" ]
+    }
+}

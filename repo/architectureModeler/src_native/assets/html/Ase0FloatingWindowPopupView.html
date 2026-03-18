@@ -1,0 +1,48 @@
+<aw-popup2 id="Ase0FloatingWindowPopup" caption="{{i18n.PreviewDiagram}}">
+    <div class="afx-content-background aw-float-graph-popup">
+        <div class="aw-popup-contentContainer aw-layout-flexColumnContainer aw-architectureModeler-floatDialogSmall">
+            <div class="aw-layout-workareaCommandbar afx-content-background">
+                <div class="aw-layout-flexRow aw-architecturemodelerfg-breadcrumb">
+                    <aw-float-graph-popup-breadcrumb provider="data.breadcrumb.provider" breadcrumb-config="data.breadcrumb.config" visible-when="data.activeView === 'Graph'"></aw-float-graph-popup-breadcrumb>
+                </div>
+                    <div class="aw-layout-flexRowContainer aw-architecturemodelerfg-diagramTitleContainer" visible-when="data.activeView === 'Graph'">
+                        <div class="aw-layout-flexRowContainer" aw-click="data.sendViewChangeEvent('DiagramSelect')" visible-when="data.currentDiagram !== null">
+                            <div class="aw-widgets-propertyLabelTop"><aw-i18n>i18n.Diagram</aw-i18n>:</div>
+                            <aw-link class="aw-architecturemodelerfg-diagramTitle" prop="data.currentDiagram.props.object_string" action="dummyAction"></aw-link>
+                        </div>
+                    </div>
+                <div class="aw-layout-flexRowContainer aw-architecturemodelerfg-diagramTitleContainer" visible-when="data.activeView === 'DiagramSelect'"></div>
+                <div class="aw-layout-flexRowContainer aw-architecturemodelerfg-commandbar">
+                    <aw-command-bar anchor="fg_commandbar_open" alignment="HORIZONTAL" visible-when="data.activeView === 'Graph'" class="
+                        aw-commands-commandBarContainer
+                        aw-commands-commandBarHorizontal
+                        aw-architecturemodelerfg-openCommandBar">
+                    </aw-command-bar>
+                </div>
+            </div>
+            <aw-panel-body>
+                <aw-graph graph-model="data.graphModel" legend-data="data.legend" is-main="false" visible-when="data.activeView === 'Graph'"></aw-graph>
+                <aw-list-filter prop="data.filterBox" dataprovider="data.dataProviders.associatedDiagramsList" visible-when="data.activeView === 'DiagramSelect'">
+                    <aw-float-graph-popup-diagram-cell vmo="item"></aw-float-graph-popup-diagram-cell>
+                </aw-list-filter>
+            </aw-panel-body>
+            <aw-panel-footer >
+                <aw-popup-primary-button
+                    visible-when="data.activeView === 'DiagramSelect'
+                    && data.dataProviders.associatedDiagramsList.getSelectedObjects().length > 0"
+                    action="previewDiagram">
+                    <aw-i18n>i18n.PreviewDiagram</aw-i18n>
+                </aw-popup-primary-button>
+                <aw-popup-primary-button
+                    visible-when="data.activeView === 'DiagramSelect'
+                    && data.currentObject.props.is_modifiable.uiValues['0'] === 'True'
+                    && data.dataProviders.associatedDiagramsList.getSelectedObjects().length === 1
+                    && !data.dataProviders.associatedDiagramsList.selectedObjects[0].ase0IsDefaultDiagram"
+                    action="setAsDefaultDiagram">
+                    <aw-i18n>i18n.SetAsDefaultDiagram</aw-i18n>
+                </aw-popup-primary-button>
+            </aw-panel-footer>
+        </div>
+    </div>
+ </aw-popup2>
+

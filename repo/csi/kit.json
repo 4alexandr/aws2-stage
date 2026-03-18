@@ -1,0 +1,12 @@
+{
+  "name": "csi",
+  "description": "",
+  "modules": [
+    "csi"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Csi1.Soa.CmSmAwInterface"
+  ]
+}

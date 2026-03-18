@@ -1,0 +1,16 @@
+<aw-flex-row height="3.14f" aw-class="['afx-alt-content-background']">
+    <aw-flex-row height="3f" justify="space-between" aw-class="['aw-mbm-changeSummarySubTilesHeaderContent', {'aw-mbm-changeSummaryHandled':subPanelContext.hasOwnProperty('isHandle') && subPanelContext.isHandle}]">
+        <aw-flex-column align-content="start" justify="center">
+            {{data.subTilesTitle[subPanelContext.subTilesInfo.context]}}
+        </aw-flex-column>
+        <aw-flex-column width="8f">
+            <aw-button exist-when="!subPanelContext.isHandle && subPanelContext.subTilesInfo.hasMultipleIssue && (subPanelContext.changeType ==='MBMBOM_Updated' || subPanelContext.changeType ==='MBMBOM_Occurrence_Updated')" button-type="base"  action="propagateAllAction"><aw-i18n>i18n.mbmPropagateAll</aw-i18n></aw-button>
+            <aw-button exist-when="!subPanelContext.isHandle && subPanelContext.subTilesInfo.hasMultipleIssue && subPanelContext.changeType ==='MBMBOM_Removed'" button-type="base"  action="removeAllAction"><aw-i18n>i18n.mbmRemoveAll</aw-i18n></aw-button>
+        </aw-flex-column>
+    </aw-flex-row>
+</aw-flex-row>
+
+
+
+
+

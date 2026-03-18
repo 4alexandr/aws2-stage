@@ -1,0 +1,53 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+
+/*========================================================================*/
+/*===========================MFE Manage Work Package  ==========================*/
+/*========================================================================*/
+.aw-mfe-manageTilePlaceHolder {
+    border-color: $PL_Black_22;
+
+    &:hover {
+        background-color: $brand_selection_background_hover;
+    }
+
+    &:active {
+        background-color: $brand_selection_background_active;
+    }
+}
+
+.aw-mfe-manageTilePlaceHolderDisabled {
+    border-color: $PL_Black_22;
+    background-color: $PL_Black_26;
+}
+
+.aw-mfe-manageWpXrtContainer {
+    background-color: $PL_Black_26;
+}
+
+.aw-mfe-manageWpTileContainer {
+    border-color: $PL_Black_22;
+}
+
+.aw-mfe-manageWpTileReVRuleContainer {
+    background-color: $PL_Black_25;
+    border-color: $PL_Black_22;
+}
+
+.aw-mfe-manageWpTileReVRule {
+    color: $PL_Black_16;
+}
+
+.aw-mfe-manageWpTileReVRuleValue {
+    color: $PL_Black_13;
+}
+
+.aw-mfe-manageCmdMenuIconText {
+    color: $PL_Black_4;
+}

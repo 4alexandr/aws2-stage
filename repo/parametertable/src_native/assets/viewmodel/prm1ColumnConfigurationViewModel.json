@@ -1,0 +1,195 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-button.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-i18n.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-paramtable-col-checkbox.directive"
+    ],
+    "actions": {
+        "updateColumns": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "aw-parameter-view-table.updateColumnVisibility",
+                        "eventData": {
+                            "data": "{{data}}"
+                        }
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "data": {
+        "checkbox": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.checkbox}}",
+            "displayName": "{{i18n.ParamColumn_Checkbox}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "thumbnail": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.thumbnail}}",
+            "displayName": "{{i18n.ParamColumn_Thumbnail}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "name": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.name}}",
+            "displayName": "{{i18n.ParamColumn_Name}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "desc": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.desc}}",
+            "displayName": "{{i18n.ParamColumn_Description}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "editable": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.editable}}",
+            "displayName": "{{i18n.ParamColumn_Editable}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "status": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.status}}",
+            "displayName": "{{i18n.ParamColumn_Status}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "unit": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.unit}}",
+            "displayName": "{{i18n.ParamColumn_Unit}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "source": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.source}}",
+            "displayName": "{{i18n.ParamColumn_Source}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "measurement": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.measurement}}",
+            "displayName": "{{i18n.ParamColumn_Measurement}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "min": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.min}}",
+            "displayName": "{{i18n.ParamColumn_Min}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "att0MinOperator": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.att0MinOperator}}",
+            "displayName": "{{i18n.ParamColumn_Min_Operator}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "goal": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.goal}}",
+            "displayName": "{{i18n.ParamColumn_Goal}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "att0MaxOperator": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.att0MaxOperator}}",
+            "displayName": "{{i18n.ParamColumn_Max_Operator}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "max": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.max}}",
+            "displayName": "{{i18n.ParamColumn_Max}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "file": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.file}}",
+            "displayName": "{{i18n.ParamColumn_MapFile}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        },
+        "revision": {
+            "dbValue": "{{ctx.paramCompareViewContext.columnVisibility.revision}}",
+            "displayName": "{{i18n.ParamColumn_Revision}}",
+            "type": "BOOLEAN",
+            "isEditable": "true"
+        }
+    },
+    "conditions": {
+        "isVisible": {
+            "expression": "ctx.sublocation.nameToken === 'prm1AnalysisRequestsCompare'"
+        }
+    },
+    "i18n": {
+        "ColumnConfigurationTitle": [
+            "prm1ParameterTableMessages"
+        ],
+        "ApplyBtnTitle": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Checkbox": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Thumbnail": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Name": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Description": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Editable": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Status": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Unit": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Source": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_DataType": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Measurement": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Min": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Min_Operator": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Goal": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Max_Operator": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Max": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_MapFile": [
+            "prm1ParameterTableMessages"
+        ],
+        "ParamColumn_Revision": [
+            "prm1ParameterTableMessages"
+        ]
+    }
+}

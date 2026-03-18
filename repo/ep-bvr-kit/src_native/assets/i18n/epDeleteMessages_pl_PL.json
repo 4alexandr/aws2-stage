@@ -1,0 +1,8 @@
+{
+    "delete":"Usuń",
+    "discard":"Anuluj",
+    "DeleteSingleMessage": "Czy na pewno chcesz usunąć \"{0}\"?",
+    "DeleteMultipleMessage": "Czy na pewno chcesz usunąć te elementy ({0})?",
+    "epCmdDeleteTitle":"Usuń",
+    "epCmdDeleteDesc": "Usuń zaznaczenie."
+}

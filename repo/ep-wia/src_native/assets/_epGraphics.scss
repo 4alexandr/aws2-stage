@@ -1,0 +1,75 @@
+// Copyright 2020 Siemens Product Lifecycle Management Software Inc.
+
+.aw-epGraphics-horizontalList {
+    .aw-widgets-cellListWidget {
+        @include flex-direction(row);
+        overflow-y: hidden;
+        overflow-x: auto;
+        height: 100%;
+    }
+
+    .aw-widgets-cellListItem {
+        height: 92%;
+        padding: 4px;
+        border-bottom-width: 0;
+    }
+
+    .aw-widgets-modelObjectList {
+        height: 100%;
+        margin: 0;
+    }
+
+    .aw-widgets-cellListItemContainer,
+    .aw-widgets-cellListContainer,
+    .aw-widgets-cellListOffsetter,
+    .aw-widgets-cellListItemCell,
+    .aw-epGraphics-galleryCell {
+        height: 100%;
+    }
+}
+ 
+.aw-epGraphics-thumbnailPanel {
+    .aw-layout-panelMain {
+        @include align-items(center);
+    }
+
+    .aw-xrt-thumbnailImage {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.aw-epGraphics-thumbnailContainer {
+    height: 90%;
+}
+
+.aw-epGraphics-galleryPanel {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.aw-epGraphics-thumbnailLabel {
+    font-family: 'Segoe UI Semibold';
+    font-size: $fontsize_normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 18px;
+}
+
+.aw-epGraphics-cellContainer {
+    width: 130px;
+    padding: 4px;
+    height: 100%;
+
+    .aw-layout-summaryContent {
+        height: 98%;
+    }
+}
+
+.aw-epImageViewer-container{
+    @include flexbox();
+    @include flex-direction(row);
+    @include align-items(center);
+    margin: auto;
+}

@@ -1,0 +1,186 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-social-comment-list.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "questionAnswerDataProvider"
+        },
+
+        "search":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2016-03-Finder",
+            "method": "performSearch",
+            "deps": "js/S2clSocialService",
+            "inputData":
+            {
+                "columnConfigInput":
+                {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}"
+                },
+
+                "searchInput":
+                {
+                    "maxToLoad": 25,
+                    "maxToReturn": 25,
+                    "startIndex": 0,
+                    "providerName": "S2clCommentaryProvider",
+                    "searchCriteria":
+                    {
+                        "Type": "questions",
+                        "Target": "{{function:getObjectUID}}"
+                    }
+                }
+            },
+
+            "outputData":
+            {
+                "searchResults": "{{function:reOrderQuestionAndAnswer}}",
+                "dataProviders.questionAnswerDataProvider.columnConfig": "columnConfig"
+            },
+
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "S2clQuestion",
+                        "properties":
+                        [
+                            {
+                                "name": "s2clParentRootComment"
+                            },
+
+                            {
+                                "name": "s2clCommentRichText"
+                            },
+
+                            {
+                                "name": "s2clTotalLikesFromSummary"
+                            },
+
+                            {
+                                "name": "s2clCommentaryRatingObjects"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "events":
+            {
+                "success":
+                [
+                   {
+                      "name":"questionAnswerList.questionAnswerLoaded"
+                   }
+                ]
+             }
+        },
+        "updatFirstElementToShow":
+        {
+            "actionType": "JSFunction",
+            "method": "updatFirstElementToShow",
+            "inputData":
+            {
+                "data": "{{data.eventData}}"
+            },
+            "deps": "js/S2clSocialService"
+        }
+
+    },
+
+    "dataProviders":
+    {
+        "questionAnswerDataProvider":
+        {
+            "action": "search",
+            "deps": "js/S2clSocialService",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "commandsAnchor": "S2clCommands"
+         }
+    },
+
+    "functions":
+    {
+        "reOrderQuestionAndAnswer":
+        {
+            "functionName": "reOrderQuestionAndAnswer",
+            "parameters":
+            [
+                "{{data}}"
+            ]
+        },
+        "getObjectUID":
+        {
+            "functionName": "getObjectUID",
+            "parameters":
+            [
+                "{{ctx.xrtSummaryContextObject}}"
+            ]
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "dataProvider.reset",
+            "action": "reveal"
+        },
+        {
+            "eventId": "questionAnswerDataProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "updatFirstElementToShow"
+        },
+
+        {
+            "eventId": "questionAnswerPanel.contentLoaded",
+            "action": "reveal"
+        },
+
+        {
+            "eventId": "updateNavigationList",
+            "action": "reveal"
+        },
+
+        {
+            "eventId": "validateEvent",
+            "action": "reveal"
+        },
+        {
+            "eventId": "S2clSCAddQuestionNew.newQuestionAdded",
+            "action": "questionAnswerDataProvider"
+        },
+        {
+            "eventId": "S2clSCAddAnswerNew.newAnswerAdded",
+            "action": "questionAnswerDataProvider"
+        },
+        {
+            "eventId": "S2clrateHelpfulAnswer.completed",
+            "action": "questionAnswerDataProvider"
+        }
+    ],
+
+    "data":
+    {
+        "addQuestion": "S2cl_addQuestion"
+    },
+
+    "i18n":
+    {
+        "questionsLabel":
+        [
+            "SocialMessages"
+        ]
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "continue": "Continue",
+    "reviseCmdTitle": "Revise",
+    "workflowTemplatesLabel": "Workflow Template",
+    "workflowNameLabel": "Workflow Name",
+    "workflowDescriptionLabel": "Description",
+    "noWorkflowTemplatesMsg": "No Workflow Templates were found for the selected objects.",
+    "submitToWorkflowCmdTitle": "Submit to Workflow",
+    "submitToWorkflowTooltipMsg": "Submit the {0} to workflow.",
+    "submitToWorkflowInformationMsg": "Deletion of {0} processes is pending. To release the activity content, including this deletion, submit the activity to workflow while using workflow template \"NGP_ReleasePendingDeletions\".",
+    "successfullySubmitToWorkflowSingle": "\"{0}\" was submitted to workflow.",
+    "successfullySubmitToWorkflowMultiple": "{0} objects were submitted to workflow.",
+    "parentAutoReviseSingleConfirmation": "Revising \"{0}\" will also revise \"{1}\". Do you want to continue?",
+    "parentAutoReviseMultipleConfirmation": "Revising the selected operations will also revise \"{0}\". Do you want to continue?",
+    "successfulReviseAction": "A new revision was successfully created for \"{0}\".",
+    "submitSelectedToWorkflow": "Submit the selected elements to workflow.",
+    "singleDeleteMessage": "Are you sure you want to delete \"{0}\"?",
+    "multipleDeleteMessage": "Are you sure you want to delete these {0} objects?",
+    "deleteTooltipMsg": "Delete",
+    "deleteSelectedObjectsCmdDescription": "Delete selected objects"    
+}

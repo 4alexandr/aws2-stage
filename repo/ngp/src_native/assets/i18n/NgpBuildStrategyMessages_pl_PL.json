@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "\"{0}\" nie zawiera elementów kompilacji ani czynności.",
+    "noProcesses": "Brak procesów w \"{0}\".",
+    "whereToCreateProcesses": "Procesy można tworzyć na stronie Jednostka robocza.",
+    "moveCandidateCmdTitle": "Przenieś do",
+    "moveCandidateCmdDescription": "Wyznacza elementy do przeniesienia",
+    "successfullySetSingleMoveCandidate": "Element \"{0}\" jest wyznaczony do przeniesienia. Wybierz obiekt docelowy i użyj przycisku 'Przenieś tutaj'.",
+    "successfullySetMultipleMoveCandidates": "{0} elementów wyznaczono do przeniesienia. Wybierz obiekt docelowy i użyj przycisku 'Przenieś tutaj'.",
+    "moveHereTooltipTitle": "Przenieś tutaj",
+    "moveHereTooltipMsg": "Spowoduje przeniesienie tych elementów do określonego miejsca docelowego:",
+    "createBuildElementAfter": "Utwórz element tworzenia po",
+    "createBuildElementAsChild": "Utwórz element tworzenia jako element potomny"
+}

@@ -1,0 +1,33 @@
+<aw-panel-body>
+    <aw-guidance-message exist-when="ctx.Ac0ConvCtx.showWarnMsg" visible-when="conditions.isConvMessage" message="participantSourceReadAccessWarningMsg" banner-style="true" show-icon="true" show-type="false"></aw-guidance-message>
+    <aw-break></aw-break>
+    <aw-checkbox visible-when="ctx.Ac0ConvCtx.createNewConversation" prop="data.convTypeChk" action="changeConvType" ></aw-checkbox>
+    <aw-label prop="data.participantLabel" visible-when="ctx.Ac0ConvCtx.createNewConversation && conditions.isConvMessage"></aw-label>
+    <aw-flex-row visible-when="ctx.Ac0ConvCtx.createNewConversation && conditions.isConvMessage" justify="space-between">
+        <aw-flex-column width="9">
+            <aw-chip-list class="aw-layout-wrap aw-activecollab-chipList" dataprovider="data.dataProviders.userDataProvider" ui-icon-action="removeUserAction"></aw-chip-list>
+        </aw-flex-column>
+        <aw-flex-column width="3">
+            <aw-command-bar anchor="ac0_createConvParticipantCmds" alignment="HORIZONTAL"></aw-command-bar>
+        </aw-flex-column>
+    </aw-flex-row>
+    <aw-break></aw-break>
+    <aw-label prop="data.sourceLabel" visible-when="ctx.Ac0ConvCtx.createNewConversation"></aw-label>
+    <aw-flex-row visible-when="ctx.Ac0ConvCtx.createNewConversation" justify="space-between">
+        <aw-flex-column width="9">
+            <aw-chip-list class="aw-layout-wrap aw-activecollab-chipList" dataprovider="data.dataProviders.srcObjDataProvider" ui-icon-action="removeSrcObjAction"></aw-chip-list>
+        </aw-flex-column>
+        <aw-flex-column width="3">
+            <aw-command-bar anchor="ac0_createConvSourceCmds" alignment="HORIZONTAL"></aw-command-bar>
+        </aw-flex-column>
+    </aw-flex-row>
+    <aw-break></aw-break>
+    <aw-label prop="data.messageLabel"></aw-label>
+    <div class="aw-activecollab-editor gwt-TextArea">
+        <textarea id="ckeditor" name="ckeditor"></textarea>
+    </div>
+</aw-panel-body>
+<aw-panel-footer>
+    <aw-button visible-when="ctx.Ac0ConvCtx.createNewConversation && conditions.validInputData" action="postConversation"><aw-i18n>i18n.postConversation</aw-i18n></aw-button>
+    <aw-button visible-when="ctx.Ac0ConvCtx.createNewComment && conditions.validInputData" action="postComment"><aw-i18n>i18n.postConversation</aw-i18n></aw-button>
+</aw-panel-footer>

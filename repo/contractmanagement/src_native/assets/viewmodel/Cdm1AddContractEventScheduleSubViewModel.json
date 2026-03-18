@@ -1,0 +1,111 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-tab-set.directive"
+    ],
+
+    "actions": 
+    {
+        "closePanel": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "handleTabSelectionChange": 
+        {
+            "actionType": "JSFunction",
+            "method": "handleTabSelectionChange",
+            "inputData": 
+            {
+                
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        },
+
+        "navigateToNewTabPage": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": 
+                        {
+                            "destPanelId": "Cdm1NewScheduleTab"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "data": 
+    {
+        "schCreateTabs": 
+        [
+            {
+                "tabKey": "new",
+                "panelId": "Cdm1NewScheduleTab",
+                "name": "{{i18n.newTabTitle}}"
+            },
+
+            {
+                "tabKey": "palette",
+                "panelId": "Cdm1SchedulePaletteTab",
+                "name": "{{i18n.paletteTabTitle}}"
+            }
+        ]
+    },
+
+    "onEvent": 
+    [
+        {
+            "eventId": "appCtx.register",
+            "condition": "conditions.checkSelectionChange",
+            "action": "closePanel"
+        },
+
+        {
+            "eventId": "awTab.selected",
+            "action": "handleTabSelectionChange"
+        }
+    ],
+    "conditions":
+    {
+        "checkSelectionChange":
+        {
+            "expression": "name == 'selected'"
+        }
+    },    
+    "i18n": 
+    {
+        "paletteTabTitle": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "newTabTitle": 
+        [
+            "contractmanagementMessages"
+        ]
+    }
+}

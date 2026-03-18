@@ -1,0 +1,16 @@
+{
+    "LoadButton": "加载公文包",
+    "loadstatus": "正在加载...",
+    "compare": "比较内容",
+    "locationClickViewerHeaderTitle": "查看器",
+    "locationOneClickViewerSubTitle": "查看器",
+    "pickTOSPanel": "预览公文包",
+    "pickTOSPanelCompare": "比较公文包",
+    "transferOptionSet": "选择传递选项集",
+    "tosPanelSourceBCZ": "源公文包",
+    "tosPanelTargetBCZ": "目标公文包",
+    "tosSourceLabel": "源传递选项集已应用",
+    "tosTargetLabel": "目标传递选项集已应用",
+    "bbrowserCompareViewerDesc": "查看公文包文件之间的差异。",
+    "bbrowserOneClickViewerDesc": "检查公文包文件的内容，然后再导入。"
+}

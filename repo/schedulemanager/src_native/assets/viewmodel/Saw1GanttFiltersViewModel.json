@@ -1,0 +1,234 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-filter-category.directive",
+        "js/aw-filter-separator.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/visible-when.directive",
+        "js/aw-i18n.directive",
+        "js/aw-repeat.directive",
+        "js/aw-filter-in-filters-searchbox.directive"
+    ],
+    "actions": {
+        "updateCategoryResults":
+        {
+            "actionType": "JSFunction",
+            "method": "updateCategoryResults",
+            "inputData":
+            {
+                "category":"{{ctx.search.valueCategory}}"
+            },
+            "deps":"js/filterPanelService"
+        },
+        "updateFilterPanelAction": {
+            "actionType": "JSFunction",
+            "method": "updateCategories",
+            "inputData": {
+                "categories": "{{ctx.searchResponseInfo.searchFilterCategories}}",
+                "categoryValues": "{{ctx.searchResponseInfo.searchFilterMap}}",
+                "groupProperty": "{{ctx.searchResponseInfo.objectsGroupedByProperty}}",
+                "colorToggle": true,
+                "currentCategories": "{{ctx.searchResponseInfo.searchCurrentFilterCategories}}",
+                "showRange": true
+            },
+            "outputData": {
+                "categories": ""
+            },
+            "deps": "js/filterPanelService"
+        },
+        "selectCategory": {
+            "actionType": "JSFunction",
+            "method": "selectCategory",
+            "inputData": {
+                "category": "{{category}}"
+            },
+            "outputData": {
+                "categories": ""
+            },
+            "deps": "js/filterPanelEvents"
+        },
+        "selectHierarchyCategory": {
+            "actionType": "JSFunction",
+            "method": "selectHierarchyCategory",
+            "inputData": {
+                "category": "{{category}}"
+            },
+            "outputData": {
+                "categories": ""
+            },
+            "deps": "js/filterPanelEvents"
+        },
+        "selectFilter": {
+            "actionType": "JSFunction",
+            "method": "selectFilter",
+            "inputData": {
+                "category": "{{category}}",
+                "filter": "{{filter}}"
+            },
+            "deps": "js/filterPanelEvents"
+
+        },
+        "selectDateRange": {
+            "actionType": "JSFunction",
+            "method": "selectDateRange",
+            "inputData": {
+                "category": "{{category}}"
+            },
+            "deps": "js/filterPanelEvents"
+
+        },
+        "selectNumericRange": {
+            "actionType": "JSFunction",
+            "method": "selectNumericRange",
+            "inputData": {
+                "category": "{{category}}"
+            },
+            "deps": "js/filterPanelEvents"
+        },
+        "selectHierarchyFilter": {
+            "actionType": "JSFunction",
+            "method": "selectHierarchyFilter",
+            "inputData": {
+                "category": "{{category}}",
+                "node": "{{selectedNode}}"
+            },
+            "deps": "js/filterPanelEvents"
+        },
+        "search": {
+            "actionType": "JSFunction",
+            "method": "simpleSearch",
+            "inputData": {
+                "searchCriteria": "{{data.searchBox.dbValue}}"
+            },
+            "deps": "js/filterPanelService"
+        },
+        "reveal": {
+            "actionType": "TcSoaService",
+            "serviceName": "Query-2014-11-Finder",
+            "method": "performSearch",
+            "inputData": {
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Saw1TaskSearchProvider",
+                    "searchCriteria": {
+                        "searchContentType": "ScheduleTask",
+                        "sublocationToken": "tc_xrt_Gantt",
+                        "parentUid": "{{ctx.locationContext.modelObject.uid}}",
+                        "loadFiltersOnly": "true"
+                    },
+                    "searchFilterFieldSortType": "{{ctx.search.sortType}}",
+                    "startIndex": "{{data.dataProviders.listDataProvider.startIndex}}",
+                    "searchFilterMap": "{{ctx.search.activeFilterMap}}"
+                }
+            },
+            "policy": {
+                "types": [
+                    {
+                        "name": "BusinessObject",
+                        "properties": [
+                            {
+                                "name": "awp0CellProperties"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "ctx.search.totalFound": "totalFound",
+                "ctx.search.totalLoaded": "totalLoaded",
+                "ctx.search.filterMap": "searchFilterMap",
+                "ctx.search.filterCategories": "searchFilterCategories",
+                "ctx.search.objectsGroupedByProperty": "objectsGroupedByProperty",
+                "ctx.searchResponseInfo.searchFilterCategories": "searchFilterCategories",
+                "ctx.searchResponseInfo.searchFilterMap": "searchFilterMap",
+                "ctx.searchResponseInfo.objectsGroupedByProperty": "objectsGroupedByProperty",
+                "ctx.search.criteria": {
+                    "searchContentType": "ScheduleTask",
+                    "sublocationToken": "tc_xrt_Gantt",
+                    "parentUid": "{{ctx.locationContext.modelObject}}"
+                }
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "updateFilterPanelEvent"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [
+                    {
+                        "message": "soaFailureMessage"
+                    }
+                ]
+            }
+        },
+        "readjustGantt": {
+            "actionType": "JSFunction",
+            "method": "adjustGanttWidth",
+            "inputData": {},
+            "deps": "js/SchGanttUtils"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "updateFilterPanelEvent",
+            "action": "updateFilterPanelAction"
+        },
+        {
+            "eventId": "filterPanel.updateRefineCategoriesAfterUpdate",
+            "action":"updateCategoryResults"
+        },
+        {
+            "eventId": "Saw1GanttFilters.contentUnloaded",
+            "action":"readjustGantt"
+        }
+    ],
+    "data": {
+        "searchBox1": {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "true"
+        },
+        "searchBox": {
+            "displayName": "",
+            "dbValue": "{{ctx.search.criteria.searchString}}",
+            "type": "STRING"
+        },
+        "searchName": {
+            "displayName": "",
+            "type": "STRING"
+        }
+    },
+    "messages": {
+        "soaFailureMessage": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    },
+    "conditions": {
+        "showFilters": {
+            "expression": "data.filtersVisible"
+        }
+    },
+    "i18n": {
+        "categories": [
+            "SearchMessages"
+        ],
+        "filterString": [
+            "SearchMessages"
+        ],
+        "TypeFilter": [
+            "SearchMessages"
+        ],
+        "refine": [
+            "SearchMessages"
+        ],
+        "SearchFilters": [
+            "SearchMessages"
+        ]
+    }
+}

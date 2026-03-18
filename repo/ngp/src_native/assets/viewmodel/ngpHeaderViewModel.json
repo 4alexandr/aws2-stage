@@ -1,0 +1,72 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-model-icon.directive",
+        "js/aw-global-search.directive",
+        "js/aw-logo.directive",
+        "js/aw-flex-row.directive",
+        "js/exist-when.directive",
+        "js/aw-include.directive",
+        "js/aw-i18n.directive",
+        "js/aw-navigate-breadcrumb.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-separator.directive"
+    ],
+    "ports": {
+        "scopeObject": {
+            "syncObject": {}
+        }
+    },
+    "data": {
+        "breadcrumb": {
+            "navigationBreadcrumbConfig": {
+                "type": "navigate",
+                "vm": "ngpNavigationBreadcrumbs",
+                "chevronDataProvider": "ngpNavigationBreadcrumbChevronDataProvider",
+                "crumbDataProvider": "ngpNavigationBreadcrumbDataProvider",
+                "displayProperty": "object_string"
+            }
+        }
+    },
+    "actions": {
+        "initializeData": {
+            "actionType": "JSFunction",
+            "method": "initNGP",
+            "deps": "js/services/ngpInitializationService"
+        },
+        "loadModel": {
+            "actionType": "JSFunction",
+            "method": "loadModel",
+            "deps": "js/services/ngpInitializationService"
+        },
+        "destroy": {
+            "actionType": "JSFunction",
+            "method": "onDestroy",
+            "deps": "js/services/ngpInitializationService"
+        },
+        "onScopeObjectChange": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "scopeObject",
+                "syncObject": "{{ctx.ngp.scopeObject}}"
+            }
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "initializeData",
+        "onMount": "loadModel",
+        "onUnmount": "destroy"
+    },
+    "onEvent": [ {
+            "eventId": "mfe.scopeObjectChanged",
+            "action": "onScopeObjectChange"
+        },
+        {
+            "eventId": "ngp.scopeObjectCleared",
+            "action": "onScopeObjectChange"
+        }
+    ],
+    "i18n": {
+        "loading": [ "NgpHeaderMessages" ]
+    }
+}

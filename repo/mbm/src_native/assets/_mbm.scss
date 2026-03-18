@@ -1,0 +1,256 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2019.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+
+$font_weight_400:400;
+
+.aw-mbm-largeHeaderTitle {
+    font-size: $fontsize_5x_large;
+    font-weight: $font_weight_400;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.aw-mbm-largeHeaderSubTitle {
+    font-size: $fontsize_x_large;
+    font-weight: $font_weight_400;
+}
+.aw-mbm-largeHeaderTitleSeparator {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.aw-mbm-toolbarTitle {
+    padding-left: 10px;
+    font-size: $fontsize_large;
+    font-weight: $bold_font_weight;
+}
+.aw-mbm-italicText {
+    font-style: italic;
+}
+.aw-mbm-clickableCellIcon {
+    cursor: pointer;
+}
+
+.aw-mbm-changeSummaryHeader{
+    padding-left: 12px;
+}
+.aw-mbm-changeSummaryHeaderTitle {
+    padding: 16px 32px 12px 4px;
+    font-size: $fontsize_large;
+    font-weight: $bold_font_weight;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.aw-mbm-alignmentContent{
+    padding: 0 16px;
+}
+
+.aw-mbm-alignmentContentWithChangeSummary{
+    padding: 0 16px 0 0;
+}
+
+.aw-mbm-ebomContent,
+.aw-mbm-mbomContent{
+    padding: 8px 0;
+}
+
+.aw-splm-tableCellText.aw-mbm-cellText {
+    padding-left: 0;
+}
+
+.aw-mbm-changeSummaryHeaderContainer{
+    margin-bottom: 2px;
+}
+
+.aw-mbm-changeSummaryTileContent{
+    padding: 10px 8px 2px 8px;
+}
+
+.aw-mbm-changeTypeIndicationPanel{
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-style: solid;
+}
+
+.aw-mbm-changeTypeSeparator,
+.aw-mbm-changeTypeHandledSeparator{
+    border-left-width: 1px;
+    width:0;
+    border-style: solid;
+    margin:1px 0;
+}
+
+.aw-mbm-changeSummaryTileInfo{
+    margin: 8px 8px 8px 20px;
+}
+
+.aw-mbm-changeSummaryTileInfoContent{
+    padding-bottom: 16px;
+}
+
+.aw-mbm-changeSummaryTile{
+    position: relative;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+}
+.aw-mbm-changeIndicationHandled,
+.aw-mbm-changeIndicationHandled .aw-mbm-changeSummaryHandled,
+.aw-mbm-changeIndicationAdd,
+.aw-mbm-changeIndicationMismatch,
+.aw-mbm-changeIndicationMissing{
+    width: 4px;
+    height: 100%;
+    position: absolute;
+}
+
+.aw-mbm-changeTriangleIndicationAdd,
+.aw-mbm-changeTriangleIndicationMismatch,
+.aw-mbm-changeTriangleIndicationMissing{
+    position: absolute;
+    top: 0;
+    width: 56px;
+    height: 32px;
+    transform: rotate(315deg);
+    transform-origin: 20% 100%;
+}
+
+.aw-mbm-changeIndication{
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+.aw-mbm-changeIndication,
+.aw-mbm-changeSummarySubTileIndication{
+    width: 17px;
+    height: 17px;
+}
+
+.aw-mbm-changeSummarySubTileIndication{
+    padding-right:8px;
+}
+
+.aw-mbm-changeSummaryTileHeader{
+    margin-top: 24px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 28px;
+}
+
+.aw-mbm-changeSummaryTileProperty{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.aw-mbm-changeSummaryTileProperty .aw-widgets-cellListCellTitleBlock .aw-widgets-cellListCellTitle
+{
+    padding-bottom:4px;
+}
+
+.aw-mbm-changeSummaryTileProperty,
+.aw-mbm-changeSummaryTileProperty .aw-widgets-cellListCellTitleBlock .aw-widgets-cellListCellTitle,
+.aw-mbm-comparePopupPropertyContent .aw-widgets-cellListCellTitleBlock .aw-widgets-cellListCellTitle
+{
+    font-size: $fontsize_normal;
+}
+
+.aw-mbm-changeSummarySubTileHandled,
+.aw-mbm-changeSummarySubTile{
+    cursor: pointer;
+}
+.aw-mbm-changeSummaryTilesSeparator{
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid;
+    clear: both;
+}
+
+.aw-mbm-changeSummarySubTilesHeaderContent{
+    font-size: 14.4px;
+}
+
+.aw-mbm-changeSummarySubTilesHeaderContent,
+.aw-mbm-changeSummarySubTileContent{
+    font-size: 14.4px;
+    padding-left: 12px;
+    padding-right: 14px;
+}
+.aw-mbm-changeSummarySubTileContent{
+    padding-top: 16px;
+    padding-bottom: 8px;
+}
+
+.aw-mbm-changeSummarySubTileBreadCrumb{
+    padding-left: 8px;
+}
+.aw-mbm-changeSummarySubTileArrow.aw-jswidget-controlArrow{
+    width: 16px;
+    height: 18px;
+    cursor: default;
+    margin-top: 0;
+}
+.aw-mbm-changeSummarySubTileArrow.aw-jswidget-controlArrow svg {
+    margin-left: 0.125rem;
+    margin-top: 0.2rem;
+}
+
+.aw-mbm-changeSummarySubTileStatusPanel{
+    padding-top: 16px;
+}
+
+.aw-mbm-changeSummarySubTileStatusPanel{
+    padding-top: 8px;
+}
+
+.aw-mbm-bold-text{
+    font-weight: $bold_font_weight;
+}
+.aw-mbm-showOpenWorkpackagePanel{
+    padding: 12px;
+}
+
+.aw-mbm-cnTableWorkpackageCell{
+    padding-left: 5px;
+}
+
+.aw-mbm-comparePopupPropertyContent .aw-widgets-cellListCellTitleBlock .aw-widgets-cellListCellTitle
+{
+    padding-bottom:4px;
+}
+
+.aw-mbm-comparePopupHeaderTitle{
+    font-style: italic;
+}
+.aw-mbm-comparePopupPropertyInfoSubHeader{
+    padding: 16px;
+}
+.aw-mbm-comparePopupContent{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.aw-mbm-comparePopupPropertyContent{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.aw-mbm-comparePopupPropertyInfo{
+    padding-bottom:16px;
+}
+
+.aw-mbm-gridContent{
+    .aw-splm-table{
+        height: 100%;
+    }
+}

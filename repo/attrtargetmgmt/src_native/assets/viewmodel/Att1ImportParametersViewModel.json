@@ -1,0 +1,474 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-i18n.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-file-upload.directive",
+        "js/aw-link.directive",
+        "js/aw-icon.directive"
+    ],
+    "actions": {
+        "downloadImportTemplate": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-RequirementsManagement",
+            "method": "exportToApplication3",
+            "inputData": {
+                "input": [
+                    {
+                        "templateName": "{{function:getTemplateName}}",
+                        "applicationFormat": "{{function:getApplicationFormat}}",
+                        "objectsToExport": [
+                            "{{ctx.user}}"
+                        ],
+                        "targetObjectsToExport": [],
+                        "exportOptions": [],
+                        "recipeSourceObjects": [],
+                        "recipeTargetObjects": [],
+                        "attributesToExport": [],
+                        "objectTemplateInputs": [],
+                        "includeAttachments": false
+                    }
+                ]
+            },
+            "outputData": {
+                "response": ""
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "Att1ExportToOffice.downloadFile"
+                    }
+                ],
+                "failure": [
+                    {
+                        "name": "Att1ExportToOffice.downloadFile"
+                    }
+                ]
+            },
+            "deps": "js/Att1ImportParameterService"
+        },
+        "doExportDocument": {
+            "actionType": "JSFunction",
+            "method": "openFile",
+            "inputData": {
+                "data": "{{data.fileTicket}}"
+            },
+            "deps": "js/fmsUtils"
+        },
+        "startImportOrImportChanges": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "Att1ImportParameter.confirmImportChanges",
+                        "condition": "!ctx.panelContext.isNewImport"
+                    },
+                    {
+                        "name": "Att1ImportParameter.importExcel",
+                        "condition": "ctx.panelContext.isNewImport"
+                    }
+                ]
+            }
+        },
+        "importExcel": {
+            "actionType": "TcSoaService",
+            "serviceName": "AttrTargetMgmtAW-2019-06-AttributeTargetManagement",
+            "method": "importParameterExcel",
+            "inputData": {
+                "inputs": [
+                    {
+                        "clientId": "AWClient",
+                        "selectedObject": "{{ctx.panelContext.importTarget}}",
+                        "importFileFmsTicket": "{{data.fmsTicket}}"
+                    }
+                ],
+                "importOptions": [
+                    "RoundTripImport"
+                ]
+            },
+            "outputData": {
+                "importExcelResponse": "",
+                "importMessages":"{{function:processImportExcelMessage}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "Att1ImportParameter.completed"
+                    }
+                ],
+                "failure": [
+                    {
+                        "name": "Att1ImportParameter.completed"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "message": "Att1SuccessImportParamMessage"
+                    }
+                ],
+                "failure": [
+                    {
+                        "message": "att1ImportFailureMessage"
+                    }
+                ]
+            },
+            "deps": "js/Att1ParameterMgmtUtilService"
+        },
+        "startDataCreation": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "Att1Import.setImportFileUploadInProgress",
+                        "eventData": {
+                            "value": true
+                        }
+                    },
+                    {
+                        "name": "Att1Import.getTransientFileTicketsForExcelUpload",
+                        "condition": "data.fileName && data.validFile"
+                    }
+                ]
+            }
+        },
+        "setImportFileUploadInProgress": {
+            "actionType": "JSFunction",
+            "method": "setImportFileUploadInProgress",
+            "inputData": {
+                "data": "{{data}}",
+                "value": "{{data.eventMap['Att1Import.setImportFileUploadInProgress'].value}}"
+            },
+            "deps": "js/Att1ImportParameterService"
+        },
+        "getTransientFileTicketsForExcelUpload": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-01-FileManagement",
+            "method": "getTransientFileTicketsForUpload",
+            "inputData": {
+                "transientFileInfos": [
+                    {
+                        "fileName": "{{data.fileName}}",
+                        "isBinary": true,
+                        "deleteFlag": true
+                    }
+                ]
+            },
+            "outputData": {
+                "fmsTicket": "transientFileTicketInfos[0].ticket"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "fmsTicket.updateExcel"
+                    }
+                ]
+            }
+        },
+        "updateExcelImportFormData": {
+            "actionType": "JSFunction",
+            "method": "updateFormData",
+            "inputData": {
+                "fileData": {
+                    "key": "fmsTicket",
+                    "value": "{{data.fmsTicket}}"
+                },
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "importExcel.gotTransientExcelFileTicket"
+                    }
+                ]
+            },
+            "deps": "js/declUtils"
+        },
+        "uploadExcelFile": {
+            "actionType": "RESTService",
+            "serviceName": "",
+            "method": "POST",
+            "inputData": {
+                "request": {
+                    "method": "POST",
+                    "url": "{{Constants.fmsUrl}}",
+                    "headers": {
+                        "Content-type": "undefined"
+                    },
+                    "data": "{{data.formData}}"
+                }
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "Att1Import.setImportFileUploadInProgress",
+                        "eventData": {
+                            "value": false
+                        }
+                    }
+                ]
+            }
+        },
+        "downloadFile": {
+            "actionType": "JSFunction",
+            "method": "openFile",
+            "deps": "js/fmsUtils",
+            "inputData": {
+                "fileTicket": "{{data.response.transientFileReadTickets[0]}}",
+                "openFileName": ""
+            }
+        },
+        "handleImport": {
+            "actionType": "JSFunction",
+            "method": "handleImport",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Att1ImportParameterService"
+        },
+        "performPostImport": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "handleImport"
+                },
+                {
+                    "action": "closeImportPanel"
+                }
+            ]
+        },
+        "closeImportPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "Att1Import.setImportFileUploadInProgress",
+            "action": "setImportFileUploadInProgress",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "Att1Import.getTransientFileTicketsForExcelUpload",
+            "action": "getTransientFileTicketsForExcelUpload"
+        },
+        {
+            "eventId": "fmsTicket.updateExcel",
+            "action": "updateExcelImportFormData"
+        },
+        {
+            "eventId": "importExcel.gotTransientExcelFileTicket",
+            "action": "uploadExcelFile"
+        },
+        {
+            "eventId": "Att1ExportToOffice.downloadFile",
+            "action": "downloadFile"
+        },
+        {
+            "eventId": "Att1ImportParameter.confirmImportChanges",
+            "message": "confirmImportChangesMessage"
+        },
+        {
+            "eventId": "Att1ImportParameter.importExcel",
+            "action": "importExcel"
+        },
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closeImportPanel"
+        },
+        {
+            "eventId": "Att1ImportParameter.completed",
+            "action": "performPostImport"
+        },
+        {
+            "eventId": "Att1ImportParameter.handleImport",
+            "cacheEventData": true,
+            "action": "handleImport"
+        },
+        {
+            "eventId": "Att1ImportParameter.closeImportPanel",
+            "action": "closeImportPanel"
+        }
+    ],
+    "data": {
+        "isNewImport": false,
+        "importFileUploadInProgress": false,
+        "downloadSection": {
+            "displayName": "{{i18n.downloadSection}}",
+            "type": "STRING",
+            "dispValue": ""
+        },
+        "importXlsTemplate": {
+            "displayName": "{{i18n.xlsTemplate}}",
+            "type": "STRING",
+            "dispValue": ""
+        },
+        "importNewHelpTooltipView": {
+            "view": "Att1ImportNewHelpToolTip"
+        }
+    },
+    "functions": {
+        "importOptions": {
+            "functionName": "importOptions",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getTemplateName": {
+            "functionName": "getTemplateName",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getApplicationFormat": {
+            "functionName": "getApplicationFormat",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getUserInfo": {
+            "functionName": "getUserInfo",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getSelectedForImport": {
+            "functionName": "getSelectedForImport",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "processImportExcelMessage": {
+            "functionName": "processImportExcelMessage",
+            "parameters": [
+                "{{data}}",
+                "{{importExcelResponse}}"
+            ]
+        }
+    },
+    "conditions": {
+        "att1InParamProjectSublocation": {
+            "expression": "ctx.locationContext.modelObject.modelType.typeHierarchyArray.indexOf('Att0ParamProject') > -1 || ctx.locationContext.modelObject.modelType.typeHierarchyArray.indexOf('Att0ParamGroup') > -1"
+        },
+        "att1HomeSublocation": {
+            "expression": "ctx.locationContext.modelObject.modelType.typeHierarchyArray.indexOf( 'Fnd0HomeFolder' ) > -1"
+        }
+    },
+    "preferences": [
+        "PLE_Parameter_Import_Excel_Template",
+        "PLE_Parameter_Definition_Import_Excel_Template"
+    ],
+    "messages": {
+        "confirmImportChangesMessage": {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.importChangesConfirmationMessage}}",
+            "navigationOptions": [
+                {
+                    "option": "Cancel",
+                    "text": "{{i18n.cancel}}"
+                },
+                {
+                    "option": "Import",
+                    "text": "{{i18n.import}}",
+                    "action": "importExcel"
+                }
+            ]
+        },
+        "Att1SuccessImportParamMessage": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.Att1SuccessImportParamMessage}}",
+            "messageTextParams": [
+                "{{data.importMessages.importSuccessMsg}}"
+            ]
+        },
+        "att1ImportFailureMessage": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.att1FailureMessage}}",
+            "messageTextParams": [
+                "{{data.importMessages.importPartialErrorsMsg}}"
+            ]
+        }
+    },
+    "i18n": {
+        "importCmdTitle": [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "importNewCmdTitle": [
+            "Att1AttrMappingMessages"
+        ],
+        "importChangesCmdTitle": [
+            "Att1AttrMappingMessages"
+        ],
+        "cancel": [
+            "Att1AttrMappingMessages"
+        ],
+        "import": [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "advanceOpt": [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "conflict": [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "Att1SuccessImportParamMessage": [
+            "Att1AttrMappingMessages"
+        ],
+        "note": [
+            "Att1AttrMappingMessages"
+        ],
+        "downloadSection": [
+            "Att1AttrMappingMessages"
+        ],
+        "filePrepareInfo": [
+            "Att1AttrMappingMessages"
+        ],
+        "importFileInfo": [
+            "Att1AttrMappingMessages"
+        ],
+        "xlsTemplate": [
+            "Att1AttrMappingMessages"
+        ],
+        "importChangesConfirmationMessage": [
+            "Att1AttrMappingMessages"
+        ],
+        "att1FailureMessage": [
+            "Att1AttrMappingMessages"
+        ],
+        "Att1AddImportSuccess": [
+            "Att1AttrMappingMessages"
+        ],
+        "Att1UpdateImportSuccess": [
+            "Att1AttrMappingMessages"
+        ],
+        "Att1AddParamDefMultipleImportSuccess": [
+            "Att1AttrMappingMessages"
+        ],
+        "Att1AddParamMultipleImportSuccess": [
+            "Att1AttrMappingMessages"
+        ],
+        "Att1UpdateParamDefMultipleImportSuccess": [
+            "Att1AttrMappingMessages"
+        ],
+        "Att1UpdateParamMultipleImportSuccess": [
+            "Att1AttrMappingMessages"
+        ]
+    }
+}

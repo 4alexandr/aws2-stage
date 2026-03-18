@@ -1,0 +1,28 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-global-search.directive",
+        "js/aw-logo.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-separator.directive"
+    ],
+    "onEvent": [],
+    "actions": {
+        "initializeData": {
+            "actionType": "JSFunction",
+            "method": "init",
+            "deps": "js/epInitializationService"
+        },
+        "destroy": {
+            "actionType": "JSFunction",
+            "method": "destroy",
+            "deps": "js/epInitializationService"
+        }
+    },
+    "data": {},
+    "lifecycleHooks": {
+        "onInit": "initializeData",
+        "onUnmount": "destroy"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "Map_Title":"映射",
+    "MapButton":"映射",
+    "attributeTitle": "参数",
+    "StudyAttributes": "研究参数",
+    "SelectStudy": "选择要显示参数的研究",
+    "TestEventAttributes": "测试事件参数",
+    "SelectTestEvent":"选择要显示参数的测试事件",
+    "StudyAttributesTC124": "仿真和测试请求参数",
+    "SelectStudyTC124": "选择要显示参数的仿真或测试请求",
+    "RunAttributes": "运行参数",
+    "SelectRun": "选择要显示参数的运行",
+    "Measurement_File_Title": "添加值文件"
+}

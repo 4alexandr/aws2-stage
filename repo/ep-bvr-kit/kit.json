@@ -1,0 +1,28 @@
+{
+  "name": "ep-bvr-kit",
+  "description": "",
+  "modules": [
+    "ep-bvr-kit"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "configuration": {
+    "mfeWorkspaceConfig": {
+      "output": "json",
+      "format": "object",
+      "definition": "module"
+    },
+    "epViewModelProperties": {
+      "output": "javascript",
+      "definition": "module"
+    }
+  },
+  "soaDeps": [
+    "Mbc0.Soa.MfgBvrCore"
+  ],
+  "extraDeps": [
+    "js/epPertGraphRenderService",
+    "js/epPertGraphDragAndDropHandler",
+    "js/epWorkflowIndicationService"
+  ]
+}

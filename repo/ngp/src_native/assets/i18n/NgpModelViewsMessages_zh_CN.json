@@ -1,0 +1,5 @@
+{
+    "sendToViewMakerCmdTitle": "打开制造视图生成工具",
+    "sendToViewMakerTooltipMsg": "制造视图生成工具可用于创建和管理模型视图。",
+    "sendToViewMakerDisabledTooltipMsg": "The command is available for processes that either have assignments, or have predecessors or background processes."
+}

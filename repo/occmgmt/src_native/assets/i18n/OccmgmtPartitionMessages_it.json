@@ -1,0 +1,9 @@
+{
+
+    "FgfNone": "Nessuno",
+    "OrganizationSchemeSectionName": "Organizzazione",
+    "Unassigned":"Non assegnato",
+    "Awb0UnassignedDesc":"Visualizzare tutti i componenti non assegnati in un'organizzazione. Trascinare e rilasciare per assegnare i componenti. Per uscire, selezionare Non assegnato, Dividi o Indietro.",
+    "Partition":"Partizioni",
+    "Awb0PartitionDesc":"Gestire il contenuto della struttura BOM organizzato all'interno di partizioni"
+}

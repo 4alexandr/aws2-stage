@@ -1,0 +1,39 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+    <linearGradient id="linear-gradient" x1="0.5" y1="0.5" x2="39.5" y2="39.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.2284" stop-color="#fafafa"/>
+      <stop offset="0.4881" stop-color="#ededed"/>
+      <stop offset="0.7621" stop-color="#d7d6d6"/>
+      <stop offset="1" stop-color="#bdbcbc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="3.5" y1="3.5" x2="36.5" y2="36.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#73b4c8"/>
+      <stop offset="0.1747" stop-color="#6aaec3"/>
+      <stop offset="0.4567" stop-color="#529eb5"/>
+      <stop offset="0.8089" stop-color="#2c839f"/>
+      <stop offset="1" stop-color="#147391"/>
+    </linearGradient>
+    <linearGradient id="paper_gradient" data-name="paper gradient" x1="32.0466" y1="15.5839" x2="38.9124" y2="22.4497" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.2214" stop-color="#f8f8f8"/>
+      <stop offset="0.5415" stop-color="#e5e5e5"/>
+      <stop offset="0.92" stop-color="#c6c6c6"/>
+      <stop offset="1" stop-color="#bebebe"/>
+    </linearGradient>
+    <linearGradient id="New_Gradient_Swatch_3" data-name="New Gradient Swatch 3" x1="20.1919" y1="25.5653" x2="36.9535" y2="42.3269" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#afd7e1"/>
+      <stop offset="0.1588" stop-color="#a4d0dc"/>
+      <stop offset="0.7059" stop-color="#80bcce"/>
+      <stop offset="1" stop-color="#73b4c8"/>
+    </linearGradient>
+  <rect x="0.5" y="0.5" width="39" height="39" stroke="#464646" stroke-linecap="round" stroke-miterlimit="10" fill="url(#linear-gradient)"/>
+  <path d="M18.5,18.5H3.5V3.5h15Zm18-15h-15v15h15Zm-18,18H3.5v15h15Zm18,0h-15v15h15Z" stroke="#147391" stroke-miterlimit="10" fill="url(#linear-gradient-2)"/>
+  <polyline points="25.882 21.749 41.214 13.971 45.077 16.285 31.786 23.4" fill="url(#paper_gradient)"/>
+  <polygon points="41.214 11.876 41.214 13.971 25.806 22.701 25.5 20.257 41.214 11.876" fill="#969696"/>
+  <polygon points="47.5 15.019 47.5 39.114 31.786 47.494 31.786 23.4 47.5 15.019" fill="#3c91af"/>
+  <line x1="41.2144" y1="13.9712" x2="25.806" y2="22.7012" fill="#969696" stroke="#6e6e6e" stroke-linejoin="round"/>
+  <path d="M31.786,47.4944a8.4363,8.4363,0,0,1-4.1544-1.0239A3.6463,3.6463,0,0,1,25.5,43.3039V20.2568A12.9635,12.9635,0,0,0,28.09,22.4143,9.3434,9.3434,0,0,0,31.786,23.4Z" fill="url(#New_Gradient_Swatch_3)"/>
+  <line x1="31.5" y1="23" x2="31.5" y2="47" fill="none" stroke="#147391" stroke-linejoin="round"/>
+  <path d="M25.5,20.2568A12.9635,12.9635,0,0,0,28.09,22.4143,9.3434,9.3434,0,0,0,31.786,23.4l13.85-7.3865" fill="none" stroke="#147391" stroke-miterlimit="10"/>
+  <path d="M45.0967,16.3006,41.5,14.1426V11.7238l-16,8.533V43.304a3.6464,3.6464,0,0,0,2.1312,3.1665,8.4363,8.4363,0,0,0,4.1544,1.0239L47.5,39.1136V15.0188Z" fill="none" stroke="#464646" stroke-linejoin="round"/>
+</svg>

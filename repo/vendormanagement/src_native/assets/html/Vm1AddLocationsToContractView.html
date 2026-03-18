@@ -1,0 +1,15 @@
+<aw-command-panel caption="i18n.add">
+    <aw-panel-body>
+        <aw-panel-section caption="i18n.Vm1companyLocations" >
+            <aw-list-filter prop="data.filterBox" dataprovider="data.dataProviders.getRelevantCompanyLocations">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list-filter>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="createVendorContractObjectRelation" visible-when="conditions.isCompanyLocationSelected">
+            <aw-i18n>i18n.add</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>
+

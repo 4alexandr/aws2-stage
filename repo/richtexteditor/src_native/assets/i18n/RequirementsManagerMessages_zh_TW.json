@@ -1,0 +1,18 @@
+{
+    "requirementsManagerDisplayName": "需求管理器",
+    "RequirementsManager": "需求管理器",
+    "recents": "最近的",
+    "getStarted": "開始",
+    "TcRMWorkspaceName": "需求管理器",
+    "arm0_recentCommands": "最近的子指令",
+    "Arm0RecentPrevCmdDesc": "上一個",
+    "Arm0RecentNextCmdDesc": "下一個",
+    "creationDate": "建立日期" ,
+    "lastModDate": "上次修改日期",
+    "noRecentReq": "最近未使用任何物件",
+    "arm0_recentNext": "下一指令",
+    "arm0_recentPrev": "上一指令",
+    "summaryTable": "匯總表格",
+    "selectionMode": "選取模式",
+    "summaryTableMultiSelectDesc": "開啟或關閉多選選取模式。關閉選取模式將清除選取。"
+}

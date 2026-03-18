@@ -1,0 +1,9 @@
+{
+  "name": "mbm",
+  "description": "",
+  "modules": [
+    "mbm"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

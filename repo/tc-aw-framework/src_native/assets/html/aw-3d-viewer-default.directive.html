@@ -1,0 +1,5 @@
+<aw-column width="fill" height="fill">
+    <aw-toolbar ng-if="!displayImageCapture" first-anchor="aw_3dViewer" second-anchor="aw_viewerRightSide" orientation="HORIZONTAL"></aw-toolbar>
+    <aw-toolbar ng-if="displayImageCapture" first-anchor="aw_2dViewer" second-anchor="aw_viewerRightSide" orientation="HORIZONTAL"></aw-toolbar>
+    <aw-3d-viewer data="contextObject"></aw-3d-viewer>
+</aw-column>

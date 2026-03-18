@@ -1,0 +1,145 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-row.directive",
+        "js/aw-scrollpanel.directive",
+        "js/aw-list-filter.directive"
+    ],
+    "actions": {
+
+        "reveal": {
+            "actionType": "JSFunction",
+            "method": "snapshotPanelRevealed",
+            "inputData": {},
+
+            "outputData": {
+
+            },
+
+            "deps": "js/viewerSnapshotService"
+        },
+        "viewerSnapshotListDataUpdatedAction": {
+            "actionType": "dataProvider",
+            "method": "snapshotDataProvider"
+        },
+        "getAllSnapshots": {
+            "actionType": "JSFunction",
+            "method": "getAllSnapshotData",
+            "inputData": {
+                "searchCriteria": {
+                    "searchString": "{{data.filterBox.dbValue}}"
+                }
+            },
+            "outputData": {
+                "allSnapshots": "allSnapshots",
+                "totalFound": "totalFound"
+            },
+            "deps": "js/viewerSnapshotService"
+        },
+        "showEditSnapshotAction": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "awPanel.navigate",
+                    "eventData": {
+                        "destPanelId": "SnapshotEditSub",
+                        "title": "{{data.i18n.editSnapshot}}",
+                        "supportGoBack": true,
+                        "recreatePanel": true
+                    }
+                } ]
+            }
+        },
+        "applySnapshotAction": {
+            "actionType": "JSFunction",
+            "method": "applySnapshot",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+
+            },
+            "deps": "js/viewerSnapshotService"
+        },
+        "clearPreviousSnapshotSelection":{
+            "actionType": "JSFunction",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.snapshotDataProvider}}"
+            },
+            "method": "clearPreviousSnapshotSelection",
+            "deps": "js/viewerSnapshotService"
+        }
+    },
+    "onEvent": [ {
+            "eventId": "viewerSnapshotListDataUpdated",
+            "action": "viewerSnapshotListDataUpdatedAction"
+        },
+        {
+            "eventId": "snapshot.delete",
+            "action": "viewerSnapshotListDataUpdatedAction"
+        },
+        {
+            "eventId": "showEditSnapshot",
+            "action": "showEditSnapshotAction"
+        },
+        {
+            "eventId": "snapshotDataProvider.selectionChangeEvent",
+            "action": "applySnapshotAction"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria":
+            {
+                "panelId": "SnapshotListSub"
+            },
+            "action": "reveal"
+        },
+        {
+            "eventId":"awTab.selected",
+            "condition": "data.selectedTab.tabKey === 'InputImageCapture'",
+            "action":"clearPreviousSnapshotSelection"
+        },
+        {
+            "eventId":"awTab.selected",
+            "condition": "data.selectedTab.tabKey === 'InputSnapshot'",
+            "action":"reveal"
+        }
+    ],
+    "data": {
+        "addNewRemoveAllSnapshotsCommands": "awv0_addNewRemoveAllSnapshotsCommands",
+        "filterBox": {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "false",
+            "requiredText": "Filter",
+            "dbValue": ""
+        }
+    },
+
+    "dataProviders": {
+        "snapshotDataProvider": {
+            "action": "getAllSnapshots",
+            "response": "{{data.allSnapshots}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single",
+            "commandsAnchor": "snapshot_list_cell_commands"
+        }
+    },
+    "conditions": {
+        "dataFetchComplete": {
+            "expression": "ctx[ctx.viewer.activeViewerCommandCtx].pmiToolCtx.dataFetchComplete"
+        }
+    },
+    "i18n": {
+        "snapshotPanelTitle": [ "ViewerSnapshotMessages" ],
+        "createSnapshotTitle": [ "ViewerSnapshotMessages" ],
+        "editSnapshot": [ "ViewerSnapshotMessages" ],
+        "snapshotApplyFailed": [ "ViewerSnapshotMessages" ],
+        "currentCaptureLabel": [ "ViewerSnapshotMessages" ]
+    }
+
+}

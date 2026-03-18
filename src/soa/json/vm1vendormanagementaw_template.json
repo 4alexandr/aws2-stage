@@ -1,0 +1,1116 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp04.0.0",
+      "description": "Interface Name for Business Object Vm1AssignedObjsDataProvider",
+      "libraryName": "vm1vendormanagementaw",
+      "name": "Vm1AssignedObjsDataProvider",
+      "namespace": "vm1vendormanagementaw",
+      "primaryInterface": "true",
+      "typeName": "Vm1AssignedObjsDataProvider"
+    },
+    {
+      "createRelease": "Awp04.0.0",
+      "description": "Interface Name for Business Object Vm1VendorLocationProvider",
+      "libraryName": "vm1vendormanagementaw",
+      "name": "Vm1VendorLocationProvider",
+      "namespace": "vm1vendormanagementaw",
+      "primaryInterface": "true",
+      "typeName": "Vm1VendorLocationProvider"
+    },
+    {
+      "createRelease": "Awp05.0.0",
+      "description": "Interface Name for Business Object Vm1VendorPartsProvider",
+      "libraryName": "vm1vendormanagementaw",
+      "name": "Vm1VendorPartsProvider",
+      "namespace": "vm1vendormanagementaw",
+      "primaryInterface": "true",
+      "typeName": "Vm1VendorPartsProvider"
+    }
+  ],
+  "Date": "Wed Jun 10 11:40:41 AM 2020",
+  "Library": [
+    {
+      "DependentOn": [
+        {
+          "name": "vm"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "SOA service library for Vendor Management Template in Active Workspace",
+      "isThirdParty": "false",
+      "name": "Vm1SoaVendorManagementAW",
+      "namespace": "Vm1::Soa::VendorManagementAW",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        },
+        {
+          "name": "vm"
+        }
+      ],
+      "createRelease": "Awp04.1.0",
+      "description": "A",
+      "isThirdParty": "false",
+      "name": "vm1vendormanagementaw",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "assignPartnerContractToObject SOA will be versioned to assignPartnerContractToObject2 SOA to include the configuration context object in the input to assign the partner contract.",
+          "deprecatedRelease": "Awp05.0.0"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "selected <b>WorkspaceObject</b>, partner contract to assign, preferred status.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm1VendorManagement",
+      "createRelease": "Awp04.3.0",
+      "dependencies": "",
+      "description": "This operation assigns the partner contract to the given <b>WorkspaceObject</b> object as specified in the input. The selected partner contract will be assigned to the given context information.",
+      "exceptionCondition": "",
+      "id": "assignPartnerContractToObject#const,Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::AssignPartnerContractInput,&",
+      "interface": "Vm1::Soa::VendorManagementAW::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "assignPartnerContractToObject",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Vm1::Soa::VendorManagementAW::VendorManagement::assignPartnerContractToObject#const,Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::AssignPartnerContractInput,&",
+      "returnDescription": "The WorkspaceObject objects to which the partner contract is successfully assigned in the updated list. The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429002:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;Vm0PrtnrContractRevision&quot; must be provided.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Context information consisting of a selected object,configuration context,partner contract to assign,and preferred status.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm1VendorManagement",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "This operation assigns the partner contract to the given WorkspaceObject object as specified in the input. The selected partner contract will be assigned to the given context information.",
+      "exceptionCondition": "",
+      "id": "assignPartnerContractToObject2#const,Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement::AssignPartnerContractInput2,&",
+      "interface": "Vm1::Soa::VendorManagementAW::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "assignPartnerContractToObject2",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Vm1::Soa::VendorManagementAW::VendorManagement::assignPartnerContractToObject2#const,Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement::AssignPartnerContractInput2,&",
+      "returnDescription": "The WorkspaceObject object to which the partner contract is successfully assigned in the updated list. The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429002:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;<b>Partner Contract Revision</b>&quot; must be provided.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429003:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;<b>Vendor Part</b>&quot; or &quot;<b>Item Revision</b>&quot; must be provided to assign.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429004:&nbsp;&nbsp;&nbsp;&nbsp;The input preferred status is not valid. Valid values are given in LOV preference, &ldquo;Vm0PrtnrContractAssignmentStatus&rdquo;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429005:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &ldquo;<b>Saved Bookmark</b>&rdquo; or &ldquo;<b>Session</b>&rdquo; must be provided for configuration context.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The <b>Vm0PrtnrContractRevision</b> to get assigned products.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm1VendorManagement",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "This operation returns the information of the assigned products of a given partner contract revision.",
+      "exceptionCondition": "",
+      "id": "getAssignedProductsOfContract#const,Teamcenter::ItemRevision,&",
+      "interface": "Vm1::Soa::VendorManagementAW::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getAssignedProductsOfContract",
+      "opTemplate": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelRowsResponse#Vm1::Soa::VendorManagementAW::VendorManagement::getAssignedProductsOfContract#const,Teamcenter::ItemRevision,&",
+      "returnDescription": "A list of ViewModelObject. Each ViewModelObject contains a model object and a list of view model properties.<br /><br />The following partial errors may be returned:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429002:      An object of type &quot;Partner Contract Revision&quot; must be provided",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Type of table and <b>WorkspaceObject</b> business object.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm1VendorManagement",
+      "createRelease": "Awp04.3.0",
+      "dependencies": "",
+      "description": "This operation returns the information of the columns for a given type of table to render a business object.<br /><br />The column information returned as part of this operation includes display name, internal name, object type,  width and a flag to indicate if the column needs to be displayed or not.",
+      "exceptionCondition": "",
+      "id": "getColumnInfo#const,Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ColumnInfoInput,&",
+      "interface": "Vm1::Soa::VendorManagementAW::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getColumnInfo",
+      "opTemplate": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ColumnInfoResponse#Vm1::Soa::VendorManagementAW::VendorManagement::getColumnInfo#const,Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ColumnInfoInput,&",
+      "returnDescription": "Each ColumnInfo instance contains a display name, internal name, object type,  width, and a flag to indicate if column needs to be displayed or not.<br />The following partial errors may be returned:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429001: &nbsp;&nbsp;&nbsp;&nbsp;The input table type is not supported.  The supported table type is &quot;PartnersStructure&quot;.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "selected <b>WorkspaceObject</b> to get partner contracts.",
+          "parameterName": "inputObject"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm1VendorManagement",
+      "createRelease": "Awp04.3.0",
+      "dependencies": "",
+      "description": "This operation returns the information of the partner contracts of the selected object.",
+      "exceptionCondition": "",
+      "id": "getPartnerContractsOfSelectedObject#const,Teamcenter::WorkspaceObject,&",
+      "interface": "Vm1::Soa::VendorManagementAW::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getPartnerContractsOfSelectedObject",
+      "opTemplate": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelRowsResponse#Vm1::Soa::VendorManagementAW::VendorManagement::getPartnerContractsOfSelectedObject#const,Teamcenter::WorkspaceObject,&",
+      "returnDescription": "A list of ViewModelObject. Each ViewModelObject contains a model object and a list of view model properties.<br />The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429003:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &ldquo;ManufacturerPart&rdquo; or &ldquo;ItemRevision&rdquo; must be provided.",
+      "useCase": ""
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "removePartnerContractFromObject SOA will be versioned to removePartnerContractFromObject2 SOA to include the list of selected Partner Contract in input which will allow to remove multiple Partner Contracts from WorkspaceObject.",
+          "deprecatedRelease": "Awp05.0.0"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "The input structure contains the <b>WorkspaceObject</b> from which Partner Contract is to be removed and the Partner Contract which is to be removed.",
+          "parameterName": "removePartnerContractInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm1VendorManagement",
+      "createRelease": "Awp04.3.0",
+      "dependencies": "",
+      "description": "This operation removes the partner contract from the given <b>WorkspaceObject</b> object as specified in the input. The selected partner contract will be removed from the given context information.",
+      "exceptionCondition": "",
+      "id": "removePartnerContractFromObject#const,Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::RemovePartnerContractInput,&",
+      "interface": "Vm1::Soa::VendorManagementAW::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "removePartnerContractFromObject",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Vm1::Soa::VendorManagementAW::VendorManagement::removePartnerContractFromObject#const,Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::RemovePartnerContractInput,&",
+      "returnDescription": "The WorkspaceObject object from which the Partner Contract is successfully removed in the updated list. The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429003:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;Vendor Part&quot; or &quot;Item Revision&quot; must be provided.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of RemovePartnerContractInput2 information consisting of selected objects and partner contract to remove.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm1VendorManagement",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "This operation removes the partner contract from the given WorkspaceObject object as specified in the input. The partner contract will beis removed from the structure configuration of selected object. The selected object could be a ConfigurationContext or unconfigured ItemRevision.",
+      "exceptionCondition": "",
+      "id": "removePartnerContractFromObject2#const,std::vector<Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement::RemovePartnerContractInput2>,&",
+      "interface": "Vm1::Soa::VendorManagementAW::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "removePartnerContractFromObject2",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Vm1::Soa::VendorManagementAW::VendorManagement::removePartnerContractFromObject2#const,std::vector<Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement::RemovePartnerContractInput2>,&",
+      "returnDescription": "The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429002:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;Partner Contract Revision&quot; must be provided.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429003:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;Vendor Part&quot; or &quot;Item Revision&quot; must be provided to assign.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Input criteria which includes view model objects, filter criteria and sort criteria.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Vm1VendorManagement",
+      "createRelease": "Awp05.1.0",
+      "dependencies": "",
+      "description": "This operation returns the filtered and sorted logical rows for a given row&rsquo;s, filter and sort criteria.",
+      "exceptionCondition": "",
+      "id": "sortAndFilterViewModelRows#const,Vm1::Soa::Internal::VendorManagementAW::_2020_12::VendorManagement::OrderedViewModelInput,&",
+      "interface": "Vm1::Soa::VendorManagementAW::VendorManagement",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "sortAndFilterViewModelRows",
+      "opTemplate": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelRowsResponse#Vm1::Soa::VendorManagementAW::VendorManagement::sortAndFilterViewModelRows#const,Vm1::Soa::Internal::VendorManagementAW::_2020_12::VendorManagement::OrderedViewModelInput,&",
+      "returnDescription": "A list of ViewModelObject and serviceData. Each ViewModelObject contains a model object and list of view model properties.<br /><br />The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">429006:      An object of type &quot;WorkspaceObject&quot; must be provided.</li><li type=\"disc\">429007:      The operation is not supported operation for column filtering.</li>",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::AssignPartnerContractInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "selected <b>WorkspaceObject</b>, partner contract to assign, preferred status.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.3.0",
+      "description": "This operation assigns the partner contract to the given <b>WorkspaceObject</b> object as specified in the input. The selected partner contract will be assigned to the given context information.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Vm1::Soa::VendorManagementAW::VendorManagement::assignPartnerContractToObject#const,Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::AssignPartnerContractInput,&",
+      "name": "Vm1::Soa::VendorManagementAW::VendorManagement::assignPartnerContractToObject",
+      "returnConst": "false",
+      "returnDescription": "The WorkspaceObject objects to which the partner contract is successfully assigned in the updated list. The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429002:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;Vm0PrtnrContractRevision&quot; must be provided.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement::AssignPartnerContractInput2",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Context information consisting of a selected object,configuration context,partner contract to assign,and preferred status.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "This operation assigns the partner contract to the given WorkspaceObject object as specified in the input. The selected partner contract will be assigned to the given context information.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Vm1::Soa::VendorManagementAW::VendorManagement::assignPartnerContractToObject2#const,Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement::AssignPartnerContractInput2,&",
+      "name": "Vm1::Soa::VendorManagementAW::VendorManagement::assignPartnerContractToObject2",
+      "returnConst": "false",
+      "returnDescription": "The WorkspaceObject object to which the partner contract is successfully assigned in the updated list. The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429002:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;<b>Partner Contract Revision</b>&quot; must be provided.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429003:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;<b>Vendor Part</b>&quot; or &quot;<b>Item Revision</b>&quot; must be provided to assign.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429004:&nbsp;&nbsp;&nbsp;&nbsp;The input preferred status is not valid. Valid values are given in LOV preference, &ldquo;Vm0PrtnrContractAssignmentStatus&rdquo;.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429005:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &ldquo;<b>Saved Bookmark</b>&rdquo; or &ldquo;<b>Session</b>&rdquo; must be provided for configuration context.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ItemRevision",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The <b>Vm0PrtnrContractRevision</b> to get assigned products.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelRowsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "This operation returns the information of the assigned products of a given partner contract revision.",
+      "id": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelRowsResponse#Vm1::Soa::VendorManagementAW::VendorManagement::getAssignedProductsOfContract#const,Teamcenter::ItemRevision,&",
+      "name": "Vm1::Soa::VendorManagementAW::VendorManagement::getAssignedProductsOfContract",
+      "returnConst": "false",
+      "returnDescription": "A list of ViewModelObject. Each ViewModelObject contains a model object and a list of view model properties.<br /><br />The following partial errors may be returned:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429002:      An object of type &quot;Partner Contract Revision&quot; must be provided",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ColumnInfoInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Type of table and <b>WorkspaceObject</b> business object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ColumnInfoResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.3.0",
+      "description": "This operation returns the information of the columns for a given type of table to render a business object.<br /><br />The column information returned as part of this operation includes display name, internal name, object type,  width and a flag to indicate if the column needs to be displayed or not.",
+      "id": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ColumnInfoResponse#Vm1::Soa::VendorManagementAW::VendorManagement::getColumnInfo#const,Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ColumnInfoInput,&",
+      "name": "Vm1::Soa::VendorManagementAW::VendorManagement::getColumnInfo",
+      "returnConst": "false",
+      "returnDescription": "Each ColumnInfo instance contains a display name, internal name, object type,  width, and a flag to indicate if column needs to be displayed or not.<br />The following partial errors may be returned:<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429001: &nbsp;&nbsp;&nbsp;&nbsp;The input table type is not supported.  The supported table type is &quot;PartnersStructure&quot;.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "selected <b>WorkspaceObject</b> to get partner contracts.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputObject"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelRowsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.3.0",
+      "description": "This operation returns the information of the partner contracts of the selected object.",
+      "id": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelRowsResponse#Vm1::Soa::VendorManagementAW::VendorManagement::getPartnerContractsOfSelectedObject#const,Teamcenter::WorkspaceObject,&",
+      "name": "Vm1::Soa::VendorManagementAW::VendorManagement::getPartnerContractsOfSelectedObject",
+      "returnConst": "false",
+      "returnDescription": "A list of ViewModelObject. Each ViewModelObject contains a model object and a list of view model properties.<br />The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429002:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &ldquo;WorkspaceObject&rdquo; must be provided.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::RemovePartnerContractInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The input structure contains the <b>WorkspaceObject</b> from which Partner Contract is to be removed and the Partner Contract which is to be removed.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "removePartnerContractInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.3.0",
+      "description": "This operation removes the partner contract from the given <b>WorkspaceObject</b> object as specified in the input. The selected partner contract will be removed from the given context information.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Vm1::Soa::VendorManagementAW::VendorManagement::removePartnerContractFromObject#const,Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::RemovePartnerContractInput,&",
+      "name": "Vm1::Soa::VendorManagementAW::VendorManagement::removePartnerContractFromObject",
+      "returnConst": "false",
+      "returnDescription": "The WorkspaceObject object from which the Partner Contract is successfully removed in the updated list. The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429003:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;Vendor Part&quot; or &quot;Item Revision&quot; must be provided.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement::RemovePartnerContractInput2",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of RemovePartnerContractInput2 information consisting of selected objects and partner contract to remove.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "This operation removes the partner contract from the given WorkspaceObject object as specified in the input. The partner contract will beis removed from the structure configuration of selected object. The selected object could be a ConfigurationContext or unconfigured ItemRevision.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Vm1::Soa::VendorManagementAW::VendorManagement::removePartnerContractFromObject2#const,std::vector<Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement::RemovePartnerContractInput2>,&",
+      "name": "Vm1::Soa::VendorManagementAW::VendorManagement::removePartnerContractFromObject2",
+      "returnConst": "false",
+      "returnDescription": "The following partial errors may be returned:<br /><br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429002:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;Partner Contract Revision&quot; must be provided.<br />&bull;&nbsp;&nbsp;&nbsp;&nbsp;429003:&nbsp;&nbsp;&nbsp;&nbsp;An object of type &quot;Vendor Part&quot; or &quot;Item Revision&quot; must be provided to assign.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2020_12::VendorManagement::OrderedViewModelInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input criteria which includes view model objects, filter criteria and sort criteria.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelRowsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.1.0",
+      "description": "This operation returns the filtered and sorted logical rows for a given row&rsquo;s, filter and sort criteria.",
+      "id": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelRowsResponse#Vm1::Soa::VendorManagementAW::VendorManagement::sortAndFilterViewModelRows#const,Vm1::Soa::Internal::VendorManagementAW::_2020_12::VendorManagement::OrderedViewModelInput,&",
+      "name": "Vm1::Soa::VendorManagementAW::VendorManagement::sortAndFilterViewModelRows",
+      "returnConst": "false",
+      "returnDescription": "A list of ViewModelObject and serviceData. Each ViewModelObject contains a model object and list of view model properties.<br /><br />The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">429006:      An object of type &quot;WorkspaceObject&quot; must be provided.</li><li type=\"disc\">429007:      The operation is not supported operation for column filtering.</li><li type=\"disc\">429008:      Given date format for filter criteria is not valid.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp04.3.0",
+      "dependencies": "",
+      "description": "The Vendor Management service exposes operations that are used to accomplish Vendor Management related functionalities in Active Workspace.",
+      "libraryName": "Vm1SoaVendorManagementAW",
+      "name": "VendorManagement",
+      "namespace": "Vm1::Soa::VendorManagementAW",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ItemRevision"
+            }
+          ],
+          "description": "<b>Vm0PrtnrContractRevision</b> to assign.",
+          "name": "partnerContract"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Preferred status for partner contract in the context of an object. Valid values are given in LOV preference, &ldquo;Vm0PrtnrContractAssignmentStatus&rdquo;.",
+          "name": "preferredStatus"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "Selected <b>WorkspaceObject</b> to assign partner contract.",
+          "name": "selectedObject"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "selected <b>WorkspaceObject</b>,partner contract to assign, preferred status.",
+      "isPublished": "false",
+      "name": "AssignPartnerContractInput",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "Selected <b>ManufacturerPart</b> or <b>ItemRevision</b> to assign partner contract.",
+          "name": "selectedObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "<b>Awb0SavedBookmark</b> or <b>Fnd0AppSession</b> object of selectedObject.",
+          "name": "configurationContext"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ItemRevision"
+            }
+          ],
+          "description": "<b>Vm0PrtnrContractRevision</b> object to assign.",
+          "name": "partnerContract"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Preferred status for partner contract in the context of an object. Valid values are given in LOV preference: &ldquo;Vm0PrtnrContractAssignmentStatus&rdquo;.",
+          "name": "preferredStatus"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "The structure holds information of the partner contract to assign, selected object, preferred status and configuration context.",
+      "isPublished": "false",
+      "name": "AssignPartnerContractInput2",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Represents the underlying business object of the row. The object can be <b>WorkspaceObject</b>.",
+          "name": "modelObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelProperty"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of ViewModelProperty structures.",
+          "name": "viewModelProperties"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "Structure to store the Teamcenter BusinessObject and its associated view model properties to be displayed as a single row in the table.",
+      "isPublished": "false",
+      "name": "ViewModelObject",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Real name of the property.",
+          "name": "propInternalName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Display name of the property.",
+          "name": "propDisplayName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Database value of the property.",
+          "name": "propDBValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Value of the property which will be shown to user.",
+          "name": "propUIValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Data type of the property. Supported values are: &ldquo;string&rdquo;, &ldquo;int&rdquo;, &ldquo;boolean&rdquo;, &ldquo;short&rdquo;, &ldquo;float&rdquo;, &ldquo;double&rdquo;.",
+          "name": "propDataType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If property is editable then &quot;true&quot;, otherwise &quot;false&quot;.",
+          "name": "isEditable"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, property has LOV attached; otherwise, false.",
+          "name": "hasLOV"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "The business object which has this property.",
+          "name": "propParentBO"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "Structure to store the properties of logical business object to be displayed as a single cell in the row of table. Properties which do not exist directly on the business object, only those properties will be created.",
+      "isPublished": "false",
+      "name": "ViewModelProperty",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of view model rows for each displayed node in a table.",
+          "name": "viewModelRows"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The service data object.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "The structure holds information of the view model objects. Each ViewModelObject structure represents a row displayed on table.",
+      "isPublished": "false",
+      "name": "ViewModelRowsResponse",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Internal name of the column.",
+          "name": "propInternalName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Display name of the column.",
+          "name": "propDisplayName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The business object type (<b>ItemRevision</b> and its subtypes) of the property associated with column.",
+          "name": "objectTypeName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Width of the column in pixels.",
+          "name": "columnWidth"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If column needs to be displayed or not.",
+          "name": "isDisplayed"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "1.1.1.4&nbsp;&nbsp;&nbsp;&nbsp;ColumnInfo",
+      "isPublished": "false",
+      "name": "ColumnInfo",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Type of table to render. Supported table type is &ldquo;PartnersStructure&rdquo;.",
+          "name": "tableType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "<b>WorkspaceObject</b> business object.",
+          "name": "inputObject"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "Type of table and <b>WorkspaceObject</b> object.",
+      "isPublished": "false",
+      "name": "ColumnInfoInput",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ColumnInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list containing the columns for a table with other attributes of the column.",
+          "name": "columnInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Service data object associated with the operation",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "This operation returns the information of the columns for a table which is rendered as a part of tree table for given type of structure and business object.<br /><br />The column information returned as part of this operation includes display name, internal name, object type,  width and a flag to indicate if column needs to be displayed or not.",
+      "isPublished": "false",
+      "name": "ColumnInfoResponse",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Internal name of the property on which column filter is applied.",
+          "name": "columnName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The type of column filter operation applied. The supported operations are: &ldquo;CONTAINS&rdquo;, &ldquo;EQUAL&rdquo;, &ldquo;GREATER THAN&rdquo;, &ldquo;LESS THAN&rdquo; and &ldquo;BETWEEN&rdquo;.",
+          "name": "operation"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of values to filter. These are not a fixed set of values like operation.<br />The &quot;BETWEEN&quot; operation is used only for Date type. It requires two values and the result will be the rows between the range given including min and max value. For example if min date is 2020-03-01T00:00:00+0530 and max date is 2020-03-05T00:00:00+0530, then the result will be shown from date 2020-03-01T00:00:00+0530 to 2020-03-05T00:00:00+0530.",
+          "name": "values"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "A structure representing the input filter criteria for columns.",
+      "isPublished": "false",
+      "name": "FilterCriteriaInput",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2020_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement::ViewModelObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of view model rows for each &bull; displayed node in a table.",
+          "name": "viewModelRows"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2020_12::VendorManagement::FilterCriteriaInput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of filters to be applied on the columns. The must be internal name of the properties on which filtering to be applied along with values of the filter must be sent as input.",
+          "name": "columnFilters"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Vm1::Soa::Internal::VendorManagementAW::_2020_12::VendorManagement::SortCriteria"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of columns and the sort direction. The must be internal name of the property on which sorting to be applied along with sort direction.",
+          "name": "sortCriteria"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "The OrderedViewModelInput structure holds the information about the ViewModelObject structures and the information about filter criteria and sort criteria.",
+      "isPublished": "false",
+      "name": "OrderedViewModelInput",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2020_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The WorkspaceObject from which the Partner Contract is to be removed.",
+          "name": "objectForContractRemoval"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ItemRevision"
+            }
+          ],
+          "description": "The Vm0PrtnrContractRevision object which is to be removed.",
+          "name": "partnerContract"
+        }
+      ],
+      "createRelease": "Awp04.3.0",
+      "description": "The structure contains -<br />1. WorkspaceObject from which the Partner Contract is to be removed. This could be an ItemRevision or a structure context.<br />2. Partner Contract which is to be removed from the input WorkspaceObject.",
+      "isPublished": "false",
+      "name": "RemovePartnerContractInput",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2019_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "ManufacturerPart or ItemRevision and its subtypes.",
+          "name": "selectedObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ItemRevision"
+            }
+          ],
+          "description": "Vm0PrtnrContractRevision object to remove.",
+          "name": "partnerContract"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "Awb0SavedBookmark or Fnd0AppSession object of selectedObject.",
+          "name": "configurationContext"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "The structure holds information of the partner contract to remove and selected object.",
+      "isPublished": "false",
+      "name": "RemovePartnerContractInput2",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2020_05::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The name of the property on which to perform the sorting.",
+          "name": "fieldName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The order of sorting of the column. Valid sorting orders are integer values between 1 and maximum number of displayed columns. If supplied value is not in this range, then column would not participate in sorting.",
+          "name": "sortingOrder"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, columns will be sorted in ascending direction else it will be sorted in descending direction.",
+          "name": "isAscending"
+        }
+      ],
+      "createRelease": "Awp05.1.0",
+      "description": "Stores column internal name and the direction in which column should be sorted.",
+      "isPublished": "false",
+      "name": "SortCriteria",
+      "namespace": "Vm1::Soa::Internal::VendorManagementAW::_2020_12::VendorManagement",
+      "scope": "Vm1::Soa::VendorManagementAW::VendorManagement"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

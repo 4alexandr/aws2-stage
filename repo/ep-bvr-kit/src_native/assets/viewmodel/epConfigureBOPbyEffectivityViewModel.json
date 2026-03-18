@@ -1,0 +1,278 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-search-box.directive",
+        "js/aw-list.directive",
+        "js/enable-when.directive",
+        "js/aw-date.directive",
+        "js/aw-listbox.directive",
+        "js/aw-numeric.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-popup2.directive",
+        "js/aw-i18n.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-include.directive",
+        "js/exist-when.directive",
+        "js/aw-form.directive",
+        "js/aw-flex-column.directive"
+    ],
+    "actions": {
+        "openConfigurePlan": {
+            "actionType": "JSFunction",
+            "method": "openConfigurePlan",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/epConfigureBOPbyEffectivityService"
+        },
+        "closePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+        "searchEndItem": {
+            "actionType": "JSFunction",
+            "method": "searchEndItem",
+            "inputData": {
+                "data": "{{data}}",
+                "conditionData": "{{conditions}}"
+            },
+            "deps": "js/epConfigureBOPbyEffectivityService"
+        },
+        "fetchSubBOTypes": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-04-DataManagement",
+            "method": "findDisplayableSubBusinessObjectsWithDisplayNames",
+            "inputData": {
+                "input": [ {
+                    "boTypeName": "ItemRevision",
+                    "exclusionBOTypeNames": []
+                } ]
+            },
+            "outputData": {
+                "subBusinessObjects": "{{function:processSoaResponseForBOTypes}}"
+            },
+            "deps": "js/epConfigureBOPbyEffectivityService"
+        },
+        "doSearch": {
+            "actionType": "dataProvider",
+            "method": "performSearchForEndItem"
+        },
+        "performSearchForEndItem": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "inflateProperties": false,
+                "noServiceData": false,
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Awp0SearchResults",
+                    "columnsToExclude": [],
+                    "hostingClientName": "",
+                    "operationType": "intersection"
+                },
+                "saveColumnConfigData": {
+                    "columnConfigId": "",
+                    "clientScopeURI": "",
+                    "columns": [],
+                    "scope": "",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "attributesToInflate": [],
+                    "cursor": {
+                        "startIndex": "{{data.dataProviders.searchEndItems.startIndex}}",
+                        "endIndex": 0,
+                        "startReached": false,
+                        "endReached": false
+                    },
+                    "internalPropertyName": "",
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Awp0FullTextSearchProvider",
+                    "searchCriteria": {
+                        "searchString": "{{data.endItemSearchBox.dbValue}}"
+                    },
+                    "searchFilterFieldSortType": "Priority",
+                    "searchFilterMap6": {
+                        "WorkspaceObject.object_type": "{{data.subBusinessObjects}}"
+                    },
+                    "searchSortCriteria": []
+                }
+            },
+            "outputData": {
+                "endItemsFound": "ServiceData.modelObjects",
+                "endItemsTotalFound": "totalFound"
+            },
+            "events": {
+                "success": [ {
+                    "name": "performSearchForEndItem.updateSearchingStatus"
+                } ]
+            }
+        },
+        "endItemChanged": {
+            "actionType": "JSFunction",
+            "method": "endItemChanged",
+            "inputData": {
+                "newItemSelected": "{{data.dataProviders.performSearchForEndItem}}"
+            },
+            "deps": "js/epConfigureBOPbyEffectivityService"
+        },
+        "updateSearchingStatus": {
+            "actionType": "JSFunction",
+            "method": "updateSearchingStatus",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/epConfigureBOPbyEffectivityService"
+        },
+        "navigateToNewConfiguration": {
+            "actionType": "epNavigationAction",
+            "inputData": {
+                "objectToNavigate": "{{data.eventData.uid}}",
+                "navigateIn": "newTab",
+                "keepSameState": true,
+                "ignoreMCN": true
+            }
+        },
+        "openConfigurePlanInNewTab": {
+            "actionType": "batchJob",
+
+            "steps": [ {
+                    "action": "navigateToNewConfiguration"
+                },
+                {
+                    "action": "closePopupWindow"
+                }
+            ]
+        }
+    },
+    "data": {
+        "configurePlanUnit": {
+            "displayName": "{{i18n.configurePlanUnitLabel}}",
+            "type": "INTEGER",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "endItemSearchBox": {
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "endItemLable": {
+            "displayName": "{{i18n.endItemLable}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "endItemSearchBoxPlaceHolder": {
+            "dbValue": "{{i18n.searchString}}"
+        },
+        "loadingLable": {
+            "dbValue": "{{i18n.loadingLable}}"
+        },
+        "revisionRuleListElement": {
+            "dbValue": ""
+        },
+        "configurePlanToDate": {
+            "displayName": "{{i18n.configurePlanToDateLabel}}",
+            "type": "DATE",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dispValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "revisionRuleListWidgetKey": {
+            "key": "revisionRuleListElement"
+        }
+    },
+    "dataProviders": {
+        "performSearchForEndItem": {
+            "action": "performSearchForEndItem",
+            "response": "{{data.endItemsFound}}",
+            "totalFound": "{{data.endItemsTotalFound}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "onEvent": [ {
+            "eventId": "searchEndItems.doSearch",
+            "condition": "data.endItemSearchBox.dbValue && data.endItemSearchBox.dbValue.length > 0",
+            "action": "doSearch"
+        },
+        {
+            "eventId": "performSearchForEndItem.selectionChangeEvent",
+            "action": "endItemChanged"
+        },
+        {
+            "eventId": "getInitialLoadData",
+            "action": "fetchSubBOTypes",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "performSearchForEndItem.updateSearchingStatus",
+            "action": "updateSearchingStatus"
+        },
+        {
+            "eventId": "configureEffectivity.closePopup",
+            "action": "closePopupWindow"
+        },
+        {
+            "eventId": "configureEffectivity.openConfigurePlanInNewTab",
+            "action": "openConfigurePlanInNewTab",
+            "cacheEventData": true
+        }
+    ],
+    "conditions": {
+        "showSearchingLabel": {
+            "expression": "false"
+        },
+        "enableOpenConfiguredPlanButtonForUnitEffectivity": {
+            "expression": "data.dataProviders.performSearchForEndItem.selectedObjects.length > 0 && data.configurePlanUnit.dbValue != ''"
+        },
+        "isUnitEffectivity": {
+            "expression": "ctx.preferences.EP_EffectivityMode[0] === 'UNIT'"
+        }
+    },
+    "i18n": {
+        "searchString": [
+            "epBvrMaturityMessages"
+        ],
+        "loadingLable": [
+            "epBvrMaturityMessages"
+        ],
+        "noResultFound": [
+            "epBvrMaturityMessages"
+        ],
+        "revisionRuleLabel": [
+            "epBvrMaturityMessages"
+        ],
+        "configurePlanToDateLabel": [
+            "epBvrMaturityMessages"
+        ],
+        "endItemLable": [
+            "epBvrMaturityMessages"
+        ],
+        "configurePlanUnitLabel": [
+            "epBvrMaturityMessages"
+        ],
+        "closeBtnText": [
+            "epBvrMaturityMessages"
+        ],
+        "configurePlanBtnText": [
+            "epBvrMaturityMessages"
+        ]
+    }
+}

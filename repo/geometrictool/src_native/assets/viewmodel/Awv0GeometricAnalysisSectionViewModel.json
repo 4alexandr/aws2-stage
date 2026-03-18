@@ -1,0 +1,761 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-list.directive",
+        "js/aw-section-list-popup.directive",
+        "js/aw-section-cell.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/aw-check-list.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "geometricAnalysisSectionPanelRevealed",
+            "outputData":
+            {
+                "isShowCapsAndCutLines": "isShowCapsAndCutLines"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "showCapsAndCutLinesChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "showCapsAndCutLinesChanged",
+            "inputData":
+            {
+                "settingValue": "{{prop.dbValue[0].isChecked}}"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "deleteSelectedSection":
+        {
+            "actionType": "JSFunction",
+            "method": "deleteSelectedSection",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "deleteSelectedSectionAction":
+        {
+            "actionType": "JSFunction",
+            "method": "deleteSelectedSectionAction",
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "clearDeleteSectionContext":
+        {
+            "actionType": "JSFunction",
+            "method": "clearDeleteSectionContext",
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "createViewerSection":
+        {
+            "actionType": "JSFunction",
+            "method": "createViewerSection",
+            "inputData":
+            {
+                "planeId": "{{command.id}}"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "getAllSectionsData":
+        {
+            "actionType": "JSFunction",
+            "method": "getAllSectionsData",
+            "inputData":
+            {
+                "dataProvider": "{{data.dataProviders.sectionsDataProvider}}",
+                "cutLineLabel" : "{{data.cutLineLabel}}",
+                "sectionToggle": "{{data.sectionToggle}}",
+                "sectionProps" : "{{data.sectionProps}}",
+                "sectionPanelData":"{{data.sectionPanelData}}",
+                "clipStateProps":"{{data.clipStateProps}}",
+                "clipStateData":"{{data.clipStateData}}"
+            },
+
+            "outputData":
+            {
+                "sectionsData": "allSectionsData",
+                "totalFound": "totalFound"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "sliderValueChanged":
+        {
+            "actionType": "JSFunction",
+            "method": "sliderValueChanged",
+            "inputData":
+            {
+                "sectionId": "{{vmo.sectionId}}",
+                "sliderData": "{{sectionPanelOffsetSliderProp}}"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "sliderValueMoving":
+        {
+            "actionType": "JSFunction",
+            "method": "sliderValueMoving",
+            "inputData":
+            {
+                "sectionId": "{{vmo.sectionId}}",
+                "sliderData": "{{sectionPanelOffsetSliderProp}}"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "setShowCapsAndEdgesAction":
+        {
+            "actionType": "JSFunction",
+            "method": "setShowCapsAndEdgesAction",
+            "inputData":
+            {
+                "showCapsProp": "{{data.showCaps}}",
+                "cutLinesProp": "{{data.createCutLines}}"
+            },
+
+            "outputData":
+            {
+                "showCapsProp": "showCapsProp",
+                "cutLinesProp": "cutLinesProp"
+            },
+
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "getAllSectionsAction":
+        {
+            "actionType": "dataProvider",
+            "method": "sectionsDataProvider"
+        },
+
+        "setSectionOffsetEditingStarted":
+        {
+            "actionType": "JSFunction",
+            "method": "setSectionOffsetEditingStarted",
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "setSectionOffsetEditingFinished":
+        {
+            "actionType": "JSFunction",
+            "method": "setSectionOffsetEditingFinished",
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "showCaps": {
+            "actionType": "JSFunction",
+            "method": "showCaps",
+            "inputData": {
+                "data": "{{data.showCaps}}"
+            },
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "createCutLines": {
+            "actionType": "JSFunction",
+            "method": "createCutLines",
+            "inputData": {
+                "data": "{{data.createCutLines}}"
+            },
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "showCutLinesPerSection": {
+            "actionType": "JSFunction",
+            "method": "showCutLinesPerSection",
+            "inputData": {
+                "data": "{{vmo.cutLineLabel.dbValue}}",
+                "sectionId": "{{vmo.sectionId}}"
+            },
+            "deps": "js/Awv0GeometricAnalysisSectionService"
+        },
+
+        "viewerSectionPlaneChanged": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "geoanalysis.modifySection"
+                    }
+                ]
+            }
+        },
+
+        "sectionClipStateChanged": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "geoanalysis.sectionClipState"
+                    }
+                ]
+            }
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "geoanalysis.sectionsListUpdated",
+            "action": "getAllSectionsAction"
+        },
+
+        {
+            "eventId": "geoanalysis.deleteSection",
+            "message": "deleteSelectedSectionMessage"
+        },
+
+        {
+            "eventId": "geoanalysis.setShowCapsAndLines",
+            "action": "setShowCapsAndEdgesAction"
+        },
+
+        {
+            "eventId": "geoanalysis.sectionOffsetEditingFinished",
+            "action": "setSectionOffsetEditingFinished"
+        },
+
+        {
+            "eventId": "geoanalysis.sectionOffsetEditingStarted",
+            "action": "setSectionOffsetEditingStarted"
+        }
+    ],
+
+    "data":
+    {
+        "cutLineLabel" : {
+            "displayName": "{{i18n.showCutLineLabel}}",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": "{{i18n.showCutLineLabel}}",
+            "labelPosition": "PROPERTY_LABEL_AT_RIGHT"
+        },
+        "showCaps": {
+            "displayName": "{{i18n.showCapsLabel}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "ShowCapsAndCutLines",
+                    "tooltip": "{{i18n.showCapsAndLinesLabelText}}",
+                    "checkAction": "showCaps",
+                    "isChecked": "true"
+                }
+            ]
+        },
+        "createCutLines": {
+            "displayName": "{{i18n.createCutLinesLabel}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "CreateCutline",
+                    "tooltip": "{{i18n.showCapsAndLinesLabelText}}",
+                    "checkAction": "createCutLines",
+                    "isChecked": "true"
+                }
+            ]
+        },
+        "showCapsAndCutLinesProp":
+        {
+            "displayName": "{{i18n.showCapsAndLinesLabelText}}",
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "iconName": "ShowCapsAndCutLines",
+                    "tooltip": "{{i18n.showCapsAndLinesLabelText}}",
+                    "checkAction": "showCapsAndCutLinesChanged",
+                    "isChecked": false
+                }
+            ]
+        },
+        "sectionToggle":{
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": true,
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "analysisSectionCommands": "awv0_sectionCommands",
+        "sectionPlanesProp":
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "defaultId": "{{ctx.geoAnalysisSection.defaultSectionPlaneId}}",
+                    "showButton": true,
+                    "showLabel": true,
+                    "itemValues":
+                    [
+                        {
+                            "itemId": "1",
+                            "iconName": "cmdXyPlanar",
+                            "tooltip": "{{i18n.xy}}",
+                            "action": "viewerSectionPlaneChanged",
+                            "isSelected": false
+                        },
+
+                        {
+                            "itemId": "2",
+                            "iconName": "cmdZxPlanar",
+                            "tooltip": "{{i18n.xz}}",
+                            "action": "viewerSectionPlaneChanged",
+                            "isSelected": false
+                        },
+
+                        {
+                            "itemId": "3",
+                            "iconName": "cmdYzPlanar",
+                            "tooltip": "{{i18n.yz}}",
+                            "action": "viewerSectionPlaneChanged",
+                            "isSelected": false
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "createSectionPlanesProp":
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "itemValues":
+                    [
+                        {
+                            "itemId": "1",
+                            "iconName": "cmdXyPlanar",
+                            "tooltip": "{{i18n.xy}}",
+                            "action": "createViewerSection"
+                        },
+
+                        {
+                            "itemId": "2",
+                            "iconName": "cmdZxPlanar",
+                            "tooltip": "{{i18n.xz}}",
+                            "action": "createViewerSection"
+                        },
+
+                        {
+                            "itemId": "3",
+                            "iconName": "cmdYzPlanar",
+                            "tooltip": "{{i18n.yz}}",
+                            "action": "createViewerSection"
+                        }
+                    ]
+                }
+            ]
+        },
+        "sectionPanelData": {
+            "displayName": "",
+            "type": "STRING",
+            "hasLov": "true",
+            "dbValue": "",
+            "iconName": "",
+            "dispValue": ""
+        },
+        "sectionProps": {
+            "type": "STRING",
+            "dbValue": [
+            {
+                "propDisplayValue": "{{i18n.xy}}",
+                "propInternalValue": "1",
+                "iconName": "cmdXyPlanar"
+            },
+            {
+                "propDisplayValue": "{{i18n.xz}}",
+                "propInternalValue": "2",
+                "iconName": "cmdZxPlanar"
+            },
+            {
+                "propDisplayValue": "{{i18n.yz}}",
+                "propInternalValue": "3",
+                "iconName": "cmdYzPlanar"
+            }
+        ]
+        },
+        "clipStateData": {
+            "displayName": "",
+            "type": "STRING",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "clipStateProps": {
+            "type": "STRING",
+            "dbValue": [
+            {
+                "propDisplayValue": "Neither",
+                "propInternalValue": "0",
+                "iconName": "cmdSetMeasureableAttributeNone"
+            },
+            {
+                "propDisplayValue": "Near",
+                "propInternalValue": "1",
+                "iconName": "cmdArrowSouthWest"
+            },
+            {
+                "propDisplayValue": "Far",
+                "propInternalValue": "2",
+                "iconName": "cmdArrowNorthEast"
+            },
+            {
+                "propDisplayValue": "Both",
+                "propInternalValue": "3",
+                "iconName": "cmdExpandAll"
+            }
+        ]
+        }
+    },
+
+    "dataProviders":
+    {
+        "sectionsDataProvider":
+        {
+            "action": "getAllSectionsData",
+            "response": "{{data.sectionsData}}",
+            "totalFound": "{{data.totalFound}}",
+            "commandsAnchor": "viewer_section_cell_commands",
+            "selectionModelMode": "single"
+        }
+    },
+
+    "conditions":
+    {
+        "hasSections":
+        {
+            "expression": "data.totalFound !== undefined && data.totalFound > 0"
+        }
+    },
+
+    "messages":
+    {
+        "deleteSelectedSectionMessage":
+        {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.sectionDeleteConfirmation}}",
+            "messageTextParams":
+            [
+                "{{ctx.viewerSectionToBeDeleted.sectionText}}"
+            ],
+
+            "navigationOptions":
+            [
+                {
+                    "option": "Cancel",
+                    "text": "{{i18n.cancel}}",
+                    "action": "clearDeleteSectionContext"
+                },
+
+                {
+                    "option": "Delete",
+                    "text": "{{i18n.delete}}",
+                    "action": "deleteSelectedSectionAction"
+                }
+            ]
+        }
+    },
+
+    "i18n":
+    {
+        "sectionPanelTitle":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementTabText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "sectionTabText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "queryTabText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "volumeTabText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "proximityTabText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "sectionDeleteConfirmation":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "failedToCreateSection":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "failedToDeleteSection":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "failedToSetProperty":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "emptySectionList":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "emptyTargetList":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "deleteSection":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "sectionsTitleText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "sectionText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "alignToFeature":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "xy":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "xz":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "pickFilteringTitleText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "yz":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "align":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "cancel":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "delete":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "orientSectionGroupName":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "corner1Text":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "corner2Text":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "coordinateX":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "coordinateY":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "coordinateZ":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "filterButtonText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "seedPartsText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "failedToDeleteAllMeasurements":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "failedToDeleteAllQueries":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "failedToDeleteSelectedMeasurement":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "failedToDeleteSelectedQuery":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementDeleteAllConfirmation":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "queryDeleteAllConfirmation":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementDeleteSelectedConfirmation":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "queryDeleteSelectedConfirmation":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "measurementSectionTitleText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "querySectionTitleText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "proximityLabelText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "proximityUnitText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "addTarget":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "getInvalidEditboxValueWarning":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "removeTarget":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "Apply":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "showCapsAndLinesLabelText":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "showCutLineLabel":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "showCapsLabel":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "showCapsTooltip":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "createCutLinesTooltip":
+        [
+            "GeometricAnalysisMessages"
+        ],
+
+        "createCutLinesLabel":
+        [
+            "GeometricAnalysisMessages"
+        ]
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "delete":"삭제",
+    "discard":"취소",
+    "DeleteSingleMessage": "회사를 \"{0}\"?",
+    "DeleteMultipleMessage": "이러한 {0} 개체를 삭제하시겠습니까?",
+    "epCmdDeleteTitle":"삭제",
+    "epCmdDeleteDesc": "선택 항목을 삭제합니다."
+}

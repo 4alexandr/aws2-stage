@@ -1,0 +1,246 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-button.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-search-box.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-i18n.directive",
+        "js/aw-list.directive",
+        "js/visible-when.directive"
+    ],
+    "actions": {
+        "findSavedQuery": {
+            "actionType": "TcSoaService",
+            "serviceName": "Query-2010-04-SavedQuery",
+            "method": "findSavedQueries",
+            "inputData": {
+                "inputCriteria": [
+                    {
+                        "queryNames": [
+                            "General..."
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "generalQuery": "savedQueries[0]"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "saveAsqueryRetreived"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            }
+        },
+        "searchValidVendors": {
+            "actionType": "TcSoaService",
+            "serviceName": "Query-2006-03-SavedQuery",
+            "method": "executeSavedQuery",
+            "inputData": {
+                "query": "{{data.generalQuery}}",
+                "limit": 50,
+                "entries": [
+                    "Name",
+                    "Type"
+                ],
+                "values": [
+                    "{{data.searchBox.dbValue}}",
+                    "Vendor"
+                ]
+            },
+            "outputData": {
+                "searchResponse": "objects",
+                "totalFound": "nFound"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            }
+        },
+        "confirmMessageFunction": {
+            "actionType": "JSFunction",
+            "method": "confirmationForChange",
+            "deps": "js/Vm1VendorChangeService",
+            "inputData": {
+                "input": "{{data}}"
+            },
+            "outputData": {
+                "modelObjects": ""
+            }
+        },
+        "addVendor": {
+            "actionType": "TcSoaService",
+            "serviceName": "Vendormanagement-2008-06-VendorManagement",
+            "method": "changeVendor",
+            "inputData": {
+                "input": "{{function:changeVendorForVendorPart}}"
+            },
+            "outputData": {
+                "statuses": "{{function:processChangeVendorSoaResponse}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "VerificationMessage"
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ],
+                "failure": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1VendorChangeService"
+        },
+        "closePanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "data": {
+        "searchBox": {
+            "isEnabled": true,
+            "type": "STRING",
+            "dbValue": ""
+        }
+    },
+    "i18n": {
+        "search": [
+            "VendorManagementMessages"
+        ],
+        "SearchVendor": [
+            "VendorManagementMessages"
+        ],
+        "add": [
+            "VendorManagementMessages"
+        ],
+        "results": [
+            "VendorManagementMessages"
+        ],
+        "changeVendor": [
+            "VendorManagementMessages"
+        ],
+        "Change": [
+            "VendorManagementMessages"
+        ],
+        "changeVendorForPartMessageCopy": [
+            "VendorManagementMessages"
+        ],
+        "changeVendorForPartMessageMove": [
+            "VendorManagementMessages"
+        ],
+        "cancel": [
+            "VendorManagementMessages"
+        ],
+        "changeVendorForVendorMessageMove": [
+            "VendorManagementMessages"
+        ],
+        "changeVendorForVendorMessageCopy": [
+            "VendorManagementMessages"
+        ],
+        "changeVendorFailureMessage": [
+            "VendorManagementMessages"
+        ],
+        "changeVendorFailureMessageForMultiselect": [
+            "VendorManagementMessages"
+        ],
+        "changeVendorStatus": [
+            "VendorManagementMessages"
+        ]
+    },
+    "onEvent": [
+        {
+            "eventId": "appCtx.register",
+            "condition": "conditions.checkSelectionChange",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "saveAsqueryRetreived",
+            "action": "searchVendors"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "action": "findSavedQuery"
+        },
+        {
+            "eventId": "vendorMgmt.vm1ChangeVendorAction",
+            "action": "addVendor",
+            "cacheEventData": true
+        }
+    ],
+    "conditions": {
+        "isVendorSelected": {
+            "expression": "data.dataProviders.searchVendors.getSelectedIndexes()[0]>-1"
+        },
+        "checkSelectionChange": {
+            "expression": "name == 'selected'"
+        }
+    },
+    "functions": {
+        "changeVendorForVendorPart": {
+            "functionName": "changeVendorForVendorPart",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "processChangeVendorSoaResponse": {
+            "functionName": "processChangeVendorSoaResponse",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "preferences": [
+        "VMS_Maintain_Vendor_History"
+    ],
+    "dataProviders": {
+        "searchVendors": {
+            "action": "searchValidVendors",
+            "selectionModelMode": "single",
+            "response": "{{data.searchResponse}}",
+            "totalFound": "{{data.totalFound}}"
+        }
+    },
+    "messages": {
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    }
+}

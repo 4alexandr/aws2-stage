@@ -1,0 +1,14 @@
+{
+    "Map_Title":"Mapovat",
+    "MapButton":"Mapovat",
+    "attributeTitle": "Parametry",
+    "StudyAttributes": "Parametry studie",
+    "SelectStudy": "Vybrat studie k zobrazení parametrů",
+    "TestEventAttributes": "Parametry události testu",
+    "SelectTestEvent":"Vybrat události testu pro zobrazení parametrů",
+    "StudyAttributesTC124": "Parametry simulace a požadavku testu",
+    "SelectStudyTC124": "Vybrat simulaci nebo požadavky testu pro zobrazení parametrů",
+    "RunAttributes": "Parametry spuštění",
+    "SelectRun": "Vybrat spuštění pro zobrazení parametrů",
+    "Measurement_File_Title": "Přidat soubor hodnot"
+}

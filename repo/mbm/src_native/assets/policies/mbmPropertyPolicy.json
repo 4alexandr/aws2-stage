@@ -1,0 +1,121 @@
+{
+    "types": [
+        {
+            "name": "Awb0Element",
+            "properties": [
+                {
+                    "name": "awb0NumberOfChildren"
+                },
+                {
+                    "name": "awb0CopyStableId"
+                },
+                {
+                    "name": "awb0UnderlyingObject"
+                },
+                {
+                    "name": "awb0Parent",
+                    "modifiers": [ {
+                        "name": "withProperties",
+                        "Value": "true"
+                    } ]
+
+                }
+            ]
+        },
+        {
+            "name": "Awb0ProductContextInfo",
+            "properties": [
+                {
+                    "name": "awb0Product",
+                    "modifiers": [
+                        {
+                            "name": "withProperties",
+                            "Value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name": "awb0CurrentRevRule",
+                    "modifiers": [
+                        {
+                            "name": "withProperties",
+                            "Value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name":"awb0SupportedFeatures",
+                    "modifiers": [
+                        {
+                            "name": "withProperties",
+                            "Value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name":"awb0EffDate"
+                },
+                {
+                    "name":"awb0EffUnitNo"
+                },
+                {
+                    "name": "awb0EffectivityGroups",
+                    "modifiers": [ {
+                        "name": "withProperties",
+                        "Value": "true"
+                    } ]
+                },
+                {
+                    "name":"awb0VariantRules",
+                    "modifiers": [
+                        {
+                            "name": "withProperties",
+                            "Value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name":"awb0VariantRuleOwningRev",
+                    "modifiers": [
+                        {
+                            "name": "withProperties",
+                            "Value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name": "awb0ClosureRule",
+                    "modifiers": [
+                        {
+                            "name": "withProperties",
+                            "Value": "true"
+                        }
+                    ]
+                }
+
+             ]
+        },
+        {
+            "name": "Awb0FeatureList",
+            "properties": [
+                {
+                    "name": "awb0AvailableFeatures"
+                },
+                {
+                    "name": "awb0NonModifiableFeatures"
+                }
+             ]
+        },
+        {
+            "name": "RevisionRule",
+            "properties": [
+                {
+                    "name":"object_desc"
+                },
+                {
+                    "name":"suppressed"
+                }
+             ]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+<div>
+    <div aw-class="['aw-extended-tooltipTitle']">{{data.title}}
+    </div>
+    <div exist-when="(subPanelContext.changeType === 'MBMBOM_Updated' || subPanelContext.changeType === 'MBMBOM_Occurrence_Updated')  ">
+        <div exist-when="!subPanelContext.isHandle"></br><aw-i18n>i18n.mbmInstanceUpdatedTooltipDesc</aw-i18n></div>
+        <div></br><aw-i18n  aw-class="['aw-mbm-italicText']">i18n.mbmFindInEbomTooltipDesc</aw-i18n></div>
+        <div exist-when="!subPanelContext.isHandle"></br><aw-i18n  aw-class="['aw-mbm-italicText']">i18n.mbmPropagateActionTooltipDesc</aw-i18n></div>
+    </div>
+    <div exist-when="(subPanelContext.changeType === 'MBMBOM_Removed')  ">
+        <div exist-when="!subPanelContext.isHandle"></br><aw-i18n>i18n.mbmInstanceRemovedTooltipDesc</aw-i18n></div>
+        <div exist-when="!subPanelContext.isHandle"></br><aw-i18n  aw-class="['aw-mbm-italicText']">i18n.mbmFindInMbomTooltipDesc</aw-i18n></div>
+        <div exist-when="!subPanelContext.isHandle"></br><aw-i18n  aw-class="['aw-mbm-italicText']">i18n.mbmRemoveActionTooltipDesc</aw-i18n></div>
+    </div>
+    <div exist-when="(subPanelContext.changeType === 'MBMBOM_Added' ) ">
+        <div exist-when="!subPanelContext.isHandle"></br><aw-i18n >i18n.mbmAddedinstanceTooltipDesc</aw-i18n> </div>
+        <div><br/><aw-i18n aw-class="['aw-mbm-italicText']">i18n.mbmFindInEbomTooltipDesc</aw-i18n> </div>
+    </div>
+</div>

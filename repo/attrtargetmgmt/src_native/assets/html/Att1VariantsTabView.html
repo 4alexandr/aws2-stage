@@ -1,0 +1,8 @@
+<aw-panel>
+    <aw-panel-body exist-when="ctx.parammgmtctx.hasVariantConfigContext">
+        <aw-include name="Pca0VariantsGrid"></aw-include>
+    </aw-panel-body>
+    <aw-panel-body exist-when="!ctx.parammgmtctx.hasVariantConfigContext">
+        <aw-i18n>i18n.noConfigContextFound</aw-i18n>
+    </aw-panel-body>
+</aw-panel>

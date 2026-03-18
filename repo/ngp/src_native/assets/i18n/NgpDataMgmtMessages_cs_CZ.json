@@ -1,0 +1,23 @@
+{
+    "cancel": "Zrušit",
+    "submit": "Odeslat",
+    "continue": "Pokračovat",
+    "reviseCmdTitle": "Revidovat",
+    "workflowTemplatesLabel": "Šablona pracovního postupu",
+    "workflowNameLabel": "Název pracovního postupu",
+    "workflowDescriptionLabel": "Popis",
+    "noWorkflowTemplatesMsg": "Nebyly nalezeny žádné šablony pracovního postupu pro vybrané objekty.",
+    "submitToWorkflowCmdTitle": "Odeslat do pracovního postupu",
+    "submitToWorkflowTooltipMsg": "Odeslat {0} do pracovního postupu.",
+    "submitToWorkflowInformationMsg": "Odstranění procesu {0} čeká. Chcete-li uvolnit obsah aktivity, včetně tohoto odstranění, odešlete aktivitu do pracovního postupu pomocí šablony pracovního postupu \"NGP_ReleasePendingDeletions\".",
+    "successfullySubmitToWorkflowSingle": "\"{0}\" bylo odesláno do pracovního postupu.",
+    "successfullySubmitToWorkflowMultiple": "{0} objektů bylo odesláno do pracovního postupu.",
+    "parentAutoReviseSingleConfirmation": "Revidování \"{0}\" také zreviduje \"{1}\". Chcete pokračovat?",
+    "parentAutoReviseMultipleConfirmation": "Revidování vybrané operace také zreviduje \"{0}\". Chcete pokračovat?",
+    "successfulReviseAction": "Nová revize položky \"{0}\" byla úspěšně vytvořena.",
+    "submitSelectedToWorkflow": "Odešlete vybrané prvky do pracovního postupu.",
+    "singleDeleteMessage": "Opravdu chcete odstranit \"{0}\"?",
+    "multipleDeleteMessage": "Chcete odstranit tyto objekty {0}?",
+    "deleteTooltipMsg": "Odstranit",
+    "deleteSelectedObjectsCmdDescription": "Odstranit vybrané objekty"    
+}

@@ -1,0 +1,23 @@
+{
+    "addComment": "Commento",
+    "addQuestion": "Poni una domanda",
+    "addAnswer": "Pubblica risposta",
+    "addRating": "Valuta",
+    "name": "Nome",
+    "postComment": "Pubblica commento",
+    "postQuestion": "Poni una domanda",
+    "postAnswer": "Pubblica risposta",
+    "postRating": "Valuta",
+    "subscriptionFailed": "Impossibile seguire \"{0}\".",
+    "oneStarRating": "Valutazione 1 stella",
+    "twoStarRating": "Valutazione 2 stelle",
+    "threeStarRating": "Valutazione 3 stelle",
+    "fourStarRating": "Valutazione 4 stelle",
+    "fiveStarRating": "Valutazione 5 stelle",
+    "allRatings": "Tutte le valutazioni",
+    "reply": "Rispondi",
+    "S2clSCAddCommentNewDesc": "Pubblicare un commento su un oggetto.",
+    "S2clSCAddQuestionNewDesc": "Porre una domanda su un oggetto.",
+    "S2clSCAddAnswerNewDesc": "Rispondere a una domanda su un oggetto.",
+    "S2clSCAddRatingNewDesc": "Aggiungere una valutazione a un oggetto."
+}

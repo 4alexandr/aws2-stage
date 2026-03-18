@@ -1,0 +1,43 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-form.directive",
+        "js/aw-add.directive",
+        "js/aw-i18n.directive",
+        "js/aw-button.directive",
+        "js/aw-panel-footer.directive"
+    ],
+
+    "actions": {
+        "addSelectionsAction": {
+            "actionType": "JSFunction",
+            "method": "addSeedSelection",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ],
+                "failure": [ {
+                    "name": "complete",
+                    "eventData": {
+                        "source": "toolAndInfoPanel"
+                    }
+                } ]
+            },
+            "deps": "js/Evm1SeedSelectionCmdPanelService"
+        }
+    },
+
+    "i18n": {
+        "add": [ "RecipeCommandPanelsMessages" ]
+    }
+
+}

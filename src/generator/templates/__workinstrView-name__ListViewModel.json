@@ -1,0 +1,59 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-scrollpanel.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "__workinstrView-name__ListDataProvider"
+        },
+        "listItemSelected": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "workinstr.selectionChange",
+                        "eventData":
+                        {
+                            "dataProvider": "{{data.dataProviders.__workinstrView-name__ListDataProvider}}",
+                            "activeTab": "{{activeTab.tab}}"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "dataProviders":
+    {
+        "__workinstrView-name__ListDataProvider":
+        {
+            "response": "{{activeTab.tab.datasetsToShow}}",
+            "totalFound": "{{activeTab.tab.datasetsToShow.length}}",
+            "selectionModelMode": "single",
+            "commandsAnchor": "workinstrCellCommands"
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "__workinstrView-name__List.contentLoaded",
+            "action": "reveal"
+        },
+        {
+            "eventId": "__workinstrView-name__ListDataProvider.selectionChangeEvent",
+            "action": "listItemSelected"
+        }
+    ]
+}

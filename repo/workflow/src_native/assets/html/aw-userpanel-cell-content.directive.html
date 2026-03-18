@@ -1,0 +1,27 @@
+<div class="aw-widgets-cellListCellTitleBlock" ng-if="vmo.type === 'GroupMember'">
+    <h3 title="{{vmo.props.user.uiValues[0]}}" class="aw-widgets-cellListCellTitle" cell-title-id="CellTitle">{{vmo.props.user.uiValues[0]}}</h3>
+</div>
+<div class="aw-widgets-cellListCellTitleBlock" ng-if=" vmo.type === 'User'">
+    <h3 title="{{vmo.props.user_name.uiValues[0]}}" class="aw-widgets-cellListCellTitle" cell-title-id="CellTitle">{{vmo.props.user_name.uiValues[0]}}</h3>
+</div>
+<div class="aw-widgets-cellListCellTitleBlock" ng-if=" vmo.type === 'KeyRole'">
+    <h3 title="{{vmo.cellHeader1}}" class="aw-widgets-cellListCellTitle" cell-title-id="CellTitle">{{vmo.cellHeader1}}</h3>
+</div>
+<div cell-prop-id="cellProperties" ng-if="vmo.type === 'KeyRole'">
+    <div class="aw-widgets-cellListCellProperties">
+        <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{vmo.cellHeader2}}">{{vmo.cellHeader2}}</label>
+    </div>
+</div>
+<div cell-prop-id="cellProperties" ng-if="vmo.type === 'GroupMember' && !vmo.hideGroupRole">
+    <div class="aw-widgets-cellListCellProperties">
+        <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{vmo.props.group.uiValues[0]}}/{{vmo.props.role.uiValues[0]}}">{{vmo.props.group.uiValues[0]}}/{{vmo.props.role.uiValues[0]}}</label>
+    </div>
+</div>
+<div class="aw-widgets-cellListCellTitleBlock" ng-if="vmo.type === 'ResourcePool'">
+    <h3 title="{{vmo.groupName}}" class="aw-widgets-cellListCellTitle" cell-title-id="CellTitle">{{vmo.groupName}}</h3>
+</div>
+<div cell-prop-id="cellProperties" ng-if="vmo.type === 'ResourcePool'">
+    <div class="aw-widgets-cellListCellProperties">
+        <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{vmo.roleName}}">{{vmo.roleName}}</label>
+    </div>
+</div>

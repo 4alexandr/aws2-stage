@@ -1,0 +1,13 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-guidance-message.directive"
+    ],
+    "messages": {
+        "testMessageInfo": {
+            "messageType": "INFO",
+            "messageText": "The aw-include helps inclusion of declarative view fragment from an external file. The included contents are included as childnodes of the specified element. It helps better code separation."
+        }
+    }
+}

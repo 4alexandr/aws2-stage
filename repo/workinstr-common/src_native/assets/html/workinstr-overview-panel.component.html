@@ -1,0 +1,13 @@
+<aw-panel-body class="aw-workinstr-overviewPanel">
+    <div visible-when="!$ctrl.finishedInitialLoad"><aw-i18n>i18n.loadingLabel</aw-i18n></div>
+    <div class="aw-workinstr-overviewCommandBar" visible-when="$ctrl.finishedInitialLoad">
+        <button ng-repeat="cmd in $ctrl.overviewCommands" ng-class="{ 'aw-workinstr-activeButton' : cmd.active}" action="{{cmd.action}}" ng-click="$ctrl.onButtonClicked(cmd.action, cmd.active)" ng-if="cmd.condition === true">
+            <aw-icon icon-id="{{cmd.iconId}}"></aw-icon>
+            <aw-i18n>{{cmd.tooltip}}</aw-i18n>
+        </button>
+    </div>
+    <aw-graph class="aw-workinstr-overviewGraph" graph-model="$ctrl.graphModel" visible-when="$ctrl.displayGraph"></aw-graph>
+
+    <!-- To display different content in the popup instead of the graph, like EWI traveler report -->
+    <div ng-if="!$ctrl.displayGraph" aw-transclude class="aw-workinstr-overviewGraph"></div>
+</aw-panel-body>

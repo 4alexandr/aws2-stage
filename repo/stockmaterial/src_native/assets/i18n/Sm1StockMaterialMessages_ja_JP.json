@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "結果",
+     "filterTabTitle" : "フィルタ",
+     "searchTabTitle" :"検索",
+     "paletteTabTitle" :"パレット",
+     "addStockMaterialTitle" : "追加",
+     "properties" : "プロパティ",
+     "add" : "追加",
+     "madeFromFailureMakeFromPrefTrue": "\"{0}\"は追加されましたが、それは、\"{1}\"において優先されません。",
+     "madeFromFailureMakeFromPrefFalse": "\"{0}\"は、\"{1}\"において優先ではないため、追加されませんでした。",     
+     "dimensionsLabel": "寸法",
+     "Sm1AddStdPartDesc": "標準パートをパートにアタッチします。",
+     "Sm1AddStockMaterialDesc": "ストック材料をパートに追加します。",
+     "addPropertiesLabel" : "プロパティを追加"
+}

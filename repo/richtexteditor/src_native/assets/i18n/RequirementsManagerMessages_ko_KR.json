@@ -1,0 +1,18 @@
+{
+    "requirementsManagerDisplayName": "Requirements Manager",
+    "RequirementsManager": "Requirements Manager",
+    "recents": "최신",
+    "getStarted": "시작하기",
+    "TcRMWorkspaceName": "Requirements Manager",
+    "arm0_recentCommands": "최신 하위 명령",
+    "Arm0RecentPrevCmdDesc": "이전",
+    "Arm0RecentNextCmdDesc": "다음",
+    "creationDate": "생성일" ,
+    "lastModDate": "최종 수정일",
+    "noRecentReq": "아직 최신 항목에 아무것도 없음",
+    "arm0_recentNext": "다음 명령",
+    "arm0_recentPrev": "이전 명령",
+    "summaryTable": "요약 테이블",
+    "selectionMode": "선택 모드",
+    "summaryTableMultiSelectDesc": "다중 선택을 위한 선택 모드를 켜거나 끕니다. 선택 모드를 끄면 선택 항목이 지워집니다."
+}

@@ -1,0 +1,81 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-repeat.directive",
+        "js/aw-aps-effectivity-intent.directive",
+        "js/aw-row.directive"
+    ],
+    "actions": {
+        "retrieveEffectivityIntents": {
+            "actionType": "TcSoaService",
+            "serviceName": "ConfigFilterCriteria-2011-06-EffectivityManagement",
+            "method": "getAvailableProductEffectivity",
+            "inputData": {
+                "productName": "{{ctx.aceActiveContext.context.effIntentCtx.effIntentCtxId}}",
+                "productNameSpace": "{{ctx.aceActiveContext.context.effIntentCtx.effIntentCtxNamespace}}"
+            },
+            "outputData": {
+               "effIntents": "{{function:loadIntentFamilies}}"
+            },
+            "deps":"js/apsEffectivityIntentService"
+        },
+        "loadInitialContent": {
+            "actionType": "JSFunction",
+            "method": "initIntentContext",
+            "deps": "js/apsEffectivityIntentService"
+        },
+        "applyIntentEffectivityFormula" : {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "deps": "js/appCtxService",
+            "inputData":
+            {
+                "path":"aceActiveContext.context.configContext",
+                "value":{
+                    "r_uid":"{{ctx.aceActiveContext.context.productContextInfo.props.awb0CurrentRevRule.dbValues[0]}}",
+                    "var_uids": "{{ctx.aceActiveContext.context.productContextInfo.props.awb0CurrentVariantRules.dbValues}}",
+                    "fromUnit": "{{ctx.aceActiveContext.context.productContextInfo.props.awb0StartEffUnits.dbValues[0]}}",
+                    "toUnit": "{{ctx.aceActiveContext.context.productContextInfo.props.awb0EndEffUnits.dbValues[0]}}",
+                    "startDate": "{{ctx.aceActiveContext.context.productContextInfo.props.awb0StartEffDates.dbValues[0]}}",
+                    "endDate": "{{ctx.aceActiveContext.context.productContextInfo.props.awb0EndEffDates.dbValues[0]}}",
+                    "intentFormula": "{{data.eventMap['awConfigPanel.EffectivityIntentChanged'].newIntentFormula}}",
+                    "startFreshNavigation": true
+                }
+            }
+        }
+    },
+    "onEvent": [
+        {
+           "eventId": "ApsEffectivityIntentSub.contentLoaded",
+           "action": "loadInitialContent"
+
+        },
+        {
+            "eventId": "awConfigPanel.EffectivityIntentChanged",
+            "action": "applyIntentEffectivityFormula",
+            "cacheEventData": true
+       },
+       {
+           "eventId": "apscoreIntentPanel.retrieveNewIntentValues",
+           "action": "retrieveEffectivityIntents"
+       }
+    ],
+    "data": {
+        "intentSubViewActivatedFrom": "{{ctx.activeNavigationCommand.commandId}}",
+        "AnyTextLink": {
+            "displayName": "{{i18n.anyTextName}}",
+            "type": "STRING",
+            "isRequired": "true"
+        }
+    },
+    "conditions":
+    {
+        "isIntentContextPresent":
+        {
+            "expression": "ctx.aceActiveContext.context.effIntentCtx.effIntentCtxId"
+        }
+    },
+    "i18n": {
+        "ApsAny": "Any"
+    }
+}

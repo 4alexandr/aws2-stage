@@ -1,0 +1,5 @@
+<div class="aw-social-cellHeader aw-widgets-cellListCellTitleBlock">
+     <h3 ng-if="vmo.type != 'S2clScalarRating'" title="{{vmo.cellHeader1}}" class="aw-widgets-cellListCellTitle" cell-title-id="CellTitle">{{vmo.cellHeader1}}</h3>
+     <label ng-if="vmo.type != 'S2clScalarRating'" class="aw-widgets-cellListCellItemType aw-base-small" title="{{vmo.cellHeader2}}">{{vmo.cellHeader2}}</label>
+     <label ng-if="vmo.type != 'S2clQuestion' && vmo.type != 'S2clScalarRating'" class="aw-widgets-propertyLabel aw-base-small">Likes: {{vmo.props.s2clTotalLikesFromSummary.value}}</label>
+</div>

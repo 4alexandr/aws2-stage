@@ -1,0 +1,19 @@
+{
+    "Awv0PmiCommandTitle": "PMI",
+    "operationName": "Zobrazit panel PMI",
+    "modelViewsTabTitle": "Zobrazení modelu",
+    "pmiEntitiesTabTitle": "Typy",
+    "PmiPanelTitle": "PMI",
+    "stepThroughLabel": "Projít",
+    "reorientText": "Změnit orientaci textu",
+    "stepThroughNext": "Další",
+    "stepThroughPrev": "Předchozí",
+    "toolPanelTitle": "PMI",
+    "showingPmiFor": "Zobrazují se PMI pro:",
+    "notCurrentlyVisible": "{0} není plně viditelný.",
+    "hasNoPmi": "{0} nemá PMI. Vyberte jiný objekt ve struktuře.",
+    "pmiStepCmdsAnchor": "Ukotvení příkazů kroků",
+    "Awv0PmiToolDesc": "Zobrazte a skryjte konkrétní PMI nebo použijte pohledy modelu.",
+    "PmiStepThroughPrevCommandDesc": "Přesuňte se na předchozí položku seznamu.",
+    "PmiStepThroughNextCommandDesc": "Přesuňte se na další položku seznamu."
+}

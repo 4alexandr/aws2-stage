@@ -1,0 +1,668 @@
+// Copyright 2018 Siemens Product Lifecycle Management Software Inc.
+/* workinstr-common */
+
+.aw-workinstr-mainPanel {
+    position: relative;
+    display: inherit;
+}
+
+.aw-workinstr-workarea .aw-layout-workarea {
+    width: calc(100% - 20px);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.aw-workinstr-mainPanel aw-viewer-header {
+    display: none;
+}
+
+workinstr-snapshot-viewer,
+workinstr-fulltext-viewer,
+.aw-workinstr-mainPanel,
+.aw-workinstr-contentPanelStyle,
+.aw-workinstr-tabLayoutMainPanel,
+.aw-workinstr-viewerStyle,
+.aw-workinstr-galleryListContainer,
+.aw-workinstr-galleryView,
+.aw-workinstr-tabContentContainer {
+    width: 100%;
+    height: 100%;
+}
+
+workinstr-cortona-viewer,
+workinstr-weblink-viewer,
+workinstr-video-viewer {
+    width: 100%;
+}
+
+workinstr-gallery-cell {
+    height: 100%;
+    text-align: center;
+    transform: translateY(3%);
+    -webkit-transform: translateY(3%);
+    -ms-transform: translateY(3%);
+}
+
+#workinstrXrt {
+    padding-left: 8px;
+}
+
+.workinstr-gallery-cellSmall {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.aw-workinstr-cellListItem {
+    height: 100%;
+
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.aw-workinstr-contentArea {
+    height: inherit;
+}
+
+.aw-workinstr-cellLabel {
+    height: 100%;
+    text-align: center;
+    transform: translateY(3%);
+    -webkit-transform: translateY(3%);
+    -ms-transform: translateY(3%);
+}
+
+.aw-workinstr-galleryListContainer {
+    position: relative;
+    min-height: 30px;
+    max-height: 90px;
+    overflow: hidden;
+}
+
+.aw-workinstr-galleryView {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.aw-workinstr-documentGallerySliderPanel {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 14%;
+    min-height: 30px;
+    max-height: 90px;
+}
+
+@media all and (max-height:780px) {
+    .aw-workinstr-documentGallerySliderPanel {
+        max-height: 70px;
+    }
+}
+
+@media all and (max-height:575px) {
+    .aw-workinstr-documentGallerySliderPanel {
+        max-height: 37px;
+    }
+}
+
+.aw-workinstr-thumbnailContainer {
+    overflow: hidden;
+    border-spacing: 8px;
+    border-collapse: separate;
+    position: absolute;
+    left: 0;
+    white-space: nowrap;
+    height: 100%;
+    height: fill-available;
+    height: -webkit-fill-available;
+    width: 100%;
+    width: fill-available;
+    width: -webkit-fill-available;
+    width: -moz-available;
+}
+
+.aw-workinstr-thumbnailImage {
+    border: none;
+    width: auto;
+    max-height: 70%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    max-width: 100%;
+    height: inherit;
+}
+
+.aw-workinstr-thumbnailImageSmall {
+    float: left;
+    max-height: 80%;
+    max-width: 30%;
+    padding-right: 2px;
+}
+
+.aw-workinstr-thumbnailImageSmallAlign {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.aw-workinstr-thumbnailLabel {
+    height: 100%;
+    height: fill-available;
+    height: -webkit-fill-available;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100px;
+    display: block;
+    font-size: $fontsize_small;
+}
+
+.aw-workinstr-thumbnailLabelSmall {
+    font-size: $fontsize_x-small;
+    transform: translateY(25%);
+    -webkit-transform: translateY(25%);
+    -ms-transform: translateY(25%);
+}
+
+.aw-workinstr-thumbnailLabel:HOVER {
+    cursor: pointer;
+}
+
+.aw-workinstr-cellListItem .aw-widgets-cellListItem {
+    margin: 4px;
+    padding: 5px;
+}
+
+.aw-workinstr-thumbnailItem {
+    display: inline-block;
+
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    margin: 4px;
+    padding: 5px;
+    width: 100px;
+    min-width: 100px;
+    max-height: 86px;
+    text-align: center;
+}
+
+.aw-layout-popup .aw-workinstr-cellListItem .aw-workinstr-thumbnailItem {
+    width: 100px;
+}
+
+.aw-workinstr-thumbnailItem:HOVER {
+    cursor: pointer;
+}
+
+.aw-workinstr-tabLayoutContentContainer,
+.aw-workinstr-tabLayoutTabContentContainer {
+    width: 100%;
+    height: calc(100% - 44px);
+}
+
+.aw-workinstr-contentPanelStyle {
+    padding-bottom: 111px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.aw-workinstr-fullContentPanelStyle {
+    margin-top: 2px;
+    padding-bottom: 0;
+}
+
+@media all and (min-height: 450px) {
+    .aw-workinstr-contentPanelWithFooter {
+        padding-bottom: 160px;
+    }
+}
+
+@media all and (max-height: 450px) {
+    .aw-widgets-contentPanelWithFooter {
+        padding-bottom: 187px;
+    }
+}
+
+@media all and (min-height: 450px) {
+    .aw-workinstr-fullContentPanelWithFooter {
+        margin-top: 2px;
+        padding-bottom: 50px;
+    }
+}
+
+@media all and (max-height: 450px) {
+    .aw-workinstr-fullContentPanelWithFooter {
+        margin-top: 2px;
+        padding-bottom: 37px;
+    }
+}
+
+.aw-workinstr-leftContentPanel {
+    height: 100%;
+    width: 50%;
+}
+
+.aw-workinstr-rightContentPanel {
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+.aw-workinstr-instructionsPanel {
+    height: 60%;
+    margin-right: 13px;
+}
+
+.aw-workinstr-fullInstructionsPanel {
+    height: 100%;
+    margin-right: 13px;
+}
+
+.aw-workinstr-fullScreenPanel {
+    width: 100%;
+    height: 100%;
+}
+
+.aw-workinstr-fullSubPanel {
+    width: 100%;
+    height: 100%;
+}
+
+.aw-workinstr-toolsInfoPanel {
+    height: calc(40% - 13px);
+    padding-top: 13px;
+    margin-right: 13px;
+}
+
+.aw-workinstr-footerPanel {
+    margin-top: 5px;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.aw-workinstr-transition {
+    -moz-transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.aw-workinstr-headerPanel {
+    display: flow-root;
+}
+
+.aw-workinstr-headerLeftButton {
+    background-position: 4px;
+    float: left;
+    left: 0;
+}
+
+.aw-workinstr-headerRightButton {
+    background-position: -4px;
+    float: right;
+    right: 0;
+}
+
+.aw-workinstr-headerLeftButton,
+.aw-workinstr-headerRightButton {
+    width: 24px;
+    height: 53px;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    border: none;
+    z-index: 1;
+}
+
+.aw-workinstr-headerLeftButton:HOVER,
+.aw-workinstr-headerRightButton:HOVER {
+    opacity: 0.85;
+}
+
+.aw-workinstr-headerPropertiesWrapper {
+    height: 53px;
+    overflow: hidden;
+    width: auto;
+    margin-bottom: 13px;
+}
+
+.aw-workinstr-headerPropertiesPanel {
+    left: 0;
+    width: 100%;
+    position: relative;
+    padding-top: 2px;
+    padding-left: 5px;
+    height: 46px;
+    -moz-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.aw-workinstr-headerPropertiesPanel .aw-widgets-propertyLabelTopValueContainer {
+    min-width: 5%;
+}
+
+.aw-workinstr-headerProperty {
+    border-right: 0 solid;
+}
+
+.aw-workinstr-headerProperty,
+.aw-workinstr-headerRightProperty {
+    float: left;
+    padding-right: 5px;
+    padding-top: 3px;
+    vertical-align: top;
+    font-size: $fontsize_large;
+}
+
+.aw-workinstr-headerPropertyContainer {
+    display: inline-block;
+    margin-right: 7px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    vertical-align: top;
+}
+
+.aw-workinstr-tabWidgetContainer {
+    padding-bottom: 0;
+    margin-top: 7px;
+    display: inline-block;
+}
+
+.aw-workinstr-tabLayoutTabTitle {
+    margin-top: 2px;
+}
+
+.aw-workinstr-headerCrumbContainer {
+    font-size: $fontsize_large;
+    line-height: inherit;
+    margin-bottom: 0;
+}
+
+.aw-workinstr-tabLayoutTitleContainer {
+    padding-left: 8px;
+    overflow: hidden;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.aw-workinstr-commandsBar {
+    white-space: nowrap;
+}
+
+@media all and (max-width: 28.75em) {
+    .aw-workinstr-commandsBar,
+    .aw-workinstr-headerCommandsBar {
+        display: none;
+    }
+
+    .aw-workinstr-workarea .aw-layout-headerLeft,
+    .aw-workinstr-workarea .aw-layout-primaryWorkarea {
+        display: block;
+    }
+
+    .aw-workinstr-workarea .aw-layout-summaryLocation {
+        display: none;
+    }
+}
+
+.aw-workinstr-workarea .aw-layout-subLocationTitles {
+    display: none;
+}
+
+.aw-workinstr-workarea .aw-widgets-breadCrumbContainer .aw-base-icon {
+    margin-top: 0;
+}
+
+.aw-workinstr-workarea .aw-widgets-breadCrumbContainer .aw-widgets-chevronPanel:focus {
+    outline: none;
+}
+
+@media all and (min-width: 28.75em) {
+    .aw-workinstr-commandsBar,
+    .aw-workinstr-headerCommandsBar {
+        display: block;
+    }
+}
+
+.aw-workinstr-commandsBar,
+.aw-workinstr-headerCommandsBar {
+    float: right;
+    margin-left: 5px;
+}
+
+.aw-workinstr-commandsBar .aw-commands-commandIconButton {
+    padding: 10px;
+    margin: 0;
+}
+
+.aw-workinstr-headerCommandsBar .aw-commands-commandIconButton {
+    padding: 3px;
+    margin: 0;
+}
+
+.aw-workinstr-tabLayoutContentContainer,
+.aw-workinstr-tabLayoutTabContentContainer {
+    display: flex;
+    z-index: -1;
+}
+
+.aw-workinstr-documentGalleryMainPanel {
+    height: 100%;
+}
+
+.aw-popup-contentContainer .aw-workinstr-documentGallerySliderPanel .aw-widgets-horizontalListThumbnailImage {
+    padding-bottom: 0;
+}
+
+.aw-workinstr-documentGalleryContentPanelNoSlider,
+.aw-workinstr-documentGalleryContentPanel {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+.aw-workinstr-documentGalleryContentPanel {
+    bottom: 14%;
+}
+
+.aw-workinstr-documentGalleryContentPanelNoSlider {
+    bottom: 0;
+}
+
+.aw-workinstr-imageStyle {
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.aw-workinstr-imageNarrowStyle {
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.aw-workinstr-partsTableScroll {
+    overflow: auto;
+}
+
+.aw-workinstr-fileLinkStyle {
+    text-decoration: underline;
+}
+
+.aw-workinstr-fileLinkStyle:hover {
+    cursor: pointer;
+}
+
+.aw-workinstr-msgStyle {
+    font-size: $fontsize_x_large;
+    text-align: center;
+}
+
+.aw-workinstr-overviewPanelHeader {
+    padding: 0;
+    width: 100%;
+}
+
+.aw-workinstr-overviewPanelBody {
+    height: 93%;
+    position: relative;
+}
+
+.aw-workinstr-workInstructionStyle {
+    font-size: $fontsize_large;
+    margin: 20px;
+}
+
+.aw-workinstr-overviewPanelContent,
+.aw-workinstr-overviewPanelSectionContent,
+.aw-workinstr-travelerContent,
+.aw-workinst-overviewPanelSection {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.aw-workinstr-overviewPanelContent .aw-commands-commandBarPanel {
+    text-align: right;
+}
+
+.aw-workinstr-breadCrumb {
+    height: 25px;
+}
+
+.aw-workinstr-headerPropertiesWrapper,
+.aw-workinstr-tabLayoutContentContainer,
+.aw-workinstr-tabLayoutTabContentContainer,
+.aw-workinstr-tabContentContainer {
+    box-sizing: border-box;
+    border: 1px solid;
+}
+
+.aw-workinstr-tabContainer {
+    margin-top: 9px;
+    display: inline-block;
+    width: 100%;
+}
+
+.aw-workinstr-declarativeCommandsBar {
+    width: fit-content;
+}
+
+/*======================= Overview panel styling ===========================*/
+
+.aw-workinstr-overviewGraphNodePropertyText {
+    font-size: $fontsize_large;
+}
+.aw-workinstr-overviewGraphNode{
+    fill: transparent;
+}
+
+.aw-workinstr-overviewCommandBar {
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+}
+
+.aw-workinstr-overviewCommandBar button {
+    width: 130px;
+    height: 40px;
+    position: relative;
+    display: block;
+    margin: 0 10px 0 0;
+    border: 1px solid;
+}
+
+.aw-workinstr-overviewCommandBar button.aw-workinstr-activeButton:hover {
+    cursor: default;
+}
+
+.aw-workinstr-overviewCommandBar aw-icon {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.aw-workinstr-overviewCommandBar svg {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.aw-workinstr-overviewCommandBar aw-i18n {
+    position: absolute;
+    left: 40px;
+    bottom: 10px;
+    font-size: $fontsize_large;
+}
+
+.aw-workinstr-overviewGraph {
+    margin-top: 15px;
+    height: calc(100% - 70px);
+    width: 100%;
+    background: none;
+}
+
+.aw-workinstr-overviewGraph .aw-graph-container {
+    overflow: hidden;
+}
+
+workinstr-overview-panel aw-splm-table {
+    height: calc(100% - 10px);
+}
+.aw-workinstr-overview-content{
+    height: inherit;
+}
+.aw-workinstr-overviewPanel{
+    height: inherit;
+}
+/*======================= Overview panel styling END ===========================*/

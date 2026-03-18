@@ -1,0 +1,15 @@
+<aw-flex-column>
+    <aw-panel-header height="6f">
+        <aw-flex-row>
+            <aw-flex-column height="fill" width="fill">
+                <aw-include name="mrmLargeHeader" sub-panel-context="subPanelContext.header"></aw-include>
+            </aw-flex-column>
+            <aw-flex-column width="4f">
+                <aw-flex-row height="4f">
+                    <aw-icon-button size="large" command="data.closeCommand"></aw-icon-button>
+                </aw-flex-row>
+            </aw-flex-column>
+        </aw-flex-row>
+    </aw-panel-header>
+    <aw-include height="fill" name="{{subPanelContext.viewName}}"></aw-include>
+</aw-flex-column>

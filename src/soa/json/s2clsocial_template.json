@@ -1,0 +1,2082 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "tc9000.1.2",
+      "description": "Interface Name for Business Object S2clAnswer",
+      "libraryName": "S2clExtensions",
+      "name": "S2clAnswer",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "S2clAnswer"
+    },
+    {
+      "createRelease": "tc9000.1.2",
+      "description": "Interface Name for Business Object S2clCommentary",
+      "libraryName": "S2clExtensions",
+      "name": "S2clCommentary",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "S2clCommentary"
+    },
+    {
+      "createRelease": "tc9000.1.3",
+      "description": "Interface Name for Business Object S2clCommentaryProvider",
+      "libraryName": "S2clExtensions",
+      "name": "S2clCommentaryProvider",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "S2clCommentaryProvider"
+    },
+    {
+      "createRelease": "tc9000.1.2",
+      "description": "Interface Name for Business Object S2clQuestion",
+      "libraryName": "S2clExtensions",
+      "name": "S2clQuestion",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "S2clQuestion"
+    }
+  ],
+  "Date": "Thu Aug 30 12:31:54 AM 2018",
+  "Library": [
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        },
+        {
+          "name": "sa"
+        },
+        {
+          "name": "ae"
+        },
+        {
+          "name": "qry"
+        },
+        {
+          "name": "property"
+        },
+        {
+          "name": "constants"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Library having Custom Extensions",
+      "isThirdParty": "false",
+      "name": "S2clExtensions",
+      "namespace": "",
+      "serviceLibrary": "false"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "tc9000.1.0",
+      "description": "Operations",
+      "isThirdParty": "false",
+      "name": "S2clOperations",
+      "namespace": "",
+      "serviceLibrary": "false"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "qry"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "S2clSoaSocial",
+      "isThirdParty": "false",
+      "name": "S2clSoaSocial",
+      "namespace": "S2Cl::Soa::Services",
+      "serviceLibrary": "true"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "create comment request object",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "creates s2clcommentary object",
+      "exceptionCondition": "",
+      "id": "createComment#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::CreateCommentRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createComment",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::CreateCommentResponse#S2Cl::Soa::Services::SocialCollaboration::createComment#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::CreateCommentRequest,&",
+      "returnDescription": "returns response with comment uid",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Request from client",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "delete s2clenvelopes based on object property isread=true and  iterval defined as preference",
+      "exceptionCondition": "",
+      "id": "deleteActivities#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::ActivityStreamRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "deleteActivities",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::deleteActivities#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::ActivityStreamRequest,&",
+      "returnDescription": "deleted s2clenvelopes",
+      "useCase": ""
+    },
+    {
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "Return most trending objects in Teamcenter. Trending objects are those which have most social commentary on them",
+      "exceptionCondition": "",
+      "id": "fetchTrendingData#",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "fetchTrendingData",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchTrendingData",
+      "returnDescription": "ServiceData whose plainobjects consist of WSO which are trending in given time frame",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Get all tag names starting with this value",
+          "parameterName": "startsWith"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "Gets all the tags available in the system. Alternatively returns all tags similar to received argument",
+      "exceptionCondition": "",
+      "id": "getAllTags#const,std::string,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getAllTags",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse#S2Cl::Soa::Services::SocialCollaboration::getAllTags#const,std::string,&",
+      "returnDescription": "Returns array of strings",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Reqyest object",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "Gets tags as string associated with current object",
+      "exceptionCondition": "",
+      "id": "getTags#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getTags",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse#S2Cl::Soa::Services::SocialCollaboration::getTags#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest,&",
+      "returnDescription": "Returns TargResponse having vector of strings",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Request object",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "removes specific tags from object",
+      "exceptionCondition": "",
+      "id": "removeTags#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "removeTags",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse#S2Cl::Soa::Services::SocialCollaboration::removeTags#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest,&",
+      "returnDescription": "Returns TagResponse which holds details of operation execution",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Request object from client",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "Set notification preferences",
+      "exceptionCondition": "",
+      "id": "setNotificationPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "setNotificationPreferences",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceResponse#S2Cl::Soa::Services::SocialCollaboration::setNotificationPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceRequest,&",
+      "returnDescription": "success status",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "subscription preference request",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "sets the subscription preferences.",
+      "exceptionCondition": "",
+      "id": "setSubscriptionPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "setSubscriptionPreferences",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceResponse#S2Cl::Soa::Services::SocialCollaboration::setSubscriptionPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceRequest,&",
+      "returnDescription": "subscription pref response",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Request object",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "sets tags on received object",
+      "exceptionCondition": "",
+      "id": "setTags#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "setTags",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse#S2Cl::Soa::Services::SocialCollaboration::setTags#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest,&",
+      "returnDescription": "returns TagResponse with success or failure boolean and message",
+      "useCase": ""
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "This operation is deprecated and is no longer supported.",
+          "deprecatedRelease": "tc9000.1.3"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "Uid of object to be subscribed.",
+          "parameterName": "targetObjectUid"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "service for subsribe/unsubscribe to social events.",
+      "exceptionCondition": "",
+      "id": "subscribeToObject#const,std::string,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "subscribeToObject",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionResponse#S2Cl::Soa::Services::SocialCollaboration::subscribeToObject#const,std::string,&",
+      "returnDescription": "subscribeToObject as populated by the server in response to operation execution",
+      "useCase": ""
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "This operation is deprecated and is no longer supported.",
+          "deprecatedRelease": "tc9000.1.3"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "uid of the object to be unsubscribed.",
+          "parameterName": "targetObjectUid"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "unsubscribes the object",
+      "exceptionCondition": "",
+      "id": "unSubscribeToObject#const,std::string,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "unSubscribeToObject",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionResponse#S2Cl::Soa::Services::SocialCollaboration::unSubscribeToObject#const,std::string,&",
+      "returnDescription": "unsubscribeToObject as populated by the server in response to operation execution",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "UpdateCommentRequest object as received from the client",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "Update plaintext and or rating value attributes of a comment",
+      "exceptionCondition": "",
+      "id": "updateComment#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::UpdateCommentRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "updateComment",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::UpdateCommentResponse#S2Cl::Soa::Services::SocialCollaboration::updateComment#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::UpdateCommentRequest,&",
+      "returnDescription": "UpdateCommentResponse as populated by the server in response to operation execution",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "request arg of type DeleteCommentRequest",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "Delete a comment on a WSO",
+      "exceptionCondition": "",
+      "id": "deleteComment#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::DeleteCommentRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "deleteComment",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::DeleteCommentResponse#S2Cl::Soa::Services::SocialCollaboration::deleteComment#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::DeleteCommentRequest,&",
+      "returnDescription": "Delete comment operaiton response",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "request from client",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "fetch s2clenvelopes on uid provided by client",
+      "exceptionCondition": "",
+      "id": "fetchActivities#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::ActivityStreamRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "fetchActivities",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchActivities#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::ActivityStreamRequest,&",
+      "returnDescription": "s2clenvelope  objects",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Request from client",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "fetch notification preferences for logged user.",
+      "exceptionCondition": "",
+      "id": "fetchNotificationPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "fetchNotificationPreferences",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceResponse#S2Cl::Soa::Services::SocialCollaboration::fetchNotificationPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceRequest,&",
+      "returnDescription": "List of preferences according to categories",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Data used to query for an existing <b>S2clScalarRating</b> object.",
+          "parameterName": "scalarRatingRequest"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "tc9000.1.3",
+      "dependencies": "",
+      "description": "This performs a query for a <b>S2clScalarRating</b> object given a <b>WorkspaceObject</b> and <b>User</b>. If multiple <b>S2clScalarRating</b> objects are found, only the most recent is returned. Returned along with the rating object is the rating value and all the summary rating information properties for that <b>WorkspaceObject</b> to include, total ratings, average rating, total 5 star ratings, total 4 star ratings, total 3 start ratings, total 2 star ratings and total 1 star ratings.  Multiple requests for scalar rating objects based on a <b>WorkspaceObject</b> and  <b>User</b> can be requested by passing in a list of input structures.",
+      "exceptionCondition": "",
+      "id": "fetchScalarRating#const,std::vector<S2Cl::Soa::Services::_2014_11::SocialCollaboration::ScalarRatingRequest>,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "fetchScalarRating",
+      "opTemplate": "S2Cl::Soa::Services::_2014_11::SocialCollaboration::ScalarRatingResponse#S2Cl::Soa::Services::SocialCollaboration::fetchScalarRating#const,std::vector<S2Cl::Soa::Services::_2014_11::SocialCollaboration::ScalarRatingRequest>,&",
+      "returnDescription": "The <b>S2clScalarRating</b> object identified by the input parameter clientId and the summary of ratings for the <b>WorkspaceObject</b>.  Any failure will be returned with the clientId mapped to the partial errors. The following partial errors may be returned.<br /><ul><ul><li type=\"disc\">146003 The \"Social Scalar Rating\" data could not be found.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Uid of the object for which send to list is to be fetched",
+          "parameterName": "objectUid"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "ServiceData whose plainobjects consist of send to list",
+      "exceptionCondition": "",
+      "id": "fetchSendToList#const,std::string,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "fetchSendToList",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchSendToList#const,std::string,&",
+      "returnDescription": "user/group/role in send to list of the input object",
+      "useCase": ""
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "This operation is deprecated and is no longer supported.",
+          "deprecatedRelease": "tc9000.1.3"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "Uid of the object for which subscribers need to be fetched.",
+          "parameterName": "objectUid"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "fetches the subscribers associcated with the input object",
+      "exceptionCondition": "",
+      "id": "fetchSubScribers#const,std::string,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "fetchSubScribers",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchSubScribers#const,std::string,&",
+      "returnDescription": "subscribers objects associated with the input object",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "input parameter for getting auto subscription preferences.",
+          "parameterName": "request"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "returnd the list of subscription preferenses names and thier values as per associated group.",
+      "exceptionCondition": "",
+      "id": "fetchSubscriptionPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceRequest,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "fetchSubscriptionPreferences",
+      "opTemplate": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceResponse#S2Cl::Soa::Services::SocialCollaboration::fetchSubscriptionPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceRequest,&",
+      "returnDescription": "list of preferences ordered by group.",
+      "useCase": ""
+    },
+    {
+      "DeprecationInfo": [
+        {
+          "deprecatedDescription": "This operation is deprecated and is no longer supported.",
+          "deprecatedRelease": "tc9000.1.3"
+        }
+      ],
+      "ParameterInfo": [
+        {
+          "description": "Uid of the object for which subscribers need to be fetched",
+          "parameterName": "objectUid"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "ServiceData whose plain objects consist of subscriptions which can consisist of users/groups/workspace objects of the input object.",
+      "exceptionCondition": "",
+      "id": "fetchSubscriptions#const,std::string,&",
+      "interface": "S2Cl::Soa::Services::SocialCollaboration",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "fetchSubscriptions",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchSubscriptions#const,std::string,&",
+      "returnDescription": "subscription objects associated with the input object",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "MetaException": [
+        {
+          "name": "Teamcenter::Soa::Server::ServiceException"
+        }
+      ],
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::CreateCommentRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "create comment request object",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::CreateCommentResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "creates s2clcommentary object",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::CreateCommentResponse#S2Cl::Soa::Services::SocialCollaboration::createComment#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::CreateCommentRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::createComment",
+      "returnConst": "false",
+      "returnDescription": "returns response with comment uid",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::ActivityStreamRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Request from client",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "delete s2clenvelopes based on object property isread=true and  iterval defined as preference",
+      "id": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::deleteActivities#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::ActivityStreamRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::deleteActivities",
+      "returnConst": "false",
+      "returnDescription": "deleted s2clenvelopes",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "Return most trending objects in Teamcenter. Trending objects are those which have most social commentary on them",
+      "id": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchTrendingData",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::fetchTrendingData",
+      "returnConst": "false",
+      "returnDescription": "ServiceData whose plainobjects consist of WSO which are trending in given time frame",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Get all tag names starting with this value",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "startsWith"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "Gets all the tags available in the system. Alternatively returns all tags similar to received argument",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse#S2Cl::Soa::Services::SocialCollaboration::getAllTags#const,std::string,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::getAllTags",
+      "returnConst": "false",
+      "returnDescription": "Returns array of strings",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Reqyest object",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "Gets tags as string associated with current object",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse#S2Cl::Soa::Services::SocialCollaboration::getTags#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::getTags",
+      "returnConst": "false",
+      "returnDescription": "Returns TargResponse having vector of strings",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Request object",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "removes specific tags from object",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse#S2Cl::Soa::Services::SocialCollaboration::removeTags#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::removeTags",
+      "returnConst": "false",
+      "returnDescription": "Returns TagResponse which holds details of operation execution",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Request object from client",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "Set notification preferences",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceResponse#S2Cl::Soa::Services::SocialCollaboration::setNotificationPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::setNotificationPreferences",
+      "returnConst": "false",
+      "returnDescription": "success status",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "subscription preference request",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "sets the subscription preferences.",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceResponse#S2Cl::Soa::Services::SocialCollaboration::setSubscriptionPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::setSubscriptionPreferences",
+      "returnConst": "false",
+      "returnDescription": "subscription pref response",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Request object",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "sets tags on received object",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagResponse#S2Cl::Soa::Services::SocialCollaboration::setTags#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::TagRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::setTags",
+      "returnConst": "false",
+      "returnDescription": "returns TagResponse with success or failure boolean and message",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Uid of object to be subscribed.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "targetObjectUid"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "service for subsribe/unsubscribe to social events.",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionResponse#S2Cl::Soa::Services::SocialCollaboration::subscribeToObject#const,std::string,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::subscribeToObject",
+      "returnConst": "false",
+      "returnDescription": "subscribeToObject as populated by the server in response to operation execution",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "uid of the object to be unsubscribed.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "targetObjectUid"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "unsubscribes the object",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionResponse#S2Cl::Soa::Services::SocialCollaboration::unSubscribeToObject#const,std::string,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::unSubscribeToObject",
+      "returnConst": "false",
+      "returnDescription": "unsubscribeToObject as populated by the server in response to operation execution",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::UpdateCommentRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "UpdateCommentRequest object as received from the client",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::UpdateCommentResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "Update plaintext and or rating value attributes of a comment",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::UpdateCommentResponse#S2Cl::Soa::Services::SocialCollaboration::updateComment#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::UpdateCommentRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::updateComment",
+      "returnConst": "false",
+      "returnDescription": "UpdateCommentResponse as populated by the server in response to operation execution",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::DeleteCommentRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "request arg of type DeleteCommentRequest",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::DeleteCommentResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "Delete a comment on a WSO",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::DeleteCommentResponse#S2Cl::Soa::Services::SocialCollaboration::deleteComment#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::DeleteCommentRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::deleteComment",
+      "returnConst": "false",
+      "returnDescription": "Delete comment operaiton response",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::ActivityStreamRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "request from client",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "fetch s2clenvelopes on uid provided by client",
+      "id": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchActivities#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::ActivityStreamRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::fetchActivities",
+      "returnConst": "false",
+      "returnDescription": "s2clenvelope  objects",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Request from client",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "fetch notification preferences for logged user.",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceResponse#S2Cl::Soa::Services::SocialCollaboration::fetchNotificationPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::NotificationPreferenceRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::fetchNotificationPreferences",
+      "returnConst": "false",
+      "returnDescription": "List of preferences according to categories",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "S2Cl::Soa::Services::_2014_11::SocialCollaboration::ScalarRatingRequest",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Data used to query for an existing <b>S2clScalarRating</b> object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "scalarRatingRequest"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2014_11::SocialCollaboration::ScalarRatingResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.3",
+      "description": "This performs a query for a <b>S2clScalarRating</b> object given a <b>WorkspaceObject</b> and <b>User</b>. If multiple <b>S2clScalarRating</b> objects are found, only the most recent is returned. Returned along with the rating object is the rating value and all the summary rating information properties for that <b>WorkspaceObject</b> to include, total ratings, average rating, total 5 star ratings, total 4 star ratings, total 3 start ratings, total 2 star ratings and total 1 star ratings.  Multiple requests for scalar rating objects based on a <b>WorkspaceObject</b> and  <b>User</b> can be requested by passing in a list of input structures.",
+      "id": "S2Cl::Soa::Services::_2014_11::SocialCollaboration::ScalarRatingResponse#S2Cl::Soa::Services::SocialCollaboration::fetchScalarRating#const,std::vector<S2Cl::Soa::Services::_2014_11::SocialCollaboration::ScalarRatingRequest>,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::fetchScalarRating",
+      "returnConst": "false",
+      "returnDescription": "The <b>S2clScalarRating</b> object identified by the input parameter clientId and the summary of ratings for the <b>WorkspaceObject</b>.  Any failure will be returned with the clientId mapped to the partial errors. The following partial errors may be returned.<br /><ul><ul><li type=\"disc\">146003 The \"Social Scalar Rating\" data could not be found.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Uid of the object for which send to list is to be fetched",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "objectUid"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "ServiceData whose plainobjects consist of send to list",
+      "id": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchSendToList#const,std::string,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::fetchSendToList",
+      "returnConst": "false",
+      "returnDescription": "user/group/role in send to list of the input object",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Uid of the object for which subscribers need to be fetched.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "objectUid"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "fetches the subscribers associcated with the input object",
+      "id": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchSubScribers#const,std::string,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::fetchSubScribers",
+      "returnConst": "false",
+      "returnDescription": "subscribers objects associated with the input object",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceRequest",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "input parameter for getting auto subscription preferences.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "request"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "returnd the list of subscription preferenses names and thier values as per associated group.",
+      "id": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceResponse#S2Cl::Soa::Services::SocialCollaboration::fetchSubscriptionPreferences#const,S2Cl::Soa::Services::_2012_10::SocialCollaboration::SubscriptionPreferenceRequest,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::fetchSubscriptionPreferences",
+      "returnConst": "false",
+      "returnDescription": "list of preferences ordered by group.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Uid of the object for which subscribers need to be fetched",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "objectUid"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "tc9000.1.2",
+      "description": "ServiceData whose plain objects consist of subscriptions which can consisist of users/groups/workspace objects of the input object.",
+      "id": "Teamcenter::Soa::Server::ServiceData#S2Cl::Soa::Services::SocialCollaboration::fetchSubscriptions#const,std::string,&",
+      "name": "S2Cl::Soa::Services::SocialCollaboration::fetchSubscriptions",
+      "returnConst": "false",
+      "returnDescription": "subscription objects associated with the input object",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "tc9000.1.2",
+      "dependencies": "",
+      "description": "This service contains operations for creating and editing content within Social Collaboration. Operations are provided to manage comments, subscriptions, notification preferences, tags and to control subscriptions.",
+      "libraryName": "S2clSoaSocial",
+      "name": "SocialCollaboration",
+      "namespace": "S2Cl::Soa::Services",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Uid of object to be received from client",
+          "name": "objectUid"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Request object for fetchActivities/deleteActivities operation",
+      "isPublished": "true",
+      "name": "ActivityStreamRequest",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of Object category",
+          "name": "categoryName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::PreferenceInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Preferences list",
+          "name": "perferences"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Category of Object.",
+      "isPublished": "true",
+      "name": "CategoryInfo",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "A unique string supplied by the caller. This ID is used to identify return data elements and partial errors associated with this input structure.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The <b>WorkspaceObject</b> UID string.",
+          "name": "objectUid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The <b>User</b> UID string.",
+          "name": "userUid"
+        }
+      ],
+      "createRelease": "tc9000.1.3",
+      "description": "The input values needed to query a <b>S2clScalarRating</b> object.",
+      "isPublished": "true",
+      "name": "ScalarRatingRequest",
+      "namespace": "S2Cl::Soa::Services::_2014_11::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "S2Cl::Soa::Services::_2014_11::SocialCollaboration::ScalarRatingOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of scalar rating objects and associated data. This provides the client application a means of mapping the requested clientId to the rating object.",
+          "name": "results"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Standard return;includes any error information.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "tc9000.1.3",
+      "description": "List of scalar rating objects and associated data.",
+      "isPublished": "true",
+      "name": "ScalarRatingResponse",
+      "namespace": "S2Cl::Soa::Services::_2014_11::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "uid of the user for whome the sauto subscription preferences have to be fetched/set.",
+          "name": "userUid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::CategoryInfo"
+            }
+          ],
+          "description": "categoru info",
+          "name": "categories"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Subscription preference request to fetch or set subscription preference operation.",
+      "isPublished": "true",
+      "name": "SubscriptionPreferenceRequest",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "denotes the operation is successful or not.",
+          "name": "isSuccess"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "success/failure message string from server.",
+          "name": "message"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::CategoryInfo"
+            }
+          ],
+          "description": "category info",
+          "name": "categories"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Server Responce for subscription preference  operations",
+      "isPublished": "true",
+      "name": "SubscriptionPreferenceResponse",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "denotes success if true else failure.",
+          "name": "success"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Response from server.",
+          "name": "message"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Response of subscribe service",
+      "isPublished": "true",
+      "name": "SubscriptionResponse",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "vector of tag names as string",
+          "name": "tagNames"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Uid of object on which tags need to be fetched or applied or removed",
+          "name": "objectUid"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Request object for all tagging related operations",
+      "isPublished": "true",
+      "name": "TagRequest",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "vector of tag names as string",
+          "name": "tagNames"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "true indicating opeartion success and false indicating failure",
+          "name": "success"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Operation execution message string",
+          "name": "msg"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Response object for all tag related operations",
+      "isPublished": "true",
+      "name": "TagResponse",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "UID of the commentary object which needs to be udpated",
+          "name": "commentObjectUid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::AttributesNameValue"
+            }
+          ],
+          "description": "Attribute names versus values which need to be updated on object identified by received comment object uid ob",
+          "name": "attrNameValueMap"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Request object for UpdateComment operation",
+      "isPublished": "true",
+      "name": "UpdateCommentRequest",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "Indicates whether operation was successful or not where true indicates successful update",
+          "name": "success"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Optional message as returned by the server on execution of operation",
+          "name": "msg"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Response object from UpdateComment operation",
+      "isPublished": "true",
+      "name": "UpdateCommentResponse",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "comment plain text as entered by user",
+          "name": "plainText"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "uid of the contextual object on which add comment button is clicked",
+          "name": "targetObjectUid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Integer value of rating",
+          "name": "ratingValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Business Object Type of comment to be created. It should be one of following : S2clCommentary, S2clQuestion, S2clAnswer, S2clScalarRating, S2clToggleRating, S2clExperience or any of derived business objects",
+          "name": "commentType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "comment rich text as entered by user",
+          "name": "richText"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Vector of string uids of context objects to be set on commentary object",
+          "name": "contextObjectUids"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "Vector of string uids of sendTo objects to be set on commentary object",
+          "name": "sendToObjectUids"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Comma Seperated tag object names.",
+          "name": "tagNameString"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Object name of the comment as specified by the user",
+          "name": "objectName"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Request object for createComment operation",
+      "isPublished": "true",
+      "name": "CreateCommentRequest",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "uid of the comment object created by createComment operation",
+          "name": "commentUid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "determines if the service request resulted in success or failure.",
+          "name": "isSuccess"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "response message from server.",
+          "name": "message"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "response from createComment operation",
+      "isPublished": "true",
+      "name": "CreateCommentResponse",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Uid of the comment object that needs to be deleted",
+          "name": "commentObjectUid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Uid of the target object whose social summary needs to be udpated",
+          "name": "targetObjectUid"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Request object for deleteComment operation",
+      "isPublished": "true",
+      "name": "DeleteCommentRequest",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "Indicates whether operation was successful or not where true indicates successful delete",
+          "name": "success"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Optional message as returned by operation",
+          "name": "msg"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Response object from deleteComment operation",
+      "isPublished": "true",
+      "name": "DeleteCommentResponse",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Uid of object from client",
+          "name": "objectUid"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::CategoryInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List od Object categories holding respective preferences",
+          "name": "categories"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Request object for fetch and set notification preferences operation.",
+      "isPublished": "true",
+      "name": "NotificationPreferenceRequest",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "Indicate if operation is successful or not",
+          "name": "success"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Server message after operatrion if finished",
+          "name": "message"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "S2Cl::Soa::Services::_2012_10::SocialCollaboration::CategoryInfo"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of category which holds respective perferences",
+          "name": "categories"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Server Responce for preference notification operations",
+      "isPublished": "true",
+      "name": "NotificationPreferenceResponse",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Preference Name",
+          "name": "prefName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "Preference Value",
+          "name": "prefValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "display name of the preference property.",
+          "name": "prefDisplayName"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Perference Name and Value pair.",
+      "isPublished": "true",
+      "name": "PreferenceInfo",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The clientId from the Rating Request input. This value is unchanged from the input, and can be used by the caller to identify this data structure with the source input data.",
+          "name": "clientId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Rating value if it exists for a <b>WorkspaceObject</b> and <b>User</b>. Set to 0 if not rated. Set to 1 to 5 if rated.",
+          "name": "ratingValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The scalar rating object if the <b>WorkspaceObject</b> has been rated by requested <b>User</b>.",
+          "name": "ratingObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "double"
+            }
+          ],
+          "description": "The average rating value of all the ratings done on a <b>WorkspaceObject</b>.",
+          "name": "averageRating"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The total ratings for a <b>WorkspaceObject</b>.",
+          "name": "totalNumberOfRatings"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The total 1 star ratings for a <b>WorkspaceObject</b>.",
+          "name": "total1StarRatings"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The total 2 star ratings for a <b>WorkspaceObject</b>.",
+          "name": "total2StarRatings"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The total 3 star ratings for a <b>WorkspaceObject</b>.",
+          "name": "total3StarRatings"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The total 4 star ratings for a <b>WorkspaceObject</b>.",
+          "name": "total4StarRatings"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The total 5 star ratings for a <b>WorkspaceObject</b>.",
+          "name": "total5StarRatings"
+        }
+      ],
+      "createRelease": "tc9000.1.3",
+      "description": "The retrieved scalar rating object if it exists for the requested <b>WorkspaceObject</b> and <b>User</b>.",
+      "isPublished": "true",
+      "name": "ScalarRatingOutput",
+      "namespace": "S2Cl::Soa::Services::_2014_11::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "tc9000.1.2",
+      "description": "Holds information of attributes in terms of name and value",
+      "isPublished": "true",
+      "name": "AttributesNameValue",
+      "namespace": "S2Cl::Soa::Services::_2012_10::SocialCollaboration",
+      "scope": "S2Cl::Soa::Services::SocialCollaboration"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

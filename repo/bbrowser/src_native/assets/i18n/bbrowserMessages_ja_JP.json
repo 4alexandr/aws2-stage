@@ -1,0 +1,16 @@
+{
+    "LoadButton": "Briefcaseをロード",
+    "loadstatus": "ロードしています...",
+    "compare": "コンテンツを比較",
+    "locationClickViewerHeaderTitle": "ビューア",
+    "locationOneClickViewerSubTitle": "ビューア",
+    "pickTOSPanel": "ブリーフケースをプレビュー",
+    "pickTOSPanelCompare": "ブリーフケースを比較",
+    "transferOptionSet": "トランスファオプションセットを選択",
+    "tosPanelSourceBCZ": "ソースブリーフケース",
+    "tosPanelTargetBCZ": "ターゲットブリーフケース",
+    "tosSourceLabel": "適用されたソーストランスファオプションセット",
+    "tosTargetLabel": "適用されたターゲットトランスファオプションセット",
+    "bbrowserCompareViewerDesc": "ブリーフケースファイル間の差異を表示します。",
+    "bbrowserOneClickViewerDesc": "ブリーフケースファイルのコンテンツを、インポートする前にレビューします。"
+}

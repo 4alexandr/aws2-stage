@@ -1,0 +1,114 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-panel-footer.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-xrt.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-button.directive",
+        "js/aw-form.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive"
+    ],
+
+    "actions": 
+    {
+       "initiateRelateOperation": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2008-06-DataManagement",
+            "method": "createObjects",
+            "inputData": 
+            {
+                "input": "{{function:getInputForCreateObjectSOA}}"
+            },
+
+            "outputData": 
+            {
+                "createdObjectUid": "output[0].objects[0].uid",
+                "createdObject": "output[0].objects[0]"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": 
+                        {
+                            "relatedModified": 
+                            [
+                                "{{ctx.selected}}"
+                            ],
+
+                            "refreshLocationFlag": true
+                        }
+                    },
+
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+
+            "deps": "js/Mtw0ShowAddObjectService"
+        },
+     "closePanel": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "functions": 
+    {
+        "getInputForCreateObjectSOA": 
+        {
+            "functionName": "getInputForCreateObjectSOA",
+            "parameters": 
+            [
+                "{{data}}",
+                "{{ctx}}"
+            ]
+        }
+    },
+     "data": 
+    {
+       
+    },
+    "onEvent": 
+    [
+        
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closePanel"
+        }
+    ],
+
+    "i18n": 
+    {
+        "addButtonTitle": ["MaterialMgmtMessages"],
+        "addLabel": ["MaterialMgmtMessages"],
+        "addPropertiesLabel":["MaterialMgmtMessages"]
+    }
+}

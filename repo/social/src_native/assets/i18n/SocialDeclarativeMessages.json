@@ -1,0 +1,23 @@
+{
+    "addComment": "Comment",
+    "addQuestion": "Raise Question",
+    "addAnswer": "Post Answer",
+    "addRating": "Rate",
+    "name": "Name",
+    "postComment": "Post Comment",
+    "postQuestion": "Raise Question",
+    "postAnswer": "Post Answer",
+    "postRating": "Rate",
+    "subscriptionFailed": "\"{0}\" cannot be followed.",
+    "oneStarRating": "1 Star Rating",
+    "twoStarRating": "2 Star Rating",
+    "threeStarRating": "3 Star Rating",
+    "fourStarRating": "4 Star Rating",
+    "fiveStarRating": "5 Star Rating",
+    "allRatings": "All Ratings",
+    "reply": "Reply",
+    "S2clSCAddCommentNewDesc": "Post a comment about an object.",
+    "S2clSCAddQuestionNewDesc": "Raise a question about an object.",
+    "S2clSCAddAnswerNewDesc": "Reply to a question about an object.",
+    "S2clSCAddRatingNewDesc": "Add your rating to an object."
+}

@@ -1,0 +1,17 @@
+{
+    "InvalidObjectsForAlignment": "L'operazione di allineamento non è stata eseguita. Selezionare un progetto e una parte.",
+    "InvalidPartForAlignment": "L'operazione di allineamento non è stata eseguita perché \"{0}\" non è di tipo Parte. Selezionare un progetto e una parte.",
+    "InvalidDesignForAlignment": "L'operazione di allineamento non è stata eseguita perché \"{0}\" non è di tipo Progetto. Selezionare un progetto e una parte.",
+    "SingleDesignPartUnAlignmentConfirmation": "L'allineamento di \"{0}\" rispetto a \"{1}\" verrà annullato.",
+    "MultipleDesignsSinglePartUnAlignmentConfirmation": "\"{0}\" progetti verranno disallineati rispetto a \"{1}\".",
+    "SingleDesignMultiplePartsUnAlignmentConfirmation": "L'allineamento di \"{0}\" rispetto a \"{1}\" parti verrà annullato.",
+    "SingleDesignUnAlignmentConfirmation": "L'allineamento di \"{0}\" rispetto a tutte le parti allineate verrà annullato.",
+    "MultipleDesignsUnAlignmentConfirmation": "\"{0}\" progetti verranno disallineati rispetto a tutte le parti allineate.",
+    "SinglePartUnAlignmentConfirmation": "Tutti i progetti allineati verranno disallineati rispetto a \"{0}\".",
+    "MultiplePartsUnAlignmentConfirmation": "Tutti i progetti allineati verranno disallineati rispetto a \"{0}\" parti.",
+    "BackgroundAlignmentCheckNotification": "È in corso la verifica dell'allineamento. Si riceverà una notifica al completamento dell'operazione.",
+    "InvalidPartEBOMForAlignment":"Impossibile aprire \"{0}\" perché non è di tipo Parte.",
+    "InvalidDesignDBOMForAlignment":"Impossibile aprire \"{0}\" perché non è di tipo Progetto."
+
+}
+    

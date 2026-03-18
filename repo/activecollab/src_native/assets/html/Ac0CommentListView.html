@@ -1,0 +1,57 @@
+<aw-panel-body>
+    <aw-include name="Ac0CommentList" exist-when="data.loadMoreComments" sub-panel-context="subPanelContext"></aw-include>
+    <aw-flex-row justify="left">
+        <aw-flex-column width="9f">
+            <aw-button action="loadMore" button-type="chromeless" visible-when="!data.hideMoreRepliesButton && data.moreCommentsAvailable">{{data.loadMoreButton}}</aw-button>
+        </aw-flex-column>
+    </aw-flex-row>
+    <aw-list dataprovider="data.dataProviders.commentsDataProvider" class="aw-activecollab-nonIndentedList">
+        <aw-flex-column justify="center">
+            <aw-flex-row justify="left" align-content="start">
+                <aw-flex-column width="5f">
+                    <aw-avatar size="small" source="item.thumbnailUrl" exist-when="item.hasThumbnail"></aw-avatar>
+                    <aw-avatar size="small" source="item.typeIconURL" exist-when="!item.hasThumbnail"></aw-avatar>
+                </aw-flex-column>
+                <aw-flex-column>
+                    <aw-flex-row class="aw-widgets-propertyNonEditValue" justify="space-between" height="1.5f" class="aw-activecollab-convCreds">
+                        <aw-flex-column width="6" class="aw-activecollab-userBold">
+                            {{item.props.userName.displayValues[0]}}
+                        </aw-flex-column>
+                        <aw-flex-column width="4" align-content="end">
+                            {{item.props.modifiedDateTime.displayValues[0]}}
+                        </aw-flex-column>
+                    </aw-flex-row>
+                    <aw-flex-row>
+                        <div aw-parse-html="" display-val="item.props.richTextObject.curtailRichText" is-rich-text="true" visible-when="item.props.richTextObject && item.props.richTextObject.curtailRichText.length > 0 && item.showMore"></div>
+                        <div aw-parse-html="" display-val="item.props.richText.displayValues[0]" is-rich-text="true" visible-when="item.props.richText.displayValues[0] && item.props.richText.displayValues[0].length > 0 && !item.showMore"></div>
+                        <div visible-when="!item.props.richText.displayValues[0] && item.showMore">
+                            {{item.props.plainTextObject.curtailPlainText}}
+                        </div>
+                        <div visible-when="!item.props.richText.displayValues[0] && !item.showMore">
+                            {{item.props.plainText.displayValues[0]}}
+                        </div>
+                    </aw-flex-row>
+                    <aw-flex-row height="1.5f">
+                        <aw-link prop="item.moreLink" action="noop" aw-click="item.doShowMore(item)" visible-when="item.showMoreLink"></aw-link>
+                        <aw-link prop="item.lessLink" action="noop" aw-click="item.doShowLess(item)" visible-when="item.showLessLink"></aw-link>
+                    </aw-flex-row>
+                </aw-flex-column>
+            </aw-flex-row>
+        </aw-flex-column>
+        <div class="aw-activecollab-convSeparator aw-theme-separator"></div>
+    </aw-list>
+    <div visible-when="!data.hideReplyBox">
+        <aw-flex-row>
+            <aw-textbox prop="data.replyPlaceHolder" aw-enter-key="reply"></aw-textbox>
+        </aw-flex-row>
+        <aw-flex-row align-content="end" justify="right">
+            <aw-flex-column width="3">
+                <aw-button action="invokeAdvanced" button-type="chromeless">{{data.advancedButton}}</aw-button>
+            </aw-flex-column>
+            <aw-flex-column width="3">
+                <aw-button action="reply">{{data.replyButton}}</aw-button>
+            </aw-flex-column>
+        </aw-flex-row>
+        <div class="aw-activecollab-convSeparator aw-theme-separator"></div>
+    </div>
+</aw-panel-body>

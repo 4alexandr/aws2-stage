@@ -1,0 +1,96 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+$font_weight_400: 400;
+
+/*========================================================================*/
+/*===========================MFE Manage Work Package  ==========================*/
+/*========================================================================*/
+
+.aw-mfe-manageWpXRT {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.aw-mfe-manageWpXrtContainer .aw-xrt-separator {
+    margin: 10px 0 10px 0;
+    padding-bottom:0;
+}
+
+.aw-manageTile-title {
+    font-size: $fontsize_large;
+    font-weight: $bold_font_weight;
+}
+
+.aw-mfe-manageTilePlaceHolderCmdIconLabelContainer {
+    display: inline-flex;
+
+    .aw-commands-svg {
+        height: 24px;
+        width: 24px;
+        display: inline-flex;
+    }
+}
+
+.aw-mfe-manageTilePlaceHolderCommandsLabel {
+    margin-left: 10px;
+    margin-top: 4px;
+    font-size: $fontsize_normal;
+    font-weight: $font_weight_400;
+}
+
+.aw-mfe-manageTilePlaceHolder {
+    border-top-width: 0;
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+    border-bottom-style: dashed;
+    border-right-style: dashed;
+    border-left-style: dashed;
+    height: 80px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.aw-mfe-manageTilePlaceHolderDisabled {
+    border-top-width: 0;
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+    border-bottom-style: dashed;
+    border-right-style: dashed;
+    border-left-style: dashed;
+    height: 80px;
+}
+
+.aw-mfe-manageWpTileContainer,
+.aw-mfe-manageWpTileReVRuleContainer {
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+}
+
+.aw-mfe-manageWpTileRevRuleContent {
+    margin-left: 10px;
+}
+
+.aw-mfe-manageTileContent {
+    width: 15em;
+}
+
+.aw-mfe-manageCmdMenuIcon {
+    width: 25px;
+    height: 25px;
+    padding-right: 8px;
+}
+
+.aw-mfe-manageCmdMenuIconText {
+    margin-top: 5px;
+    font-weight: $font_weight_400;
+    font-size: $fontsize_normal;
+}

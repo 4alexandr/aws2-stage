@@ -1,0 +1,98 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-add.directive"
+    ],
+    "actions": {
+        "createRelationForPaletteOrSearch":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "createRelations",
+            "inputData":{
+                "input": "{{function:getCreateRelationInputForPlanLevelEvents}}"
+            },
+            "deps": "js/IAV1CreateTestEventService",
+            "events": {
+                "success": [
+                 {
+                    "name": "closePanel"
+                 } ,
+                 {
+                    "name": "cdm.relatedModified",
+                    "eventData": {
+                        "relatedModified": [
+                            "{{ctx.selected}}"
+                        ],
+                        "refreshLocationFlag": true
+                    }
+                }
+             ]
+            }
+        },
+        "closePanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                 "events":
+                 [
+                     {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+
+                 ]
+            }
+        }
+},
+    "functions": {
+    "getCreateRelationInputForPlanLevelEvents": {
+        "functionName": "getCreateRelationInputForPlanLevelEvents",
+        "parameters":
+        [
+            "{{data}}"
+        ]
+     }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "closePanel",
+            "action": "closePanel"
+        }
+    ],
+    "conditions":
+    {
+
+    "isPalatteTabSelection": {
+        "expression": "data.selectedTab.panelId==='paletteTabPageSub' && ( conditions.isClipboardObject || conditions.isFavoriteObject || conditions.isRecentObject )"
+    },
+    "isSearchTabSelection": {
+        "expression": "data.selectedTab.panelId!='paletteTabPageSub'"
+    },
+    "isClipboardObject": {
+        "expression": "ctx.getClipboardProvider && ctx.getClipboardProvider.selectedObjects.length > 0"
+    },
+    "isFavoriteObject": {
+        "expression": "ctx.getFavoriteProvider && ctx.getFavoriteProvider.selectedObjects.length > 0"
+    },
+    "isRecentObject": {
+        "expression": "ctx.getRecentObjsProvider && ctx.getRecentObjsProvider.selectedObjects.length > 0"
+    }
+
+    },
+    "i18n": {
+        "Add": [
+            "verificationMgmtmMessages"
+        ]
+    }
+}

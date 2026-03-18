@@ -1,0 +1,1551 @@
+{
+  "name": "iavverificationmanagement",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "themeExtensions": [
+    "colorChartTheme"
+  ],
+  "aliasRegistry": {
+    "typeTestRequestRevision48": [
+      "IAV0TestRequestRevision"
+    ],
+    "typeSimulationRequestRevision48": [
+      "IAV0SimulRequestRevision"
+    ],
+    "typeVerificationRequirementRevision48": [
+      "IAV0VerifReqmtRevision"
+    ],
+    "typeTestProcedureRevision48": [
+      "IAV0TestProcedurRevision"
+    ],
+    "typeTestEvent48": [
+      "IAV0TestEventRevision"
+    ],
+    "typeAnalysisModelRevision48": [
+      "IAV0AnaModelRevision"
+    ],
+    "typeTestArticleRevision48": [
+      "IAV0TestArticleRevision"
+    ],
+    "typeCalibrationDataRevision48": [
+      "IAV0CalibDataRevision"
+    ],
+    "typeInspectionRequirementRevision48": [
+      "IAV0InspectReqmtRevision"
+    ],
+    "typePhysicalPartRevision48": [
+      "IAV0PhysicalPartRevision"
+    ],
+    "typeMeasurementRequirementRevision48": [
+      "IAV0MeasureReqmtRevision"
+    ],
+    "typeRequestExecutionInfo48": [
+      "IAV0ReqExeInfo"
+    ],
+    "typeTestConditionRevision48": [
+      "IAV0TestCondRevision"
+    ],
+    "typeAnalysisPart48": [
+      "IAV0AnalysisPart"
+    ],
+    "typeAnalysisPartRevision48": [
+      "IAV0AnalysisPartRevision"
+    ],
+    "typeTestArticle48": [
+      "IAV0TestArticle"
+    ],
+    "typeTestPart48": [
+      "IAV0TestPart"
+    ],
+    "typeTestPartRevision48": [
+      "IAV0TestPartRevision"
+    ],
+    "typeTestRequest48": [
+      "IAV0TestRequest"
+    ],
+    "typeAnalysisModel48": [
+      "IAV0AnaModel"
+    ],
+    "typeBillOfTestArticle48": [
+      "IAV0BOTArticle"
+    ],
+    "typeBillOfTestArticleRevision48": [
+      "IAV0BOTArticleRevision"
+    ],
+    "typeBillOfAnalysisModel48.": [
+      "IAV0BOAModel"
+    ],
+    "typeBillOfAnalysisModelRevision48": [
+      "IAV0BOAModelRevision"
+    ],
+    "typetypeCalibrationData48": [
+      "IAV0CalibData"
+    ],
+    "typeInspectionRequirement48": [
+      "IAV0InspectReqmt"
+    ],
+    "typeMeasurementRequirement48": [
+      "IAVMeasureReqmt"
+    ],
+    "typeTestCondition48": [
+      "IAV0TestCond"
+    ],
+    "typeAnalysisCondition48": [
+      "IAV0AnaCondition"
+    ],
+    "typeAnalysisConditionRevision48": [
+      "IAV0AnaConditionRevision"
+    ],
+    "typeTestProcedure48": [
+      "IAV0TestProcedur"
+    ],
+    "typeVerificationRequirement48": [
+      "IAV0VerifReqmt"
+    ],
+    "typeDataRequirement48": [
+      "IAV0DataReqmt"
+    ],
+    "typeDataRequirementRevision48": [
+      "IAV0DataReqmtRevision"
+    ],
+    "typeOperationalRequirement48": [
+      "IAV0OprReqmt"
+    ],
+    "typeOperationalRequirementRevision48": [
+      "IAV0OprReqmtRevision"
+    ],
+    "typeExtEquipmentRequirement48": [
+      "IAV0ExtEqpReqmt"
+    ],
+    "typeExtEquipmentRequirementRevision48": [
+      "IAV0ExtEqpReqmtRevision"
+    ],
+    "typeComponentRequirement48": [
+      "IAV0RigCompReqmt"
+    ],
+    "typeComponentRequirementRevision48": [
+      "IAV0RigCompReqmtRevision"
+    ],
+    "typeTestProcedureSteps48": [
+      "IAV0TestStep"
+    ],
+    "typeTestProcedureStepsRevision48": [
+      "IAV0TestStepRevision"
+    ],
+    "typeTestCase48": [
+      "IAV0TestCase"
+    ],
+    "typeTestCaseRevision48": [
+      "IAV0TestCaseRevision"
+    ],
+    "typePhysicalTestRequest48": [
+      "IAV0TestStudyRevision"
+    ],
+    "typePhysicalTestEvent48": [
+      "IAV0TestRunRevision"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "IAV1CreateTestEvent": {
+        "iconId": "cmdPorts",
+        "title": "{{i18n.TestEventCreatePanelTitle}}"
+      },
+      "IAV1AddBOM": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.AddBOMTitle}}"
+      },
+      "IAV1AddTestProcedurePredecessor": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.Add}}"
+      },
+      "IAV1AddPlanLevelEvents": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.Add}}"
+      },
+      "IAV1SetPin": {
+        "iconId": "cmdPin",
+        "isGroup": false,
+        "title": "{{i18n.iav1PinButtonToolTip}}"
+      },
+      "IAV1SetUnPin": {
+        "iconId": "cmdUnpin",
+        "isGroup": false,
+        "title": "{{i18n.iav1UnpinButtonToolTip}}"
+      },
+      "IAV1AssociateCalibInfo": {
+        "iconId": "cmdCreateTraceLink",
+        "isGroup": false,
+        "title": "{{i18n.AssociateCalibInfoPanelTitle}}"
+      },
+      "IAV1AddForStartItemListCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.Add}}"
+      },
+      "IAV1PasteInStartItemCmd": {
+        "iconId": "cmdPaste",
+        "isGroup": false,
+        "title": "{{i18n.PasteObjects}}"
+      },
+      "IAV1AddForEndItemListCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.Add}}"
+      },
+      "IAV1PasteInEndItemsCmd": {
+        "iconId": "cmdPaste",
+        "isGroup": false,
+        "title": "{{i18n.PasteObjects}}"
+      },
+      "IAV1SyncAbsOccId": {
+        "iconId": "cmdAttach",
+        "title": "{{i18n.SyncAbsOccIdTitle}}"
+      },
+      "IAV1AddContentToTMTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTMTableAsChild": {
+        "title": "{{i18n.Child}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTMTableAsChildChild": {
+        "title": "{{i18n.Child}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTMTableAsSibling": {
+        "title": "{{i18n.Sibling}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTMTableAsSiblingSibling": {
+        "title": "{{i18n.Sibling}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTPTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTPTableAsChild": {
+        "title": "{{i18n.Child}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTPTableAsChildChild": {
+        "title": "{{i18n.Child}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTPTableAsSibling": {
+        "title": "{{i18n.Sibling}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTPTableAsSiblingSibling": {
+        "title": "{{i18n.Sibling}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTPTableGroupCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": true,
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTMTableGroupCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": true,
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToTestBOMTableGroupCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": true,
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddContentToPhysicalBOMTableGroupCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": true,
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddTestBomToTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1AddPhysicalBomToTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.Add}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1RemoveFromTestRequestForTP": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveTR}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1RemoveFromTestRequestForTM": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveTR}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1RemoveFromTestRequestForTestBom": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveTR}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1RemoveFromTestEventForTP": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveTE}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1RemoveFromTestEventForTM": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveTE}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "IAV1RemoveFromTestEventForTestBom": {
+        "iconId": "cmdRemoveFromValidationContract",
+        "title": "{{i18n.RemoveTE}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "AddToTestRequestTP": {
+        "iconId": "cmdAddToAnalysisRequest",
+        "title": "{{i18n.AddToTestRequest}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "AddToTestRequestTM": {
+        "iconId": "cmdAddToAnalysisRequest",
+        "title": "{{i18n.AddToTestRequest}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "AddToTestEventTP": {
+        "iconId": "cmdAddToAnalysisRequest",
+        "title": "{{i18n.AddToTestEvent}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "AddToTestEventTM": {
+        "iconId": "cmdAddToAnalysisRequest",
+        "title": "{{i18n.AddToTestEvent}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "Iav1AddOccurrenceToTPContentTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.addFromContent}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "Iav1AddOccurrenceToTMContentTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.addFromContent}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "Iav1AddOccurrenceToTestBOMContentTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.addFromContent}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      },
+      "Iav1AddOccurrenceToPhysicalBOMContentTable": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.addFromContent}}",
+        "extendedTooltip": {
+          "view": "extendedTooltipDefault"
+        }
+      }
+    },
+    "commandHandlers": {
+      "AddToTestRequestTPCommandHandler": {
+        "id": "AddToTestRequestTP",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.AddToTestRequestTPVisibleCond"
+        }
+      },
+      "AddToTestRequestTMCommandHandler": {
+        "id": "AddToTestRequestTM",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.AddToTestRequestTMVisibleCond"
+        }
+      },
+      "AddToTestEventTPCommandHandler": {
+        "id": "AddToTestEventTP",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.AddToTestEventTPVisibleCond"
+        }
+      },
+      "AddToTestEventTMCommandHandler": {
+        "id": "AddToTestEventTM",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.AddToTestEventTMVisibleCond"
+        }
+      },
+      "AddToTestEvent1CommandHandler": {
+        "id": "AddToTestEvent1",
+        "action": "addToAR",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.AddToTestEventVisibleCond"
+        }
+      },
+      "IAV1RemoveFromTestRequestForTPCommandHandler": {
+        "id": "IAV1RemoveFromTestRequestForTP",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromTestRequestForTPVisibleCond"
+        }
+      },
+      "IAV1RemoveFromTestRequestForTMCommandHandler": {
+        "id": "IAV1RemoveFromTestRequestForTM",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromTestRequestForTMVisibleCond"
+        }
+      },
+      "IAV1RemoveFromTestRequestForTestBomCommandHandler": {
+        "id": "IAV1RemoveFromTestRequestForTestBom",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromTestRequestForTBVisibleCond"
+        }
+      },
+      "IAV1RemoveFromTestEventForTPCommandHandler": {
+        "id": "IAV1RemoveFromTestEventForTP",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromTestEventForTPVisibleCond"
+        }
+      },
+      "IAV1RemoveFromTestEventForTMCommandHandler": {
+        "id": "IAV1RemoveFromTestEventForTM",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromTestEventForTMVisibleCond"
+        }
+      },
+      "IAV1RemoveFromTestEventForTestBomCommandHandler": {
+        "id": "IAV1RemoveFromTestEventForTestBom",
+        "action": "removeFromStudyConfirmation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.removeFromTestEventForTBVisibleCond"
+        }
+      },
+      "IAV1CreateTestEventHandler": {
+        "id": "IAV1CreateTestEvent",
+        "action": "activateIAV1CreateTestEvent",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1CreateTestEventCondition"
+        }
+      },
+      "IAV1AddBOMHandler": {
+        "id": "IAV1AddBOM",
+        "action": "activateIAV1AddBOM",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "IAV1AddTestProcedurePredecessorHandler": {
+        "id": "IAV1AddTestProcedurePredecessor",
+        "action": "activateIAV1AddTestProcedurePredecessor",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "IAV1AddPlanLevelEventsHandler": {
+        "id": "IAV1AddPlanLevelEvents",
+        "action": "activateIAV1AddPlanLevelEvents",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "iav1SetPinCommandHandler": {
+        "id": "IAV1SetPin",
+        "action": "iav1SetPin",
+        "activeWhen": {
+          "condition": "conditions.isIAV1PanelUnPinned"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isIAV1PanelUnPinned"
+        }
+      },
+      "iav1SetUnPinCommandHandler": {
+        "id": "IAV1SetUnPin",
+        "action": "iav1SetUnPin",
+        "activeWhen": {
+          "condition": "conditions.isIAV1PanelPinned"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isIAV1PanelPinned"
+        }
+      },
+      "IAV1AssociateCalibInfoHandler": {
+        "id": "IAV1AssociateCalibInfo",
+        "action": "activateIAV1AssociateCalibInfoPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isAssociateCalibInfoCommandVisible"
+        }
+      },
+      "IAV1AddForStartItemListCmdHandler": {
+        "id": "IAV1AddForStartItemListCmd",
+        "action": "iav1AddForStartItemListAction",
+        "activeWhen": {
+          "condition": "conditions.isIAV1AddForStartItemListVisible"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isIAV1AddForStartItemListVisible"
+        }
+      },
+      "IAV1PasteInStartItemCmdHandler": {
+        "id": "IAV1PasteInStartItemCmd",
+        "action": "iav1PasteInStartItemAction",
+        "activeWhen": {
+          "condition": "conditions.isIAV1PasteInStartItemVisible"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isIAV1PasteInStartItemVisible"
+        }
+      },
+      "IAV1AddForEndItemListCmdHandler": {
+        "id": "IAV1AddForEndItemListCmd",
+        "action": "iav1AddForEndItemListAction",
+        "activeWhen": {
+          "condition": "conditions.isIAV1AddForEndItemListVisible"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isIAV1AddForEndItemListVisible"
+        }
+      },
+      "IAV1PasteInEndItemsCmdHandler": {
+        "id": "IAV1PasteInEndItemsCmd",
+        "action": "iav1PasteInEndItemsAction",
+        "activeWhen": {
+          "condition": "conditions.isIAV1PasteInEndItemsVisible"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isIAV1PasteInEndItemsVisible"
+        }
+      },
+      "IAV1SyncAbsOccIdHandler": {
+        "id": "IAV1SyncAbsOccId",
+        "action": "activateIAV1SyncAbsOccId",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.SyncAbsOccIdCommandVisible"
+        }
+      },
+      "IAV1AddContentToTPTableGroupCmdCommandHandler": {
+        "id": "IAV1AddContentToTPTableGroupCmd",
+        "activeWhen": true
+      },
+      "IAV1AddContentToTestBOMTableGroupCmdCommandHandler": {
+        "id": "IAV1AddContentToTestBOMTableGroupCmd",
+        "activeWhen": true
+      },
+      "IAV1AddContentToPhysicalBOMTableGroupCmdCommandHandler": {
+        "id": "IAV1AddContentToPhysicalBOMTableGroupCmd",
+        "activeWhen": true
+      },
+      "IAV1AddContentToTPTableHandler": {
+        "id": "IAV1AddContentToTPTable",
+        "action": "IAV1AddContentToTPTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentCondition"
+        }
+      },
+      "IAV1AddContentToTPTableAsChildHandler": {
+        "id": "IAV1AddContentToTPTableAsChild",
+        "action": "IAV1AddChildContentToTPTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentToTPTableAsChildCondition"
+        }
+      },
+      "IAV1AddContentToTPTableAsChildChildHandler": {
+        "id": "IAV1AddContentToTPTableAsChildChild",
+        "action": "IAV1AddChildSiblingToContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentToTableAsChildCondition"
+        }
+      },
+      "IAV1AddContentToTPTableAsSiblingHandler": {
+        "id": "IAV1AddContentToTPTableAsSibling",
+        "action": "IAV1AddContentToTPTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentToTPTableAsSiblingCondition"
+        }
+      },
+      "IAV1AddContentToTPTableAsSiblingSiblingHandler": {
+        "id": "IAV1AddContentToTPTableAsSiblingSibling",
+        "action": "IAV1AddSiblingToTPContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentToTableAsSiblingCondition"
+        }
+      },
+      "IAV1AddContentToTMTableGroupCmdCommandHandler": {
+        "id": "IAV1AddContentToTMTableGroupCmd",
+        "activeWhen": true
+      },
+      "IAV1AddContentToTMTableHandler": {
+        "id": "IAV1AddContentToTMTable",
+        "action": "IAV1AddContentToTMTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentCondition"
+        }
+      },
+      "IAV1AddContentToTMTableAsChildHandler": {
+        "id": "IAV1AddContentToTMTableAsChild",
+        "action": "IAV1AddChildContentToTMTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentToTMTableAsChildCondition"
+        }
+      },
+      "IAV1AddContentToTMTableAsChildChildHandler": {
+        "id": "IAV1AddContentToTMTableAsChildChild",
+        "action": "IAV1AddChildSiblingToContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentToTableAsChildCondition1"
+        }
+      },
+      "IAV1AddContentToTMTableAsSiblingHandler": {
+        "id": "IAV1AddContentToTMTableAsSibling",
+        "action": "IAV1AddContentToTMTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentToTMTableAsSiblingCondition"
+        }
+      },
+      "IAV1AddContentToTMTableAsSiblingSiblingHandler": {
+        "id": "IAV1AddContentToTMTableAsSiblingSibling",
+        "action": "IAV1AddSiblingToTMContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1AddContentToTableAsSiblingCondition2"
+        }
+      },
+      "IAV1AddTestBomToTableHandler": {
+        "id": "IAV1AddTestBomToTable",
+        "action": "IAV1AddTestBomToTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1IsTROpenedCondition"
+        }
+      },
+      "IAV1AddPhysicalBomToTableHandler": {
+        "id": "IAV1AddPhysicalBomToTable",
+        "action": "IAV1AddPhysicalBomToTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.IAV1IsTEOpenedCondition"
+        }
+      },
+      "Iav1AddOccurrenceToTPContentTableHandler": {
+        "id": "Iav1AddOccurrenceToTPContentTable",
+        "action": "Crt1AddOccurrenceToContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Iav1AddOccurrenceToContentTableCondition"
+        }
+      },
+      "Iav1AddOccurrenceToTMContentTableHandler": {
+        "id": "Iav1AddOccurrenceToTMContentTable",
+        "action": "Crt1AddOccurrenceToContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Iav1AddOccurrenceToContentTableCondition"
+        }
+      },
+      "Iav1AddOccurrenceToTestBOMContentTableHandler": {
+        "id": "Iav1AddOccurrenceToTestBOMContentTable",
+        "action": "Crt1AddOccurrenceToContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Iav1AddOccurrenceToContentTableCondition"
+        }
+      },
+      "Iav1AddOccurrenceToPhysicalBOMContentTableHandler": {
+        "id": "Iav1AddOccurrenceToPhysicalBOMContentTable",
+        "action": "Crt1AddOccurrenceToContentTableAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Iav1AddOccurrenceToContentTableCondition"
+        }
+      }
+    },
+    "commandPlacements": {
+      "IAV1CreateTestEventaw_toolsAndInfo": {
+        "id": "IAV1CreateTestEvent",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 100,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "IAV1AssociateCalibInfoPlacement": {
+        "id": "IAV1AssociateCalibInfo",
+        "uiAnchor": "aw_rightWall",
+        "priority": 480,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "iav1SetPinPlacement": {
+        "id": "IAV1SetPin",
+        "uiAnchor": "iav1_oneStepPinCommands",
+        "priority": 100
+      },
+      "iav1SetUnPinPlacement": {
+        "id": "IAV1SetUnPin",
+        "uiAnchor": "iav1_oneStepPinCommands",
+        "priority": 100
+      },
+      "iav1AddForStartItemListCmdPlacement": {
+        "id": "IAV1AddForStartItemListCmd",
+        "uiAnchor": "iav1_startItemListcommands",
+        "priority": 100
+      },
+      "iav1PasteInStartItemCmdPlacement": {
+        "id": "IAV1PasteInStartItemCmd",
+        "uiAnchor": "iav1_startItemListcommands",
+        "priority": 101
+      },
+      "iav1AddForEndItemListCmdPlacement": {
+        "id": "IAV1AddForEndItemListCmd",
+        "uiAnchor": "iav1_endItemListcommands",
+        "priority": 100
+      },
+      "iav1PasteInEndItemsCmdPlacement": {
+        "id": "IAV1PasteInEndItemsCmd",
+        "uiAnchor": "iav1_endItemListcommands",
+        "priority": 101
+      },
+      "IAV1SyncAbsOccIdaw_oneStep": {
+        "id": "IAV1SyncAbsOccId",
+        "uiAnchor": "aw_rightWall",
+        "priority": 100,
+        "parentGroupId": "Awp0ManageGroup"
+      },
+      "IAV1RemoveFromTestRequestForTPCmdPlacement": {
+        "id": "IAV1RemoveFromTestRequestForTP",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 100
+      },
+      "IAV1RemoveFromTestRequestForTMCmdPlacement": {
+        "id": "IAV1RemoveFromTestRequestForTM",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 100
+      },
+      "IAV1RemoveFromTestRequestForTestBomCmdPlacement": {
+        "id": "IAV1RemoveFromTestRequestForTestBom",
+        "uiAnchor": "aw_addTestAndProdBomCommandbar",
+        "priority": 100
+      },
+      "IAV1RemoveFromTestEventForTPCmdPlacement": {
+        "id": "IAV1RemoveFromTestEventForTP",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 100
+      },
+      "IAV1RemoveFromTestEventForTMCmdPlacement": {
+        "id": "IAV1RemoveFromTestEventForTM",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 100
+      },
+      "IAV1RemoveFromTestEventForTestBomCmdPlacement": {
+        "id": "IAV1RemoveFromTestEventForTestBom",
+        "uiAnchor": "aw_addPhysicalBomCommandbar",
+        "priority": 100
+      },
+      "IAV1AddContentToTPTableCmdPlacement": {
+        "id": "IAV1AddContentToTPTable",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 100,
+        "parentGroupId": "IAV1AddContentToTPTableGroupCmd"
+      },
+      "IAV1AddContentToTPTableGroupCmdPlacement": {
+        "id": "IAV1AddContentToTPTableGroupCmd",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 1
+      },
+      "IAV1AddContentToTPTableAsChildCmdPlacement": {
+        "id": "IAV1AddContentToTPTableAsChild",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 101,
+        "parentGroupId": "IAV1AddContentToTPTableGroupCmd"
+      },
+      "IAV1AddContentToTPTableAsChildChildCmdPlacement": {
+        "id": "IAV1AddContentToTPTableAsChildChild",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 101,
+        "parentGroupId": "IAV1AddContentToTPTableGroupCmd"
+      },
+      "IAV1AddContentToTPTableAsSiblingCmdPlacement": {
+        "id": "IAV1AddContentToTPTableAsSibling",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 102,
+        "parentGroupId": "IAV1AddContentToTPTableGroupCmd"
+      },
+      "IAV1AddContentToTPTableAsSiblingSiblingCmdPlacement": {
+        "id": "IAV1AddContentToTPTableAsSiblingSibling",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 102,
+        "parentGroupId": "IAV1AddContentToTPTableGroupCmd"
+      },
+      "AddToTestRequestTPCmdPlacement": {
+        "id": "AddToTestRequestTP",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 103,
+        "parentGroupId": "IAV1AddContentToTPTableGroupCmd"
+      },
+      "AddToTestRequestTMCmdPlacement": {
+        "id": "AddToTestRequestTM",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 103,
+        "parentGroupId": "IAV1AddContentToTMTableGroupCmd"
+      },
+      "AddToTestEventTPCmdPlacement": {
+        "id": "AddToTestEventTP",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 103,
+        "parentGroupId": "IAV1AddContentToTPTableGroupCmd"
+      },
+      "Iav1AddOccurrenceToTPContentTableCmdPlacement": {
+        "id": "Iav1AddOccurrenceToTMContentTable",
+        "uiAnchor": "aw_addTPContentCommandbar",
+        "priority": 104,
+        "parentGroupId": "IAV1AddContentToTPTableGroupCmd"
+      },
+      "AddToTestEventTMCmdPlacement": {
+        "id": "AddToTestEventTM",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 103,
+        "parentGroupId": "IAV1AddContentToTMTableGroupCmd"
+      },
+      "IAV1AddContentToTMTableCmdPlacement": {
+        "id": "IAV1AddContentToTMTable",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 100,
+        "parentGroupId": "IAV1AddContentToTMTableGroupCmd"
+      },
+      "IAV1AddContentToTMTableGroupCmdPlacement": {
+        "id": "IAV1AddContentToTMTableGroupCmd",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 1
+      },
+      "IAV1AddContentToTMTableAsChildCmdPlacement": {
+        "id": "IAV1AddContentToTMTableAsChild",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 101,
+        "parentGroupId": "IAV1AddContentToTMTableGroupCmd"
+      },
+      "IAV1AddContentToTMTableAsChildChildCmdPlacement": {
+        "id": "IAV1AddContentToTMTableAsChildChild",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 101,
+        "parentGroupId": "IAV1AddContentToTMTableGroupCmd"
+      },
+      "IAV1AddContentToTMTableAsSiblingCmdPlacement": {
+        "id": "IAV1AddContentToTMTableAsSibling",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 102,
+        "parentGroupId": "IAV1AddContentToTMTableGroupCmd"
+      },
+      "IAV1AddContentToTMTableAsSiblingSiblingCmdPlacement": {
+        "id": "IAV1AddContentToTMTableAsSiblingSibling",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 102,
+        "parentGroupId": "IAV1AddContentToTMTableGroupCmd"
+      },
+      "Iav1AddOccurrenceToTMContentTableCmdPlacement": {
+        "id": "Iav1AddOccurrenceToTMContentTable",
+        "uiAnchor": "aw_addTMContentCommandbar",
+        "priority": 103,
+        "parentGroupId": "IAV1AddContentToTMTableGroupCmd"
+      },
+      "IAV1AddContentToTestBOMTableGroupCmdPlacement": {
+        "id": "IAV1AddContentToTestBOMTableGroupCmd",
+        "uiAnchor": "aw_addTestAndProdBomCommandbar",
+        "priority": 1
+      },
+      "IAV1AddContentToPhysicalBOMTableGroupCmdPlacement": {
+        "id": "IAV1AddContentToPhysicalBOMTableGroupCmd",
+        "uiAnchor": "aw_addPhysicalBomCommandbar",
+        "priority": 1
+      },
+      "IAV1AddTestBomToTableCmdPlacement": {
+        "id": "IAV1AddTestBomToTable",
+        "uiAnchor": "aw_addTestAndProdBomCommandbar",
+        "priority": 100,
+        "parentGroupId": "IAV1AddContentToTestBOMTableGroupCmd"
+      },
+      "Iav1AddOccurrenceToTestBOMContentTableCmdPlacement": {
+        "id": "Iav1AddOccurrenceToTestBOMContentTable",
+        "uiAnchor": "aw_addTestAndProdBomCommandbar",
+        "priority": 100,
+        "parentGroupId": "IAV1AddContentToTestBOMTableGroupCmd"
+      },
+      "IAV1AddPhysicalBomToTableCmdPlacement": {
+        "id": "IAV1AddPhysicalBomToTable",
+        "uiAnchor": "aw_addPhysicalBomCommandbar",
+        "priority": 100,
+        "parentGroupId": "IAV1AddContentToPhysicalBOMTableGroupCmd"
+      },
+      "Iav1AddOccurrenceToPhysicalBOMContentTableCmdPlacement": {
+        "id": "Iav1AddOccurrenceToPhysicalBOMContentTable",
+        "uiAnchor": "aw_addPhysicalBomCommandbar",
+        "priority": 100,
+        "parentGroupId": "IAV1AddContentToPhysicalBOMTableGroupCmd"
+      }
+    },
+    "actions": {
+      "activateIAV1AddContent1CreateTestEvent": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "IAV1CreateTestEvent",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateIAV1AddBOM": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "IAV1AddBOM",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateIAV1AddTestProcedurePredecessor": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "IAV1AddTestProcedurePredecessor",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateIAV1AddPlanLevelEvents": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "IAV1AddPlanLevelEvents",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateIAV1AssociateCalibInfoPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "IAV1AssociateCalibInfo",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "iav1SetPin": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "createTracelink.iav1SetPin",
+              "eventData": {
+                "data": "{{commandContext}}"
+              }
+            }
+          ]
+        }
+      },
+      "iav1SetUnPin": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "createTracelink.iav1SetUnPin",
+              "eventData": {
+                "data": "{{commandContext}}"
+              }
+            }
+          ]
+        }
+      },
+      "iav1AddForStartItemListAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "iav1AddForStartItemListEvent"
+            }
+          ]
+        }
+      },
+      "iav1PasteInStartItemAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "iav1PasteInStartItemEvent"
+            }
+          ]
+        }
+      },
+      "iav1AddForEndItemListAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "IAV1AddForEndItemListEvent"
+            }
+          ]
+        }
+      },
+      "iav1PasteInEndItemsAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "IAV1PasteInEndItemsEvent"
+            }
+          ]
+        }
+      },
+      "activateIAV1SyncAbsOccId": {
+        "actionType": "TcSoaService",
+        "serviceName": "Internal-VerificationManagement-2019-12-VerificationManagement",
+        "method": "syncAbsoccID",
+        "inputData": {
+          "sourceLine": "{{ctx.occmgmtContext.selectedModelObjects[0].uid}}",
+          "targetLine": "{{ctx.occmgmtContext2.selectedModelObjects[0].uid}}",
+          "syncChildrenAbsOccId": true
+        },
+        "events": {
+          "success": [
+            {
+              "name": "occTreeTable.plTable.reload"
+            },
+            {
+              "name": "occTreeTable2.plTable.reload"
+            }
+          ]
+        }
+      },
+      "IAV1AddContentToTPTableAction": {
+        "actionType": "JSFunction",
+        "method": "setCommandId",
+        "deps": "js/IAV1AddToVRService",
+        "inputData": {
+          "CommandId": "IAV1AddContentToTPTable"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "openCreatePanel"
+            }
+          ]
+        }
+      },
+      "IAV1AddChildContentToTPTableAction": {
+        "actionType": "JSFunction",
+        "method": "setCommandId",
+        "deps": "js/IAV1AddToVRService",
+        "inputData": {
+          "CommandId": "IAV1AddContentToTPTableAsChild"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "openCreatePanel"
+            }
+          ]
+        }
+      },
+      "IAV1AddContentToTMTableAction": {
+        "actionType": "JSFunction",
+        "method": "setCommandId",
+        "deps": "js/IAV1AddToVRService",
+        "inputData": {
+          "CommandId": "IAV1AddContentToTMTable"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "openCreatePanel"
+            }
+          ]
+        }
+      },
+      "IAV1AddChildContentToTMTableAction": {
+        "actionType": "JSFunction",
+        "method": "setCommandId",
+        "deps": "js/IAV1AddToVRService",
+        "inputData": {
+          "CommandId": "IAV1AddContentToTMTableAsChild"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "openCreatePanel"
+            }
+          ]
+        }
+      },
+      "IAV1AddChildSiblingToContentTableAction": {
+        "actionType": "JSFunction",
+        "method": "setCommandId",
+        "deps": "js/IAV1AddToVRService",
+        "inputData": {
+          "CommandId": "IAV1AddContentToTPTableAsChildChild"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "openCreatePanel"
+            }
+          ]
+        }
+      },
+      "IAV1AddSiblingToTPContentTableAction": {
+        "actionType": "JSFunction",
+        "method": "setCommandId",
+        "deps": "js/IAV1AddToVRService",
+        "inputData": {
+          "CommandId": "IAV1AddContentToTPTableAsSiblingSibling"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "openCreatePanel"
+            }
+          ]
+        }
+      },
+      "IAV1AddSiblingToTMContentTableAction": {
+        "actionType": "JSFunction",
+        "method": "setCommandId",
+        "deps": "js/IAV1AddToVRService",
+        "inputData": {
+          "CommandId": "IAV1AddContentToTMTableAsSiblingSibling"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "openCreatePanel"
+            }
+          ]
+        }
+      },
+      "openCreatePanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "IAV1AddToTPTMContentsTable",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "IAV1AddTestBomToTableAction": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "IAV1AddTestBOM",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "IAV1AddPhysicalBomToTableAction": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "IAV1AddPhysicalBOM",
+          "location": "aw_toolsAndInfo"
+        }
+      }
+    },
+    "onEvent": [
+      {
+        "eventId": "openCreatePanel",
+        "message": "openCreatePanel"
+      }
+    ],
+    "i18n": {
+      "RemoveTR": [
+        "verificationMgmtmMessages"
+      ],
+      "RemoveTE": [
+        "verificationMgmtmMessages"
+      ],
+      "AddToTestRequest": [
+        "verificationMgmtmMessages"
+      ],
+      "AddToTestEvent": [
+        "verificationMgmtmMessages"
+      ],
+      "TestEventCreatePanelTitle": [
+        "verificationMgmtmMessages"
+      ],
+      "AddBOMTitle": [
+        "verificationMgmtmMessages"
+      ],
+      "Add": [
+        "verificationMgmtmMessages"
+      ],
+      "Child": [
+        "verificationMgmtmMessages"
+      ],
+      "Sibling": [
+        "verificationMgmtmMessages"
+      ],
+      "AssociateCalibInfoPanelTitle": [
+        "verificationMgmtmMessages"
+      ],
+      "iav1PinButtonToolTip": [
+        "verificationMgmtmMessages"
+      ],
+      "iav1UnpinButtonToolTip": [
+        "verificationMgmtmMessages"
+      ],
+      "iav1_oneStepPinCommands": [
+        "verificationMgmtmMessages"
+      ],
+      "iav1_startItemListcommands": [
+        "verificationMgmtmMessages"
+      ],
+      "iav1_endItemListcommands": [
+        "verificationMgmtmMessages"
+      ],
+      "SyncAbsOccIdTitle": [
+        "verificationMgmtmMessages"
+      ]
+    },
+    "conditions": {
+      "IAV1CreateTestEventCondition": {
+        "expression": "ctx.occmgmtContext.openedElement.props.awb0UnderlyingObjectType.dbValues[0] === 'IAV0TestProcedurRevision' || ctx.selected.type === 'IAV0TestProcedurRevision'"
+      },
+      "isAssociateCalibInfoCommandVisible": {
+        "expression": "conditions.isSingleSelected && conditions.isTypeOfPhysicalPart"
+      },
+      "isIAV1PanelPinned": {
+        "expression": "ctx.createTraceLinkWorkSpace.isPanelPinned"
+      },
+      "isIAV1PanelUnPinned": {
+        "expression": "!ctx.createTraceLinkWorkSpace.isPanelPinned"
+      },
+      "isIAV1AddForStartItemListVisible": {
+        "expression": "commandContext.startItems.dbValue.length == 0"
+      },
+      "isIAV1PasteInStartItemVisible": {
+        "expression": "commandContext.startItems.dbValue.length == 0 && ctx.awClipBoardProvider && ctx.awClipBoardProvider.length == 1 && (ctx.awClipBoardProvider[0].modelType.typeHierarchyArray.indexOf('PhysicalPartRevision') > -1 || ctx.awClipBoardProvider[0].modelType.typeHierarchyArray.indexOf('Sam1AsMaintainedElement') > -1 )"
+      },
+      "isIAV1AddForEndItemListVisible": {
+        "expression": "commandContext.endItems.dbValue.length == 0"
+      },
+      "isIAV1PasteInEndItemsVisible": {
+        "expression": "commandContext.endItems.dbValue.length == 0 && ctx.awClipBoardProvider && ctx.awClipBoardProvider.length == 1 && ctx.awClipBoardProvider[0].modelType.typeHierarchyArray.indexOf('IAV0CalibDataRevision') > -1"
+      },
+      "isSingleSelected": {
+        "expression": "ctx.mselected && ctx.mselected.length === 1"
+      },
+      "isTypeOfPhysicalPart": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf( 'PhysicalPartRevision' ) > -1 || ctx.selected.modelType.typeHierarchyArray.indexOf( 'Sam1AsMaintainedElement' ) > -1"
+      },
+      "SyncAbsOccIdCommandVisible": {
+        "expression": "(ctx.occmgmtContext.openedElement.modelType.typeHierarchyArray.indexOf( 'Awb0ConditionalElement' ) > -1 && ctx.occmgmtContext.selectedModelObjects.length === 1)  && (ctx.occmgmtContext2.openedElement.modelType.typeHierarchyArray.indexOf( 'Awb0ConditionalElement' ) > -1 && ctx.occmgmtContext2.selectedModelObjects.length === 1)"
+      },
+      "IAV1AddCondition": {
+        "expression": "conditions.isSingleSelected === true && ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0ContractRevision' ) > -1 "
+      },
+      "IAV1AddContentCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && conditions.IAV1AddCondition === true && (ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1 ) && (ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 || ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1) "
+      },
+      "IAV1AddContentToTPTableAsChildCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddChild && conditions.IAV1TROrTEOpenedCondition && conditions.IAV1TPSelectedFromTableCondition && conditions.IAV1AddCondition === true"
+      },
+      "IAV1AddContentToTPTableAsSiblingCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddSibling && conditions.IAV1TROrTEOpenedCondition && conditions.IAV1TPSelectedFromTableCondition && conditions.IAV1AddCondition === true"
+      },
+      "IAV1AddContentToTMTableAsChildCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddChild && conditions.IAV1TROrTEOpenedCondition && conditions.IAV1TMSelectedFromTableCondition && conditions.IAV1AddCondition === true"
+      },
+      "IAV1AddContentToTMTableAsSiblingCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddSibling && conditions.IAV1TROrTEOpenedCondition && conditions.IAV1TMSelectedFromTableCondition && conditions.IAV1AddCondition === true"
+      },
+      "IAV1AddContentToTableAsChildCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddChild && ctx.TR_TPTableSelection.length > 0 && conditions.IAV1TROrTEOpenedCondition && conditions.IAV1TPOrTMNotSelectedCondition && conditions.IAV1TROrTENotSelectedCondition === true && conditions.IAV1AddCondition === true"
+      },
+      "IAV1AddContentToTableAsSiblingCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddSibling && ctx.TR_TPTableSelection.length > 0 && conditions.IAV1TROrTEOpenedCondition && conditions.IAV1TPOrTMNotSelectedCondition && conditions.IAV1TROrTENotSelectedCondition === true && conditions.IAV1AddCondition === true"
+      },
+      "IAV1AddContentToTableAsChildCondition1": {
+        "expression": "ctx.visibleServerCommands.Crt1AddChild && ctx.TR_TMTableSelection.length > 0 && conditions.IAV1TROrTEOpenedCondition && conditions.IAV1TPOrTMNotSelectedCondition && conditions.IAV1TROrTENotSelectedCondition === true && conditions.IAV1AddCondition === true"
+      },
+      "IAV1AddContentToTableAsSiblingCondition2": {
+        "expression": "ctx.visibleServerCommands.Crt1AddSibling && ctx.TR_TMTableSelection.length > 0 && conditions.IAV1TROrTEOpenedCondition && conditions.IAV1TPOrTMNotSelectedCondition && conditions.IAV1TROrTENotSelectedCondition === true && conditions.IAV1AddCondition === true"
+      },
+      "IAV1TROrTENotSelectedCondition": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) === -1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) === -1"
+      },
+      "IAV1TROrTESelectedCondition": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1"
+      },
+      "IAV1TROrTEOpenedCondition": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1"
+      },
+      "IAV1IsTROpenedCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 && conditions.IAV1IsTRSelectedCondition === true"
+      },
+      "IAV1IsTEOpenedCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1 && conditions.IAV1IsTESelectedCondition === true"
+      },
+      "IAV1IsTRSelectedCondition": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1"
+      },
+      "IAV1IsTESelectedCondition": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1"
+      },
+      "IAV1TPOrTMNotSelectedCondition": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf( 'Arm0RequirementSpecElement' ) === -1"
+      },
+      "IAV1TPSelectedFromTableCondition": {
+        "expression": "ctx.selected.props.awb0UnderlyingObjectType.dbValues[0]==='IAV0TestProcedurRevision'"
+      },
+      "IAV1TMSelectedFromTableCondition": {
+        "expression": "ctx.selected.props.awb0UnderlyingObjectType.dbValues[0]==='IAV0TestRequestRevision'"
+      },
+      "removeFromTestRequestForTPVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.TR_TPTableSelection.length > 0 && conditions.arVersionCondition && conditions.Crt1IsARInAuthoringState && conditions.Crt1IsOpnedObjModifiable && (conditions.testRequestVisiblity === true || conditions.testRequestVisiblityForInputPage === true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "removeFromTestRequestForTMVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.TR_TMTableSelection.length > 0 && conditions.arVersionCondition && conditions.Crt1IsARInAuthoringState && conditions.Crt1IsOpnedObjModifiable && (conditions.testRequestVisiblity === true || conditions.testRequestVisiblityForInputPage === true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "removeFromTestRequestForTBVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.TR_TestBOMTableSelection.length > 0 && conditions.arVersionCondition && conditions.Crt1IsARInAuthoringState && conditions.Crt1IsOpnedObjModifiable && (conditions.testRequestVisiblity === true || conditions.testRequestVisiblityForInputPage === true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "removeFromTestEventForTPVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.TR_TPTableSelection.length > 0 && conditions.arVersionCondition && conditions.Crt1IsARInAuthoringState && conditions.Crt1IsOpnedObjModifiable && (conditions.testEventVisiblity === true || conditions.testEventVisiblityForInputPage === true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "removeFromTestEventForTMVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.TR_TMTableSelection.length > 0 && conditions.arVersionCondition && conditions.Crt1IsARInAuthoringState && conditions.Crt1IsOpnedObjModifiable && (conditions.testEventVisiblity === true || conditions.testEventVisiblityForInputPage === true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "removeFromTestEventForTBVisibleCond1": {
+        "expression": "ctx.visibleServerCommands.Crt1RemoveFromVerificationRequest && ctx.TR_TestBOMTableSelection.length > 0 && conditions.arVersionCondition && conditions.Crt1IsARInAuthoringState && conditions.Crt1IsOpnedObjModifiable && (conditions.testEventVisiblity === true || conditions.testEventVisiblityForInputPage === true) && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '1'"
+      },
+      "removeFromTestRequestVisibleCond1": {
+        "expression": "conditions.arVersionCondition && (conditions.removeFromStudyFromContentTabVisibleCond===true || conditions.removeFromStudyFromInputTabVisibleCond===true) && conditions.Crt1IsARInAuthoringState === true && ctx.mselected[0].modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && (conditions.testRequestVisiblity === true || conditions.testRequestVisiblityForInputPage === true) && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Awb0Element' ) > -1"
+      },
+      "arVersionCondition11": {
+        "expression": "ctx.tcSessionData.tcMajorVersion === 11 && ctx.tcSessionData.tcMinorVersion === 2 && ctx.tcSessionData.tcQRMNumber >= 7"
+      },
+      "arVersionCondition12": {
+        "expression": "ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion >= 1"
+      },
+      "arVersionCondition13": {
+        "expression": "ctx.tcSessionData.tcMajorVersion >= 13"
+      },
+      "arVersionCondition": {
+        "expression": "conditions.arVersionCondition11 || conditions.arVersionCondition12 || conditions.arVersionCondition13"
+      },
+      "Crt1IsARInAuthoringState": {
+        "expression": "ctx.openedARObject.props.crt0State.dbValues[0] === 'Authoring' || ctx.xrtSummaryContextObject.props.crt0State.dbValues[0] === 'Authoring'"
+      },
+      "Crt1IsOpnedObjModifiable": {
+        "expression": "ctx.xrtSummaryContextObject.props.is_modifiable.dbValues[0] === '1'"
+      },
+      "testRequestVisiblity": {
+        "expression": "ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 && !(ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'Crt0RunRevision' ) > -1) && !(ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1)"
+      },
+      "testEventVisiblity": {
+        "expression": "ctx.openedARObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1 || ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1 "
+      },
+      "testRequestVisiblityForInputPage": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1 && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0RunRevision' ) > -1) && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1)"
+      },
+      "testEventVisiblityForInputPage": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestRunRevision' ) > -1 && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'IAV0TestStudyRevision' ) > -1)"
+      },
+      "AddToTestEventVisibleCond": {
+        "expression": "conditions.IAV1AddCondition === true && conditions.arVersionCondition && ctx.addToStudyVisibility!==null && ctx.addToStudyVisibility === true && conditions.Crt1IsStudyModifiableCond === true && conditions.Crt1IsARInAuthoringState === true && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && conditions.testEventVisiblity === true && conditions.isPhysicalBOMSelected === false"
+      },
+      "AddToTestRequestTPVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && ctx.TR_TPTableSelection.length > 0 && conditions.IAV1AddCondition === true && conditions.arVersionCondition && conditions.IAV1TROrTENotSelectedCondition === true && conditions.Crt1IsStudyModifiableCond === true && conditions.isPhysicalBOMSelected === false && conditions.testRequestVisiblityForInputPage === true && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '0'"
+      },
+      "AddToTestRequestTMVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && ctx.TR_TMTableSelection.length > 0 && conditions.IAV1AddCondition === true && conditions.arVersionCondition && conditions.IAV1TROrTENotSelectedCondition === true && conditions.Crt1IsStudyModifiableCond === true && conditions.isPhysicalBOMSelected === false && conditions.testRequestVisiblityForInputPage === true && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '0'"
+      },
+      "AddToTestEventTPVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && ctx.TR_TPTableSelection.length > 0 && conditions.IAV1AddCondition === true && conditions.arVersionCondition && conditions.IAV1TROrTENotSelectedCondition === true && conditions.Crt1IsStudyModifiableCond === true && conditions.isPhysicalBOMSelected === false && conditions.testEventVisiblityForInputPage === true && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '0'"
+      },
+      "AddToTestEventTMVisibleCond": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && ctx.TR_TMTableSelection.length > 0 && conditions.IAV1AddCondition === true && conditions.arVersionCondition && conditions.IAV1TROrTENotSelectedCondition === true && conditions.Crt1IsStudyModifiableCond === true && conditions.isPhysicalBOMSelected === false && conditions.testEventVisiblityForInputPage === true && ctx.selected.modelType.typeHierarchyArray.indexOf('Awb0Interface') < 0 && ctx.selected.props.crt1AddedToAnalysisRequest.dbValues[0] === '0'"
+      },
+      "Crt1IsStudyModifiableCond": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'Crt0StudyRevision' ) > -1 && ctx.xrtSummaryContextObject.props.is_modifiable.dbValues[0] === '1' && ctx.xrtSummaryContextObject.props.crt0State.dbValues[0] === 'Authoring'"
+      },
+      "isPhysicalBOMSelected": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Sam1AsMaintainedElement') > -1"
+      },
+      "Iav1AddOccurrenceToContentTableCondition": {
+        "expression": "ctx.visibleServerCommands.Crt1AddToVerificationRequest && ctx.xrtSummaryContextObject.props.crt0Domain.dbValue !== null && (conditions.IAV1VRSelectedOrOpenedCondition === true || (conditions.IAV1TROrTESelectedCondition === true && conditions.IAV1TROrTEOpenedCondition === true))"
+      }
+    }
+  },
+  "decorators": {
+    "treeTableColorDecorator": {
+      "cellClassName": "aw-border-chartColor1",
+      "gridClassName": "aw-charts-chartColor1",
+      "subLocationName": "com.siemens.splm.clientfx.tcui.xrt.showObjectSubLocation",
+      "modelTypes": [
+        "Crt1VRContentProxy"
+      ],
+      "method": "isElementAddedToTR",
+      "deps": "js/IAV1ContentsTPTableService"
+    }
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "IAV0CalibDataRevision": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "item_revision_id"
+          },
+          {
+            "name": "item_id"
+          },
+          {
+            "name": "items_tag",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "Arm0RequirementSpecElement": {
+        "additionalProperties": [
+          {
+            "name": "awb0UnderlyingObjectType"
+          }
+        ]
+      },
+      "Arm0RequirementElement": {
+        "additionalProperties": [
+          {
+            "name": "awb0UnderlyingObjectType"
+          }
+        ]
+      },
+      "Awb0DesignElement": {
+        "additionalProperties": [
+          {
+            "name": "awb0UnderlyingObjectType"
+          }
+        ]
+      },
+      "Att1AttributeAlignmentProxy": {
+        "additionalProperties": [
+          {
+            "name": "att1Result"
+          },
+          {
+            "name": "att1ContextObject"
+          },
+          {
+            "name": "att1AttrInOut"
+          }
+        ]
+      },
+      "Crt0VldnContractRevision": {
+        "additionalProperties": [
+          {
+            "name": "crt0ChildrenStudies"
+          }
+        ]
+      }
+    }
+  }
+}

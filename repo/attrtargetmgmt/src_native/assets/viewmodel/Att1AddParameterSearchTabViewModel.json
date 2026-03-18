@@ -1,0 +1,284 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-search-box.directive",
+        "js/aw-tab-set.directive",
+        "js/visible-when.directive",
+        "js/aw-break.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-i18n.directive",
+        "js/aw-button.directive",
+        "js/aw-panel-footer.directive"
+    ],
+
+    "actions":
+    {
+        "search":
+        {
+            "actionType": "JSFunction",
+            "method": "findSubBusinessObjectsAndInvokeSearch",
+            "inputData": {
+                "input": "{{data}}"
+            },
+            "deps": "js/addObjectUtils"
+        },
+        "attachParameterSoaCall": {
+            "actionType": "TcSoaService",
+            "serviceName": "AttrTargetMgmtAW-2017-06-AttributeTargetManagement",
+            "method": "attachMeasurableAttributes",
+            "inputData": {
+                "inputs": "{{data.attachParameterSoaInput}}"
+            },
+            "outputData": {
+                "attachMeasurableAttributesSoaOutput": ""
+            },
+            "events": {
+                "success": [ {
+                        "name": "att1AddParameter.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": false
+                        }
+                    },
+                    {
+                        "name": "AttachParameter.refreshParameterTableAfterAttach"
+                    }
+
+                ],
+                "failure": [ {
+                        "name": "att1AddParameter.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": false
+                        }
+                    },
+                    {
+                        "name": "AttachParameter.refreshParameterTableAfterAttach"
+                    },
+                    {
+                        "name": "AttachParameter.AttachParameterFailure",
+                        "eventData": {
+                            "errorCode": "{{data.attachMeasurableAttributesSoaOutput.ServiceData.partialErrors}}",
+                            "selectedParameterUid" :  "{{data.dataProviders.performSearch.selectedObjects}}"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "condition": "ctx.ignoreAttachParamPartialError && ( errorCode.code==515106 || errorCode.code==185041 || errorCode.code==185433 )",
+                    "message": ""
+                },
+                {
+                    "message": "attachParamFailure"
+                } ]
+            }
+        },
+        "startGetSoaInputDataForAddParamAsCopy":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "att1AddParameter.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": true
+                        }
+                    },
+                    {
+                        "name": "att1AddParameterWithSearch.getSoaInputDataForAddParamAsCopy"
+                    }
+                ]
+            }
+        },
+        "getSoaInputDataForAddParamAsCopy": {
+            "actionType": "JSFunction",
+            "method": "addParameterAsCopy",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "displayIgnoredAttributeMsg": {
+            "actionType": "JSFunction",
+            "method": "displayIgnoredAttributeMsg",
+            "deps": "js/addMeasurableAttr",
+            "inputData": {
+                "messages": "{{data.i18n}}",
+                "ignoredAttributes": "{{ctx.ignoredOverriddenParams}}"
+            }
+        },
+        "startGetSoaInput":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "att1AddParameter.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": true
+                        }
+                    },
+                    {
+                        "name": "att1AddParameterWithSearch.getSoaInputData"
+                    }
+                ]
+            }
+        },
+        "getSoaInputData": {
+            "actionType": "JSFunction",
+            "method": "getAttachParameterSoaInput",
+            "inputData": {
+                "parentObjForPaste": "{{ctx.selected}}",
+                "attributes": "{{data.dataProviders.performSearch.selectedObjects}}",
+                "data":"{{data}}"
+            },
+            "outputData": {
+                "attachParameterSoaInput": ""
+            },
+            "events": {
+                "success": [ {
+                    "name": "attachParameterSoaCall"
+                } ]
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "refreshParameterTableAfterAttach":{
+            "actionType": "JSFunction",
+            "method": "refreshParameterTable",
+            "inputData": {
+                "attachMeasurableAttributesSoaOutput": "{{data.attachMeasurableAttributesSoaOutput}}",
+                "source":"attachParameter"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/Att1ParameterMgmtUtilService"
+        },
+        "setItemEventProgressing":{
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "name": "addItemEventProgressing",
+                "value": "{{data.eventMap['att1AddParameter.setItemEventProgressing'].valueToSet}}"
+            },
+            "deps": "js/appCtxService"
+        }
+    },
+
+  "data":
+    {
+        "typeFilter":"Att0MeasurableAttribute",
+        "searchBox":
+        {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "true"
+        },
+
+        "addObjectSearchTabsModel":
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "tabKey": "results",
+                    "panelId": "resultsTabPageSub",
+                    "name": "{{i18n.resultsTabTitle}}"
+                },
+
+                {
+                    "tabKey": "filters",
+                    "panelId": "filtersTabPageSub",
+                    "name": "{{i18n.filterTabTitle}}"
+                }
+            ]
+        },
+
+        "keyWord":
+        {
+            "displayName": "Keywords",
+            "type": "STRING",
+            "isEditable": "false",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP",
+            "dispValue": "{{ctx.KeyWordsString}}"
+        },
+        "showSearchFilter" :"false"
+    },
+
+    "functions":
+    {
+
+    },
+
+    "onEvent": [
+        {
+            "eventId": "att1AddParameter.setItemEventProgressing",
+            "cacheEventData": true,
+            "action": "setItemEventProgressing"
+        },
+        {
+            "eventId":"att1AddParameterWithSearch.getSoaInputData",
+            "action":"getSoaInputData"
+        },
+        {
+            "eventId":"att1AddParameterWithSearch.getSoaInputDataForAddParamAsCopy",
+            "action":"getSoaInputDataForAddParamAsCopy"
+        },
+        {
+            "eventId": "attachParameterSoaCall",
+            "action": "attachParameterSoaCall"
+        },
+        {
+            "eventId":"AttachParameter.refreshParameterTableAfterAttach",
+            "cacheEventData": true,
+            "action":"refreshParameterTableAfterAttach"
+        },
+        {
+            "eventId": "att1AddParameterAsCopy",
+            "cacheEventData": true,
+            "action": "getSoaInputData"
+        }
+
+    ],
+    "messages": {
+        "attachParamFailure":{
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    },
+    "conditions":
+    {
+        "showSearchFilterPanel":
+        {
+            "expression": "data.showSearchFilter != undefined && data.showSearchFilter == true"
+        },
+        "showAdd":
+        {
+            "expression": "data.dataProviders.performSearch.selectedObjects.length > 0"
+        },
+        "isSearchTab":
+        {
+            "expression": "data.selectedTab.tabKey==='results' && data.selectedTab.panelId==='resultsTabPageSub'"
+        },
+        "isTcReleaseAtLeast122": {
+            "expression": "ctx.tcSessionData.tcMajorVersion > 12 || ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion >= 2"
+        }
+    },
+
+    "i18n":
+    {
+        "resultsTabTitle":[ "Att1AttrMappingMessages" ],
+        "filterTabTitle":[ "Att1AttrMappingMessages" ],
+        "add": [ "Att1AttrMappingMessages" ],
+        "addAsCopy": [ "Att1AttrMappingMessages" ],
+        "ignoredOverriddenParamsMsg": [ "Att1AttrMappingMessages" ]
+    }
+}

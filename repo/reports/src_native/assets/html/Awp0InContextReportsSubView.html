@@ -1,0 +1,15 @@
+<aw-panel-body>
+            <aw-listbox prop="data.packedbom" visible-when="conditions.showifBOM" list="data.packedbombooleanValues"></aw-listbox>
+            <aw-textbox prop="data.modelPropertyObject.props.awp0RevRule" visible-when="conditions.showifBOM"></aw-textbox>
+         
+         <aw-panel-section caption="i18n.customPanel" visible-when="conditions.showForCustomRD" aw-if="data.customProps != undefined">                      
+            <aw-widget prop="property" aw-repeat="property : data.customProps"></aw-widget>  
+        </aw-panel-section>
+        
+        <aw-panel-section caption="i18n.additionalParams">
+             <aw-report-format data="data" sourcetc="conditions.showifSourceIsTc" officetemplate="conditions.showforOfficeTemplate" runinbackgroundsupported="conditions.isRunInBackgroundSupported"></aw-report-format>    
+        </aw-panel-section>        
+</aw-panel-body>
+<aw-panel-footer> 
+    <aw-button action="generateReport"><aw-i18n>i18n.generateReport</aw-i18n></aw-button> 
+</aw-panel-footer>

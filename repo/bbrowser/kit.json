@@ -1,0 +1,9 @@
+{
+  "name": "bbrowser",
+  "description": "",
+  "modules": [
+    "bbrowser"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

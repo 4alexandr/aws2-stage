@@ -1,0 +1,201 @@
+{
+    "schemaVersion" : "1.0.0",
+"imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-i18n.directive",
+        "js/aw-button.directive",
+        "js/aw-social-editor.directive",
+        "js/aw-social-ratings.directive"
+    ],
+
+    "actions":
+    {
+        "validateCreateAction":
+        {
+            "actionType": "JSFunction",
+            "method": "validateCreateComment",
+            "inputData":
+            {
+                "type": "S2clScalarRating",
+                "data": "{{data}}"
+            },
+            "deps": "js/S2clSocialService"
+        },
+        "isInputTextValidAction":
+        {
+            "actionType": "JSFunction",
+            "method": "isInputTextValid",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "deps": "js/S2clSocialService"
+        },
+        "postComment":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Services-2012-10-SocialCollaboration",
+            "method": "createComment",
+            "inputData":
+            {
+                "request":
+                {
+                    "commentType": "S2clScalarRating",
+                    "contextObjectUids": [],
+                    "objectName": "on {{ctx.xrtSummaryContextObject.props.object_name.uiValue}}",
+                    "plainText": "{{function:getPlainText}}",
+                    "ratingValue": "{{function:getRating}}",
+                    "richText": "{{function:getRichText}}",
+                    "sendToObjectUids": [],
+                    "tagNameString": "",
+                    "targetObjectUid": "{{ctx.xrtSummaryContextObject.uid}}"
+                }
+            },
+            "outputData":
+            {
+                "isSuccess": "isSuccess",
+                "message": "message"
+             },
+            "deps": "js/S2clSocialService",
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "S2clSCAddRatingNewViewModel.newRatingAdded"
+                    },
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData":
+                        {
+                            "refreshLocationFlag": true,
+                            "relatedModified": "{{function:getObjects}}"
+                        }
+                    },
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages":
+            {
+                "failure":
+                [
+                    {
+                        "message": "postFailed"
+                    }
+                ]
+            }
+        },
+        "closePanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "functions":
+    {
+        "getRichText":
+         {
+            "functionName": "getRichText",
+            "parameters":  []
+         },
+         "getPlainText":
+         {
+            "functionName": "getPlainText",
+            "parameters":  []
+         },
+         "getRating":
+         {
+            "functionName": "getRating",
+            "parameters":  []
+         },
+        "getObjects":
+        {
+            "functionName": "getObjects",
+            "parameters":
+            [
+                "{{ctx.Social.targetObjectUid}}"
+            ]
+        },
+        "getObjectUID":
+        {
+            "functionName": "getObjectUID",
+            "parameters":
+            [
+                "{{ctx.xrtSummaryContextObject}}"
+            ]
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "S2clSCAddRatingNewViewModel.newRatingAdded",
+            "action": "validateCreateAction"
+        },
+        {
+            "eventId": "isInputTextValidEvent",
+            "action": "isInputTextValidAction"
+        },
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closePanel"
+        }
+    ],
+
+    "preferences":
+    [
+
+    ],
+
+    "conditions":
+    {
+
+    },
+
+    "dataProviders":
+    {
+
+    },
+
+    "messages":
+    {
+        "postFailed":
+        {
+            "messageType": "INFO",
+            "messageText": "{{message}}"
+        }
+
+    },
+
+    "i18n":
+    {
+        "addRating": [ "SocialDeclarativeMessages" ],
+        "name": [ "SocialDeclarativeMessages" ],
+        "postRating": [ "SocialDeclarativeMessages" ],
+        "postRatingSuccess": [ "SocialDeclarativeMessages" ],
+        "subscriptionFailed": [ "SocialDeclarativeMessages" ]
+    }
+}

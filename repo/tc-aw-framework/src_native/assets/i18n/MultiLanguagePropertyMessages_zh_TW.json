@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "編輯當地語系化",
+    "editLocalizationSingleDesc": "將屬性的值翻譯為不同的語言",
+    "masterValue": "主值",
+    "translationLanguages": "翻譯語言",
+    "addorRemoveLocales": "新增或移除語言",
+    "addorRemoveLocalesDesc": "從語言清單中選取以進行翻譯",
+    "removeLocale": "移除語言",
+    "removeLocaleDesc": "移除翻譯語言",
+    "propertiesTranslated": "可以翻譯的屬性",
+    "status": "狀態",
+    "saveTranslationsError": "嘗試儲存時發生問題。{0}",
+    "property": "屬性"
+}

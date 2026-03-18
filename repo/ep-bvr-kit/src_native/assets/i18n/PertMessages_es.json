@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"Eliminar",
+    "pertDeleteDesc": "Eliminar los nodos seleccionados",
+    "deleteConfirmationMessage": "¿Está seguro de que desea eliminar de forma permanente los nodos Pert seleccionados?",
+    "missingProcessElements": "Cree un proceso.",
+    "openPertNodeTitle": "Abrir",
+    "resetLayoutTitle": "Restablecer la disposición",
+    "resetLayoutDescription": "Restablezca los nodos PERT en la disposición predeterminada."
+}

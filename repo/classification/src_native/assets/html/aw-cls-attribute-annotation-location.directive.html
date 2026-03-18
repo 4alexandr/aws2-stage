@@ -1,0 +1,37 @@
+<div class="aw-ui-filterCategorySearchBoxWidget">
+    <div class="aw-cls-pair">
+        <!-- Property Display Name-->
+        <div class="aw-cls-propertyContainer" exist-when="data.panelMode !== -1">
+            <aw-property-label class="aw-cls-annotation" prop="prop[3]"
+                ng-if="prop[3].propertyLabelDisplay !== 'NO_PROPERTY_LABEL' && prop[3].propertyLabelDisplay !== 'PROPERTY_LABEL_AT_RIGHT' && prop[2].propertyDisplayName !== ''"></aw-property-label>
+            <aw-property-label class="aw-cls-annotation" prop="prop[0]"
+                ng-if="prop[0].propertyLabelDisplay !== 'NO_PROPERTY_LABEL' && prop[0].propertyLabelDisplay !== 'PROPERTY_LABEL_AT_RIGHT' && prop[2].propertyDisplayName === ''"></aw-property-label>
+            <div class="aw-widgets-propertyLabelTop">{{prop[1].propertyDisplayName}}</div>
+        </div>
+    <!-- Property Editable field-->
+    <div class='aw-cls-extendedPropNavigate'>
+        <div class="aw-widgets-propertyLabelTopValueContainer">
+            <div class="aw-jswidgets-propertyVal" ng-controller="awPropertyController">
+                <aw-property-val prop="$parent.prop[0]" modifiable="$parent.modifiable" hint="$parent.hint"
+                    exist-when="$parent.prop[0].type === 'STRING' || $parent.prop[0].type === 'STRINGARRAY'" ></aw-property-val>
+                <div class="aw-layout-flexRow"
+                    exist-when="$parent.prop[0].type === 'DATE' || $parent.prop[0].type === 'DATEARRAY'">
+                    <aw-date class="aw-ui-filterDateRangeWidget" prop="attribute.daterange.startDate"
+                        id="{{category.index}}"></aw-date>
+                    <div class="aw-ui-filterRangeSeparator aw-base-x-large">-</div>
+                    <aw-date class="aw-ui-filterDateRangeWidget" prop="attribute.daterange.endDate"></aw-date>
+                </div>
+                <aw-icon class="aw-uiwidgets-searchBoxIcon" icon-id="cmdCreateGroup" ng-click="generateCardinalBlocks()"
+                    exist-when="cardinalattribute && prop[0].isEditable" title="{{data.i18n.createInstances}}">
+                </aw-icon>
+                <div class="aw-layout-flexRow"
+                    exist-when="$parent.prop[0].type === 'INTEGER' || $parent.prop[0].type ==='DOUBLE' || $parent.prop[0].type ==='DOUBLEARRAY' || $parent.prop[0].type ==='INTEGERARRAY'">
+                    <aw-numeric class="aw-ui-filterNumericRangeWidget" prop="attribute.startRangeProperty"></aw-numeric>
+                    <div class="aw-ui-filterRangeSeparator aw-base-x-large">-</div>
+                    <aw-numeric class="aw-ui-filterNumericRangeWidget" prop="attribute.endRangeProperty"></aw-numeric>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

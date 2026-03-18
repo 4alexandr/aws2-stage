@@ -1,0 +1,13 @@
+<aw-flex-column width="fill">
+    <aw-flex-row height="3f" aw-layout-breadCrumbContainer>
+        <aw-navigate-breadcrumb compact="true" breadcrumb-config="subPanelContext.provider.breadcrumbConfig"></aw-navigate-breadcrumb>
+    </aw-flex-row>
+    <aw-flex-row height="3f" >
+        <aw-panel-body class="aw-layout-flexColumnContainer" >
+            <aw-flex-row class="aw-layout-flexRowContainer aw-layout-headerContribution">
+                <aw-include exist-when = "subPanelContext.modelObject !== null" name="AceSplitHeader" sub-panel-context="subPanelContext"></aw-include>
+            </aw-flex-row>
+        </aw-panel-body>
+    </aw-flex-row>
+</aw-flex-column>
+

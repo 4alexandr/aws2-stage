@@ -1,0 +1,36 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-row.directive",
+        "js/aw-splm-table.directive",
+        "js/aw-flex-column.directive",
+        "js/exist-when.directive"
+    ],
+    "actions": {
+        "createGridDefinition": {
+            "actionType": "JSFunction",
+            "method": "createCloneAssignmentFailuresGridDefinition",
+            "inputData": {
+                "tableNumber": "{{subPanelContext}}"
+            },
+            "outputData": {
+                "dataProviders":"dataProviderDefinition",
+                "columnProviders":"columnProviderDefinition",
+                "dataProviderId":"dataProviderId",
+                "columnProviderId":"columnProviderId",
+                "gridId": "id",
+                "grids": "gridDefinition"
+
+            },
+            "deps": "js/services/ngpUiCloneService"
+        }
+    },
+    "i18n": {
+        "assignmentsCouldNotBeCloned": [ "NgpCloneMgmtMessages" ],
+        "close": [ "NgpCloneMgmtMessages" ]
+
+    },
+    "lifecycleHooks": {
+        "onMount": "createGridDefinition"
+    }
+}

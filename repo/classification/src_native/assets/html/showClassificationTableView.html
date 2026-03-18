@@ -1,0 +1,10 @@
+<aw-scrollpanel exist-when="!ctx.clsLocation.isFiltersVisible && ctx.ViewModeContext.ViewModeContext==='TableView'">
+    <div class="aw-clsLocation-fullViewVncFlexBox aw-xrt-columnContentPanel">
+        <aw-cls-vnc vnc="ctx.clsLocation"></aw-cls-vnc>
+    </div>
+</aw-scrollpanel>
+<aw-splm-table gridid="gridView" show-decorators="true" show-context-menu="true"
+    exist-when="ctx.clsLocation.isFiltersVisible && ctx.search.totalFound!==0" show-check-box="subPanelContext.showCheckBox"></aw-splm-table>
+<div class="aw-cls-noSearchResultsFound">
+    <aw-property-non-edit-val prop="ctx.clsLocation.noSearchResultsFound" visible-when="ctx.search.totalFound===0"></aw-property-non-edit-val>
+</div>

@@ -1,0 +1,19 @@
+{
+    "Awv0PmiCommandTitle": "ТУ",
+    "operationName": "Показать панель ТУ",
+    "modelViewsTabTitle": "Виды модели",
+    "pmiEntitiesTabTitle": "Типы",
+    "PmiPanelTitle": "ТУ",
+    "stepThroughLabel": "Сквозной шаг",
+    "reorientText": "Сменить ориентацию текста",
+    "stepThroughNext": "Далее",
+    "stepThroughPrev": "Назад",
+    "toolPanelTitle": "ТУ",
+    "showingPmiFor": "Отображение ТУ для:",
+    "notCurrentlyVisible": "{0} не полностью отображается.",
+    "hasNoPmi": "{0} не содержит ТУ. Выберите другой элемент в структуре.",
+    "pmiStepCmdsAnchor": "Привязка команд шага",
+    "Awv0PmiToolDesc": "Показать или скрыть определенные ТУ или применить Виды модели.",
+    "PmiStepThroughPrevCommandDesc": "Перейти к предыдущему элементу списка.",
+    "PmiStepThroughNextCommandDesc": "Перейдите к следующему элементу списка."
+}

@@ -1,0 +1,19 @@
+{
+    "processDisplayName": "Prozess",
+    "processesDisplayName": "Prozesse",
+    "processDisplayNameCapital": "Prozess",
+    "activityDisplayName": "Aktivität",
+    "activitiesDisplayName": "Aktivitäten",
+    "activityDisplayNameCapital": "Aktivität",
+    "operationDisplayName": "Vorgang",
+    "operationsDisplayName": "Vorgänge",
+    "operationDisplayNameCapital": "Vorgang",
+    "beDisplayName": "Build-Element",
+    "besDisplayName": "Build-Elemente",
+    "beDisplayNameCapital": "Build-Element",
+    "meDisplayName": "Fertigungselement",
+    "mesDisplayName": "Fertigungselemente",
+    "meDisplayNameCapital": "Fertigungselement",
+    "ngpWorkspaceName": "Next Generation-Planung",
+    "ngp": "Next Generation-Planung"
+}

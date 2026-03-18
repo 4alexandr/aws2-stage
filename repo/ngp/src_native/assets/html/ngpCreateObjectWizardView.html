@@ -1,0 +1,30 @@
+<aw-popup2>
+    <aw-form name="createObjectCommandPanelForm">
+        <aw-include exist-when="conditions.showLoading" name="mfeLoadingMessage"></aw-include>
+        <aw-include exist-when="conditions.showCreating" name="mfeMessage" sub-panel-context="data.messages.creatingObjectMessage"></aw-include>
+        <aw-panel-body scrollable="true" exist-when="conditions.showList">
+            <aw-label prop="data.selectTypeLabel"> </aw-label>
+                <aw-list dataprovider="data.dataProviders.allowedTypesToCreateDataProvider">
+                    <aw-type-cell vmo="item"></aw-type-cell>
+                </aw-list>
+        </aw-panel-body>
+        <aw-panel-body scrollable="true" visible-when="conditions.showXrt">
+                <aw-xrt type="CREATE" object-type="{{XRTformKey.name}}" aw-repeat="XRTformKey : data.XRTFormsInfo" exist-when="XRTformKey.showXrt"></aw-xrt>
+        </aw-panel-body>
+        <aw-panel-footer>
+            <aw-flex-row>
+                <aw-flex-column width="2"  align-content="strat">
+                    <aw-link  prop="data.previousButtonTitle" action="showPreviousForm" exist-when="conditions.showXrt"></aw-link>
+                </aw-flex-column>
+                <aw-flex-column  width="fill"  align-content="end">
+                    <aw-flex-row  justify="right">
+                        <aw-button size="auto" action="closeCreateObjectDialog" button-type="base">{{i18n.cancel}}</aw-button>
+                        <aw-button size="auto" action="showNextXRTForm" button-type="base" exist-when="conditions.showXrt" enable-when="createObjectCommandPanelForm.$valid && conditions.enableNextButton ">{{i18n.next}}</aw-button>
+                        <aw-button size="auto" action="creataObjectAndAddMore" button-type="base" exist-when="conditions.showXrt" enable-when="createObjectCommandPanelForm.$valid && conditions.isDisplayingLastXRTForm">{{i18n.creataAndAddMore}}</aw-button>
+                        <aw-button size="auto" action="creataObject" exist-when="conditions.showXrt" enable-when="createObjectCommandPanelForm.$valid && conditions.isDisplayingLastXRTForm">{{i18n.create}}</aw-button>
+                    </aw-flex-row>
+                </aw-flex-column>
+            </aw-flex-row>
+        </aw-panel-footer>
+    </aw-form>
+</aw-popup2>

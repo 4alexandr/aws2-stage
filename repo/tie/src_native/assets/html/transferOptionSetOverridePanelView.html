@@ -1,0 +1,11 @@
+<aw-panel-body>
+    <aw-command-panel-section aw-repeat="groups : ctx.tosGroups" collapsed="false" caption="{{groups.groupname}}">
+        <aw-checkbox aw-repeat="check : groups.options" prop="check.checkboxprops" visible-when="check.checkboxprops.isDisplayable"></aw-checkbox>
+        <!--<label class="aw-widgets-cellListCellItemType aw-base-small" >{{groups}}</label>-->
+    </aw-command-panel-section>
+</aw-panel-body>
+<aw-panel-footer>
+    <aw-button action="overrideButtonClicked">
+        <aw-i18n>i18n.cmdOverrideButton</aw-i18n>        
+    </aw-button>
+</aw-panel-footer>

@@ -1,0 +1,22 @@
+{
+    "UseTransparencyOnTitle": "Activer le mode d'affichage de sélection transparent",
+    "UseTransparencyOffTitle": "Désactiver le mode d'affichage de sélection transparent",
+    "NavigationRotateTitle": "Pivoter",
+    "NavigationPanTitle": "Panoramique",
+    "NavigationZoomTitle": "Zoom",
+    "GeometricAnalysisPanelTitle": "Analyse géométrique",
+    "GeometricAnalysisMeasurementTitle": "Mesurer",
+    "GeometricAnalysisSectionTitle": "Section",
+    "GeometricAnalysisQueryTitle": "Requête",
+    "GeometricAnalysisVolumeTitle": "Volume",
+    "GeometricAnalysisProximityTitle": "Proximité",
+    "LoadingViewer": "Chargement...",
+    "MMVSessionWarning": "Les sessions ne peuvent pas encore conserver les instantanés de données MMV.",
+    "Checkout": "Vous ne travaillez plus sur la dernière version de cette session. Voulez-vous créer une nouvelle session?",
+    "InternalError": "Les données de visualisation n'ont pas été sauvegardées dans la session.",
+    "Cancel":"Annuler",
+    "Create":"Créer",
+    "OwningModel":"Modèle propriétaire",
+    "OwningUser":"Utilisateur propriétaire",
+    "modelViewProxyListPanelTitle":"Vues de modèle divulguées"
+}

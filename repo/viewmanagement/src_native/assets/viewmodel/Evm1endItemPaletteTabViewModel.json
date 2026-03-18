@@ -1,0 +1,139 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive"
+    ],
+
+    "actions":
+    {
+        "revealEndItemPaletteTab":
+        {
+            "actionType": "dataProvider",
+            "method": "showPreferredEndItems"
+        },
+
+        "getPreferredEndItems":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceBom-2019-12-OccurrenceConfiguration",
+            "method": "getConfigurationRules2",
+            "inputData":
+            {
+                "input":
+                {
+                    "maxToLoad": 20,
+                    "startIndex": 0,
+                    "searchCriteria": "",
+                    "productContext":
+                    {
+                        "type": "Awb0ProductContextInfo",
+                        "uid": "{{ctx.recipeCtx.productContextInfo.uid}}"
+                    },
+                    "typeToFetch": "RevisionRule",
+                    "fetchOnlyPreferredConfiguration": true
+                }
+            },
+            "outputData":
+            {
+                "endItems": "{{function:processEndItems}}"
+            },
+            "actionMessages": {
+                "failure":
+                [
+                    {
+                        "message": "errorInGettingPreferredConfigInfo"
+                    }
+                ]
+            },
+        "deps": "js/endItemUnitEffectivityConfigurationService"
+        },
+
+        "frequentlyUsedEndItemSelected":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "configPanel.updateConfigEndItems",
+                        "eventData":
+                        {
+                            "isNavigateToConfigPanel": true
+                        }
+                    }
+                ]
+            }
+        },
+
+        "updateConfigEndItems":
+        {
+            "actionType": "JSFunction",
+            "method": "updateConfigEndItems",
+            "inputData":
+            {
+                "newEndItemSelected": "{{data.dataProviders.showPreferredEndItems.selectedObjects[0]}}",
+                "eventData": "{{data.eventData}}"
+            },
+        "deps": "js/EVM1endItemConfigurationService"
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Evm1endItemPaletteTab"
+            },
+            "action": "revealEndItemPaletteTab"
+        },
+        {
+            "eventId": "showPreferredEndItems.selectionChangeEvent",
+            "action": "frequentlyUsedEndItemSelected"
+        },
+        {
+            "eventId": "configPanel.updateConfigEndItems",
+            "action": "updateConfigEndItems",
+            "cacheEventData": true
+        }
+    ],
+
+    "dataProviders":
+    {
+        "showPreferredEndItems":
+        {
+            "action": "getPreferredEndItems",
+            "response": "{{data.endItems}}",
+            "uidInResponse": "dbValues[0]",
+            "selectionModelMode": "single"
+        }
+    },
+
+    "functions": {
+        "processEndItems": {
+            "functionName": "processEndItems",
+            "parameters": []
+        }
+    },
+
+    "messages":
+    {
+        "errorInGettingPreferredConfigInfo":
+        {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.errorInGettingPreferredConfigInfo}}"
+        }
+
+    },
+
+    "i18n":
+    {
+        "configurationPanelFrequentlyUsedSectionTitle": [ "OccurrenceManagementConstants"],
+        "errorInGettingPreferredConfigInfo": [ "OccurrenceManagementMessages"]
+    }
+}

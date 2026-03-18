@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "Výsledky",
+     "filterTabTitle" : "Filtry",
+     "searchTabTitle" :"Hledat",
+     "paletteTabTitle" :"Paleta",
+     "addStockMaterialTitle" : "Přidat",
+     "properties" : "Vlastnosti",
+     "add" : "Přidat",
+     "madeFromFailureMakeFromPrefTrue": "Položka \"{0}\" byla přidána, ale není preferována v \"{1}\".",
+     "madeFromFailureMakeFromPrefFalse": "Položka \"{0}\" nebyla přidána, protože není preferována v \"{1}\".",     
+     "dimensionsLabel": "Rozměry",
+     "Sm1AddStdPartDesc": "Připojte k součásti standardní součást.",
+     "Sm1AddStockMaterialDesc": "Přidejte k součásti materiál polotovaru.",
+     "addPropertiesLabel" : "Přidat vlastnosti"
+}

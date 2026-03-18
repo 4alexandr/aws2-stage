@@ -1,0 +1,60 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/exist-when.directive"
+    ],
+    "data": {
+        "enabledTooltip": {
+            "extendedTooltip": {
+                "title": "{{i18n.sendToViewMakerCmdTitle}}",
+                "messages": [ "{{i18n.sendToViewMakerTooltipMsg}}" ]
+            }
+        },
+        "disabledTooltip": {
+            "extendedTooltip": {
+                "title": "{{i18n.sendToViewMakerCmdTitle}}",
+                "messages": [ "{{i18n.sendToViewMakerDisabledTooltipMsg}}" ]
+            }
+        }
+    },
+    "conditions": {
+        "canSendToViewMaker": {
+            "expression": {
+                "$source": "subPanelContext.extendedTooltip.context",
+                "$query": {
+                    "$or": [ {
+                            "$source": "props.mpr0numberOfAssignedParts.dbValues[0]",
+                            "$query": {
+                                "$gt": 0
+                            }
+                        },
+                        {
+                            "$source": "props.mpr0numberOfAssignedFeatures.dbValues[0]",
+                            "$query": {
+                                "$gt": 0
+                            }
+                        },
+                        {
+                            "$source": "props.mpr0predecessors.dbValues.length",
+                            "$query": {
+                                "$gt": 0
+                            }
+                        },
+                        {
+                            "$source": "status.hasBackgroundElements",
+                            "$query": {
+                                "$eq": true
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "i18n": {
+        "sendToViewMakerCmdTitle": [ "NgpModelViewsMessages" ],
+        "sendToViewMakerTooltipMsg": [ "NgpModelViewsMessages" ],
+        "sendToViewMakerDisabledTooltipMsg": [ "NgpModelViewsMessages" ]
+    }
+}

@@ -1,0 +1,388 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-model-icon.directive",
+        "js/aw-global-search.directive",
+        "js/aw-logo.directive",
+        "js/aw-flex-row.directive",
+        "js/visible-when.directive",
+        "js/exist-when.directive",
+        "js/aw-i18n.directive",
+        "js/aw-navigate-breadcrumb.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-separator.directive",
+        "js/aw-guidance-message.directive",
+        "js/aw-link.directive",
+        "js/aw-icon.directive",
+        "js/aw-layout-slot.directive",
+        "js/extended-tooltip.directive",
+        "js/aw-icon-button.directive"
+    ],
+    "onEvent": [
+        {
+            "eventId": "LOCATION_CHANGE_COMPLETE",
+            "action": "loadDataAndUpdateHeader"
+        },
+        {
+            "eventId": "mfeTaskList.selectionChangeEvent",
+            "action": "setSelectedTaskAndCloseTaskListPopup",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "mfe.scopeObjectChanged",
+            "action": "setCurrentTask"
+        }
+    ],
+    "actions": {
+        "showAvailableTasksList": {
+            "actionType": "JSFunction",
+            "method": "show",
+            "inputData": {
+                "data": {
+                    "templateUrl": "/html/mfeTaskListPopupView.html",
+                    "subPanelContext": {
+                        "data": "{{data.availablePages}}"
+                    },
+                    "options": {
+                        "reference": ".aw-mfe-taskTextLink",
+                        "clickOutsideToClose": true,
+                        "isModal": false,
+                        "width": "auto",
+                        "height": "auto"
+                    }
+                }
+            },
+            "outputData": {
+                "mfeTaskListPopupId": "id"
+            },
+            "deps": "js/popupService"
+        },
+        
+        "buildSubPages": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "getAvailableSubPages"
+                },
+                {
+                    "action": "showAvailableTasksList"
+                }
+            ]
+        },
+        "setCurrentTask": {
+            "actionType": "JSFunction",
+            "inputData": {
+                "taskTextLink": "{{data.taskTextLink}}"
+            },
+            "method": "setCurrentTask",
+            "deps": "js/mfeHeaderService"
+        },
+
+        "setSelectedTaskAndCloseTaskListPopup": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "setSelectedTask"
+                },
+                {
+                    "action": "closeTaskListPopup"
+                }
+            ]
+        },
+
+        "setSelectedTask": {
+            "actionType": "JSFunction",
+            "inputData": {
+                "taskToSelect": "{{data.eventData}}",
+                "taskTextLink": "{{data.taskTextLink}}"
+            },
+            "method": "setSelectedTask",
+            "deps": "js/mfeHeaderService"
+        },
+        "closeTaskListPopup": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.mfeTaskListPopupId}}"
+            },
+            "deps": "js/popupService"
+        },
+
+        "getAvailableSubPages": {
+            "actionType": "JSFunctionAsync",
+            "method": "getAvailableSubpages",
+            "deps": "js/page.service",
+            "inputData": {
+                "parentState": null,
+                "additionalEvalEnv": {
+                    "epObjectToNavigate": "{{ctx.ep.scopeObject}}",
+                    "ngpObjectToNavigate": "{{ctx.ngp.scopeObject}}"
+                }
+            },
+            "outputData": {
+                "availablePages": ""
+            }
+        },
+
+        "initializeData": {
+            "actionType": "JSFunction",
+            "method": "init",
+            "deps": "js/epInitializationService"
+        },
+        "loadDataAndUpdateHeader": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "initReadOnlyMode",
+                    "condition": "conditions.hasEpScopeObjectChanged"
+                },
+                {
+                    "action": "resetEpContext",
+                    "condition": "conditions.hasEpScopeObjectChanged"
+                },
+                {
+                    "action": "loadModel",
+                    "condition": "conditions.hasEpScopeObjectChanged"
+                },
+                {
+                    "action": "setReadOnlyModeByEffectivity",
+                    "condition": "conditions.isReadOnlyEffectivityModeDataDefined"
+                },
+                {
+                    "action": "setReadOnlyModeCheckedOutByOther",
+                    "condition": "conditions.isCheckedOutByOtherReadOnlyMode"
+                },
+                {
+                    "action": "getDisplayName"
+                },
+                {
+                    "action": "updateHeaderTitle"
+                },
+                {
+                    "action": "getWorkPackageForLink"
+                },
+                {
+                    "action": "getCurrentTimeUnitForLink"
+                }
+            ]
+        },
+        "resetEpContext": {
+            "actionType": "JSFunction",
+            "method": "resetEpContext",
+            "deps": "js/epInitializationService"
+        },
+        "loadModel": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadModel",
+            "deps": "js/epInitializationService",
+            "outputData": {
+                "readOnlyEffectivityModeData": ""
+            }
+        },
+        "destroy": {
+            "actionType": "JSFunction",
+            "method": "destroy",
+            "deps": "js/epInitializationService"
+        },
+        "getDisplayName": {
+            "actionType": "JSFunction",
+            "method": "getDisplayName",
+            "deps": "js/typeDisplayName.service",
+            "inputData": {
+                "modelObject": "{{ctx.ep.scopeObject}}"
+            },
+            "outputData": {
+                "epScopeObjectHeaderTitle": ""
+            }
+        },
+        "updateHeaderTitle": {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "deps": "js/appCtxService",
+            "inputData": {
+                "path": "['location.titles'].headerTitle",
+                "value": "{{data.epScopeObjectHeaderTitle}}"
+            }
+        },
+        "getWorkPackageForLink": {
+            "actionType": "JSFunction",
+            "method": "getCtx",
+            "inputData": {
+                "path": "epPageContext.collaborationContext.props.object_string.dbValues[0]"
+            },
+            "outputData": {
+                "workPackageLink.propertyDisplayName": ""
+            },
+            "deps": "js/appCtxService"
+        },
+        "getCurrentTimeUnitForLink": {
+            "actionType": "JSFunction",
+            "method": "getCurrentTimeUnitLong",
+            "outputData": {
+                "timeUnitLink.propertyDisplayName": ""
+            },
+            "deps": "js/epTimeUnitsService"
+        },
+        "navigateToManagePage": {
+            "actionType": "JSFunction",
+            "method": "navigateToManagePage",
+            "inputData": {
+                "objectToNavigate": "{{ctx.epPageContext.collaborationContext}}"
+            },
+            "deps": "js/epNavigationService"
+        },
+        "initReadOnlyMode": {
+            "actionType": "JSFunction",
+            "method": "setReadOnlyMode",
+            "inputData": {
+                "readOnly": false,
+                "message": ""
+            },
+            "deps": "js/mfeReadOnlyService"
+        },
+        "setReadOnlyModeByEffectivity": {
+            "actionType": "JSFunction",
+            "method": "setReadOnlyMode",
+            "inputData": {
+                "readOnly": true,
+                "message": "readOnlyModeTextWarningMsg"
+            },
+            "deps": "js/mfeReadOnlyService"
+        },
+        "setReadOnlyModeCheckedOutByOther": {
+            "actionType": "JSFunction",
+            "method": "setReadOnlyMode",
+            "inputData": {
+                "readOnly": true,
+                "message": "readOnlyModeCheckedOutByOtherWarningMsg"
+            },
+            "deps": "js/mfeReadOnlyService"
+        },
+        "showAvailableTimeUnitsList": {
+            "actionType": "JSFunction",
+            "method": "show",
+            "inputData": {
+                "data": {
+                    "templateUrl": "/html/epTimeUnitListPopupView.html",
+                    "options": {
+                        "reference": ".aw-mfe-epTimeUnitsLink",
+                        "clickOutsideToClose": true,
+                        "isModal": false,
+                        "width": "auto",
+                        "height": "auto"
+                    }
+                }
+            },
+            "outputData": {
+                "epTimeUnitListPopupId": "id"
+            },
+            "deps": "js/popupService"
+        }
+    },
+    "data": {
+        "changeTask": {
+            "action": "buildSubPages",
+            "iconName": "miscDownArrow_uxRefresh"
+        },
+        "taskTextLink": {
+            "displayName": "{{i18n.loading}}",
+            "type": "STRING"
+        },
+
+        "breadcrumb": {
+            "navigationBreadcrumbConfig": {
+                "type": "navigate",
+                "vm": "epBreadcrumb",
+                "chevronDataProvider": "epChevronDataProvider",
+                "crumbDataProvider": "epBreadcrumbDataProvider",
+                "id": "epBreadcrumbId",
+                "displayProperty": "bl_rev_object_name"
+            }
+        },
+        "workPackageLink": {
+            "displayName": "",
+            "type": "STRING"
+        },
+        "timeUnitLink": {
+            "displayName": "",
+            "type": "STRING"
+        }
+    },
+    "conditions": {
+        "isReadOnlyEffectivityModeDataDefined": {
+            "expression": "data.readOnlyEffectivityModeData !== undefined"
+        },
+        "hasEpScopeObjectChanged": {
+            "expression": "ctx.state.params.uid !== ctx.ep.scopeObject.uid"
+        },
+        "isNotManagePage": {
+            "expression": "ctx.locationContext['ActiveWorkspace:SubLocation'] !== 'manageWorkPackageNew'"
+        },
+        "isReadOnlyMode": {
+            "expression": {
+                "$and": [
+                    {
+                        "$source": "ctx.mfgReadOnlyMode",
+                        "$query": {
+                            "$notNull": true
+                        }
+                    },
+                    {
+                        "$source": "ctx.mfgReadOnlyMode.readOnlyMode",
+                        "$query": {
+                            "$eq": true
+                        }
+                    }
+                ]
+            }
+        },
+        "isCheckedOutBySameUser": {
+            "expression": "ctx.ep.scopeObject.props.bl_rev_checked_out_user && ctx.ep.scopeObject.props.bl_rev_checked_out_user.dbValues[0] === ctx.userSession.props.user.displayValues[0]"
+        },
+        "isCheckedOutByOtherReadOnlyMode": {
+            "expression": "data.readOnlyEffectivityModeData === undefined && ctx.ep.scopeObject.props.bl_rev_checked_out_user && ctx.ep.scopeObject.props.bl_rev_checked_out_user.dbValues[0] !== ' ' && ctx.ep.scopeObject.props.bl_rev_checked_out_user.dbValues[0] !== ctx.userSession.props.user.displayValues[0]"
+        }
+    },
+    "messages": {
+        "readOnlyModeTextWarningMsg": {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.readOnlyModeCaption}}",
+            "messageTextParams": [
+                "{{data.readOnlyEffectivityModeData.selectedRevisionRule}}",
+                "{{data.readOnlyEffectivityModeData.SelectedPlanUnit}}",
+                "{{data.readOnlyEffectivityModeData.selectedEndItem}}"
+            ]
+        },
+        "readOnlyModeCheckedOutByOtherWarningMsg": {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.readOnlyModeCheckedOutByOther}}",
+            "messageTextParams": [
+                "{{ctx.ep.scopeObject.props.bl_rev_checked_out_user.dbValues[0]}}"
+            ]
+        }
+    },
+    "preferences": [
+        "EP_EffectivityMode"
+    ],
+    "i18n": {
+        "loading": [ "mfeUiMessages" ],
+        "headerTitle": [
+            "EPMessages"
+        ],
+        "readOnlyModeCaption": [
+            "EPMessages"
+        ],
+        "timeUnitLinkLabel": [
+            "EPMessages"
+        ],
+        "checkedOutByYou": [
+            "EPMessages"
+        ],
+        "readOnlyModeCheckedOutByOther": [
+            "EPMessages"
+        ]
+    },
+    "lifecycleHooks": {
+        "onInit": "initializeData",
+        "onMount": "loadDataAndUpdateHeader",
+        "onUnmount": "destroy"
+    }
+}

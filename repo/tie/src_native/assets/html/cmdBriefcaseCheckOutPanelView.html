@@ -1,0 +1,12 @@
+<aw-command-panel caption="i18n.cmdBriefcaseCheckOut">
+    <aw-panel-body>
+        <aw-radiobutton prop="data.siteTypeRadioButton" action="changeSiteType"></aw-radiobutton>
+        <aw-listbox class="aw-tie-removeLabel" prop="data.targetSitesListBox" list="data.targetSitesListBoxValues">
+        </aw-listbox>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="performBriefcaseCheckOut" visible-when="conditions.isTargetSiteSelected">
+            <aw-i18n>i18n.cmdCheckOut</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

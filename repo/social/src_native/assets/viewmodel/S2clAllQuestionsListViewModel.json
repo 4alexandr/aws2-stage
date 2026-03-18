@@ -1,0 +1,143 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-scrollpanel.directive"
+    ],
+    "actions":
+    {
+        "reset":
+        {
+            "actionType": "JSFunction",
+            "method": "resetForSocialQuestionsSublocation",
+            "inputData": {},
+            "deps": "js/S2clSocialService"
+        },
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "listDataProvider"
+        },
+        "loadData":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData":
+            {
+                "searchInput":
+                {
+                    "maxToLoad": "{{function:getDefaultPageSize}}",
+                    "maxToReturn": "{{function:getDefaultPageSize}}",
+                    "providerName": "{{ctx.socialQuestions.provider}}",
+                    "searchCriteria": "{{ctx.socialQuestions.criteria}}",
+                    "searchFilterFieldSortType" : "{{ctx.socialQuestions.sortType}}",
+                    "startIndex": "{{data.dataProviders.listDataProvider.startIndex}}",
+                    "searchFilterMap6": "{{function:updateFilterMap}}",
+                    "searchSortCriteria": "{{ctx.socialQuestions.sortCriteria}}"
+                }
+            },
+            "deps": "js/S2clSocialService",
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "BusinessObject",
+                        "properties":
+                        [
+                            {
+                                "name": "awp0CellProperties"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData":
+            {
+                "totalFound": "totalFound",
+                "ctx.search.savedSearchObjects": "{{json:searchResultsJSON}}",
+                "ctx.search.filterMap": "searchFilterMap6",
+                "ctx.search.filterCategories": "{{function:getActualSearchFilterCategories}}",
+                "ctx.searchResponseInfo.searchFilterCategories": "{{function:getActualSearchFilterCategories}}",
+                "ctx.searchResponseInfo.unpopulatedSearchFilterCategories": "searchFilterCategoriesUnpopulated",
+                "ctx.searchResponseInfo.searchFilterMap": "searchFilterMap6",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "ctx.search.totalFound": "totalFound"
+            }
+        }
+    },
+    "preferences": [
+        "AWC_DefaultPageSize"
+    ],
+    "functions":
+    {
+        "getDefaultPageSize":
+        {
+            "functionName": "getDefaultPageSize",
+            "parameters":
+            [
+                 "{{data.preferences.AWC_DefaultPageSize}}"
+            ]
+        },
+        "filterByAnswered":
+         {
+            "functionName": "filterByAnswered",
+            "parameters":
+            [
+                "{{ctx.search.activeFilterMap}}",
+                "{{ctx.socialQuestions.provider}}"
+            ]
+         },
+         "getActualSearchFilterCategories": {
+             "functionName": "getActualSearchFilterCategories",
+             "parameters": ["{{data}}"]
+         },
+         "updateFilterMap":
+        {
+            "functionName": "updateFilterMap",
+            "parameters":
+            [
+                "{{ctx.search.activeFilterMap}}",
+                "{{ctx.socialQuestions.provider}}"
+            ]
+        }
+    },
+    "dataProviders":
+    {
+        "listDataProvider":
+        {
+            "action": "loadData",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "inputData": {
+                "selectionModel": "{{subPanelContext.selectionModel}}"
+            },
+            "commands":
+            {
+                "Awp0ShowObjectCell":
+                {
+                    "id": "cmdOpen",
+                    "title": "Open",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "dependencies": [ "js/showObjectCommandHandler" ],
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "S2clAllQuestionsList.contentLoaded",
+            "action": "reset"
+        },
+        {
+            "eventId": "S2clAllQuestionsList.contentLoaded",
+            "action": "reveal"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "UseTransparencyOnTitle": "启用透明选项显示模式",
+    "UseTransparencyOffTitle": "禁用透明选项显示模式",
+    "NavigationRotateTitle": "旋转",
+    "NavigationPanTitle": "平移",
+    "NavigationZoomTitle": "缩放",
+    "GeometricAnalysisPanelTitle": "几何分析",
+    "GeometricAnalysisMeasurementTitle": "测量",
+    "GeometricAnalysisSectionTitle": "截面",
+    "GeometricAnalysisQueryTitle": "查询",
+    "GeometricAnalysisVolumeTitle": "体积",
+    "GeometricAnalysisProximityTitle": "邻近度",
+    "LoadingViewer": "正在加载...",
+    "MMVSessionWarning": "会话尚不能保留 MMV 数据的快照。",
+    "Checkout": "您当前使用的该会话不再是最新版本。是否要创建新的会话？",
+    "InternalError": "此会话中的可视化数据未保存。",
+    "Cancel":"取消",
+    "Create":"创建",
+    "OwningModel":"所有权模型",
+    "OwningUser":"所有权用户",
+    "modelViewProxyListPanelTitle":"披露模型视图"
+}

@@ -1,0 +1,14 @@
+<aw-form name="commandPanelForm">
+        <aw-add max-recent-count='3' include-types='CompanyContact' type-filter="CompanyContact" load-sub-types="true" auto-select-on-unique-type="true" visible-tabs="new,palette,search"></aw-add>
+    </aw-form>
+
+    <aw-panel-footer>
+         <!-- panel-footer button for New tab -->
+         <aw-button action="createObject" visible-when="commandPanelForm.$valid&&conditions.isNewTabAddButtonVisible">
+             <aw-i18n>i18n.ADD_BUTTON_TITLE</aw-i18n>
+         </aw-button>
+         <!-- panel-footer button for Palette and Search tab -->
+         <aw-button action="assignObject" visible-when="conditions.isPaletteTabAddButtonVisible || conditions.isSearchTabAddButtonVisible" >
+             <aw-i18n>i18n.ADD_BUTTON_TITLE</aw-i18n>
+         </aw-button>
+     </aw-panel-footer>

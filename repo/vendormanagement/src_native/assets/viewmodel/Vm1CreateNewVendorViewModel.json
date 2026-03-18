@@ -1,0 +1,730 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-form.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-i18n.directive",
+        "js/aw-xrt.directive",
+        "js/aw-button.directive",
+        "js/aw-list.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-type-cell.directive",
+        "js/aw-back-button.directive",
+        "js/aw-panel-header.directive"
+    ],
+    "actions": {
+        "addCreatedPartnerContracts": {
+            "actionType": "JSFunction",
+            "method": "addCreatedPartnerContracts",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "vmPartnerContracts.refreshDataProvider"
+                    }
+                ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "addCreatedVendorContacts": {
+            "actionType": "JSFunction",
+            "method": "addCreatedVendorContacts",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "vmContacts.refreshDataProvider"
+                    }
+                ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "addCreatedVendorLocations": {
+            "actionType": "JSFunction",
+            "method": "addCreatedVendorLocations",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "vmLocations.refreshDataProvider"
+                    }
+                ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "addAssignedVendorContacts": {
+            "actionType": "JSFunction",
+            "method": "addAssignedVendorContacts",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "vmContacts.refreshDataProvider"
+                    }
+                ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "addAssignedVendorLocations": {
+            "actionType": "JSFunction",
+            "method": "addAssignedVendorLocations",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "vmLocations.refreshDataProvider"
+                    }
+                ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "createVendorObject": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2016-09-DataManagement",
+            "method": "createAttachAndSubmitObjects",
+            "inputData": {
+                "inputs": "{{function:getCreateInput}}"
+            },
+            "outputData": {
+                "createdMainObject": "output[0].objects[0]",
+                "createdVendorRevision": "output[0].objects[2]",
+                "createVendorResponse": "output"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "createRelationWithFolder"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/addObjectUtils"
+        },
+        "createRelationWithFolder": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "createRelations",
+            "inputData": {
+                "input": [
+                    {
+                        "primaryObject": "{{ctx.selected}}",
+                        "secondaryObject": "{{data.createdMainObject}}",
+                        "relationType": "contents",
+                        "clientId": ""
+                    }
+                ]
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "createRelationsForContactsLocations"
+                    },
+                    {
+                        "name": "assignProjectsToNewVendor"
+                    },
+                    {
+                        "name":"setSiteProperty",
+                        "condition": "ctx.siteReferenceValue!==''"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "createRelationsForContactsLocations": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "createRelations",
+            "inputData": {
+                "input": "{{function:prepareRelAndWorkflowInputs}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    },
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "refreshLocationFlag": true,
+                            "relations": "",
+                            "relatedModified": [
+                                "{{ctx.selected}}"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "startVendorRegistrationWorkflow"
+                    }
+                ],
+                "failure": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "message": "submitToWorkflowSuccess"
+                    }
+                ],
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "startVendorRegistrationWorkflow": {
+            "actionType": "TcSoaService",
+            "serviceName": "Workflow-2008-06-Workflow",
+            "method": "createInstance",
+            "inputData": {
+                "startImmediately": false,
+                "observerKey": "",
+                "name": "{{data.createdMainObject.props.object_string.dbValues[0]}}",
+                "subject": "",
+                "description": "",
+                "contextData": {
+                    "processTemplate": "{{ctx.vendorWorkflowName}}",
+                    "attachmentCount": 1,
+                    "attachments": [
+                        "{{data.createdMainObject.uid}}"
+                    ],
+                    "attachmentTypes": [
+                        1
+                    ]
+                }
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "updateProjectsInContext": {
+            "actionType": "JSFunction",
+            "method": "updateProjectsInContext",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "vmUserProjects.refreshDataProvider"
+                    }
+                ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "assignProjectsToNewVendor": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-09-ProjectLevelSecurity",
+            "method": "assignOrRemoveObjects",
+            "inputData": {
+                "assignedOrRemovedobjects": [
+                    {
+                        "projects": "{{data.dataProviders.getProjectsList.viewModelCollection.loadedVMObjects}}",
+                        "objectToAssign": [
+                            "{{data.createdMainObject}}"
+                        ],
+                        "objectToRemove": []
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            }
+        },
+        "assignSiteToNewVendor": {
+            "actionType": "JSFunction",
+            "method": "assignSiteToNewVendor",
+            "inputData": {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "site.refreshDataProvider"
+                    }
+                ]
+            },
+            "deps": "js/Vm1AssociateSiteService"
+        },
+        "callSiteDataProvider": {
+            "actionType": "dataProvider",
+            "method": "vm1SiteRef"
+        },
+        "setSiteProperty": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-09-DataManagement",
+            "method": "setProperties",
+            "inputData": {
+                "info": [
+                    {
+                        "object": "{{data.createdMainObject}}",
+                        "vecNameVal": [
+                            {
+                                "name": "sc0SiteRef",
+                                "values": [
+                                    "{{ctx.siteReferenceValue.uid}}"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssociateSiteService"
+        },
+        "removeVm1Site": {
+            "actionType": "JSFunction",
+            "method": "removeVm1Site",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1RemoveSiteCommandHandler"
+        },
+        "removePartnerContract": {
+            "actionType": "JSFunction",
+            "method": "removePartnerContract",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1RemovePartnerContractCommandHandler"
+        },
+        "removeVendorContact": {
+            "actionType": "JSFunction",
+            "method": "removeVendorContact",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1RemoveContactCommandHandler"
+        },
+        "removeVendorLocation": {
+            "actionType": "JSFunction",
+            "method": "removeVendorLocation",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1RemoveLocationCommandHandler"
+        },
+        "removeVendorProject": {
+            "actionType": "JSFunction",
+            "method": "removeVendorProject",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1RemoveProjectCommandHandler"
+        },
+        "navigateToCreateVendorPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": {
+                            "destPanelId": "Vm1CreateNewVendor",
+                            "eventData": "{{data.eventData}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "getCreatableVendorTypeAction": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}"
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Awp0TypeSearchProvider",
+                    "searchCriteria": {
+                        "searchString": "*",
+                        "typeSelectorId": "VendorCreate",
+                        "listOfIncludeObjectTypes": "Vendor",
+                        "loadSubTypes": "true"
+                    },
+                    "attributesToInflate": [
+                        "parent_types",
+                        "type_name",
+                        "object_string"
+                    ],
+                    "startIndex": "{{data.dataProviders.getCreatableVendorTypes.startIndex}}"
+                },
+                "inflateProperties": true
+            },
+            "policy": {
+                "types": [
+                    {
+                        "name": "ImanType",
+                        "properties": [
+                            {
+                                "name": "type_name"
+                            },
+                            {
+                                "name": "fnd0InternalName"
+                            },
+                            {
+                                "name": "object_string"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResponse": "{{json:searchResultsJSON}}"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            }
+        },
+        "handleTypeSelection": {
+            "actionType": "JSFunction",
+            "method": "handleTypeSelectionJs",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "clearSelectedType": {
+            "actionType": "JSFunction",
+            "method": "clearSelectedType",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "enableVendorTypesProvider": {
+            "actionType": "dataProvider",
+            "method": "getCreatableVendorTypes"
+        },
+        "checkIfThereIsSingleVendorType": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "selectIfOnlyOneVendorTypeEvent",
+                        "condition": "data.dataProviders.getCreatableVendorTypes.viewModelCollection.totalFound === 1"
+                    }
+                ]
+            }
+        },
+        "selectIfOnlyOneVendorTypeAction": {
+            "actionType": "JSFunction",
+            "method": "setSelection",
+            "inputData": {
+                "selectionModel": "{{data.dataProviders.getCreatableVendorTypes.selectionModel}}",
+                "newSelection": "{{data.dataProviders.getCreatableVendorTypes.viewModelCollection.loadedVMObjects[0]}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "registerSelectedVendorType"
+                    }
+                ]
+            },
+            "deps": "js/selectionModelFactory"
+        }
+    },
+    "functions": {
+        "getCreateInput": {
+            "functionName": "getCreateInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "prepareRelAndWorkflowInputs": {
+            "functionName": "prepareRelAndWorkflowInputs",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "data": {
+        "addPartnerContractInCreateVendorCommands": "vm1_addPartnerContractCommands",
+        "addContactsInCreateVendorCommands": "vm1_addContactsCommands",
+        "addLocationsInCreateVendorCommands": "vm1_addLocationsCommands",
+        "assignProjectAnchor": "vm1_assignProject",
+        "associateSiteAnchor": "associate_site",
+        "vm1PanelId": "Vm1CreateVendor",
+        "selectedType": {
+            "type": "STRING",
+            "dbValue": ""
+        },
+        "selectedTypeDisplayName": {
+            "type": "STRING",
+            "dbValue": ""
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Vm1CreateNewVendor"
+            },
+            "action": "enableVendorTypesProvider"
+        },
+        {
+            "eventId": "addPartnerContractInCreateVendor.objectCreated",
+            "action": "addCreatedPartnerContracts",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "siteReferences.assignObject",
+            "action": "assignSiteToNewVendor",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "addContactsInCreateVendor.objectCreated",
+            "action": "addCreatedVendorContacts",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "createRelationWithFolder",
+            "action": "createRelationWithFolder"
+        },
+        {
+            "eventId": "vendorContacts.assignObject",
+            "action": "addAssignedVendorContacts",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "Vm1RemovePartnerContractCommand.remove",
+            "action": "removePartnerContract"
+        },
+        {
+            "eventId": "Vm1RemoveContactCommand.remove",
+            "action": "removeVendorContact"
+        },
+        {
+            "eventId": "Vm1RemoveLocationCommand.remove",
+            "action": "removeVendorLocation"
+        },
+        {
+            "eventId": "Vm1RemoveProjectCommand.remove",
+            "action": "removeVendorProject"
+        },
+        {
+            "eventId": "addLocationsInCreateVendor.objectCreated",
+            "action": "addCreatedVendorLocations",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "vendorLocations.assignObject",
+            "action": "addAssignedVendorLocations",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "createRelationsForContactsLocations",
+            "action": "createRelationsForContactsLocations"
+        },
+        {
+            "eventId": "startVendorRegistrationWorkflow",
+            "action": "startVendorRegistrationWorkflow"
+        },
+        {
+            "eventId": "assignProjectsToNewVendor",
+            "action": "assignProjectsToNewVendor"
+        },
+        {
+            "eventId": "vm1userProjects.assignProjects",
+            "action": "updateProjectsInContext"
+        },
+        {
+            "eventId": "vm1userProjects.assignProjects",
+            "action": "navigateToCreateVendorPanel"
+        },
+        {
+            "eventId": "vmUserProjects.refreshDataProvider",
+            "action": "getProjectsList"
+        },
+        {
+            "eventId": "vmContacts.refreshDataProvider",
+            "action": "getVendorContactsList"
+        },
+        {
+            "eventId": "vmLocations.refreshDataProvider",
+            "action": "getVendorLocationsList"
+        },
+        {
+            "eventId": "site.refreshDataProvider",
+            "action": "callSiteDataProvider"
+        },
+        {
+            "eventId": "vmPartnerContracts.refreshDataProvider",
+            "action": "getPartnerContractList"
+        },
+        {
+            "eventId": "Vm1RemoveSiteCommand.removeVm1Site",
+            "action": "removeVm1Site"
+        },
+        {
+            "eventId": "setSiteProperty",
+            "action": "setSiteProperty"
+        },
+        {
+            "eventId": "associateSiteObjectToNewVendor",
+            "action": "assignSiteToNewVendor",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "getCreatableVendorTypes.selectionChangeEvent",
+            "action": "handleTypeSelection"
+        },
+        {
+            "eventId": "getCreatableVendorTypes.modelObjectsUpdated",
+            "action": "checkIfThereIsSingleVendorType"
+        },
+        {
+            "eventId": "selectIfOnlyOneVendorTypeEvent",
+            "action": "selectIfOnlyOneVendorTypeAction"
+        },
+        {
+            "eventId": "registerSelectedVendorType",
+            "action": "handleTypeSelection"
+        }
+    ],
+    "dataProviders": {
+        "getCreatableVendorTypes": {
+            "action" : "getCreatableVendorTypeAction",
+            "response": "{{data.searchResponse}}",
+            "totalFound": "{{data.totalFound}}",
+            "preSelection": false,
+            "selectionModelMode": "single"
+        },
+        "getPartnerContractList": {
+            "response": "{{data.vmPartnerContractsList}}",
+            "totalFound": "{{data.vmPartnerContractsList.length}}",
+            "preSelection": false,
+            "selectionModelMode": "single",
+            "commandsAnchor": "vm1_removePartnerContractCommands"
+        },
+        "getVendorContactsList": {
+            "response": "{{data.vmContactsList}}",
+            "totalFound": "{{data.vmContactsList.length}}",
+            "preSelection": false,
+            "selectionModelMode": "single",
+            "commandsAnchor": "vm1_removeContactsCommands"
+        },
+        "getVendorLocationsList": {
+            "response": "{{data.vmLocationsList}}",
+            "totalFound": "{{data.vmLocationsList.length}}",
+            "preSelection": false,
+            "selectionModelMode": "single",
+            "commandsAnchor": "vm1_removeLocationsCommands"
+        },
+        "getProjectsList": {
+            "response": "{{data.vmProjectsList}}",
+            "totalFound": "{{data.vmProjectsList.length}}",
+            "preSelection": false,
+            "selectionModelMode": "single",
+            "commandsAnchor": "vm1_removeProjectsCommands"
+        },
+        "vm1SiteRef": {
+            "response": "{{data.sc0SiteObjectList}}",
+            "totalFound": "{{data.sc0SiteObjectList.length}}",
+            "preSelection": false,
+            "selectionModelMode": "single",
+            "commandsAnchor": "aw_removeVm1SiteCellCommand"
+        }
+    },
+    "messages": {
+        "submitToWorkflowSuccess": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.submitToWorkflowSuccess}}",
+            "messageTextParams": [
+                "{{data.createdMainObject}}"
+            ]
+        },
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    },
+    "preferences": [
+        "SC_Cancel_Event_Workflow"
+    ],
+    "conditions": {
+        "isSupplierCollPrefExists": {
+            "expression": "data.preferences.SC_Cancel_Event_Workflow[0] != undefined "
+        },
+        "isPartnerContractExists": {
+            "expression": "data.isPartnerContractTypeExist != undefined "
+        },
+        "isTypeSelected": {
+            "expression": "data.selectedType.dbValue =='' "
+        }
+    },
+    "i18n": {
+        "contractPartners": [
+            "VendorManagementMessages"
+        ],
+        "createVendor": [
+            "VendorManagementMessages"
+        ],
+        "companyContacts": [
+            "VendorManagementMessages"
+        ],
+        "companyLocations": [
+            "VendorManagementMessages"
+        ],
+        "submitToWorkflowSuccess": [
+            "VendorManagementMessages"
+        ],
+        "vm1AssignProjectCommandTitle": [
+            "VendorManagementMessages"
+        ],
+        "vm1Site": [
+            "VendorManagementMessages"
+        ],
+        "objectType": [
+            "VendorManagementMessages"
+        ]
+    }
+}

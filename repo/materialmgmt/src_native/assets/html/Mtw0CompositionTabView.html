@@ -1,0 +1,7 @@
+<aw-panel-body>
+        <aw-panel-section>
+            <aw-radiobutton prop="data.compositionViewType" action="dispalyCompositionView">  </aw-radiobutton>
+            <aw-splm-table exist-when="data.compositionViewType.dbValue=== true" gridid="billOFMaterialTableView"></aw-splm-table>
+            <aw-splm-table exist-when="data.compositionViewType.dbValue=== false" gridid="billOFSubstanceTableView"></aw-splm-table>
+        </aw-panel-section>
+</aw-panel-body>

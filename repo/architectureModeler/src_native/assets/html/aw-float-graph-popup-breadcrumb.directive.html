@@ -1,0 +1,46 @@
+<div class="aw-layout-fxbreadCrumbs aw-layout-flexColumn">
+    <div  class="aw-layout-flexRow">
+        <div class="aw-layout-overflowAtStart" exist-when="overflowAtStart && showOverflowAtStart">
+            <div class="aw-layout-flexRow">
+                <span>
+                    <aw-property-image ng-click="onOverflowChevronClick($event)" class="aw-jswidget-controlArrow aw-widgets-overflowChevronIcon" name="miscChevronLeftDouble" ></aw-property-image>
+                    <aw-popup-panel class="aw-widgets-overflowChevronPopup">
+                        <ul class="aw-widgets-cellListWidget">
+                            <li class="aw-widgets-cellListItem aw-widgets-cellTop" aw-repeat="crumb : provider.overflowCrumbList">
+                                <a class="aw-widgets-crumbLink aw-widgets-breadCrumbOverflow" title="{{crumb.displayName}}" ng-click="setScopedCrumb(crumb)">{{crumb.displayName}}</a>
+                            </li>
+                        </ul>
+                    </aw-popup-panel>
+                </span>
+            </div>
+        </div>
+        <div aw-repeat="crumb : provider.crumbs" class="aw-layout-eachCrumb" >
+            <div class="aw-layout-flexRow">
+                <div exist-when="!crumb.selectedCrumb && !crumb.willOverflow">
+                    <a class="aw-widgets-crumbLink aw-widgets-breadCrumbOverflow" title="{{crumb.displayName}}" ng-click="setScopedCrumb(crumb)">{{crumb.displayName}}</a>
+                </div>
+                <div exist-when="crumb.selectedCrumb && !crumb.willOverflow">
+                    <div class="aw-widgets-selectedCrumb aw-widgets-breadCrumbOverflow" title="{{crumb.displayName}}">{{crumb.displayName}}</div>
+                </div>
+
+                <span exist-when="!overflowAtStart && crumb.overflowIconPosition && provider.crumbs.length > 1">
+                    <aw-property-image ng-click="onOverflowChevronClick($event)" class="aw-jswidget-controlArrow aw-widgets-overflowChevronIcon" name="miscChevronLeftDouble" ></aw-property-image>
+                    <aw-popup-panel class="aw-widgets-overflowChevronPopup">
+                       <ul class="aw-widgets-cellListWidget">
+                           <li class="aw-widgets-cellListItem aw-widgets-cellTop" aw-repeat="crumb : provider.overflowCrumbList">
+                               <a class="aw-widgets-crumbLink aw-widgets-breadCrumbOverflow" title="{{crumb.displayName}}" ng-click="setScopedCrumb(crumb)">{{crumb.displayName}}</a>
+                            </li>
+                        </ul>
+                    </aw-popup-panel>
+                </span>
+
+                <span exist-when="!crumb.overflowIconPosition && !crumb.willOverflow && !crumb.selectedCrumb">
+                    <aw-property-image ng-click="setScopedCrumb(crumb)" class="aw-jswidget-controlArrow" name="miscChevronRight"></aw-property-image>
+                </span>
+                <span exist-when="!crumb.overflowIconPosition && !crumb.willOverflow && crumb.selectedCrumb">
+                    <aw-property-image class="move-cursor aw-jswidget-controlArrow" name="miscChevronRight"></aw-property-image>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-search-box.directive",
+        "js/aw-tab-set.directive",
+        "js/visible-when.directive",
+        "js/aw-break.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-panel-body.directive"
+    ],
+
+    "data": 
+    {
+        "searchBox": 
+        {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "true"
+        },
+
+        "tabsModel": 
+        {
+            "isArray": "true",
+            "dbValue": 
+            [
+                {
+                    "tabKey": "results",
+                    "panelId": "StockMaterialSearchResultsTab",
+                    "name": "{{i18n.resultTabTitle}}"
+                },
+
+                {
+                    "tabKey": "filters",
+                    "panelId": "StockMaterialSearchFiltersTab",
+                    "name": "{{i18n.filterTabTitle}}"
+                }
+            ]
+        },
+
+        "keyWord": 
+        {
+            "displayName": "Keywords",
+            "type": "STRING",
+            "isEditable": "false",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP",
+            "dispValue": "{{ctx.KeyWordsString}}"
+        }
+    },
+
+    "actions": 
+    {
+        "search": 
+        {
+            "actionType": "JSFunction",
+            "method": "setTypefilterAndSearch",
+            "inputData": 
+            {
+                "inputs": "{{function:setTypefilterAndSearch}}"
+            },
+
+            "deps": "js/Sm1StockMaterialService"
+        },
+
+        "getMadeFromData": 
+        {
+            "actionType": "JSFunction",
+            "method": "displayMadeFromPanel",
+            "inputData": 
+            {
+                "data": "{{data}}",
+                "provider": "{{data.dataProviders.performSearch}}",
+                "label": "{{data.i18n.addPropertiesLabel}}",
+                "selection": "{{data.dataProviders.performSearch.selectedObjects}}"
+            },
+
+            "deps": "js/Sm1StockMaterialService"
+        }
+    },
+
+    "onEvent": 
+    [
+        {
+            "eventId": "performSearch.selectionChangeEvent",
+            "action": "getMadeFromData"
+        }
+    ],
+
+    "functions": 
+    {
+        "setTypefilterAndSearch": 
+        {
+            "functionName": "setTypefilterAndSearch",
+            "parameters": 
+            [
+                "{{data}}",
+                "SM0StockMaterialRevision"
+            ]
+        }
+    },
+
+    "conditions": 
+    {
+        "showSearchFilterPanel": 
+        {
+            "expression": "data.showSearchFilter != undefined && data.showSearchFilter == true"
+        },
+
+        "isPaletteSearchTabAddButtonVisible": 
+        {
+            "expression": "data.selectedTab.panelId!='newTabPageSub' && data.sourceObjects.length>0"
+        }
+    },
+
+    "i18n": 
+    {
+        "resultTabTitle": 
+        [
+            "Sm1StockMaterialMessages"
+        ],
+
+        "filterTabTitle": 
+        [
+            "Sm1StockMaterialMessages"
+        ],
+
+        "addPropertiesLabel": 
+        [
+            "Sm1StockMaterialMessages"
+        ]
+    }
+}

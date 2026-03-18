@@ -1,0 +1,15 @@
+<aw-popup-panel2 class="aw-mfePert-toggleModePopup">
+    <aw-advanced-bar type="TOOLBAR" class="aw-mfePert-settingsBar" context="subPanelContext" negative>
+        <aw-flex-column justify="center" align-content="center">
+            <aw-flex-row
+                aw-class="[subPanelContext.graphModel.graphControl.inputMode.editMode ? 'aw-mfePert-editMode': 'aw-mfePert-moveMode']">
+                <aw-icon-button class="aw-mfePert-moveIconButton" size="large" command="data.moveModeCommand"
+                    extended-tooltip="data.pertModeCommandTooltip" extended-tooltip-context="data.moveModeCommand">
+                </aw-icon-button>
+                <aw-icon-button class="aw-mfePert-editIconButton" size="large" command="data.editModeCommand"
+                    extended-tooltip="data.pertModeCommandTooltip" extended-tooltip-context="data.editModeCommand">
+                </aw-icon-button>
+            </aw-flex-row>
+        </aw-flex-column>
+    </aw-advanced-bar>
+</aw-popup-panel2>

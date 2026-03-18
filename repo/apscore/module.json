@@ -1,0 +1,179 @@
+{
+  "name": "apscore",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "commandsViewModel": {
+    "commands": {
+      "ApsEffectivity": {
+        "iconId": "cmdOpenSharedEffectivity",
+        "title": "{{i18n.effectivity}}",
+        "description": "{{i18n.ApsEffectivityDesc}}"
+      },
+      "ApsAddEffectivity": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.addEffectivity}}",
+        "description": "{{i18n.ApsAddEffectivityDesc}}"
+      },
+      "ApsRemoveEffectivity": {
+        "iconId": "cmdDelete",
+        "title": "{{i18n.removeEffectivity}}",
+        "description": "{{i18n.ApsRemoveEffectivityDesc}}"
+      }
+    },
+    "commandPlacements": {
+      "apsEffectivityCommandPlacement": {
+        "id": "ApsEffectivity",
+        "uiAnchor": "aw_rightWall",
+        "priority": 20,
+        "parentGroupId": "Awp0ViewGroup"
+      },
+      "apsAddEffectivityCommandPlacement": {
+        "id": "ApsAddEffectivity",
+        "uiAnchor": "apsEffectivityCommandPanelSectionAnchor",
+        "priority": 200,
+        "relativeTo": "ApsRemoveEffectivity"
+      },
+      "apsRemoveEffectivityCommandPlacement": {
+        "id": "ApsRemoveEffectivity",
+        "uiAnchor": "apsEffectivityCommandPanelSectionAnchor",
+        "priority": 100
+      }
+    },
+    "commandHandlers": {
+      "apsEffectivityCommandHandler": {
+        "id": "ApsEffectivity",
+        "action": "apsEffectivityCommandAction",
+        "activeWhen": {
+          "condition": "conditions.apsEffectivityCommandCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.apsEffectivityCommandCondition"
+        }
+      },
+      "apsAddEffectivityCommandHandler": {
+        "id": "ApsAddEffectivity",
+        "action": "apsAddEffectivityCommandAction",
+        "activeWhen": {
+          "condition": "conditions.apsAddEffectivityCommandCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.apsAddEffectivityCommandCondition"
+        }
+      },
+      "apsRemoveEffectivityCommandHandler": {
+        "id": "ApsRemoveEffectivity",
+        "action": "apsRemoveEffectivityDummyAction",
+        "activeWhen": {
+          "condition": "conditions.apsRemoveEffectivityCommandCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.apsRemoveEffectivityCommandCondition"
+        }
+      }
+    },
+    "actions": {
+      "apsEffectivityCommandAction": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "ApsEffectivity",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "apsAddEffectivityCommandAction": {
+        "actionType": "JSFunction",
+        "method": "updatePartialCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "path": "effIntents.isAddEffectivity",
+          "value": true
+        },
+        "events": {
+          "success": [
+            {
+              "name": "awPanel.navigate",
+              "eventData": {
+                "destPanelId": "ApsAddEffectivity",
+                "title": "{{i18n.addEffectivity}}",
+                "recreatePanel": true,
+                "supportGoBack": true
+              }
+            }
+          ]
+        }
+      },
+      "apsRemoveEffectivityDummyAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "apsRemoveEffectivityEvent",
+              "eventData": {
+                "data": "commandContext"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "conditions": {
+      "apsEffectivityCommandCondition": {
+        "expression": "ctx.visibleServerCommands.Aps1Effectivity === true"
+      },
+      "apsAddEffectivityCommandCondition": {
+        "expression": "true"
+      },
+      "apsRemoveEffectivityCommandCondition": {
+        "expression": "commandContext.dataProviders.getEffectivities.selectedObjects.length > 0"
+      }
+    },
+    "i18n": {
+      "effectivity": [
+        "ApsEffectivityMessages"
+      ],
+      "addEffectivity": [
+        "ApsEffectivityMessages"
+      ],
+      "removeEffectivity": [
+        "ApsEffectivityMessages"
+      ],
+      "apsEffectivityCommandPanelSectionAnchor": [
+        "ApsEffectivityMessages"
+      ],
+      "ApsEffectivityDesc": [
+        "ApsEffectivityMessages"
+      ],
+      "ApsAddEffectivityDesc": [
+        "ApsEffectivityMessages"
+      ],
+      "ApsRemoveEffectivityDesc": [
+        "ApsEffectivityMessages"
+      ]
+    }
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "ConfigurationFamily": {
+        "displayProperty": "object_name",
+        "additionalProperties": [
+          {
+            "name": "namespace"
+          },
+          {
+            "name": "name"
+          }
+        ]
+      }
+    }
+  }
+}

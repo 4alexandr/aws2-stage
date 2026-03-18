@@ -1,0 +1,14 @@
+{
+    "Map_Title":"Przyporządkuj",
+    "MapButton":"Przyporządkuj",
+    "attributeTitle": "Parametry",
+    "StudyAttributes": "Parametry analizy",
+    "SelectStudy": "Wybierz analizy do wyświetlenia parametrów",
+    "TestEventAttributes": "Parametry zdarzenia testowego",
+    "SelectTestEvent":"Wybierz zdarzenia testowe do wyświetlenia parametrów",
+    "StudyAttributesTC124": "Parametry żądania symulacji i testu",
+    "SelectStudyTC124": "Wybierz żądania symulacji lub testu do wyświetlenia parametrów",
+    "RunAttributes": "Parametry przebiegu",
+    "SelectRun": "Wybierz przebieg do wyświetlenia parametrów",
+    "Measurement_File_Title": "Dodaj plik wartości"
+}

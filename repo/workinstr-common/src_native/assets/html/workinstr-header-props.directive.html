@@ -1,0 +1,9 @@
+<button type="button" id="headerPropertiesLeftButton" class="aw-workinstr-headerLeftButton aw-widgets-horizontalListLeftBtnImg aw-theme-galleryScrollButton" ng-click="onLeftButtonClick()"></button>
+<button type="button" id="headerPropertiesRightButton" class="aw-workinstr-headerRightButton aw-widgets-horizontalListRightBtnImg aw-theme-galleryScrollButton" ng-click="onRightButtonClick()"></button>
+
+<div class="aw-workinstr-headerPropertiesWrapper aw-theme-contentPanel">
+    <div class="aw-workinstr-headerPropertiesPanel">
+          <aw-widget class="aw-workinstr-headerPropertyContainer {{ each.renderingHint === 'overflow' ? 'aw-layout-headerPropertyOverflow' : ''}}" prop="each.property" hint={{each.renderingHint}} labeldisplay={{each.renderingStyle}} aw-repeat="each : headerProperties" ></aw-widget>
+    </div>
+
+</div>

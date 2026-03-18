@@ -1,0 +1,8 @@
+<aw-panel-body >
+     <aw-column width="fill" exist-when="ctx.interfaceDetails.isPortSelected">
+        <aw-command-sub-panel panel-id="interfaceDefinitionTable" isolate-mode="true"></aw-command-sub-panel>
+     </aw-column>
+   <aw-column width="fill" exist-when="ctx.interfaceDetails.isConnectionSelected && ctx.preferences.AWC_Enable_Interface_Panel">
+        <aw-command-sub-panel panel-id="interactionTable" isolate-mode="true"></aw-command-sub-panel>
+     </aw-column>
+</aw-panel-body>

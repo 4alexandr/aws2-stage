@@ -1,0 +1,256 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-header.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-form.directive",
+        "js/aw-add.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/exist-when.directive"
+    ],
+    "data": {
+        "visibleTabs": "new,palette,search",
+        "selectionMode": {
+            "value": "single"
+        }
+    },
+    "actions": {
+        "setCtxAddElementInputParentElementToSelectedElement": {
+            "actionType": "JSFunction",
+            "method": "setCtxAddElementInputParentElementToSelectedElement",
+            "inputData": {
+                "parent": "{{ctx.selected}}"
+            },
+            "outputData": {},
+
+            "deps": "js/addElementService"
+        },
+        "getInfoForReplaceElementAction": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceBom-2019-12-OccurrenceManagement",
+            "method": "getInfoForAddElement3",
+            "inputData": {
+                "getInfoForElementIn":{
+                    "fetchAllowedOccRevTypes": false,
+                    "parentElement":{"uid" : "{{ctx.selected.props.awb0BreadcrumbAncestor.dbValues[0]}}"}
+                }
+            },
+            "outputData": {
+                "allowedTypeInfo": "{{function:extractAllowedTypesInfoFromResponse}}"
+            },
+            "deps": "js/addElementService"
+        },
+        "createAndReplaceElement": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "addObject.startCreateObject"
+                } ]
+            }
+        },
+        "newElementCreatedPostProcessing": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "replaceElement.replaceSelectedElement"
+                } ]
+            }
+        },
+        "replaceElementForDuplicate": {
+            "actionType": "JSFunction",
+            "method": "setDuplicateActionOnLine",
+            "inputData": {
+                "operationType": 3,
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "replaceElement.closePanel",
+                    "condition": "!_internal.conditionStates.isPanelPinned"
+                } ]
+            },
+            "deps": "js/aceInteractiveDuplicateService"
+        },
+        "replaceElement": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ResourceManager-2020-05-ResourceOccurrencesManagement",
+            "method": "replaceResourceElement",
+            "inputData": {
+                "input": {
+                    "replacement": "{{function:getElementsToReplace}}",
+                    "resourceElements": [
+                        "{{ctx.selected}}"
+                    ],
+                    "productContextInfo": "{{ctx.aceActiveContext.context.productContextInfo}}"
+                }
+            },
+            "outputData": {
+                "replaceElementResponse": ""
+            },
+            "events": {
+                "success": [{
+                        "name": "replaceElement.closePanel",
+                        "condition": "!_internal.conditionStates.isPanelPinned"
+                    },
+                    {
+                        "name": "aceSecondaryWorkArea.refreshTabs"
+                    },
+                    {
+                        "name": "replaceElement.elementReplacedSuccessfully",
+                        "eventData": {
+                            "viewToReact": "{{ctx.aceActiveContext.key}}",
+                            "replacedElementUID": "{{ctx.selected.uid}}"
+                        }
+                    },
+                    {
+                        "name": "acePwa.reset"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [
+                    {
+                        "condition": "data.replaceElementResponse.partialErrors[0].errorValues.length > 0",
+                        "message": "mrmReplaceElementFailMessage"
+                    }
+                ]
+            },
+            "deps": "js/addElementService"
+        },
+
+        "closePanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "complete",
+                    "condition": "!data._internal.isDestroyed",
+                    "eventData": {
+                        "source": "toolAndInfoPanel"
+                    }
+                } ]
+            }
+        }
+    },
+    "messages": {
+        "mrmReplaceElementFailMessage": {
+            "messageType": "ERROR",
+            "messageText": "{{data.replaceElementResponse.partialErrors[0].errorValues[0].message}}"
+        }
+    },
+    "onEvent": [ {
+            "eventId": "replaceElement.replaceSelectedElement",
+            "action": "replaceElement",
+            "condition": "!ctx.aceActiveContext.context.isDuplicateEnabled"
+        },
+        {
+            "eventId": "addObject.objectcreated",
+            "action": "replaceElementForDuplicate",
+            "condition": "ctx.aceActiveContext.context.isDuplicateEnabled"
+        },
+        {
+            "eventId": "addObject.objectcreated",
+            "action": "newElementCreatedPostProcessing"
+        },
+        {
+            "eventId": "addObject.addOprfailed",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Mrm0ReplaceElementPanel"
+            },
+            "action": "setCtxAddElementInputParentElementToSelectedElement"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Mrm0ReplaceElementPanel"
+            },
+            "action": "getInfoForReplaceElementAction"
+        },
+        {
+            "eventId": "primaryWorkArea.selectionChangeEvent",
+            "action": "closePanel",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "replaceElement.closePanel",
+            "action": "closePanel"
+        }
+    ],
+    "conditions": {
+        "isNewTabReplaceButtonVisible": {
+            "expression": "data.selectedTab.panelId==='newTabPageSub' && data.creationType"
+        },
+        "isPaletteTabReplaceButtonVisible": {
+            "expression": "data.selectedTab.panelId==='paletteTabPageSub' && (ctx.getClipboardProvider.selectedObjects.length > 0 || ctx.getFavoriteProvider.selectedObjects.length > 0  || ctx.getRecentObjsProvider.selectedObjects.length > 0)"
+        },
+        "isSearchTabReplaceButtonVisible": {
+            "expression": "data.selectedTab.panelId==='resultsTabPageSub' && data.dataProviders.performSearch.selectedObjects.length>0"
+        },
+        "isReplacementAndTargetAreNotOfSameType": {
+            "expression": "(data.createdObject && (ctx.selected.type != data.createdObject.type)) || (data.sourceObjects && (ctx.selected.type != data.sourceObjects[0].type))"
+        },
+        "isPanelPinned": {
+            "expression": "data.pinnedToForm.dbValue === false"
+        }
+    },
+    "functions": {
+        "getCreateInput": {
+            "functionName": "getCreateInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "populateRequestPref": {
+            "functionName": "populateRequestPref",
+            "parameters": [
+
+            ]
+        },
+        "getElementsToReplace": {
+            "functionName": "getElementsToReplace",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getElementsToAdd": {
+            "functionName": "getElementsToAdd",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "extractAllowedTypesInfoFromResponse": {
+            "functionName": "extractAllowedTypesInfoFromResponse",
+            "parameters": [
+
+            ]
+        },
+        "shouldFetchColumnConfig": {
+            "functionName": "shouldFetchColumnConfig",
+            "parameters": []
+        }
+    },
+    "i18n": {
+        "replaceElementBtn": [
+            "OccurrenceManagementConstants"
+        ],
+        "createAndReplaceElementBtn": [
+            "OccurrenceManagementConstants"
+        ],
+        "elementReplacedSuccessful": [
+            "OccurrenceManagementMessages"
+        ],
+        "toTitle": [
+            "OccurrenceManagementConstants"
+        ]
+    }
+}

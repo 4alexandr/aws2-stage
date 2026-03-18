@@ -1,0 +1,14 @@
+{
+    "Map_Title":"Correspondance",
+    "MapButton":"Correspondance",
+    "attributeTitle": "Paramètres",
+    "StudyAttributes": "Paramètres de l'étude",
+    "SelectStudy": "Sélectionner les études pour afficher les paramètres",
+    "TestEventAttributes": "Paramètres d'événement test",
+    "SelectTestEvent":"Sélectionner les événement test pour afficher les Paramètres",
+    "StudyAttributesTC124": "Paramètres de Simulation et de Requête de test",
+    "SelectStudyTC124": "Sélectionner Simulation ou Requête de test pour afficher les Paramètres",
+    "RunAttributes": "Paramètres d'exécution",
+    "SelectRun": "Sélectionner les exécutions pour afficher les Paramètres",
+    "Measurement_File_Title": "Ajouter un fichier de valeurs"
+}

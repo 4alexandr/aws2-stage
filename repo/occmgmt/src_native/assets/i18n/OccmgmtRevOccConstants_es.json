@@ -1,0 +1,11 @@
+{
+    "addElementBtn": "Agregar",
+    "addRevision": "Agregar",
+    "addRevisionTitle": "Agregar pieza",
+    "objectType": "Tipo",
+    "part": "Pieza",
+    "removeRevision": "Quitar",
+    "toTitle": "A",
+    "Awb0AddRevisionDesc": "Agrega una pieza hija a la selección.",
+    "Awb0RemoveRevisionDesc": "Quita la pieza seleccionada."
+}

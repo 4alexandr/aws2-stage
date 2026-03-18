@@ -1,0 +1,21 @@
+<aw-panel-body>
+    <aw-flex-row height="11">
+        <aw-flex-column width="3">
+            <aw-flex-row height="fill">
+                <aw-include name="Awp0ClassificationSearchNavigate"></aw-include>
+            </aw-flex-row>
+        </aw-flex-column>
+        <aw-flex-column width="9">
+            <aw-flex-row>
+                <aw-native-sublocation provider="data._sublocation">
+                </aw-native-sublocation>
+            </aw-flex-row>
+        </aw-flex-column>
+    </aw-flex-row>
+    <aw-flex-row height="2f"></aw-flex-row>
+    <aw-flex-row>
+        <aw-flex-column align-content="end">
+            <aw-button action="cmdAssignButtonCommandAction" size="auto" exist-when="conditions.isToolSelected">{{i18n.assign}}</aw-button>
+        </aw-flex-column>
+    </aw-flex-row>
+</aw-panel-body>

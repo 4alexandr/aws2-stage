@@ -1,0 +1,19 @@
+{
+    "processDisplayName": "프로세스",
+    "processesDisplayName": "프로세스",
+    "processDisplayNameCapital": "프로세스",
+    "activityDisplayName": "액티비티",
+    "activitiesDisplayName": "액티비티",
+    "activityDisplayNameCapital": "액티비티",
+    "operationDisplayName": "오퍼레이션",
+    "operationsDisplayName": "오퍼레이션",
+    "operationDisplayNameCapital": "오퍼레이션",
+    "beDisplayName": "빌드 요소",
+    "besDisplayName": "빌드 요소",
+    "beDisplayNameCapital": "빌드 요소",
+    "meDisplayName": "제조 요소",
+    "mesDisplayName": "제조 요소",
+    "meDisplayNameCapital": "제조 요소",
+    "ngpWorkspaceName": "차세대 플래너",
+    "ngp": "차세대 계획"
+}

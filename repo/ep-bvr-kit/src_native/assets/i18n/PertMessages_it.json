@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"Elimina",
+    "pertDeleteDesc": "Eliminare i nodi selezionati",
+    "deleteConfirmationMessage": "Eliminare definitivamente i nodi Pert selezionati?",
+    "missingProcessElements": "Creare una procedura.",
+    "openPertNodeTitle": "Apri",
+    "resetLayoutTitle": "Ripristina layout",
+    "resetLayoutDescription": "Ripristinare il layout predefinito dei nodi PERT."
+}

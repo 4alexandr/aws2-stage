@@ -1,0 +1,8 @@
+<!-- Thumbnail image is available -->
+<img class="aw-workinstr-thumbnailImage" ng-src="{{thumbnailUrl}}" ng-if="thumbnailUrl" draggable="false" ondragstart="return false;"/>
+
+<!-- No thumbnail image, display type icon -->
+<img class="aw-workinstr-thumbnailImage" ng-src="{{typeIconFileUrl}}" ng-if="!thumbnailUrl" draggable="false" ondragstart="return false;"/>
+
+<!-- Label -->
+<label class="aw-workinstr-thumbnailLabel" title={{caption}}>{{caption}}</label>

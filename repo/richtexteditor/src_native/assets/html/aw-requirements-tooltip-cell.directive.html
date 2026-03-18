@@ -1,0 +1,27 @@
+
+<div class="aw-requirement-tooltipCell aw-layout-flexRowContainer">
+    <span class="aw-requirement-tooltipCellIcon">
+           <aw-icon class="aw-base-icon" icon-id="{{vmo.tracelinkIcon}}"></aw-icon>
+    </span>
+    <span class="aw-requirement-tooltipCellIcon" >
+           <img class="aw-base-icon" ng-src="{{vmo.iconURL}}" />
+    </span>
+    <span class="aw-requirement-tooltipCellLabel">
+           {{vmo.displayName}}
+    </span>
+    <span class="aw-requirement-tooltipCellIcon" visible-when="vmo.suspectReviewTaskList.length > 0" >
+       <aw-icon class="aw-base-icon" icon-id="{{vmo.isSuspectIcon}}" title="{{vmo.reviewSuspectTitle}}" ng-click="reviewSuspectClick(vmo)"></aw-icon>
+    </span>
+    <span class="aw-requirement-tooltipCellIcon" visible-when="vmo.openMasterReqIcon" >
+       <aw-icon class="aw-base-icon" icon-id="{{vmo.openMasterReqIcon}}" title="{{vmo.openMasterReqTitle}}" ng-click="openMasterReq(vmo)"></aw-icon>
+    </span>
+    <span class="aw-requirement-tooltipCellIcon" visible-when="vmo.openbasedOnMasterReqIcon" >
+       <aw-icon class="aw-base-icon" icon-id="{{vmo.openbasedOnMasterReqIcon}}" title="{{vmo.openbasedOnMasterReqTitle}}" ng-click="openMasterReq(vmo)"></aw-icon>
+    </span>
+    <span class="aw-requirement-tooltipCellIcon" visible-when="vmo.openTracelinkedObjectIcon">
+      <aw-icon class="aw-base-icon" icon-id="{{vmo.openTracelinkedObjectIcon}}" title="{{vmo.openTracelinkedObjectTitle}}" ng-click="openTracelinkedObject(vmo)"></aw-icon>
+   </span>
+   <span class="aw-requirement-tooltipCellIcon" visible-when="vmo.removeTracelinkedObjectIcon" >
+      <aw-icon class="aw-base-icon" icon-id="{{vmo.removeTracelinkedObjectIcon}}" title="{{vmo.removeTracelinkedObjectTitle}}" ng-click="removeTracelinkedObject(vmo)"></aw-icon>
+   </span>
+</div>

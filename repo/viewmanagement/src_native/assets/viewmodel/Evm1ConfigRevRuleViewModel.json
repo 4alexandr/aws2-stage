@@ -1,0 +1,84 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-section.directive",
+        "js/aw-include.directive",
+        "js/aw-link-with-popup-menu.directive",
+        "js/exist-when.directive"
+    ],
+
+    "data": {
+        "currentRevisionRule": {
+            "type": "STRING",
+            "uiValue": "{{data.revisionRules}}"
+        },
+        "subPanelContext": {
+            "provider" : {
+                "viewKey" : "evm1ActiveContext"
+            }
+        }
+    },
+
+    "dataProviders": {
+        "revisionLink": {
+            "dataProviderType": "TcLOV",
+            "lovConfiguration": {
+                "filterStr": "",
+                "lovPageSize":10000,
+                "viewModelObj": "{{ctx.userSession}}",
+                "viewProp": "{{ctx.userSession.props.awp0RevRule}}",
+                "operationName": "Edit"
+            },
+            "totalFound": ""
+        }
+    },
+
+    "actions": {
+        "initializeRevisionRuleConfigInfo": {
+            "actionType": "JSFunction",
+            "method": "getInitialRevisionRuleConfigData",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        },
+        "selectChangedRevisionRule": {
+            "actionType": "JSFunction",
+            "method": "selectChangedRevisionRule",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1ConfigurationPanelService"
+        }
+    },
+
+    "functions": {
+    },
+
+    "lifecycleHooks": {
+        "onMount": "initializeRevisionRuleConfigInfo"
+    },
+
+    "onEvent": [
+        {
+            "eventId": "awlinkPopup.selected",
+            "condition": "conditions.checkRevRuleChanged",
+            "cacheEventData": true,
+            "action": "selectChangedRevisionRule"
+        }
+    ],
+
+    "messages": {
+    },
+
+    "conditions": {
+        "checkRevRuleChanged":
+        {
+            "expression": "ctx.xrtSummaryContextObject.type === 'Fnd0SearchRecipe'"
+        }
+    },
+
+    "i18n": {
+        "ConfigPanelRevRuleTitle": [ "RecipeCommandPanelsMessages" ]
+    }
+}

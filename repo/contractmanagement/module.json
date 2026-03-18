@@ -1,0 +1,748 @@
+{
+  "name": "contractmanagement",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "aliasRegistry": {
+    "typeContractSubmittal48": [
+      "Cdm0Submittal"
+    ],
+    "typeContractSubmittalRevision48": [
+      "Cdm0SubmittalRevision"
+    ],
+    "typeAnalysisRequest48": [
+      "Cdm0Contract"
+    ],
+    "typeAnalysisRequestRevision48": [
+      "Cdm0ContractRevision"
+    ],
+    "typeContractDataRequirement48": [
+      "Cdm0DataReqItem"
+    ],
+    "typeContractDataRequirementRevision48": [
+      "Cdm0DataReqItemRevision"
+    ],
+    "typeContractDataDescription48": [
+      "Cdm0DID"
+    ],
+    "typeContractDataDescriptionRevision48": [
+      "Cdm0DIDRevision"
+    ],
+    "typeContractCorrespondence48": [
+      "Cdm0Corspondence"
+    ],
+    "typeContractCorrespondenceRevision48": [
+      "Cdm0CorspondenceRevision"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "Cdm1RemoveEvent": {
+        "iconId": "cmdRemove",
+        "isGroup": false,
+        "title": "{{i18n.removeEvent}}",
+        "description": "{{i18n.Cdm1RemoveEventDesc}}"
+      },
+      "Cdm1AddContractEventSchedule": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Cdm1AddContractEventScheduleDesc}}"
+      },
+      "Cdm1RemoveContractSch": {
+        "iconId": "cmdRemove",
+        "isGroup": false,
+        "title": "{{i18n.delete}}",
+        "description": "{{i18n.Cdm1RemoveContractSchDesc}}"
+      },
+      "Cdm1AddProject": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.addProjectButtonTitle}}",
+        "description": "{{i18n.Cdm1AddProjectDesc}}"
+      },
+      "Cdm1AddEvent": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Cdm1AddEventDesc}}"
+      },
+      "Cdm1GenerateSubmittal": {
+        "iconId": "cmdGenerateContractSubmittal",
+        "isGroup": false,
+        "title": "{{i18n.generateSubmittalToolTip}}",
+        "description": "{{i18n.Cdm1GenerateSubmittalDesc}}"
+      },
+      "Cdm1AddDRI": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Cdm1AddDRIDesc}}"
+      },
+      "Cdm1ResheduleDRIs": {
+        "iconId": "cmdRescheduleDataRequirementItem",
+        "isGroup": false,
+        "title": "{{i18n.rescheduleDRIs}}",
+        "description": "{{i18n.Cdm1ResheduleDRIsDesc}}"
+      },
+      "Cdm1AddEventPanelSetPin": {
+        "iconId": "cmdPin",
+        "isGroup": false,
+        "title": "{{i18n.addObjectPanelPinButtonToolTip}}",
+        "description": "{{i18n.panelPinButtonDesc}}"
+      },
+      "Cdm1AddEventPanelSetUnPin": {
+        "iconId": "cmdUnpin",
+        "isGroup": false,
+        "title": "{{i18n.addObjectPanelUnpinButtonToolTip}}",
+        "description": "{{i18n.panelUnPinButtonDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "Cdm1AddProjectCommandHandler": {
+        "id": "Cdm1AddProject",
+        "action": "addProjectCDRL",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Cdm1RemoveEventCommandHandler": {
+        "id": "Cdm1RemoveEvent",
+        "action": "removeChildren",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isRemoveEventCmdVisible"
+        }
+      },
+      "Cdm1GenerateSubmittalCommandHandler": {
+        "id": "Cdm1GenerateSubmittal",
+        "action": "generateSubmittal",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isGenerateSubmittalCmdVisible"
+        }
+      },
+      "Cdm1AddContractEventScheduleCommandHandler": {
+        "id": "Cdm1AddContractEventSchedule",
+        "action": "Cdm1AddContractEventScheduleAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isCdm1AddContractEventScheduleCmdVisible"
+        }
+      },
+      "Cdm1RemoveContractSchCommandHandler": {
+        "id": "Cdm1RemoveContractSch",
+        "action": "removeSchedule",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isRemoveContractSchCmdVisible"
+        }
+      },
+      "Cdm1AddEventHandler": {
+        "id": "Cdm1AddEvent",
+        "action": "activateCdm1AddEvent",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "cdm1AddDRIHandler": {
+        "id": "Cdm1AddDRI",
+        "action": "activateCdm1AddDRI",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isCdm1AddDRICmdVisible"
+        }
+      },
+      "Cdm1ReschDRIsCommandHandler": {
+        "id": "Cdm1ResheduleDRIs",
+        "action": "resheduleImpactedDRIsAsync",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isReschCmdVisible"
+        }
+      },
+      "Cdm1AddEventPanelSetPinHandler": {
+        "id": "Cdm1AddEventPanelSetPin",
+        "action": "Cdm1AddEventPanelSetPinAction",
+        "activeWhen": {
+          "condition": "conditions.isCdm1AddEventPanelPanelPinned"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isCdm1AddEventPanelPanelPinned"
+        }
+      },
+      "Cdm1AddEventPanelSetUnPinHandler": {
+        "id": "Cdm1AddEventPanelSetUnPin",
+        "action": "Cdm1AddEventPanelSetUnPinAction",
+        "activeWhen": {
+          "condition": "conditions.isCdm1AddEventPanelPanelUnPinned"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isCdm1AddEventPanelPanelUnPinned"
+        }
+      }
+    },
+    "commandPlacements": {
+      "Cdm1AddProjectPlacement": {
+        "id": "Cdm1AddProject",
+        "uiAnchor": "cdm1_addProjCommands",
+        "priority": 100
+      },
+      "Cdm1RemoveEventCommandPlacement": {
+        "id": "Cdm1RemoveEvent",
+        "uiAnchor": "aw_rightWall",
+        "priority": 314,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "Cdm1Cdm1RemoveContractSchPlacement": {
+        "id": "Cdm1RemoveContractSch",
+        "uiAnchor": "aw_rightWall",
+        "priority": 500,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "Cdm1GenerateSubmittalCommandPlacement": {
+        "id": "Cdm1GenerateSubmittal",
+        "uiAnchor": "aw_rightWall",
+        "priority": 570,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "cdm1AddEventaw_toolsAndInfo": {
+        "id": "Cdm1AddEvent",
+        "uiAnchor": "cdm1AddEventAnchor",
+        "priority": 100
+      },
+      "Cdm1ReschDRIsCommandPlacement": {
+        "id": "Cdm1ResheduleDRIs",
+        "uiAnchor": "aw_rightWall",
+        "priority": 620,
+        "parentGroupId": "Awp0ManageGroup"
+      },
+      "Cdm1AddEventPanelSetPinPlacement": {
+        "id": "Cdm1AddEventPanelSetPin",
+        "uiAnchor": "cdm1AddEventPanel_oneStepPinCommands",
+        "priority": 100
+      },
+      "Cdm1AddEventPanelSetUnPinPlacement": {
+        "id": "Cdm1AddEventPanelSetUnPin",
+        "uiAnchor": "cdm1AddEventPanel_oneStepPinCommands",
+        "priority": 100
+      }
+    },
+    "actions": {
+      "addProjectCDRL": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "awPanel.navigate",
+              "eventData": {
+                "destPanelId": "assignProjectSub",
+                "title": "{{i18n.addProjectButtonTitle}}",
+                "recreatePanel": true,
+                "supportGoBack": true
+              }
+            }
+          ]
+        }
+      },
+      "Cdm1AddContractEventScheduleAction": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Cdm1AddContractEventSchedule",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "removeChildren": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2014-10-DataManagement",
+        "method": "removeChildren",
+        "deps": "js/Cdm1AddContractEventScheduleService",
+        "inputData": {
+          "inputData": [
+            {
+              "clientId": "RemoveEventAW",
+              "childrenObj": "{{function:getSelectedObjects}}",
+              "parentObj": "{{function:getParentObj}}",
+              "propertyName": "fnd0StaticTableData"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "removeEventAction"
+            }
+          ]
+        }
+      },
+      "removeSchedule": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2014-10-DataManagement",
+        "method": "removeChildren",
+        "deps": "js/Cdm1AddContractEventScheduleService",
+        "inputData": {
+          "inputData": [
+            {
+              "clientId": "RemoveScheduleAW",
+              "childrenObj": "{{ctx.mselected}}",
+              "parentObj": "{{ctx.pselected}}",
+              "propertyName": "cdm0ContractEventSch"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ],
+                "refreshLocationFlag": true
+              }
+            }
+          ]
+        }
+      },
+      "generateSubmittal": {
+        "actionType": "TcSoaService",
+        "serviceName": "ContractManagement-2018-06-ContractManagement",
+        "method": "createOrUpdateSubDelSchedules2",
+        "inputData": {
+          "createOrUpdateSubSchInput": [
+            {
+              "clientId": "ActiveWorkspaceClient",
+              "businessObject": "{{ctx.selected.uid}}",
+              "updateImpactedOnly": false
+            }
+          ],
+          "performAsynchronously": true
+        },
+        "events": {
+          "success": [
+            {
+              "name": "message.generateSubmittal"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "generateSubmittalFailure"
+            }
+          ]
+        }
+      },
+      "removeEventAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteObjects",
+        "deps": "js/Cdm1AddContractEventScheduleService",
+        "inputData": {
+          "objects": "{{function:getSelectedObjects}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ],
+                "refreshLocationFlag": true
+              }
+            },
+            {
+              "name": "message.singleEventRemoved",
+              "condition": "ctx.mselected.length === 1"
+            },
+            {
+              "name": "message.multipleEventsRemoved",
+              "condition": "ctx.mselected.length > 1"
+            }
+          ]
+        }
+      },
+      "activateCdm1AddEvent": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Cdm1AddEvent",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateCdm1AddDRI": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Cdm1AddDRI",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "resheduleImpactedDRIsAsync": {
+        "actionType": "TcSoaService",
+        "serviceName": "ContractManagement-2018-06-ContractManagement",
+        "method": "createOrUpdateSubDelSchedules2",
+        "inputData": {
+          "createOrUpdateSubSchInput": "{{function:getReschSOAInput}}",
+          "performAsynchronously": true
+        },
+        "events": {
+          "success": [
+            {
+              "name": "message.rescheduling"
+            }
+          ]
+        },
+        "deps": "js/Cdm1ImpactedEventsService"
+      },
+      "Cdm1AddEventPanelSetPinAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "Cdm1AddEventPanelCommand.Cdm1AddEventPanelSetPin",
+              "eventData": {
+                "data": "{{commandContext}}"
+              }
+            }
+          ]
+        }
+      },
+      "Cdm1AddEventPanelSetUnPinAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "Cdm1AddEventPanelCommand.Cdm1AddEventPanelSetUnPin",
+              "eventData": {
+                "data": "{{commandContext}}"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "functions": {
+      "getParentObj": {
+        "functionName": "getParentObj",
+        "parameters": []
+      },
+      "getReschSOAInput": {
+        "functionName": "getReschSOAInput",
+        "parameters": [
+          "{{ctx}}"
+        ]
+      }
+    },
+    "onEvent": [
+      {
+        "eventId": "removeEventAction",
+        "cacheEventData": true,
+        "action": "removeEventAction"
+      },
+      {
+        "eventId": "message.singleEventRemoved",
+        "message": "singleEventRemoved"
+      },
+      {
+        "eventId": "message.multipleEventsRemoved",
+        "message": "multipleEventsRemoved"
+      },
+      {
+        "eventId": "message.generateSubmittal",
+        "message": "generateSubmittalNotification"
+      },
+      {
+        "eventId": "message.rescheduling",
+        "message": "reschedulingNotification"
+      }
+    ],
+    "messages": {
+      "singleEventRemoved": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.singleEventRemoved}}",
+        "messageTextParams": [
+          "{{ctx.mselected[0].props.cdm0EventName.dbValue}}"
+        ]
+      },
+      "multipleEventsRemoved": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.multipleEventsRemoved}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}"
+        ]
+      },
+      "generateSubmittalNotification": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.generateSubmittalNotification}}"
+      },
+      "reschedulingNotification": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.reschedulingNotification}}"
+      },
+      "generateSubmittalFailure": {
+        "messageType": "ERROR",
+        "messageText": "{{errorCode}}"
+      }
+    },
+    "conditions": {
+      "isRemoveEventCmdVisible": {
+        "expression": "(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Cdm0EventsTable' ) > -1)"
+      },
+      "isCdm1AddContractEventScheduleCmdVisible": {
+        "expression": "(ctx.selected.modelType.typeHierarchyArray.indexOf('Cdm0ContractRevision') > -1) && commandContext.objectSetSource==='cdm0ContractEventSch.Schedule'"
+      },
+      "isCdm1AddEventCmdVisible": {
+        "expression": "(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Cdm0DataReqItemRevision' ) > -1)"
+      },
+      "isGenerateSubmittalCmdVisible": {
+        "expression": "(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Cdm0DataReqItemRevision' )  > -1) && ctx.selected.props.is_modifiable.dbValues[0] === '1' && ctx.visibleServerCommands.Cdm1GenerateSubmittal && !(ctx.xrtPageContext.primaryXrtPageID === 'tc_cdm1_xrt_DRIsForReschedule' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_cdm1_xrt_DRIsForReschedule')"
+      },
+      "isCdm1AddDRICmdVisible": {
+        "expression": "commandContext.objectSetSource==='Cdm0ListsContractDRI.Cdm0DataReqItem' || 'Cdm0ListsContractDRI.Cdm0DataReqItemRevision'"
+      },
+      "isReschCmdVisible": {
+        "expression": "( (ctx.xrtPageContext.primaryXrtPageID === 'tc_cdm1_xrt_DRIsForReschedule' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_cdm1_xrt_DRIsForReschedule') && ctx.mselected.length > 0 && ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'Cdm0DataReqItemRevision' ) > -1)"
+      },
+      "isCdm1AddEventPanelPanelPinned": {
+        "expression": "commandContext.pinnedToForm.dbValue"
+      },
+      "isCdm1AddEventPanelPanelUnPinned": {
+        "expression": "commandContext.unpinnedToForm.dbValue"
+      },
+      "isRemoveContractSchCmdVisible": {
+        "expression": "(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Schedule' ) > -1 && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'Cdm0ContractRevision' ) > -1 )"
+      }
+    },
+    "i18n": {
+      "removeEvent": [
+        "contractmanagementMessages"
+      ],
+      "delete": [
+        "ZeroCompileCommandMessages"
+      ],
+      "generateSubmittalNotification": [
+        "contractmanagementMessages"
+      ],
+      "generateSubmittalToolTip": [
+        "contractmanagementMessages"
+      ],
+      "singleEventRemoved": [
+        "contractmanagementMessages"
+      ],
+      "multipleEventsRemoved": [
+        "contractmanagementMessages"
+      ],
+      "add": [
+        "contractmanagementMessages"
+      ],
+      "addProjectButtonTitle": [
+        "contractmanagementMessages"
+      ],
+      "cdm1AddEventTitle": [
+        "contractmanagementMessages"
+      ],
+      "rescheduleDRIs": [
+        "contractmanagementMessages"
+      ],
+      "reschedulingNotification": [
+        "contractmanagementMessages"
+      ],
+      "cdm1_addProjCommands": [
+        "contractmanagementMessages"
+      ],
+      "cdm1AddEventAnchor": [
+        "contractmanagementMessages"
+      ],
+      "cdm1AddEventPanel_oneStepPinCommands": [
+        "contractmanagementMessages"
+      ],
+      "addObjectPanelPinButtonToolTip": [
+        "awAddDirectiveMessages"
+      ],
+      "addObjectPanelUnpinButtonToolTip": [
+        "awAddDirectiveMessages"
+      ],
+      "Cdm1RemoveEventDesc": [
+        "contractmanagementMessages"
+      ],
+      "Cdm1AddContractEventScheduleDesc": [
+        "contractmanagementMessages"
+      ],
+      "Cdm1RemoveContractSchDesc": [
+        "contractmanagementMessages"
+      ],
+      "Cdm1AddProjectDesc": [
+        "contractmanagementMessages"
+      ],
+      "Cdm1AddEventDesc": [
+        "contractmanagementMessages"
+      ],
+      "Cdm1GenerateSubmittalDesc": [
+        "contractmanagementMessages"
+      ],
+      "Cdm1AddDRIDesc": [
+        "contractmanagementMessages"
+      ],
+      "Cdm1ResheduleDRIsDesc": [
+        "contractmanagementMessages"
+      ]
+    }
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "Cdm0ContractRevision": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "item_revision_id"
+          },
+          {
+            "name": "item_id"
+          },
+          {
+            "name": "cdm0ContractEventSch"
+          },
+          {
+            "name": "cdm0ContractScheduleTasks",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "Cdm0EventsTable": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "cdm0EventListRowSelection"
+          },
+          {
+            "name": "cdm0EventName"
+          },
+          {
+            "name": "cdm0ScheduleTask"
+          },
+          {
+            "name": "cdm0StartDate"
+          },
+          {
+            "name": "cdm0EndDate"
+          },
+          {
+            "name": "cdm0OffSet"
+          },
+          {
+            "name": "cdm0RelativeTo"
+          },
+          {
+            "name": "cdm0Recurrence"
+          },
+          {
+            "name": "cdm0RecurrenceEndDate"
+          }
+        ]
+      },
+      "Schedule": {
+        "additionalProperties": [
+          {
+            "name": "is_template"
+          }
+        ]
+      },
+      "TC_Project": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "project_name"
+          },
+          {
+            "name": "project_id"
+          }
+        ]
+      },
+      "Cdm0DataReqItemRevision": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "cdm0EventList",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          },
+          {
+            "name": "items_tag",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          },
+          {
+            "name": "Cdm0ListsDRISubmittalSch"
+          }
+        ]
+      },
+      "Cdm0DataReqItem": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "cdm0ContractTypedRef",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "Cdm0Contract": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "revision_list",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "Fnd0StaticTable": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "fnd0StaticTableData",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

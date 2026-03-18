@@ -1,0 +1,14 @@
+<div class="aw-cls-classHeader-toggle" ng-if='!keyword'>
+    <div   class="aw-cls-classHeaderContainerSection" ng-class="{ 'aw-cls-image-chevron': !expansionstate }">
+        <aw-property-image class="aw-cls-headerImage"  name="miscDownArrow_uxRefresh" ng-click="toggleExpansion()" ng-show="expansionstate"></aw-property-image>
+        <aw-property-image class="aw-cls-headerImage" name="miscDownArrow_uxRefresh"   ng-click="toggleExpansion()"   ng-show="!expansionstate"></aw-property-image>
+    </div>
+    <label class="aw-cls-classHeaderLabel aw-layout-panelSectionTitle"
+        ng-class="{'aw-cls-hierarchyHeaderLabel': action}" ng-click="fireClickAction()">{{caption}}</label>
+</div>
+<div class="aw-ui-filterCategorySearchBoxWidget" ng-if="keyword">
+        <div class="aw-ui-filterCategorySearchBoxWrapper aw-layout-flexRow" ng-if="data.hasBlocks">
+            <input type="text" ng-model="data.propGroupFilter" placeholder="{{data.i18n.searchPlaceholder}}" ng-keyup="evalKeyup($event)">
+        </div>
+</div>
+<div class="aw-cls-classHeaderContent" visible-when="expansionstate" aw-transclude></div>

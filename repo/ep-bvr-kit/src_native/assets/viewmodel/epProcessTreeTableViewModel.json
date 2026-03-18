@@ -1,0 +1,344 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-include.directive"
+    ],
+    "ports": {
+        "epProcessTreeTable_selectedObjects": {
+            "onChangeAction": "setSelection",
+            "syncObject": {}
+        },
+        "epProcessTreeTable_setVisibility": {
+            "syncObject": {}
+        },
+        "epProcessTreeTable_getVisibility": {
+            "onChangeAction": "updateGraphicVisibility",
+            "syncObject": {}
+        }
+    },
+    "data": {},
+    "actions": {
+        "buildAndSetSelectionInSelectionModel": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "buildSelectionModel"
+                },
+                {
+                    "action": "setSelectionInSelectionModel"
+                }
+            ]
+        },
+        "buildSelectionModel": {
+            "actionType": "JSFunction",
+            "method": "buildSelectionModel",
+            "inputData": {
+                "selectionModelMode": "multiple"
+            },
+            "outputData": {
+                "selectionModel": ""
+            },
+            "deps": "js/epTableService"
+        },
+        "setSelection": {
+            "actionType": "JSFunction",
+            "method": "setSelection",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.epProcessTreeDataProvider}}",
+                "objectsToSelect": "{{ports.epProcessTreeTable_selectedObjects.syncObject}}",
+                "propertyToSort": "{{subPanelContext.propertyToSort}}"
+            },
+            "deps": "js/epTableService"
+        },
+        "setSelectionInSelectionModel": {
+            "actionType": "JSFunction",
+            "method": "setSelectionInSelectionModel",
+            "inputData": {
+                "selectionModel": "{{data.selectionModel}}",
+                "objectsToSelect": "{{ports.epProcessTreeTable_selectedObjects.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "updateSelectionPort": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "epProcessTreeTable_selectedObjects",
+                "syncObject": "{{data.eventMap['epProcessTreeDataProvider.selectionChangeEvent'].selectedObjects}}"
+            }
+        },
+        "createColumns": {
+            "actionType": "JSFunction",
+            "method": "createColumns",
+            "inputData": {
+                "preferenceName": "{{subPanelContext.preferenceName}}",
+                "dataProvider": "{{data.dataProviders.epProcessTreeDataProvider}}",
+                "columnProvider": {
+                    "clientColumns": "{{subPanelContext.customColumns}}"
+                },
+                "additionalPolicyObjects": "{{subPanelContext.additionalPolicyObjects}}"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "initializeTreeTableAction": {
+            "actionType": "batchJob",
+            "steps": [
+                { "action": "initializeLoadDataForTree" },
+                { "action": "renderCutIndication" }
+            ]
+        },
+        "initializeLoadDataForTree": {
+            "actionType": "JSFunction",
+            "method": "initializeLoadDataForTree",
+            "inputData": {
+                "treeLoadInput": "{{data.treeLoadInput}}",
+                "topNodeUid": "{{subPanelContext.objectUid}}",
+                "rootLoadInputData": {
+                    "loadType": "getProperties",
+                    "propertiesToLoad": "{{subPanelContext.propertiesToLoad}}"
+                },
+                "childLoadInputData": {
+                    "loadType": "getProperties",
+                    "propertiesToLoad": "{{subPanelContext.propertiesToLoad}}"
+                },
+                "dataProvider": "{{data.dataProviders.epProcessTreeDataProvider}}",
+                "treeNavigationColumnIndex": "{{subPanelContext.customColumns.length}}",
+                "isLeafProperty": "{{subPanelContext.isLeafProperty}}"
+            },
+            "outputData": {
+                "treeLoadResult": "treeLoadResult"
+            },
+            "deps": "js/epTableService"
+        },
+        "loadTreeTableData": {
+            "actionType": "JSFunction",
+            "method": "loadTreeTableData",
+            "inputData": {
+                "treeLoadInput": "{{data.treeLoadInput}}",
+                "topNodeUid": "{{subPanelContext.objectUid}}",
+                "isTopNode": "{{subPanelContext.isTopNode}}",
+                "rootLoadInputData": {
+                    "loadType": "getProperties",
+                    "propertiesToLoad": "{{subPanelContext.propertiesToLoad}}"
+                },
+                "childLoadInputData": {
+                    "loadType": "getProperties",
+                    "propertiesToLoad": "{{subPanelContext.propertiesToLoad}}"
+                },
+                "dataProvider": "{{data.dataProviders.epProcessTreeDataProvider}}",
+                "treeNavigationColumnIndex": "{{subPanelContext.customColumns.length}}",
+                "isLeafProperty": "{{subPanelContext.isLeafProperty}}"
+            },
+            "outputData": {
+                "treeLoadResult": "treeLoadResult"
+            },
+            "deps": "js/epTableService"
+        },
+        "graphicVisibilityClicked": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "setGraphicVisibilityState"
+                },
+                {
+                    "action": "setVisibilityPort"
+                }
+            ]
+        },
+        "setGraphicVisibilityState": {
+            "actionType": "JSFunction",
+            "method": "setGraphicVisibilityState",
+            "inputData": {
+                "vmo": "{{data.eventData.vmo}}"
+            },
+            "deps": "js/epGraphicVisibilityTablePropertyRenderer"
+        },
+        "setVisibilityPort": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "epProcessTreeTable_setVisibility",
+                "syncObject": "{{data.eventData.vmo}}"
+            }
+        },
+        "updateGraphicVisibility": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "getGraphicVisibilityFromPort"
+                },
+                {
+                    "action": "getGraphicVisibility"
+                }
+            ]
+        },
+        "getGraphicVisibilityFromPort": {
+            "actionType": "JSFunction",
+            "method": "getGraphicVisibilityFromPort",
+            "inputData": {
+                "objectsVisibility": "{{ports.epProcessTreeTable_getVisibility.syncObject}}"
+            },
+            "outputData": {
+                "objectsVisibilityStateMap": ""
+            },
+            "deps": "js/epGraphicVisibilityTablePropertyRenderer"
+        },
+        "getGraphicVisibility": {
+            "actionType": "JSFunction",
+            "method": "getGraphicVisibility",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.epProcessTreeDataProvider}}",
+                "objectsVisibilityStateMap": "{{data.objectsVisibilityStateMap}}"
+            },
+            "deps": "js/epGraphicVisibilityTablePropertyRenderer"
+        },
+        "handleSaveEvents": {
+            "actionType": "JSFunction",
+            "method": "handleSaveEvents",
+            "inputData": {
+                "saveEvents": "{{data.eventData}}",
+                "dataProvider": "{{data.dataProviders.epProcessTreeDataProvider}}",
+                "viewModelData": "{{data}}"
+            },
+            "deps": "js/epProcessTreeTableService"
+        },
+        "updateSelectionPortAndUpdateCommandContext": {
+            "actionType": "batchJob",
+            "steps": [
+                { "action": "areOperationsCut" },
+                { "action": "updateSelectionPort" },
+                { "action": "updateCommandContext" }
+            ]
+        },
+        "areOperationsCut": {
+            "actionType": "JSFunction",
+            "method": "areObjectsCut",
+            "outputData": {
+                "isCutAction": "isCutAction"
+            },
+            "deps": "js/epCutCopyService"
+        },
+        "updateCommandContext": {
+            "actionType": "JSFunction",
+            "method": "setCommandContext",
+            "inputData": {
+                "tabModel": "{{subPanelContext.tabContext}}",
+                "commandContext": {
+                    "selection": "{{data.eventMap['epProcessTreeDataProvider.selectionChangeEvent'].selectedObjects}}",
+                    "tableId": "epProcessTreeTable",
+                    "areOperationsCut": "{{data.isCutAction}}"
+                }
+            },
+            "deps": "js/mfeContentPanelUtil"
+        },
+        
+        "saveResizedColumnsWidth": {
+            "actionType": "JSFunction",
+            "method": "saveResizedColumnsWidth",
+            "inputData": {
+                "preferenceName": "{{subPanelContext.preferenceName}}",
+                "columns": "{{data.eventData.columns}}"
+            },
+            "deps": "js/mfeTableService"
+        },
+        
+        "createColumnsAndRegisterPolicy": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "createColumns"
+                },
+                {
+                    "action": "registerPolicy"
+                }
+            ]
+        },
+        "registerPolicy": {
+            "actionType": "JSFunction",
+            "method": "register",
+            "inputData": {
+                "name": "epProcessTree",
+                "policyObj": "{{data.dataProviders.epProcessTreeDataProvider.policy}}"
+            },
+            "deps": "js/mfePolicyService"
+        },
+        "unregisterPolicy": {
+            "actionType": "JSFunction",
+            "method": "unregister",
+            "inputData": {
+                "name": "epProcessTree"
+            },
+            "deps": "js/mfePolicyService"
+        },
+        "renderCutIndication": {
+            "actionType": "JSFunction",
+            "method": "renderCutIndication",
+            "inputData": {
+                "data": "{{data}}",
+                "columns": "{{data.dataProviders.epProcessTreeDataProvider.columnConfig.columns}}"
+            },
+            "deps": "js/epTableService"
+        }
+    },
+    "dataProviders": {
+        "epProcessTreeDataProvider": {
+            "initializeAction": "initializeTreeTableAction",
+            "nextAction": "loadTreeTableData",
+            "previousAction": "loadTreeTableData",
+            "focusAction": "loadTreeTableData",
+            "treeLoadResult": "{{data.treeLoadResult}}",
+            "selectionModelMode": "multiple",
+            "inputData": {
+                "accessMode": "tree",
+                "topNodeUid": "{{subPanelContext.objectUid}}",
+                "selectionModel": "{{data.selectionModel}}"
+            }
+        }
+    },
+    "columnProviders": {
+        "epProcessTreeColumnProvider": {
+            "loadColumnAction": "createColumnsAndRegisterPolicy"
+        }
+    },
+    "grids": {
+        "epProcessTreeTable": {
+            "dataProvider": "epProcessTreeDataProvider",
+            "columnProvider": "epProcessTreeColumnProvider",
+            "addIconColumn": false
+        }
+    },
+    "onEvent": [{
+            "eventId": "epProcessTreeDataProvider.selectionChangeEvent",
+            "action": "updateSelectionPortAndUpdateCommandContext",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "epGraphicVisibilityClicked",
+            "cacheEventData": true,
+            "action": "graphicVisibilityClicked"
+        },
+        {
+            "eventId": "epProcessTreeDataProvider.treeNodesLoaded",
+            "cacheEventData": true,
+            "action": "getGraphicVisibility"
+        },
+        {
+            "eventId": "ep.saveEvents",
+            "cacheEventData": true,
+            "action": "handleSaveEvents"
+        },
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "saveResizedColumnsWidth",
+            "criteria":
+            {
+                "name": "epProcessTreeTable"
+            }
+        }
+    ],
+    "conditions": {
+        "isTreeDataLoaded": {
+            "expression": "data.dataProviders.epProcessTreeDataProvider.viewModelCollection.totalObjectsLoaded > 0"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "buildAndSetSelectionInSelectionModel",
+        "onUnmount": "unregisterPolicy"
+    }
+}

@@ -1,0 +1,1012 @@
+{
+  "name": "tie",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "commandsViewModel": {
+    "commands": {
+      "exportToBriefcaseCommand": {
+        "iconId": "cmdExport",
+        "isGroup": false,
+        "title": "{{i18n.cmdExportToBriefcase}}",
+        "description": "{{i18n.cmdExportToBriefcaseDesc}}"
+      },
+      "importFromBriefcaseCommand": {
+        "iconId": "cmdImport",
+        "isGroup": false,
+        "title": "{{i18n.cmdImportFromBriefcase}}",
+        "description": "{{i18n.cmdImportFromBriefcaseDesc}}"
+      },
+      "transferOptionSetOverride": {
+        "iconId": "cmdEdit",
+        "isGroup": false,
+        "title": "{{i18n.cmdOverrideOptions}}"
+      },
+      "transferOptionSetOverrideRemoveAll": {
+        "iconId": "cmdRemoveAll",
+        "isGroup": false,
+        "title": "{{i18n.cmdOverrideOptionsRemoveAll}}"
+      },
+      "removeOptOverride": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.cmdRemoveOptOverride}}"
+      },
+      "Awp0BriefcaseCheckout": {
+        "iconId": "cmdCheckout",
+        "isGroup": false,
+        "title": "{{i18n.cmdBriefcaseCheckOut}}",
+        "description": "{{i18n.cmdBriefcaseCheckOutDesc}}"
+      },
+      "Awp0BriefcaseCheckin": {
+        "iconId": "cmdCheckin",
+        "isGroup": false,
+        "title": "{{i18n.cmdBriefcaseCheckIn}}",
+        "description": "{{i18n.cmdBriefcaseCheckInDesc}}"
+      },
+      "Awp0CancelBriefcaseCheckout": {
+        "iconId": "cmdCancelCheckout",
+        "isGroup": false,
+        "title": "{{i18n.cmdBriefcaseCancelCheckOut}}",
+        "description": "{{i18n.cmdBriefcaseCancelCheckOutDesc}}"
+      },
+      "Awp0MarkOwnershipTransfer": {
+        "iconId": "cmdTransferOwnership",
+        "isGroup": false,
+        "title": "{{i18n.cmdMarkOwnershipTransfer}}",
+        "description": "{{i18n.cmdMarkOwnershipTransferDesc}}"
+      },
+      "Awp0ViewOwnershipTransfer": {
+        "iconId": "cmdTransferOwnership",
+        "isGroup": false,
+        "title": "{{i18n.cmdViewOwnershipTransfer}}",
+        "description": "{{i18n.cmdViewOwnershipTransferDesc}}"
+      },
+      "ownershipTransferSelectionMode": {
+        "iconId": "cmdMultiSelect",
+        "isGroup": false,
+        "title": "{{i18n.cmdOwnershipTransferSelectionMode}}",
+        "description": "{{i18n.cmdOwnershipTransferSelectionModeDesc}}"
+      },
+      "ownershipTransferSelectAll": {
+        "iconId": "cmdCheckmark",
+        "isGroup": false,
+        "title": "{{i18n.cmdOwnershipTransferSelectAll}}",
+        "description": "{{i18n.cmdOwnershipTransferSelectAllDesc}}",
+        "selected": {
+          "iconId": "cmdCheckmark",
+          "title": "{{i18n.cmdOwnershipTransferClearSelection}}",
+          "description": "{{i18n.cmdOwnershipTransferClearSelectionDesc}}"
+        }
+      },
+      "cancelTransferOwnership": {
+        "iconId": "cmdCancelTransferOwnership",
+        "isGroup": false,
+        "title": "{{i18n.cmdCancelTransferOwnership}}",
+        "description": "{{i18n.cmdCancelTransferOwnershipDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "removeOptOverrideCommandHandler": {
+        "id": "removeOptOverride",
+        "action": "removeOptOverrideAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "exportToBriefcaseCommandHandler": {
+        "id": "exportToBriefcaseCommand",
+        "action": "launchExportToBriefcasePanel",
+        "activeWhen": {
+          "condition": "conditions.isBriefcaseExportSupported"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isBriefcaseExportSupported"
+        },
+        "enableWhen": true
+      },
+      "importFromBriefcaseCommandHandler": {
+        "id": "importFromBriefcaseCommand",
+        "action": "launchImportFromBriefcasePanel",
+        "activeWhen": {
+          "condition": "conditions.enableImportBriefcaseCommand"
+        },
+        "enableWhen": {
+          "condition": "conditions.enableImportBriefcaseCommand"
+        },
+        "visibleWhen": {
+          "condition": "conditions.enableImportBriefcaseCommand"
+        }
+      },
+      "transferOptionSetOverrideHandler": {
+        "id": "transferOptionSetOverride",
+        "action": "transferOptionSetOverrideCmdAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.transferOptionSetSelected"
+        },
+        "enableWhen": true
+      },
+      "transferOptionSetOverrideRemoveAllHandler": {
+        "id": "transferOptionSetOverrideRemoveAll",
+        "action": "transferOptionSetOverrideRemoveAllCmdAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.hasOverrideContext"
+        },
+        "enableWhen": true
+      },
+      "briefcaseCheckOutCommandHandler": {
+        "id": "Awp0BriefcaseCheckout",
+        "action": "launchBriefcaseCheckOutPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.briefcaseCheckOutVisibility"
+        }
+      },
+      "briefcaseCheckInCommandHandler": {
+        "id": "Awp0BriefcaseCheckin",
+        "action": "performBriefcaseCheckIn",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.briefcaseCheckInVisibility"
+        }
+      },
+      "briefcaseCancelCheckOutCommandHandler": {
+        "id": "Awp0CancelBriefcaseCheckout",
+        "action": "performCancelBriefcaseCheckOut",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.cancelBriefcaseCheckOutVisibility"
+        }
+      },
+      "markOwnershipTransferCommandHandler": {
+        "id": "Awp0MarkOwnershipTransfer",
+        "action": "launchMarkOwnershipTransferPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.markOwnershipTransferVisibility"
+        }
+      },
+      "viewOwnershipTransferCommandHandler": {
+        "id": "Awp0ViewOwnershipTransfer",
+        "action": "launchViewOwnershipTransferPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.viewOwnershipTransferVisibility"
+        }
+      },
+      "ownershipTransferSelectionModeCommandHandler": {
+        "id": "ownershipTransferSelectionMode",
+        "action": "toggleSelectionMode",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "ownershipTransferSelectAllCommandHandler": {
+        "id": "ownershipTransferSelectAll",
+        "action": "toggleSelectAll",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.ownershipTransferSelectAllEnabled"
+        }
+      },
+      "cancelTransferOwnershipCommandHandler": {
+        "id": "cancelTransferOwnership",
+        "action": "performCancelTransferOwnership",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.canCancelMarkOwnershipTransfer"
+        }
+      }
+    },
+    "commandPlacements": {
+      "removeOptOverrideCommandPlacement": {
+        "id": "removeOptOverride",
+        "uiAnchor": "aw_tie_override_cmd_anchor",
+        "priority": 200,
+        "cellDisplay": {
+          "hover": false,
+          "position": "MIDDLE_RIGHT"
+        }
+      },
+      "exportToBriefcaseCommandPlacement": {
+        "id": "exportToBriefcaseCommand",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0ShareGroup",
+        "priority": 80
+      },
+      "importFromBriefcaseCommandPlacement": {
+        "id": "importFromBriefcaseCommand",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0NewGroup",
+        "priority": 500
+      },
+      "transferOptionSetOverridePlacement": {
+        "id": "transferOptionSetOverride",
+        "uiAnchor": "tos_section_anchor",
+        "priority": 100
+      },
+      "transferOptionSetOverrideRemoveAllPlacement": {
+        "id": "transferOptionSetOverrideRemoveAll",
+        "uiAnchor": "tos_section_anchor",
+        "priority": 200
+      },
+      "briefcaseCheckOutCommandPlacement": {
+        "id": "Awp0BriefcaseCheckout",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0EditGroup",
+        "priority": 210
+      },
+      "briefcaseCheckInCommandPlacement": {
+        "id": "Awp0BriefcaseCheckin",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0EditGroup",
+        "priority": 230
+      },
+      "briefcaseCancelCheckOutCommandPlacement": {
+        "id": "Awp0CancelBriefcaseCheckout",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0EditGroup",
+        "priority": 260
+      },
+      "markOwnershipTransferCommandPlacement": {
+        "id": "Awp0MarkOwnershipTransfer",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0ManageGroup",
+        "priority": 640
+      },
+      "viewOwnershipTransferCommandPlacement": {
+        "id": "Awp0ViewOwnershipTransfer",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0ViewGroup",
+        "priority": 500
+      },
+      "ownershipTransferSelectionModeCommandPlacement": {
+        "id": "ownershipTransferSelectionMode",
+        "uiAnchor": "pending_ot_command_anchor",
+        "priority": 1
+      },
+      "ownershipTransferSelectAllCommandPlacement": {
+        "id": "ownershipTransferSelectAll",
+        "uiAnchor": "pending_ot_command_anchor",
+        "priority": 2
+      },
+      "cancelTransferOwnershipCommandPlacement": {
+        "id": "cancelTransferOwnership",
+        "uiAnchor": "pending_ot_command_anchor",
+        "priority": 3
+      }
+    },
+    "actions": {
+      "removeOptOverrideAction": {
+        "actionType": "JSFunction",
+        "method": "remoteOverrideOptionFromList",
+        "inputData": {
+          "0": "{{commandContext.vmo.option_realname}}"
+        },
+        "deps": "js/exportToBriefcase"
+      },
+      "transferOptionSetOverrideRemoveAllCmdAction": {
+        "actionType": "JSFunction",
+        "method": "removeAllOverrideContext",
+        "deps": "js/exportToBriefcase"
+      },
+      "transferOptionSetOverrideCmdAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "awPanel.navigate",
+              "eventData": {
+                "destPanelId": "transferOptionSetOverridePanel",
+                "title": "{{i18n.cmdOverrideOptions}}",
+                "recreatePanel": true,
+                "supportGoBack": true,
+                "isolateMode": true
+              }
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "ExportToBriefcase.TransferNavigated"
+            }
+          ]
+        }
+      },
+      "launchExportToBriefcasePanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "cmdExportToBriefcaseMainPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "launchImportFromBriefcasePanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "cmdImportFromBriefcaseMainPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "launchBriefcaseCheckOutPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "cmdBriefcaseCheckOutPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "performBriefcaseCheckIn": {
+        "actionType": "TcSoaService",
+        "serviceName": "GlobalMultiSite-2007-06-SiteReservation",
+        "method": "siteCheckIn",
+        "inputData": {
+          "objects": "{{function:getBriefcaseCicoSelectedObjects}}"
+        },
+        "policy": {
+          "types": [
+            {
+              "name": "WorkspaceObject",
+              "properties": [
+                {
+                  "name": "checked_out"
+                },
+                {
+                  "name": "checked_out_user"
+                }
+              ]
+            }
+          ]
+        },
+        "outputData": {
+          "errors": "{{function:processBriefcaseCheckinPartialErrors}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": "{{ctx.mselected}}"
+              }
+            }
+          ]
+        },
+        "deps": "js/briefcaseCico"
+      },
+      "performCancelBriefcaseCheckOut": {
+        "actionType": "TcSoaService",
+        "serviceName": "GlobalMultiSite-2007-06-SiteReservation",
+        "method": "cancelSiteCheckOut",
+        "inputData": {
+          "objects": "{{function:getBriefcaseCicoSelectedObjects}}"
+        },
+        "policy": {
+          "types": [
+            {
+              "name": "WorkspaceObject",
+              "properties": [
+                {
+                  "name": "checked_out"
+                },
+                {
+                  "name": "checked_out_user"
+                }
+              ]
+            }
+          ]
+        },
+        "outputData": {
+          "errors": "{{function:processCancelBriefcaseCheckoutPartialErrors}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": "{{ctx.mselected}}"
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "cancelBriefcaseCheckoutSuccess"
+            }
+          ]
+        },
+        "deps": "js/briefcaseCico"
+      },
+      "launchMarkOwnershipTransferPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "cmdMarkOwnershipTransferPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "launchViewOwnershipTransferPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "cmdPendingOwnershipTransferPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "toggleSelectAll": {
+        "actionType": "JSFunction",
+        "method": "toggleSelectAll",
+        "deps": "js/briefcaseMarkOT"
+      },
+      "toggleSelectionMode": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "pendingOwnershipTransfer.toggleListSelectionMode"
+            }
+          ]
+        }
+      },
+      "performCancelTransferOwnership": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "pendingOwnershipTransfer.cancelTransferOwnership"
+            }
+          ]
+        }
+      }
+    },
+    "functions": {
+      "getBriefcaseCicoSelectedObjects": {
+        "functionName": "getSelectedObjects",
+        "parameters": [
+          "{{ctx}}"
+        ]
+      },
+      "processBriefcaseCheckinPartialErrors": {
+        "functionName": "processBriefcaseCheckinPartialErrors",
+        "parameters": [
+          "{{ctx}}"
+        ]
+      },
+      "processCancelBriefcaseCheckoutPartialErrors": {
+        "functionName": "processCancelBriefcaseCheckoutPartialErrors",
+        "parameters": [
+          "{{ctx}}"
+        ]
+      }
+    },
+    "onEvent": [],
+    "conditions": {
+      "isBriefcaseExportSupported": {
+        "expression": {
+          "$or": [
+            {
+              "$and": [
+                {
+                  "$source": "ctx.mselected.length",
+                  "$query": {
+                    "$gt": 0
+                  }
+                },
+                {
+                  "$source": "ctx.preferences.Briefcase_export_supported_types",
+                  "$query": {
+                    "$notNull": true
+                  }
+                },
+                {
+                  "$source": "ctx.mselected",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$in": "{{ctx.preferences.Briefcase_export_supported_types}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "$source": "ctx.mselected",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$notin": [
+                          "Sc0SRMXChange",
+                          "Sc0SRMXChangeRevision"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$source": "ctx.locationContext.modelObject",
+                  "$query": {
+                    "$source": "modelType.typeHierarchyArray",
+                    "$query": {
+                      "$notin": [
+                        "Sc0SRMXChangeRevision"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "$source": "ctx.mselected.length",
+                  "$query": {
+                    "$gt": 0
+                  }
+                },
+                {
+                  "$source": "ctx.preferences.Briefcase_export_supported_types",
+                  "$query": {
+                    "$isNull": true
+                  }
+                },
+                {
+                  "$source": "ctx.mselected",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$in": [
+                          "Awb0Element",
+                          "BOMLine",
+                          "CCObject",
+                          "CfgAttachmentLine",
+                          "Cls0ClassBase",
+                          "Cls0HierarchyNode",
+                          "Cpd0CollaborativeDesign",
+                          "Cpd0DesignElement",
+                          "Cpd0DesignSubsetElement",
+                          "Cpd0SubsetItemRevision",
+                          "Cpd0WorksetRevision",
+                          "Dataset",
+                          "Folder",
+                          "Form",
+                          "icm0",
+                          "Item",
+                          "ItemRevision",
+                          "Lbr0Hierarchy",
+                          "Lbr0Library",
+                          "Lbr0LibraryElement",
+                          "Lbr0Specification",
+                          "Mdl0BaselineRevision",
+                          "Mdl0SubsetDefinition",
+                          "Ptn0Partition",
+                          "Ptn0PartitionItem",
+                          "Ptn0PartitionTemplateModel",
+                          "smlb0",
+                          "StructureContext"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$source": "ctx.mselected",
+                  "$query": {
+                    "$all": {
+                      "$source": "modelType.typeHierarchyArray",
+                      "$query": {
+                        "$notin": [
+                          "Sc0SRMXChange",
+                          "Sc0SRMXChangeRevision"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$source": "ctx.locationContext.modelObject",
+                  "$query": {
+                    "$source": "modelType.typeHierarchyArray",
+                    "$query": {
+                      "$notin": [
+                        "Sc0SRMXChangeRevision"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "transferOptionSetSelected": {
+        "expression": "ctx.transferOptLoaded != undefined"
+      },
+      "hasOverrideContext": {
+        "expression": "ctx.overrideOptions != undefined && ctx.overrideOptions.length > 0"
+      },
+      "hasValidActiveCtx": {
+        "expression": "ctx.selected && ctx.mselected && ctx.mselected.length === 1"
+      },
+      "checkTypeForImport": {
+        "expression": "(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Folder' ) > -1 || ctx.selected.modelType.typeHierarchyArray.indexOf( 'Awb0Element' ) > -1)"
+      },
+      "enableImportBriefcaseCommand": {
+        "expression": "conditions.hasValidActiveCtx && conditions.checkTypeForImport"
+      },
+      "isReportBuilder": {
+        "expression": "ctx.sublocation && ctx.sublocation.clientScopeURI === 'Awp0ReportBuilder'"
+      },
+      "briefcaseCheckOutVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.mselected.length",
+              "$query": {
+                "$gt": 0
+              }
+            },
+            {
+              "$source": "ctx.mselected",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$notin": [
+                      "Sc0SRMXChange",
+                      "Sc0SRMXChangeRevision"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "ctx.locationContext.modelObject",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$notin": [
+                    "Sc0SRMXChangeRevision"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "ctx.visibleServerCommands.Awp0BriefcaseCheckout",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "briefcaseCheckInVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.mselected.length",
+              "$query": {
+                "$gt": 0
+              }
+            },
+            {
+              "$source": "ctx.mselected",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$notin": [
+                      "Sc0SRMXChange",
+                      "Sc0SRMXChangeRevision"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "ctx.locationContext.modelObject",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$notin": [
+                    "Sc0SRMXChangeRevision"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "ctx.visibleServerCommands.Awp0BriefcaseCheckin",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "cancelBriefcaseCheckOutVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.mselected.length",
+              "$query": {
+                "$gt": 0
+              }
+            },
+            {
+              "$source": "ctx.mselected",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$notin": [
+                      "Sc0SRMXChange",
+                      "Sc0SRMXChangeRevision"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "ctx.locationContext.modelObject",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$notin": [
+                    "Sc0SRMXChangeRevision"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "ctx.visibleServerCommands.Awp0CancelBriefcaseCheckout",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "markOwnershipTransferVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "ctx.mselected.length",
+              "$query": {
+                "$gt": 0
+              }
+            },
+            {
+              "$source": "ctx.mselected",
+              "$query": {
+                "$all": {
+                  "$source": "modelType.typeHierarchyArray",
+                  "$query": {
+                    "$notin": [
+                      "Sc0SRMXChange",
+                      "Sc0SRMXChangeRevision"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$source": "ctx.locationContext.modelObject",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$notin": [
+                    "Sc0SRMXChangeRevision"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "ctx.visibleServerCommands.Awp0MarkOwnershipTransfer",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "viewOwnershipTransferVisibility": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isReportBuilder",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "ctx.locationContext.modelObject",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$notin": [
+                    "Sc0SRMXChangeRevision"
+                  ]
+                }
+              }
+            },
+            {
+              "$source": "ctx.visibleServerCommands.Awp0ViewOwnershipTransfer",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "ownershipTransferSelectAllEnabled": {
+        "expression": "ctx.pendingOwnershipTransferListSelectAll"
+      },
+      "canCancelMarkOwnershipTransfer": {
+        "expression": "ctx.pendingOwnershipTransferPanelData.dataProviders.listDataProvider.getSelectedObjects().length > 0"
+      }
+    },
+    "messages": {
+      "cancelBriefcaseCheckoutSuccess": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.cancelBriefcaseCheckoutSuccess}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}",
+          "{{ctx.mselected.length}}"
+        ]
+      }
+    },
+    "i18n": {
+      "cmdExportToBriefcase": [
+        "tieMessages"
+      ],
+      "cmdExportToBriefcaseDesc": [
+        "tieMessages"
+      ],
+      "cmdImportFromBriefcase": [
+        "tieMessages"
+      ],
+      "cmdImportFromBriefcaseDesc": [
+        "tieMessages"
+      ],
+      "cmdOverrideOptions": [
+        "tieMessages"
+      ],
+      "cmdOverrideOptionsRemoveAll": [
+        "tieMessages"
+      ],
+      "cmdRemoveOptOverride": [
+        "tieMessages"
+      ],
+      "cmdBriefcaseCheckOut": [
+        "tieMessages"
+      ],
+      "cmdBriefcaseCheckOutDesc": [
+        "tieMessages"
+      ],
+      "cmdBriefcaseCheckIn": [
+        "tieMessages"
+      ],
+      "cmdBriefcaseCheckInDesc": [
+        "tieMessages"
+      ],
+      "cmdBriefcaseCancelCheckOut": [
+        "tieMessages"
+      ],
+      "cmdBriefcaseCancelCheckOutDesc": [
+        "tieMessages"
+      ],
+      "cancelBriefcaseCheckoutSuccess": [
+        "tieMessages"
+      ],
+      "cmdMarkOwnershipTransfer": [
+        "tieMessages"
+      ],
+      "cmdMarkOwnershipTransferDesc": [
+        "tieMessages"
+      ],
+      "cmdViewOwnershipTransfer": [
+        "tieMessages"
+      ],
+      "cmdViewOwnershipTransferDesc": [
+        "tieMessages"
+      ],
+      "cmdCancelTransferOwnership": [
+        "tieMessages"
+      ],
+      "cmdCancelTransferOwnershipDesc": [
+        "tieMessages"
+      ],
+      "cmdOwnershipTransferSelectionMode": [
+        "tieMessages"
+      ],
+      "cmdOwnershipTransferSelectionModeDesc": [
+        "tieMessages"
+      ],
+      "cmdOwnershipTransferSelectAll": [
+        "tieMessages"
+      ],
+      "cmdOwnershipTransferSelectAllDesc": [
+        "tieMessages"
+      ],
+      "cmdOwnershipTransferClearSelection": [
+        "tieMessages"
+      ],
+      "cmdOwnershipTransferClearSelectionDesc": [
+        "tieMessages"
+      ]
+    }
+  },
+  "indicators": {
+    "fx_bcz_checkout_test": {
+      "iconName": "BriefcaseCheckOut",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "checked_out_user",
+          "checked_out_date"
+        ]
+      },
+      "prop": {
+        "names": [
+          "checked_out_user"
+        ],
+        "type": {
+          "names": [
+            "POM_imc"
+          ],
+          "prop": {
+            "names": [
+              "site_id"
+            ],
+            "conditions": {
+              "site_id": {
+                "$notNull": true
+              }
+            }
+          }
+        }
+      },
+      "modelTypes": [
+        "ItemRevision",
+        "Dataset",
+        "Item",
+        "Form"
+      ]
+    }
+  },
+  "propertyRendererTemplates": {
+    "briefcase_checke_out_template": {
+      "grids": [],
+      "columns": [
+        "checked_out"
+      ],
+      "tooltip": [
+        "checked_out_user",
+        "checked_out_date"
+      ],
+      "template": "",
+      "templateUrl": "",
+      "renderFunction": "briefcaseSiteCheckoutRendererFn",
+      "deps": "propRenderTemplates/briefcaseCheckOutRenderer",
+      "dependentServices": []
+    }
+  }
+}

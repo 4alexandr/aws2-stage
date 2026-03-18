@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "「{0}」中不存在建構元素或工步。",
+    "noProcesses": "「{0}」中不存在工藝。",
+    "whereToCreateProcesses": "可以在工作單元頁面建立工藝。",
+    "moveCandidateCmdTitle": "移至",
+    "moveCandidateCmdDescription": "指定要移動的物件",
+    "successfullySetSingleMoveCandidate": "已指定要移動 \"{0}\"。請選取目標並使用「移到這裡」按鈕。",
+    "successfullySetMultipleMoveCandidates": "已指定要移動 {0} 物件。請選取目標並使用「移到這裡」按鈕。",
+    "moveHereTooltipTitle": "移到這裡",
+    "moveHereTooltipMsg": "將把這些物件移到指定目標：",
+    "createBuildElementAfter": "在其後建立建構元素",
+    "createBuildElementAsChild": "建立建構元素作為子項"
+}

@@ -1,0 +1,46 @@
+<aw-panel-body>
+    <aw-command-panel-section caption="{{i18n.properties}}" collapsed="false" name="propertiesSection">
+        <aw-radiobutton prop="data.siteTypeRadioButton" action="changeSiteType"></aw-radiobutton>
+        <aw-listbox class="aw-tie-removeLabel" prop="data.targetSitesListBox" list="data.targetSitesListBoxValues"
+            action="targetSiteSelectionChange"></aw-listbox>
+        <aw-listbox prop="data.transferOptionSetListBox" list="data.transferOptionSetListBoxValues"
+            action="transferOptionChanged" >
+        </aw-listbox>
+        <aw-textarea prop="data.briefcaseName" ></aw-textarea>
+        <aw-listbox prop="data.revisionRuleListBox" list="data.revisionRuleListBoxValues"
+            visible-when="conditions.isConfiguredExport">
+        </aw-listbox>
+        <aw-listbox prop="data.variantRuleListBox" list="data.variantRuleListBoxValues" visible-when="conditions.isConfiguredExport">
+        </aw-listbox>
+        <aw-radiobutton prop="data.deltaExportRadio" >
+        </aw-radiobutton>
+        <aw-radiobutton prop="data.forceReExportRadio" visible-when="conditions.isConfiguredExport && conditions.isLLExport && !conditions.isDeltaExportYes">
+        </aw-radiobutton>
+        <aw-radiobutton prop="data.validateRadio" visible-when="conditions.isLLExport" action="validateOptChanged"></aw-radiobutton>
+        <aw-widget prop="data.partialExportLabel" ></aw-widget>
+    </aw-command-panel-section>
+    <aw-command-panel-section caption="{{i18n.optionOverrides}}" collapsed="false" anchor="data.TOSCommandAnchor"
+    name="tosSection" visible-when="conditions.isTransferOptionSetSelected">
+        <aw-list dataprovider="data.dataProviders.overrideOpt" has-floating-cell-commands=false>
+            <aw-flex-row align-content="center" height="3f" id="{{item.option_realname}}">
+                <aw-flex-column width="1.2f" justify="center" >
+                    <aw-icon icon-id="miscComplianceFail" visible-when="!item.checkboxprops.dbValue"></aw-icon>
+                    <aw-icon icon-id="miscCompliancePass" visible-when="item.checkboxprops.dbValue"></aw-icon>
+                        </aw-flex-column>
+                        <aw-flex-column width="1.4f" justify="center">
+                        </aw-flex-column>
+                        <aw-flex-column width="16f" justify="center">
+                            <label data-optname="{{item.option_displayname}}">{{item.option_displayname}}</label>
+                        </aw-flex-column>
+            </aw-flex-row>
+        </aw-list>
+    </aw-command-panel-section>
+</aw-panel-body>
+<aw-panel-footer>
+    <aw-button visible-when="conditions.isValidateButtonVisible"  action="validateBriefcase">
+        <aw-i18n>i18n.cmdValidateButton</aw-i18n>
+    </aw-button>
+    <aw-button visible-when="conditions.isExportReady"  action="startBriefcaseExport">
+        <aw-i18n>i18n.cmdExportButton</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

@@ -1,0 +1,28 @@
+<aw-panel>
+    <aw-panel-body>
+
+        <aw-row height="{{ctx.Ase0SystemRequirements.topRowProportion ? ctx.Ase0SystemRequirements.topRowProportion : '21f'}}">
+
+            <aw-column width="{{ctx.Ase0SystemRequirements.tableWidthProprtion ? ctx.Ase0SystemRequirements.tableWidthProprtion : '45%'}}">
+                <div class="aw-xrt-objectSetCommandPanel">
+                    <aw-toolbar first-anchor="aw_sysReqViewer" second-anchor="aw_requirementsTreeCommandbar"></aw-toolbar>
+                </div>
+                <aw-splm-table gridid="RequirementsTree" use-tree="true"></aw-splm-table>
+            </aw-column>
+            <aw-splitter min-size-1="50" min-size-2="50" direction="vertical" exist-when="conditions.showSysReqDoc"></aw-splitter>
+            <aw-column width="fill" exist-when="conditions.showSysReqDoc">
+                <aw-scrollpanel>
+                    <aw-command-sub-panel panel-id="Arm0RequirementDocumentation" isolate-mode="true"></aw-command-sub-panel>
+                </aw-scrollpanel>
+            </aw-column>
+
+        </aw-row>
+
+        <aw-splitter min-size-1="50" min-size-2="50" direction="HORIZONTAL" exist-when="conditions.showSysReqAttr"></aw-splitter>
+
+        <aw-row height="{{ctx.Ase0SystemRequirements.bottomRowProportion ? ctx.Ase0SystemRequirements.bottomRowProportion : '9f'}}" exist-when="conditions.showSysReqAttr">
+            <aw-command-sub-panel panel-id="Att1ShowMappedAttribute" isolate-mode="true"></aw-command-sub-panel>
+        </aw-row>
+
+    </aw-panel-body>
+</aw-panel>

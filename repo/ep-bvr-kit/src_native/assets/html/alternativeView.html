@@ -1,0 +1,27 @@
+<aw-popup2 caption="{{::ctx.epPageContext.collaborationContext.props.mbc0masterCC.dbValues[0] ? i18n.cloneAlternativeTitle : (ctx.sublocation.nameToken !== 'ManagePlantBopPackageSubLocation'? i18n.createPartialAlternativeTitle :i18n.createAlternativeTitle)}}" aw-popup-draggable="false">
+    <aw-panel-body>
+        <aw-flex-row height="3f" offset="0.5f" offset-bottom="0.5f">
+            <aw-i18n visible-when="conditions.createPartialAlternative">{{i18n.titleDescriptionPartial}}
+                '{{data.currentNode}}'.</aw-i18n>
+            <aw-i18n visible-when="conditions.createAlternative">{{i18n.titleDescriptionCreate}} '{{data.currentNode}}'.
+            </aw-i18n>
+            <aw-i18n visible-when="conditions.Clone">{{i18n.titleDescriptionCreate}} '{{data.currentNode}}'.</aw-i18n>
+        </aw-flex-row>
+
+        <aw-textbox prop="data.packageName"></aw-textbox>
+        <aw-textbox prop="data.plantBOPName"></aw-textbox>
+        <aw-textarea prop="data.description"></aw-textarea>
+        <aw-checkbox prop="data.openOnActionBoxCreate" visible-when="conditions.Create"></aw-checkbox>
+        <aw-checkbox prop="data.openOnActionBoxClone" visible-when="conditions.Clone"></aw-checkbox>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button size="auto" button-type="base" action="AlternativePopupCloseAction">
+            <aw-i18n>i18n.closeBtnText</aw-i18n>
+        </aw-button>
+        <aw-button size="auto" action="createAlternativeAction" enable-when="conditions.isValidtoCreate">
+            <aw-i18n visible-when="conditions.createAlternative">{{i18n.Create}}</aw-i18n>
+            <aw-i18n visible-when="conditions.Clone">{{i18n.Clone}}</aw-i18n>
+            <aw-i18n visible-when="conditions.createPartialAlternative">{{i18n.Create}}</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-popup2>

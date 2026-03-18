@@ -1,0 +1,21 @@
+<aw-panel-header>
+    <aw-panel-section caption="i18n.toTitle">
+        <aw-default-cell vmo="ctx.aceActiveContext.context.addElement.parent"></aw-default-cell>
+    </aw-panel-section>
+</aw-panel-header>
+<aw-form name="createInputs">
+    <aw-add include-types="{{data.allowedTypeInfo.objectTypeName}}" type-filter="{{data.allowedTypeInfo.searchTypeName}}" load-sub-types="false" max-recent-count="5" exist-when="data.allowedTypeInfo" visible-tabs="{{data.allowedTypeInfo.allowedTabs}}" preferred-type="{{data.allowedTypeInfo.preferredType}}" is-include-sub-types="data.isIncludeSubTypes"></aw-add>
+    <aw-break></aw-break>
+    <aw-numeric prop="data.numberOfElements" visible-when="ctx.aceActiveContext.context.supportedFeatures.Awb0BulkAddFeature && conditions.isSingleElementSelected" ></aw-numeric>
+</aw-form>
+<aw-panel-footer>
+    <aw-button action="createAndAddElement" visible-when="createInputs.$valid && conditions.isNewTabAddButtonVisible" >
+        <aw-i18n>i18n.addElementBtn</aw-i18n>
+    </aw-button>
+    <aw-button action="addElements" visible-when="( conditions.isSingleElementSelected && conditions.areNumberOfElementsValid ) || conditions.areMultipleElementSelected" >
+        <aw-i18n>i18n.addElementBtn</aw-i18n>
+    </aw-button>
+    <aw-button default="false" action="getPropertiesToCopy" visible-when="( conditions.isSingleElementSelected && ctx.aceActiveContext.context.addElement.isCopyButtonEnabled && conditions.areNumberOfElementsValid) || (conditions.areMultipleElementSelected && ctx.aceActiveContext.context.addElement.isCopyButtonEnabled)" >
+        <aw-i18n>i18n.addElementCopyButtonText</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

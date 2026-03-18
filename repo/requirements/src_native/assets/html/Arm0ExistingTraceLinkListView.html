@@ -1,0 +1,6 @@
+<aw-panel-body>
+    <aw-textbox prop="data.filterBox" aw-enter-key="filterAction" visible-when="data.arrTracelinkedItems.length > 10"></aw-textbox>
+    <aw-list dataprovider="data.dataProviders.tracelinkedItemList">
+        <aw-include name="awRequirementsTracelinkCell" sub-panel-context="item"> </aw-include>
+    </aw-list>
+</aw-panel-body>

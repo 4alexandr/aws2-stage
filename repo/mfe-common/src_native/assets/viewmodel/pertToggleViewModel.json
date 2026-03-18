@@ -1,0 +1,61 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-advanced-bar.directive",
+        "js/aw-icon-button.directive",
+        "js/aw-class.directive",
+        "js/extended-tooltip.directive",
+        "js/aw-popup-panel2.directive"
+    ],
+    "actions": {
+        "pertMoveModeAction": {
+            "actionType": "JSFunction",
+            "method": "setMoveMode",
+            "inputData": {
+                "graphModel": "{{subPanelContext.graphModel}}"
+            },
+            "deps": "js/pertUtils"
+        },
+        "pertEditModeAction": {
+            "actionType": "JSFunction",
+            "method": "setEditMode",
+            "inputData": {
+                "graphModel": "{{subPanelContext.graphModel}}"
+            },
+            "deps": "js/pertUtils"
+        }
+    },
+    "data": {
+        "editModeCommand": {
+            "action": "pertEditModeAction",
+            "iconName": "cmdConnect",
+            "title":"{{i18n.editModeCommandTitle}}",
+            "description":"{{i18n.editModeCommandDescription}}"
+        },
+        "moveModeCommand": {
+            "action": "pertMoveModeAction",
+            "iconName": "cmdMove",
+            "title":"{{i18n.moveModeCommandTitle}}",
+            "description":"{{i18n.moveModeCommandDescription}}"
+        },
+        "pertModeCommandTooltip": {
+            "view": "pertModeTooltip"
+        }
+    },
+    "i18n": {
+        "editModeCommandTitle": [
+            "mfePertMessages"
+        ],
+        "editModeCommandDescription": [
+            "mfePertMessages"
+        ],
+        "moveModeCommandTitle": [
+            "mfePertMessages"
+        ],
+        "moveModeCommandDescription": [
+            "mfePertMessages"
+        ]
+    }
+}

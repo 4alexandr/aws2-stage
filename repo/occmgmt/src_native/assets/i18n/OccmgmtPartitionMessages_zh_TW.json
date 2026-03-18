@@ -1,0 +1,9 @@
+{
+
+    "FgfNone": "無",
+    "OrganizationSchemeSectionName": "組織",
+    "Unassigned":"未指派",
+    "Awb0UnassignedDesc":"檢視組織中所有未指派的成員。使用拖放指派成員。選取「未指派」、「拆分」或「後退」按鈕以離開。",
+    "Partition":"分割",
+    "Awb0PartitionDesc":"管理分割內組織的 BOM 結構內容"
+}

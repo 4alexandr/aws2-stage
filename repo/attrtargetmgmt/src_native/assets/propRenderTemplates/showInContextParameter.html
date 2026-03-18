@@ -1,0 +1,9 @@
+<%
+    if(vmo.props && vmo.props[propName] && vmo.props[propName].uiValue) {
+        var toolTip = 'Overrides for ' + vmo.props[propName].uiValue;
+        var imagePath = basePath +'/image/';
+        imagePath += "indicatorOverridden16.svg" %>
+        <img src ="<%=imagePath%>" title="<%=toolTip%>"  class="aw-visual-indicator">
+        <%
+    }
+%>

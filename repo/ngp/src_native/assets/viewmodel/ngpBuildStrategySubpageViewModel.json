@@ -1,0 +1,96 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/exist-when.directive"
+    ],
+    "ports": {
+        "input": {
+            "syncObject": {},
+            "onChangeAction": "setInputObject"
+        }
+    },
+    "data": {
+        "contentPanelData": {
+            "tabs": [ {
+                "name": "{{i18n.buildStrategySubpageTitle}}",
+                "tabKey": "ngpBuildStrategyTable",
+                "input": null,
+                "selection": [],
+                "cmdObjects": []
+            } ]
+        },
+        "subPagePolicy": {
+            "types": [ {
+                    "name": "Mpr0BuildElement",
+                    "properties": [ {
+                            "name": "mpr0hasSubBuildElements"
+                        },
+                        {
+                            "name": "mpr0hasActivities"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mpr0Activity",
+                    "properties": [ {
+                            "name": "mpr0hasProcessElements"
+                        },
+                        {
+                            "name": "mpr0processElements"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mpr0MfgProcessElement",
+                    "properties": [ {
+                            "name": "mpr0hasOperations"
+                        },
+                        {
+                            "name": "mpr0operations"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "actions": {
+        "setInputObject": {
+            "actionType": "JSFunction",
+            "method": "mergeValueInViewModel",
+            "inputData": {
+                "targetObj": "{{data.contentPanelData.tabs[0]}}",
+                "sourceObj": {
+                    "input": "{{ports.input.syncObject}}",
+                    "selection": [],
+                    "cmdObjects": []
+                }
+            },
+            "deps": "js/mfeViewModelUtils"
+        },
+        "registerPolicy": {
+            "actionType": "JSFunction",
+            "method": "register",
+            "inputData": {
+                "name": "ngpBuildStrategySubPage",
+                "policyObj": "{{data.subPagePolicy}}"
+            },
+            "deps": "js/services/ngpPolicyService"
+        },
+        "unregisterPolicy": {
+            "actionType": "JSFunction",
+            "method": "unregister",
+            "inputData": {
+                "name": "ngpBuildStrategySubPage"
+            },
+            "deps": "js/services/ngpPolicyService"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "registerPolicy",
+        "onUnmount": "unregisterPolicy"
+    },
+    "i18n": {
+        "buildStrategySubpageTitle": [ "NgpSubpagesMessages" ]
+    }
+}

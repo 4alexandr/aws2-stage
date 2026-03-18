@@ -1,0 +1,28 @@
+<aw-flex-column>
+    <aw-flex-row height="3.6f" align-content="center">
+        <aw-advanced-bar type="TOOLBAR" class="aw-mfe-contentPanelAdvancedBar">
+            <aw-flex-row height="3.4f" align-content="center" justify="space-between">
+                <aw-flex-column width="fill" exist-when="data.tabs.length > 1">
+                    <aw-tab-set tabs="data.tabs" class="aw-mfe-tabs"></aw-tab-set>
+                </aw-flex-column>
+                <aw-flex-column width="fill" exist-when="data.tabs.length === 1">
+                    <label class="aw-mfe-tabTitle">{{data.tabs[0].name}}</label>
+                </aw-flex-column>
+                <aw-flex-column width="4" exist-when="subPanelContext.additionalHeaderComponent">
+                    <aw-include name={{subPanelContext.additionalHeaderComponent}}></aw-include>
+                </aw-flex-column>
+                <aw-flex-column align-content="end" width="2" aw-repeat="tab : data.tabs"
+                    exist-when="data.selectedTab.tabKey == tab.tabKey">
+                    <aw-command-bar context="tab" anchor="{{tab.viewId ? tab.viewId : tab.tabKey}}_uiAnchor"
+                        alignment="HORIZONTAL" overflow="tab.disableCommandOverflow ? false : true">
+                    </aw-command-bar>
+                </aw-flex-column>
+            </aw-flex-row>
+        </aw-advanced-bar>
+    </aw-flex-row>
+    <aw-flex-row height="fill" class="aw-mfe-contentPanel">
+        <aw-include aw-repeat="tab : data.tabs" view-id="{{tab.viewId ? tab.viewId : tab.tabKey}}"
+            name="{{tab.tabKey}}" sub-panel-context="tab"
+            exist-when="data.selectedTab.tabKey == tab.tabKey"> </aw-include>
+    </aw-flex-row>
+</aw-flex-column>

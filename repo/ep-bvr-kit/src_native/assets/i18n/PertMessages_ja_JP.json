@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"削除",
+    "pertDeleteDesc": "選択したノードを削除",
+    "deleteConfirmationMessage": "選択したPertノードを永久に削除しますか?",
+    "missingProcessElements": "プロセスを作成します。",
+    "openPertNodeTitle": "開く",
+    "resetLayoutTitle": "レイアウトをリセット",
+    "resetLayoutDescription": "PERTノードをデフォルトレイアウトにリセットします。"
+}

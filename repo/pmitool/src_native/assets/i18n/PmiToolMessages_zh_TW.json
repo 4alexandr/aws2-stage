@@ -1,0 +1,19 @@
+{
+    "Awv0PmiCommandTitle": "PMI",
+    "operationName": "顯示 PMI 面板",
+    "modelViewsTabTitle": "模型視圖",
+    "pmiEntitiesTabTitle": "類型",
+    "PmiPanelTitle": "PMI",
+    "stepThroughLabel": "分步執行",
+    "reorientText": "調整文字方向",
+    "stepThroughNext": "下一步",
+    "stepThroughPrev": "上一步",
+    "toolPanelTitle": "PMI",
+    "showingPmiFor": "所示 PMI 用於：",
+    "notCurrentlyVisible": "{0} 不完全可見。",
+    "hasNoPmi": "{0} 不具備 PMI。請選取結構中的其他元素。",
+    "pmiStepCmdsAnchor": "步驟指令定位點",
+    "Awv0PmiToolDesc": "顯示和隱藏特定 PMI 或套用模型視圖。",
+    "PmiStepThroughPrevCommandDesc": "移至清單中的上一項。",
+    "PmiStepThroughNextCommandDesc": "移至清單中的下一項。"
+}

@@ -1,0 +1,10 @@
+{
+    "StationWorkInstructionsTitle": "作業指示",
+    "processTitle": "プロセス",
+    "editorTitle": "エディタ",
+    "noAssemblyStructure": "参照されているアセンブリ構成がありません.",
+    "GraphicVisibilityColumnName": "グラフィック可視性",
+    "syncedToViewer": "ビューアと同期しました。  {@msgTxtLink0}",
+    "syncedToEditor": "テキストエディタと同期しました。  {@msgTxtLink0}",
+    "switchMode": "スイッチ"
+}

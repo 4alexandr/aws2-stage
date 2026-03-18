@@ -1,0 +1,16 @@
+{
+    "LoadButton": "Load Briefcase",
+    "loadstatus": "Loading...",
+    "compare": "Compare Contents",
+    "locationClickViewerHeaderTitle": "Viewer",
+    "locationOneClickViewerSubTitle": "Viewer",
+    "pickTOSPanel": "Preview Briefcase",
+    "pickTOSPanelCompare": "Compare Briefcase",
+    "transferOptionSet": "Select Transfer Option Set",
+    "tosPanelSourceBCZ": "Source Briefcase",
+    "tosPanelTargetBCZ": "Target Briefcase",
+    "tosSourceLabel": "Source Transfer Option Set Applied",
+    "tosTargetLabel": "Target Transfer Option Set Applied",
+    "bbrowserCompareViewerDesc": "View the differences between the Briefcase files.",
+    "bbrowserOneClickViewerDesc": "Review the contents of the Briefcase file before importing it."
+}

@@ -1,0 +1,18 @@
+<div class="aw-layout-popup"
+    ng-show="expanded"
+    ng-style="{'marginTop': dropDownVerticalAdj, 'top': toggleDropDownTop, 'left': toggleDropDownLeft}">
+    <div class="popupContent">
+        <div class="aw-widgets-cellListWidgetContainer">
+            <ul class="aw-widgets-cellListWidget">
+                <li class="aw-widgets-cellListItem aw-widgets-cellTop"
+                    ng-click="changeSelection( command )"
+                    ng-repeat="command in commands">
+                    <div class="aw-widgets-horizontalListSelectedComponent">
+                        <aw-icon class="aw-geometrictool-sectionsSvg" icon-id="{{command.iconName}}"></aw-icon>
+                        <div class="aw-widgets-toggleDropdownTextStyle">{{command.tooltip}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

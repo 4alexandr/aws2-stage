@@ -1,0 +1,15 @@
+{
+    "PredictCommandTitle": "助手",
+    "MyCommands": "指令",
+    "MyRecent": "我最近的",
+    "TeamRecent": "小組最近的",
+    "PredictCommandDesc": "根據學習，建議要採取的下一動作和要開啟的資料。",
+    "MoreButtonText": "更多",
+    "LikeCommandTitle": "喜歡",
+    "DisLikeCommandTitle": "不喜歡",
+    "TutorModeDisabled": "导师模式已停用。",
+    "TutorModeReminder": "导师模式仍處於啟用狀態。",
+    "HighlightCommandTitle": "原位顯示",
+    "TutorModeTitle": "导师模式",
+    "TutorModeDesc": "開啟該模式以開始訓練助手，使其按照您首選的方式完成任務。當您完成訓練並與群組共用時，關閉該模式。"
+}

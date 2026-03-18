@@ -1,0 +1,23 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-include.directive",
+        "js/exist-when.directive"
+    ],
+
+    "actions": {
+        "handleNativeArchitectureLoad": {
+            "actionType": "JSFunction",
+            "method": "handleNativeArchitectureLoad",
+            "inputData": {},
+
+            "deps": "js/Ase0ArchitecturePageService"
+        }
+    },
+
+    "onEvent": [ {
+        "eventId": "Ase0ArchitecturePrimary.contentLoaded",
+        "action": "handleNativeArchitectureLoad"
+    } ]
+}

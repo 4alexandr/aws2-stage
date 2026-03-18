@@ -1,0 +1,6 @@
+{
+    "moveModeCommandTitle":"Move Mode",
+    "moveModeCommandDescription":"While the mode is on, click and drag to move a box.",
+    "editModeCommandTitle":"Flow Creation Mode",
+    "editModeCommandDescription":"While the mode is on, click and drag to connect a process to a successor process."  
+}

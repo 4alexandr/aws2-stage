@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "Add to",
+    "addButtonTitle": "Add",
+    "addLabel": "Add to",
+    "newShowAddObjectPresenterBtn": "New",
+    "paletteShowAddObjectPresenterBtn": "Palette",
+    "searchShowAddObjectPresenterBtn": "Search",
+    "errorInGettingSubtypesofEndItem": "The search results were not filtered because of an internal error.",
+    "FrequentlyUsedSectionTitle": "Frequently Used",
+    "addPropertiesLabel": "Add Properties",
+    "resultsTabTitle": "Results",
+    "filterTabTitle": "Filter",
+    "Mtw0ShowAddObjectDesc": "Assign a substance to the material.",
+    "view": "View",
+    "billOfMaterials": "Bill of Materials",
+    "billOfSubstances" : "Bill of Substances"
+}

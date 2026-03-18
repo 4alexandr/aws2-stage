@@ -1,0 +1,10 @@
+<aw-form name="addObjectWithRelationForm">
+        <aw-panel-body>
+          <aw-panel-section>
+                <aw-xrt type="CREATE" object-type="{{ctx.relation}}"></aw-xrt>
+          </aw-panel-section>
+        </aw-panel-body>
+ </aw-form>
+ <aw-panel-footer>
+       <aw-button action="initiateRelateOperation" visible-when="addObjectWithRelationForm.$valid && (data.selectedTab.panelId === 'Mtw0ShowAddObjectPaletteTab' || data.selectedTab.panelId === 'Mtw0ShowAddObjectSearchResultsTab') "> <aw-i18n>i18n.addButtonTitle</aw-i18n> </aw-button>
+ </aw-panel-footer>

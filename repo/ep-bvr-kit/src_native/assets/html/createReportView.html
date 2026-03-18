@@ -1,0 +1,16 @@
+<aw-popup2>
+    <aw-panel-body> 
+        <aw-label prop="data.selectReportTypeLabel"></aw-label>
+        <aw-flex-column offset="1f">
+            <aw-flex-row  offset="1f">
+                <div>
+                    <aw-radiobutton prop="data.reportTypes" list="data.reportTypesList.dbValue"></aw-radiobutton>
+                </div>
+            </aw-flex-row>
+        </aw-flex-column>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="closePopupWindow" size="auto"><aw-i18n>i18n.cancelReportBtn</aw-i18n></aw-button>
+        <aw-button enable-when="conditions.isEnabledCreateBtn" action="createReportAction" size="auto"><aw-i18n>i18n.createReportBtn</aw-i18n></aw-button>
+    </aw-panel-footer>
+</aw-popup2>

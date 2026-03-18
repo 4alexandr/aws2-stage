@@ -1,0 +1,13 @@
+<div ng-style="{'height': threeDViewerHeight, 'width': threeDViewerWidth}">
+    <div ng-show="loadingViewer && !hasThumbnail" class="aw-jswidgets-text">{{$parent.loadingMsg}}</div>
+    <div ng-show="loadingViewer && hasThumbnail" class="aw-viewer-viewThumbnailContainer" ng-style="{'height': threeDViewerHeight, 'width': threeDViewerWidth}">
+        <img id="thumbnailViewer"/>
+    </div>
+    <div ng-show="showViewerProgress" class="aw-viewer-viewLoadProgressContainer" ng-style="{'height': threeDViewerHeight, 'width': threeDViewerWidth}">
+        <div class="aw-viewer-loadProgress" ng-style="{'height': loadProgressIndicatorWidth, 'width': loadProgressIndicatorWidth}"></div>
+    </div>
+    <div ng-show="showViewerEmmProgress" class="aw-viewer-viewEmmLoadProgressContainer" ng-style="{'height': threeDViewerHeight, 'width': threeDViewerWidth}">
+        <div class="aw-viewer-emmLoadProgress" ng-style="{'height': emmProgressIndicatorWidth, 'width': emmProgressIndicatorWidth}"></div>
+    </div>
+    <div ng-show="!displayImageCapture && !loadingViewer" id="awNativeViewer" class="aw-viewer-viewer3DContainer" ng-style="{'height': threeDViewerHeight, 'width': threeDViewerWidth}"></div>
+</div>

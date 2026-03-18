@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "Kopiuj",
+    "copyObjectToClipboard": "Skopiowano do schowka: {0}.",
+    "copySingleSuccessful": "Skopiowano do schowka: \"{0}\".",
+    "copyMultipleSuccessful": "Następująca liczba wybranych elementów została skopiowana do schowka: {0}."
+}

@@ -1,0 +1,16 @@
+{
+  "name": "prgschedulemanager",
+  "description": "",
+  "modules": [
+    "prgschedulemanager"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Psi0.Soa.PPSMInterfaceAw",
+    "Saw1.Soa.ProjectManagementAw"
+  ],
+  "extraDeps": [
+    "js/NetworkGraphEditHandler"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+    "noVisuals": "この要素下にビジュアルがありません.",
+    "selectElement": "要素を選択してそのビジュアルを表示.",
+    "capture2DImage": "2Dイメージをキャプチャ",
+    "capture2DImagesSuccess": "2Dイメージはキャプチャされ\"{0}\"にアタッチされます。",
+    "epManageProductViewsCommandTitle":"Teamcenter Visualizationにおける製品ビューの管理",
+    "3DView": "3Dビュー",
+    "openInTeamcenterVis":"Teamcenter Visualizationで開く"
+}

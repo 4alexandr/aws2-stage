@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "\"{0}\" 및 해당 속성 매핑이 삭제됩니다.",
+    "removeSingleElementConfirmation": "\"{0}\"이(가) 제거됩니다.",
+    "removeMultipleElementsConfirmation": "{0} 선택이 제거됩니다.",
+    "removeMeasurableAttributeMessage": "\"{0}\"이(가) 삭제됩니다.",
+    "syncSingleConectionMessage": "\"{0}\"이(가) 동기화되고 있으며 상호 작용이 업데이트되고 있습니다. 완료되면 통보됩니다.",
+    "syncMultipleConectionsMessage": "\"{0}” 선택이 동기화되고 있으며 상호 작용이 업데이트되고 있습니다. 완료되면 통보됩니다.",
+    "exportInterfaceTitle": "인터페이스 내보내기",
+    "aw_interfaceTableCommandbar": "인터페이스 테이블 명령 바",
+    "aw_interactionTableCommandbar": "상호작용 테이블 명령 바",
+    "aw_attributesTableCommandbar": "속성 테이블 명령 바",
+    "aw_interfacesViewer": "인터페이스 뷰어",
+    "table_cell_commands": "테이블 셀 명령",
+    "Ase1ExportInterfaceElementDesc": "선택한 인터페이스 상세정보를 내보냅니다."
+}

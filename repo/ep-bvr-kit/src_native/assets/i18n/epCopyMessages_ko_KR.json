@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "복사",
+    "copyObjectToClipboard": "{0}이(가) 클립보드로 복사되었습니다.",
+    "copySingleSuccessful": "\"{0}\"이(가) 클립보드로 복사되었습니다.",
+    "copyMultipleSuccessful": "{0} 선택 사항이 클립보드로 복사되었습니다."
+}

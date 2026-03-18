@@ -1,0 +1,11 @@
+<aw-command-panel caption="i18n.ImportAttributeData">   
+    <aw-panel-body>
+        <aw-panel-section>
+            <aw-file-upload  file-change-action="initDSCreateParams" type-filter=".xlsx,.xls"  is-required="true"></aw-file-upload>
+        </aw-panel-section>
+    </aw-panel-body>    
+    <aw-panel-footer>
+        <aw-button visible-when="awPanelBody.$valid && (data.fileExt ==='xls' || data.fileExt === 'xlsx')" action="getTransientFileTickets"><aw-i18n>i18n.Import</aw-i18n></aw-button>
+    </aw-panel-footer>
+</aw-command-panel>
+       

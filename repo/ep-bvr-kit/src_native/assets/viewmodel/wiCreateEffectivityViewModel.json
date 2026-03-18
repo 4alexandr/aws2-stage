@@ -1,0 +1,260 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-search-box.directive",
+        "js/aw-list.directive",
+        "js/enable-when.directive",
+        "js/aw-listbox.directive",
+        "js/aw-textbox.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-popup2.directive",
+        "js/aw-i18n.directive",
+        "js/aw-flex-row.directive",
+        "js/exist-when.directive",
+        "js/aw-form.directive",
+        "js/aw-flex-column.directive"
+    ],
+
+    "actions": {
+        "createEffectivity": {
+            "actionType": "JSFunction",
+            "method": "createEffectivity",
+            "inputData": {
+                "selectedObject": "{{subPanelContext.selectedObject}}",
+                "effectivityObj" : "{{subPanelContext.effectivityObj}}",
+                "units":"{{data.units.dbValue}}",
+                "selectedEndItems":"{{data.dataProviders.performSearchForEndItem.selectedObjects}}"
+            },
+            "deps": "js/wiEffectivityService"
+        },
+
+        "closePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+
+        "searchEndItem": {
+            "actionType": "JSFunction",
+            "method": "searchEndItem",
+            "inputData": {
+                "data": "{{data}}",
+                "conditionData": "{{conditions}}"
+            },
+            "deps": "js/wiOccurrenceEffectivityService"
+        },
+
+        "loadInitialDataAndFetchSubBOTypes": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "loadInitialData",
+                    "condition": "conditions.isEditEffectivity"
+                },
+                {
+                    "action": "fetchSubBOTypes"
+                }
+            ]
+        },
+
+        "loadInitialData": {
+            "actionType": "JSFunction",
+            "method": "fillInitialPopupData",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.performSearchForEndItem}}",
+                "units": "{{data.units}}",
+                "effectivityObj" : "{{subPanelContext.effectivityObj}}"
+            },
+            "deps": "js/wiOccurrenceEffectivityService"
+        },
+
+        "fetchSubBOTypes": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-04-DataManagement",
+            "method": "findDisplayableSubBusinessObjectsWithDisplayNames",
+            "inputData": {
+                "input": [ {
+                    "boTypeName": "ItemRevision",
+                    "exclusionBOTypeNames": []
+                } ]
+            },
+            "outputData": {
+                "subBusinessObjects": "{{function:processSoaResponseForBOTypes}}"
+            },
+            "deps": "js/wiOccurrenceEffectivityService"
+        },
+
+        "doSearch": {
+            "actionType": "dataProvider",
+            "method": "performSearchForEndItem"
+        },
+
+        "performSearchForEndItem": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "inflateProperties": false,
+                "noServiceData": false,
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Awp0SearchResults",
+                    "columnsToExclude": [],
+                    "hostingClientName": "",
+                    "operationType": "intersection"
+                },
+                "saveColumnConfigData": {
+                    "columnConfigId": "",
+                    "clientScopeURI": "",
+                    "columns": [],
+                    "scope": "",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "attributesToInflate": [],
+                    "cursor": {
+                        "startIndex": "{{data.dataProviders.searchEndItems.startIndex}}",
+                        "endIndex": 0,
+                        "startReached": false,
+                        "endReached": false
+                    },
+                    "internalPropertyName": "",
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Awp0FullTextSearchProvider",
+                    "searchCriteria": {
+                        "searchString": "{{data.endItemSearchBox.dbValue}}"
+                    },
+                    "searchFilterFieldSortType": "Priority",
+                    "searchFilterMap6": {
+                        "WorkspaceObject.object_type": "{{data.subBusinessObjects}}"
+                    },
+                    "searchSortCriteria": []
+                }
+            },
+            "outputData": {
+                "endItemsFound": "ServiceData.modelObjects",
+                "endItemsTotalFound": "totalFound"
+            },
+            "events": {
+                "success": [ {
+                    "name": "performSearchForEndItem.updateSearchingStatus"
+                } ]
+            }
+        },
+
+        "updateSearchingStatus": {
+            "actionType": "JSFunction",
+            "method": "updateSearchingStatus",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/wiOccurrenceEffectivityService"
+        }
+    },
+
+    "data": {
+        "units": {
+            "displayName": "{{i18n.unitsLabel}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "endItemSearchBox": {
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "endItemLable": {
+            "displayName": "{{i18n.endItemLable}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "endItemSearchBoxPlaceHolder": {
+            "dbValue": "{{i18n.searchString}}"
+        },
+        "loadingLable": {
+            "dbValue": "{{i18n.loadingLable}}"
+
+        },
+        "effectivityObject" : "{{subPanelContext.effectivityObj}}"
+
+    },
+
+    "dataProviders": {
+        "performSearchForEndItem": {
+            "action": "performSearchForEndItem",
+            "response": "{{data.endItemsFound}}",
+            "totalFound": "{{data.endItemsTotalFound}}",
+            "selectionModelMode": "single"
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "searchEndItems.doSearch",
+            "condition": "data.endItemSearchBox.dbValue && data.endItemSearchBox.dbValue.length > 0",
+            "action": "doSearch"
+        },
+        {
+            "eventId": "getInitialLoadData",
+            "action": "loadInitialData"
+        },
+        {
+            "eventId": "performSearchForEndItem.updateSearchingStatus",
+            "action": "updateSearchingStatus"
+        },
+        {
+            "eventId": "aw.closePopup",
+            "action": "closePopupWindow"
+        }
+    ],
+
+    "conditions": {
+        "showSearchingLabel": {
+            "expression": "false"
+        },
+        "enableCreateEffectivityButton": {
+            "expression": "data.dataProviders.performSearchForEndItem.selectedObjects.length > 0 && data.units.dbValue != ''"
+        },
+        "isEditEffectivity": {
+            "expression": "data.effectivityObject !== ''"
+        }
+    },
+
+    "lifecycleHooks": {
+        "onInit": "loadInitialDataAndFetchSubBOTypes"
+    },
+
+    "i18n": {
+        "searchString": [
+            "InstructionsEffectivityMessages"
+        ],
+        "loadingLable": [
+            "InstructionsEffectivityMessages"
+        ],
+        "noResultFound": [
+            "InstructionsEffectivityMessages"
+        ],
+        "endItemLable": [
+            "InstructionsEffectivityMessages"
+        ],
+        "unitsLabel": [
+            "InstructionsEffectivityMessages"
+        ],
+        "done": [
+            "InstructionsEffectivityMessages"
+        ]
+    }
+}

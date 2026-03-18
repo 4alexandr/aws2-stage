@@ -1,0 +1,21 @@
+<aw-form name="addParamValueForm" visible-when ="data.attributeDefinition && data.xrtTypeToLoad">
+    <aw-panel-body>
+        <aw-panel-section caption="i18n.attributeDefinition">
+        <aw-link prop="data.parameterDefinitionName" action="openObject"></aw-link>
+        <aw-break></aw-break>
+        <aw-label prop="data.attrDefDesc" ></aw-label>
+        <aw-label prop="data.uomType" ></aw-label>
+        <aw-label prop="data.attrType" ></aw-label>
+        <aw-label prop="data.Goal" exist-when="data.Goal.uiValue"></aw-label>
+        <aw-label prop="data.Min" exist-when="data.Min.uiValue"></aw-label>
+        <aw-label prop="data.Max" exist-when="data.Max.uiValue"></aw-label>
+        <aw-label prop="data.GoalFiles" exist-when="data.GoalFiles.uiValue" ></aw-label>
+        </aw-panel-section>
+        <aw-xrt type="CREATE" object-type="{{data.xrtTypeToLoad}}"></aw-xrt>
+    </aw-panel-body>
+</aw-form>
+<aw-panel-footer >
+    <aw-button  action="createAttributeInput" enable-when="!ctx.addItemEventProgressing && data.isXrtCompletelyLoaded === true" visible-when="addParamValueForm.$valid">
+        <aw-i18n>i18n.add</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

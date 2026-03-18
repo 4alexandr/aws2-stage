@@ -1,0 +1,43 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+
+.aw-ngp-chipContainer {
+    .aw-ngp-effectivityIndication {
+        .aw-widgets-chip {
+            border-color: $default_main_button_border;
+        }
+    }
+}
+
+.aw-ngp-revisionRuleChip {
+    .aw-link-with-popup {
+        .aw-theme-iconOutline {
+            fill: $brand_primary_text;
+
+            &:hover {
+                color: $brand_secondary_link_hover;
+            }
+        }
+
+        a {
+            color: $brand_primary_text;
+
+            &:hover {
+                color: $brand_secondary_link_hover;
+            }
+        }
+    }
+}
+
+.aw-commands-cellDecorator {
+    .aw-ngp-discontinuedSubElementsBadge {
+        background-color: $brand_error_background;
+        color: $brand_primary_text;
+    }
+}

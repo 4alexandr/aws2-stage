@@ -1,0 +1,166 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-command-sub-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-form.directive",
+        "js/aw-checkbox.directive",
+        "js/aw-init.directive"
+    ],
+
+    "actions":
+    {
+
+        "createObject": {
+            "actionType": "JSFunction",
+            "method": "saveUserWorkingContextState",
+            "inputData": {
+                "shouldFireEventOnSuccess": true
+            },
+            "deps": "js/backgroundWorkingContextService"
+        },
+
+        "startCreateDiagram":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceSysEng-2014-11-DiagramManagement",
+            "method": "manageDiagram",
+            "inputData":
+            {
+                "input": "{{function:getCreateInput}}"
+            },
+
+            "outputData":
+            {
+                "createdMainObject": "output[0]",
+                "createdObject": "{{function:getCreatedObject}}"
+            },
+
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "createDiagramSub.DiagramCreated"
+                    }
+                ]
+            },
+
+            "deps": "js/createDiagramService"
+        },
+
+        "processCreateDiagram": {
+            "actionType": "JSFunction",
+            "method": "processCreateDiagramSuccess",
+            "inputData":
+             {
+                 "data": "{{data}}"
+             },
+
+             "deps": "js/createDiagramService"
+        },
+
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "initNavigateFunction",
+            "inputData":
+             {
+                 "declViewModel": "{{data}}"
+             },
+
+             "deps": "js/createDiagramService"
+         },
+
+         "initiateSelection":
+         {
+            "actionType": "JSFunction",
+            "method": "navigateAndCreateInput",
+            "inputData":
+             {
+                 "data":"{{data}}"
+             },
+
+             "deps": "js/createDiagramService"
+         }
+    },
+
+    "conditions":
+    {
+        "isValidToCreateObjects":
+        {
+            "expression" : "true"
+        },
+        "isNewTabAddButtonVisible":
+        {
+            "expression":"data.creationType"
+        },
+        "isPaletteSearchTabAddButtonVisible":
+        {
+            "expression":"data.selectedTab.panelId!='newTabPageSub' && data.sourceObjects.length>0"
+        },
+        "showFooter":
+        {
+            "expression":"data.activeView!='assignProjectSub'&&data.activeView!='addReferenceSub'"
+        }
+    },
+
+    "data" :
+    {
+        "openOnCreate":{
+            "displayName": "{{i18n.addAndOpen}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": true,
+            "labelPosition":"PROPERTY_LABEL_AT_RIGHT"
+        },
+        "autoSelectOnUniqueType": true,
+        "recentUsedTypes":[]
+    },
+
+    "onEvent":
+     [
+        {
+            "eventId": "createDiagramSub.DiagramCreated",
+            "action": "processCreateDiagram"
+        },
+        {
+            "eventId": "awTypeSelector.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "initiateSelection"
+        },
+        {
+            "eventId": "getRecentTypesProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "initiateSelection"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria":
+            {
+                "panelId": "createDiagramSub"
+            },
+            "action": "reveal"
+        },
+        {
+            "eventId": "saveBWC.success",
+            "action": "startCreateDiagram"
+        }
+     ],
+
+    "i18n":{
+         "addAndOpen":
+            [
+            "ArchitectureModelerConstants"
+            ],
+         "add":
+            [
+            "ArchitectureModelerConstants"
+            ]
+    }
+}

@@ -1,0 +1,23 @@
+<aw-panel-body>
+    <aw-flex-row height="11">
+        <aw-flex-column width="3">
+            <aw-flex-row height="fill">
+                <aw-include name="Awp0ClassificationSearchNavigate"></aw-include>
+            </aw-flex-row>
+        </aw-flex-column>
+        <aw-flex-column width="9">
+            <aw-flex-row>
+                <aw-native-sublocation provider="data._sublocation">
+                </aw-native-sublocation>
+            </aw-flex-row>
+        </aw-flex-column>
+    </aw-flex-row>
+    <aw-flex-row height="2f"></aw-flex-row>
+    <aw-flex-row>
+        <aw-flex-column align-content="end">
+            <aw-button action="addMrmClassifiedButtonAction" size="auto" enable-when="!conditions.onlyStandAloneICOsAreSelected" visible-when="conditions.isComponentSelected">
+                <aw-i18n>i18n.AddMrmClassifiedButtonLabel</aw-i18n>
+            </aw-button>
+        </aw-flex-column>
+    </aw-flex-row>
+</aw-panel-body>

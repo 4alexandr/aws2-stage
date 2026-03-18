@@ -1,0 +1,12 @@
+{
+  "name": "requirements",
+  "description": "",
+  "modules": [
+    "requirements"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Arm0.Soa.ActiveWorkspaceReqMgmt"
+  ]
+}

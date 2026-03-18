@@ -1,0 +1,146 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2019.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+
+@import "mixins/_mixins.scss";
+
+.aw-subset-proximitySection
+{
+    margin-top: 5px;
+}
+
+.aw-subset-subsetRecipe
+ {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.aw-subset-subsetRecipeGroup
+{
+    padding-top: 2px;
+    padding-left: 8px;
+}
+
+.aw-subset-subsetRecipeContainer{
+    padding-bottom: 2px;
+}
+
+.aw-subset-inSubsetRecipeLabelValueContainer
+{
+    display: -webkit-flex;
+    display: flex;
+    width: -webkit-calc(100% - 40px); /* width of container minus button and some padding */
+    width: -moz-calc(100% - 40px);
+    width: calc(100% - 40px);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 18px;
+}
+
+.aw-subset-subsetRecipeLabel
+{
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    font-size: $fontsize_normal;
+    margin-left: 8px;
+    margin-top: 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.aw-subset-subsetRecipeLabelOnly {
+    margin-right: 8px;
+}
+
+.aw-subset-subsetRecipeValue, .aw-subset-subsetRecipeLink
+{
+    -webkit-flex: 0 6 auto;
+    -ms-flex: 0 6 auto;
+    flex: 0 6 auto;
+    font-size: $fontsize_normal;
+    margin-left: 8px;
+    margin-top: 2px;
+    margin-right: 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.aw-subset-subsetRecipeValue.aw-subset-subsetRecipeValueWithNoMargin, .aw-subset-subsetRecipeLink.aw-subset-subsetRecipeLinkWithNoMargin
+{
+    margin-top: 0;
+}
+
+.aw-subset-subsetProximityRecipeLink {
+    @include flex(0 6 auto);
+    font-size: $fontsize_normal;
+    margin-left: 8px;
+    margin-top: 2px;
+    margin-right: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.aw-subset-subsetInnerRecipeValue
+{
+    font-size: $fontsize_normal;
+    margin-bottom: 3px;
+    margin-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.aw-subset-subsetRecipeLabelValueContainer {
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    width: -webkit-calc(100% - 40px); /* width of container minus button and padding for panel margin*/
+    width: -moz-calc(100% - 40px);
+    width: calc(100% - 40px);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 18px;
+}
+
+.aw-subset-multipleRecipeTermContainer {
+    margin-left: 25px;
+    margin-top: 2px;
+}
+
+.aw-subset-subsetRecipeOperatorImage {
+    width: 25%;
+    padding-left: 3px;
+    padding-right: 5px;
+}
+
+.aw-subset-connector{
+    margin-top:2px;
+}
+
+.aw-commands-commandIconButton.aw-subset-deleteButton{
+    padding: 0;
+}
+
+.aw-commands-commandIconButton.aw-subset-recipeLogicButton{
+    padding: 0;
+    float: left;
+}
+
+.aw-subset-recipeLogicButton.aw-subset-recipeLogicHidden{
+    float: left;
+    visibility:hidden;
+}

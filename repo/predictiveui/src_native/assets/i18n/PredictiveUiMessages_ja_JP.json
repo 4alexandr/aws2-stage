@@ -1,0 +1,15 @@
+{
+    "PredictCommandTitle": "アシスタント",
+    "MyCommands": "コマンド",
+    "MyRecent": "My Recent",
+    "TeamRecent": "最近のチーム",
+    "PredictCommandDesc": "次のアクションを実行して学習内容を基準として開くことを推奨します。",
+    "MoreButtonText": "詳細",
+    "LikeCommandTitle": "いいね",
+    "DisLikeCommandTitle": "低評価",
+    "TutorModeDisabled": "チューターモードは使用不可にされています。",
+    "TutorModeReminder": "チューターモードは依然としてアクティブです。",
+    "HighlightCommandTitle": "所定の位置で表示",
+    "TutorModeTitle": "チューターモード",
+    "TutorModeDesc": "モードをオンに切換えて、タスクを完了するのに優先される方法でアシスタントのトレーニングを開始します。完了したときかつグループで共有されるときに、モードをオフに切換えます。"
+}

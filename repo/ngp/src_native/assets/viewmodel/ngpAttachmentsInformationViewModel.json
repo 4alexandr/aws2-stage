@@ -1,0 +1,33 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive"
+    ],
+    "data": {
+        "contentPanelData": {
+            "tabs": [{
+                "name": "",
+                "tabKey": "ngpAttachmentsAgsFormsLists",
+                "input": null,
+                "disableCommandOverflow": false
+            }]
+        }
+    },
+    "actions": {
+        "setContext": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "object": "{{data.contentPanelData.tabs.0}}",
+                "key": "input",
+                "value": "{{subPanelContext}}"
+            },
+            "deps": "js/mfeViewModelUtils"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "setContext"
+    }
+}

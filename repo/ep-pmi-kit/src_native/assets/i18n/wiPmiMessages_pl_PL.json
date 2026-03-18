@@ -1,0 +1,15 @@
+{
+    "assemblyPmiTitle": "Poziom złożenia PMI",
+    "assemblyPmiTitleWithSelection": "Poziom złożenia PMI dla {0}",
+    "assignedPmiTitle": "PMI",
+    "name": "Nazwa",
+    "id": "ID",
+    "nominalValue": "Wartość nominalna",
+    "uom": "JM",
+    "selectProcessOrOperation": "Wybierz proces lub operację.",
+    "selectProcessOrOperationForPMIs": "Wybierz proces lub operację, aby wyświetlić przypisane PMI.",
+    "noAssociatedPMIs": "Wybrany proces \/ wybrana operacja nie mają przypisanych PMI.",
+    "noAssignedPMIs": "Brak przypisanych PMI.",
+    "connectedParts" : "Części połączone",
+    "more" : "Więcej"
+}

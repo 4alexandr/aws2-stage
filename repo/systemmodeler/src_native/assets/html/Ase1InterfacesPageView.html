@@ -1,0 +1,21 @@
+<aw-architecture-page>
+    <aw-toolbar first-anchor="aw_interfacesViewer" second-anchor="aw_toolbarRight" orientation="HORIZONTAL"></aw-toolbar>
+    <aw-row height="fill">
+        <aw-column width="fill" height="fill">
+            <aw-row height="fill" width="fill" exist-when="ctx.interfacesViewModeCtx.viewMode === 'Ase1GraphView'">
+                <aw-include name="Ase1InterfacesGraph"></aw-include>
+            </aw-row>
+            <aw-row height="66f" width="70f" exist-when="ctx.interfacesViewModeCtx.viewMode === 'Ase1GridView' && ctx.interfacesCtx.systemInView">
+                <aw-include name="Ase1InterfacesGrid"></aw-include>
+            </aw-row>
+            <aw-splitter direction="HORIZONTAL" exist-when="ctx.interfacesViewModeCtx.selectedSplitPanelLocation === 'bottom' && ctx.interfacesCtx.isValidIntfSelection && ctx.interfacesCtx.hasSystemModelerLicense" ></aw-splitter>
+            <aw-row width="fill" height="18f" exist-when="ctx.interfacesViewModeCtx.selectedSplitPanelLocation === 'bottom' && ctx.interfacesCtx.isValidIntfSelection && ctx.interfacesCtx.hasSystemModelerLicense">
+                <aw-include name="Ase1ConnectionTable"></aw-include>
+            </aw-row>
+        </aw-column>
+        <aw-splitter exist-when="ctx.interfacesViewModeCtx.selectedSplitPanelLocation === 'right' && ctx.interfacesCtx.isValidIntfSelection && ctx.interfacesCtx.hasSystemModelerLicense" ></aw-splitter>
+        <aw-column width="18f" height="fill" exist-when="ctx.interfacesViewModeCtx.selectedSplitPanelLocation === 'right' && ctx.interfacesCtx.isValidIntfSelection && ctx.interfacesCtx.hasSystemModelerLicense">
+            <aw-include name="Ase1ConnectionTable"></aw-include>
+        </aw-column>
+    </aw-row>
+</aw-architecture-page>

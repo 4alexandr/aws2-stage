@@ -1,0 +1,9 @@
+{
+    "noVisuals": "Для этого элемента нет визуальных элементов.",
+    "selectElement": "Выберите элемент для просмотра визуальных элементов.",
+    "capture2DImage": "Захват 2D изображения",
+    "capture2DImagesSuccess": "2D изображение захвачено и прикреплено к \"{0}\".",
+    "epManageProductViewsCommandTitle":"Управление видами продукта в Визуализации Teamcenter",
+    "3DView": "3D вид",
+    "openInTeamcenterVis":"Открыть в Teamcenter Visualization"
+}

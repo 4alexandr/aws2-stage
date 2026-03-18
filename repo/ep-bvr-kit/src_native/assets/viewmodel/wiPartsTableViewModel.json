@@ -1,0 +1,38 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "customColumns":
+        [
+            {
+                "clientColumn": true,
+                "name": "graphicVisibility",
+                "propertyDisplayName": "{{i18n.graphicVisibilityColumnName}}"
+            }
+        ]
+    },
+
+    "actions": {
+        "getTabContext": {
+            "actionType": "JSFunction",
+            "method": "getTabContext",
+            "inputData": {
+                "tabData": "{{subPanelContext}}"
+            },
+            "outputData": {
+                "tabContext": ""
+            },
+            "deps": "js/epTableService"
+        }
+    },
+
+    "lifecycleHooks": {
+        "onMount": "getTabContext"
+    },
+
+    "i18n": {
+        "graphicVisibilityColumnName":[ "TablesMessages" ]
+    }
+}

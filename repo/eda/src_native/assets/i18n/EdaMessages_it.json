@@ -1,0 +1,19 @@
+{
+    "CancelText": "Annulla",
+    "RemoveText": "Rimuovi",
+    "openInEdmViewCommandTitle": "Apri in EDM",
+    "preferenceNotConfigured": "La preferenza EDA_EDMHosting.URL non è configurata",
+    "submitToDesignExchange" : "Aggiungi progetto",
+    "newCollaborationCommand" : "Crea progetto congiunto",
+    "designsTitle" : "Progetti",
+    "addToCollaboration" : "Aggiungi",
+    "routed" : "Instradato",
+    "unrouted" : "Non instradato",
+    "placed" : "Posizionato",
+    "unplaced" : "Non posizionato",
+    "designAddedToCollaboration": "Il progetto \"{0}\" è stato aggiunto al progetto congiunto.",
+    "openIncrement": "Apri incremento",
+    "openObject" : "Apri",
+    "removeDesign": "Rimuovi progetto",
+    "removeDesignFromCollaboration": "\"{0}\" e le relative modifiche verranno rimossi."
+}

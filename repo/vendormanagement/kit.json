@@ -1,0 +1,13 @@
+{
+  "name": "vendormanagement",
+  "description": "",
+  "modules": [
+    "vendormanagement"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Teamcenter.Soa.Vendormanagement",
+    "Vm1.Soa.VendorManagementAW"
+  ]
+}

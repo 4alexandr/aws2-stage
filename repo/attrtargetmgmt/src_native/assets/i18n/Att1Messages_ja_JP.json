@@ -1,0 +1,14 @@
+{
+    "Map_Title":"マップ",
+    "MapButton":"マップ",
+    "attributeTitle": "パラメータ",
+    "StudyAttributes": "スタディパラメータ",
+    "SelectStudy": "パラメータを表示するスタディを選択",
+    "TestEventAttributes": "テストイベントパラメータ",
+    "SelectTestEvent":"パラメータを表示するテストイベントを選択",
+    "StudyAttributesTC124": "シミュレーションおよびテスト要求パラメータ",
+    "SelectStudyTC124": "パラメータを表示するシミュレーションまたはテスト要求を選択",
+    "RunAttributes": "ランパラメータ",
+    "SelectRun": "パラメータを表示するランを選択",
+    "Measurement_File_Title": "値ファイルを追加"
+}

@@ -1,0 +1,44 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports": 
+    [
+        "js/aw-tab-set.directive"
+    ],
+
+   "data": 
+    {
+        "showAddObjectTabsModel":
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "panelId": "Mtw0ShowAddObjectNewTab",
+                    "name": "{{i18n.newShowAddObjectPresenterBtn}}",
+                    "recreatePanel": true,
+                    "selectedTab": true
+                },
+                {
+                    "panelId": "Mtw0ShowAddObjectPaletteTab",
+                    "name": "{{i18n.paletteShowAddObjectPresenterBtn}}",
+                    "recreatePanel": true
+                },
+                {
+                    "panelId": "Mtw0ShowAddObjectSearchTab",
+                    "name": "{{i18n.searchShowAddObjectPresenterBtn}}",
+                    "recreatePanel": false
+                }
+            ]
+        }
+    },
+   
+    "i18n": 
+    {   
+        "addLabel":["MaterialMgmtMessages"],
+        "addButtonTitle":["MaterialMgmtMessages"],
+        "newShowAddObjectPresenterBtn":["MaterialMgmtMessages"],
+        "paletteShowAddObjectPresenterBtn": [ "MaterialMgmtMessages"],
+        "searchShowAddObjectPresenterBtn": [ "MaterialMgmtMessages"],
+        "addPropertiesLabel":["MaterialMgmtMessages"]   
+    }    
+}

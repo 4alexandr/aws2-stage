@@ -1,0 +1,8 @@
+<aw-panel-section>
+ <aw-label prop="data.keyWord"></aw-label>
+</aw-panel-section>
+<aw-expandable-search-result-filter filters="ctx.searchResponseInfo"></aw-expandable-search-result-filter>
+<aw-break></aw-break>
+ <aw-list dataprovider="data.dataProviders.performSearch" visible-when = "data.searchResults != undefined && data.searchResults">
+     <aw-default-cell vmo="item"></aw-default-cell>
+ </aw-list>

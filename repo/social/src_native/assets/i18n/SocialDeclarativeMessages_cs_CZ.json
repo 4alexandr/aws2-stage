@@ -1,0 +1,23 @@
+{
+    "addComment": "Komentář",
+    "addQuestion": "Položit otázku",
+    "addAnswer": "Přidat odpověď",
+    "addRating": "Tarif",
+    "name": "Název",
+    "postComment": "Přidat komentář",
+    "postQuestion": "Položit otázku",
+    "postAnswer": "Přidat odpověď",
+    "postRating": "Tarif",
+    "subscriptionFailed": "Položku \"{0}\" není možné sledovat.",
+    "oneStarRating": "Hodnotím 1 hvězdičkou",
+    "twoStarRating": "Hodnotím 2 hvězdičkami",
+    "threeStarRating": "Hodnotím 3 hvězdičkami",
+    "fourStarRating": "Hodnotím 4 hvězdičkami",
+    "fiveStarRating": "Hodnotím 5 hvězdičkami",
+    "allRatings": "Všechna hodnocení",
+    "reply": "Odpovědět",
+    "S2clSCAddCommentNewDesc": "Pošlete komentář o objektu.",
+    "S2clSCAddQuestionNewDesc": "Položte otázku o objektu.",
+    "S2clSCAddAnswerNewDesc": "Odpovězte na otázku o objektu.",
+    "S2clSCAddRatingNewDesc": "Přidejte hodnocení k objektu."
+}

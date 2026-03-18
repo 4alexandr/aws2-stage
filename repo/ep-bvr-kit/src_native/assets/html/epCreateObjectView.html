@@ -1,0 +1,79 @@
+<aw-popup2>
+    <aw-form name="createObjectCommandPanelForm">
+        <div exist-when="ctx.showAddProjectSection && ctx.showAddProjectSection === true">
+            <aw-icon-button class="aw-epCreateObject-backCmd" command="data.gotoPreviousPageCmd"></aw-icon-button>
+            <span class="aw-epCreateObject-addProjectHeaderTitle">{{i18n.addProjectHeaderTitle}}</span>
+        </div>
+        <aw-flex-column visible-when="!ctx.showAddProjectSection" width="fill">
+            <!-- Section To select type of Object to create-->
+            <aw-flex-row>
+                <aw-panel visible-when="conditions.isTypeSelected && !conditions.showLoadingSection">
+                    <aw-panel-body>
+                        <aw-command-panel-section caption="{{i18n.selectType}}">
+                            <aw-list dataprovider="data.dataProviders.getCreatableObjectTypes">
+                                <aw-type-cell vmo="item"></aw-type-cell>
+                            </aw-list>
+                        </aw-command-panel-section>
+                    </aw-panel-body>
+                </aw-panel>
+            </aw-flex-row>
+            <!-- End -->
+            <aw-flex-row exist-when="data.objCreateInfo && !conditions.isTypeSelected" offset-bottom="1f" offset="1f" height="2.5f" align-content="center">
+                <aw-flex-column offset="1f">
+                    <p><strong>{{data.displayedType.dbValue}}</strong></p>
+                    <aw-link exist-when="conditions.showTypeSelectionLink" prop="data.changeTypeSelection" action="clearSelectedType"></aw-link>
+                </aw-flex-column>
+            </aw-flex-row>
+            <!-- Loading Section -->
+            <aw-flex-row exist-when="conditions.showLoadingSection" offset="6f">
+                <aw-panel>
+                    <aw-panel-body>
+                        <aw-flex-column height="12" justify="center" align-content="center">
+                            <div class="aw-mfe-messageLine">
+                                <span>{{i18n.loading}}</span>
+                                <span class="aw-mfe-loadingMessageDotsAnimation">
+                                    <span>.</span>
+                                <span>.</span>
+                                <span>.</span>
+                                </span>
+                            </div>
+                        </aw-flex-column>
+                    </aw-panel-body>
+                </aw-panel>
+            </aw-flex-row>
+            <!-- Ends -->
+            <!-- Section with XRT and command section to add project-->
+            <aw-flex-row exist-when="!conditions.isTypeSelected">
+                <aw-panel-body>
+                    <aw-xrt type="CREATE" object-type="{{data.selectedType.dbValue}}"></aw-xrt>
+                    <aw-command-panel-section exist-when="data.objCreateInfo" caption="{{i18n.projectsPanelCaption}}" anchor="data.projectSectionCommands">
+                        <aw-list dataprovider="data.dataProviders.getAssignedProjectsProvider" has-floating-cell-commands=false>
+                            <aw-default-cell vmo="item"></aw-default-cell>
+                        </aw-list>
+                    </aw-command-panel-section>
+                </aw-panel-body>
+            </aw-flex-row>
+            <!--End-->
+        </aw-flex-column>
+        <!-- Section For assigning projects(reused from AW)-->
+        <aw-flex-column visible-when="ctx.showAddProjectSection && ctx.showAddProjectSection === true" width="fill">
+            <aw-flex-row>
+                <aw-panel>
+                    <aw-command-sub-panel panel-id="assignProjectSub"></aw-command-sub-panel>
+                </aw-panel>
+            </aw-flex-row>
+        </aw-flex-column>
+        <!--End-->
+    </aw-form>
+    <aw-panel-footer>
+        <aw-button exist-when="!ctx.showAddProjectSection" size="auto" button-type="base" action="closePopupWindow">
+            <aw-i18n>i18n.CancelButtonTitle</aw-i18n>
+        </aw-button>
+        <aw-button enable-when="data.objCreateInfo && createObjectCommandPanelForm.$valid" exist-when="!ctx.showAddProjectSection" size="auto" aw-class="{'disabled': data.disabledButtonChk.dbValue}" visible-when="!conditions.isTypeSelected && !conditions.hideCreateAndAddMoreButton" enable-when="createObjectCommandPanelForm.$valid" action="createAndAddMoreObject">
+            <aw-i18n>i18n.CreateAndAddMoreObjectButtonTitle</aw-i18n>
+        </aw-button>
+        <aw-button enable-when="data.objCreateInfo && createObjectCommandPanelForm.$valid" exist-when="!ctx.showAddProjectSection" size="auto" aw-class="{'disabled': data.disabledButtonChk.dbValue}" visible-when="!conditions.isTypeSelected" enable-when="createObjectCommandPanelForm.$valid" action="createObject">
+            <aw-i18n>i18n.CreateButtonTitle</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-popup2>

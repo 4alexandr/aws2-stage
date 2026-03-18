@@ -1,0 +1,11 @@
+<div class="aw-layout-panelSectionTitle">
+    <a class="link-style-5 aw-change-expandCollapeSection" ng-click="toggleExpansion()">{{data.displayedType.propertyDisplayName}}</a>
+</div>
+<aw-icon-button class="aw-layout-right" command="command" visible-when="data.canSelectAll.dbValue" ng-repeat="command in data.selectAllCommand.dbValue"></aw-icon-button>
+<aw-icon-button class="aw-layout-right" command="command" visible-when="data.canDeselectAll.dbValue" ng-repeat="command in data.deSelectAllCommand.dbValue"></aw-icon-button>
+<div class="gwt-Label">{{data.countLabel.propertyDisplayName}}</div>
+<aw-panel-section>
+    <aw-list dataprovider="data.dataProviders.getPropagateRelationProvider" visible-when="data.showList.dbValue">
+        <aw-default-cell vmo="item"></aw-default-cell>
+    </aw-list>
+</aw-panel-section>

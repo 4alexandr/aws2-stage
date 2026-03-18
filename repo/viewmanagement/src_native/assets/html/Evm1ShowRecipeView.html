@@ -1,0 +1,8 @@
+<aw-command-panel caption="i18n.showRecipe">
+    <aw-command-sub-panel panel-id="Evm1ShowRecipeSub"></aw-command-sub-panel>
+    <aw-panel-footer visible-when="data.dataProviders.dataProviderRecipeList.selectedObjects.length > 0">
+        <aw-button action="executeRBRecipe" visible-when="data.dataProviders.dataProviderRecipeList.selectedObjects.length > 0">
+            <aw-i18n>i18n.execute</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

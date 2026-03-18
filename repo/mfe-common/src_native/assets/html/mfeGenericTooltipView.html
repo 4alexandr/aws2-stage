@@ -1,0 +1,8 @@
+<div class="{{data.className}}">
+    <div class="aw-mfe-tooltipContent">
+        <div exist-when="data.title" class="aw-mfe-tooltipTitle">{{data.title}}</div>
+        <div exist-when="data.messages" class="aw-mfe-tooltipRowMessage" aw-repeat="message : data.messages">{{message}}</div>
+        <div exist-when="data.instruction" class="aw-mfe-tooltipInstruction">{{data.instruction}}</div>
+    </div>
+    <div exist-when="data.information" class="aw-mfe-tooltipInformation aw-mfe-informationWarning">{{data.information}}</div>
+</div>

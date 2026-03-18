@@ -1,0 +1,43 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-row.directive",
+        "js/aw-command-bar.directive",
+        "js/exist-when.directive"
+    ],
+    "data": {
+        "commandContext": {
+            "cmdObjects": [ "{{ctx.ngp.scopeObject}}" ]
+        }
+    },
+    "actions": {
+        "onScopeObjectChange": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "object": "{{data.commandContext}}",
+                "key": "cmdObjects",
+                "value": [ "{{ctx.ngp.scopeObject}}" ]
+            },
+            "deps": "js/mfeViewModelUtils"
+        },
+        "updateDiscontinuedElementsIndication": {
+            "actionType": "JSFunction",
+            "method": "updateDiscontinuedElementsIndication",
+            "inputData": {
+                "updatedObjects": "{{data.eventMap['cdm.updated'].updatedObjects}}"
+            },
+            "deps": "js/services/ngpHeaderService"
+        }
+    },
+    "onEvent": [ {
+            "eventId": "mfe.scopeObjectChanged",
+            "action": "onScopeObjectChange"
+        },
+        {
+            "eventId": "cdm.updated",
+            "action": "updateDiscontinuedElementsIndication",
+            "cacheEventData": true
+        }
+    ]
+}

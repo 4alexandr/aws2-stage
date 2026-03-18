@@ -1,0 +1,24 @@
+{
+    "name": "active-workspace",
+    "version": "5.1.0",
+    "description": "Active Workspace Client (Staging Environment)",
+    "dependencies": {
+        "afx": "file:lib/afx-4.3.0.tgz"
+    },
+    "scripts": {
+        "audit": "gulp audit",
+        "build": "gulp build",
+        "convertTemplates": "node build/js/loadRefTemplates.js",
+        "eslint": "eslint src/**/*.js",
+        "exportToSrc": "node build/js/exportToSrc.js",
+        "generateModule": "node node_modules/afx/build/js/generator.js",
+        "genSoaApi": "gulp genSoaApi",
+        "gulp": "gulp",
+        "publish": "node build/js/publishToGateway.js",
+        "refresh": "gulp refresh",
+        "devServer": "node build/js/devServer.js"
+    },
+    "private": true,
+    "author": "Siemens",
+    "license": "UNLICENSED"
+}

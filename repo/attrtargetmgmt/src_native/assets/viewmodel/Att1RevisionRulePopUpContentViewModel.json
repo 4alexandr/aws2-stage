@@ -1,0 +1,99 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-list-filter.directive",
+        "js/exist-when.directive"
+    ],
+    "data": {
+        "revRuleFilterBox": {
+            "displayName": "filter",
+            "type": "STRING",
+            "dbValue": ""
+        }
+    },
+    "actions": {
+        "getAllRevisionRulesAction": {
+            "actionType": "dataProvider",
+            "method": "getRevisionRulesForParamProject"
+        },
+        "getParamProjRevisionRulesList": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}"
+                },
+                "searchInput": {
+                    "maxToLoad": 20,
+                    "maxToReturn": 50,
+                    "providerName": "Att1ProjectConfRuleProvider",
+                    "searchCriteria": {
+                        "openedObjectUid": "{{ctx.xrtSummaryContextObject.uid}}",
+                        "searchString": "{{data.revRuleFilterBox.dbValue}}",
+                        "revisionRule": "true"
+                    },
+                    "searchSortCriteria": [ {
+                        "fieldName": "object_name",
+                        "sortDirection": "ASC"
+                    } ],
+                    "startIndex": "{{data.dataProviders.getRevisionRulesForParamProject.startIndex}}"
+                }
+            },
+            "outputData": {
+                "revisionRules": "{{function:processRevisionRules}}",
+                "totalFound": "totalFound",
+                "globalRevisionRule": "globalRevisionRule"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "errorInGettingPreferredConfigInfo"
+                } ]
+            },
+            "deps": "js/Att1RevisionRuleConfigurationService"
+        },
+        "applyRevisionRuleSelectionChange": {
+            "actionType": "JSFunction",
+            "method": "applyRevisionRuleSelectionChange",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Att1RevisionRuleConfigurationService"
+        }
+    },
+    "dataProviders": {
+        "getRevisionRulesForParamProject": {
+            "action": "getParamProjRevisionRulesList",
+            "response": "{{data.revisionRules}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single",
+            "isRuleDateVisible": false,
+            "commandsAnchor": "occmgmt_revrule_admin_cell_commands"
+        }
+    },
+    "messages": {
+        "errorInGettingPreferredConfigInfo": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.errorInGettingPreferredConfigInfo}}"
+        }
+    },
+    "lifecycleHooks": {
+        "onMount": "getAllRevisionRulesAction"
+    },
+    "onEvent": [ {
+            "eventId": "getRevisionRulesForParamProject.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "applyRevisionRuleSelectionChange"
+        }
+
+    ],
+    "conditions": {},
+    "i18n": {
+        "configurationPanelRevisionRuleSectionTitle": [ "OccurrenceManagementConstants" ],
+        "currentRevisionRule": [ "OccurrenceManagementConstants" ],
+        "globalLabel": [ "OccurrenceManagementConstants" ],
+        "occurrenceManagementLoadingMsg": [ "OccurrenceManagementConstants" ],
+        "errorInGettingPreferredConfigInfo": [ "OccurrenceManagementMessages" ]
+    }
+}

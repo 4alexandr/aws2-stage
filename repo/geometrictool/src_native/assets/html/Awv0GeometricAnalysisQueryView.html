@@ -1,0 +1,11 @@
+<aw-command-panel caption="i18n.queryTabText">
+    <aw-panel-body>
+        <aw-panel-section caption="i18n.pickFilteringTitleText">
+            <aw-measure-tree treedata="data"></aw-measure-tree>
+        </aw-panel-section>
+        <aw-command-panel-section  caption="i18n.querySectionTitleText" visible-when="conditions.showSelectedMeasurementSection" anchor="data.analysisQueryMeasurementCommands" context="data">
+            <aw-i18n  visible-when="!conditions.hasSelectedMeasurement">i18n.noQuerySelectedText</aw-i18n>
+            <aw-widget prop="nodeProperty" aw-repeat="nodeProperty : data.selectedQueryProp.dbValue"></aw-widget>
+        </aw-command-panel-section>
+    </aw-panel-body> 
+</aw-command-panel> 

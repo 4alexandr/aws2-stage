@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "\"{0}\"에 빌드 요소 또는 작업이 없습니다.",
+    "noProcesses": "\"{0}\"에 프로세스가 없습니다.",
+    "whereToCreateProcesses": "작업 단위 페이지에서 프로세스를 생성할 수 있습니다.",
+    "moveCandidateCmdTitle": "이동",
+    "moveCandidateCmdDescription": "이동할 개체 지정",
+    "successfullySetSingleMoveCandidate": "이동할 \"{0}\"이(가) 지정되었습니다. 타겟을 선택하고 '여기로 이동' 버튼을 사용하십시오.",
+    "successfullySetMultipleMoveCandidates": "이동할 \"{0}\" 개체가 지정되었습니다. 타겟을 선택하고 '여기로 이동' 버튼을 사용하십시오.",
+    "moveHereTooltipTitle": "여기로 이동",
+    "moveHereTooltipMsg": "이들 개체를 지정된 타겟으로 이동:",
+    "createBuildElementAfter": "이후에 빌드 요소 생성",
+    "createBuildElementAsChild": "자식으로 빌드 요소 생성"
+}

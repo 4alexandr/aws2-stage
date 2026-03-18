@@ -1,0 +1,19 @@
+{
+    "processDisplayName": "工藝",
+    "processesDisplayName": "工藝",
+    "processDisplayNameCapital": "工藝",
+    "activityDisplayName": "工步",
+    "activitiesDisplayName": "工步",
+    "activityDisplayNameCapital": "工步",
+    "operationDisplayName": "工序",
+    "operationsDisplayName": "工序",
+    "operationDisplayNameCapital": "工序",
+    "beDisplayName": "建構元素",
+    "besDisplayName": "建構元素",
+    "beDisplayNameCapital": "建構元素",
+    "meDisplayName": "製造元素",
+    "mesDisplayName": "製造元素",
+    "meDisplayNameCapital": "製造元素",
+    "ngpWorkspaceName": "下一代規劃",
+    "ngp": "下一代規劃"
+}

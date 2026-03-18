@@ -1,0 +1,16 @@
+{
+    "LoadButton": "Cargar el maletín",
+    "loadstatus": "Cargando...",
+    "compare": "Comparar los contenidos",
+    "locationClickViewerHeaderTitle": "Visualizador",
+    "locationOneClickViewerSubTitle": "Visualizador",
+    "pickTOSPanel": "Vista preliminar del maletín",
+    "pickTOSPanelCompare": "Comparar el maletín",
+    "transferOptionSet": "Seleccionar el conjunto de opciones de transferencia",
+    "tosPanelSourceBCZ": "Maletín fuente",
+    "tosPanelTargetBCZ": "Maletín destino",
+    "tosSourceLabel": "Conjunto de opciones de transferencia fuente aplicado",
+    "tosTargetLabel": "Conjunto de opciones de transferencia destino aplicado",
+    "bbrowserCompareViewerDesc": "Muestra las diferencias entre los archivos de maletín.",
+    "bbrowserOneClickViewerDesc": "Revisa el contenido del archivo maletín antes de importarlo."
+}

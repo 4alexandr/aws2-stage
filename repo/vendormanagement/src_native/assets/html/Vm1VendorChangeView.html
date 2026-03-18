@@ -1,0 +1,16 @@
+<aw-command-panel caption="i18n.changeVendor">
+    <aw-panel-body>
+        <aw-search-box prop="data.searchBox" placeholder="Required" action="findSavedQuery"></aw-search-box>
+        <aw-panel-section visible-when="data.totalFound!==undefined">
+            <aw-list dataprovider="data.dataProviders.searchVendors">
+                <aw-default-cell vmo="item"> </aw-default-cell>
+            </aw-list>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="confirmMessageFunction" visible-when="conditions.isVendorSelected">
+            <aw-i18n>i18n.Change</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>
+

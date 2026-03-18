@@ -1,0 +1,9 @@
+<aw-flex-column>
+    <aw-guidance-message class="aw-ep-toggleSyncMessage" exist-when="!conditions.isSyncedWithViewer" message="syncedToEditorMessage"  closable="false" banner-style="false" show-icon="false" show-type="false">
+        <aw-icon class="aw-ep-toggleSyncIcon" icon-id="cmdInsertText"></aw-icon>
+    </aw-guidance-message>
+    <aw-guidance-message class="aw-ep-toggleSyncMessage" exist-when="conditions.isSyncedWithViewer" message="syncedToViewerMessage" closable="false" banner-style="false" show-icon="false" show-type="false">
+        <aw-icon class="aw-ep-toggleSyncIcon" icon-id="cmdShowAllResultsIn3dViewer"></aw-icon>
+    </aw-guidance-message>
+    <aw-include name="epProcessTreeTable" sub-panel-context="data.processTreeContext"></aw-include>
+</aw-flex-column>

@@ -1,0 +1,368 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/visible-when.directive",
+        "js/aw-include.directive",
+        "js/exist-when.directive"
+    ],
+
+    "ports": {
+        "epDetails_inputObject": {
+            "onChangeAction": "handleInput",
+            "syncObject": {}
+        },
+        "epDetailsTable_getVisibility": {
+            "onChangeAction": "updateGraphicVisibility",
+            "syncObject": {}
+        }
+    },
+
+    "data": {
+        "messages": "{{subPanelContext.messages}}",
+        "genericCustomColumns":
+        [
+            {
+                "clientColumn": true,
+                "name": "icon"
+            }
+        ]
+    },
+
+    "actions": {
+        "handleInput": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "startLoadingIndicator"
+                },
+                {
+                    "action": "handleNewInputForSingleObject"
+                },
+                {
+                    "action": "doGridDataProvider",
+                    "condition": "conditions.isInputObjectUpdated"
+                },
+                {
+                    "action": "initTableRowsSelection",
+                    "condition": "conditions.isInputObjectUpdated"
+                },
+                {
+                    "action": "updateTabDisplayNameQuantity",
+                    "condition": "conditions.isInputObjectUpdated"
+                },
+                {
+                    "action": "getGraphicVisibility"
+                },
+                {
+                    "action": "stopLoadingIndicator"
+                }
+            ]
+        },
+
+        "startLoadingIndicator": {
+            "actionType": "JSFunction",
+            "method": "setLoadingIndicator",
+            "inputData": {
+                "isLoading": true
+            },
+            "outputData": {
+                "isLoading": ""
+            },
+            "deps": "js/mfeMessagesService"
+        },
+
+        "stopLoadingIndicator": {
+            "actionType": "JSFunction",
+            "method": "setLoadingIndicator",
+            "inputData": {
+                "isLoading": false
+            },
+            "outputData": {
+                "isLoading": ""
+            },
+            "deps": "js/mfeMessagesService"
+        },
+
+        "handleNewInputForSingleObject": {
+            "actionType": "JSFunction",
+            "method": "handleNewInputForSingleObject",
+            "inputData": {
+                "data": "{{data}}",
+                "input": "{{ports.epDetails_inputObject.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+
+        "doGridDataProvider": {
+            "actionType": "dataProvider",
+            "method": "epDetailsTableDataProvider"
+        },
+
+        "createColumns": {
+            "actionType": "JSFunction",
+            "method": "createColumns",
+            "inputData": {
+                "preferenceName": "{{subPanelContext.preferenceName}}",
+                "dataProvider": "{{data.dataProviders.epDetailsTableDataProvider}}",
+                "columnProvider": {
+                    "clientColumns": "{{data.customColumns}}"
+                },
+                "additionalPolicyObjects": ""
+            },
+            "deps": "js/mfeTableService"
+        },
+
+        "loadColumnsData": {
+            "actionType": "JSFunction",
+            "method": "loadColumnsData",
+            "inputData": {
+                "objUid": "{{data.inputObject.uid}}",
+                "loadInputObject": "{{subPanelContext.loadInputObject}}",
+                "tabContext": "{{subPanelContext.tabContext}}"
+            },
+            "outputData": {
+                "rowsObjects": "rowsObjects",
+                "totalRows": "totalRows"
+            },
+            "deps": "js/epTableService"
+        },
+
+        "setInputAndSelectionToMyContext": {
+            "actionType": "JSFunction",
+            "method": "setCommandContext",
+            "inputData": {
+                "tabModel": "{{subPanelContext.tabContext}}",
+                "commandContext": {
+                    "inputObject": "{{data.inputObject}}",
+                    "selection": "{{data.eventData.selectedObjects}}"
+                }
+            },
+            "deps": "js/mfeContentPanelUtil"
+        },
+
+        "initTableRowsSelection": {
+            "actionType": "JSFunction",
+            "method": "setCommandContext",
+            "inputData": {
+                "tabModel": "{{subPanelContext.tabContext}}",
+                "commandContext": {
+                    "inputObject": "{{data.inputObject}}",
+                    "selection": "{{[]}}",
+                    "contentCount": "{{data.dataProviders.epDetailsTableDataProvider.viewModelCollection.loadedVMObjects.length}}"
+                }
+            },
+            "deps": "js/mfeContentPanelUtil"
+        },
+
+        "updateTabDisplayNameQuantity": {
+            "actionType": "JSFunction",
+            "method": "setTabDisplayNameWithQuantity",
+            "inputData": {
+                "tabData": "{{subPanelContext.tabContext}}"
+            },
+            "deps": "js/epTabsService"
+        },
+
+        "handleSaveEvents": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "handleAddRemoveSaveEvents"
+                },
+                {
+                    "action": "initTableRowsSelection"
+                },
+                {
+                    "action": "updateTabDisplayNameQuantity"
+                }
+            ]
+        },
+
+        "handleAddRemoveSaveEvents": {
+            "actionType": "JSFunction",
+            "method": "handleAddRemoveSaveEvents",
+            "inputData": {
+                "saveEvents": "{{data.eventData}}",
+                "relationName": "{{subPanelContext.relationName}}",
+                "dataProvider": "{{data.dataProviders.epDetailsTableDataProvider}}",
+                "inputObjectUid": "{{data.inputObject.uid}}"
+            },
+            "deps": "js/epTableService"
+        },
+
+        "getCustomColumns": {
+            "actionType": "JSFunction",
+            "method": "getCustomColumns",
+            "inputData": {
+                "subPanelContextCustomColumns": "{{subPanelContext.customColumns}}",
+                "genericCustomColumns": "{{data.genericCustomColumns}}"
+            },
+            "outputData": {
+                "customColumns": ""
+            },
+            "deps": "js/epTableService"
+        },
+
+        "updateGraphicVisibility": {
+            "actionType": "batchJob",
+            "steps": [
+                { "action": "getGraphicVisibilityFromPort" },
+                { "action": "getGraphicVisibility" }
+            ]
+        },
+
+        "getGraphicVisibilityFromPort": {
+            "actionType": "JSFunction",
+            "method": "getGraphicVisibilityFromPort",
+            "inputData": {
+                "objectsVisibility": "{{ports.epDetailsTable_getVisibility.syncObject}}"
+            },
+            "outputData":
+            {
+                "objectsVisibilityStateMap": ""
+            },
+            "deps": "js/epGraphicVisibilityTablePropertyRenderer"
+        },
+
+        "getGraphicVisibility": {
+            "actionType": "JSFunction",
+            "method": "getGraphicVisibility",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.epDetailsTableDataProvider}}",
+                "objectsVisibilityStateMap": "{{data.objectsVisibilityStateMap}}"
+            },
+            "deps": "js/epGraphicVisibilityTablePropertyRenderer"
+        },
+
+        "saveResizedColumnsWidth": {
+            "actionType": "JSFunction",
+            "method": "saveResizedColumnsWidth",
+            "inputData": {
+                "preferenceName": "{{subPanelContext.preferenceName}}",
+                "columns": "{{data.eventData.columns}}"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "registerPolicy": {
+            "actionType": "JSFunction",
+            "method": "register",
+            "inputData": {
+                "name": "epDetailsTable",
+                "policyObj": "{{data.dataProviders.epDetailsTableDataProvider.policy}}"
+            },
+            "deps": "js/mfePolicyService"
+        },
+        "unregisterPolicy": {
+            "actionType": "JSFunction",
+            "method": "unregister",
+            "inputData": {
+                "name": "epDetailsTable"
+            },
+            "deps": "js/mfePolicyService"
+        },
+        "createColumnsAndRegisterPolicy": {
+            "actionType": "batchJob",
+            "steps": [{
+                "action": "getCustomColumns"
+                },
+                {
+                    "action": "createColumns"
+                },
+                {
+                    "action": "registerPolicy"
+                }
+            ]
+        }
+    },
+
+    "columnProviders": {
+        "epDetailsColumnProvider": {
+            "loadColumnAction": "createColumnsAndRegisterPolicy",
+            "frozenColumnIndex": -1
+        }
+    },
+
+    "dataProviders": {
+        "epDetailsTableDataProvider": {
+            "action": "loadColumnsData",
+            "response": "{{data.rowsObjects}}",
+            "totalFound": "{{data.totalRows}}",
+            "selectionModelMode": "multiple"
+        }
+    },
+
+    "grids": {
+        "epDetailsTable": {
+            "dataProvider": "epDetailsTableDataProvider",
+            "columnProvider": "epDetailsColumnProvider",
+            "addIconColumn": false
+        }
+    },
+
+    "conditions": {
+        "isInputObjectUpdated": {
+            "expression": {
+                "$source": "data.isInputObjectUpdated",
+                "$query": {
+                    "$eq": true
+                }
+            }
+        },
+        "hasInput":
+        {
+            "expression": "data.inputObject.uid"
+        },
+        "hasAssignments":
+        {
+            "expression": "data.dataProviders.epDetailsTableDataProvider.viewModelCollection.loadedVMObjects.length > 0"
+        },
+        "isLoading":
+        {
+            "expression": "data.isLoading === true && conditions.hasInput && !conditions.hasAssignments"
+        },
+        "noAssigned":
+        {
+            "expression": "data.isLoading === false && conditions.hasInput && !conditions.hasAssignments"
+        },
+        "showTable":
+        {
+            "expression": "conditions.hasInput && conditions.hasAssignments"
+        },
+        "isEventRelated": {
+            "expression": {
+                "$source": "Object.keys(data.eventData)",
+                "$query": {
+                    "$in": [ "{{subPanelContext.relationName}}" ]
+                }
+            }
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "epDetailsTableDataProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "setInputAndSelectionToMyContext"
+        },
+        {
+            "eventId": "ep.addRemoveEvents",
+            "cacheEventData": true,
+            "action": "handleSaveEvents",
+            "condition": "conditions.isEventRelated"
+        },
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "saveResizedColumnsWidth",
+            "criteria":
+            {
+                "name": "epDetailsTable"
+            }
+        }
+    ],
+
+    "lifecycleHooks": {
+        "onUnmount": "unregisterPolicy"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "LoadButton": "Carregar pasta",
+    "loadstatus": "Carregando...",
+    "compare": "Comparar conteúdo",
+    "locationClickViewerHeaderTitle": "Visualizador",
+    "locationOneClickViewerSubTitle": "Visualizador",
+    "pickTOSPanel": "Visualizar porta-arquivos",
+    "pickTOSPanelCompare": "Comparar porta-arquivo",
+    "transferOptionSet": "Selecionar conjunto de opções de transferência",
+    "tosPanelSourceBCZ": "Porta-arquivos de origem",
+    "tosPanelTargetBCZ": "Porta-arquivos de destino",
+    "tosSourceLabel": "Conjunto de opções de transferência de origem aplicado",
+    "tosTargetLabel": "Conjunto de opções de transferência de destino aplicado",
+    "bbrowserCompareViewerDesc": "Visualize as diferenças entre os arquivos do Porta-arquivos.",
+    "bbrowserOneClickViewerDesc": "Revise o conteúdo do arquivo do Porta-arquivos antes de importá-lo."
+}

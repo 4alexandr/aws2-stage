@@ -1,0 +1,12 @@
+{
+  "name": "logicalobject",
+  "description": "",
+  "modules": [
+    "logicalobject"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Teamcenter.Soa.Core.LogicalObject"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "vieweradmin",
+  "description": "",
+  "modules": [
+    "vieweradmin"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

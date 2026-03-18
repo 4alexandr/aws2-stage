@@ -1,0 +1,398 @@
+{
+  "name": "activecollab",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "themeExtensions": [
+    "activecollabTheme"
+  ],
+  "commandsViewModel": {
+    "commands": {
+      "Ac0UniversalConversationCommand": {
+        "iconId": "cmdTranslate",
+        "title": "{{i18n.conversation}}",
+        "description": "{{i18n.conversationDesc}}"
+      },
+      "Ac0CreateNewConvCommand": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.newConversation}}"
+      },
+      "Ac0AddSourceObjectCommand": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.addSource}}",
+        "description": "{{i18n.sourceDesc}}"
+      },
+      "Ac0AddParticipantCommand": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.addParticipant}}",
+        "description": "{{i18n.participantDesc}}"
+      },
+      "Ac0SubSrcObjCommand": {
+        "iconId": "cmdFollow",
+        "title": "{{i18n.follow}}",
+        "description": "{{i18n.followObjDesc}}"
+      },
+      "Ac0UnSubSrcObjCommand": {
+        "iconId": "cmdFollow",
+        "title": "{{i18n.unfollow}}"
+      },
+      "Ac0SubConvObjCommand": {
+        "iconId": "cmdFollow",
+        "isGroup": false,
+        "title": "{{i18n.follow}}",
+        "description": "{{i18n.followConvDesc}}"
+      },
+      "Ac0UnSubConvObjCommand": {
+        "iconId": "cmdFollow",
+        "isGroup": false,
+        "title": "{{i18n.unfollow}}"
+      }
+    },
+    "commandHandlers": {
+      "Ac0UniversalConversationCommandHandler": {
+        "id": "Ac0UniversalConversationCommand",
+        "action": "Ac0UniversalConversationCommandAction",
+        "activeWhen": {
+          "condition": "conditions.univConvPanelCommandVisible"
+        },
+        "visibleWhen": {
+          "condition": "conditions.univConvPanelCommandVisible"
+        }
+      },
+      "Ac0CreateNewConvCommandHandler": {
+        "id": "Ac0CreateNewConvCommand",
+        "action": "Ac0CreateNewConvCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Ac0AddSourceObjectCommandHandler": {
+        "id": "Ac0AddSourceObjectCommand",
+        "action": "openAddSourceObjectPanel",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Ac0AddParticipantCommandHandler": {
+        "id": "Ac0AddParticipantCommand",
+        "action": "openAddParticipantPanel",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Ac0SubSrcObjCommandHandler": {
+        "id": "Ac0SubSrcObjCommand",
+        "action": "Ac0SubSrcObjCommandAction",
+        "activeWhen": {
+          "condition": "conditions.subscribeCmdButtonValid"
+        },
+        "visibleWhen": {
+          "condition": "conditions.subscribeCmdButtonValid"
+        }
+      },
+      "Ac0UnSubSrcObjCommandHandler": {
+        "id": "Ac0UnSubSrcObjCommand",
+        "action": "Ac0UnSubSrcObjCommandAction",
+        "activeWhen": {
+          "condition": "conditions.unSubscribeCmdButtonValid"
+        },
+        "visibleWhen": {
+          "condition": "conditions.unSubscribeCmdButtonValid"
+        },
+        "selectWhen": {
+          "condition": "conditions.unSubscribeCmdButtonValid"
+        }
+      },
+      "Ac0SubConvObjCommandHandler": {
+        "id": "Ac0SubConvObjCommand",
+        "action": "Ac0SubConvObjCommandAction",
+        "activeWhen": false,
+        "visibleWhen": false
+      },
+      "Ac0UnSubConvObjCommandHandler": {
+        "id": "Ac0UnSubConvObjCommand",
+        "action": "Ac0UnSubConvObjCommandAction",
+        "activeWhen": false,
+        "visibleWhen": false,
+        "selectWhen": false
+      },
+      "openConversationNotificationCommandHandler": {
+        "id": "Awp0OpenLineItem",
+        "action": "openConversationNotification",
+        "activeWhen": {
+          "condition": "conditions.enableConversationNotificationCommandCond"
+        },
+        "visibleWhen": {
+          "condition": "conditions.enableConversationNotificationCommandCond"
+        }
+      }
+    },
+    "commandPlacements": {
+      "Ac0UniversalConversation": {
+        "id": "Ac0UniversalConversationCommand",
+        "uiAnchor": "aw_rightWall",
+        "priority": 15
+      },
+      "Ac0CreateNewConv": {
+        "id": "Ac0CreateNewConvCommand",
+        "uiAnchor": "ac0_onObjectTabNewCmd",
+        "priority": 10
+      },
+      "Ac0AddSourceObject": {
+        "id": "Ac0AddSourceObjectCommand",
+        "uiAnchor": "ac0_createConvSourceCmds",
+        "priority": 100
+      },
+      "Ac0AddParticipant": {
+        "id": "Ac0AddParticipantCommand",
+        "uiAnchor": "ac0_createConvParticipantCmds",
+        "priority": 100
+      },
+      "Ac0SubscribeSrcObj": {
+        "id": "Ac0SubSrcObjCommand",
+        "uiAnchor": "ac0_onObjectSubCmds",
+        "priority": 10
+      },
+      "Ac0UnSubscribeSrcObj": {
+        "id": "Ac0UnSubSrcObjCommand",
+        "uiAnchor": "ac0_onObjectSubCmds",
+        "priority": 10
+      },
+      "Ac0SubConvObj": {
+        "id": "Ac0SubConvObjCommand",
+        "uiAnchor": "ac0_convCellCmds",
+        "priority": 100
+      },
+      "Ac0UnSubConvObj": {
+        "id": "Ac0UnSubConvObjCommand",
+        "uiAnchor": "ac0_convCellCmds",
+        "priority": 100
+      }
+    },
+    "actions": {
+      "Ac0UniversalConversationCommandAction": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Ac0UniversalConversationPanel",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "Ac0CreateNewConvCommandAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "S2clConv.navigateToCreateConvPanel"
+            }
+          ]
+        }
+      },
+      "confirmDeleteConversationAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "ActiveCollaboration-2020-12-ActiveCollaboration",
+        "method": "deleteConversation",
+        "inputData": {
+          "objsToDelete": "{{$parent.$parent.$parent.data.dataProviders.conversationDataProvider.selectedObjects}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "conversationDeleteSuccess"
+            }
+          ]
+        }
+      },
+      "updateConversationListAfterDelete": {
+        "actionType": "JSFunction",
+        "method": "removeObjectsFromDPCollection",
+        "inputData": {
+          "vmos": "{{$parent.$parent.$parent.data.dataProviders.conversationDataProvider.selectedObjects}}",
+          "dataprovider": "{{$parent.$parent.$parent.data.dataProviders.conversationDataProvider}}"
+        },
+        "deps": "js/Ac0ConversationUtils"
+      },
+      "openAddSourceObjectPanel": {
+        "actionType": "JSFunction",
+        "method": "addSubPanelPage",
+        "inputData": {
+          "destPanelId": "Ac0AddSourceObjectsSub",
+          "titleLabel": "{{data.i18n.add}}"
+        },
+        "deps": "js/Ac0ConversationService"
+      },
+      "openAddParticipantPanel": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "awPanel.navigate",
+              "eventData": {
+                "destPanelId": "Ac0AddUsersSub",
+                "title": "{{data.i18n.add}}",
+                "supportGoBack": true
+              }
+            }
+          ]
+        }
+      },
+      "Ac0SubSrcObjCommandAction": {
+        "actionType": "JSFunction",
+        "method": "collabSubscribeToObj",
+        "deps": "js/Ac0ConversationService",
+        "inputData": {
+          "vmo": "{{ctx.selected}}"
+        }
+      },
+      "Ac0UnSubSrcObjCommandAction": {
+        "actionType": "JSFunction",
+        "method": "collabUnSubscribeToObj",
+        "deps": "js/Ac0ConversationService",
+        "inputData": {
+          "vmo": "{{ctx.selected}}"
+        }
+      },
+      "Ac0SubConvObjCommandAction": {
+        "actionType": "JSFunctionAsync",
+        "method": "collabSubscribeToConversation",
+        "deps": "js/Ac0ConversationService",
+        "inputData": {
+          "vmo": "{{ctx.Ac0ConvCtx.currentSelectedConversation}}"
+        }
+      },
+      "Ac0UnSubConvObjCommandAction": {
+        "actionType": "JSFunctionAsync",
+        "method": "collabUnSubscribeToConversation",
+        "deps": "js/Ac0ConversationService",
+        "inputData": {
+          "vmo": "{{ctx.Ac0ConvCtx.currentSelectedConversation}}"
+        }
+      },
+      "openConversationNotification": {
+        "actionType": "JSFunction",
+        "method": "openLineItem",
+        "inputData": {
+          "notificationObject": "{{commandContext.lineItem}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "NotificationMessage.markRead"
+            }
+          ]
+        },
+        "deps": "js/Ac0NotificationService"
+      }
+    },
+    "conditions": {
+      "selectLikeCommand": {
+        "expression": "commandContext.vmo.isLkeSelected === true"
+      },
+      "univConvPanelCommandVisible": {
+        "expression": "ctx.selected && ctx.mselected.length === 1 && (ctx.selected.modelType.typeHierarchyArray.indexOf( 'WorkspaceObject' ) > -1 || ctx.selected.modelType.typeHierarchyArray.indexOf( 'Awb0Element' ) > -1)"
+      },
+      "deleteConversationCommandVisible": {
+        "expression": "ctx.userSession.props.group_name.dbValue === ctx.preferences.Ac0DeleteDiscussionGroupRole[0].split('/')[0] && ctx.userSession.props.role_name.dbValue === ctx.preferences.Ac0DeleteDiscussionGroupRole[0].split('/')[1] && $parent.$parent.$parent.data.dataProviders.conversationDataProvider.viewModelCollection.totalFound > 0"
+      },
+      "deleteConversationCommandEnable": {
+        "expression": "$parent.$parent.$parent.data.dataProviders.conversationDataProvider.selectedObjects.length > 0"
+      },
+      "subscribeCmdButtonValid": {
+        "expression": "ctx.Ac0ConvCtx.ac0NumSubscriptionsForSelectedObj === 0 || !ctx.Ac0ConvCtx.ac0NumSubscriptionsForSelectedObj"
+      },
+      "unSubscribeCmdButtonValid": {
+        "expression": "ctx.Ac0ConvCtx.ac0NumSubscriptionsForSelectedObj > 0"
+      },
+      "subscribeConvCmdButtonValid": {
+        "expression": "ctx.Ac0ConvCtx.ac0NumSubscriptionsForSelectedConv === 0 || !ctx.Ac0ConvCtx.ac0NumSubscriptionsForSelectedConv"
+      },
+      "unSubscribeConvCmdButtonValid": {
+        "expression": "ctx.Ac0ConvCtx.ac0NumSubscriptionsForSelectedConv > 0"
+      },
+      "enableConversationNotificationCommandCond": {
+        "expression": "commandContext.group.groupName==='ACTIVE_COLLABORATION'"
+      }
+    },
+    "messages": {
+      "initiateDeleteConversationMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.deleteConversationWarnMsg}}",
+        "messageTextParams": [
+          "{{$parent.$parent.$parent.data.dataProviders.conversationDataProvider.selectedObjects.length}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.delete}}",
+            "action": "confirmDeleteConversationAction"
+          }
+        ]
+      }
+    },
+    "functions": {},
+    "i18n": {
+      "conversation": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "newConversation": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "likeCell": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "source": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "addSource": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "addParticipant": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "remove": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "cancel": [
+        "ZeroCompileCommandMessages"
+      ],
+      "delete": [
+        "ZeroCompileCommandMessages"
+      ],
+      "deleteConversationWarnMsg": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "follow": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "unfollow": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "conversationDesc": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "sourceDesc": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "participantDesc": [
+        "ActiveCollabDeclarativeMessages"
+      ],
+      "followObjDesc": [
+        "ActiveCollabDeclarativeMessages"
+      ]
+    }
+  }
+}

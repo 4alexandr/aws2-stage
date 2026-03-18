@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "Edytuj lokalizację",
+    "editLocalizationSingleDesc": "Przetłumacz wartość na inne języki dla tej właściwości",
+    "masterValue": "Wartość głównego formularza",
+    "translationLanguages": "Języki tłumaczeń",
+    "addorRemoveLocales": "Dodaj lub usuń języki",
+    "addorRemoveLocalesDesc": "Wybierz z listy języków do przetłumaczenia",
+    "removeLocale": "Usuń język",
+    "removeLocaleDesc": "Usuń język tłumaczenia",
+    "propertiesTranslated": "Właściwości, których nie można przetłumaczyć",
+    "status": "Status",
+    "saveTranslationsError": "Wystąpiły problemy podczas próby zapisu. {0}",
+    "property": "Właściwość"
+}

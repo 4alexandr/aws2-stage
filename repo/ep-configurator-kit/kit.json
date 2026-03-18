@@ -1,0 +1,9 @@
+{
+  "name": "ep-configurator-kit",
+  "description": "",
+  "modules": [
+    "ep-configurator-kit"
+  ],
+  "version": "5.1.0",
+  "OOTB": true
+}

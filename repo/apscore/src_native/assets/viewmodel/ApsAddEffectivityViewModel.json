@@ -1,0 +1,149 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":[ "js/aw-panel-body.directive",
+                "js/aw-aps-effectivity.directive",
+                "js/aw-include.directive",
+                "js/aw-panel-footer.directive",
+                "js/aw-button.directive",
+                "js/aw-i18n.directive"
+                ],
+    "data": {
+        "dateOrUnitEffectivityTypeRadioButton": {
+            "type": "BOOLEAN",
+            "isRequired": "true",
+            "propertyRadioTrueText": "{{i18n.dateEffectivity}}",
+            "propertyRadioFalseText":"{{i18n.unitEffectivity}}",
+            "dbValue": true
+        },
+        "startDate": {
+            "dbValue": "",
+            "type": "DATE",
+            "isRequired": "true",
+            "displayName": "{{i18n.startDate}}"
+        },
+        "endDate": {
+            "dbValue": "",
+            "type": "DATE",
+            "isRequired": "true"
+        },
+        "endDateOptions": {
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov":true,
+            "displayName": "{{i18n.endDate}}",
+            "isEditable": "true"
+        },
+        "endDateList": {
+            "type": "STRING",
+            "dbValue":
+            [
+                { "propDisplayValue": "{{i18n.dateEffectivity}}", "propInternalValue": "Date" },
+                { "propDisplayValue": "{{i18n.upText}}", "propInternalValue": "UP" },
+                { "propDisplayValue": "{{i18n.soText}}", "propInternalValue": "SO" }
+            ]
+        },
+        "unitRangeText": {
+            "displayName": "{{i18n.unitEffectivity}}",
+            "type": "STRING",
+            "dbValue": "",
+            "isRequired": "true"
+        }
+    },
+    "actions": {
+        "authorEffectivity": {
+           "actionType": "TcSoaService",
+           "serviceName": "ConfigFilterCriteria-2017-05-EffectivityManagement",
+           "method": "setEffectivityConditionSubsets",
+           "inputData": {
+              "productName": "",
+              "productNamespace": "",
+              "actionCode": 1,
+              "effectivityConditions":
+              [
+                 {
+                    "targetObjects": [ "{{function:getContextObject}}" ],
+                    "expression":
+                    {
+                       "effectivityTable": "{{function:getExpressionTableForAddEffectivity}}"
+                    }
+                 }
+              ]
+           },
+           "events": {
+               "success":
+               [
+                   {
+                       "name": "complete",
+                       "eventData":
+                       {
+                           "source": "toolAndInfoPanel"
+                       }
+                   },
+                   {
+                       "name": "apsEffectivity.UpdatePartialContextEvent"
+                   }
+               ]
+           },
+           "actionMessages": {
+                "failure":
+                [
+                    {
+                        "message": "failedToAddEffectivityMessage"
+                    }
+                ]
+           },
+           "deps":"js/apsEffectivityAuthoringService"
+        },
+        "closePanel":
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData":
+            {
+                "events":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "functions": {
+        "getExpressionTableForAddEffectivity": {
+            "functionName": "getExpressionTableForAddEffectivity",
+            "parameters": [ "{{data}}", "{{data.dataProviders.getEffectivities.viewModelCollection.loadedVMObjects}}" ]
+        },
+        "getContextObject":{
+            "functionName": "getContextObject",
+            "parameters": [ "{{}}" ]
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closePanel"
+        }
+    ],
+    "messages": {
+         "failedToAddEffectivityMessage": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.failedToAddEffectivity}}"
+         }
+    },
+    "i18n": {
+        "dateEffectivity": [ "ApsEffectivityMessages" ],
+        "unitEffectivity": [ "ApsEffectivityMessages" ],
+        "startDate": [ "ApsEffectivityMessages"],
+        "endDate": [ "ApsEffectivityMessages"],
+        "upText": [ "ApsEffectivityMessages"],
+        "soText": [ "ApsEffectivityMessages"],
+        "add": [ "ApsEffectivityMessages"],
+        "dateEffectivityPlaceholder": [ "ApsEffectivityMessages"],
+        "failedToAddEffectivity":[ "ApsEffectivityMessages" ]
+    }
+}

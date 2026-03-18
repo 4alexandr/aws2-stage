@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "コピー",
+    "copyObjectToClipboard": "{0} がクリップボードにコピーされました.",
+    "copySingleSuccessful": "\"{0}\" がクリップボードにコピーされました.",
+    "copyMultipleSuccessful": "{0}選択はクリップボードにコピーされました。"
+}

@@ -1,0 +1,14 @@
+{
+    "selectType": "Select Type",
+    "CreateButtonTitle": "Create",
+    "CreateAndAddMoreObjectButtonTitle": "Create & Add More",
+    "CancelButtonTitle": "Cancel",
+    "createOperationCmdTitle": "Create Operation",
+    "createProcessAreaCmdTitle": "Create Process Area",
+    "gotoPreviousPageCmdTitle": "Back",
+    "assignProjectCmdTitle": "Assign Projects",
+    "SearchPanelTitle":"Search",
+    "projectsPanelCaption":"Project",
+    "loading":"Loading",
+    "addProjectHeaderTitle":"Add Project"
+}

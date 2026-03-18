@@ -1,0 +1,129 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-list-filter.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-list.directive",
+        "js/visible-when.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-popup2.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-flex-column.directive"
+    ],
+
+    "actions": {
+        "ClosePopUpAction": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+        "getAlternativesList": {
+            "actionType": "JSFunction",
+            "method": "getAllAltList",
+            "outputData": {
+                "allAltCCsList": ""
+            },
+
+            "deps": "js/searchPartialAlternativeService"
+        },
+
+        "openAltCCInNewTab": {
+            "actionType": "JSFunction",
+            "method": "openAltInNewTab",
+            "inputData": {
+                "inData": "{{item.uid}}"
+            },
+
+            "deps": "js/searchPartialAlternativeService"
+        },
+
+        "getFilteredAltList": {
+            "actionType": "JSFunction",
+            "method": "filterAltCCList",
+            "inputData": {
+                "filterBoxData": "{{data.filterBox.dbValue}}",
+                "inData": "{{data.allAltCCsList}}"
+            },
+
+            "outputData": {
+                "filteredAltCCsList": ""
+            },
+
+            "deps": "js/searchPartialAlternativeService"
+        },
+
+        "getAltList": {
+            "actionType": "dataProvider",
+            "method": "setAllAltList"
+        }
+    },
+
+    "data": {
+        "filterBox": {
+            "displayName": "MyFilter",
+            "type": "STRING"
+        }
+
+    },
+    "conditions": {
+        "isAlternativeExist": {
+            "expression": "data.filterBox.dbValues.length === 0"
+        }
+    },
+
+    "dataProviders": {
+        "setAllAltList": {
+            "action": "getAlternativesList",
+            "response": "{{data.allAltCCsList}}",
+            "totalFound": "{{data.allAltCCsList.length}}",
+            "commands": {
+                "Awp0ShowObjectCell": {
+                    "id": "cmdOpen",
+                    "title": "{{i18n.openInNewTab}}",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 350 ],
+                    "action": "openAltCCInNewTab",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            },
+            "selectionModelMode": "single"
+        },
+        "performSearch": {
+            "action": "getFilteredAltList",
+            "response": "{{data.filteredAltCCsList}}",
+            "commands": {
+                "Awp0ShowObjectCell": {
+                    "id": "cmdOpen",
+                    "title": "{{i18n.openInNewTab}}",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 350 ],
+                    "action": "openAltCCInNewTab",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            },
+            "selectionModelMode": "single"
+        }
+    },
+
+    "onEvent": [ {
+        "eventId": "aw.closePopup",
+        "action": "ClosePopUpAction"
+    } ],
+
+    "lifecycleHooks": {
+        "onInit": "getAltList"
+    },
+    "i18n": {
+        "openInNewTab": [
+            "AlternativeMessages"
+        ],
+        "searchPartialAlternatives": [
+            "AlternativeMessages"
+        ]
+    }
+}

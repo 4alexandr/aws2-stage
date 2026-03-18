@@ -1,0 +1,74 @@
+{
+    "schemaVersion": "1.0.0", 
+    "imports":[
+        "js/aw-listbox.directive",
+        "js/aw-flex-column.directive"
+    ],
+    "dataProviders": {},
+    "actions": {
+        "fetchLovForRevisonList": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2013-05-LOV",
+            "method": "getInitialLOVValues",
+            "inputData": {
+                "initialData": {
+                    "lov": {
+                        "uid": "AAAAAAAAAAAAAA",
+                        "type": "unknownType"
+                    },
+                    "lovInput": {
+                        "owningObject": {
+                            "uid": "{{ctx.userSession.uid}}",
+                            "type": "unknownType"
+                        },
+                        "boName": "UserSession",
+                        "operationName": "Edit"
+                    },
+                    "propertyName": "awp0RevRule",
+                    "filterData": {
+                        "filterString": "",
+                        "maxResults": 0,
+                        "numberToReturn": 10000,
+                        "sortPropertyName": "",
+                        "order": 1
+                    }
+                }
+            },
+            "outputData": {
+                "revisionRuleList": "{{function:getRevisonListFromRes}}"
+            },
+            "deps": "js/epConfigureBOPbyEffectivityService"
+        },
+        "revisionRuleListSelectionChange": { 
+            "actionType": "JSFunction",
+            "method": "revisionRuleListSelectionChange",
+            "inputData": {
+                "subPanelContext":"{{subPanelContext}}",
+                "data":"{{data}}"
+            },
+            "outputData": {},
+            "deps": "js/epRevisionRuleListWidgeService"
+        }
+    },
+    "data" : {
+        "revisionRuleListBox": {
+            "displayName": "{{i18n.revisionRuleLabel}}",
+            "type": "STRING",
+            "hasLov": "true",
+            "dbValue":"",
+            "dispValue": ""
+        }
+    },
+    "messages": {},
+    "conditions": {},
+    "grids": {},
+    "dataParseDefinitions": {},
+    "functions": {},
+    "columnProviders": {},
+    "i18n": {
+        "revisionRuleLabel":["epBvrMaturityMessages"]
+    },
+    "lifecycleHooks": {
+        "onInit": "fetchLovForRevisonList"
+    }
+}

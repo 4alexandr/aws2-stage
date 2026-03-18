@@ -1,0 +1,297 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2018.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+/* Program Timeline default styling */
+
+.gantt_side_content.gantt_left {
+    z-index: 1;
+}
+
+.prgTimeline .gantt_task_date {
+    z-index: 1;
+}
+
+.prgTimeline .gantt_task_text {
+    font-size: $fontsize_normal;
+    font-family: $font-family;
+}
+
+.prgTimeline .gantt_grid_head_cell {
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: table-cell;
+    vertical-align: bottom;
+    line-height:150%;
+}
+
+.prgTimeline .gantt_grid_scale {
+    height: 60px;
+    display: table;
+}
+
+.prgTimeline .gantt_tree_content {
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+    padding-left: 5px
+}
+
+.prgTimeline .gantt_scale_cell {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    height: 250%;
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+}
+
+.prgTimeline .gantt_task_line {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.prgTimeline .gantt_task_scale {
+    height: 60px;
+}
+
+.prgTimeline .gantt_scale_line {
+    height: 20px;
+}
+
+.prgTimeline .gantt_task_line .gantt_task_content {
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+    content: '';
+    position: absolute;
+
+}
+
+/* timeline scales */
+/* whole rows */
+.prgTimeline .gantt_scale_line .gantt_scale_cell{
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+}
+
+.prgTimeline .gantt_scale_line:first-child .gantt_scale_cell, .gantt_scale_line:nth-child(2) .gantt_scale_cell {
+    font-weight: bold;
+}
+
+.prgTimeline .gantt_milestone .gantt_task_content {
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 24px 24px;
+    transform: rotate(45deg);
+    line-height: 15px;
+    width: 18px;
+    height: 18px;
+    margin-left: 2px;
+}
+
+.prgTimeline .gantt_tree_icon {
+    width: 16px;
+    padding-left: 5px;
+}
+
+.prgTimeline .gantt_tooltip {
+    border:1px solid;
+    text-transform:capitalize;
+    overflow-x: auto;
+    border-radius: 3px;
+    padding: 0;
+}
+
+.prgTimeline .gantt_tooltip .gantt_tooltip_icons,
+.prgTimeline .gantt_tooltip .gantt_tooltip_text {
+    font-family:$font-family;
+    font-size: $fontsize_normal;
+    text-align: left;
+    line-height: 15px;
+    padding: 8px 16px 8px 16px;
+}
+
+.prgTimeline .gantt_tooltip table tr td {
+    text-transform:capitalize;
+    font-family:$font-family;
+}
+
+/* Marker style*/
+.prgTimeline .gantt_marker {
+    border-style:none;
+}
+
+.prgTimeline .gantt_marker .gantt_marker_content {
+    opacity: 1;
+}
+
+.prgTimeline .gantt_tree_open_icon, .prgTimeline .gantt_tooltip_open_icon{
+    background-image: url("image/cmdOpen24.svg");
+    background-repeat: no-repeat;
+    margin-left: 5px;
+}
+
+.prgTimeline .gantt_tooltip_deliverables_icon{
+    background-image: url("image/typeDeliverable48.svg");
+    background-repeat: no-repeat;
+}
+
+.prgTimeline .gantt_tooltip_changes_icon{
+    background-image: url("image/typeChangeNoticeRevision48.svg");
+    background-repeat: no-repeat;
+}
+
+.prgTimeline .gantt_tooltip_schedules_icon{
+    background-image: url("image/typeSchedule48.svg");
+    background-repeat: no-repeat;
+}
+
+.prgTimeline .gantt_tooltip_risks_icon{
+    background-image: url("image/typeRisk48.svg");
+    background-repeat: no-repeat;
+}
+
+.prgTimeline .gantt_tooltip_issues_icon{
+    background-image: url("image/typeIssue48.svg");
+    background-repeat: no-repeat;
+}
+
+.prgTimeline .gantt_tooltip_opportunities_icon{
+    background-image: url("image/typeOpportunity48.svg");
+    background-repeat: no-repeat;
+}
+
+.prgTimeline .gantt_tooltip_criteria_icon{
+    background-image: url("image/typeEventCriteria48.svg");
+    background-repeat: no-repeat;
+}
+
+.prgTimeline .gantt_tooltip_checklist_icon{
+    background-image: url("image/typeChecklist48.svg");
+    background-repeat: no-repeat;
+}
+
+.prgTimeline .gantt_tree_open_icon{
+    float: right;
+    width: 22px;
+    height: 22px;
+    display:none;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_last_cell:hover > .gantt_tree_open_icon{
+    display:inline-block;
+}
+
+.prgTimeline .gantt_tooltip_open_icon{
+    float: right;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_tooltip_deliverables_icon{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_tooltip_changes_icon{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_tooltip_schedules_icon{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_tooltip_risks_icon{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_tooltip_issues_icon{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_tooltip_opportunities_icon{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_tooltip_criteria_icon{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_tooltip_checklist_icon{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.prgTimeline .gantt_selected .gantt_task_content{
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+}
+
+.prgTimeline .gantt_scale_cell {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    height: 250%;
+    cursor: all-scroll;
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+}
+.aw-prgTimeline-splitcontext{
+    font-size: $fontsize_normal;
+    font-weight: bold;
+    padding-block-end: 1%
+}
+
+.prgTimeline .gantt_scale_line,
+.prgTimeline .gantt_grid,
+.prgTimeline .gantt_container {
+    border-radius: $table_border_radius;
+}
+
+.prgTimeline .gantt_tree_icon.gantt_close {
+    background-image: url("image/miscExpandedTree12.svg");
+    width: 12px;
+    height: 12px;
+    vertical-align: baseline;
+}
+
+.prgTimeline .gantt_tree_icon.gantt_open {
+    background-image: url("image/miscCollapsedTree12.svg");
+    width: 12px;
+    height: 12px;
+    vertical-align: baseline;
+}
+
+.prgTimeline .gantt_tree_indent {
+    vertical-align: middle;
+}
+
+.prgTimeline .gantt_scale_cell.gantt_last_cell{
+    border:none
+}

@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "添加到",
+    "addButtonTitle": "添加",
+    "addLabel": "添加到",
+    "newShowAddObjectPresenterBtn": "新建",
+    "paletteShowAddObjectPresenterBtn": "资源板",
+    "searchShowAddObjectPresenterBtn": "搜索",
+    "errorInGettingSubtypesofEndItem": "由于内部错误，未能过滤搜索结果。",
+    "FrequentlyUsedSectionTitle": "常用的",
+    "addPropertiesLabel": "添加属性",
+    "resultsTabTitle": "结果",
+    "filterTabTitle": "过滤器",
+    "Mtw0ShowAddObjectDesc": "将物质指派给给材料。",
+    "view": "视图",
+    "billOfMaterials": "物料清单",
+    "billOfSubstances" : "物质清单"
+}

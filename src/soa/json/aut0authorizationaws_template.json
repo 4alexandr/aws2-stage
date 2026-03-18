@@ -1,0 +1,532 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp05.0.0",
+      "description": "Interface Name for Business Object Aut0ProjectProvider",
+      "libraryName": "Aut0authorizationaws",
+      "name": "Aut0ProjectProvider",
+      "namespace": "aut0authorizationaws",
+      "primaryInterface": "true",
+      "typeName": "Aut0ProjectProvider"
+    }
+  ],
+  "Date": "Mon Jun 22 01:46:58 PM 2020",
+  "Library": [
+    {
+      "createRelease": "Awp03.4.0",
+      "description": "Aut0SoaSecurity",
+      "isThirdParty": "false",
+      "name": "Aut0SoaSecurity",
+      "namespace": "Aut0::Soa::Security",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "sa"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Library for Active Workspace for authorization solution",
+      "isThirdParty": "false",
+      "name": "Aut0authorizationaws",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "Structure that holds the information required to get list of licenses.",
+          "parameterName": "licenseInputs"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Awp0AWS",
+      "createRelease": "Awp03.4.0",
+      "dependencies": "",
+      "description": "This operation retrieves the Licenses attached to the given workspace objects . In case of multiple objects, only the licenses that are attached to all of the objects will be returned . It also retrieves level or structure information in case of ActiveWorkspace Content context. In ActiveWorkspace Content context, if the selected object do not have additional child objects then level or structure information are not be returned.",
+      "exceptionCondition": "",
+      "id": "getLicensesWithTypes#const,Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicenseInput,&",
+      "interface": "Aut0::Soa::Security::AwLicensing",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getLicensesWithTypes",
+      "opTemplate": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicensesWithTypesResponse#Aut0::Soa::Security::AwLicensing::getLicensesWithTypes#const,Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicenseInput,&",
+      "returnDescription": "The licenses attached to the given objects and the licenses that are available for attachment to those objects.",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicenseInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Structure that holds the information required to get list of licenses.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "licenseInputs"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicensesWithTypesResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.4.0",
+      "description": "This operation retrieves the Licenses attached to the given workspace objects . In case of multiple objects, only the licenses that are attached to all of the objects will be returned . It also retrieves level or structure information in case of ActiveWorkspace Content context. In ActiveWorkspace Content context, if the selected object do not have additional child objects then level or structure information are not be returned.",
+      "id": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicensesWithTypesResponse#Aut0::Soa::Security::AwLicensing::getLicensesWithTypes#const,Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicenseInput,&",
+      "name": "Aut0::Soa::Security::AwLicensing::getLicensesWithTypes",
+      "returnConst": "false",
+      "returnDescription": "The licenses attached to the given objects and the licenses that are available for attachment to those objects.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp03.4.0",
+      "dependencies": "",
+      "description": "Contains Active Workspace licensing services",
+      "libraryName": "Aut0SoaSecurity",
+      "name": "AwLicensing",
+      "namespace": "Aut0::Soa::Security",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Internal value of business object.",
+          "name": "internalValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Display value of business object.",
+          "name": "displayValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, this instance of ConfigurationContextChoice should be set as default choice.",
+          "name": "isDefaultValue"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "A strucure that contains information related to Ace Context.",
+      "isPublished": "false",
+      "name": "ConfigurationContextChoice",
+      "namespace": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing",
+      "scope": "Aut0::Soa::Security::AwLicensing"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The type of ADA licenses to be filtered.",
+          "name": "licenseType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The ID of the license to be filtered.",
+          "name": "licenseId"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "A structure containing license related information to filter licenses.",
+      "isPublished": "false",
+      "name": "FilterInfo",
+      "namespace": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing",
+      "scope": "Aut0::Soa::Security::AwLicensing"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::WorkspaceObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The list of selected WorkspaceObject objects",
+          "name": "selectedObjects"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ADA_License"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The list of licenses (ADA_License) which are already selected to attach with objects.",
+          "name": "selectedLicenses"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::FilterInfo"
+            }
+          ],
+          "description": "The filter criteria based on license type and license ID.",
+          "name": "filterInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::PaginationInfo"
+            }
+          ],
+          "description": "The pagination criteria.",
+          "name": "paginationInfo"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, the user is in ActiveWorkspace Content context.",
+          "name": "isAceContext"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true only already attached licenses to objects will return in response. If false than attached and available both licenses will return in response.",
+          "name": "isAssigned"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::vector<std::string>"
+            }
+          ],
+          "description": "A list of parameters for future use.",
+          "name": "licenseParamsIn"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "Structure that holds the information required to get list of licenses.",
+      "isPublished": "false",
+      "name": "LicenseInput",
+      "namespace": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing",
+      "scope": "Aut0::Soa::Security::AwLicensing"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ADA_License"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of ADA_License objects which are assigned to the seletectd InputObect. If the InputObject is a single select, ead_paragraph will be include. If the InputObject is a multi-select, ead_paragraph will be blank.",
+          "name": "commonAssignedLicenseList"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ADA_License"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of ADA_License objects which are available to attach to the selected InputObject.",
+          "name": "availableLicenseList"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::ADA_License"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of all licenses already selected for attach to selected objects.",
+          "name": "allAssignedLicenseList"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicenseType"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of types of the assignedLicenseList.",
+          "name": "assignedLicenseTypes"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicenseType"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of types of the availableLicenseList.",
+          "name": "availableLicenseTypes"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "Structure that holds the licenses object.",
+      "isPublished": "false",
+      "name": "LicenseOutput",
+      "namespace": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing",
+      "scope": "Aut0::Soa::Security::AwLicensing"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Internal value of ADA_License.",
+          "name": "internalValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Display value of ADA_License.",
+          "name": "displayValue"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": " structure that holds internal value and display value of ADA_License.",
+      "isPublished": "false",
+      "name": "LicenseType",
+      "namespace": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing",
+      "scope": "Aut0::Soa::Security::AwLicensing"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicenseOutput"
+            }
+          ],
+          "description": "A list of licenseOutputs objects.",
+          "name": "licensesOutput"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicenseOptions"
+            }
+          ],
+          "description": "A map (string, list of ConfigurationContextChoice) of ACE context atrributes with the list of ACE context atrtributes and possible values.",
+          "name": "licenseOptions"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The total licenses found.",
+          "name": "totalFound"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The end index of the ADA_LICENSE returned by the operation. This end index will be used by the client as start index of next iteration.",
+          "name": "endIndex"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The total number of licenses loaded at a time.",
+          "name": "totalLoaded"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::LicenseParamsOut"
+            }
+          ],
+          "description": "A map (string, list of string) for future use. It will used to return values which passed in licenseParamsIn parameter of LicenseInputs structure.",
+          "name": "licenseParamsOut"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The SOA framework object containing objects that were created, deleted or updated by the Service, plain objects and error information. For this service, all object are returned to the plain objects group. Error information will also be returned.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "A strucure that holds all license related and pagination related information.",
+      "isPublished": "false",
+      "name": "LicensesWithTypesResponse",
+      "namespace": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing",
+      "scope": "Aut0::Soa::Security::AwLicensing"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The start index to return the licenses. Must be a non-negative value. Otherwise all data will be returned and the data will not  be paginated.",
+          "name": "startIndex"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The maximum number of licenses to return. Must be a value greater than zero. Otherwise, all data will be returned and the data will not be paginated.",
+          "name": "maxToReturn"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "A structure containing pagination criteria.",
+      "isPublished": "false",
+      "name": "PaginationInfo",
+      "namespace": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing",
+      "scope": "Aut0::Soa::Security::AwLicensing"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing::ConfigurationContextChoice"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "A map (string, list of ConfigurationContextChoice) of ACE context atrributes with the list of ACE context atrtributes and possible values.",
+      "isPublished": "false",
+      "name": "LicenseOptions",
+      "namespace": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing",
+      "scope": "Aut0::Soa::Security::AwLicensing"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::vector<std::string>"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "A map (string, list of string) for future use. It will used to return values which passed in licenseParamsIn parameter of LicenseInputs structure.",
+      "isPublished": "false",
+      "name": "LicenseParamsOut",
+      "namespace": "Aut0::Soa::Internal::Security::_2017_12::AwLicensing",
+      "scope": "Aut0::Soa::Security::AwLicensing"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

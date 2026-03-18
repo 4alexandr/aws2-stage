@@ -1,0 +1,18 @@
+<aw-command-panel caption="i18n.freeze">
+    <aw-panel-body>
+        <aw-radiobutton prop="data.freezeRevision" visible-when= "ctx.selectedRequirementCommand && ctx.selectedRequirementCommand === 'unfreeze'"></aw-radiobutton>
+        <aw-panel-section caption="i18n.revision" visible-when="data.freezeRevision.dbValue || ctx.selectedRequirementCommand && ctx.selectedRequirementCommand === 'freeze'">
+            <aw-list dataprovider="data.dataProviders.revisionData">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="freezeAtRevision" visible-when="data.dataProviders.revisionData.selectedObjects.length > 0 && data.freezeRevision.dbValue">
+            <aw-i18n>i18n.freeze</aw-i18n>
+        </aw-button>
+        <aw-button action="freezeAtRevision" visible-when="!data.freezeRevision.dbValue">
+            <aw-i18n>i18n.unfreeze</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

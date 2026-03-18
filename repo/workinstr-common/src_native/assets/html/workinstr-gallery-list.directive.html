@@ -1,0 +1,16 @@
+<div class="aw-workinstr-galleryListContainer aw-theme-horizontalListMainPanel" >
+    <button type="button" id="galleryLeftButton{{$id}}" class="aw-widgets-horizontalListLeftButton aw-theme-galleryScrollButton" ng-click="onLeftButtonClick()"></button>
+
+    <div id="thumbnailContainer{{$id}}" class="aw-workinstr-thumbnailContainer">
+        <ul class="aw-widgets-cellListWidget aw-layout-flexRowContainer aw-workinstr-cellListItem" ng-show="!dataprovider.noResults">
+
+            <li class="aw-workinstr-thumbnailItem aw-widgets-cellListItem" ng-repeat="item in dataprovider.viewModelCollection.loadedVMObjects" ng-click="selectItem(item)"
+                ng-class="{'aw-widgets-cellListItemSelected': selectedItem == item, 'aw-theme-horizontalListComponentFocusPanel': selectedItem != item }">
+
+                    <div class="aw-workinstr-cellLabel" aw-transclude></div>
+             </li>
+         </ul>
+    </div>
+
+    <button type="button" id="galleryRightButton{{$id}}" class="aw-widgets-horizontalListRightButton aw-theme-galleryScrollButton" ng-click="onRightButtonClick()"></button>
+</div>

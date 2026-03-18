@@ -1,0 +1,13 @@
+<aw-command-panel  caption="i18n.ADD_BUTTON_TITLE">
+    <aw-form name="addCommandPanelForm" visible-when="data.activeView!='assignProjectSub'&&data.activeView!='addReferenceSub'" >
+       <aw-add target-object="ctx.interfaceDetails.selectedPort.props.awb0UnderlyingObject" relations="Seg0Implements" include-types="Seg0IntfSpec" visible-tabs="new,palette,search" type-filter="Seg0IntfSpecRevision"></aw-add>
+    </aw-form>
+    <aw-panel-footer  visible-when="data.activeView!='assignProjectSub'&&data.activeView!='addReferenceSub'">
+        <aw-button action="createObjectID"    visible-when="addCommandPanelForm.$valid&&conditions.isNewTabAddButtonVisible">
+            <aw-i18n>i18n.ADD_BUTTON_TITLE</aw-i18n>
+        </aw-button>
+        <aw-button    action="createRelationForPaletteOrSearchID"    visible-when="conditions.isPaletteSearchTabAddButtonVisible">
+            <aw-i18n>i18n.ADD_BUTTON_TITLE</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

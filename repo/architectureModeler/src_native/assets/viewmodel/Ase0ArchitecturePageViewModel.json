@@ -1,0 +1,183 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/exist-when.directive",
+        "js/aw-architecture-page.directive",
+        "js/aw-row.directive",
+        "js/aw-column.directive",
+        "js/aw-splitter.directive"
+    ],
+
+    "actions": {
+        "configurationChanged": {
+            "actionType": "JSFunction",
+            "method": "configurationChanged",
+            "inputData": {
+                "eventdata": "{{data.eventData.value}}"
+            },
+
+            "deps": "js/Ase0ArchitecturePageService"
+        },
+
+        "restoreProductInArchitecture": {
+            "actionType": "JSFunction",
+            "method": "restoreProductInArchitecture",
+            "inputData": {},
+             "deps": "js/Ase0ArchitecturePageService"
+        },
+
+        "resetContent": {
+            "actionType": "JSFunction",
+            "method": "resetContent",
+            "inputData": {},
+            "deps": "js/Ase0ArchitecturePageService"
+        },
+
+        "resetContentOnEffectivityAdded": {
+            "actionType": "JSFunction",
+            "method": "resetContentOnEffectivityAdded",
+            "inputData": {},
+            "deps": "js/Ase0ArchitecturePageService"
+        },
+
+        "refreshDiagram": {
+            "actionType": "JSFunction",
+            "method": "refreshDiagram",
+            "inputData": {},
+            "deps": "js/Ase0ArchitecturePageService"
+        },
+
+        "clearDiagramSelectionCtx": {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "inputData":
+            {
+                "path": "architectureCtx.diagram.selection",
+                "value": {
+                    "nodeModels": [],
+                    "edgeModels": [],
+                    "portModels": []
+                }
+            },
+             "events": {
+                "success": [
+                    {
+                    "name": "AM.PrimarySelectionChangeEvent",
+                    "eventData": {
+                        "selections": []
+                    }
+                }
+               ]
+            },
+            "deps": "js/appCtxService"
+        },
+
+        "saveAsDiagramAndOpen": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "saveAsDiagram.navigateToDiagram",
+                    "eventData": {"diagramUid":"{{data.eventMap['saveAsDiagram.postProcessSuccess'].diagramObject.uid}}"
+                    }
+                } ]
+            }
+        },
+
+        "updateCtxForPendingChangesInDiagram": {
+            "actionType": "JSFunction",
+            "method": "updateCtxForPendingChangesInDiagram",
+            "deps": "js/saveAsDiagramService",
+            "events": {
+                "success": [ {
+                        "name": "saveAsDiagram.objectSaved",
+                        "eventData":{"diagramUid":"{{data.eventMap['saveAsDiagram.navigateToDiagram'].diagramUid}}"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "showDiagram": {
+            "actionType": "Navigate",
+            "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+            "navigationParams": {
+                "uid": "{{data.eventMap['saveAsDiagram.objectSaved'].diagramUid}}",
+                "spageId": "{{data.i18n.architectureModelerPageTitle}}"
+            }
+        }
+
+    },
+
+    "data": {},
+
+    "onEvent": [ {
+            "eventId": "appCtx.update",
+            "criteria": {
+                "name": "aceActiveContext",
+                "target": "context.configContext"
+            },
+            "action": "configurationChanged",
+            "cacheEventData": true
+        },
+
+        {
+            "eventId": "ace.ResetContentEvent",
+            "action": "resetContent",
+            "cacheEventData": true
+        },
+
+        {
+            "eventId": "architectureModeler.Refresh",
+            "action": "refreshDiagram"
+        },
+
+        {
+            "eventId": "occurrenceUpdatedByEffectivityEvent",
+            "action": "resetContentOnEffectivityAdded",
+            "condition" : "deleted && deleted.includes(ctx.selected.uid)",
+            "cacheEventData": true
+        },
+
+        {
+            "eventId": "appCtx.register",
+            "criteria": {
+                "name": "systemLocator"
+            },
+            "action": "resetContent"
+        },
+
+        {
+            "eventId": "AMViewChangedEvent",
+            "condition" : "ctx.architectureCtx.viewMode === 'Ase0MatrixView'",
+            "action": "clearDiagramSelectionCtx"
+        },
+        {
+            "eventId": "saveAsDiagram.postProcessSuccess",
+            "action": "saveAsDiagramAndOpen",
+            "cacheEventData": true
+        },
+
+        {
+            "eventId": "saveAsDiagram.navigateToDiagram",
+            "action": "updateCtxForPendingChangesInDiagram",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "saveAsDiagram.objectSaved",
+            "action": "showDiagram",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "acePwa.reset",
+            "condition" : "ctx.occmgmtContext.restoreProduct !== undefined && ctx.occmgmtContext.restoreProduct",
+            "action": "restoreProductInArchitecture"
+        }
+    ],
+    "i18n": {
+        "architectureModelerPageTitle": [
+            "ArchitectureModelerConstants"
+        ]
+    }
+}

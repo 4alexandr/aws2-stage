@@ -1,0 +1,9 @@
+<ul exist-when="conditions.showLoading" class="aw-layout-linkWithPopupContainer">
+    <li class="aw-widgets-cellListItem aw-widgets-cellTop">
+        <span class="aw-mfe-headerTitle">{{i18n.loading}} ...</span>
+    </li>
+</ul>
+
+<aw-list dataprovider="data.dataProviders.mfeTaskList">
+    <div class="aw-widgets-cellTop aw-mfe-headerTitle">{{item.taskName}}</div>
+</aw-list>

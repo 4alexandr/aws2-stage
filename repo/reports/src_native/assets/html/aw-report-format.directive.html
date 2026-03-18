@@ -1,0 +1,13 @@
+<div class="aw-report-formatContainer">
+    <div cell-prop-id="cellProperties">
+        <div class="aw-widgets-cellListCellProperties">
+            <aw-column width="fill">
+                <aw-listbox prop="data.selectStyleSheet" list="data.officestylesheets"></aw-listbox>
+                <aw-listbox prop="data.displayLocale" list="data.languageList" visible-when="sourcetc"></aw-listbox>
+                <aw-widget prop="data.saveToDataSet" visible-when="sourcetc"></aw-widget>
+                <aw-checkbox prop="data.doLiveIntegration" visible-when="officetemplate"></aw-checkbox>
+                <aw-checkbox prop="data.runReportAsync" visible-when="runinbackgroundsupported && sourcetc"></aw-checkbox>
+            </aw-column>
+        </div>
+    </div>
+</div>

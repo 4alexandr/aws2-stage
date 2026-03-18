@@ -1,0 +1,146 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-list.directive",
+        "js/aw-occmgmt-cell.directive",
+        "js/aw-scrollpanel.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "dataProvider",
+            "method": "ebomBreadCrumbDataProvider"
+        },
+        "buildCrumbs": {
+            "actionType": "JSFunction",
+            "method": "buildNavigateBreadcrumb",
+            "inputData": {
+                "selectedObjects": [ "{{data.eventData.lastSelectedObject}}" ],
+                "contextKey": "ebomContext"
+            },
+            "outputData": {
+                "crumbs": "crumbs"
+            },
+            "deps": "js/aceBreadcrumbService"
+        },
+        "onSelect": {
+            "actionType": "JSFunction",
+            "method": "onSelectBreadcrumb",
+            "inputData": {
+                "crumb": "{{data.eventData}}",
+                "contextKey": "{{data.breadcrumbConfig.id}}"
+            },
+            "deps": "js/aceBreadcrumbService"
+        },
+        "onChevronClick": {
+            "actionType": "dataProvider",
+            "method": "ebomChevronDataProvider"
+        },
+        "onObjSelected": {
+            "actionType": "JSFunction",
+            "method": "updateUrlOnObjectSelection",
+            "inputData": {
+                "data": "{{data}}",
+                "selection": "{{data.dataProviders.ebomChevronDataProvider.selectedObjects}}",
+                "contextKey": "ebomContext"
+            },
+            "deps": "js/occmgmtListBreadcrumbService"
+        },
+        "loadData": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadData",
+            "deps": "js/occmgmtListBreadcrumbService",
+            "inputData": {
+                "methodArgument": {
+                    "listLoadInput": {
+                        "parentUid": "{{ctx.ebomContextChevron.scopedUid}}",
+                        "parentElement": "{{ctx.ebomContextChevron.scopedUid}}",
+                        "skipFocusOccurrenceCheck": true,
+                        "startChildNdx": 0,
+                        "pageSize": 15,
+                        "addAfter": true
+                    },
+                    "openedObject": "{{data.dataProviders.ebomChevronDataProvider.openedObject}}",
+                    "cursorObject": "{{data.dataProviders.ebomChevronDataProvider.cursorObject}}",
+                    "contextKey": "ebomContext"
+                }
+            },
+            "outputData": {
+                "dataProviders.ebomChevronDataProvider.openedObject": "result.listLoadResult.openedObject",
+                "dataProviders.ebomChevronDataProvider.cursorObject": "result.listLoadResult.cursorObject",
+                "totalFound": "result.listLoadResult.totalChildCount",
+                "childOccurrences": "result.listLoadResult.childOccurrences"
+            },
+            "events": {
+                "success": [ {
+                    "name": "breadcrumb.popUpLoading"
+                } ]
+            }
+        },
+        "popUpLoading": {
+            "actionType": "JSFunction",
+            "method": "toggle",
+            "inputData": {
+                "id": "ebomContext",
+                "data": "{{data}}",
+                "key": "loading",
+                "value": false,
+                "unRegister": false
+            },
+            "deps": "js/breadcrumbUtils"
+        },
+        "updateChevronStateForInactiveView": {
+            "actionType": "JSFunction",
+            "method": "updateChevronStateForInactiveView",
+            "inputData": {
+                "id": "ebomContext"
+            },
+            "deps": "js/aceBreadcrumbService"
+        }
+    },
+    "dataProviders": {
+        "ebomChevronDataProvider": {
+            "action": "loadData",
+            "response": "action.result.listLoadResult.childNodes",
+            "totalFound": "action.result.listLoadResult.totalChildCount",
+            "selectionModelMode": "single",
+            "commandsAnchor": "occmgmt_breadcrumb_cell_commands"
+        },
+        "ebomBreadCrumbDataProvider": {
+            "action": "buildCrumbs",
+            "response": "{{data.crumbs}}",
+            "totalFound": "{{data.crumbs.length}}"
+        }
+    },
+    "onEvent": [ {
+            "eventId": "ebomContext.chevronClicked",
+            "condition": "ctx.splitView && ctx.splitView.mode",
+            "action": "updateChevronStateForInactiveView"
+        },
+        {
+            "eventId": "ebomContext.chevronClicked",
+            "action": "onChevronClick"
+        },
+        {
+            "eventId": "breadcrumb.popUpLoading",
+            "action": "popUpLoading"
+        },
+        {
+            "eventId": "ebomChevronDataProvider.selectionChangeEvent",
+            "action": "onObjSelected"
+        },
+        {
+            "eventId": "ebomBreadcrum.selectCrumb",
+            "action": "onSelect",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ebomBreadcrum.contentLoaded",
+            "action": "reveal"
+        },
+        {
+            "eventId": "ebomBreadcrum.updateBreadCrumb",
+            "cacheEventData": true,
+            "action": "reveal"
+        }
+    ]
+}

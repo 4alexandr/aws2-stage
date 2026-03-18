@@ -1,0 +1,41 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+
+/*=========================================================================*/
+/*============================ EP details table ===========================*/
+/*=========================================================================*/
+
+.aw-ep-detailsTable {
+    .aw-splm-table {
+        height: 100%;
+    }
+}
+
+.aw-epDetails-fileIcon{
+    height: 24px;
+    margin-right: 8px;
+}
+
+.aw-epFile-preview {
+    .aw-viewerjs-commandBarLayout{
+        display: none;
+    }
+}
+
+.aw-epInformation-summary {
+    .aw-xrt-tabsContainer{
+        display: none;
+    }
+}
+
+#epDetailsTable .aw-splm-tableRow,
+#epDetailsTable .ui-grid-row {
+    margin-bottom: 0;
+    border-bottom-width: 1px;
+}

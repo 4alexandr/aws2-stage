@@ -1,0 +1,75 @@
+<aw-command-panel caption="i18n.toolPanelTitle">
+    <aw-panel-body>
+        <aw-panel-section caption="i18n.unitPanelTitle">
+            <aw-panel-body>
+                <aw-label prop="data.modelTitleProp"></aw-label>
+            </aw-panel-body>
+            <aw-panel-body>
+                <aw-row height="1.5f">
+                    <aw-column width="4">
+                        <aw-label prop="data.displayedTitleProp"></aw-label>
+                    </aw-column>
+                    <aw-column width="6">
+                        <aw-link-with-popup-menu prop="data.unitTextProp" dataprovider="data.dataProviders.unitDataProvider"></aw-link-with-popup-menu>
+                    </aw-column>
+                </aw-row>
+            </aw-panel-body>
+        </aw-panel-section>
+        <aw-panel-section caption="i18n.renderPanelTitle">
+            <aw-check-list prop="data.shadedProp" visible-when="conditions.showShadedWithEdges  && !conditions.isCSRViewer && conditions.viewerLicenceOnOrAboveStandard"></aw-check-list>
+            <aw-check-list prop="data.materialProp" id="materialRefId" visible-when="conditions.showMaterialGrid"></aw-check-list>
+            <aw-row height="4f">
+                <aw-column>
+                    <aw-check-list prop="data.trihedronProp"></aw-check-list>
+                </aw-column>
+            </aw-row>
+            <aw-row height="1f">
+                <aw-column>
+                    <aw-label prop="data.renderSource"></aw-label>
+                </aw-column>
+            </aw-row>
+            <aw-row height="5f">
+                <aw-column>
+                    <aw-check-list prop="data.renderSourceServer"></aw-check-list>
+                    <aw-check-list prop="data.renderSourceClient"></aw-check-list>
+                </aw-column>
+            </aw-row>
+        </aw-panel-section>
+        <aw-panel-section caption="i18n.floorPanelTitle" visible-when="conditions.viewerLicenceOnOrAboveProfessional">
+            <aw-check-list prop="data.showFloorProp"></aw-check-list>
+            <aw-row>
+                <aw-column justify="left" offset="0.050">
+                    <aw-command-bar anchor="aw_FloorPlane" alignment="HORIZONTAL" show-command-labels="true" visible-when="conditions.showFloorOptions"></aw-command-bar>
+                </aw-column>
+            </aw-row>
+            <aw-row>
+                <aw-column justify="left" offset="0.075">
+                    <aw-label prop="data.offsetLabelProp" visible-when="conditions.showFloorOptions"></aw-label>
+                </aw-column>
+            </aw-row>
+            <aw-row>
+                <aw-column justify="left" offset="0.075">
+                    <aw-slider prop="data.floorSliderProp" visible-when="conditions.showFloorOptions"></aw-slider>
+                </aw-column>
+            </aw-row>
+            <aw-check-list prop="data.gridProp" visible-when="conditions.showFloorOptions"></aw-check-list>
+            <aw-check-list prop="data.shadowProp" visible-when="conditions.showFloorOptions && !conditions.isCSRViewer"></aw-check-list>
+            <aw-check-list prop="data.reflectionProp" visible-when="conditions.showFloorOptions && !conditions.isCSRViewer"></aw-check-list>
+        </aw-panel-section>
+        <aw-panel-section caption="i18n.pmiPanelTitle" visible-when="conditions.showPMI">
+            <aw-check-list prop="data.pmiProp"></aw-check-list>
+        </aw-panel-section>
+        <aw-panel-section caption="i18n.navigationPanelTitle" visible-when="conditions.viewerLicenceOnOrAboveStandard">
+            <aw-check-list prop="data.examineProp"></aw-check-list>
+            <aw-check-list prop="data.walkProp"></aw-check-list>
+        </aw-panel-section>
+        <aw-panel-section caption="i18n.selectionDisplayPanelTitle">
+            <aw-check-list prop="data.useTransparencyProp"></aw-check-list>
+        </aw-panel-section>
+        <aw-panel-section caption="i18n.IndexedModePanelTitle" visible-when="conditions.showIndexedOption">
+            <aw-check-list prop="data.useIndexedProp"></aw-check-list>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+    </aw-panel-footer>
+</aw-command-panel>

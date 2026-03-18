@@ -1,0 +1,10 @@
+{
+    "compareTitle": "Comparar",
+    "contentCompareMsmTitle": "Comparar Contenido",
+    "contentComparePWATitle": "Contenido",
+    "RevisionRule": "Revisión",
+    "Awb0CompareDesc": "Cambie las opciones de comparación o seleccione el nivel de comparación.",
+    "Awb0ContentCompareMsmDesc": "Divida la ventana para comparar las propiedades de los objetos seleccionados.",
+    "emptyCompareResults": "No se encontró ningún resultado correspondiente a los criterios de comparación.",
+    "Awb0CompareGrpDesc":"Compare las estructuras basadas en las opciones de comparación especificadas."
+}

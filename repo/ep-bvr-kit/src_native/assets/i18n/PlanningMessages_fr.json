@@ -1,0 +1,14 @@
+{
+    "PlanningTitle": "Planification",
+    "StationOperationsTitle": "Opérations",
+    "ProductScopeTitle": "Domaine du produit",
+    "DeclPlanningTitle": "Planification de zone de processus",
+    "graphicsViewerTitle": "Graphique",
+    "AvailablePartsPanelTitle": "Produit",
+    "plantLayoutPanelTitle": "Séquence de processus",
+    "scopingTitle": "Assemblages cibles",
+    "selectProcess": "Sélectionner un élément pour voir ses assemblages cibles affectés.",
+    "targetAssemblies": "assemblages cibles",
+    "scopingSuccessMsg": "L'assemblage \"{0}\" a été associé avec succès à \"{1}\".",
+    "removeScope": "Supprimer l'assemblage cible"
+}

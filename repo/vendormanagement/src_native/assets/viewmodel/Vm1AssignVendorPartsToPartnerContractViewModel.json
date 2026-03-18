@@ -1,0 +1,221 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-listbox.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-break.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-panel-footer.directive"
+    ],
+    "actions": {
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "allProducts"
+        },
+        "getProducts":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-VendorManagementAW-2020-05-VendorManagement",
+            "method": "getAssignedProductsOfContract",
+            "inputData": {
+                "input": {
+                    "type": "{{ctx.xrtSummaryContextObject.type}}",
+                    "uid": "{{ctx.xrtSummaryContextObject.uid}}"
+                }
+            },
+            "outputData": {
+                "searchResults": "{{function:getProductListLOV}}"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "getVendorParts":
+        {
+            "actionType": "dataProvider",
+            "method": "VendorPartsToAssign"
+        },
+        "selectionChangeInProductList":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Vm1VendorPartsProvider",
+                    "searchCriteria": {
+                        "searchString": "{{data.filterBox.dbValue}}",
+                        "productUID": "{{data.selectedProduct.dbValue.uid}}",
+                        "partnerContract": "{{ctx.mselected[0].uid}}",
+                        "configurationContext":"{{data.selectedProduct.selectedLovEntries[0].propDisplayDescriptionValue}}"
+                    },
+                    "startIndex": "{{data.dataProviders.VendorPartsToAssign.startIndex}}"
+                }
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResponse": "{{json:searchResultsJSON}}"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "assignVPtoContract":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "AuthorizedDataAccess-2017-05-LicenseManagement",
+            "method": "attachOrDetachLicensesFromObjects",
+
+            "inputData":
+            {
+                "licenseAttachOrDetachInput": "{{function:attachOrDetachInput}}"
+            },
+            "outputData":
+            {
+                "partialErrors": "partialErrors",
+                "errorMessage": "{{function:processPartialErrorsFromSOA}}"
+            },
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    },
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "refreshLocationFlag": false,
+                            "relations": "",
+                            "relatedModified": [
+                                "{{ctx.xrtSummaryContextObject}}"
+                            ]
+                        }
+                    }
+                ],
+                "failure":
+                [
+                    {
+                        "name": "complete",
+                        "eventData":
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        }
+    },
+
+    "data":
+    {
+        "filterBox":
+        {
+            "displayName": "MyFilter",
+            "type": "STRING",
+            "dbValue": ""
+        },
+        "selectedProduct":
+        {
+            "displayName": "{{i18n.vm1Product}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": ""
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "dataProvider.reset",
+            "action": "reveal"
+        }
+    ],
+    "conditions": {
+        "showAssignButton": {
+            "expression": "data.dataProviders.VendorPartsToAssign.selectedObjects.length > 0"
+        }
+    },
+    "i18n": {
+        "vm1VendorPart": [
+            "VendorManagementMessages"
+        ],
+        "add": [
+            "VendorManagementMessages"
+        ],
+        "vm1Product": [
+            "VendorManagementMessages"
+        ]
+    },
+    "dataProviders": {
+        "VendorPartsToAssign": {
+            "action": "selectionChangeInProductList",
+            "selectionModelMode": "multiple",
+            "response": "{{data.searchResponse}}",
+            "totalFound": "{{data.totalFound}}",
+            "commands":
+            {
+                "Awp0ShowObjectCell":
+                {
+                    "id": "cmdOpen",
+                    "title": "Open",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "dependencies": [ "js/showObjectCommandHandler" ],
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            }
+        },
+        "allProducts": {
+            "action": "getProducts",
+            "selectionModelMode": "single",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}"
+        }
+    },
+    "functions":
+    {
+        "getProductListLOV":
+        {
+            "functionName": "getProductListLOV",
+            "parameters": ["{{ctx}}"]
+        },
+        "attachOrDetachInput":
+        {
+            "functionName": "attachOrDetachInput",
+            "parameters": ["{{data}}", "{{ctx}}"]
+        }
+    },
+    "messages": {
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    }
+}

@@ -1,0 +1,239 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/visible-when.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-i18n.directive",
+        "js/aw-button.directive",
+        "js/enable-when.directive",
+        "js/aw-xrt.directive",
+        "js/aw-label.directive",
+        "js/aw-form.directive",
+        "js/aw-link.directive",
+        "js/aw-break.directive"
+
+    ],
+    "actions": {
+        "openObject": {
+            "actionType": "JSFunction",
+            "method": "linkAction",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "getAttributeDefinition": {
+            "actionType": "JSFunction",
+            "method": "getAttributeDefinition",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "populateXRT": {
+            "actionType": "JSFunction",
+            "method": "populateXRT",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "setItemEventProgressing":{
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "name": "addItemEventProgressing",
+                "value": "{{data.eventMap['att1AddParameter.setItemEventProgressing'].valueToSet}}"
+            },
+            "deps": "js/appCtxService"
+        },
+        "createAttributeInput": {
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "name": "addItemEventProgressing",
+                "value": true
+            },
+            "events": {
+                "success": [ {
+                    "name": "Att1CreateParameter.prepareAttributeInput"
+                } ]
+            },
+            "deps": "js/appCtxService"
+        },
+        "prepareAttributeInput": {
+            "actionType": "JSFunction",
+            "method": "createAttributeInput",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "createOrUpdateMeasurableSoaInput": ""
+            },
+            "events": {
+                "success": [ {
+                    "name": "createOrUpdateMeasurableAttributeSoaCall"
+                } ]
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "createOrUpdateMeasurableAttributeSoaCall": {
+            "actionType": "TcSoaService",
+            "serviceName": "AttrTargetMgmtAW-2015-10-AttributeTargetManagement",
+            "method": "createOrUpdateMeasurableAttribute",
+            "inputData": {
+                "inputs": "{{data.createOrUpdateMeasurableSoaInput}}"
+            },
+            "outputData": {
+                "createdObject": "{{function:getCreatedObject}}"
+            },
+            "actionMessages": {
+                "failure": [
+                    {
+                        "message": "createParamFailureMessage"
+                    }
+                ]
+            },
+            "events": {
+                "success": [ {
+                        "name": "att1AddParameter.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": false
+                        }
+                    },
+                    {
+                        "name": "refreshEvent"
+                    }
+                ],
+                "failure": [ {
+                    "name": "att1AddParameter.setItemEventProgressing",
+                    "eventData": {
+                        "valueToSet": false
+                    }
+                } ]
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "refreshAction":{
+            "actionType": "JSFunction",
+            "method": "refreshParameterTable",
+            "inputData": {
+                "attachMeasurableAttributesSoaOutput": "{{data.createdObject}}",
+                "source":"attachParameter"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/Att1ParameterMgmtUtilService"
+        },
+        "refreshParamProject": {
+            "actionType": "JSFunction",
+            "method": "refreshParamProject",
+            "inputData": {
+                "paramProject": "{{data.eventData.relatedModified}}",
+                "data": "{{data}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        }
+    },
+    "data": {
+        "objName": {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "false",
+            "dbValue": ""
+        },
+        "uomType": {
+            "displayName": ""
+        },
+        "attrType": {
+            "displayName": ""
+        },
+        "Goal": {
+            "displayName": ""
+        },
+        "Min": {
+            "displayName": ""
+        },
+        "Max": {
+            "displayName": ""
+        },
+        "GoalFiles": {
+            "displayName": ""
+        },
+        "object_desc": {
+            "displayName": ""
+        },
+        "attrDefDesc": {
+            "displayName": ""
+        },
+        "parameterDefinitionName":{
+            "displayName": ""
+        },
+        "isXrtCompletelyLoaded": false
+    },
+    "functions": {
+        "getCreatedObject": {
+            "functionName": "getCreatedObject",
+            "parameters": []
+        }
+    },
+    "onEvent": [ {
+            "eventId": "awPanel.reveal",
+            "condition": "conditions.isCreatePanel",
+            "action": "getAttributeDefinition"
+        },
+        {
+            "eventId": "awXRT.contentLoaded",
+            "action": "populateXRT"
+        },
+        {
+            "eventId": "createOrUpdateMeasurableAttributeSoaCall",
+            "action": "createOrUpdateMeasurableAttributeSoaCall"
+        },
+        {
+            "eventId": "refreshEvent",
+            "action": "refreshAction"
+        },
+        {
+            "eventId": "paramProject.paramCreated",
+            "cacheEventData": true,
+            "action": "refreshParamProject"
+        },
+        {
+            "eventId": "att1AddParameter.setItemEventProgressing",
+            "cacheEventData": true,
+            "action": "setItemEventProgressing"
+        },
+        {
+            "eventId": "Att1CreateParameter.prepareAttributeInput",
+            "action": "prepareAttributeInput"
+        }
+
+
+    ],
+    "conditions": {
+        "isCreatePanel": {
+            "expression": "data.activeView === 'Att1AddParameterCreate'"
+        }
+    },
+    "messages": {
+        "createParamFailureMessage":{
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    },
+    "i18n": {
+        "add": [ "Att1AttrMappingMessages" ],
+        "attributeDefinition": [ "Att1AttrMappingMessages" ]
+    }
+}

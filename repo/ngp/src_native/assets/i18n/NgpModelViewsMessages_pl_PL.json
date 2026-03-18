@@ -1,0 +1,5 @@
+{
+    "sendToViewMakerCmdTitle": "Otwórz Kreator widoków wytwarzania",
+    "sendToViewMakerTooltipMsg": "Za pomocą Kreatora widoków wytwarzania można tworzyć widoki modelu oraz nimi zarządzać.",
+    "sendToViewMakerDisabledTooltipMsg": "The command is available for processes that either have assignments, or have predecessors or background processes."
+}

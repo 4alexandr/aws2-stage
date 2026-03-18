@@ -1,0 +1,4 @@
+{
+    "invalidObjectWarning": "\"{0}\" ist keine gültige Datei für Objektsatz \"{1}\". Neu erstellte Objekte erscheinen nicht im Objektsatz.",
+    "addedObjectIsNotUnique": "Das Objekt \"{1}-{0}\" wurde nicht gespeichert, da \"ID = {1}\" nicht eindeutig ist."
+}

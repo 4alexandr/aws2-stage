@@ -1,0 +1,269 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-form.directive",
+        "js/visible-when.directive",
+        "js/exist-when.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-list.directive",
+        "js/aw-type-cell.directive",
+        "js/aw-type-icon.directive",
+        "js/aw-xrt.directive",
+        "js/aw-listbox.directive",
+        "js/aw-title-link.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "JSFunction",
+            "method": "initCreateStudyPanel",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1CreateStudyService"
+        },
+        "getStudySubtypes": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2013-05-DataManagement",
+            "method": "getSubTypeNames",
+            "inputData": {
+                "inBOTypeNames": [ {
+                    "typeName": "Crt0Study",
+                    "contextName": "subtypes"
+                } ]
+            },
+            "outputData": {
+                "getStudySubtypesResponse": ""
+            },
+            "events": {
+                "success": [ {
+                    "name": "CreateStudy.receivedSubtypes"
+                } ]
+            },
+            "deps": "js/Crt1CreateStudyService"
+        },
+        "clearSelectedType": {
+            "actionType": "JSFunction",
+            "method": "clearSelectedTypeJs",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1CreateStudyService"
+        },
+        "processStudySubtypes": {
+            "actionType": "JSFunction",
+            "method": "initStudySubtypeList",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1CreateStudyService"
+        },
+        "convertStudiesToList": {
+            "actionType": "JSFunction",
+            "method": "createListModelObjects",
+            "inputData": {
+                "input": "{{data.populationInput}}",
+                "propName": "props.object_string",
+                "addEmpty1stItem": true
+            },
+            "outputData": {
+                "population": ""
+            },
+            "deps": "js/listBoxService"
+        },
+        "enableDataProvider": {
+            "actionType": "dataProvider",
+            "method": "getStudyTypes"
+        },
+        "ensureStudyTypesLoaded": {
+            "actionType": "JSFunctionAsync",
+            "method": "ensureStudyTypesLoadedJs",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "searchResults"
+            },
+            "events": {
+                "success": [ {
+                    "condition": "data.totalFound <= 0",
+                    "name": "complete",
+                    "eventData": {
+                        "source": "toolAndInfoPanel"
+                    }
+                } ]
+            },
+            "actionMessages": {
+                "success": [ {
+                    "condition": "data.totalFound <= 0",
+                    "message": "noSupportedTypesError"
+                } ]
+            },
+            "deps": "js/Crt1CreateStudyService"
+        },
+        "handleTypeSelection": {
+            "actionType": "JSFunction",
+            "method": "handleTypeSelectionJs",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1CreateStudyService"
+        },
+        "createStudyInit": {
+            "actionType": "JSFunction",
+            "method": "createStudyInit",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1CreateStudyService"
+        },
+        "createStudySOA": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-Core-2012-10-DataManagement",
+            "method": "createRelateAndSubmitObjects",
+            "inputData": {
+                "inputs": [ {
+                    "clientId": "CreateStudy",
+                    "createData": {
+                        "boName": "{{ctx.dbVal}}",
+                        "propertyNameValues": {
+                            "item_id": [ "{{data.item_id.dbValue}}" ],
+                            "object_name": [ "{{data.object_name.dbValue}}" ],
+                            "object_desc": [ "{{data.object_desc.dbValue}}" ]
+                        },
+                        "compoundCreateInput": {
+                            "revision": [ {
+                                "boName": "{{data.revisionType}}",
+                                "propertyNameValues": {
+                                    "crt0ParentVldnContract": [ "{{data.crt0ParentVldnContract}}" ],
+                                    "crt0Population": [ "{{data.crt0Population}}" ]
+                                }
+                            } ]
+                        }
+                    },
+                    "targetObject": null,
+                    "pasteProp": ""
+                } ]
+            },
+            "outputData": {
+                "createStudyData": ""
+            },
+            "events": {
+                "success": [ {
+                        "name": "addObject.objectcreated"
+                    },
+                    {
+                        "name": "addObject.setTarget",
+                        "condition": "data.targetObject != undefined"
+                    },
+                    {
+                        "name": "CreateStudy.createStudySucceeded"
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    },
+                    {
+                        "condition": "data.createStudyData.partialErrors === undefined",
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "relatedModified": [ "{{data.parentContract}}" ],
+                            "refreshLocationFlag": true
+                        }
+                    }
+                ],
+                "failure": [ {
+                    "name": "CreateStudy.createStudyFailed"
+                } ]
+            },
+            "deps": "js/Crt1CreateStudyService"
+        },
+        "createStudyPostCreate": {
+            "actionType": "JSFunction",
+            "method": "postCreateStudy",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1CreateStudyService"
+        }
+    },
+    "onEvent": [ {
+            "eventId": "CreateStudy.getStudySubtypes",
+            "action": "getStudySubtypes"
+        },
+        {
+            "eventId": "CreateStudy.receivedSubtypes",
+            "action": "processStudySubtypes"
+        },
+        {
+            "eventId": "CreateStudy.convertStudiesToList",
+            "action": "convertStudiesToList"
+        },
+        {
+            "eventId": "CreateStudy.receivedSubtypes2",
+            "action": "enableDataProvider"
+        },
+        {
+            "eventId": "getStudyTypes.selectionChangeEvent",
+            "action": "handleTypeSelection"
+        },
+        {
+            "eventId": "CreateStudy.createStudy",
+            "action": "createStudySOA"
+        },
+        {
+            "eventId": "CreateStudy.createStudySucceeded",
+            "action": "createStudyPostCreate"
+        },
+        {
+            "eventId": "CreateStudy.createStudyFailed",
+            "action": "createStudyPostCreate"
+        }
+    ],
+    "data": {
+        "selectedType": {
+            "type": "STRING",
+            "dbValue": "Crt0Study"
+        },
+        "displayedType": {
+            "type": "STRING",
+            "propertyDisplayName": "Study"
+        },
+        "populationValues": {
+            "type": "STRING",
+            "hasLov": true
+        }
+    },
+    "dataProviders": {
+        "getStudyTypes": {
+            "action": "ensureStudyTypesLoaded",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "messages": {},
+    "preferences": [],
+    "functions": {},
+    "conditions": {
+        "noStudyTypeSelected": {
+            "expression": "data.selectedType.dbValue == ''"
+        }
+    },
+    "i18n": {
+        "CreateStudyTitle": [ "AnalysisRequestCommandPanelsMessages" ],
+        "CreateTypeHeader": [ "AnalysisRequestCommandPanelsMessages" ],
+        "TypeNameHeader": [ "AnalysisRequestCommandPanelsMessages" ],
+        "PopulationHeader": [ "AnalysisRequestCommandPanelsMessages" ],
+        "CreateButtonText": [ "AnalysisRequestCommandPanelsMessages" ],
+        "EmptyPopulationItem": [ "AnalysisRequestCommandPanelsMessages" ]
+    }
+}

@@ -1,0 +1,129 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [],
+    "actions": {
+        "getBreadcrumbs": {
+            "actionType": "JSFunctionAsync",
+            "method": "getObjectBreadcrumbs",
+            "inputData": {
+                "modelObject": "{{ctx.ngp.scopeObject}}"
+            },
+            "outputData": {
+                "crumbs": ""
+            },
+            "deps": "js/services/ngpBreadcrumbsService"
+        },
+        "populateCrumbChildren": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "getCrumbChildren"
+                },
+                {
+                    "action": "populateChevronPopup"
+                }
+            ]
+        },
+        "getCrumbChildren": {
+            "actionType": "JSFunctionAsync",
+            "method": "getContentElements",
+            "inputData": {
+                "uid": "{{data.eventMap['wabc.chevronClicked'].scopedUid}}",
+                "returnAsVMOs": true
+            },
+            "outputData": {
+                "children": ""
+            },
+            "deps": "js/services/ngpRelationService"
+        },
+        "populateChevronPopup": {
+            "actionType": "JSFunction",
+            "method": "toggle",
+            "inputData": {
+                "id": "wabc",
+                "data": "{{data}}",
+                "key": "loading"
+            },
+            "deps": "js/breadcrumbUtils"
+        },
+        "closeChevronPopUp": {
+            "actionType": "JSFunction",
+            "method": "toggle",
+            "inputData": {
+                "id": "wabc",
+                "data": "{{data}}",
+                "key": "showPopup",
+                "value": false,
+                "unRegister": true
+            },
+            "deps": "js/breadcrumbUtils"
+        },
+        "initBreadcrumbsDataProvider": {
+            "actionType": "dataProvider",
+            "method": "ngpNavigationBreadcrumbDataProvider"
+        },
+        "onChevronClick": {
+            "actionType": "dataProvider",
+            "method": "ngpNavigationBreadcrumbChevronDataProvider"
+        },
+        "navigateToSelected": {
+            "actionType": "JSFunction",
+            "method": "navigateWithInNgp",
+            "inputData": {
+                "uid": "{{data.eventMap['ngpNavigationBreadcrumbs.selectCrumb'].scopedUid}}"
+            },
+            "deps": "js/services/ngpNavigationService"
+        },
+        "navigateToClickedChild": {
+            "actionType": "JSFunction",
+            "method": "navigateWithInNgp",
+            "inputData": {
+                "uid": "{{data.eventMap['ngpNavigationBreadcrumbChevronDataProvider.selectionChangeEvent'].selectedObjects[0].uid}}"
+            },
+            "deps": "js/services/ngpNavigationService"
+        }
+    },
+    "dataProviders": {
+        "ngpNavigationBreadcrumbDataProvider": {
+            "action": "getBreadcrumbs",
+            "response": "{{data.crumbs}}",
+            "totalFound": "{{data.crumbs.length}}"
+        },
+        "ngpNavigationBreadcrumbChevronDataProvider": {
+            "action": "populateCrumbChildren",
+            "response": "{{data.children}}",
+            "totalFound": "{{data.children.length}}",
+            "selectionModelMode": "single",
+            "noResultsFound": "{{i18n.noChildrenFound}}"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "initBreadcrumbsDataProvider"
+    },
+    "onEvent": [ {
+            "eventId": "ngpNavigationBreadcrumbs.refresh",
+            "action": "initBreadcrumbsDataProvider"
+        },
+        {
+            "eventId": "wabc.chevronClicked",
+            "action": "onChevronClick",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngpNavigationBreadcrumbs.selectCrumb",
+            "action": "navigateToSelected",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngpNavigationBreadcrumbChevronDataProvider.selectionChangeEvent",
+            "action": "navigateToClickedChild",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "ngpNavigationBreadcrumbs.update",
+            "action": "closeChevronPopUp"
+        }
+    ],
+    "i18n": {
+        "noChildrenFound": [ "NgpHeaderMessages" ]
+    }
+}

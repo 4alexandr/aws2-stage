@@ -1,0 +1,23 @@
+{
+    "cancel": "Отмена",
+    "submit": "Передать",
+    "continue": "Продолжить",
+    "reviseCmdTitle": "Пересмотреть",
+    "workflowTemplatesLabel": "Шаблон процесса",
+    "workflowNameLabel": "Имя рабочего процесса",
+    "workflowDescriptionLabel": "Описание",
+    "noWorkflowTemplatesMsg": "Шаблоны рабочего процесса не найдены для выбранных объектов.",
+    "submitToWorkflowCmdTitle": "Передать в рабочий процесс",
+    "submitToWorkflowTooltipMsg": "Передайте {0} в рабочий процесс.",
+    "submitToWorkflowInformationMsg": "Ожидается удаление процессов {0}. Чтобы выпустить содержимое действия, включая это удаление, передайте действие в рабочий процесс, используя шаблон рабочего процесса \"NGP_ReleasePendingDeletions\".",
+    "successfullySubmitToWorkflowSingle": "\"{0}\" передано в рабочий процесс.",
+    "successfullySubmitToWorkflowMultiple": "{0} объектов переданы в рабочий процесс.",
+    "parentAutoReviseSingleConfirmation": "Пересмотр {0} также затронет \"{1}\". Вы хотите продолжить?",
+    "parentAutoReviseMultipleConfirmation": "Пересмотр выбранных операций также затронет \"{0}\". Вы хотите продолжить?",
+    "successfulReviseAction": "Новая ревизия успешно создана для \"{0}\".",
+    "submitSelectedToWorkflow": "Передайте выбранные элементы в рабочий процесс.",
+    "singleDeleteMessage": "Вы действительно хотите удалить \"{0}\"?",
+    "multipleDeleteMessage": "Вы уверены, что хотите удалить эти {0} объектов?",
+    "deleteTooltipMsg": "Удалить",
+    "deleteSelectedObjectsCmdDescription": "Удалить выбранные объекты"    
+}

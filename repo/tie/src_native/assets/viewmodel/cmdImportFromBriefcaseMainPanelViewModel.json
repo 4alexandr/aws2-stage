@@ -1,0 +1,37 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive"
+    ],
+    "actions": {
+        "navigateToBriefcaseImportPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": {
+                            "destPanelId": "cmdImportFromBriefcaseMainPanel",
+                            "eventData": "{{data.eventData}}"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "action": "navigateToBriefcaseImportPanel"
+        }
+    ],
+    "data": {},
+    "conditions": {},
+    "messages": {},
+    "i18n": {
+        "cmdImportFromBriefcase": [
+            "tieMessages"
+        ]
+    }
+}

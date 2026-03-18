@@ -1,0 +1,23 @@
+{
+    "cancel": "Abbrechen",
+    "submit": "Senden",
+    "continue": "Weiter",
+    "reviseCmdTitle": "Revisionieren",
+    "workflowTemplatesLabel": "Workflow-Vorlage",
+    "workflowNameLabel": "Workflow-Name",
+    "workflowDescriptionLabel": "Beschreibung",
+    "noWorkflowTemplatesMsg": "Für die ausgewählten Objekte wurden keine Workflow-Vorlagen gefunden.",
+    "submitToWorkflowCmdTitle": "An Workflow senden",
+    "submitToWorkflowTooltipMsg": "{0} an Workflow senden.",
+    "submitToWorkflowInformationMsg": "Das Löschen von {0} steht noch aus. Um den Aktivitätsinhalt freizugeben, inklusive dieser Löschung, senden Sie die Aktivität an den Workflow und verwenden Sie dabei die Workflow-Vorlage \"NGP_ReleasePendingDeletions\".",
+    "successfullySubmitToWorkflowSingle": "\"{0}\" wurde an den Workflow übergeben.",
+    "successfullySubmitToWorkflowMultiple": "{0} Objekte wurden an den Workflow übergeben.",
+    "parentAutoReviseSingleConfirmation": "Beim Revisionieren von \"{0}\" wird \"{1}\" ebenfalls revisioniert. Möchten Sie fortfahren?",
+    "parentAutoReviseMultipleConfirmation": "Beim Revisionieren der ausgewählten Vorgänge wird \"{0}\" ebenfalls revisioniert. Möchten Sie fortfahren?",
+    "successfulReviseAction": "Ein neuer Änderungsstand wurde erfolgreich für \"{0}\" erstellt.",
+    "submitSelectedToWorkflow": "Senden Sie die ausgewählten Elemente an einen Workflow.",
+    "singleDeleteMessage": "Möchten Sie \"{0}\" wirklich löschen?",
+    "multipleDeleteMessage": "Möchten Sie diese {0} Objekte wirklich löschen?",
+    "deleteTooltipMsg": "Löschen",
+    "deleteSelectedObjectsCmdDescription": "Ausgewählte Objekte löschen"    
+}

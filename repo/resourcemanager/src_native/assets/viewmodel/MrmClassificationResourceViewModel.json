@@ -1,0 +1,198 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-button.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-include.directive",
+        "js/aw-native-sublocation.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/enable-when.directive"
+    ],
+    "actions": {
+        "addMrmClassifiedButtonAction": {
+            "actionType": "JSFunction",
+            "method": "addMrmClassifiedResourcesPreChecks",
+            "inputData": {
+                "selectedComponents": "{{ctx.mrmAddResourceContext.selectedComponents}}"
+            },            
+            "actionMessages": {
+                "success": [ {
+                        "condition": "ctx.mrmAddResourceContext.numberOfSelStandAloneICOs === 1",
+                        "message": "oneStandAloneICOSelectedMsg"
+                    },
+                    {
+                        "condition": "ctx.mrmAddResourceContext.numberOfSelStandAloneICOs > 1",
+                        "message": "multiStandAloneICOsSelectedMsg"
+                    }
+                ]
+            },
+            "events": {
+                "success": [ {
+                    "name": "mrm.proceedAddClassifiedResources",
+                    "condition": "ctx.mrmAddResourceContext.numberOfSelStandAloneICOs === 0"
+                } ]
+            },
+            "deps": "js/MrmClassificationResourceService"
+        },
+        "addMrmClassifiedResources": {
+            "actionType": "JSFunction",
+            "method": "addMrmClassifiedResources",
+            "inputData": {
+                "sourceProcess": "{{subPanelContext.inputObject}}"
+            },            
+            "deps": "js/MrmClassificationResourceService"
+        },
+        "closePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        },
+        "selectionChanged": {
+            "actionType": "JSFunction",
+            "method": "selectionChanged",
+            "inputData": {
+                "data": "{{ctx.mselected}}",
+                "selectionModel": "{{data.dataProviders.listDataProvider.selectionModel}}"
+            },
+            "deps": "js/MrmClassificationResourceService"
+        }
+    },
+    "data": {
+        "_sublocation":
+        {
+            "name": "showClassification",
+            "isXrtApplicable": true,
+            "priority": 1,
+            "label": {
+                "source": "/i18n/ClassificationPanelMessages",
+                "key": "Classification"
+            },
+            "clientScopeURI": "Awp0SearchResults",
+            "nameToken": "com_siemens_splm_classificationLocation:showClassificationSubLocation",
+            "context": {
+                "hideRightWall": true
+            },
+            "viewModes": {
+                 "ListSummaryView": {
+                    "primaryWorkArea": "list",
+                    "secondaryWorkArea": true
+                }
+            },
+            "defaultDisplayMode" : "ListSummaryView",
+            "viewBase": "showClassification"
+        }
+    },
+    "i18n": {
+        "AddMrmClassifiedButtonLabel": [
+            "mrmMessages"
+        ],
+        "Mrm0OneStandAloneICOSelectedMsg": [
+            "mrmMessages"
+        ],
+        "Mrm0MultiStandAloneICOsSelectedMsg": [
+            "mrmMessages"
+        ],
+        "Mrm0Cancel": [
+            "mrmMessages"
+        ],
+        "Mrm0Proceed": [
+            "mrmMessages"
+        ]
+    },
+    "messages": {
+        "oneStandAloneICOSelectedMsg": {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.Mrm0OneStandAloneICOSelectedMsg}}",
+            "navigationOptions": [ {
+                    "option": "Cancel",
+                    "text": "{{i18n.Mrm0Cancel}}"
+                },
+                {
+                    "option": "Proceed",
+                    "text": "{{i18n.Mrm0Proceed}}",
+                    "action": "addMrmClassifiedResources"
+                }
+            ],
+            "messageTextParams": [
+                "{{ctx.mrmAddResourceContext.selectedClassifiedComps.length}}",
+                "{{ctx.mrmAddResourceContext.selectedComponents.length}}",
+                "{{ctx.mrmAddResourceContext.numberOfSelStandAloneICOs}}"
+            ]
+        },
+        "multiStandAloneICOsSelectedMsg": {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.Mrm0MultiStandAloneICOsSelectedMsg}}",
+            "navigationOptions": [ {
+                    "option": "Cancel",
+                    "text": "{{i18n.Mrm0Cancel}}"
+                },
+                {
+                    "option": "Proceed",
+                    "text": "{{i18n.Mrm0Proceed}}",
+                    "action": "addMrmClassifiedResources"
+                }
+            ],
+            "messageTextParams": [
+                "{{ctx.mrmAddResourceContext.selectedClassifiedComps.length}}",
+                "{{ctx.mrmAddResourceContext.selectedComponents.length}}",
+                "{{ctx.mrmAddResourceContext.numberOfSelStandAloneICOs}}"
+            ]
+        }
+    },
+    "conditions": {
+        "isComponentSelected": {
+            "expression": {
+                "$source": "ctx.mrmAddResourceContext.selectedComponents.length",
+                "$query": {
+                    "$gt": 0
+                }
+            }
+        },
+        "onlyStandAloneICOsAreSelected": {
+            "expression": {
+                "$and": [
+                    {
+                        "$source": "ctx.mrmAddResourceContext.selectedComponents.length",
+                        "$query": {
+                            "$gt": 0
+                        }
+                    },
+                    {
+                        "$source": "ctx.mrmAddResourceContext.selectedComponents",
+                        "$query": {
+                            "$all": {
+                                "$source": "modelType.typeHierarchyArray",
+                                "$query": {
+                                    "$in": [
+                                        "Cls0ClassBase"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "mrmLargePopup.closeRequest",
+            "action": "closePopupWindow"
+        },        
+        {
+            "eventId": "listDataProvider.selectionChangeEvent",
+            "cacheEventData": true,
+            "action": "selectionChanged"
+        },
+        {
+            "eventId": "mrm.proceedAddClassifiedResources",
+            "action": "addMrmClassifiedResources"
+        }
+    ]
+}

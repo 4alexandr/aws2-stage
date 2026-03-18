@@ -1,0 +1,166 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive"
+    ],
+    "actions": {
+        "doArrangeEvent": {
+            "actionType": "JSFunctionAsync",
+            "method": "arrangeColumns",
+            "inputData": {
+                "declViewModel": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/columnArrangeService"
+        },
+        "saveColumnConfigLoadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "operationType": "as_arranged",
+                    "clientScopeURI": "AnalysisRequestPlanTable"
+                },
+                "saveColumnConfigData": {
+                    "clientScopeURI": "AnalysisRequestPlanTable",
+                    "columnConfigId": "{{data.dataProviders.planDataProvider.columnConfig.columnConfigId}}",
+                    "columns": "{{data.dataProviders.planDataProvider.newColumns}}",
+                    "scope": "LoginUser",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Crt1AnalysisRequestOutProvider",
+                    "searchCriteria": {
+                        "parentUids": "{{function:getSelectedElementUids}}"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "startIndex": "{{data.dataProviders.planDataProvider.startIndex}}",
+                    "searchSortCriteria": "{{data.columnProviders.planColumnProvider.sortCriteria}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.planDataProvider.columnConfig": "columnConfig"
+            },
+            "deps": "js/attrTableUtils"
+        },
+        "resetColumnConfig": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "inputData": {
+                "getOrResetUiConfigsIn": [
+                    {
+                        "scope": "LoginUser",
+                        "scopeName": "",
+                        "clientName": "AWClient",
+                        "resetColumnConfig": true,
+                        "columnConfigQueryInfos": [
+                            {
+                                "clientScopeURI": "AnalysisRequestPlanTable",
+                                "operationType": "configured",
+                                "typeNames": [
+                                    "WorkspaceObject"
+                                ],
+                                "columnsToExclude": []
+                            }
+                        ],
+                        "businessObjects": [
+                            {}
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "dataProviders.planDataProvider.resetColumnConfigs": "columnConfigurations"
+            }
+        },
+        "doGridDataProvider": {
+            "actionType": "dataProvider",
+            "method": "planDataProvider"
+        },
+        "loadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "AnalysisRequestPlanTable",
+                    "operationType": "as_configured"
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Crt1AnalysisRequestOutProvider",
+                    "searchCriteria": {
+                        "parentUids": "{{function:getSelectedElementUids}}"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "startIndex": "{{data.dataProviders.planDataProvider.startIndex}}",
+                    "searchSortCriteria": "{{data.columnProviders.planColumnProvider.sortCriteria}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.planDataProvider.columnConfig": "columnConfig"
+            },
+            "deps": "js/attrTableUtils"
+        }
+    },
+    "functions": {
+        "getSelectedElementUids": {
+            "functionName": "getSelectedElementUids",
+            "parameters": []
+        }
+    },
+    "dataProviders": {
+        "planDataProvider": {
+            "action": "loadData",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}"
+        }
+    },
+    "columnProviders": {
+        "planColumnProvider": {
+            "saveColumnAndLoadAction": "saveColumnConfigLoadData",
+            "resetColumnAction": "resetColumnConfig",
+            "sortCriteria": []
+        }
+    },
+    "grids": {
+        "planTable": {
+            "columnProvider": "planColumnProvider",
+            "dataProvider": "planDataProvider",
+            "enableArrangeMenu": true,
+            "gridOptions": {
+                "enableSorting": true,
+                "maxRowsToShow": 18
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "doArrangeEvent"
+        },
+        {
+            "eventId": "primaryWorkArea.selectionChangeEvent",
+            "action": "doGridDataProvider"
+        }
+    ],
+    "i18n": {
+        "attributeTitle": [
+            "Att1Messages"
+        ]
+    }
+}

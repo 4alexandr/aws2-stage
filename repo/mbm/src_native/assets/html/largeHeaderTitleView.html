@@ -1,0 +1,16 @@
+<aw-flex-row class="aw-mbm-largeHeaderTitle" >
+    <aw-flex-column width="1.95f"offset-right="1f">
+        <aw-icon icon-id="{{subPanelContext.iconName}}"></aw-icon>
+    </aw-flex-column>
+    <aw-flex-column  align-content="start" >
+        <aw-flex-row class="aw-mbm-largeHeaderTitle">
+            <span exist-when="subPanelContext.headerTitle" >{{subPanelContext.headerTitle}}</span>
+            <span exist-when="subPanelContext.headerTitle && subPanelContext.scopeName" class="aw-mbm-largeHeaderTitleSeparator">|</span>
+            <span exist-when="subPanelContext.scopeName" class="aw-mbm-largeHeaderTitle" title="{{subPanelContext.scopeName}}">{{subPanelContext.scopeName}}</span>
+            <aw-flex-column justify="bottom" offset="2f" width="2" align-content="start" exist-when="subPanelContext.showReadOnlyChip === 'true'" >
+                <aw-chip chip="data.readOnlyChip"  button-type="base" extended-tooltip="mbmReadOnlyChipTooltip" extended-tooltip-options="{placement : ['bottom']}"></aw-chip>
+            </aw-flex-column>
+        </aw-flex-row>
+        <aw-flex-row   exist-when="subPanelContext.subHeaderTitle" class="aw-mbm-largeHeaderSubTitle"><span>{{subPanelContext.subHeaderTitle}}</span></aw-flex-row>
+    </aw-flex-column>
+    </aw-flex-row>

@@ -1,0 +1,13 @@
+{
+    "editSelectedItem": "Edytuj wybrany obiekt",
+    "overview": "Przegląd",
+    "attachments": "Załączniki",
+    "attributeGroups": "Grupy atrybutów",
+    "forms": "Formularze",
+    "attachFile": "Dołącz plik",
+    "createAgs": "Utwórz grupę atrybutów",
+    "downloadAttachment": "Pobierz",
+    "cannotDeleteAGMessage": "Nie masz uprawnień do skasowania grupy atrybutów \"{0}\".\n Czy chcesz ją usunąć bez kasowania?",
+    "cancel": "Anuluj",
+    "remove": "Usuń"
+}

@@ -1,0 +1,38 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/visible-when.directive",
+        "js/aw-init.directive"
+    ],
+    "actions":
+    {
+
+    },
+
+    "conditions":{
+    },
+
+    "messages":
+    {
+    },
+
+    "onEvent": [
+    ],
+
+    "i18n":
+    {
+        "cancel":               [ "ClassificationAdminMessages" ],
+        "Classify":             [ "ClassificationAdminMessages" ],
+        "import":               [ "ClassificationAdminMessages" ],
+        "export":               [ "ClassificationAdminMessages" ],
+        "validate":             [ "ClassificationAdminMessages" ],
+        "images":               [ "ClassificationAdminMessages" ],
+        "connectToStandalone":  [ "ClassificationAdminMessages" ],
+        "createNew":            [ "ClassificationAdminMessages" ],
+        "useExisting":          [ "ClassificationAdminMessages" ],
+        "notifyLostChanges":    [ "ClassificationAdminMessages" ]
+    }
+}

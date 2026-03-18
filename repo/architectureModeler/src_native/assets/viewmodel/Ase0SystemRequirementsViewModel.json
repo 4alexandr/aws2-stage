@@ -1,0 +1,514 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-splm-table.directive",
+        "js/aw-splitter.directive",
+        "js/aw-column.directive",
+        "js/aw-row.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/aw-scrollpanel.directive",
+        "js/exist-when.directive",
+        "js/aw-toolbar.directive"
+    ],
+
+    "actions":
+    {
+        "initializePageSplit":
+        {
+            "actionType": "JSFunction",
+            "method": "initializePageSplit",
+            "inputData":{
+                "subPanelContext":"{{subPanelContext}}"
+            },
+            "deps": "js/Ase0SystemRequirementsService"
+        },
+
+        "reveal":
+        {
+            "actionType": "JSFunction",
+            "method": "initPage",
+            "inputData":
+            {
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/Ase0SystemRequirementsService"
+        },
+
+        "resize":
+        {
+            "actionType": "JSFunction",
+            "method": "resize",
+            "inputData":
+            {
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/Ase0SystemRequirementsService"
+        },
+
+        "updatePanelSizes":
+        {
+            "actionType": "JSFunction",
+            "method": "updatePanelSizes",
+            "inputData":
+            {
+                "ctx": "{{ctx}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase0SystemRequirementsService"
+        },
+
+        "rowSelected":
+        {
+            "actionType": "JSFunction",
+            "method": "rowSelected",
+            "inputData":
+            {
+                "data": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase0SystemRequirementsService"
+        },
+
+        "loadTreeTableData":
+        {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableData",
+            "inputData":
+            {
+                "treeLoadInput": "request.treeLoadInput",
+                "dataProvider": "{{data.dataProviders.RequirementsTreeDataProvider}}",
+                "elementUids": "{{function:getElementUid}}",
+                "rootElementUids": "{{function:getCurrentRootElementUid}}",
+                "productContextUids": "{{function:getCurrentProductContextUid}}",
+                "ctx": "{{ctx}}",
+                "sort": {
+                    "sortCriteria": "{{data.columnProviders.TreeColumnProvider.sortCriteria}}",
+                    "default": [ {
+                        "fieldName": "",
+                        "sortDirection": "ASC"
+                    } ]
+                },
+                "groupingProperty":"",
+                "subPanelContext":"{{subPanelContext}}"
+            },
+            "outputData":
+            {
+                "ctx.search.totalFound": "result.treeLoadResult.totalRootCount",
+                "ctx.search.totalLoaded": "result.treeLoadResult.childNodes.length"
+            },
+            "deps": "js/Ase0SystemRequirementsService"
+        },
+
+        "loadTreeTableProperties":
+        {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableProperties",
+            "inputData":
+            {
+                "propertyLoadInput": "request.propertyLoadInput",
+                "columnConfigUri": "{{data.dataProviders.RequirementsTreeDataProvider.objectSetUri}}"
+            },
+            "outputData": { },
+            "deps": "js/Ase0SystemRequirementsService"
+        },
+
+        "loadTreeTableColumns":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "inputData": {
+                "getOrResetUiConfigsIn":[{
+                    "scope": "LoginUser",
+                    "scopeName": "",
+                    "clientName": "AWClient",
+                    "resetColumnConfig": false,
+                    "columnConfigQueryInfos": [ {
+                        "clientScopeURI": "{{function:getColumnConfigName}}",
+                        "operationType": "Configured",
+                        "typeNames": [ "WorkspaceObject" ],
+                        "columnsToExclude": []
+                    } ],
+                    "businessObjects": []
+            }]},
+
+            "outputData": {
+                "dataProviders.RequirementsTreeDataProvider.columnConfig":"{{function:processColumnConfigs}}"
+            },
+            "deps": "js/Ase0SystemRequirementsService"
+        },
+
+        "saveColumnConfig": {
+            "actionType": "TcSoaService",
+            "deps": "js/Ase0SystemRequirementsService",
+            "serviceName": "Internal-AWS2-2016-03-UiConfig",
+            "method": "saveUIColumnConfigs",
+            "inputData": {
+                "columnConfigurations": [
+                    {
+                        "clientScopeURI" : "{{data.dataProviders.RequirementsTreeDataProvider.objectSetUri}}",
+                        "columnConfigId" : "{{data.dataProviders.RequirementsTreeDataProvider.columnConfig.columnConfigId}}",
+                        "columns": "{{data.dataProviders.RequirementsTreeDataProvider.newColumns}}",
+                        "scope" : "LoginUser",
+                        "scopeName": ""
+                    }
+                ]
+            },
+            "outputData": {},
+            "events":
+            {
+                "success": [ { "name": "TreeColumnProvider.saved" } ]
+            }
+        },
+
+        "resetColumnConfig":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "deps": "js/Ase0SystemRequirementsService",
+            "inputData":
+            {
+                "getOrResetUiConfigsIn":
+                [
+                    {
+                        "scope": "LoginUser",
+                        "scopeName": "",
+                        "clientName": "AWClient",
+                        "resetColumnConfig": true,
+                        "columnConfigQueryInfos":
+                        [
+                            {
+                                "clientScopeURI": "{{data.dataProviders.RequirementsTreeDataProvider.objectSetUri}}",
+                                "operationType": "Configured",
+                                "typeNames": [ "WorkspaceObject" ],
+                                "columnsToExclude": []
+                            }
+                        ],
+
+                        "businessObjects": [{}]
+                    }
+                ]
+            },
+
+            "outputData":
+            {
+                "dataProviders.RequirementsTreeDataProvider.columnConfig": "{{function:processColumnConfigs}}"
+            },
+
+            "events":
+            {
+                "success": [ { "name": "TreeColumnProvider.saved" } ]
+            }
+        },
+
+        "doArrangeEvent" : {
+            "actionType": "JSFunctionAsync",
+            "method": "arrangeColumns",
+            "inputData": {
+                "declViewModel": "{{data}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/columnArrangeService"
+        },
+
+        "loadDataForSavedColumnConfig":
+        {
+            "actionType": "JSFunctionAsync",
+            "method": "getTableViewModelProperties",
+            "deps": "js/tcViewModelObjectService",
+            "inputData": {
+                "vmNodes" : "{{data.dataProviders.RequirementsTreeDataProvider.viewModelCollection.loadedVMObjects}}",
+                "context" : {
+                    "clientScopeURI": "{{data.dataProviders.RequirementsTreeDataProvider.objectSetUri}}",
+                    "clientName": "AWClient"
+                }
+            },
+            "events":
+            {
+                "success": [ { "name": "RequirementsTree.plTable.clientRefresh" } ]
+            }
+        },
+
+        "checkNewTraceLinks":
+        {
+            "actionType": "JSFunction",
+            "method": "checkNewTraceLinks",
+            "deps": "js/Ase0SystemRequirementsService",
+            "inputData": {
+                "eventData" : "{{data.eventData}}"
+            }
+        },
+
+        "selectNewTraceLinks":
+        {
+            "actionType": "JSFunction",
+            "method": "selectNewTraceLinks",
+            "deps": "js/Ase0SystemRequirementsService",
+            "inputData": {
+                "dataProvider" : "{{data.dataProviders.RequirementsTreeDataProvider}}",
+                "eventData" : "{{data.eventData}}",
+                "data" : "{{data}}"
+            }
+        },
+        "updateRequirementsTreeViewOnDelete": {
+            "actionType": "JSFunction",
+            "method": "updateRequirementsTreeViewOnDelete",
+            "deps": "js/Ase0SystemReqUtilService",
+            "inputData": {
+                "eventData": "{{data.eventMap['cdm.deleted']}}",
+                "dataProvider": "{{data.dataProviders.RequirementsTreeDataProvider}}"
+            }
+        },
+        "reloadRequirementsTreeView": {
+            "actionType": "JSFunction",
+            "method": "reloadRequirementsTreeView",
+            "deps": "js/Ase0SystemReqUtilService",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.RequirementsTreeDataProvider}}"
+            }
+        }
+    },
+
+    "data": {
+    },
+
+    "functions":
+    {
+        "getColumnConfigName":
+        {
+            "functionName": "getColumnConfigName",
+            "parameters":
+            [
+                "{{ctx}}",
+                "{{data}}",
+                "{{subPanelContext}}"
+            ]
+        },
+
+        "getElementUid":
+        {
+            "functionName": "getElementUid",
+            "parameters":
+            [
+                "{{ctx}}"
+            ]
+        },
+
+        "getCurrentRootElementUid":
+        {
+            "functionName": "getCurrentRootElementUid",
+            "parameters":
+            [
+                "{{ctx}}"
+            ]
+        },
+
+        "getCurrentProductContextUid":
+        {
+            "functionName": "getCurrentProductContextUid",
+            "parameters":
+            [
+                "{{ctx}}"
+            ]
+        },
+
+        "processColumnConfigs":
+        {
+            "functionName": "processColumnConfigs"
+        }
+    },
+
+    "dataProviders":
+    {
+        "RequirementsTreeDataProvider":
+        {
+            "initializeAction": "loadTreeTableData",
+            "nextAction": "loadTreeTableData",
+            "previousAction": "loadTreeTableData",
+            "editContext": "REQUIREMENTS_TREE_CONTEXT",
+            "selectionModelMode": "single",
+            "treeLoadResult": "action.result.treeLoadResult",
+
+            "commandsAnchor": "req_tree_cell_commands",
+
+            "inputData":
+            {
+                "accessMode": "tree"
+            },
+
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "Ase0TracelinkRelationProxy",
+                        "properties":
+                        [
+                            {
+                                "name": "ase0RelatedElement",
+                                "modifiers": [ {
+                                    "name": "withProperties",
+                                    "Value": "true"
+                                } ]
+                            },
+                            {
+                                "name": "ase0RelationElement"
+                            },
+                            {
+                                "name": "ase0Direction"
+                            }
+                        ]
+                    },
+
+                    {
+                        "name": "Awb0ConditionalElement",
+                        "properties":
+                        [
+                            { "name": "awb0ArchetypeName" },
+                            { "name": "awb0ArchetypeRevName" },
+                            { "name": "awb0ArchetypeId" },
+                            { "name": "awb0ArchetypeRevRelStatus" },
+                            { "name": "awb0ArchetypeRevOwningUser" },
+                            { "name": "awb0ArchetypeRevReleaseDate" }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "GridTreePropertyProvider":
+        {
+            "action": "loadTreeTableProperties",
+            "propertyLoadResult": "action.result.propertyLoadResult"
+        }
+    },
+
+    "columnProviders":
+    {
+        "TreeColumnProvider":
+        {
+            "loadColumnAction": "loadTreeTableColumns",
+            "saveColumnAndLoadAction": "saveColumnConfig",
+            "saveColumnAction": "saveColumnConfig",
+            "resetColumnAction": "resetColumnConfig",
+            "sortCriteria": [ ],
+            "id": "Ase0SystemRequirementsTable"
+        }
+    },
+
+    "grids":
+    {
+        "RequirementsTree":
+        {
+            "dataProvider": "RequirementsTreeDataProvider",
+            "propertyProvider": "GridTreePropertyProvider",
+            "columnProvider": "TreeColumnProvider",
+
+            "selectionOption": "single",
+            "enableArrangeMenu": true,
+
+            "addIconColumn": false,
+            "gridOptions":
+            {
+                "useStaticFirstCol": true,
+                "enableSorting": true
+            }
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "Ase0SystemRequirements.contentLoaded",
+            "action": "initializePageSplit",
+            "cacheEventData": true
+        },
+
+        {
+            "eventId": "RequirementsTreeDataProvider.selectionChangeEvent",
+            "action": "rowSelected",
+            "cacheEventData": true
+        },
+
+        {
+            "eventId": "appCtx.update",
+            "criteria":
+            {
+                "name": "SystemRequirements"
+            },
+            "action": "reveal"
+        },
+
+        {
+            "eventId": "aw-splitter-update",
+            "action": "updatePanelSizes",
+            "cacheEventData": true
+        },
+
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "doArrangeEvent"
+        },
+
+        {
+            "eventId": "TreeColumnProvider.saved",
+            "action": "loadDataForSavedColumnConfig"
+        },
+
+        {
+            "eventId": "commandBarResized",
+            "action": "resize"
+        },
+
+        {
+            "eventId": "RM.PostTraceLinkCreated",
+            "action": "checkNewTraceLinks",
+            "cacheEventData": true
+        },
+
+        {
+            "eventId": "RequirementsTreeDataProvider.modelObjectsUpdated",
+            "action": "selectNewTraceLinks",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "cdm.deleted",
+            "cacheEventData": true,
+            "condition": "conditions.systemRequirementsPageVisibleCond",
+            "action": "updateRequirementsTreeViewOnDelete"
+        },
+        {
+            "eventId": "RequirementsTree.reloadTable",
+            "action": "reloadRequirementsTreeView"
+        }
+    ],
+
+    "conditions":
+    {
+        "allowSysReqAttr":
+        {
+            "expression": "ctx.aceActiveContext && ctx.sublocation.clientScopeURI==='Awb0OccurrenceManagement' && ctx.SystemRequirements.enableAttributes"
+        },
+        "showSysReqAttr":
+        {
+            "expression": "conditions.allowSysReqAttr && (ctx.SystemRequirements.pageSplit==='attr' || ctx.SystemRequirements.pageSplit==='all')"
+        },
+        "showSysReqDoc":
+        {
+            "expression": "ctx.SystemRequirements.pageSplit==='doc' || ctx.SystemRequirements.pageSplit==='all'"
+        },
+        "systemRequirementsPageVisibleCond": {
+            "expression": "ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_SystemRequirements' && (!ctx.Ase0SystemRequirementsSelection || !ctx.Ase0SystemRequirementsSelection.selection || ctx.Ase0SystemRequirementsSelection.selection.length === 0)"
+        }
+    },
+
+    "i18n":
+    {
+
+    }
+}

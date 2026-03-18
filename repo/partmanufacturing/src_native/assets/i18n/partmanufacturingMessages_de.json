@@ -1,0 +1,23 @@
+{
+    "PartManufacturingLocationHeaderTitle": "Part Manufacturing",
+    "PartManufacturingLocationBrowserTitle": "Part Manufacturing",
+    "PartManufacturingLocationBrowserSubTitle": "Part Manufacturing",
+    "activitiesTitle": "Aktivitäten",
+    "attachmentsTitle": "Anhänge",
+    "resourcesTitle": "Ressourcen",
+    "partMfgTitle": "Part Manufacturing",
+    "Pm1DatasetTypeFiltersTitle": "Filter",
+    "Pm1OccTypeFiltersTitle": "Filter",
+    "Pm1DatasetTypeFilterDesc": "Filteroptionen anzeigen oder ausblenden.",
+    "Pm1AddResourceTitle": "Ressource hinzufügen",
+    "Pm1AddResourceTooltip": "Fügt eine Ressource zum Teilefertigungsvorgang hinzu.",
+    "Pm1ElementAddSuccessful": "\"{0}\" zu \"{1}\" hinzugefügt.",
+    "Pm1MultipleElementAddSuccessful": "{0} Elemente zu \"{1}\" hinzugefügt.",
+    "Pm1AddElementBtn": "Hinzufügen",
+    "Pm1AddElementCopyButtonText": "Kopie hinzufügen",
+    "Pm1NumberOfElements": "Anzahl der Elemente",
+    "Pm1ToTitle": "Zu",
+    "Pm1_oneStepPinCommands": "Ein-Schritt-Anheften-Befehle",
+    "Pm1PinButtonToolTip": "Fenster anheften",
+    "Pm1UnpinButtonToolTip": "Fenster lösen"
+}

@@ -1,0 +1,21 @@
+<aw-popup2 caption="{{::i18n.updateClonesDialogTitle}}">
+    <aw-panel>
+        <aw-panel-body>
+            <div exist-when="subPanelContext.cloneUidsWithDeletedMasters.length === 1" class="aw-ngp-updateClonesDialogWarning aw-ngp-informationWarning">
+                {{data.warningSingle}}
+            </div>
+            <div exist-when="subPanelContext.cloneUidsWithDeletedMasters.length > 1" class="aw-ngp-updateClonesDialogWarning aw-ngp-informationWarning">
+                {{data.warningPlural}}
+            </div>
+            <aw-radiobutton exist-when="data.handleClonesWithDeletedMasters.displayName" prop="data.handleClonesWithDeletedMasters" list="data.handleClonesWithDeletedMastersOptions.dbValue" ></aw-radiobutton>
+            <div class="aw-ngp-updateClonesDialogFirstMsg">
+                <aw-i18n>i18n.updateClonesDialogFirstMsg</aw-i18n>
+            </div>
+            <aw-i18n>i18n.updateClonesDialogSecondMsg</aw-i18n>
+        </aw-panel-body>
+    </aw-panel>
+    <aw-panel-footer>
+        <aw-button button-type="base" action="closeDialog" size="auto">{{i18n.cancel}}</aw-button>
+        <aw-button action="onUpdateClick" size="auto">{{i18n.update}}</aw-button>
+    </aw-panel-footer>
+</aw-popup2>

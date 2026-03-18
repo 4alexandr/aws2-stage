@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "\"{0}\" a odpovídající mapování atributů budou odstraněny.",
+    "removeSingleElementConfirmation": "\"{0}\" bude odstraněno.",
+    "removeMultipleElementsConfirmation": "{0} výběrů bude odebráno.",
+    "removeMeasurableAttributeMessage": "\"{0}\" bude odstraněno.",
+    "syncSingleConectionMessage": "\"{0}\" je synchronizováno a interakce se aktualizují. Po dokončení budete upozorněni.",
+    "syncMultipleConectionsMessage": "\"{0}\" výběrů je synchronizováno a interakce se aktualizují. Po dokončení budete upozorněni.",
+    "exportInterfaceTitle": "Export rozhraní",
+    "aw_interfaceTableCommandbar": "Panel příkazu tabulky rozhraní",
+    "aw_interactionTableCommandbar": "Panel příkazu tabulky interakcí",
+    "aw_attributesTableCommandbar": "Panel příkazu tabulky atributů",
+    "aw_interfacesViewer": "Prohlížeč rozhraní",
+    "table_cell_commands": "Příkazy buněk tabulky",
+    "Ase1ExportInterfaceElementDesc": "Exportujte podrobnosti o vybraném rozhraní."
+}

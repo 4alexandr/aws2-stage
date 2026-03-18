@@ -1,0 +1,114 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/aw-init.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-listbox.directive",
+        "js/visible-when.directive",
+        "js/aw-break.directive"
+    ],
+    "actions": {
+      "add": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+            "events": [
+                {
+                    "condition": "data.selectedTab.panelId ==='UserSub'",
+                    "name": "addUser"
+                },
+                {
+                    "condition": "data.selectedTab.panelId ==='Saw1AddResourcePoolToSchedule'",
+                    "name": "assignResourcePoolSOA"
+                },
+                {
+                    "condition": "data.selectedTab.panelId ==='Saw1AddDisciplinesToSchedule'",
+                    "name": "addDisciplinesToScheduleEvent"
+                }
+            ]
+        }
+    }
+    },
+    "data": {
+    "membershipData": {
+            "displayName": "{{i18n.role}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": "true",
+            "dbValue": "{{i18n.participant}}"
+    },
+    "membershipDataValues": {
+        "type": "STRING",
+        "dbValue": [
+            {
+                "propDisplayValue": "{{i18n.participant}}",
+                "propInternalValue": "{{i18n.participant}}"
+            },
+            {
+                "propDisplayValue": "{{i18n.observer}}",
+                "propInternalValue": "{{i18n.observer}}"
+            },
+            {
+                "propDisplayValue": "{{i18n.coordinator}}",
+                "propInternalValue": "{{i18n.coordinator}}"
+            }
+        ]
+     }
+    },
+    "functions": {
+        "getMembershipData": {
+            "functionName": "getMembershipData",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "messages": {
+        "AddMemberComplete": {
+            "messageType": "INFO",
+            "messageText": "{{i18n.addMemberSuccessful}}",
+            "messageTextParams": [
+                "{{data.userObject.props.user_name.dbValues[0]}}"
+            ]
+        }
+    },
+
+    "conditions": {
+        "isValidToAdd": {
+         "expression": "(data.dataProviders.getResourcePool.selectedObjects.length > 0 && data.selectedTab.panelId === 'Saw1AddResourcePoolToSchedule') || (data.dataProviders.userPerformSearch.selectedObjects.length > 0 && data.selectedTab.panelId === 'UserSub') || (data.dataProviders.getDisciplines.selectedObjects.length > 0 && data.selectedTab.panelId === 'Saw1AddDisciplinesToSchedule') "
+        },
+        "showList":{
+          "expression": "data.selectedTab.panelId !=='Saw1AddDisciplinesToSchedule'"
+        }
+    },
+    "i18n": {
+        "addMemberCommandTitle": [
+            "ScheduleManagerMessages"
+        ],
+        "users": [
+            "ScheduleManagerMessages"
+        ],
+        "addButtonText": [
+            "ScheduleManagerMessages"
+        ],
+        "observer": [
+            "ScheduleManagerMessages"
+        ],
+        "coordinator": [
+            "ScheduleManagerMessages"
+        ],
+        "participant": [
+            "ScheduleManagerMessages"
+        ],
+        "role": [
+            "ScheduleManagerMessages"
+        ],
+        "add": [
+          "ScheduleManagerMessages"
+        ]
+    }
+}

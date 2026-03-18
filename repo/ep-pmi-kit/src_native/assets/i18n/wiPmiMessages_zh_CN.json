@@ -1,0 +1,15 @@
+{
+    "assemblyPmiTitle": "PMI 装配级别",
+    "assemblyPmiTitleWithSelection": "{0} 的 PMI 装配级别",
+    "assignedPmiTitle": "PMI",
+    "name": "名称",
+    "id": "ID",
+    "nominalValue": "标称值",
+    "uom": "度量单位",
+    "selectProcessOrOperation": "请选择一个工艺或工序。",
+    "selectProcessOrOperationForPMIs": "选择一个工艺或工序以查看其指派的 PMI。",
+    "noAssociatedPMIs": "所选工艺\/工序没有关联的 PMI。",
+    "noAssignedPMIs": "不存在已指派的 PMI。",
+    "connectedParts" : "相连零件",
+    "more" : "更多"
+}

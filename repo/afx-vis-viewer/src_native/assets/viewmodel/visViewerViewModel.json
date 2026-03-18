@@ -1,0 +1,285 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/mfe-vis-web.directive",
+        "js/aw-toolbar.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive",
+        "js/mfe-busy-indicator.directive",
+        "js/aw-sidenav.directive"
+    ],
+    "data": {
+        "progressMessage": {
+            "dbValue": ""
+        },
+        "showBusyIndicator": {
+            "dbValue": false
+        },
+        "viewerSettingsSideNavPanelData": {
+            "slide": "FLOAT",
+            "direction": "RIGHT_TO_LEFT",
+            "animation": true,
+            "width": "STANDARD",
+            "height": "DEFAULT"
+        }
+    },
+    "actions": {
+        "initialize": {
+            "actionType": "JSFunction",
+            "method": "setupViewer",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "visViewer.pulishInstanceId",
+                        "eventData": {
+                            "sourceId": "{{data.visContext.id}}"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "pulishInstanceId": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "publishVisWebInstanceId",
+                "syncObject": "{{data.visContext.id}}"
+            }
+        },
+        "updateBusyIndicatorMessage": {
+            "actionType": "JSFunction",
+            "method": "returnMe",
+            "inputData": {
+                "data": "{{data.eventMap['visViewer.busyIndicator.updateMsg'].message}}"
+            },
+            "outputData": {
+                "progressMessage.dbValue": "result.newValue"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "updateVisibilityOfBusyIndicator": {
+            "actionType": "JSFunction",
+            "method": "returnMe",
+            "inputData": {
+                "data": "{{data.eventMap['visViewer.busyIndicator'].show}}"
+            },
+            "outputData": {
+                "showBusyIndicator.dbValue": "result.newValue"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "destroy": {
+            "actionType": "JSFunction",
+            "method": "destroy",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "setVisibility": {
+            "actionType": "JSFunction",
+            "method": "setVisibilityById",
+            "inputData": {
+                "id": "{{data.visContext.id}}",
+                "modelId": "{{ports.setVisibility.syncObject.id}}",
+                "show": "{{ports.setVisibility.syncObject.show}}"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "publishVisibilityChangedEvent": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "publishVisibilityChanged",
+                "syncObject": "{{data.eventMap['visViewer.visibilityChanged'].eventData}}"
+            }
+        },
+        "setSelectionById": {
+            "actionType": "JSFunction",
+            "method": "setSelectionById",
+            "inputData": {
+                "id": "{{data.visContext.id}}",
+                "modelId": "{{ports.setSelection.syncObject.id}}",
+                "isSelected": "{{ports.setSelection.syncObject.isSelected}}"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "publishSelectionChange": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "publishSelection",
+                "syncObject": "{{data.eventMap['visViewer.partSelectionChanged'].selection}}"
+            }
+        },
+        "getPMITreeForPart": {
+            "actionType": "JSFunction",
+            "method": "getPMITreeForPart",
+            "inputData": {
+                "id": "{{data.visContext.id}}",
+                "modelId": "{{ports.preparePMITree.syncObject.selection}}",
+                "args": "{{ports.preparePMITree.syncObject.args}}"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "publishPMITree": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "publishPMITree",
+                "syncObject": {
+                    "PMIdata": "{{data.eventMap['visViewer.publishPMITree']}}"
+                }
+            }
+        },
+        "setVisibilityForPMI": {
+            "actionType": "JSFunction",
+            "method": "setVisibilityForPMIById",
+            "inputData": {
+                "id": "{{data.visContext.id}}",
+                "psId": "{{ports.setVisibilityForPMI.syncObject.psId}}",
+                "show": "{{ports.setVisibilityForPMI.syncObject.show}}",
+                "parentPsId": "{{ports.setVisibilityForPMI.syncObject.parentPsId}}",
+                "args": "{{ports.setVisibilityForPMI.syncObject.args}}"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "publishPMITreeVisibility": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "publishPMITreeVisibility",
+                "syncObject": "{{data.eventMap['visViewer.publishPMITreeVisibility']}}"
+            }
+        },
+        "setSelectionForPMI": {
+            "actionType": "JSFunction",
+            "method": "setSelectionForPMI",
+            "inputData": {
+                "id": "{{data.visContext.id}}",
+                "selectedpsId": "{{ports.setSelectionForPMI.syncObject.selectedpsId}}",
+                "isLeaf": "{{ports.setSelectionForPMI.syncObject.isLeaf}}"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "setVisibilityOfSelectedOnly": {
+            "actionType": "JSFunction",
+            "method": "setVisibilityOfSelectedOnly",
+            "inputData": {
+                "visId": "{{data.eventMap['commands.selectedOnVisibiltyControl'].sourceId}}",
+                "selectedModelIds": "{{data.eventMap['visViewer.partSelectionChanged'].selection.ids}}"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "setVisibilityOffForSelected": {
+            "actionType": "JSFunction",
+            "method": "setVisibilityOfObjectsInViewer",
+            "inputData": {
+                "visId": "{{data.eventMap['commands.selectedOffVisibiltyControl'].sourceId}}",
+                "selectedModelIds": "{{data.eventMap['visViewer.partSelectionChanged'].selection.ids}}",
+                "visibility": false
+            },
+            "deps": "js/visViewerIntService"
+        }
+    },
+    "lifecycleHooks": {
+        "onMount": "initialize",
+        "onUnmount": "destroy"
+    },
+    "onEvent": [
+        {
+            "eventId": "visViewer.pulishInstanceId",
+            "condition": "conditions.isForMe",
+            "action": "pulishInstanceId"
+        },
+        {
+            "eventId": "visViewer.partSelectionChanged",
+            "condition": "conditions.isForMe",
+            "cacheEventData": true,
+            "action": "publishSelectionChange"
+        },
+        {
+            "eventId": "visViewer.visibilityChanged",
+            "condition": "conditions.isForMe",
+            "cacheEventData": true,
+            "action": "publishVisibilityChangedEvent"
+        },
+        {
+            "eventId": "visViewer.busyIndicator.updateMsg",
+            "condition": "conditions.isForMe",
+            "cacheEventData": true,
+            "action": "updateBusyIndicatorMessage"
+        },
+        {
+            "eventId": "visViewer.busyIndicator",
+            "condition": "conditions.isForMe",
+            "cacheEventData": true,
+            "action": "updateVisibilityOfBusyIndicator"
+        },
+        {
+            "eventId": "visViewer.publishPMITree",
+            "condition": "conditions.isForMe",
+            "cacheEventData": true,
+            "action": "publishPMITree"
+        },
+        {
+            "eventId": "visViewer.publishPMITreeVisibility",
+            "condition": "conditions.isForMe",
+            "cacheEventData": true,
+            "action": "publishPMITreeVisibility"
+        },
+        {
+            "eventId": "commands.selectedOnVisibiltyControl",
+            "condition": "conditions.isForMe",
+            "cacheEventData": true,
+            "action": "setVisibilityOfSelectedOnly"
+        },
+        {
+            "eventId": "commands.selectedOffVisibiltyControl",
+            "condition": "conditions.isForMe",
+            "cacheEventData": true,
+            "action": "setVisibilityOffForSelected"
+        }
+    ],
+    "ports": {
+        "publishVisWebInstanceId": {
+            "syncObject": {}
+        },
+        "setVisibility": {
+            "onChangeAction": "setVisibility",
+            "syncObject": {}
+        },
+        "setSelection": {
+            "onChangeAction": "setSelectionById",
+            "syncObject": {}
+        },
+        "publishSelection": {
+            "syncObject": {}
+        },
+        "publishVisibilityChanged": {
+            "syncObject": {}
+        },
+        "preparePMITree": {
+            "onChangeAction": "getPMITreeForPart",
+            "syncObject": {}
+        },
+        "publishPMITree": {
+            "syncObject": {}
+        },
+        "setVisibilityForPMI": {
+            "onChangeAction": "setVisibilityForPMI",
+            "syncObject": {}
+        },
+        "publishPMITreeVisibility": {
+            "syncObject": {}
+        },
+        "setSelectionForPMI": {
+            "onChangeAction": "setSelectionForPMI",
+            "syncObject": {}
+        }
+    },
+    "conditions": {
+        "isForMe": {
+            "expression": "data.visContext.id===sourceId"
+        }
+    }
+}

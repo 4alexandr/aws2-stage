@@ -1,0 +1,5 @@
+{
+    "sendToViewMakerCmdTitle": "Otevřít modul pro tvorbu zobrazení výroby",
+    "sendToViewMakerTooltipMsg": "Modul pro tvorbu zobrazení výroby umožňuje tvorbu a správu pohledů modelu.",
+    "sendToViewMakerDisabledTooltipMsg": "The command is available for processes that either have assignments, or have predecessors or background processes."
+}

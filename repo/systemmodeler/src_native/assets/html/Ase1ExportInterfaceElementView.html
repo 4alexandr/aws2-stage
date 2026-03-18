@@ -1,0 +1,15 @@
+<aw-command-panel caption="i18n.interfaceExportPanelTitle">
+    <aw-panel-body>
+        <aw-panel-section caption="i18n.interfacePanelName">
+             <aw-radiobutton prop="data.exportAppOption"></aw-radiobutton>
+        </aw-panel-section>
+        <aw-panel-section>
+            <aw-widget prop="data.exportInterfaceName"></aw-widget>
+            <aw-listbox prop="data.exportInterfaceScope"  list="data.exportInterfaceScopeList"></aw-listbox>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="exportHTML" visible-when="conditions.isExportButtonVisibleForHtml"><aw-i18n>i18n.exportButton</aw-i18n></aw-button>
+        <aw-button action="exportXML" visible-when="conditions.isExportButtonVisibleForXml"><aw-i18n>i18n.exportButton</aw-i18n></aw-button>
+     </aw-panel-footer>
+</aw-command-panel>

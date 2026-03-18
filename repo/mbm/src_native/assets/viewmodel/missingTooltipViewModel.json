@@ -1,0 +1,79 @@
+{
+    "schemaVersion": "1.0.0",
+    "data":{
+        "1":{
+            "title":"{{i18n.missingEbomTitle}}",
+            "description":{
+                "text":"{{i18n.missingEbomDesc}}"
+            }
+        },
+        "2":{
+            "title":"{{i18n.mismatchTitle}}",
+            "description":{
+                "text":"{{i18n.mismatchMbomDesc}}"
+            },
+            "clickDescription":"{{i18n.mbmClickForMoreActions}}"
+        },
+        "6":{
+            "title":"{{i18n.mismatchTitle}}",
+            "description":{
+                "text":"{{i18n.mismatchMbomDesc}}"
+            },
+            "clickDescription":"{{i18n.mbmClickForMoreActions}}"
+        },
+        "55":{
+            "title":"{{i18n.containsMismatchesMbomTitle}}",
+            "description":{
+                "text":"{{i18n.containsMismatchesMbomDesc}}"
+            }
+        },
+        "58":{
+            "title":"{{i18n.mismatchTitle}}",
+            "description":{
+                "text":"{{i18n.mismatchMbomDesc}}"
+            },
+            "clickDescription":"{{i18n.mbmClickForMoreActions}}"
+        },
+        "63":{
+            "title":"{{i18n.mbmPackMismatchOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackMismatchOccDesc}}"
+            }
+        },
+        "67":{
+            "title":"{{i18n.mbmMissingOccurrenceTitle}}",
+            "description":{
+                "text":"{{i18n.mbmMissingOccurrenceDesc}}"
+            },
+            "clickDescription":"{{i18n.mbmMissingOccurrenceMoreInfo}}"
+        },
+        "68":{
+            "title":"{{i18n.mbmMissingOccurrenceTitle}}",
+            "description":{
+                "text":"{{i18n.mbmMissingOccurrenceDesc}}"
+            },
+            "clickDescription":"{{i18n.mbmMissingOccurrenceMoreInfo}}"
+        },
+        "69":{
+            "title":"{{i18n.mbmMissingOccurrenceTitle}}",
+            "description":{
+                "text":"{{i18n.mbmMissingOccurrenceDesc}}"
+            },
+            "clickDescription":"{{i18n.mbmMissingOccurrenceMoreInfo}}"
+        }
+    },
+    "i18n": {
+        "missingEbomTitle": ["mbmMessages"],
+        "missingEbomDesc": ["mbmMessages"],
+        "mismatchTitle": ["mbmMessages"],
+        "mismatchMbomDesc":["mbmMessages"],
+        "containsMismatchesMbomTitle": ["mbmMessages"],
+        "containsMismatchesMbomDesc": ["mbmMessages"],
+        "mbmClickForMoreActions": ["mbmMessages"],
+        "mbmPackMismatchOccTitle": ["mbmMessages"],
+        "mbmPackMismatchOccDesc": ["mbmMessages"],
+        "mbmMissingOccurrenceTitle": ["mbmMessages"],
+        "mbmMissingOccurrenceDesc": ["mbmMessages"],
+        "mbmMissingOccurrenceMoreInfo": ["mbmMessages"]
+    }
+}

@@ -1,0 +1,204 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-list.directive",
+        "js/aw-type-cell.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-link.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "dataProvider",
+            "method": "getParamComparisonTypes"
+        },
+        "callcompareDataProvider": {
+            "actionType": "dataProvider",
+            "method": "compareDataProvider"
+        },
+        "getCompareObjData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}"
+                },
+                "searchInput": {
+                    "maxToLoad": 20,
+                    "maxToReturn": 50,
+                    "providerName": "{{function:getProviderName}}",
+                    "searchCriteria": {
+                        "openedObjectUid": "{{ctx.state.params.uid}}",
+                        "selectedUids": "{{ctx.state.params.sel_uids}}",
+                        "searchString": "{{data.filterBox.dbValue}}"
+                    },
+                    "searchSortCriteria": [
+                        {
+                            "fieldName": "object_name",
+                            "sortDirection": "ASC"
+                        }
+                    ],
+                    "startIndex": "{{data.dataProviders.compareDataProvider.startIndex}}"
+                }
+            },
+            "outputData": {
+                "searchResults": "{{json:searchResultsJSON}}",
+                "totalFound": "totalFound"
+            },
+            "deps": "js/prm1ProductAddComparisonService"
+        },
+        "addObjectsToCompareInProduct": {
+            "actionType": "JSFunction",
+            "method": "addObjectsToCompareInProduct",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+            "events":{
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/prm1ParameterViewService"
+        },
+        "clearSelectedType": {
+            "actionType": "JSFunction",
+            "method": "clearSelectedType",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/prm1ProductAddComparisonService"
+        },
+        "getSelectedType": {
+            "actionType": "JSFunction",
+            "method": "getSelectedType",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/prm1ProductAddComparisonService"
+        },
+        "updateVRStudyDisaplyName": {
+            "actionType": "JSFunction",
+            "method": "updateVRStudyDisaplyName",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/prm1ProductAddComparisonService"
+        },
+        "ensureCompareTypesLoaded": {
+            "actionType": "JSFunctionAsync",
+            "method": "ensureCompareTypesLoadedJs",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "totalFoundType": "totalFoundType",
+                "searchResultsType": "searchResultsType"
+            },
+            "deps": "js/prm1ProductAddComparisonService"
+        }
+    },
+    "data": {
+        "filterBox": {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "false",
+            "requiredText": "Filter",
+            "dbValue": ""
+        },
+        "selectedType": {
+            "displayName": "",
+            "type": "STRING",
+            "dbValue": ""
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "awPanel.reveal",
+            "action": "reveal"
+        },
+        {
+            "eventId": "getParamComparisonTypes.selectionChangeEvent",
+            "action": "getSelectedType"
+        },
+        {
+            "eventId": "addComparison.callcompareDataProviderEvent",
+            "action": "callcompareDataProvider"
+        },
+        {
+            "eventId": "getParamComparisonTypes.modelObjectsUpdated",
+            "action": "updateVRStudyDisaplyName"
+        }
+    ],
+    "dataProviders": {
+        "getParamComparisonTypes": {
+            "action": "ensureCompareTypesLoaded",
+            "response": "{{data.searchResultsType}}",
+            "totalFound": "{{data.totalFoundType}}",
+            "selectionModelMode": "single"
+        },
+        "compareDataProvider": {
+            "action": "getCompareObjData",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "multiple",
+            "commands":
+            {
+                "Awp0ShowObjectCell":
+                {
+                    "id": "cmdOpen",
+                    "title": "Open",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "dependencies": [ "js/showObjectCommandHandler" ],
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            }
+        }
+    },
+    "conditions": {
+        "isAddButtonVisible": {
+            "expression": " data.dataProviders.compareDataProvider.selectedObjects.length > 0 "
+        },
+        "isTypeSelected": {
+            "expression": "data.selectedType.dbValue =='' "
+        }
+    },
+    "functions": {
+        "getProviderName":
+        {
+            "functionName": "getProviderName",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "i18n": {
+        "ParamAdd": [
+            "prm1ParameterTableMessages"
+        ],
+        "compareType": [
+            "prm1ParameterTableMessages"
+        ],
+        "VRStudyTypeTitle": [
+            "prm1ParameterTableMessages"
+        ],
+        "noResultsFound": [
+            "prm1ParameterTableMessages"
+        ]
+    }
+}

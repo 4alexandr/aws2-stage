@@ -1,0 +1,62 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-native-sublocation.directive"
+    ],
+
+    "actions": {
+        "registerContext": {
+            "actionType": "JSFunction",
+            "method": "registerContext",
+            "inputData": {},
+            "deps": "js/partManufacturingService"
+        },
+        "unregisterContext": {
+            "actionType": "JSFunction",
+            "method": "unregisterContext",
+            "inputData": {},
+            "deps": "js/partManufacturingService"
+        }
+    },
+
+    "data":
+    {          
+        "_sublocation": 
+        {
+            "priority": 0,
+            "label": {
+                "source": "/i18n/partmanufacturingMessages",
+                "key": "partMfgTitle"
+            },
+            "clientScopeURI": "Pm1PartManufacturing",
+            "nameToken": "com.siemens.splm.clientfx.tcui.xrt.showObjectSubLocation",
+            "name": "PartManufacturing",
+            "defaultDisplayMode": "TableSummaryView",
+            "viewBase": "PartManufacturing",
+            "viewModes": {
+                "TableView": {
+                    "primaryWorkArea": "table",
+                    "secondaryWorkArea": false
+                },
+                "TableSummaryView": {
+                    "primaryWorkArea": "table",
+                    "secondaryWorkArea": true
+                },
+                "TreeView": {
+                    "primaryWorkArea": "tree",
+                    "secondaryWorkArea": false
+                },
+                "TreeSummaryView": {
+                    "primaryWorkArea": "tree",
+                    "secondaryWorkArea": true
+                }   
+            }          
+        }
+    },
+
+    "lifecycleHooks": {
+        "onMount": "registerContext",
+        "onUnmount": "unregisterContext"
+    }
+}

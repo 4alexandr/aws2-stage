@@ -1,0 +1,776 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-listbox.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-textbox.directive",
+        "js/aw-textarea.directive",
+        "js/visible-when.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-button.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-i18n.directive"
+    ],
+
+    "actions": 
+    {
+        "getOwningProjectsAct": 
+        {
+            "actionType": "JSFunction",
+            "method": "getProgVMOJS",
+            "inputData": 
+            {
+                "uid": "{{ctx.userSession.props.project.dbValues[0]}}",
+                "operationName": "CREATE"
+            },
+
+            "outputData": 
+            {
+                "owningProjects": ""
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        },
+
+        "getGlobalConstant": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "BusinessModeler-2011-06-Constants",
+            "method": "getGlobalConstantValues2",
+            "inputData": 
+            {
+                "keys": 
+                [
+                    "Cdm0UseCurrentProjSchTemplates"
+                ]
+            },
+
+            "outputData": 
+            {
+                "useCurrentProjSchTemplatesValue": "constantValues[0].value[0]"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "getScheduleTemplates",
+                        "condition": "data.useCurrentProjSchTemplatesValue==='false'"
+                    },
+
+                    {
+                        "name": "getScheduleTemplatesForProject",
+                        "condition": "data.useCurrentProjSchTemplatesValue==='true'"
+                    }
+                ]
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        },
+
+        "getScheduleTemplates": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-Finder",
+            "method": "performSearchViewModel",
+            "inputData": 
+            {
+                "columnConfigInput": 
+                {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Awp0AdvancedSearch"
+                },
+
+                "inflateProperties": false,
+                "saveColumnConfigData": 
+                {
+                    
+                },
+
+                "searchInput": 
+                {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Awp0SavedQuerySearchProvider",
+                    "searchCriteria": 
+                    {
+                        "queryName": "Schedules...",
+                        "searchID": "SCHEDULETEMPLATES",
+                        "totalObjectsFoundReportedToClient": "0",
+                        "typeOfSearch": "ADVANCED_SEARCH",
+                        "is_template": "true",
+                        "is_baseline": "false",
+                        "utcOffset": "0",
+                        "lastEndIndex" : "0"
+                    }
+                }
+            },
+
+            "policy": 
+            {
+                "types": 
+                [
+                    {
+                        "name": "Schedule",
+                        "properties": 
+                        [
+                            {
+                                "name": "object_string"
+                            },
+
+                            {
+                                "name": "object_desc"
+                            },
+                            {
+                                "name": "object_name"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            "outputData": 
+            {
+                "scheduleTemplates": "{{function:getScheduleTemplatesJS}}"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "loadUserProjects"
+                    }
+                ]
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        },
+
+        "getScheduleTemplatesForProject": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-Finder",
+            "method": "performSearchViewModel",
+            "inputData": 
+            {
+                "columnConfigInput": 
+                {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Awp0AdvancedSearch"
+                },
+
+                "inflateProperties": false,
+                "saveColumnConfigData": 
+                {
+                    
+                },
+
+                "searchInput": 
+                {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Awp0SavedQuerySearchProvider",
+                    "searchCriteria": 
+                    {
+                        "queryName": "Schedules...",
+                        "searchID": "SCHEDULETEMPLATES",
+                        "totalObjectsFoundReportedToClient": "0",
+                        "typeOfSearch": "ADVANCED_SEARCH",
+                        "is_template": "true",
+                        "is_baseline": "false",
+                        "project_id": "{{ctx.userSession.props.project.uiValue}}",                        
+                        "utcOffset": "0",
+                        "lastEndIndex" : "0"                        
+                    }
+                }
+            },
+
+            "outputData": 
+            {
+                "scheduleTemplates": "{{function:getScheduleTemplatesJS}}"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "loadUserProjects"
+                    }
+                ]
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        },
+
+        "populateDefaultValues": 
+        {
+            "actionType": "JSFunction",
+            "method": "populateDefaultValues",
+            "inputData": 
+            {
+                "input": "{{data}}"
+            },
+
+            "outputData": 
+            {
+                
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService"
+        },
+
+        "loadUserProjects": 
+        {
+            "actionType": "JSFunctionAsync",
+            "method": "loadObjects",
+            "inputData": 
+            {
+                "data": 
+                [
+                    "{{ctx.userSession.props.project.dbValues[0]}}"
+                ]
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "init.owningProjectsProvider"
+                    }
+                ]
+            },
+
+            "deps": "soa/dataManagementService"
+        },
+
+        "navigateToNewTabPage": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": 
+                        {
+                            "destPanelId": "Cdm1NewScheduleTab"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "validateScheduleAttachNew": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "attachScheduleOrNot.showMessageNew",
+                        "condition": "conditions.isSchAlreadyAttachedCond === true"
+                    },
+
+                    {
+                        "name": "copyScheduleTemplate",
+                        "condition": "conditions.isSchAlreadyAttachedCond === false"
+                    }
+                ]
+            }
+        },
+
+        "copyScheduleTemplate": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "ProjectManagement-2011-06-ScheduleManagement",
+            "method": "copySchedules",
+            "inputData": 
+            {
+                "containers": 
+                [
+                    {
+                        "name": "{{data.name.dbValue}}",
+                        "description": "{{data.description.dbValue}}",
+                        "scheduleToCopy": "{{data.scheduleTemplate.dbValue}}",
+                        "copyInfo": 
+                        [
+                            {
+                                "objectComp": "{{ctx.selected}}",
+                                "relation": "IMAN_reference"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            "outputData": 
+            {
+                "copiedSchedule": "scheduleResponse[0].schedule"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "updateSchedule",
+                        "condition": "data.copiedSchedule && data.copiedSchedule != '' && data.copiedSchedule != 'undefined'"
+                    }
+                ]
+            }
+        },
+
+        "updateSchedule": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "ProjectManagement-2012-02-ScheduleManagement",
+            "method": "updateSchedules",
+            "inputData": 
+            {
+                "scheduleUpdates": 
+                [
+                    {
+                        "object": "{{data.copiedSchedule}}",
+                        "updates": 
+                        [
+                            {
+                                "attrName": "is_template",
+                                "attrValue": "false",
+                                "attrType": 6
+                            },
+
+                            {
+                                "attrName": "fnd0status",
+                                "attrValue": "in_progress",
+                                "attrType": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            "outputData": 
+            {
+                "updatedSchedule": "updated[0]"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "attachSchedule"
+                    }
+                ]
+            }
+        },
+
+        "attachSchedule": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2010-09-DataManagement",
+            "method": "setProperties",
+            "inputData": 
+            {
+                "info": 
+                [
+                    {
+                        "object": "{{ctx.selected}}",
+                        "vecNameVal": 
+                        [
+                            {
+                                "name": "cdm0ContractEventSch",
+                                "values": 
+                                [
+                                    "{{data.updatedSchedule}}"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            "deps": "js/Cdm1AddContractEventScheduleService",
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "assignProjectsToCreatedObject"
+                    }
+                ]
+            }
+        },
+
+        "assignProjectsToCreatedObject": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-09-ProjectLevelSecurity",
+            "method": "assignOrRemoveObjects",
+            "inputData": 
+            {
+                "assignedOrRemovedobjects": 
+                [
+                    {
+                        "projects": "{{data.dataProviders.getAssignedProjectsProvider.viewModelCollection.loadedVMObjects}}",
+                        "objectToAssign": 
+                        [
+                            "{{data.copiedSchedule}}"
+                        ],
+
+                        "objectToRemove": 
+                        [
+                            
+                        ]
+                    }
+                ]
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": 
+                        {
+                            "relatedModified": 
+                            [
+                                "{{ctx.selected}}"
+                            ],
+                            "refreshLocationFlag": true
+                        }
+                    },
+
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "dataProviders": 
+    {
+        "getOwningProjectsProvider": 
+        {
+            "action": "getOwningProjectsAct",
+            "response": 
+            [
+                "{{data.owningProjects}}"
+            ],
+
+            "totalFound": "{{data.owningProjects.length}}",
+            "preSelection": false,
+            "selectionModelMode": "single",
+            "commands": 
+            {
+                "Awp0ShowObjectCell": 
+                {
+                    "id": "cmdOpen",
+                    "areas": 
+                    [
+                        "com.siemens.splm.clientfx.ui.modelObjectListActionCommands"
+                    ],
+
+                    "priorities": 
+                    [
+                        300
+                    ],
+
+                    "dependencies": 
+                    [
+                        "js/showObjectCommandHandler"
+                    ],
+
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            }
+        },
+
+        "getAssignedProjectsProvider": 
+        {
+            "response": "{{data.dataProviders.getUserProjectsProvider.selectedObjects}}",
+            "totalFound": "{{data.dataProviders.getUserProjectsProvider.selectedObjects.length}}",
+            "selectionModelMode": "single",
+            "commands": 
+            {
+                "Awp0RemoveProjectsCell": 
+                {
+                    "id": "cmdRemove",
+                    "areas": 
+                    [
+                        "com.siemens.splm.clientfx.ui.modelObjectListActionCommands"
+                    ],
+
+                    "priorities": 
+                    [
+                        300
+                    ],
+
+                    "dependencies": 
+                    [
+                        "js/removeObjectCellCommandHandler"
+                    ],
+
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            }
+        }
+    },
+
+    "onEvent": 
+    [
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": 
+            {
+                "panelId": "Cdm1NewScheduleTab"
+            },
+
+            "action": "getGlobalConstant",
+            "condition": "data.activeView!='assignProjectSub'"
+        },
+
+        {
+            "eventId": "getScheduleTemplates",
+            "action": "getScheduleTemplates"
+        },
+
+        {
+            "eventId": "getScheduleTemplatesForProject",
+            "action": "getScheduleTemplatesForProject"
+        },
+
+        {
+            "eventId": "init.owningProjectsProvider",
+            "action": "getOwningProjectsProvider"
+        },
+
+        {
+            "eventId": "loadUserProjects",
+            "action": "loadUserProjects"
+        },
+
+        {
+            "eventId": "userProjects.assignProjects",
+            "action": "navigateToNewTabPage"
+        },
+
+        {
+            "eventId": "userProjects.assignProjects",
+            "action": "getAssignedProjectsProvider"
+        },
+
+        {
+            "eventId": "attachScheduleOrNot.showMessageNew",
+            "message": "attachScheduleOrNotNew"
+        },
+
+        {
+            "eventId": "attachSchedule",
+            "action": "attachSchedule"
+        },
+
+        {
+            "eventId": "updateSchedule",
+            "action": "updateSchedule"
+        },
+
+        {
+            "eventId": "copyScheduleTemplate",
+            "action": "copyScheduleTemplate"
+        },
+
+        {
+            "eventId": "assignProjectsToCreatedObject",
+            "action": "assignProjectsToCreatedObject"
+        }
+    ],
+
+    "functions": 
+    {
+        "getScheduleTemplatesJS": 
+        {
+            "functionName": "getScheduleTemplatesJS",
+            "parameters": 
+            [
+                
+            ]
+        },
+
+        "populateDefaultValues": 
+        {
+            "functionName": "populateDefaultValues",
+            "parameters": 
+            [
+                "{{data}}"
+            ]
+        }
+    },
+
+    "conditions": 
+    {
+        "isSchAlreadyAttachedCond": 
+        {
+            "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Cdm0ContractRevision') > -1  && ctx.selected.props.cdm0ContractEventSch.dbValues[0].length > 0"
+        },
+
+        "isScheduleTemplateSelected": 
+        {
+            "expression": "data.scheduleTemplates.length > 0 "
+        },
+
+        "isNameFieldNotNull": 
+        {
+            "expression": "data.name.uiValue.length > 0"
+        },
+
+        "isCurrentTabNew": 
+        {
+            "expression": "data.selectedTab.tabKey ==='new'"
+        },
+
+        "isActiveAssignProj": 
+        {
+            "expression": "data.activeView ==='assignProjectSub'"
+        }
+    },
+
+    "data": 
+    {
+        "scheduleTemplate": 
+        {
+            "displayName": "",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": true,
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+
+        "name": 
+        {
+            "displayName": "{{i18n.name}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "dbValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+
+        "description": 
+        {
+            "displayName": "{{i18n.description}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "dbValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+
+        "addCDRLProjCommand": "cdm1_addProjCommands"
+    },
+
+    "messages": 
+    {
+        "attachScheduleOrNotNew": 
+        {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.attachScheduleOrNot}}",
+            "messageTextParams": 
+            [
+                "{{data.name.dbValue}}",
+                "{{ctx.selected.props.cdm0ContractEventSch.uiValues[0]}}"
+            ],
+
+            "navigationOptions": 
+            [
+                {
+                    "option": "Discard",
+                    "text": "{{i18n.cancel}}",
+                    "action": ""
+                },
+
+                {
+                    "option": "Save",
+                    "text": "{{i18n.proceed}}",
+                    "action": "copyScheduleTemplate"
+                }
+            ]
+        }
+    },
+
+    "i18n": 
+    {
+        "add": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "scheduleTemplate": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "name": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "description": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "attachScheduleOrNot": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "proceed": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "cancel": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "schedule": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "ownProjectSectionTitle": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "projectsSectionTitle": 
+        [
+            "contractmanagementMessages"
+        ],
+
+        "addProjectButtonTitle": 
+        [
+            "contractmanagementMessages"
+        ]
+    }
+}

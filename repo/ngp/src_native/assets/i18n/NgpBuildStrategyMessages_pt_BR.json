@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "Não há nenhum elemento de criação ou atividade em \"{0}\".",
+    "noProcesses": "Não há nenhum processo em \"{0}\".",
+    "whereToCreateProcesses": "Os processos podem ser criados na página Unidade de trabalho.",
+    "moveCandidateCmdTitle": "Mover Para",
+    "moveCandidateCmdDescription": "Designa objetos a serem movidos",
+    "successfullySetSingleMoveCandidate": "\"{0}\" designado para ser movido. Selecione um destino e use o botão 'Mover aqui'.",
+    "successfullySetMultipleMoveCandidates": "{0} objetos designados para serem movidos. Selecione um destino e use o botão 'Mover aqui'.",
+    "moveHereTooltipTitle": "Mover Aqui",
+    "moveHereTooltipMsg": "Moverá estes objetos para o destino especificado:",
+    "createBuildElementAfter": "Criar elemento de criação após",
+    "createBuildElementAsChild": "Criar elemento de criação como filho"
+}

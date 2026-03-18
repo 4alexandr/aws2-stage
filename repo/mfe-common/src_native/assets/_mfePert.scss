@@ -1,0 +1,42 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+
+/*========================================================================*/
+/*=========================== MFE Pert ==========================*/
+/*========================================================================*/
+.aw-mfePert-settingsBar {
+    .aw-advanced-bar-horizontal {
+        box-shadow: none;
+        margin: 0;
+        button {
+            padding: 4px;
+            margin: 0;
+        }
+    }
+    .aw-base-iconButton.large {
+        height: 2rem;
+        width: 2rem;
+    }
+}
+
+.aw-mfePert-border {
+    border: 1px solid;
+}
+
+.aw-layout-popup.aw-mfePert-togglePopupMargin{
+    margin-left: 15px;
+    margin-top: 45px;
+    min-width: fit-content;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.aw-mfePert-toggleModePopup{
+    z-index: 99999;
+}

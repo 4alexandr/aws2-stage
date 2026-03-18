@@ -1,0 +1,23 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+
+#epMbomTreeTable .aw-splm-tableCanvas,
+#epTreeTable .aw-splm-tableCanvas {
+    .aw-ep-highlightScopes{
+        background-color: $brand_secondary_content_background;
+        color: $brand_primary_background;
+    }
+    .aw-splm-tableHoverRow{
+        background: $brand_selection_background_hover;
+        color: $brand_selection_text_hover;
+    }
+    .aw-state-selected{
+        background-color: $brand_selection_background_selected;
+    }
+}

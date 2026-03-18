@@ -1,0 +1,73 @@
+// Copyright 2019 Siemens Product Lifecycle Management Software Inc.
+/* Engineering View Management */
+
+.aw-viewmanagement-recipeConfigSection {
+    form.aw-layout-panelSectionContent {
+        .aw-widgets-propertyContainer {
+            margin-bottom: 2px;
+        }
+
+        margin-bottom: 4px;
+        padding-top: 8px;
+    }
+
+    .aw-widgets-propertyLabelTop {
+        font-weight: 400;
+    }
+
+    .aw-widgets-propertyContainer>aw-property-label {
+        max-width: fit-content;
+    }
+
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.aw-viewmanagement-closureRuleDisplayStyle ul.aw-jswidgets-arrayNonEditValueCellList li.aw-jswidgets-arrayValueCellListItem {
+    margin-bottom: 5px;
+}
+
+.aw-viewmanagement-closureRuleLabel .aw-widgets-propertyContainer {
+    margin-bottom: 2px;
+}
+
+.aw-viewmanagement-viewQuerySection {
+    .aw-base-iconButton>.aw-base-icon {
+        margin-top: -5px
+    }
+}
+
+.aw-viewmanagement-configurationRow {
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.aw-viewmanagement-viewSeedSection button {
+    margin-bottom: -18px;
+    margin: 0em;
+    text-align: right;
+}
+
+.aw-viewmanagement-seedCommandsRow {
+    flex-direction: row-reverse;
+    margin-top: -1em;
+}
+
+.aw-viewmanagement-seedsTreeCheckBoxStyle .aw-widgets-propertyContainer {
+    margin-bottom: 0;
+}
+
+.aw-viewmanagement-seedsTree .aw-splm-tableCellTop {
+    overflow: hidden;
+}
+
+.aw-viewmanagement-resultsSection {
+    form.aw-layout-panelSectionContent {
+        padding-top: 0;
+    }
+}
+
+.aw-viewmanagement-bomCheckBoxStyle .aw-widgets-propertyContainer {
+    margin-bottom: 0;
+}
+

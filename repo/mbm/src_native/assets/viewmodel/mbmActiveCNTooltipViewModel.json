@@ -1,0 +1,16 @@
+{
+    "schemaVersion": "1.0.0",
+
+    "data":{
+        "mbmActiveCNTitle":"{{i18n.mbmActiveCNTooltipTitle}}",
+        "desc":{
+            "text":"{{i18n.mbmActiveCNTooltipDescription}}",
+            "params":["{{subPanelContext.ecnObject.props.object_string.uiValues[ 0 ]}}"]
+        }
+    },
+
+    "i18n": {
+        "mbmActiveCNTooltipTitle":["mbmMessages"],
+        "mbmActiveCNTooltipDescription":["mbmMessages"]
+    }
+}

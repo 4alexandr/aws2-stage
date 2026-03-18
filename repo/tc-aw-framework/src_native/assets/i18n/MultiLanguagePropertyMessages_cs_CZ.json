@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "Upravit lokalizaci",
+    "editLocalizationSingleDesc": "Přeložit hodnotu do jiných jazyků pro vlastnost",
+    "masterValue": "Hlavní hodnota",
+    "translationLanguages": "Jazyky překladu",
+    "addorRemoveLocales": "Přidat nebo odebrat jazyky",
+    "addorRemoveLocalesDesc": "Vybrat ze seznamu jazyků pro překlad",
+    "removeLocale": "Odebrat jazyk",
+    "removeLocaleDesc": "Odebrat jazyk překladu",
+    "propertiesTranslated": "Vlastnosti, které mohou být přeloženy",
+    "status": "Stav",
+    "saveTranslationsError": "Při pokusu o uložení se vyskytly problémy. {0}",
+    "property": "Vlastnost"
+}

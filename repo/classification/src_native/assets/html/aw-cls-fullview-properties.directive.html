@@ -1,0 +1,13 @@
+<aw-command-panel-section caption="{{data.caption}}" anchor="data.classifyPropCommands"  collapsed="false" ng-style="{'height': getClsPropContainerHeight()}">
+    <!-- Attributes Panel -->
+    <!-- Properties Header -->
+    <aw-cls-fullview-propsheader data="data"></aw-cls-fullview-propsheader>
+
+    <!-- Properties Section -->
+    <div class="aw-base-scrollPanel">
+        <div visible-when="data.attributesVisible" class="aw-cls-fullViewProperties" ng-style="{'height': getAttrSectionHeight()}">
+            <aw-cls-properties attributes="data.filteredAttr_anno" view="data.panelMode" showallprop="data.showAllProp" exist-when="data.isFiltered === false"></aw-cls-properties>
+            <aw-cls-properties attributes="data.filteredAttributes" view="data.panelMode" showallprop="data.showAllProp" exist-when="data.isFiltered === true"></aw-cls-properties>
+        </div>
+    </div>
+</aw-command-panel-section>

@@ -1,0 +1,31 @@
+<aw-popup2 caption="{{data.popupCaption}}" anchor="ngp_activeMcnPopupCommandBar">
+    <aw-panel class="aw-ngp-activeMcnPopupContent">
+        <aw-panel-body scrollable="false">
+            <div visible-when="!data.isHistoryOfMCNsView">
+                <aw-link prop="data.historyOfChangeLinkData" action="changeMcnPanelViews" class="aw-ngp-mcnHistoryOfChangeLink" visible-when="conditions.hasHistoryOfMcns"></aw-link>
+                <div class="aw-ngp-activeMcnPanel">
+                    <div class="aw-ngp-mcnActiveMcnHeader">
+                        <aw-i18n>{{i18n.activeManufacturingChangeHeader}}</aw-i18n>
+                    </div>
+                    <aw-list dataprovider="data.dataProviders.activeMcnDataProvider" class="aw-ngp-activeMcnTile">
+                        <aw-default-cell vmo="item"> </aw-default-cell>
+                    </aw-list>
+                </div>
+                <div class="aw-ngp-relatedEcnsPanel" exist-when="conditions.hasRelatedEcns">
+                    <div class="aw-ngp-mcnRelatedEcnsHeader">
+                        <aw-i18n>{{i18n.listOfEcnsHeader}}</aw-i18n>
+                    </div>
+                    <div class="aw-ngp-relatedEcnTiles">
+                        <aw-include name="ngpMcnListOfRelatedEcns" sub-panel-context="subPanelContext.activeMcnUid"></aw-include>
+                    </div>
+                </div>
+            </div>
+            <div visible-when="data.isHistoryOfMCNsView">
+                <aw-link prop="data.backToChangeManagementLinkData" action="changeMcnPanelViews" class="aw-ngp-mcnChangeManagementLink"></aw-link>
+                <div class="aw-ngp-historyOfChangeTiles">
+                    <aw-include name="ngpMcnHistoryOfChangeList" sub-panel-context="subPanelContext.previousMcnUids"></aw-include>
+                </div>
+            </div>
+        </aw-panel-body>
+    </aw-panel>
+</aw-popup2>

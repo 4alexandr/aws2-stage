@@ -1,0 +1,67 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-link-with-popup-menu.directive",
+        "js/aw-property-label.directive",
+        "js/aw-column.directive"
+    ],
+
+    "actions":
+    {
+        "setApplicationAndEnvironment":
+        {
+            "actionType": "JSFunction",
+            "method": "setApplicationOrEnvironment",
+            "inputData":
+            {
+                "eventData": "{{data.eventData}}"
+            },
+
+            "deps": "js/setApplicationAndEnvironment"
+        }
+    },
+    "conditions":
+    {
+
+    },
+
+    "data":{
+        "applicationInfo":
+        {
+            "displayName": "{{ctx.preferences.TC_NX_Current_Application[0]}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "dbValue": "{{ctx.preferences.TC_NX_Current_Application[0]}}"
+        },
+        "clientApplication":
+        {
+            "isNull": false,
+            "propertyDisplayName": "{{i18n.clientApplication}}",
+            "uiValue": "{{i18n.clientApplication}}"
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "awlinkPopup.selected",
+            "cacheEventData": true,
+            "action": "setApplicationAndEnvironment"
+        }
+    ],
+
+    "dataProviders":
+    {
+        "applicationLink":
+        {
+            "dataProviderType": "Static",
+            "response": "{{ctx.preferences.TC_NX_Applications}}",
+            "totalFound": "{{ctx.preferences.TC_NX_Applications.length}}"
+        }
+    },
+    "i18n":
+    {
+        "clientApplication": [ "NXConstants" ]
+    }
+}

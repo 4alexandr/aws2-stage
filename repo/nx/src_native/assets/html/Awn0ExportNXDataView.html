@@ -1,0 +1,19 @@
+<aw-command-panel caption="i18n.exportNXData" aw-init="panelId='Awn0ExportNXData'" context="data">
+    <aw-panel-header>
+        <aw-panel-section caption="i18n.selected">
+            <aw-default-cell vmo="data.targetObject"></aw-default-cell>
+        </aw-panel-section>
+    </aw-panel-header>
+    <aw-panel-body>
+        <aw-panel-section caption="i18n.options">
+            <aw-checkbox prop="data.exportNonMasters"></aw-checkbox>
+            <aw-checkbox prop="data.exportAssociatedFiles"></aw-checkbox>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-checkbox prop="data.runInBackgroundCheckBox"></aw-checkbox>
+        <aw-button action="exportDataToNX">
+             <aw-i18n>i18n.export</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

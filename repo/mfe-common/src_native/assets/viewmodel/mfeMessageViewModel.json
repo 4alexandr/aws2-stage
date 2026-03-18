@@ -1,0 +1,28 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-column.directive",
+        "js/aw-icon.directive"
+    ],
+
+    "data": {
+    },
+
+    "actions": {
+        "applyMessagesParams": {
+            "actionType": "JSFunction",
+            "method": "applyMessagesParams",
+            "inputData": {
+                "messagesData": "{{subPanelContext}}"
+            },
+            "outputData": {
+                "messages": ""
+            },
+            "deps": "js/mfeMessagesService"
+        }
+    },
+
+    "lifecycleHooks": {
+        "onMount": "applyMessagesParams"
+    }
+}

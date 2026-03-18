@@ -1,0 +1,29 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2018.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+/* begin BBrowser */
+
+.aw-layout-panelMain .aw-bbrowserViewer-loadbutton.aw-base-blk-button
+{
+    width: 125px;
+}
+
+.aw-bbrowserViewer-comparelist
+{
+    height: 125px;
+}
+
+aw-structurecompare-sublocation, .aw-bbrowserViewer-comparePanesContainer
+{
+    @include flexbox();
+    overflow: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

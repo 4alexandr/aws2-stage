@@ -1,0 +1,31 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/exist-when.directive",
+        "js/aw-include.directive"
+    ],
+    "ports": {
+        "wiAssignedPmiTable_inputObject": {
+            "syncObject": {}
+        }
+    },
+    "conditions": {
+        "hasValidInput": {
+            "expression": "ports.wiAssignedPmiTable_inputObject.syncObject.length === 1"
+        }
+    },
+    "data":{
+        "messages": {
+            "noElementSelected": [{
+                "text": "{{i18n.selectProcessOrOperationForPMIs}}"
+            }],
+            "noAssigned": [                {
+                    "text": "{{i18n.noAssignedPMIs}}"
+            }]
+        }
+    },
+    "i18n":{
+        "selectProcessOrOperationForPMIs": ["wiPmiMessages"],
+        "noAssignedPMIs": ["wiPmiMessages"]
+    }
+}

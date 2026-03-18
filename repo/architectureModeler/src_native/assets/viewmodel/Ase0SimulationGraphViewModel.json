@@ -1,0 +1,331 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-row.directive",
+        "js/aw-graph.directive"
+    ],
+
+    "actions": {
+        "manageDiagram2SOA": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-ActiveWorkspaceSysEng-2017-06-DiagramManagement",
+            "method": "manageDiagram2",
+            "inputData": {
+                "input": "{{function:getManageDiagram2Input}}"
+            },
+            "policy": {
+                "types": [ {
+                    "name": "Awb0Interface",
+                    "properties": [ {
+                        "name": "awb0Direction"
+                    } ]
+                } ]
+            },
+
+            "outputData": {
+                "graphData": "{{function:getManageDiagram2Response}}"
+            },
+            "deps": "js/Ase0ManageDiagramSoaService"
+        },
+        "handleManageDiagram2Complete": {
+            "actionType": "JSFunction",
+            "method": "handleManageDiagram2Complete",
+            "inputData": {
+                "manageDiagramQueue": "{{data.manageDiagramQueue}}",
+                "graphData": "{{data.eventMap['AMManageDiagramComplete'].graphData}}"
+            },
+
+            "deps": "js/Ase0ArchitectureGraphService"
+        },
+        "drawGraph": {
+            "actionType": "JSFunction",
+            "method": "drawGraph",
+            "inputData": {
+                "graphData": "{{data.eventMap['AMGraphEvent.drawGraph'].graphData}}",
+                "data": "{{data}}",
+                "isOpenDiagram": "{{data.eventMap['AMGraphEvent.drawGraph'].isOpenDiagram}}",
+                "isApplyGlobalLayout": "{{data.eventMap['AMGraphEvent.drawGraph'].isApplyGlobalLayout}}"
+            },
+            "events": {
+                "success": [ {
+                    "condition": "data.isRecall",
+                    "name": "AM.ResetRecallState"
+                } ]
+            },
+            "deps": "js/Ase0ArchitectureGraphService"
+        },
+
+        "getLegendData": {
+            "actionType": "JSFunctionAsync",
+            "method": "getLegendData",
+            "inputData": {
+                "viewName": "Architecture",
+                "data": "{{data.legend}}"
+            },
+
+            "events": {
+                "success": [ {
+                    "name": "AMManageDiagramEvent",
+                    "eventData": {
+                        "userAction": "OpenDiagram"
+                    }
+                } ]
+            },
+
+            "deps": "js/Ase0ArchitectureGraphLegendManager"
+        },
+        "setDiagramSelection": {
+            "actionType": "JSFunction",
+            "method": "setDiagramSelection",
+            "inputData": {
+                "selected": "{{data.eventMap['awGraph.selectionChanged'].selected}}",
+                "unselected": "{{data.eventMap['awGraph.selectionChanged'].unSelected}}",
+                "syncPwa": false
+            },
+
+            "deps": "js/Ase0ArchitectureGraphSelectionService"
+        },
+        "setDiagramHover": {
+            "actionType": "JSFunction",
+            "method": "setDiagramHover",
+            "inputData": {
+                "hoveredItem": "{{data.eventMap['awGraph.hoverChanged'].hoveredItem}}",
+                "unHoveredItem": "{{data.eventMap['awGraph.hoverChanged'].unHoveredItem}}"
+            },
+            "deps": "js/Ase0ArchitectureGraphSelectionService"
+        },
+        "resetRecallState": {
+            "actionType": "JSFunction",
+            "method": "resetRecallState",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Ase0ArchitectureGraphService"
+        },
+        "clearDiagramSelection": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "AM.SubLocationContentSelectionChangeEvent",
+                    "eventData": {
+                        "selections": []
+                    }
+                } ]
+            }
+        },
+        "updateModelOnObjectChanged": {
+            "actionType": "JSFunction",
+            "method": "updateModelOnObjectChanged",
+            "inputData": {
+                "modelObjects": "{{data.eventMap['cdm.updated'].updatedObjects}}",
+                "graphModel": "{{ctx.graph.graphModel}}"
+            },
+            "deps": "js/Ase0ArchitectureGraphService"
+        }
+    },
+
+    "functions": {
+        "getManageDiagram2Input": {
+            "functionName": "getManageDiagram2Input",
+            "parameters": [
+                "{{data.eventMap['AMManageDiagramEvent']}}",
+                "{{data.manageDiagramQueue}}"
+            ]
+        }
+    },
+
+    "data": {
+
+        "singleNodeHasVisibleRelations": false,
+        "isNodeExpanded": false,
+        "isRecall": false,
+        "archPageData": {
+            "nodes": [],
+            "edges": []
+        },
+        "legend": {
+            "tabModel": [
+
+            ]
+        },
+
+        "archGraphModel": {
+            "isGraphFitted": false
+        },
+
+        "primaryWorkAreaExcludedTypes": [
+            "Ase0Signal",
+            "Awb0Interface"
+        ],
+        "manageDiagramQueue": [
+
+        ],
+        "graphModel": {
+            "edgeMap": {
+
+            },
+
+            "config": {
+                "enableEdit": false,
+                "minZoom": 0,
+                "maxZoom": 1.0,
+                "autoEdgeRoutingType": "HV_SEGMENT3",
+                "fitViewPosition": "CENTER",
+                "hoverDelayTime": 75,
+                "nodeHeightUpdateStrategy": "KEEP_LARGE",
+                "enableJumper": true,
+                "jumper": {
+                    "jumperType": "ARC",
+                    "jumperSize": {
+                        "width": 10,
+                        "height": 10
+                    },
+                    "jumperPriority": "HORIZONTAL"
+                },
+                "grid": true,
+                "selectableItems": [
+                    "Node",
+                    "Edge",
+                    "Port",
+                    "Label",
+                    "Boundary"
+                ],
+
+                "layout": {
+                    "layoutMode": "IncUpdateLayout",
+                    "defaultOption": "TopToBottom"
+                },
+
+                "syncPortEdgeVisibility": true,
+                "showNodeOverlay": true,
+                "nodeOverlay": {
+                    "zoomThreshold": 0.7,
+                    "graphOverlayHandler": "js/Ase0ArchitectureGraphOverlayHandler"
+                },
+
+                "inputMode": "viewInputMode",
+                "tooltipHandler": "js/Ase0ArchitectureGraphTooltipHandler",
+                "moveWithoutSelection": true,
+                "enableAutoPan": true,
+                "enableMarqueeSelection": true,
+                "defaults": {
+                    "nodeSize": {
+                        "width": 312,
+                        "height": 120
+                    },
+
+                    "nodeStyle": {
+                        "templateId": "Ase0ArchitectureDummyNodeTemplate"
+                    },
+
+                    "edgeStyle": {
+                        "dashStyle": "DASH",
+                        "thickness": 2.0,
+                        "color": "(0,0,0)"
+                    },
+
+                    "portStyle": {
+                        "portShape": "SQUARE",
+                        "borderColor": "(0, 0, 0)",
+                        "fillColor": "(255, 255, 255)",
+                        "thickness": 1,
+                        "size": 22,
+                        "fillInterior": true,
+                        "iconId": "RedoMarkup"
+                    },
+                    "boundaryStyle": {
+                        "thickness": 1,
+                        "strokeDash": "DASH",
+                        "fillColor": "(235,235,227)",
+                        "borderColor": "(150, 150, 130)"
+                    }
+                }
+            },
+
+            "nodeTemplates": {
+                "Ase0ArchitectureNodeTemplate": {
+                    "templateUrl": "/html/Ase0ArchitectureNodeTemplate.html",
+                    "textOverflow": "WRAP"
+                },
+
+                "Ase0ArchitectureGroupNodeTemplate": {
+                    "templateUrl": "/html/Ase0ArchitectureGroupNodeTemplate.html",
+                    "initialBindData": {
+                        "HEADER_HEIGHT": 75
+                    },
+                    "textOverflow": "WRAP"
+                },
+                "Ase0ArchitectureDummyNodeTemplate": {
+                    "templateUrl": "/html/Ase0ArchitectureDummyNodeTemplate.html",
+                    "initialBindData": {
+                        "node_fill_color": "",
+                        "Name": "",
+                        "Name_editable": true
+                    },
+                    "textOverflow": "WRAP"
+                }
+            }
+        }
+    },
+
+    "messages": {},
+
+    "onEvent": [ {
+            "eventId": "awGraph.initialized",
+            "action": "getLegendData",
+            "condition": "conditions.legendNeedsInitialized"
+        },
+        {
+            "eventId": "AMGraphEvent.drawGraph",
+            "action": "drawGraph",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "awGraph.selectionChanged",
+            "action": "setDiagramSelection",
+            "condition": "conditions.isMainGraphEvent",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "awGraph.hoverChanged",
+            "action": "setDiagramHover",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "AM.ResetRecallState",
+            "action": "resetRecallState"
+        },
+        {
+            "eventId": "awGraph.graphCleared",
+            "action": "clearDiagramSelection"
+        },
+
+        {
+            "eventId": "AMManageDiagramEvent",
+            "action": "manageDiagram2SOA",
+            "cacheEventData": true
+        },
+
+        {
+            "eventId": "AMManageDiagramComplete",
+            "action": "handleManageDiagram2Complete",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "cdm.updated",
+            "action": "updateModelOnObjectChanged",
+            "cacheEventData": true
+        }
+    ],
+    "conditions": {
+        "legendNeedsInitialized": {
+            "expression": "data.legend.legendViews === undefined"
+        },
+
+        "isMainGraphEvent": {
+            "expression": "sourceGraph === data.graphModel"
+        }
+    },
+    "i18n": {}
+}

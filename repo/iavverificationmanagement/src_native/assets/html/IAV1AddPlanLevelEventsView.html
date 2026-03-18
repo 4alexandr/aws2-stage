@@ -1,0 +1,16 @@
+<aw-command-panel caption="i18n.Add">
+
+    <aw-add  visible-tabs="search,palette" type-filter="Prg0AbsEvent">
+    </aw-add>
+
+<aw-panel-footer >
+    <!-- panel-footer button for New tab -->
+    <aw-button action="createRelationForPaletteOrSearch" visible-when="conditions.isPalatteTabSelection && data.sourceObjects.length>0">
+        <aw-i18n>i18n.Add</aw-i18n>
+    </aw-button>
+    <aw-button action="createRelationForPaletteOrSearch" visible-when="conditions.isSearchTabSelection && data.sourceObjects.length>0">
+        <aw-i18n>i18n.Add</aw-i18n>
+    </aw-button>
+</aw-panel-footer>
+
+</aw-command-panel>

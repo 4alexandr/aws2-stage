@@ -1,0 +1,16 @@
+{
+  "name": "markup",
+  "description": "",
+  "modules": [
+    "markup"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Teamcenter.Soa.DocumentManagement",
+    "Dma1.Soa.DocMgmtAw"
+  ],
+  "extraDeps": [
+    "js/utils2dViewer"
+  ]
+}

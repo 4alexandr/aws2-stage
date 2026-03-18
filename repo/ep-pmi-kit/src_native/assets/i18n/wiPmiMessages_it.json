@@ -1,0 +1,15 @@
+{
+    "assemblyPmiTitle": "Livello assieme PMI",
+    "assemblyPmiTitleWithSelection": "Livello assieme PMI per {0}",
+    "assignedPmiTitle": "PMI",
+    "name": "Nome",
+    "id": "ID",
+    "nominalValue": "Valore nominale",
+    "uom": "UOM",
+    "selectProcessOrOperation": "Selezionare un'operazione o procedura.",
+    "selectProcessOrOperationForPMIs": "Selezionare un'operazione o procedura per visualizzare le relative PMI assegnate.",
+    "noAssociatedPMIs": "Nessuna informazione PMI associata all'operazione o procedura selezionata.",
+    "noAssignedPMIs": "Non sono presenti informazioni PMI assegnate.",
+    "connectedParts" : "Parti connesse",
+    "more" : "Più"
+}

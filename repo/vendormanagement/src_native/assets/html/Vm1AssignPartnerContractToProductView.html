@@ -1,0 +1,17 @@
+<aw-command-panel caption="i18n.vm1Assign">
+    <aw-panel-body>
+        <aw-panel-section caption="i18n.vm1Partner">
+            <aw-listbox prop="data.selectedVendor" list="data.approvedVendorsValues" action="selectionChangeOnVendors">
+            </aw-listbox>
+            <aw-listbox prop="data.selectedPartnerContract" list="data.activePartnerContractValues"
+                action="selectionChangeOnContracts"></aw-listbox>
+            <aw-listbox prop="data.selectedPreferredStatus" list="data.preferredStatusValues"></aw-listbox>
+        </aw-panel-section>
+    </aw-panel-body>
+
+    <aw-panel-footer>
+        <aw-button action="assignPartnerContractConfirmMessage" visible-when="conditions.showAssignButton">
+            <aw-i18n>i18n.vm1Assign</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>

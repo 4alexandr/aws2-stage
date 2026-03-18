@@ -1,0 +1,265 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-social-comment-list.directive",
+        "js/aw-command-panel-section.directive"
+    ],
+
+    "actions":
+    {
+        "reveal":
+        {
+            "actionType": "dataProvider",
+            "method": "commentListProvider"
+        },
+
+        "commentsSearch":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2016-03-Finder",
+            "method": "performSearch",
+            "deps": "js/S2clSocialService",
+            "inputData":
+            {
+                "columnConfigInput":
+                {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}",
+                    "columnsToExclude":
+                    [
+
+                    ],
+
+                    "hostingClientName": "",
+                    "operationType": ""
+                },
+
+                "searchInput":
+                {
+                    "attributesToInflate":
+                    [
+
+                    ],
+
+                    "internalPropertyName": "",
+                    "maxToLoad": 25,
+                    "maxToReturn": 25,
+                    "providerName": "S2clCommentaryProvider",
+                    "searchCriteria":
+                    {
+                        "Target": "{{function:getObjectUID}}",
+                        "Type": "comments"
+                    },
+
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchFilterMap":
+                    {
+
+                    },
+
+                    "searchSortCriteria":
+                    [
+
+                    ],
+
+                    "startIndex": 0
+                }
+            },
+
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "S2clCommentary",
+                        "properties":
+                        [
+                            {
+                                "name": "object_name"
+                            },
+
+                            {
+                                "name": "owning_user"
+                            },
+
+                            {
+                                "name": "last_mod_date"
+                            },
+
+                            {
+                                "name": "creation_date"
+                            },
+
+                            {
+                                "name": "awp0CellProperties"
+                            },
+
+                            {
+                                "name": "s2clParentRootComment"
+                            },
+
+                            {
+                                "name": "s2clTotalCommentsFmSy"
+                            },
+
+                            {
+                                "name": "s2clTotalFollowsFromSummary"
+                            },
+
+                            {
+                                "name": "s2clTotalLikesFromSummary"
+                            },
+
+                            {
+                                "name": "s2clCellProperties"
+                            },
+
+                            {
+                                "name": "s2clTargetObject"
+                            },
+
+                            {
+                                "modifiers":
+                                [
+                                    {
+                                        "Value": "false",
+                                        "name": "includeIsModifiable"
+                                    }
+                                ],
+
+                                "name": "s2clCommentPlainText"
+                            },
+
+                            {
+                                "modifiers":
+                                [
+                                    {
+                                        "Value": "false",
+                                        "name": "includeIsModifiable"
+                                    }
+                                ],
+
+                                "name": "s2clTargetObjectName"
+                            },
+
+                            {
+                                "name": "s2clCommentRichText"
+                            },
+
+                            {
+                                "name": "s2clRatingValue"
+                            },
+
+                            {
+                                "name": "s2clTotalLikesFromSummary"
+                            },
+
+                            {
+                                "name": "s2clCommentaryRatingObjects"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData":
+            {
+                "searchResults": "searchResults",
+                "totalFound": "totalFound",
+                "totalLoaded": "totalLoaded"
+            },
+            "events":
+            {
+                "success":
+                [
+                   {
+                      "name":"S2clSCAddCommentNew.commentsLoaded"
+                   }
+                ]
+             }
+        },
+
+        "updatFirstElementToShow":
+        {
+            "actionType": "JSFunction",
+            "method": "updatFirstElementToShow",
+            "inputData":
+            {
+                "data": "{{data.eventData}}"
+            },
+            "deps": "js/S2clSocialService"
+        }
+    },
+
+    "dataProviders":
+    {
+        "commentListProvider":
+        {
+            "action": "commentsSearch",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "deps": "js/S2clSocialService",
+            "commandsAnchor": "S2clCommands"
+
+        }
+    },
+    "functions":
+    {
+        "getObjectUID":
+        {
+            "functionName": "getObjectUID",
+            "parameters":
+            [
+                "{{ctx.xrtSummaryContextObject}}"
+            ]
+        }
+    },
+    "data":
+    {
+        "comment": "S2cl_addComment"
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "dataProvider.reset",
+            "action": "reveal"
+        },
+        {
+            "eventId": "commentListProvider.modelObjectsUpdated",
+            "cacheEventData": true,
+            "action": "updatFirstElementToShow"
+        },
+
+        {
+            "eventId": "commentPanel.contentLoaded",
+            "action": "reveal"
+        },
+        {
+            "eventId": "updateNavigationList",
+            "action": "reveal"
+        },
+        {
+            "eventId": "validateEvent",
+            "action": "reveal"
+        },
+        {
+            "eventId": "S2clSCAddCommentNew.newCommentsAdded",
+            "action": "commentListProvider"
+        },
+        {
+            "eventId": "S2clrateHelpfulComment.completed",
+            "action": "commentListProvider"
+        }
+
+    ],
+
+    "i18n":
+    {
+        "commentsLabel":
+        [
+            "SocialMessages"
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+<div exist-when="(ctx.selected.type === 'ReportDefinition' && ctx.selected.props.rd_source.dbValues[0] === 'Active Workspace') || (ctx.pselected.type === 'ReportDefinition' && ctx.pselected.props.rd_source.dbValues[0] === 'Active Workspace')">
+    <aw-column report-dynamic-size="data.urlFrameSize">
+        <aw-include name="showReportImage"></aw-include>
+    </aw-column>
+</div>
+<div exist-when="ctx.selected.type === 'ReportDefinition' && ctx.selected.props.rd_source.dbValues[0] === 'TcRA'">
+    <aw-column report-dynamic-size="data.urlFrameSize">
+        <aw-include name="TcRAReport"></aw-include>
+    </aw-column>
+</div>

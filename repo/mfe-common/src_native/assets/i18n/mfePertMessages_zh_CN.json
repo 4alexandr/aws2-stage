@@ -1,0 +1,6 @@
+{
+    "moveModeCommandTitle":"移动模式",
+    "moveModeCommandDescription":"启用此模式时，单击并拖动以移动框。",
+    "editModeCommandTitle":"流创建模式",
+    "editModeCommandDescription":"启用此模式时，单击并拖动以将工艺连接到后续工艺。"  
+}

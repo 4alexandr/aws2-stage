@@ -1,0 +1,6 @@
+{
+    "objectDoesNotExist": "Vyžadovaný objekt neexistuje.",
+    "confirmButton": "Ano, provést revizi",
+    "cancelButton": "Zrušit",
+    "reviseMessage": "K dokončení akce je nutné revidovat následující objekty:\n{0}\nChcete je revidovat nyní?"
+}

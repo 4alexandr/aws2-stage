@@ -1,0 +1,59 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-list.directive",
+        "js/visible-when.directive"
+    ],
+    "actions": {
+        "loadWorkPackageAndTimeUnitDataProvider": {
+            "actionType": "dataProvider",
+            "method": "timeUnitsListDataProvider"
+        },
+        "loadTimeUnits": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadObjectData",
+            "inputData": {
+                "data": "{{data.dataProviders}}"
+            },
+            "outputData": {
+                "timeUnitsResponseData": ""
+            },
+            "deps": "js/epTimeUnitsService"
+        },
+        "timeUnitChangesSuccess": {
+            "actionType": "JSFunction",
+            "method": "changeTimeUnit",
+            "inputData": {
+                "data": "{{data.dataProviders.timeUnitsListDataProvider.selectedObjects[0]}}"
+            },
+            "deps": "js/epTimeUnitsService"
+        },
+        "onTimeUnitsSelectionChange": {
+            "actionType": "batchJob",
+            "steps": [ {
+                "action": "timeUnitChangesSuccess"
+            } ]
+        }
+    },
+    "dataProviders": {
+        "timeUnitsListDataProvider": {
+            "action": "loadTimeUnits",
+            "response": "{{data.timeUnitsResponseData}}",
+            "totalFound": "{{data.timeUnitsResponseData.length}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "conditions": {
+        "showLoading": {
+            "expression": "!data.timeUnitsResponseData"
+        }
+    },
+    "onEvent": [ {
+            "eventId": "timeUnitsListDataProvider.selectionChangeEvent",
+            "action": "onTimeUnitsSelectionChange"
+        }
+    ],
+    "lifecycleHooks": {
+        "onInit": "loadWorkPackageAndTimeUnitDataProvider"
+    }
+}

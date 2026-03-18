@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "\"{0}\"および対応する属性マッピングは削除されます。",
+    "removeSingleElementConfirmation": "\"{0}\"は除去されます。",
+    "removeMultipleElementsConfirmation": "{0}選択は除去されました。",
+    "removeMeasurableAttributeMessage": "\"{0}\"は削除されます。",
+    "syncSingleConectionMessage": "\"{0}\"は同期中で、インタラクションは更新中です。 完了時に通知されます。",
+    "syncMultipleConectionsMessage": "\"{0}\"選択は同期中で、インタラクションは更新中です。 完了時に通知されます。",
+    "exportInterfaceTitle": "エクスポートインタフェース",
+    "aw_interfaceTableCommandbar": "インタフェーステーブルコマンドバー",
+    "aw_interactionTableCommandbar": "インタラクションテーブルコマンドバー",
+    "aw_attributesTableCommandbar": "属性テーブルコマンドバー",
+    "aw_interfacesViewer": "インタフェースビューア",
+    "table_cell_commands": "テーブルセルコマンド",
+    "Ase1ExportInterfaceElementDesc": "選択したインタフェース詳細をエクスポートします。"
+}

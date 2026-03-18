@@ -1,0 +1,12 @@
+{
+  "name": "viewmanagement",
+  "description": "",
+  "modules": [
+    "viewmanagement"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Evm1.Soa.ViewMgmtAW"
+  ]
+}

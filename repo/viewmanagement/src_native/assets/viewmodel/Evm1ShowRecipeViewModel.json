@@ -1,0 +1,35 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/visible-when.directive",
+        "js/aw-i18n.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive"
+    ],
+
+    "actions": {
+        "executeRBRecipe": {
+            "actionType": "JSFunction",
+            "method": "executeShowRecipe",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Evm1ShowRecipeService"
+        }
+    },
+
+    "data": {},
+
+    "dataProviders": {},
+
+    "i18n": {
+        "showRecipe": [
+            "RecipeCommandPanelsMessages"
+        ],
+        "execute": [
+            "RecipeCommandPanelsMessages"
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "antonovaws",
+  "description": "",
+  "modules": [
+    "antonovaws"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": []
+}

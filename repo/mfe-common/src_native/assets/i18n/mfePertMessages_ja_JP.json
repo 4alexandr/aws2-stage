@@ -1,0 +1,6 @@
+{
+    "moveModeCommandTitle":"移動モード",
+    "moveModeCommandDescription":"モードがオンの間に、クリックしてドラッグし、ボックスを移動します。",
+    "editModeCommandTitle":"フロー作成モード",
+    "editModeCommandDescription":"モードがオンの間に、クリックしてドラッグし、プロセスを後続プロセスに接続します。"  
+}

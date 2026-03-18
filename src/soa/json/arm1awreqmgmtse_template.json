@@ -1,0 +1,3101 @@
+{
+    "BusinessObjectInterface": [
+      {
+        "createRelease": "Awp04.0.0",
+        "description": "Interface Name for Business Object Arm1TraceLinkProvider",
+        "libraryName": "Arm1reqmgmtse",
+        "name": "Arm1TraceLinkProvider",
+        "namespace": "arm1awreqmgmtse",
+        "primaryInterface": "true",
+        "typeName": "Arm1TraceLinkProvider"
+      }
+    ],
+    "Date": "Fri Aug 30 09:58:35 AM 2019",
+    "Library": [
+      {
+        "DependentOn": [
+          {
+            "name": "Arm1reqmgmtse"
+          }
+        ],
+        "createRelease": "Awp04.0.0",
+        "description": "SOA services library for RM and SE module in active workspace.",
+        "isThirdParty": "false",
+        "name": "Arm1SoaAwReqMgmtSe",
+        "namespace": "Arm1::Soa::AwReqMgmtSe",
+        "serviceLibrary": "true"
+      },
+      {
+        "DependentOn": [
+          {
+            "name": "metaframework"
+          },
+          {
+            "name": "tccore"
+          },
+          {
+            "name": "tc"
+          },
+          {
+            "name": "cxpom"
+          },
+          {
+            "name": "awb0occmgmt"
+          },
+          {
+            "name": "awb0occmgmtbom"
+          },
+          {
+            "name": "secore"
+          },
+          {
+            "name": "bom"
+          }
+        ],
+        "createRelease": "Awp04.0.0",
+        "description": "Library for Requirements Management and Systems Engineering",
+        "isThirdParty": "false",
+        "name": "Arm1reqmgmtse",
+        "namespace": "",
+        "serviceLibrary": "false"
+      }
+    ],
+    "MetaEnum": [
+      {
+        "MetaEnumLiteral": [
+          {
+            "description": "",
+            "name": "REQ_HTML"
+          },
+          {
+            "description": "",
+            "name": "REQ_PLAINTEXT"
+          },
+          {
+            "description": "",
+            "name": "REQ_RICHTEXT"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "ContentTypes enumeration represents the valid content types of the FullText object. It is set as a part of structure SetContentInput.",
+        "isPublished": "false",
+        "name": "ContentTypes",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      }
+    ],
+    "Operation": [
+      {
+        "ParameterInfo": [
+          {
+            "description": "Input data to convert the SVG to PDF file.",
+            "parameterName": "inputData"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.3.0",
+        "dependencies": "",
+        "description": "This is generic Scalable Vector Graphics (SVG) conversion operation that converts the given SVG file into PDF file. SVG is an XML-based markup language for describing two dimensional based vector graphics. SVG is used to define graphics for the Web This operation takes SVG file as input and generates the output file in PDF format.",
+        "exceptionCondition": "",
+        "id": "convertSVG#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ConvertSVGInputData,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "convertSVG",
+        "opTemplate": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ConvertSVGResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::convertSVG#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ConvertSVGInputData,&",
+        "returnDescription": "The FMS file ticket of the generated file<br /><br />The following errors may be returned:<br /><br />375003&nbsp;&nbsp;&nbsp;&nbsp; The file ticket is invalid.<br />375004&nbsp;&nbsp;&nbsp;&nbsp; &quot;%1$&quot; is not supported for an output type",
+        "useCase": "1)Traceability matrix is rendered using SVG format in ActiveWorkspace secondary work area. After generating traceability matrix,  user clicks on  &ldquo;Print traceability matrix&rdquo; command to download to PDF file and print it."
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "Input for the operation to create/insert requirements(s) and/or update the contents of existing requirement occurrences.",
+            "parameterName": "createUpdateInput"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.2.0",
+        "dependencies": "",
+        "description": "This operation creates child occurrences of SpecElement type and its subtypes to a selected parent RequirementSpec or inserts new SpecElement occurrence(s) after a specified selected sibling occurrence or updates the contents of existing requirement occurrence(s). Creation, insertion or updation requires the parent RequirementSpec to be viewed and edited in CKEditor, which is visible when the parent occurrence is opened in documentation tab of ACE panel in edit mode. Updated or newly created requirement occurrences are saved in HTML format and are rendered in HTML viewer in the documentation tab.",
+        "exceptionCondition": "",
+        "id": "createOrUpdateContents#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::CreateOrUpdateInput,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "createOrUpdateContents",
+        "opTemplate": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::CreateOrUpdateResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::createOrUpdateContents#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::CreateOrUpdateInput,&",
+        "returnDescription": "If successful, ServiceData containing newly created objects is returned.<br />If an error occurs then ServiceData will contain partial error.<br />The following partial errors may be returned:<br />141023: The object has been modified. Please refresh the object before editing.<br />159008: The object can not be added as it is not a supported type.",
+        "useCase": "Use Case 1: Create a new Requirement occurrence as a child of an empty Requirement Specification parent<br />User loads the requirement specification in ACE (Active Content Experience) panel and then navigates to documentation tab. User clicks on &quot;Start Edit&quot; option present in the toolbar. This loads CKEditor (HTML editor) inside the documentation tab. The Requirement Specification name is rendered as a title in documentation tab. On clicking the &quot;new requirement&quot; button icon of the CKEditor toolbar, a widget appears in the text area, with regions for content, title and a requirement icon. Inside the &quot;Title&quot; content control, user types-in the name of new SpecElement occurrence. Clicking on &quot;Content&quot; with right mouse button, requirement types appear. User selects any of the available types by clicking on the type. Beneath the Content type, user writes in the content inside a content controller, which is the Body Text of the new requirement. After adding this new requirement, clicking on &quot;Save&quot; button in AWC toolbar, the new requirement is saved in HTML format.<br /><br />Use Case 2: Insert new requirement(s) after a specific requirement occurrence<br />User loads the requirement specification in ACE (Active Content Experience) panel and then navigates to documentation tab. User clicks on &quot;Start Edit&quot; option present in the toolbar. This loads CKEditor (HTML editor) inside the documentation tab. The Requirement Specification name is rendered as a title alongwith the children requirement inside the edit area of CKEditor. User selects the content of one of the intermediate requirements inside the editor. User then clicks on &quot;new requirement&quot; button icon of the CKEditor toolbar. A widget appears in the text area, with regions for content, title and icon beneath the previously selected requirement content. User adds multiple such requirements in this way. After inserting the new requirement(s), user clicks on &quot;Save&quot; button in AWC toolbar, resulting into saving of the new requirement(s) in HTML format.<br /><br />Use Case 3: Update content of existing requirement(s)<br />User loads the requirement specification in ACE (Active Content Experience) panel and then navigates to documentation tab. User clicks on &quot;Start Edit&quot; option present in the toolbar. This loads CKEditor (HTML editor) inside the documentation tab. The Requirement Specification name is rendered as a title alongwith the children requirement inside the edit area of CKEditor. User selects the content of one of the intermediate requirements inside the editor. User then edits the content by adding/deleting text in content controller. User can add multiple such requirements in this way. After updating the content(s) the requirement(s), user clicks on &quot;Save&quot; button in AWC toolbar, resulting into updating of the body text for this requirement(s) in HTML format.<br /><br />Use Case 4: Insert new requirement occurrence(s) and edit contents of existing occurrence(s)<br />User performs operations mentioned in use case #2 and use case #3 in a single edit session followed by a subsequent save. All the newly added requirement occurrences(s) are saved and the edited contents of existing requirement(s) are updated in HTML format."
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "Input for the operation to create or update the contents of derived <b>Requirement</b> objects.",
+            "parameterName": "input"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.2.0",
+        "dependencies": "",
+        "description": "This operation retrieves the contents of the <b>FullText</b> dataset for input <b>Requirement Revision</b> objects and sets the same contents on the derived <b>Requirement Revision</b> objects. As part of this operation, all the text and images are copied to the derived <b>Requirement Revision</b> objects. This operation is done in background for performance reasons.",
+        "exceptionCondition": "",
+        "id": "setContentsAsync#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::ContentInput,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "setContentsAsync",
+        "opTemplate": "void#Arm1::Soa::AwReqMgmtSe::SpecNavigation::setContentsAsync#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::ContentInput,&",
+        "returnDescription": "This is an asynchronous method, there is no return value.",
+        "useCase": "<b>Set FullText dataset contents on derived Requirement</b>:<br />User loads the requirement specification which has been derived previously in ACE (Active Content Experience) panel. User selects a <b>Requirement</b> and clicks on documentation tab and edits the contents of <b>Requirement</b> in CKEditor and clicks on save. The contents of master <b>Requirement</b> are saved. The contents of derived <b>Requirement</b> are saved in the background as part of this operation. User opens the derived <b>Requirement</b> and views the updated contents. If the derived <b>Requirement</b> is also loaded when master <b>Requirement</b> is loaded in ACE, then user has to refresh the documentation tab to see the updated contents."
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "The data required to retrieve Requirement specification information of the selected Requirement Specification in Teamcenter.",
+            "parameterName": "input"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.3.0",
+        "dependencies": "",
+        "description": "This operation exports the objects participating in the selected Requirement Specification, their properties, and the linked objects in a JSON file or REQIF file. Linked objects are the objects that have FND_TraceLink relation in Teamcenter. This exported information from the JSON file is useful for generating a preview when user chooses to &quot;import as child&quot;. Requirement specifications in REQIF format (Requirements Interchange format) can be imported back in other requirement management tools.",
+        "exceptionCondition": "",
+        "id": "exportSpecifications#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationInfo,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "exportSpecifications",
+        "opTemplate": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::exportSpecifications#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationInfo,&",
+        "returnDescription": "The specification elements, relations and their property information with structure hierarchy.<br /><br />The following partial errors may be returned:<br />375001 - An internal error has occurred in the Requirements Management module.<br />375005 - The selected input object is not an business object of type Awb0Element.<br />375006 - The given mode is either empty or is invalid.",
+        "useCase": "<ul><ul><li type=\"disc\">User loads the requirement specification in ACE (Active Content Experience) panel. The ACE panel is used for smart navigation of occurrences in a structure. User selects the command to export the specification to ReqIf format. This will populate all the property metadata information in the export panel so that user can do the type and property mapping. User clicks on the export button to export the specification to ReqIF format.</li><li type=\"disc\">User loads the requirement specification in ACE (Active Content Experience) panel and selects the command to import specification. This will load the import panel. User browses the word document to import and selects &ldquo;import as child&rdquo;.</li></ul></ul>"
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "The data required to retrieve Requirement specification information of the selected Requirement Specification in Teamcenter.",
+            "parameterName": "input"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.3.0",
+        "dependencies": "",
+        "description": "This is an asynchronous operation that exports the objects participating in the selected Requirement Specification, their properties, and the linked objects in a REQIF file. Linked objects are the objects that have FND_TraceLink relation in Teamcenter. Requirement specifications in REQIF format (Requirements Interchange format) can be imported back in other requirement management tools.",
+        "exceptionCondition": "",
+        "id": "exportSpecificationsAsync#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationInfo,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "exportSpecificationsAsync",
+        "opTemplate": "void#Arm1::Soa::AwReqMgmtSe::SpecNavigation::exportSpecificationsAsync#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationInfo,&",
+        "returnDescription": "This is an asynchronous method, there is no return value.",
+        "useCase": "<ul><ul><li type=\"disc\">User loads the Requirement Specification in ACE (Active Content Experience) panel and selects the command to export the specification to REQIF format. User will select Type and the properties to be exported in the REQIF file. User chooses to execute the operation in background and clicks on the export button. User will be notified once the export is successful.</li></ul></ul>"
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "The data required to retrieve type and property information of the selected <b>Requirement</b> Specification in Teamcenter.",
+            "parameterName": "input"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.3.0",
+        "dependencies": "",
+        "description": "This operation retrieves the metadata of types of objects participating in the <b>Requirement</b> specification and the metadata of its properties. It also returns the metadata of the linked objects. Linked objects are the objects that have <b>FND_TraceLink</b> relation in Teamcenter. This metadata information is useful for the client to decide the types and properties to be used for import or export purpose.",
+        "exceptionCondition": "",
+        "id": "getSpecificationMetadata#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SpecificationInfo,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "getSpecificationMetadata",
+        "opTemplate": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SpecResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::getSpecificationMetadata#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SpecificationInfo,&",
+        "returnDescription": "The response structure is a container to hold the types and property related information.<br />The following partial errors may be returned<br />375001 - An internal error has occurred in the Requirements Management module.<br />159005 - The selected input object is not an business object of  type Awb0Element.<br />375006 - The input type of object is invalid.<br />375007 - The input property is invalid.",
+        "useCase": "User loads the requirement specification in ACE (Active Content Experience) panel. The ACE panel is used for smart navigation of occurrences in a structure.<br />User selects the command to export the specification to ReqIf format. This will populate all the property metadata information in the export panel so that user can do the type and property mapping. User clicks on the export button to export the specification to ReqIF format.<br /><br />User logs into Active Workspace and clicks on the import to ReqIF command and chooses a ReqIF file for import. This will populate all the property metadata information in the import panel so that user can do the type and property mapping. User clicks on the import button to import the ReqIF file and create a specification in Teamcenter."
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "The product and the configuration rules to use to configure the product and get back a page of occurrences. A GetSpecificationInput object can be passed in as input in order to get the contents of occurrences.",
+            "parameterName": "inputData"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.2.0",
+        "dependencies": "",
+        "description": "This operation retrieves a page of occurrences in a product and returns the contents of a page of occurrences in the form of a HTML buffer which can be rendered in a HTML viewer. The input and output also contains a cursor that defines the place to start the next page location so that the contents of next page of occurrences can be retrieved.",
+        "exceptionCondition": "",
+        "id": "getSpecificationSegment#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::GetSpecSegmentInput,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "getSpecificationSegment",
+        "opTemplate": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::GetSpecResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::getSpecificationSegment#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::GetSpecSegmentInput,&",
+        "returnDescription": "The contents of a page of configured occurrences in the product configured by the specified configuration rules in the input. The response structure contains the string buffer of the HTML buffer that has the stitched contents of a page of occurrences. The following partial errors may be returned: <br />159001: An internal error has occurred in the Requirements Management module. <br />159002 : The selected input object is not an BusinessObject of type Awb0Element. <br />126002 : No Adapter could be found to handle the Product. The system has not been adequately enhanced or customised to deal with the data given to it as input.",
+        "useCase": ""
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "Structure represents the parameters required as input to display traceability matrix between the source and target structures.",
+            "parameterName": "inputData"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.1.0",
+        "dependencies": "",
+        "description": "This operation retrieves all the data required to display the traceability matrix between the source and target structures. The tracelinks between ItemRevision to ItemRevision, ItemRevision to occurrence and occurrence to occurrence are shown in the traceability matrix. It can retrieve tracelinks for either one level or can traverse through all the children. This operation will also get information about defining and complying objects of the tracelinks.",
+        "exceptionCondition": "",
+        "id": "getTraceabilityMatrix#const,Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkInput,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "getTraceabilityMatrix",
+        "opTemplate": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkOutput#Arm1::Soa::AwReqMgmtSe::SpecNavigation::getTraceabilityMatrix#const,Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkInput,&",
+        "returnDescription": "Returns all the information required to be displayed on the traceability matrix. It contains the objects to be displayed as rows and columns, number of tracelinks on the child objects and information of the tracelinks between the displayed row and column objects. This structure will also have all the required information of the linked objects such as object name, object type, id and clear text property.<br /><br />159001-An internal error has occurred in the Requirements Management module.<br />159002-The selected input object is not a business object of type Awb0Element.<br />126002-No Adapter could be found to handle the Product. The system has not been adequately enhanced or customized to deal with the data given to it as input.",
+        "useCase": "1) User clicks on the &ldquo;traceability matrix&rdquo; button to view the traceability matrix within the structure. Direct tracelinks between the children of the selected structure will be displayed.<br />2) User clicks on the &ldquo;traceability matrix&rdquo; button to view the traceability matrix between two different structures.<br />3) User can either choose to view only the direct tracelinks or can view tracelinks for all the child objects of the selected structures."
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "Input for the operation to get the traceability matrix.",
+            "parameterName": "inputData"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.1.0",
+        "dependencies": "",
+        "description": "This operation retrieves all the data required to display the traceability matrix between the source and target structures. The tracelinks between ItemRevision to ItemRevision, ItemRevision to occurrence and occurrence to occurrence are shown in the traceability matrix. It can retrieve tracelinks for either one level or can traverse through all the children. This operation will also get information about defining and complying objects of the tracelinks. Run in background will always be true for this operation.",
+        "exceptionCondition": "",
+        "id": "getTraceabilityMatrixAsync#const,Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkInput,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "getTraceabilityMatrixAsync",
+        "opTemplate": "void#Arm1::Soa::AwReqMgmtSe::SpecNavigation::getTraceabilityMatrixAsync#const,Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkInput,&",
+        "returnDescription": "This is an asynchronous method, there is no return value.",
+        "useCase": ""
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "The Input to move the occurrences within the specification.",
+            "parameterName": "input"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.0.0",
+        "dependencies": "",
+        "description": "This operation moves the occurrences in the specification using &ldquo;newParaNumber&rdquo;.<br />This operation rearranges one or many objects within a specification. <br />For example - If a Requirement has Paragraph Number as &ldquo;1.1&rdquo; and user edits to &ldquo;3.2&rdquo;, then the Requirement will be moved to the new position &ldquo;3.2&rdquo; in the Specification. <br />If user does not provide &ldquo;newParaNumber&rdquo; then it uses input operation argument as below. <br />Following are currently supported values for input operation argument.<br />1-Move up - Moves the selected occurrence up within the same parent hierarchy.<br />2-Move down- Moves the selected occurrence down within the same parent hierarchy.<br />3-Promote- Moves the selected occurrence to its grand parent within the same specification.<br />4-Demote- Moves the selected occurrence as a child of the immediate sibling above the selected occurrence.",
+        "exceptionCondition": "",
+        "id": "moveOccurrences#const,std::vector<Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::MoveOccInfo>,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "moveOccurrences",
+        "opTemplate": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::MoveOccResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::moveOccurrences#const,std::vector<Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::MoveOccInfo>,&",
+        "returnDescription": "The updated occurrence after the movement of occurrence within the specification.<br />The following partial errors may be returned :<br />126002-No Adapter could be found to handle the product.<br />126204-The creation of a BOM Line from cached information has failed. <br />266001-The Move up action failed because the selected Requirement does not have a sibling above its current position. 266002-The Move down action failed because the selected Requirement does not have a sibling below its current position.<br />266003-The promote action failed because the selected Requirement does not have a grandparent. <br />266004-The demote action failed because the selected Requirement does not have a sibling above its current position. 266005-Edit Paragraph Number failed because the number entered is invalid. <br />266022-Edit Paragraph Number failed because input object is invalid.",
+        "useCase": "User loads the specification in ACE (Active Content Experience) panel. User Clicks on reorder button. The Paragraph Number column become editable. User updates new number for one or many occurrences in the Contents panel and clicks on save button. This actions will rearranges the occurrence with in the specification.<br /><br />User loads a structure in ACE (Active Content Experience) panel. The ACE panel is used for smart navigation of occurrences in a structure.<br />User selects an occurrence in the structure and clicks on the MoveUp button in the command bar. This action will move the selected occurrence up within the same parent hierarchy <br /><br />User loads a structure in ACE (Active Content Experience) panel. The ACE panel is used for smart navigation of occurrences in a structure.<br />User selects an occurrence in the structure and clicks on the MoveDown button in the command bar. This action will move the selected occurrence down within the same parent hierarchy.<br /><br />User loads a structure in ACE (Active Content Experience) panel. The ACE panel is used for smart navigation of occurrences in a structure.<br />User selects an occurrence in the structure and clicks on the Promote button in the command bar. This action will move the selected occurrence to its grand parent within the structure.<br /><br />User loads a structure in ACE (Active Content Experience) panel. The ACE panel is used for smart navigation of occurrences in a structure.<br />User selects an occurrence in the structure and clicks on the Demote button in the command bar. This action will move the selected occurrence as a child of the immediate sibling above the selected occurrence."
+      },
+      {
+        "ParameterInfo": [
+          {
+            "description": "Input to save and refresh the traceability matrix.",
+            "parameterName": "inputData"
+          }
+        ],
+        "canOverride": "false",
+        "component": "Arm1AwReqMgmtSe",
+        "createRelease": "Awp04.3.0",
+        "dependencies": "",
+        "description": "Traceability matrix shows the tracelinks between source and target structure in matrix format.<br />This operation saves or refreshes the generated traceability matrix as a Teamcenter object in target depending on the action done by user. If user opens saved matrix then on saves again, this operation will fetch all the newly created tracelinks from database and updates the same object.",
+        "exceptionCondition": "",
+        "id": "saveTraceabilityMatrix#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SaveTraceLinkMatrixInput,&",
+        "interface": "Arm1::Soa::AwReqMgmtSe::SpecNavigation",
+        "isPostActionAllowed": "false",
+        "isPreActionAllowed": "false",
+        "isPreConditionAllowed": "false",
+        "isPublished": "false",
+        "name": "saveTraceabilityMatrix",
+        "opTemplate": "Teamcenter::Soa::Server::ServiceData#Arm1::Soa::AwReqMgmtSe::SpecNavigation::saveTraceabilityMatrix#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SaveTraceLinkMatrixInput,&",
+        "returnDescription": "If successful, ServiceData containing updated objects is returned.<br />If an error occurs then ServiceData will contain partial error.<br />The following partial errors may be returned:<br />375001:An internal error has occurred in the Requirements Management module.<br />375002:The traceability matrix object could not be saved because it is invalid.<br />375003:The source or the target object in the matrix input is invalid.<br />375004:The target folder is locked.",
+        "useCase": "1)Once user generates the traceability matrix for required structure(s), then user will be able to save the  matrix for offline view using &ldquo;Save Tracebility Matrix&rdquo; command.<br />2)User can open offline saved matrix and do the modification and save it again. In this case it will fetch the all newly created tracelinks form database and update the same object."
+      }
+    ],
+    "OperationTemplate": [
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ConvertSVGInputData",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "Input data to convert the SVG to PDF file.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "inputData"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ConvertSVGResponse",
+            "qualifier": ""
+          }
+        ],
+        "const": "false",
+        "createRelease": "Awp04.3.0",
+        "description": "This is generic Scalable Vector Graphics (SVG) conversion operation that converts the given SVG file into PDF file. SVG is an XML-based markup language for describing two dimensional based vector graphics. SVG is used to define graphics for the Web This operation takes SVG file as input and generates the output file in PDF format.",
+        "id": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ConvertSVGResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::convertSVG#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ConvertSVGInputData,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::convertSVG",
+        "returnConst": "false",
+        "returnDescription": "The FMS file ticket of the generated file<br /><br />The following errors may be returned:<br /><br />375003&nbsp;&nbsp;&nbsp;&nbsp; The file ticket is invalid.<br />375004&nbsp;&nbsp;&nbsp;&nbsp; &quot;%1$&quot; is not supported for an output type",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::CreateOrUpdateInput",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "Input for the operation to create/insert requirements(s) and/or update the contents of existing requirement occurrences.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "createUpdateInput"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::CreateOrUpdateResponse",
+            "qualifier": ""
+          }
+        ],
+        "accessControl": "false",
+        "const": "false",
+        "createRelease": "Awp04.2.0",
+        "description": "This operation creates child occurrences of SpecElement type and its subtypes to a selected parent RequirementSpec or inserts new SpecElement occurrence(s) after a specified selected sibling occurrence or updates the contents of existing requirement occurrence(s). Creation, insertion or updation requires the parent RequirementSpec to be viewed and edited in CKEditor, which is visible when the parent occurrence is opened in documentation tab of ACE panel in edit mode. Updated or newly created requirement occurrences are saved in HTML format and are rendered in HTML viewer in the documentation tab.",
+        "id": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::CreateOrUpdateResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::createOrUpdateContents#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::CreateOrUpdateInput,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::createOrUpdateContents",
+        "returnConst": "false",
+        "returnDescription": "If successful, ServiceData containing newly created objects is returned.<br />If an error occurs then ServiceData will contain partial error.<br />The following partial errors may be returned:<br />141023: The object has been modified. Please refresh the object before editing.<br />159008: The object can not be added as it is not a supported type.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::ContentInput",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "Input for the operation to create or update the contents of derived <b>Requirement</b> objects.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "input"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "void",
+            "qualifier": ""
+          }
+        ],
+        "accessControl": "false",
+        "const": "false",
+        "createRelease": "Awp04.2.0",
+        "description": "This operation retrieves the contents of the <b>FullText</b> dataset for input <b>Requirement Revision</b> objects and sets the same contents on the derived <b>Requirement Revision</b> objects. As part of this operation, all the text and images are copied to the derived <b>Requirement Revision</b> objects. This operation is done in background for performance reasons.",
+        "id": "void#Arm1::Soa::AwReqMgmtSe::SpecNavigation::setContentsAsync#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::ContentInput,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::setContentsAsync",
+        "returnConst": "false",
+        "returnDescription": "This is an asynchronous method, there is no return value.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationInfo",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "The data required to retrieve Requirement specification information of the selected Requirement Specification in Teamcenter.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "input"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationResponse",
+            "qualifier": ""
+          }
+        ],
+        "const": "false",
+        "createRelease": "Awp04.3.0",
+        "description": "This operation exports the objects participating in the selected Requirement Specification, their properties, and the linked objects in a JSON file or REQIF file. Linked objects are the objects that have FND_TraceLink relation in Teamcenter. This exported information from the JSON file is useful for generating a preview when user chooses to &quot;import as child&quot;. Requirement specifications in REQIF format (Requirements Interchange format) can be imported back in other requirement management tools.",
+        "id": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::exportSpecifications#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationInfo,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::exportSpecifications",
+        "returnConst": "false",
+        "returnDescription": "The specification elements, relations and their property information with structure hierarchy.<br /><br />The following partial errors may be returned:<br />375001 - An internal error has occurred in the Requirements Management module.<br />375005 - The selected input object is not an business object of type Awb0Element.<br />375006 - The given mode is either empty or is invalid.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationInfo",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "The data required to retrieve Requirement specification information of the selected Requirement Specification in Teamcenter.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "input"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "void",
+            "qualifier": ""
+          }
+        ],
+        "const": "false",
+        "createRelease": "Awp04.3.0",
+        "description": "This is an asynchronous operation that exports the objects participating in the selected Requirement Specification, their properties, and the linked objects in a REQIF file. Linked objects are the objects that have FND_TraceLink relation in Teamcenter. Requirement specifications in REQIF format (Requirements Interchange format) can be imported back in other requirement management tools.",
+        "id": "void#Arm1::Soa::AwReqMgmtSe::SpecNavigation::exportSpecificationsAsync#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::ExportSpecificationInfo,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::exportSpecificationsAsync",
+        "returnConst": "false",
+        "returnDescription": "This is an asynchronous method, there is no return value.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SpecificationInfo",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "The data required to retrieve type and property information of the selected <b>Requirement</b> Specification in Teamcenter.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "input"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SpecResponse",
+            "qualifier": ""
+          }
+        ],
+        "const": "false",
+        "createRelease": "Awp04.3.0",
+        "description": "This operation retrieves the metadata of types of objects participating in the <b>Requirement</b> specification and the metadata of its properties. It also returns the metadata of the linked objects. Linked objects are the objects that have <b>FND_TraceLink</b> relation in Teamcenter. This metadata information is useful for the client to decide the types and properties to be used for import or export purpose.",
+        "id": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SpecResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::getSpecificationMetadata#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SpecificationInfo,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::getSpecificationMetadata",
+        "returnConst": "false",
+        "returnDescription": "The response structure is a container to hold the types and property related information.<br />The following partial errors may be returned<br />375001 - An internal error has occurred in the Requirements Management module.<br />159005 - The selected input object is not an business object of  type Awb0Element.<br />375006 - The input type of object is invalid.<br />375007 - The input property is invalid.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::GetSpecSegmentInput",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "The product and the configuration rules to use to configure the product and get back a page of occurrences. A GetSpecificationInput object can be passed in as input in order to get the contents of occurrences.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "inputData"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::GetSpecResponse",
+            "qualifier": ""
+          }
+        ],
+        "accessControl": "false",
+        "const": "false",
+        "createRelease": "Awp04.2.0",
+        "description": "This operation retrieves a page of occurrences in a product and returns the contents of a page of occurrences in the form of a HTML buffer which can be rendered in a HTML viewer. The input and output also contains a cursor that defines the place to start the next page location so that the contents of next page of occurrences can be retrieved.",
+        "id": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::GetSpecResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::getSpecificationSegment#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::GetSpecSegmentInput,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::getSpecificationSegment",
+        "returnConst": "false",
+        "returnDescription": "The contents of a page of configured occurrences in the product configured by the specified configuration rules in the input. The response structure contains the string buffer of the HTML buffer that has the stitched contents of a page of occurrences. The following partial errors may be returned: <br />159001: An internal error has occurred in the Requirements Management module. <br />159002 : The selected input object is not an BusinessObject of type Awb0Element. <br />126002 : No Adapter could be found to handle the Product. The system has not been adequately enhanced or customised to deal with the data given to it as input.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkInput",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "Structure represents the parameters required as input to display traceability matrix between the source and target structures.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "inputData"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkOutput",
+            "qualifier": ""
+          }
+        ],
+        "accessControl": "false",
+        "const": "false",
+        "createRelease": "Awp04.1.0",
+        "description": "This operation retrieves all the data required to display the traceability matrix between the source and target structures. The tracelinks between ItemRevision to ItemRevision, ItemRevision to occurrence and occurrence to occurrence are shown in the traceability matrix. It can retrieve tracelinks for either one level or can traverse through all the children. This operation will also get information about defining and complying objects of the tracelinks.",
+        "id": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkOutput#Arm1::Soa::AwReqMgmtSe::SpecNavigation::getTraceabilityMatrix#const,Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkInput,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::getTraceabilityMatrix",
+        "returnConst": "false",
+        "returnDescription": "Returns all the information required to be displayed on the traceability matrix. It contains the objects to be displayed as rows and columns, number of tracelinks on the child objects and information of the tracelinks between the displayed row and column objects. This structure will also have all the required information of the linked objects such as object name, object type, id and clear text property.<br /><br />159001-An internal error has occurred in the Requirements Management module.<br />159002-The selected input object is not a business object of type Awb0Element.<br />126002-No Adapter could be found to handle the Product. The system has not been adequately enhanced or customized to deal with the data given to it as input.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkInput",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "Input for the operation to get the traceability matrix.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "inputData"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "void",
+            "qualifier": ""
+          }
+        ],
+        "accessControl": "false",
+        "const": "false",
+        "createRelease": "Awp04.1.0",
+        "description": "This operation retrieves all the data required to display the traceability matrix between the source and target structures. The tracelinks between ItemRevision to ItemRevision, ItemRevision to occurrence and occurrence to occurrence are shown in the traceability matrix. It can retrieve tracelinks for either one level or can traverse through all the children. This operation will also get information about defining and complying objects of the tracelinks. Run in background will always be true for this operation.",
+        "id": "void#Arm1::Soa::AwReqMgmtSe::SpecNavigation::getTraceabilityMatrixAsync#const,Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkInput,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::getTraceabilityMatrixAsync",
+        "returnConst": "false",
+        "returnDescription": "This is an asynchronous method, there is no return value.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::MoveOccInfo",
+                    "qualifier": ""
+                  }
+                ],
+                "dataType": "std::vector",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "The Input to move the occurrences within the specification.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "input"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::MoveOccResponse",
+            "qualifier": ""
+          }
+        ],
+        "accessControl": "false",
+        "const": "false",
+        "createRelease": "Awp04.0.0",
+        "description": "This operation moves the occurrences in the specification using &ldquo;newParaNumber&rdquo;.<br />This operation rearranges one or many objects within a specification. <br />For example - If a Requirement has Paragraph Number as &ldquo;1.1&rdquo; and user edits to &ldquo;3.2&rdquo;, then the Requirement will be moved to the new position &ldquo;3.2&rdquo; in the Specification. <br />If user does not provide &ldquo;newParaNumber&rdquo; then it uses input operation argument as below. <br />Following are currently supported values for input operation argument.<br />1-Move up - Moves the selected occurrence up within the same parent hierarchy.<br />2-Move down- Moves the selected occurrence down within the same parent hierarchy.<br />3-Promote- Moves the selected occurrence to its grand parent within the same specification.<br />4-Demote- Moves the selected occurrence as a child of the immediate sibling above the selected occurrence.",
+        "id": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::MoveOccResponse#Arm1::Soa::AwReqMgmtSe::SpecNavigation::moveOccurrences#const,std::vector<Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::MoveOccInfo>,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::moveOccurrences",
+        "returnConst": "false",
+        "returnDescription": "The updated occurrence after the movement of occurrence within the specification.<br />The following partial errors may be returned :<br />126002-No Adapter could be found to handle the product.<br />126204-The creation of a BOM Line from cached information has failed. <br />266001-The Move up action failed because the selected Requirement does not have a sibling above its current position. 266002-The Move down action failed because the selected Requirement does not have a sibling below its current position.<br />266003-The promote action failed because the selected Requirement does not have a grandparent. <br />266004-The demote action failed because the selected Requirement does not have a sibling above its current position. 266005-Edit Paragraph Number failed because the number entered is invalid. <br />266022-Edit Paragraph Number failed because input object is invalid.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      },
+      {
+        "OperationParameter": [
+          {
+            "OperationParameterDataTypeRef": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SaveTraceLinkMatrixInput",
+                "qualifier": "&"
+              }
+            ],
+            "const": "true",
+            "defaultValue": "",
+            "description": "Input to save and refresh the traceability matrix.",
+            "freeOutputMemory": "false",
+            "inputOutput": "Input",
+            "name": "inputData"
+          }
+        ],
+        "OperationReturnDataTypeRef": [
+          {
+            "dataType": "Teamcenter::Soa::Server::ServiceData",
+            "qualifier": ""
+          }
+        ],
+        "accessControl": "false",
+        "const": "false",
+        "createRelease": "Awp04.3.0",
+        "description": "Traceability matrix shows the tracelinks between source and target structure in matrix format.<br />This operation saves or refreshes the generated traceability matrix as a Teamcenter object in target depending on the action done by user. If user opens saved matrix then on saves again, this operation will fetch all the newly created tracelinks from database and updates the same object.",
+        "id": "Teamcenter::Soa::Server::ServiceData#Arm1::Soa::AwReqMgmtSe::SpecNavigation::saveTraceabilityMatrix#const,Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::SaveTraceLinkMatrixInput,&",
+        "name": "Arm1::Soa::AwReqMgmtSe::SpecNavigation::saveTraceabilityMatrix",
+        "returnConst": "false",
+        "returnDescription": "If successful, ServiceData containing updated objects is returned.<br />If an error occurs then ServiceData will contain partial error.<br />The following partial errors may be returned:<br />375001:An internal error has occurred in the Requirements Management module.<br />375002:The traceability matrix object could not be saved because it is invalid.<br />375003:The source or the target object in the matrix input is invalid.<br />375004:The target folder is locked.",
+        "returnFreeMemory": "false",
+        "static": "false"
+      }
+    ],
+    "ServiceInterface": [
+      {
+        "createRelease": "Awp04.0.0",
+        "dependencies": "",
+        "description": "Provides operations for navigating and rearranging a requirement specification. It also provides operations to retrieve all the data required to display the traceability matrix between the source and target structures.",
+        "libraryName": "Arm1SoaAwReqMgmtSe",
+        "name": "SpecNavigation",
+        "namespace": "Arm1::Soa::AwReqMgmtSe",
+        "serviceLibraryRef": ""
+      }
+    ],
+    "Struct": [
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0ProductContextInfo"
+              }
+            ],
+            "description": "The product context associated with the occurrence.",
+            "name": "contextInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Teamcenter::Awb0Element"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "List of parent occurrences for which children are desired.",
+            "name": "parentOccurrences"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::InputContext"
+              }
+            ],
+            "description": "The context information including filter, configuration, attached data criteria and page size. The page size controls the number of child occurrences to be returned.",
+            "name": "inputCtxt"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true, only the next level child occurrences are returned. Otherwise child occurrences from multiple level are returned depending on page size as given in input context.",
+            "name": "firstLevelOnly"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The starting occurrence tag from which we want to get the contents of a Page of Occurrences.",
+            "name": "startOcc"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The ending occurrence tag upto which we want to get the contents of a Page of Occurrences.",
+            "name": "endOcc"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "Positive integer mentioning the the number of occurrences to be returned.",
+            "name": "pageSize"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The cusor has the information about loading the next set of child occurrences for given parents. It also has Awb0ProductContextInfo and input context which captures the product and configuration information.",
+        "isPublished": "false",
+        "name": "ChildOccNextCursor",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The type of operation to perform. Currently this is unused and the value will be empty.",
+            "name": "operationType"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Teamcenter::BusinessObject"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of input objects of type <b>Requirement Revision</b> to query the contents of <b>FullText</b> dataset and copy the contents to derived <b>FullText</b>.",
+            "name": "objects"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "Represents the input data containing a list of input objects whose contents are to be copied to the derived <b>Requirement</b> contents.",
+        "isPublished": "false",
+        "name": "ContentInput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::ChildOccNextCursor"
+              }
+            ],
+            "description": "The list of parent occurrences, Awb0ProductContextInfo, page size, page indexes ( start,end).",
+            "name": "cursor"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true, the next page of occurrences returned else the previous page of occurrences will be returned.",
+            "name": "goForward"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The information required to get the next or previous set of child occurrences of an given parent occurrence.",
+        "isPublished": "false",
+        "name": "GetNextChildOccData",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::SpecSegmentInfo"
+              }
+            ],
+            "description": "It contains the HTML buffer retrieved for the occurrences and the cursor data.",
+            "name": "output"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Soa::Server::ServiceData"
+              }
+            ],
+            "description": "The Service data.",
+            "name": "serviceData"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The HTML contents of resulting occurrences found in the configured product, filtered and sorted by the criteria requested in the input to the service. This data structure also returns a cursor which can be sent back to the same SOA service operation call to in order to rerieve more pages of results.",
+        "isPublished": "false",
+        "name": "GetSpecResponse",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Teamcenter::BusinessObject"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "Array of Awb0Element for which HTML contents are to be retrieved.",
+            "name": "inputObjects"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::InputContext"
+              }
+            ],
+            "description": "Specifies the input information including configuration rules, page size of number of occurrences to fetch, filtering and sorting criteria as well as criteria to fetch atachments.",
+            "name": "inputCtxt"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::GetNextChildOccData"
+              }
+            ],
+            "description": "The information required to get the next or previous set of child occurrences of an given parent occurrence.",
+            "name": "nextOccData"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "Options used to process data",
+            "name": "options"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Unique ID token.This is optional parameter.",
+            "name": "clientId"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The information required to get the contents of child occurrences, input context, flag to indicate one level or all levels and a flag to indicate if specification is in edit mode.",
+        "isPublished": "false",
+        "name": "GetSpecSegmentInput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::OccConfigInfo"
+              }
+            ],
+            "description": "A list of configuration rules to apply to the product before returning the resulting occurrences.",
+            "name": "configuration"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "The number of occurrences to be  returned in response of this operation. This determines the occurrence page size.",
+            "name": "pageSize"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The StructureContext object containing configuration information used for occurrence configuration. If structureContextObject  object is given in input the product and configuration context are optional.",
+            "name": "structureContextObject"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0ProductContextInfo"
+              }
+            ],
+            "description": "The product along with the configuration\ninformation.",
+            "name": "productContext"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::RequestPreference"
+              }
+            ],
+            "description": "A map of key and value pairs \n(string/string) used for occurrences expansion filters   or criteria or options for sorting.",
+            "name": "requestPref"
+          }
+        ],
+        "createRelease": "Awp04.0.0",
+        "description": "InputContext has context information for occurrence configuration. This structure contains criteria to configure product and retrieve associated data.  This includes occurrence filters, configuration info which includes revision and variant configurations product context info, which is passed as input from the user if exist. Optionally user can pass structure context input, which encapsulate product and configuration information. If structure context  object given as input then the product and configuration information from occurrence configuration is ignored.",
+        "isPublished": "false",
+        "name": "InputContext",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The TraceLink",
+            "name": "tracelink"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The primary object associated to Tracelink.",
+            "name": "primary"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The secondary object associated to Tracelink.",
+            "name": "secondary"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The subtype of TraceLink.",
+            "name": "tracelinkType"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::PropInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "The property name and values needed to display the information about the tracelinks.",
+            "name": "tracelinkPropInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::PropInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "The property name and values needed to display the information about the primary object.",
+            "name": "primaryObjectPropInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::PropInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "The property name and values needed to display the information about the secondary object.",
+            "name": "secObjectPropInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If True, the Tracelink is betwen the children of first level elements in the structure.",
+            "name": "isIndirectLink"
+          }
+        ],
+        "createRelease": "Awp04.1.0",
+        "description": "This structure will contain the information about the tracelink object and its related objects.",
+        "isPublished": "false",
+        "name": "LinkInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The base object for markups.",
+            "name": "baseObject"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The version of the markups on the client before the user's modification, set by the server, opaque to the client. For load action, the string is empty. For save action, retrieve the version string from load action response object.",
+            "name": "version"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::MarkupProperties"
+              }
+            ],
+            "description": "properties The property map(string, strings). Contain the key/value pairs. Possible values are:<br /><br />Key: &ldquo;action&rdquo;. Value: &ldquo;load&rdquo; or &ldquo;save&rdquo; <br />Key: &ldquo;message&rdquo;. Value: &ldquo;all_users&rdquo; or &ldquo;single_user&rdquo;<br />&quot;all_users&quot; - save or load the markups for all users.<br />&quot; single_user&quot; - save or load the markups for the current user.",
+            "name": "properties"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "A user supplied JSON markup. Empty string is allowed. Valid only for &ldquo;save&rdquo; action.",
+            "name": "markups"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The information required to create, update, delete mark ups that contains the version, base object, markups meta data to save.",
+        "isPublished": "false",
+        "name": "MarkUpInput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The resulting base object after processing markups.",
+            "name": "baseObject"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The version of the markups set by the server, opaque to the client.",
+            "name": "version"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::MarkupProperties"
+              }
+            ],
+            "description": "A map (string/string) of properties. Values can be:<br /><br />Key: &ldquo;message&rdquo;. Value: &ldquo;author&rdquo;,&ldquo;reviewer&rdquo; or &ldquo;editor&rdquo;",
+            "name": "properties"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The user supplied JSON markup data that was updated or loaded.",
+            "name": "markups"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "This MarkupOutput structure is for the output of all  Markups processing operation on a Specification.",
+        "isPublished": "false",
+        "name": "MarkupOutput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The primary object of TraceLink.",
+            "name": "rowObject"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The secondary object of TraceLink.",
+            "name": "colObject"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "The total number of tracelinks on the child objects.",
+            "name": "numOfLinksOnChildren"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::LinkInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "The information about defining tracelink objects.",
+            "name": "definingLinksInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::LinkInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "The information about complying tracelink objects.",
+            "name": "complyingLinksInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Indicates tracelinks between parent objects. The valid values are &quot;Complying&quot; ,&quot;Defining&quot;or &quot;Both&quot;.",
+            "name": "tracelinkDirection"
+          }
+        ],
+        "createRelease": "Awp04.1.0",
+        "description": "This structure will contain all the required information of the tracelinks and linked objects required to be displayed on the matrix.",
+        "isPublished": "false",
+        "name": "MatrixCellInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::ReorderObjectsData"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of ReorderObjectsData required to move the occurrences <br />in the specification.",
+            "name": "objectsData"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::InputContext"
+              }
+            ],
+            "description": "The product along with context information and configuration.",
+            "name": "inputContext"
+          }
+        ],
+        "createRelease": "Awp04.0.0",
+        "description": "The MoveOccInfo represents the data required to move the selected occurrence in the structure.",
+        "isPublished": "false",
+        "name": "MoveOccInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::NewElementInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of parent and it associated child occurrence.",
+            "name": "newElementInfos"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Soa::Server::ServiceData"
+              }
+            ],
+            "description": "The Service Data through which the errors are communicated to the client.",
+            "name": "serviceData"
+          }
+        ],
+        "createRelease": "Awp04.0.0",
+        "description": "MoveOccResponse structure contains the list of parent and child occurrence after the moveOccurrences operation within the structure.",
+        "isPublished": "false",
+        "name": "MoveOccResponse",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The FMS file ticket containing the SVG string",
+            "name": "svgFileTicket"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "The height of the matrix in file. If value of the parameter is either zero or negative then default value 500 will be used as height.",
+            "name": "height"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "The width of the matrix in file.If the value of the parameter is either zero or negative then default value 500 will be used as width",
+            "name": "width"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The type of the output format.<br />Currently only &ldquo;PDF&rdquo; is supported.",
+            "name": "outputType"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "Additional options to be sent to the service operation. This is kept for future use. Currently it is empty",
+            "name": "options"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "Structure represents the parameters required as input to convert SVG string to the PDF file.",
+        "isPublished": "false",
+        "name": "ConvertSVGInputData",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0Element"
+              }
+            ],
+            "description": "Parent occurrence under which the child occurrence is added.",
+            "name": "parentElement"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0Element"
+              }
+            ],
+            "description": "The child occurrence.",
+            "name": "childElement"
+          }
+        ],
+        "createRelease": "Awp04.0.0",
+        "description": "NewElementInfo structure contains the parent and newly added child occurrence after the moveSelectedOccurrences operation within the structure.",
+        "isPublished": "false",
+        "name": "NewElementInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0Element"
+              }
+            ],
+            "description": "The object for which contents are rendered in the viewer.",
+            "name": "occurrence"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The persistent object, in most cases it is underlying ItemRevision.",
+            "name": "persistentObject"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "Indicates if it is a parent occurrence.",
+            "name": "isParent"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The display name of the object.",
+            "name": "displayName"
+          }
+        ],
+        "createRelease": "Awp04.1.0",
+        "description": "This structure will contain information of the objects to be displayed as rows and columns in the traceability matrix. It will have information such as display name of the object. It will also indicate if the object is a parent object.",
+        "isPublished": "false",
+        "name": "ObjectInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::RevisionRule"
+              }
+            ],
+            "description": "The RevisionRule object to be used for occurrence\nconfiguration.",
+            "name": "revisionRule"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::DateTime"
+              }
+            ],
+            "description": "The effectivity date to use in RevisionRule\nconfiguration.",
+            "name": "effectivityDate"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true, use the now aspect for effectivityDate\nConfiguration.",
+            "name": "now"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The end Item to use for unit effectivity in RevisionRule.",
+            "name": "endItem"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "The unit number to be used for unit effectivity\nconfiguration in  RevisionRule.",
+            "name": "unitNo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::VariantRule"
+              }
+            ],
+            "description": "Persisted VariantRule to be used for configuration",
+            "name": "variantRule"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "This indicates the configuration object such as \nConfigurationContext.  The other configuration information given above is ignored if this is specified.",
+            "name": "configurationObject"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "This indicates the product ( ItemRevision ), associated \nwith the saved VariantRule.",
+            "name": "svrOwningProduct"
+          }
+        ],
+        "createRelease": "Awp04.0.0",
+        "description": "The configuration information to be used for occurrence object configuration.This refers to RevisionRule, Effectivity and VariantRule.",
+        "isPublished": "false",
+        "name": "OccConfigInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The name of property.",
+            "name": "name"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::vector<std::string>"
+              }
+            ],
+            "description": "The property values.",
+            "name": "propValues"
+          }
+        ],
+        "createRelease": "Awp04.1.0",
+        "description": "This structure will contain the property related information.",
+        "isPublished": "false",
+        "name": "PropInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The real name of the property.",
+            "name": "propName"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The display name of the property.",
+            "name": "dispPropName"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true, it indicates that the property is an array property.",
+            "name": "isArray"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true, it indicates that the property is a required property.",
+            "name": "isRequired"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true, it indicates that the property is an editable property.",
+            "name": "isEditable"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true, it indicates that the property has a list of values defined in BMIDE.",
+            "name": "hasLOV"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of values defined in BMIDE",
+            "name": "lovValues"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of display values defined in BMIDE.",
+            "name": "lovDispValues"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Valid values for the type of property are:<br />Integer, bool, float, double, string and LongString.",
+            "name": "propType"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "Minimum value for the property as defined in BMIDE.",
+            "name": "minValue"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "Maximum value for the property as defined in BMIDE.",
+            "name": "maxValue"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "The property metadata related information to be queried for the selected types. Each PropInfo2 contains metadata for a single property in Teamcenter. A list of PropInfo2 will be collected and mapped against each type. The type of objects are the types participating in the specification.",
+        "isPublished": "false",
+        "name": "PropInfo2",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The occurrence to be moved within the specification.",
+            "name": "objectToBeRearranged"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The new position of the occurrence with in the specification. This is an optional parameter if operation is specified.",
+            "name": "newParaNumber"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "The integer value will decide the operation performed. Supported values are:<br />1 - Move up, <br />2 - Move down, <br />3 - Promote, <br />4 &ndash; Demote<br />This is an optional parameter if newParaNumber is specified.",
+            "name": "operation"
+          }
+        ],
+        "createRelease": "Awp04.0.0",
+        "description": "The ReorderObjectsData represents the data required to move the occurrence in the specification.",
+        "isPublished": "false",
+        "name": "ReorderObjectsData",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The SpecElement business object",
+            "name": "obj"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The type of the SpecElement business object.",
+            "name": "objectType"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The SpecElement object name.",
+            "name": "name"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The SpecElement object id.",
+            "name": "id"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The SpecElement clear body text.",
+            "name": "clearText"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The object type hierarchy string.",
+            "name": "typeHierarchy"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The tracelink object.",
+            "name": "tracelinkObj"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The Requirement object related information.",
+        "isPublished": "false",
+        "name": "RequirementInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::TraceLinkInput"
+              }
+            ],
+            "description": "The tracelink matrix input which needs to be saved as an object in target folder.",
+            "name": "tracelinkInput"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The type of matrix to generate.<br />Supported values are:<br />&ldquo;Quick Matrix&rdquo;: This type of matrix shows the direct tracelinks created between source and target objects.<br />&ldquo;Full-rollup Matrix&rdquo;: This type of matrix shows the indirect tracelinks. i.e. tracelinks created at children level.<br />&ldquo;Dynamic Matrix&rdquo;: This type of matrix gets all the tracelinks created for source objects form database and add all of them to target objects.",
+            "name": "matrixType"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The <b>Folder</b> to which matrix object needs to be saved. If not specified then traceability object will be added to <i>Newstuff</i> folder.",
+            "name": "targetFolder"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The operation that needs to be performed.<br />Supported values are:<br />&ldquo;save&rdquo; or &ldquo;refresh",
+            "name": "operation"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "Structure represents the parameters required as input to save and refresh the displayed traceability matrix between the source and target structures",
+        "isPublished": "false",
+        "name": "SaveTraceLinkMatrixInput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "SpecElementRevision or FullText object",
+            "name": "objectToProcess"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Value of the new body text on the FullText object.",
+            "name": "bodyText"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::DateTime"
+              }
+            ],
+            "description": "Last saved date of Object.",
+            "name": "lastSavedDate"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::ContentTypes"
+              }
+            ],
+            "description": "The content type on the FullText object. Supported values are: REQ_HTML, REQ_PLAINTEXT and REQ_RICHTEXT.",
+            "name": "contentType"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "Currently unused. The Behavior will be added in future releases.<br />This is the placeholder for implementing optimistic/pessimistic locking provided by framework.",
+            "name": "isPessimisticLock"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The information required to set the content of an occurrence, including the body text contents, the last saved date to prevent overwrite, content type and flag indicating whether object is currently locked.",
+        "isPublished": "false",
+        "name": "SetContentInput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::TypePropInfo2"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of type and property related information.",
+            "name": "typePropInfos"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::TypePropInfo2"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of type and property related information from ReqIf file.",
+            "name": "reqIFTypePropInfos"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Soa::Server::ServiceData"
+              }
+            ],
+            "description": "Service data.",
+            "name": "serviceData"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "The response structure contains the type and property related metadata information.",
+        "isPublished": "false",
+        "name": "SpecResponse",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The FMS file ticket for the generated file.",
+            "name": "generatedFileTicket"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Soa::Server::ServiceData"
+              }
+            ],
+            "description": "The service data object contining errors, if any",
+            "name": "data"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "Structure contains the FMS file ticket of the generated file.",
+        "isPublished": "false",
+        "name": "ConvertSVGResponse",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0Element"
+              }
+            ],
+            "description": "The Awb0Element for which the contents are rendered in the Viewer.",
+            "name": "occurrence"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The object of type <b>SpecElemRevision</b>.",
+            "name": "specElemRevision"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::FullText"
+              }
+            ],
+            "description": "The <b>FullText</b> dataset.",
+            "name": "fulltext"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The HTML contents of the occurrence that can be rendered in a HTML viewer.",
+            "name": "contents"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::DateTime"
+              }
+            ],
+            "description": "The last saved date for the SpecElemRevision.",
+            "name": "lastSavedDate"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::TraceLinkInfo"
+              }
+            ],
+            "description": "The Trace Link information.",
+            "name": "tracelinkInfo"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The html contents associated to each occurrence.",
+        "isPublished": "false",
+        "name": "SpecSegmentContents",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0ProductContextInfo"
+              }
+            ],
+            "description": "The product and configuration information.",
+            "name": "contextInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true, the childOccurrences is considered as the first page of occurrences.This value is used to identify the start location of occurrence page for two way scrolling functionality.",
+            "name": "startReached"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true, the the childOccurrences is considered as the last page of occurrences.Thi value is used to identify the end location of occurrence page for two way scrolling functionality.",
+            "name": "endReached"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::ChildOccNextCursor"
+              }
+            ],
+            "description": "The cursor to load the next page of occurrences.",
+            "name": "cursor"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::SpecSegmentContents"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "The HTML contents of the SpecElementRevision that can be rendered in a HTMLviewer.",
+            "name": "specContents"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The file ticket of the HTML.",
+            "name": "fileTicket"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "The stitched contents of the HTML document when the contents of entire specification is viewed in Active Workspace.",
+            "name": "htmlContents"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::AllowedChildTypesMap"
+              }
+            ],
+            "description": "A map (string/DisplayableTypes) of SpecElement type and its allowed child types and display names.",
+            "name": "allowedChildTypes"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Unique ID token.This is optional parameter.",
+            "name": "clientId"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::MarkupOutput"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "This list is to hold the markup information for each requirement under the spcification.",
+            "name": "markUpData"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The list of child occurrences for a given parent. It also has the information about the paging position of the given list of occurrences. The paging position has values startReached, endReached to identify the position and supports two way scrolling.",
+        "isPublished": "false",
+        "name": "SpecSegmentInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Teamcenter::BusinessObject"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of <b>Awb0Element</b> for which property metadata is retrieved.",
+            "name": "selectedObjects"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The file ticket of the ReqIF file which contains the information about the types and properties.",
+            "name": "fileTicket"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::InputContext"
+              }
+            ],
+            "description": "Specifies the input information including product context, configuration rules and page size of number of occurrences to fetch.",
+            "name": "inputCtxt"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::TypesPropsMap"
+              }
+            ],
+            "description": "A Map &lt;string, list of string&gt; of object type name as key and property names as value.",
+            "name": "typePropMap"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "This is currently empty and will be used in future.",
+            "name": "options"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "The information required to retrieve type and property information from Teamcenter. If selected object types and properties are provided then it retrieves the type and property information for the selected types else it retrieves the type and property information for all the <b>Requirement</b>, <b>RequirementSpec</b> and <b>FND_TraceLink</b> types.",
+        "isPublished": "false",
+        "name": "SpecificationInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "The total number of trace links, it is the number of trace links with the requirement object acting as defining object plus number of trace links the requirement object acting as complying object.",
+            "name": "numOfLinks"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::RequirementInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of trace links with the requirement object acting as defining object.  The defining object specifies a condition that a product or a component must fulfill.",
+            "name": "definingLinksInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::RequirementInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of trace links with the requirement object acting as complying object.  The complying object partially or completely fulfills a condition specified by the defining object.",
+            "name": "complyingLinksInfo"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The Trace Link related information",
+        "isPublished": "false",
+        "name": "TraceLinkInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Teamcenter::BusinessObject"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "Source objects for which the traceability matrix is to be displayed.",
+            "name": "sourceObjects"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Teamcenter::BusinessObject"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "Target objects for which the traceability matrix is to be displayed.",
+            "name": "targetObjects"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "Indicates if tracelinks to be fetched for one level or traverse through all the children.",
+            "name": "showChildrenTracelinks"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "Indicates if the operation is to be executed in asynchronous mode.",
+            "name": "isRunInBackground"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::vector<std::string>"
+              }
+            ],
+            "description": "Additional options to be sent to the SOA. This is kept for future use. Currently it is empty.",
+            "name": "options"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Specifies type of tracelinks to be fetched. For example ALL, FND_TraceLink, or its sub types.",
+            "name": "relationType"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Specifies if tracelinks to be fetched for the parent or child of the current object. For example TRAVERSE_PARENT, TRAVERSE_CHILD.",
+            "name": "actionPerformed"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0ProductContextInfo"
+              }
+            ],
+            "description": "The product and configuration information of the source objects.",
+            "name": "srcContextInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0ProductContextInfo"
+              }
+            ],
+            "description": "The product and configuration information of the target objects.",
+            "name": "targetContextInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The Traceability Matrix object if created in the earlier SOA operation call.",
+            "name": "traceabilityMatrixObject"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "Number of child objects to be fetched for the matrix.",
+            "name": "itemsPerPage"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "Required for pagination. Indicates which set of child objects are to be fetched for displaying the row objects in the matrix.",
+            "name": "rowPageTonavigate"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "Required for pagination. Indicates which set of child objects are to be fetched for displaying the column objects in the matrix.",
+            "name": "colPageToNavigate"
+          }
+        ],
+        "createRelease": "Awp04.1.0",
+        "description": "Structure represents the parameters required as input to display traceability matrix between the source and target structures.",
+        "isPublished": "false",
+        "name": "TraceLinkInput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::ObjectInfo"
+              }
+            ],
+            "description": "Information required to populate the source object.",
+            "name": "srcObjectInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::ObjectInfo"
+              }
+            ],
+            "description": "Information required to populate the target object.",
+            "name": "targetObjectInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "The total number of objects in columns after first level expansion of target object.",
+            "name": "totalColSize"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::MatrixCellInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "tracelink information required to populate the traceability matrix.",
+            "name": "matrixCellInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Soa::Server::ServiceData"
+              }
+            ],
+            "description": "The Service Data through which the errors are communicated to the client.",
+            "name": "serviceData"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::ObjectInfo"
+              }
+            ],
+            "description": "Information required to populate the parent of the source object.",
+            "name": "srcParentObjectInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::ObjectInfo"
+              }
+            ],
+            "description": "Information required to populate the parent of the target object.",
+            "name": "targetParentObjectInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0ProductContextInfo"
+              }
+            ],
+            "description": "The product and configuration information of the source objects.",
+            "name": "srcContextInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0ProductContextInfo"
+              }
+            ],
+            "description": "The product and configuration information of the target objects.",
+            "name": "targetContextInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "The Traceability Matrix object created to render the matrix data.",
+            "name": "traceabilityMatrixObject"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::ObjectInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "list of objects that will be displayed as rows in the matrix.",
+            "name": "rowObjects"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation::ObjectInfo"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "list of objects that will be displayed as columns in the matrix.",
+            "name": "colObjects"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "The total number of objects in rows after first level expansion of source object.",
+            "name": "totalRowSize"
+          }
+        ],
+        "createRelease": "Awp04.1.0",
+        "description": "Structure represents the output of the operation. This will contain all the information required to be displayed on the traceability matrix. It contains the objects to be displayed as rows and columns, number of tracelinks on the child objects and information of the tracelinks between the displayed row and column objects. This structure will also have all the required information of the linked objects such as object name, object type, id and clear text property.",
+        "isPublished": "false",
+        "name": "TraceLinkOutput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Valid values are: &quot;Specification&quot;, &quot;SpecElement&quot; or &quot;Relation&quot;.<br />&quot;Specification&quot; Object of type <b>RequirementSpec</b><br />&quot;SpecElement&rdquo; Object of type <b>SpecElement</b>.<br />&quot;Relation&quot; Objects of type <b>FND_TraceLink</b>.",
+            "name": "typeInfo"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Valid subtypes are: &quot;SpecElement&quot;, &quot;RequirementSpec&quot; or &quot;FND_TraceLink&quot;",
+            "name": "objectType"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Display name of the object type.",
+            "name": "dispTypeName"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Display name of the revision object type.",
+            "name": "objectTypeRev"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::PropInfo2"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of property related information.",
+            "name": "propInfos"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "The information required to hold the types and property related information.",
+        "isPublished": "false",
+        "name": "TypePropInfo2",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Name of the occurrence to be created.",
+            "name": "name"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Type of the occurrence. Valid types are sub-types of SpecElement.",
+            "name": "type"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Value of body Text on the new occurrence.",
+            "name": "contents"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0Element"
+              }
+            ],
+            "description": "Sibling element of the new occurrence being added. For the first new SpecElement being added to a requirement specification having no children, the sibling element will not exist.",
+            "name": "siblingElement"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Client sibling ID.",
+            "name": "siblingID"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Awb0Element"
+              }
+            ],
+            "description": "Parent element is the top RequirementSpec in ACE to which the new occurrences are being added as children.",
+            "name": "parentElement"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Client parent ID.",
+            "name": "parentID"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Client current element ID.",
+            "name": "elementID"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "int"
+              }
+            ],
+            "description": "This is index of newly added requirement with respect to Sibling Element in case of multiple insertions of new requirements after a specific sibling requirement.",
+            "name": "position"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The information required to create a new SpecElement occurrence. It includes name of the occurrence, its type, body text content, the sibling element,parent element and position of insertion with respect to sibing element.",
+        "isPublished": "false",
+        "name": "CreateInput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::InputContext"
+              }
+            ],
+            "description": "Specifies the input information including configuration rules, page size of number of occurrences to fetch, filtering and sorting criteria as well as criteria to fetch attachments.",
+            "name": "inputCtxt"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::SetContentInput"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "Represents the input parameter required for updating the content of an edited SpecElement.",
+            "name": "setContentInput"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::CreateInput"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "Represents the input element for creation of new SpecElement.",
+            "name": "createInput"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::MarkUpInput"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "This structure have the markup data for each requirement in the spcification.",
+            "name": "markUpInput"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::BusinessObject"
+              }
+            ],
+            "description": "Specifies the selected element in ACE Tree, in case of no selection it is topline element.",
+            "name": "selectedElement"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "Represents the input data required to create/insert requirements(s) and/or update the contents of existing requirement occurrences.",
+        "isPublished": "false",
+        "name": "CreateOrUpdateInput",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Soa::Server::ServiceData"
+              }
+            ],
+            "description": "The Service data.",
+            "name": "serviceData"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::CreatedObjects"
+              }
+            ],
+            "description": "Map of created objects.",
+            "name": "createdObjs"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "Array of updated objects.",
+            "name": "updatedObjs"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "This data structure returns created and updated objects.",
+        "isPublished": "false",
+        "name": "CreateOrUpdateResponse",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The real type name for an element type.",
+            "name": "realTypeName"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "The display type name for an element type.",
+            "name": "displayTypeName"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "This structure contains the real and display name for the object.",
+        "isPublished": "false",
+        "name": "DisplayableTypes",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Teamcenter::BusinessObject"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of Awb0Element for which property metadata is retrieved.",
+            "name": "selectedObjects"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation::TypePropInfo2"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of TypePropInfo2 structure.",
+            "name": "typePropsData"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation::InputContext"
+              }
+            ],
+            "description": "Specifies the input information including product context, configuration rules and page size of number of occurrences to fetch.",
+            "name": "inputCtxt"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "description": "Mode can have two values &quot;REQIF&quot; or &quot;JSON&quot;.",
+            "name": "mode"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "bool"
+              }
+            ],
+            "description": "If true then the operation will run in background.",
+            "name": "isRunInBackground"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "This is currently empty and will be used in future.",
+            "name": "options"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "The information required to export specificationwith type and property information from Teamcenter.",
+        "isPublished": "false",
+        "name": "ExportSpecificationInfo",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "StructElement": [
+          {
+            "DataTypeRefParam": [
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "description": "A list of file ticket of JSON / REQIF file based on the mode sent in the options. This file will contain the information of the exported specification.",
+            "name": "fileTickets"
+          },
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "Teamcenter::Soa::Server::ServiceData"
+              }
+            ],
+            "description": "The ServiceData.",
+            "name": "serviceData"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "The response structure contains file tickets which has information about selected specifications , their spec elements, relations and properties with structure hierarchy in REQIF / JSON file.",
+        "isPublished": "false",
+        "name": "ExportSpecificationResponse",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      }
+    ],
+    "TcVersion": "tc12000.0.0",
+    "Typedef": [
+      {
+        "DataTypeRefParam": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              },
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation::DisplayableTypes"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "dataType": "std::map"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "The map of SpecElment type and its allow child types and display names.",
+        "isPublished": "false",
+        "name": "AllowedChildTypesMap",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "DataTypeRefParam": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              },
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "dataType": "std::map"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "This is map for proxy object id created in client and real object uid.",
+        "isPublished": "false",
+        "name": "CreatedObjects",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "DataTypeRefParam": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              },
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "dataType": "std::map"
+          }
+        ],
+        "createRelease": "Awp04.2.0",
+        "description": "Contains the key/value pairs for client/server communication.",
+        "isPublished": "false",
+        "name": "MarkupProperties",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_06::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "DataTypeRefParam": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              },
+              {
+                "dataType": "std::string"
+              }
+            ],
+            "dataType": "std::map"
+          }
+        ],
+        "createRelease": "Awp04.0.0",
+        "description": "The map which can have a key and value pair, used for occurrences expansion filters or criteria or options for sorting.",
+        "isPublished": "false",
+        "name": "RequestPreference",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2018_05::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      },
+      {
+        "DataTypeRefParam": [
+          {
+            "DataTypeRefParam": [
+              {
+                "dataType": "std::string"
+              },
+              {
+                "DataTypeRefParam": [
+                  {
+                    "dataType": "std::string"
+                  }
+                ],
+                "dataType": "std::vector"
+              }
+            ],
+            "dataType": "std::map"
+          }
+        ],
+        "createRelease": "Awp04.3.0",
+        "description": "TypesPropsMap (string, list of strings) to hold the object type name as key and list of property names as value.",
+        "isPublished": "false",
+        "name": "TypesPropsMap",
+        "namespace": "Arm1::Soa::Internal::AwReqMgmtSe::_2019_12::SpecNavigation",
+        "scope": "Arm1::Soa::AwReqMgmtSe::SpecNavigation"
+      }
+    ],
+    "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+  }

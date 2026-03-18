@@ -1,0 +1,171 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive", 
+        "js/exist-when.directive",
+        "js/aw-flex-column.directive"
+    ],
+    "data": {
+        "buttonName":"{{i18n.addProduct}}",
+        "caption":"{{i18n.addProduct}}",
+        "placeHolderForSearch":"{{i18n.productSearchPlaceHolder}}"
+    },
+    "onEvent": [ 
+        {
+            "eventId": "ep.manageTileClicked",
+            "cacheEventData": true,
+            "condition": "viewId === 'ebomTile'",
+            "action": "displayAddEbomObjectPopup"
+        },
+        {
+            "eventId": "mfe.scopeObjectChanged",
+            "cacheEventData": true,
+            "action": "loadObject"
+        },
+        {
+            "eventId": "ep.manageTileClicked",
+            "cacheEventData": true,
+            "condition": "viewId === 'mbomTile'",
+            "action": "evaluateCmdMenu"
+        },
+        {
+            "eventId": "ep.manageWPCmdEvent",
+            "cacheEventData": true,
+            "condition": "command === 'useExistingMbom'",
+            "action": "displayAddEbomObjectPopup"
+        },
+        {
+            "eventId": "ep.manageWPCmdEvent",
+            "cacheEventData": true,
+            "condition": "command === 'createNewMbom'",
+            "action": "displayCreateProductPopup"
+        }
+    ],
+    "actions": {
+        "displayCreateProductPopup": {
+            "actionType": "JSFunctionAsync",
+            "method": "showCreateProductPopup",
+            "inputData": {
+              "data": {
+                "declView": "epCreateObject",
+                "locals": {
+                  "caption": "{{i18n.createProductHeaderTitle}}"
+                },
+                "options": {
+                  "height": "500",
+                  "width": "450"
+                },
+                "subPanelContext": {
+                  "objectBaseType": "Item",
+                  "subTypeExclusionList": [],
+                  "hideCreateAndAddMoreButton":true,
+                  "workPackage":"{{ctx.epPageContext.collaborationContext.uid}}"
+               }
+              }
+            },
+            "outputData": {
+                "popupId": ""
+            },
+            "deps": "js/createAndAddProductToWPUtils"
+          },
+        "setManageTileInfo": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "data": "{{data}}",
+                "key":"tileInfo",
+                "value": "{{data.eventData}}"
+            },
+            "deps": "js/mfeViewModelUtils"
+        },
+        "displayAddEbomObjectPopup": {
+            "actionType": "JSFunction",
+            "method": "show",
+            "inputData": {
+                "data": {
+                    "declView": "epAddObject",
+                    "locals": {
+                        "caption": "{{data.caption}}"
+                    },
+                    "options": {
+                        "height": "560",
+                        "width": "680"
+                    },
+                    "subPanelContext": {
+                        "boTypeName": "",
+                        "exclusionBOTypeNames": [],
+                        "objectTypesToSearch": [ "ItemRevision", "Design Revision", "Part Revision" ],
+                        "buttonName": "{{data.buttonName}}",
+                        "placeHolderForSearch": "{{data.placeHolderForSearch}}"
+                    }
+                }
+            },
+            "deps": "js/popupService"
+        },
+        "loadObject": {
+            "actionType": "JSFunction",
+            "method": "loadObject",
+            "inputData": {
+                "loadType": "CC"
+            },
+            "deps": "js/manageWorkPackageService"
+        },
+        "evaluateCmdMenu": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "openCmdMenu",
+                    "condition": "conditions.isOpenCmdMenu"
+                },
+                {
+                    "action": "updateCmdMenuVisibility"
+                }
+            ]
+        },
+        "openCmdMenu": {
+            "actionType": "JSFunction",
+            "method": "show",
+            "inputData": {
+                "data": {
+                    "declView": "epManageWPCommandMenu",
+                    "options": {
+                        "clickOutsideToClose": true,
+                        "reference": "{{data.eventData.clickEvent.currentTarget}}",
+                        "placement": [
+                            "bottom"
+                        ]
+                    }
+                }
+            },
+            "outputData": {
+                "popupId": "id"
+            },
+            "deps": "js/popupService"
+        },
+        "updateCmdMenuVisibility": {
+            "actionType": "JSFunction",
+            "method": "updateCmdMenuVisibility",
+            "deps": "js/manageWorkPackageService"
+        }
+    },
+    "conditions": {
+        "isOpenCmdMenu": {
+            "expression": "ctx.epPageContext.EbomStructureContext === undefined || ctx.epPageContext.EbomStructureContext"
+        }
+    },
+    "lifecycleHooks": {
+    },
+    "i18n": {
+        "addProduct": [
+            "AdminMessages"
+        ],
+        "productSearchPlaceHolder": [
+            "AdminMessages"
+        ],
+        "createProductHeaderTitle": [
+            "AdminMessages"
+        ]
+    }
+}
+
+    

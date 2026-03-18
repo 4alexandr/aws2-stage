@@ -1,0 +1,13 @@
+<aw-column>
+    <aw-tab-set tabs="data.tabModels"></aw-tab-set>
+    <div ng-switch="data.selectedTab.name">
+        <div class="aw-cls-breadCrumb">
+            <aw-navigate-breadcrumb provider="data.provider" breadcrumb-config="data.breadCrumbConfig.classBreadcrumbConfig"></aw-navigate-breadcrumb>
+        </div>
+        <div class="aw-cls-fullViewFlexContainer">
+            <div class="aw-cls-fullViewVncFlexBox aw-xrt-columnContentPanel" exist-when="ctx.isVncVisible==true">
+                <aw-command-sub-panel panel-id="Awp0ClassificationSearchVncs" visible-when="ctx.isVncVisible==true"></aw-command-sub-panel>
+            </div>
+        </div>
+    </div>
+</aw-column>

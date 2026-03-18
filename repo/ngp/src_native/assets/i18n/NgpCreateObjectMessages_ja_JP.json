@@ -1,0 +1,13 @@
+{
+    "cancel":"キャンセル",
+    "creataAndAddMore":"作成してさらに追加",
+    "create":"作成",
+    "select":"選択",
+    "selectType":"タイプの選択",
+    "creatingObjectMessage": "作成中",
+    "next" : "次へ",
+    "previous" : "前へ",
+    "createBuildElement":"構築要素を作成",
+    "createActivity":"アクティビティを作成"
+
+}

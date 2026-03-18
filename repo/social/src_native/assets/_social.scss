@@ -1,0 +1,453 @@
+// Copyright 2018 Siemens Product Lifecycle Management Software Inc.
+.aw-social-editor {
+    padding: 0;
+    margin-top: 5px;
+}
+
+.aw-social-editor .cke_chrome {
+    border: 0 none;
+}
+
+.aw-social-feedButton {
+    bottom: 0;
+    left: 0;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAA6ElEQVR42rVVbQ3EIAxFwkmYhEk4CUg4CZOACwJ/sIKUSZiDO0raXMfHWBa6pMnSvj7aVz6UGnze+9U5p5MZNA0+9eQLIbyQZE/27RjEDGBvkVpr3wPCaoFhBwnwKZIi+NJiC1t4QVzkWPBdaUnAI9k26g4wiCXytaUptX+UAJQnDw/+GwUR+X7SHJOo2q1RGY+bTuV1nFUbOy1fEiOGNN8rbXsDuEPMB5+lxM2fHTR9rika3wGRx0hzyGUYfaqmU+HIDMv7+ySJZaQQG57YdhM9IGJHmiXPvYREr82itbkXvejTNOsx/QENjcWxm65saAAAAABJRU5ErkJggg==");
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+    border: 0;
+    cursor: pointer;
+    margin-left: 5px;
+    display: inline;
+}
+
+.aw-social-cellBadgeCmdIcon {
+    height: 25px;
+    width: 25px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+}
+
+.aw-social-ratingTileImage {
+    background-width: 16px;
+    background-height: 16px;
+    width: 16px;
+    height: 16px;
+    float: left;
+    padding-top: 6px;
+    padding-left: 2px;
+}
+
+.aw-social-removeButton {
+    float: right;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAxElEQVR42r1V2w3DIAzMCB2hozAKo2SE/vH4gRE6ChulnATShaStqeogWeLhHOezcZbl6uGcu3vvHyGEUm0brOAMPlOgDXCTGHy/AqaUbicMc4zRVnYGhjn2xgjw7VtgBq0Az0+h4gw+DC4JP0tlY/YHWXA7M51NNDPfRclspzM9ENuxJm3zr+VJkhTe7DLYxsDU9Sox+DY5bMfhEusymHbRKq1j+BKZC4DVpFBNnlq5qT0QtSet2oRU26Zao1f/Nf1jvACMAEM1RB8LRgAAAABJRU5ErkJggg==");
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+    border: 0;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-top: 1px;
+    display: inline;
+}
+
+.aw-social-preferenceLabel {
+    vertical-align: middle;
+    padding-left: 5px;
+    display: inline;
+}
+
+.aw-social-preferenceCheckBoxIndented {
+    vertical-align: middle;
+    padding-left: 25px;
+    display: inline;
+}
+
+.aw-social-saveButton {
+    margin-left: 5px;
+}
+
+.aw-social-group {
+    min-height: 350px;
+}
+
+.aw-social-ratingContentPanel {
+    padding-bottom: 5px;
+}
+
+.aw-social-commentArea {
+    width: 100%;
+}
+
+.aw-social-commentArea iframe body {
+    margin: 0;
+}
+
+.aw-social-groupWidgetStack {
+    max-width: 320px;
+    margin-left: 5px;
+}
+
+.aw-social-groupWidgetStackText {
+    cursor: pointer;
+}
+
+.aw-social-groupWidgetStackAnchor {
+    cursor: pointer;
+    padding-right: 5px;
+    border: 0;
+}
+
+.aw-social-groupWidgetModelListWidth {
+    width: 400px;
+}
+
+.aw-social-thumbnailLeft {
+    padding: 5px;
+    height: auto;
+}
+
+.aw-social-answer-thumbnail {
+    width: 44px;
+}
+
+.aw-social-column {
+    min-width: inherit;
+    /* child should take parent's min-width */
+    max-width: 625px;
+    width: 100%;
+}
+
+.aw-social-answer .aw-social-answer-thumbnail {
+    width: 46px;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.aw-social-addCommentaryBase {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+aw-social-ratings-overview {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.aw-social-starPanel {
+    max-width: 150px;
+}
+
+.aw-social-starPanel .aw-base-iconButton {
+    padding: 0.1rem;
+}
+
+.aw-social-summaryStarPanel {
+    float: left;
+    padding-top: 0;
+}
+
+.aw-social-ratingSummaryBody {
+    width: 300px;
+    float: none;
+    overflow: hidden;
+}
+
+.aw-social-link:HOVER {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.aw-social-ratinglabel {
+    padding-top: 2px;
+    padding-bottom: 5px;
+    padding-right: 0;
+    width: 150px;
+}
+
+.aw-social-averageRatingLabel {
+
+    width: 150px;
+    min-height: 30px;
+}
+
+.aw-social-averageRatingBlock {
+    width: 150px;
+    float: left;
+}
+
+.aw-social-averageRatingBlock .aw-widgets-propertyLabelTop {
+    min-height: 30px;
+    padding: 6px 7px 0 0;
+}
+
+.aw-social-averageRatingBlock .aw-widgets-propertyNonEditValue {
+    min-height: 30px;
+    padding: 6px 7px 0 0;
+}
+
+.aw-social-starBlock {
+    float: left;
+    width: 145px;
+}
+
+.aw-social-star {
+    padding-right: 1px;
+    padding-left: 0;
+    border: 0;
+}
+
+.aw-social-backButton>.aw-base-icon,
+.aw-social-star-scale>.aw-base-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.aw-social-starRating {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.aw-social-summaryStarPanel .aw-widgets-propertyLabelTopValueContainer {
+    margin-bottom: 0;
+}
+
+.aw-social-progressBar {
+    height: 12px;
+    margin-left: 2px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    width: 145px;
+    display: block;
+}
+
+.aw-social-list {
+    padding-bottom: 8px;
+}
+
+.aw-social-listItem .aw-widgets-cellListItem {
+    display: inherit;
+    margin: 0;
+    padding: 0;
+    max-width: 300px;
+}
+
+.aw-social-cell {
+    min-width: 290px;
+    display: inline;
+}
+
+.aw-social-cellColumn1 {
+    display: table-cell;
+    position: relative;
+    width: 52px;
+    height: 52px;
+}
+
+.aw-social-cellColumn1 .aw-base-icon {
+    width: 50px;
+    min-width: 10px;
+    background-size: 50px, auto, contain;
+    background-repeat: no-repeat;
+}
+
+.aw-social-cellIconSize .aw-base-icon {
+    height: 50px;
+}
+
+.aw-social-cellIsChild .aw-base-icon {
+    width: 44px;
+    min-width: 44px;
+}
+
+.aw-widgets-cellIsChild .aw-social-cellColumn1 {
+    border-color: inherit;
+    border-left-style: solid;
+    border-left-width: 6px;
+    width: 44px;
+    min-width: 44px;
+}
+
+.aw-social-cellTitleColumn .aw-base-icon {
+    width: 14px;
+    min-width: 14px;
+    height: 14px;
+}
+
+.aw-social-cellIcon {
+    height: 100%;
+    vertical-align: text-top;
+}
+
+.aw-social-cellChildrenCount {
+    padding-left: 10px;
+    width: -webkit-calc( 100% - 10px);
+    width: -moz-calc( 100% - 10px);
+    width: calc( 100% - 10px);
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: $fontsize_large;
+    display: inline-block;
+    vertical-align: bottom;
+    position: absolute;
+    bottom: 0;
+}
+
+.aw-social-cellColumn2 {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 4px;
+    width: calc(100% - 52px);
+}
+
+.aw-social-cellHeader {
+    min-height: 66px;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.aw-social-cellTitleColumn {
+    display: table-cell;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-top: 1px;
+}
+
+.aw-social-cellTitleColumn .aw-widgets-cellListCellTitle {
+    text-overflow: ellipsis;
+}
+
+.aw-social-cellBadgeColumn {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.aw-social-cellBadge {
+    float: right;
+    font-size: $fontsize_small;
+    vertical-align: top;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.aw-social-cellTitleColumn .aw-widgets-cellListCellTypeIcon {
+    height: 14px;
+    width: 14px;
+    margin-left: 5px;
+    float: right;
+}
+
+.aw-social-cellTitle {
+    font-size: $fontsize_x_large;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 200px;
+    padding-top: 2px;
+}
+
+.aw-social-cellMeta {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 200px;
+    padding-top: 1px;
+}
+
+.aw-social-cellText {
+    padding-bottom: 4px;
+    word-wrap: break-word;
+    word-break: normal;
+    font-size: $fontsize_normal;
+    display: none;
+}
+
+.aw-social-cellText ol {
+    list-style: decimal;
+    list-style-position: inside;
+}
+
+.aw-social-cellText ul {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+.aw-social-cellText strong {
+    font-weight: bold;
+}
+
+.aw-social-cellText em {
+    font-style: italic;
+}
+
+.aw-social-cellText img {
+    max-width: 230px;
+}
+
+.aw-social-commentaryHeader {
+    padding-right: 10px;
+}
+
+.aw-social-backButton {
+    float: left;
+    border: 0;
+    cursor: pointer;
+}
+
+.aw-social-cell .aw-commands-svg {
+    padding: 1px;
+}
+
+.aw-social-addCommentBaseNew {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+
+.aw-social-cellIndentation {
+    margin-left: 10px;
+}
+
+.aw-social-totalRatings {
+    padding-top: 1.5%;
+    height: 20px;
+}
+
+.aw-social-summaryRatingCell {
+    width: 150px;
+}
+
+.aw-social-summaryRatingCell .aw-base-normal {
+    font-size: $fontsize_normal;
+}
+
+.aw-social-break {
+    height: 1.2em;
+}
+
+.aw-social-ratingCell {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.aw-social-ratingCell .aw-base-icon {
+    width: 16px
+}
+
+.aw-social-ratingsAlign {
+    margin-left: -2.0%
+}
+
+/* Make ratings bar display consistent across browsers */
+aw-social-rating-percent progress {
+    -webkit-appearance: none;
+    border-style: solid;
+    border-width: 1px;
+}

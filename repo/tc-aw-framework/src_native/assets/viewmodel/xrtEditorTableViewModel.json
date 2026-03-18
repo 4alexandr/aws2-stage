@@ -1,0 +1,51 @@
+{
+    "actions": {
+        "loadAction": {
+            "actionType": "JSFunction",
+            "method": "loadTableData",
+            "inputData": {
+                "columnInfo": "{{data.dataProviders.detailsDataProvider.cols}}",
+                "detailsData": "{{detailsData}}"
+            },
+            "outputData": {
+                "results": "results",
+                "totalFound": "totalFound"
+            },
+            "deps": "js/awXrtEditorDetailsTableService"
+        },
+        "loadColumns": {
+            "actionType": "JSFunction",
+            "method": "loadColumns",
+            "inputData": {
+                "data ": "{{data}}",
+                "editing": "{{editing}}"
+            },
+            "deps": "js/awXrtEditorDetailsTableService"
+        }
+    },
+    "dataProviders": {
+        "detailsDataProvider": {
+            "action": "loadAction",
+            "results": "{{data.results}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "none"
+        }
+    },
+    "columnProviders": {
+        "detailsColumnProvider": {
+            "loadColumnAction": "loadColumns"
+        }
+    },
+    "grids": {
+        "details": {
+            "addIconColumn": false,
+            "dataProvider": "detailsDataProvider",
+            "columnProvider": "detailsColumnProvider",
+            "gridOptions": {
+                "enablePinning": false,
+                "enableSorting": false,
+                "enableDragAndDrop": false
+            }
+        }
+    }
+}

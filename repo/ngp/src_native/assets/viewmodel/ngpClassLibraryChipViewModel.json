@@ -1,0 +1,38 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-chip.directive",
+        "js/exist-when.directive",
+        "js/extended-tooltip.directive"
+    ],
+    "data": {
+        "chipData": {
+            "chipType": "STATIC",
+            "labelDisplayName": ""
+        },
+        "tooltip": {
+            "title": ""
+        }
+    },
+    "actions": {
+        "getClassLibraryValue": {
+            "actionType": "JSFunction",
+            "method": "getClassLibraryIndicationValue",
+            "inputData": {
+                "modelObject": "{{ctx.ngp.scopeObject}}",
+                "prefix": "{{i18n.rootClassLibraryObjectMsg}}"
+            },
+            "outputData": {
+                "chipData.labelDisplayName": "",
+                "tooltip.title": ""
+            },
+            "deps": "js/services/ngpClassLibraryService"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "getClassLibraryValue"
+    },
+    "i18n": {
+        "rootClassLibraryObjectMsg": [ "NgpHeaderMessages" ]
+    }
+}

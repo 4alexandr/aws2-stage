@@ -1,0 +1,15 @@
+<aw-flex-row>
+    <aw-flex-column>
+        <aw-flex-row height="3.7f">
+            <aw-toolbar first-anchor="mfe_visviewer_base_command_bar" alignment="HORIZONTAL" context="data">
+            </aw-toolbar>
+        </aw-flex-row>
+        <aw-flex-row height="fill">
+            <mfe-vis-web instance-id="instance0"></mfe-vis-web>
+            <mfe-busy-indicator show={{data.showBusyIndicator.dbValue}} message={{data.progressMessage.dbValue}}>
+            </mfe-busy-indicator>
+        </aw-flex-row>
+    </aw-flex-column>
+    <aw-sidenav id="viewerSettingsSideNav" config="data.viewerSettingsSideNavPanelData">
+    </aw-sidenav>
+</aw-flex-row>

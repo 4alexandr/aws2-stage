@@ -1,0 +1,20 @@
+<div class="aw-layout-popup"
+    ng-show="expanded"
+    ng-style="{'marginTop': dropDownVerticalAdj, 'top': prop.sectionCellPopUpTop, 'left': prop.sectionCellPopUpLeft}">
+    <div class="popupContent">
+        <div class="aw-widgets-cellListWidgetContainer">
+            <ul class="aw-widgets-cellListWidget">
+                <li class="aw-widgets-cellListItem aw-widgets-cellTop"
+                    title="{{command.tooltip}}"
+                    ng-click="changeSelection( command )"
+                    ng-class="{'aw-widgets-cellListItemSelected': command.isSelected}"
+                    ng-repeat="command in commands">
+                    <div class="aw-widgets-horizontalListSelectedComponent">
+                        <aw-icon class="aw-commands-svg" icon-id="{{command.iconName}}"></aw-icon>
+                        <div class="aw-widgets-toggleDropdownTextStyle">{{command.tooltip}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

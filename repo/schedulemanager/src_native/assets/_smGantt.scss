@@ -1,0 +1,413 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2018.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+/* Schedule Manager Gantt default styling */
+
+.smgantt .selected_link .gantt_line_wrapper,
+.selected_link .gantt_link_arrow {
+    z-index: 3;
+}
+
+.smgantt .gantt_task_line.critical_task.gantt_critical_task.gantt_task_inline_color .gantt_task_progress,
+.gantt_critical_task .gantt_task_progress {
+    opacity: 1;
+}
+
+.smgantt .gantt_task_line.gantt_task_inline_color .gantt_task_progress {
+    opacity: 1;
+}
+
+.smgantt .task_progress_border .gantt_task_progress,
+    {
+    border-right: 1px solid;
+}
+
+.smgantt .gantt_grid_head_cell {
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: table-cell;
+    vertical-align: bottom;
+    line-height: 150%;
+}
+
+.smgantt .gantt_grid_scale {
+    height: 60px;
+    display: table;
+}
+
+.smgantt .gantt_tree_content {
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+    padding-left: 5px
+}
+
+.smgantt gridbox_dhx_skyblue hdr td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.smgantt .gantt_scale_cell {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    height: 250%;
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+    cursor: all-scroll;
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+}
+
+.smgantt .gantt_milestone {
+    visibility: hidden;
+    border: 0 solid;
+    line-height: 15px;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+.smgantt .gantt_milestone .gantt_task_content {
+    width: 20px;
+    height: 20px;
+}
+
+.smgantt .gantt_task_scale {
+    height: 60px;
+}
+
+.smgantt .gantt_task_line .gantt_task_content {
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+}
+
+.smgantt .gantt_task_line {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.smgantt .summary_task,
+.smgantt .schedule_task,
+.smgantt .proxy_task {
+    border: 1px solid;
+}
+
+.smgantt .gantt_scale_line .gantt_scale_cell {
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+}
+
+.smgantt .gantt_scale_line:first-child .gantt_scale_cell,
+.gantt_scale_line:nth-child(2) .gantt_scale_cell {
+    font-weight: bold;
+}
+
+.smgantt .gantt_tree_icon {
+    padding-left: 5px;
+    width: 16px;
+}
+
+.smgantt .gantt_tooltip {
+    border: 1px solid;
+    text-transform: capitalize;
+    max-width: 250px;
+    overflow-x: auto;
+    border-radius: 3px;
+    padding: 0;
+}
+
+.smgantt .gantt_tooltip .gantt_tooltip_icons,
+.smgantt .gantt_tooltip .gantt_tooltip_text {
+    font-family: $font-family;
+    font-size: $fontsize_normal;
+    text-align: left;
+    line-height: 15px;
+    padding: 8px 16px 8px 16px;
+}
+
+.gantt_side_content,
+.smgantt .gantt_resource_assignee {
+    font-size: $fontsize_normal;
+}
+
+.smgantt.gantt_task_text {
+    text-align: justify;
+}
+
+.gantt_task_content {
+    display: flex;
+    justify-content: center;
+}
+
+.smgantt .gantt_tooltip .gantt_task_text {
+    display: flex;
+}
+
+.smgantt .gantt_marker {
+    border-style: none;
+}
+
+.smgantt .gantt_marker .gantt_marker_content {
+    opacity: 1;
+}
+
+.smgantt .gantt_link_arrow,
+.gantt_task_link .gantt_line_wrapper {
+    position: absolute;
+    cursor: pointer;
+}
+
+.smgantt .gantt_grid_data .task_added_in_whatif_mode .gantt_tree_content,
+.smgantt .gantt_grid_data .modified_in_whatif_mode .gantt_tree_content {
+    font-weight: bold;
+}
+
+.smgantt .gantt_drag_marker {
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+.gantt_arrange_columns {
+    background-image: url("image/cmdSettings24.svg");
+    width: 19px;
+    height: 19px;
+    float: right;
+}
+
+.smgantt .gantt_arrange_columns_wrapper {
+    margin-bottom: 2px;
+}
+
+.baseline_properties {
+    display: inline;
+}
+
+.smgantt .baseline_child_properties {
+    position: absolute;
+    font-size: $fontsize_small;
+    display: inline-flex;
+    z-index: 1;
+}
+
+.smgantt .gantt_dates {
+    font-size: $fontsize_small;
+}
+
+.gantt_side_content.gantt_left,
+.gantt_side_content.gantt_right {
+    top: -2.5px;
+}
+
+.smgantt .gantt_baseline {
+    position: absolute;
+    top: 0;
+    border-radius: 0;
+    margin-top: -11px;
+    height: 11px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    display: inline-flex;
+}
+
+.smgantt .has_baseline {
+    margin-top: -7px;
+}
+
+.smgantt .has_baseline .gantt_line_wrapper {
+    margin-top: -7px;
+}
+
+.smgantt .has_baseline .gantt_link_arrow {
+    margin-top: -8px;
+}
+
+.smgantt .has_baseline.gantt_milestone .gantt_task_content {
+    width: 10px;
+    height: 10px;
+    margin-left: -1px;
+}
+
+.smgantt .gantt_base_milestone {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 1;
+}
+
+.smgantt .gantt_baseline,
+.smgantt .gantt_base_milestone {
+    border: 1px solid;
+}
+
+.aw-schedulemanager-ganttBreadCrumb .aw-layout-breadCrumbs div {
+    display: inline;
+}
+
+.smgantt .gantt_tooltip_deliverables_icon {
+    background-image: url("image/cmdAssignDeliverable24.svg");
+    background-repeat: no-repeat;
+}
+
+.smgantt .gantt_tooltip_members_icon {
+    background-image: url("image/cmdChangeOwner24.svg");
+    background-repeat: no-repeat;
+}
+
+.smgantt .gantt_center_align_text {
+    position: absolute;
+    right: 0px;
+}
+
+.smgantt .gantt_task_date {
+    display: inline-flex;
+    padding-left: 8px;
+}
+
+.smgantt .gantt_task_status {
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    padding: 3px 1px 5px 8px;
+    background-origin: content-box;
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+}
+
+.smgantt .gantt_tooltip_not_started_task {
+    background-image: url("image/indicatorNotStarted16.svg");
+}
+
+.smgantt .gantt_tooltip_in_progress_task {
+    background-image: url("image/indicatorInProgress16.svg");
+}
+
+.smgantt .gantt_tooltip_needs_attention_task {
+    background-image: url("image/indicatorWarning16.svg");
+}
+
+.smgantt .gantt_tooltip_late_task {
+    background-image: url("image/indicatorDelayed16.svg");
+}
+
+.smgantt .gantt_tooltip_complete_task {
+    background-image: url("image/indicatorCompleted16.svg");
+}
+
+.smgantt .gantt_tooltip_abandoned_task {
+    background-image: url("image/indicatorAbandoned16.svg");
+}
+
+.smgantt .gantt_tooltip_aborted_task {
+    background-image: url("image/indicatorCancelled16.svg");
+}
+
+.smgantt .gantt_task_icon_center {
+    float: right;
+    width: 16px;
+    height: 16px;
+    padding: 3px 3px 5px 8px;
+    position: absolute;
+    right: 0;
+}
+
+.smgantt .gantt_tooltip_deliverables_icon {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.smgantt .gantt_tooltip_members_icon {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.smgantt .gantt_tooltip_resource_assignee {
+    padding: 8px 16px 8px 16px;
+}
+
+.smgantt .gantt_taskbar_person_icon {
+    background-image: url("image/indicatorResourceAssigned16.svg");
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    padding-left: 8px;
+    background-origin: content-box;
+    display: -webkit-inline-box;
+    width: 16px;
+    height: 16px;
+}
+
+.smgantt .gantt_taskbar {
+    text-align: center;
+    display: inline-flex;
+    position: initial;
+}
+
+.smgantt .gantt_task_cell {
+    border-right-width: 1px
+}
+
+.smgantt .gantt_task_row {
+    border-bottom-width: 1px
+}
+
+.smgantt .gantt_marker.week_end {
+    z-index: 0
+}
+
+.smgantt .gantt_task_line {
+    z-index: 1;
+}
+
+.smgantt .gantt_task_line,
+.smgantt .gantt_line_wrapper,
+.smgantt .gantt_ver_scroll {
+    z-index: 1;
+}
+
+.smgantt .gantt_scale_line,
+.smgantt .gantt_grid,
+.smgantt .gantt_container {
+    border-radius: $table_border_radius;
+}
+
+.smgantt .gantt_tree_icon.gantt_close {
+    background-image: url("image/miscExpandedTree12.svg");
+    width: 12px;
+    height: 12px;
+    vertical-align: baseline;
+}
+
+.smgantt .gantt_tree_icon.gantt_open {
+    background-image: url("image/miscCollapsedTree12.svg");
+    width: 12px;
+    height: 12px;
+    vertical-align: baseline;
+}
+
+.smgantt .gantt_tree_indent {
+    vertical-align: middle;
+}
+
+.smgantt .gantt_scale_cell.gantt_last_cell {
+    border: none
+}

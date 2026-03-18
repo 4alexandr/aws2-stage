@@ -1,0 +1,119 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel.directive"
+    ],
+    "data": {
+        "notloading": true,
+        "notloaded": true,
+        "loading": false,
+        "loaded": false,
+        "clickedLoad" : false,
+        "columnsloaded": false,
+        "treeLoadInput": ""
+    },
+    "i18n": 
+    {      
+         "LoadButton": ["bbrowserMessages"],
+         "loadstatus": ["bbrowserMessages"]
+    },
+    "onEvent": [
+
+    ],
+    "actions": {
+        "loadtable": {
+            "actionType": "JSFunction",
+            "method": "onClickLoadButton",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {},
+            "deps": "js/bbrowserTableDataService"
+        },
+        "loadPrimaryTableProperties": {
+        "actionType": "JSFunctionAsync",
+        "method": "loadTreeTableProperties",
+        "inputData": {
+            "propertyLoadInput": "request.propertyLoadInput",
+            "delayTimeProperty": "{{data.delayTimeProperty}}"
+        },
+        "outputData": {},
+        "deps": "js/bbrowserTableDataService"
+        },
+        "loadPrimaryTableColumns": {
+            "actionType": "JSFunction",
+            "method": "loadTreeTableColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.primaryTableDataProvider}}",
+                "data" : "{{data}}"
+            },
+            "deps": "js/bbrowserTableDataService"
+        },
+        "loadTreeData": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableDataPaging",
+            "inputData": {
+                "treeLoadInput": "request.treeLoadInput",
+                "dataProvider": "{{data.dataProviders.secondaryTableDataProvider}}",
+                "srcUID": "{{ctx.selected.uid}}",
+                "trgUID": "",
+                "SearchedUID": "",
+                "data" : "{{data}}",
+                "gridNameID": "primaryTreeTable"
+            },
+            "outputData": {
+            },
+            "deps": "js/bbrowserTableDataService"
+        },
+
+        "loadTreePage": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTablePage",
+            "inputData": {
+                "treeLoadInput": "request.treeLoadInput",
+                "briefUID": "{{ctx.selected.uid}}"
+            },
+            "outputData": {
+            },
+            "deps": "js/bbrowserTableDataService"
+        }
+    },
+    "dataProviders": {
+        "primaryTableDataProvider": {
+            "initializeAction": "loadTreeData",
+            "nextAction": "loadTreePage",
+            "previousAction": "loadTreePage",
+            "treeLoadResult": "action.result.treeLoadResult",
+            "selectionModelMode": "single",
+            "inputData": {
+                "accessMode": "tree"
+            }
+        },
+        "primaryTablePropertyProvider": {
+            "action": "loadPrimaryTableProperties",
+            "propertyLoadResult": "action.result.propertyLoadResult"
+        }
+    },
+    "grids": {
+        "primaryTreeTable": {
+            "dataProvider": "primaryTableDataProvider",
+            "propertyProvider": "primaryTablePropertyProvider",
+            "columnProvider": "primaryTableColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enableGridMenu": false,
+                "enablePinning": true,
+                "enableSorting": false,
+                "maxRowsToShow": 14
+            }
+        }
+    },
+    "columnProviders": {
+        "primaryTableColumnProvider": {
+            "loadColumnAction": "loadPrimaryTableColumns",
+            "columns": "{{data.columns}}",
+            "soaEnabled": false,
+            "sortCriteria": []
+        }
+    }
+}

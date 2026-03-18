@@ -1,0 +1,22 @@
+<!-- Hierarchy & Search panel -->
+<aw-command-panel-section class="aw-cls-createTreePanel" caption="i18n.addClassification" anchor="data.classifyTreeCommands"
+    visible-when="conditions.createMode || conditions.editMode && ctx.classifyEdit.vmo">
+    <div class="aw-cls-create-edit-treetable">
+        <div class="aw-cls-fullViewFlexContainer">
+            <aw-flex-column>
+                <aw-flex-row visible-when="ctx && conditions.hasReleasesOptions">
+                    <aw-checkbox-with-reset  class="aw-cls-fullViewReleaseCheckbox" prop="data.Releases"></aw-checkbox-with-reset>
+                    <aw-icon-button id="Awp0SearchReleasesBtn" class="aw-widget-thumbnail aw-base-icon" command="data.searchReleases"></aw-icon-button>
+                </aw-flex-row>
+                <aw-flex-row>
+                    <aw-cls-hierarchy-filter-searchbox></aw-cls-hierarchy-filter-searchbox>
+                </aw-flex-row>
+                <aw-flex-row>
+                <aw-splm-table id="testTable" gridid="tabTestTableClassification" use-tree="true"
+                    class="aw-cls-fullViewFlexContainer" aw-class="[ctx.toggleLabel ? conditions.hasReleasesOptions  ? 'aw-cls-fullViewViewPropLabelReleaseForm' : 'aw-cls-fullViewViewPropLabelForm' : conditions.hasReleasesOptions ? 'aw-cls-fullViewViewPropReleaseForm' : 'aw-cls-fullViewViewPropForm']">
+                </aw-splm-table>
+                </aw-flex-row>
+            </aw-flex-column>
+        </div>
+    </div>
+</aw-command-panel-section>

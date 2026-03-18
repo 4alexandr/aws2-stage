@@ -1,0 +1,138 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup2.directive",
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "popupData": {
+            "viewName": "Pca0VariantsGrid",
+            "header": {
+                "title": "{{i18n.variantFormula}}",
+                "iconName": "pageVariantFormula"
+            }
+        }
+    },
+    "actions": {
+        "closePopupWindow": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "resetOverrideSave"
+                },
+                {
+                    "action": "resetPerformSaveThroughHosted"
+                },
+                {
+                    "action": "hidePopupWindow"
+                }
+            ]
+        },
+        "hidePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hideLargePopup",
+            "deps": "js/mfeLargePopupUtils"
+        },
+        "updateViewModeContext": {
+            "actionType": "JSFunction",
+            "method": "registerPartialCtx",
+            "deps": "js/appCtxService",
+            "inputData": {
+                "path": "ViewModeContext.ViewModeContext",
+                "value": "TreeSummaryView"
+            }
+        },
+        "updateOverrideSave": {
+            "actionType": "JSFunction",
+            "method": "registerPartialCtx",
+            "deps": "js/appCtxService",
+            "inputData": {
+                "path": "variantConditionContext.consumerAppsOverrideSave",
+                "value": true
+            }
+        },
+        "resetOverrideSave": {
+            "actionType": "JSFunction",
+            "method": "unRegisterCtx",
+            "deps": "js/appCtxService",
+            "inputData": {
+                "path": "variantConditionContext.consumerAppsOverrideSave"
+            }
+        },
+        "saveChanges": {
+            "actionType": "JSFunctionAsync",
+            "method": "saveVariantFormula",
+            "inputData": {
+                "eventData": "{{data.eventMap['vcagrid.save']}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "variantFormulaPopup.close",
+                        "condition": "!ctx.ep.performSaveThroughHosted"
+                    }
+                ]
+            },
+            "deps": "js/epVariantsService"
+        },
+        "updateContext": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "updateViewModeContext"
+                },
+                {
+                    "action": "updateOverrideSave"
+                }
+            ]
+        },
+        "resetPerformSaveThroughHosted": {
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "deps": "js/appCtxService",
+            "inputData": {
+                "name": "ep.performSaveThroughHosted",
+                "value": false
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "vcagrid.save",
+            "action": "saveChanges",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "variantFormulaPopup.close",
+            "action": "closePopupWindow"
+        },
+        {
+            "eventId": "ep.saveThroughHostedDone",
+            "action": "closePopupWindow"
+        },
+        {
+            "eventId": "mfeLargePopup.closeRequest",
+            "action": "closePopupWindow"
+        }
+    ],
+    "conditions": {
+        "enableSaveBtn": {
+            "expression": "true"
+        }
+    },
+    "preferences": [],
+    "i18n": {
+        "close": [
+            "EPMessages"
+        ],
+        "done": [
+            "EPMessages"
+        ],
+        "variantFormula": [
+            "VariantsMessages"
+        ]
+    },
+    "lifecycleHooks": {
+        "onInit": "updateContext"
+    }
+}

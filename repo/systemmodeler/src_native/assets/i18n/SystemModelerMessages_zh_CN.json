@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "“{0}”和相应的属性映射将被删除。",
+    "removeSingleElementConfirmation": "“{0}”将被移除。",
+    "removeMultipleElementsConfirmation": "{0} 个选定对象将被移除。",
+    "removeMeasurableAttributeMessage": "“{0}”将被删除。",
+    "syncSingleConectionMessage": "正在同步“{0}”并更新交互。操作完成时，您将收到通知。",
+    "syncMultipleConectionsMessage": "正在同步 \"{0}\" 个选定对象并更新交互。操作完成时，您将收到通知。",
+    "exportInterfaceTitle": "导出接口",
+    "aw_interfaceTableCommandbar": "接口表命令条",
+    "aw_interactionTableCommandbar": "交互表命令条",
+    "aw_attributesTableCommandbar": "属性表命令条",
+    "aw_interfacesViewer": "接口查看器",
+    "table_cell_commands": "表单元格命令",
+    "Ase1ExportInterfaceElementDesc": "删除选定的接口详细信息。"
+}

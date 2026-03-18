@@ -1,0 +1,1505 @@
+{
+  "name": "geometrictool",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "themeExtensions": [
+    "geometrictoolcommandpanelsTheme"
+  ],
+  "commandsViewModel": {
+    "commands": {
+      "Awv0GeometricAnalysisGroup": {
+        "iconId": "cmdGeometric",
+        "isGroup": true,
+        "title": "{{i18n.toolPanelTitle}}"
+      },
+      "Awv0GeometricAnalysisMeasure": {
+        "iconId": "cmdGeometricMeasure",
+        "isGroup": false,
+        "title": "{{i18n.measurementTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisMeasureDesc}}"
+      },
+      "Awv0GeometricAnalysisMeasure_scv": {
+        "iconId": "cmdGeometricMeasure",
+        "isGroup": false,
+        "title": "{{i18n.measurementTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisMeasureDesc}}"
+      },
+      "Awv0GeometricAnalysisQuery": {
+        "iconId": "cmdGeometricQuery",
+        "isGroup": false,
+        "title": "{{i18n.queryTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisQueryDesc}}"
+      },
+      "Awv0GeometricAnalysisQuery_scv": {
+        "iconId": "cmdGeometricQuery",
+        "isGroup": false,
+        "title": "{{i18n.queryTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisQuery_scvDesc}}"
+      },
+      "Awv0GeometricAnalysisSection": {
+        "iconId": "cmdGeometricCrossSection",
+        "isGroup": false,
+        "title": "{{i18n.sectionTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisSectionDesc}}"
+      },
+      "Awv0GeometricAnalysisSection_scv": {
+        "iconId": "cmdGeometricCrossSection",
+        "isGroup": false,
+        "title": "{{i18n.sectionTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisSectionDesc}}"
+      },
+      "Awv0GeometricAnalysisProximity": {
+        "iconId": "cmdProximity",
+        "isGroup": false,
+        "title": "{{i18n.proximityTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisProximityDesc}}"
+      },
+      "Awv0GeometricAnalysisProximity_scv": {
+        "iconId": "cmdProximity",
+        "isGroup": false,
+        "title": "{{i18n.proximityTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisProximityDesc}}"
+      },
+      "Awv0GeometricAnalysisVolume": {
+        "iconId": "cmdGeometricVolume",
+        "isGroup": false,
+        "title": "{{i18n.volumeTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisVolumeDesc}}"
+      },
+      "Awv0GeometricAnalysisVolume_scv": {
+        "iconId": "cmdGeometricVolume",
+        "isGroup": false,
+        "title": "{{i18n.volumeTabText}}",
+        "description": "{{i18n.Awv0GeometricAnalysisVolumeDesc}}"
+      },
+      "Awv0ConfirmAllMeasurementDeleteAllCmd": {
+        "iconId": "cmdDeleteAll",
+        "isGroup": false,
+        "title": "{{i18n.deleteAllMeasurementLabel}}",
+        "description": "{{i18n.Awv0ConfirmAllMeasurementDeleteAllCmdDesc}}"
+      },
+      "Awv0ConfirmSelectedMeasurementDeleteCmd": {
+        "iconId": "cmdDelete",
+        "isGroup": false,
+        "title": "{{i18n.deleteMeasurementLabel}}",
+        "description": "{{i18n.Awv0ConfirmSelectedMeasurementDeleteCmdDesc}}"
+      },
+      "Awv0DeleteAllAnalysisQueryCmd": {
+        "iconId": "cmdDeleteAll",
+        "isGroup": false,
+        "title": "{{i18n.deleteAllQueriesLabel}}",
+        "description": "{{i18n.Awv0DeleteAllAnalysisQueryCmdDesc}}"
+      },
+      "Awv0DeleteAnalysisQueryCmd": {
+        "iconId": "cmdDelete",
+        "isGroup": false,
+        "title": "{{i18n.deleteQueryLabel}}",
+        "description": "{{i18n.Awv0DeleteAnalysisQueryCmdDesc}}"
+      },
+      "Awv0AnalysisSectionAddCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.createSection}}",
+        "description": "{{i18n.Awv0AnalysisSectionAddCmdDesc}}"
+      },
+      "Awv0AnalysisSectionDeleteAllCmd": {
+        "iconId": "cmdDeleteAll",
+        "isGroup": false,
+        "title": "{{i18n.deleteAllSections}}",
+        "description": "{{i18n.Awv0AnalysisSectionDeleteAllCmdDesc}}"
+      },
+      "Awv0AnalysisProximityAddCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.addTarget}}",
+        "description": "{{i18n.Awv0AnalysisProximityAddCmdDesc}}"
+      },
+      "Awv0AnalysisProximityRemoveAllCmd": {
+        "iconId": "cmdRemoveAll",
+        "isGroup": false,
+        "title": "{{i18n.removeAllTargets}}",
+        "description": "{{i18n.Awv0AnalysisProximityRemoveAllCmdDesc}}"
+      },
+      "Awv0AnalysisVolumnAddCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.addTarget}}",
+        "description": "{{i18n.Awv0AnalysisVolumnAddCmdDesc}}"
+      },
+      "Awv0AnalysisVolumnRemoveAllCmd": {
+        "iconId": "cmdRemoveAll",
+        "isGroup": false,
+        "title": "{{i18n.removeAllTargets}}",
+        "description": "{{i18n.Awv0AnalysisProximityRemoveAllCmdDesc}}"
+      },
+      "Awv0VolumeShowObjectCell": {
+        "iconId": "cmdOpen",
+        "isGroup": false,
+        "title": "{{i18n.openTarget}}",
+        "description": "{{i18n.Awv0VolumeShowObjectCellDesc}}"
+      },
+      "Awv0VolumeRemoveTarget": {
+        "iconId": "cmdRemove",
+        "isGroup": false,
+        "title": "{{i18n.removeTarget}}",
+        "description": "{{i18n.Awv0VolumeRemoveTargetDesc}}"
+      },
+      "Awv0ProximityShowObjectCell": {
+        "iconId": "cmdOpen",
+        "isGroup": false,
+        "title": "{{i18n.openTarget}}",
+        "description": "{{i18n.Awv0VolumeShowObjectCellDesc}}"
+      },
+      "Awv0ProximityRemoveTarget": {
+        "iconId": "cmdRemove",
+        "isGroup": false,
+        "title": "{{i18n.removeTarget}}",
+        "description": "{{i18n.Awv0VolumeRemoveTargetDesc}}"
+      },
+      "Awv0DeleteSectionCell": {
+        "iconId": "cmdDelete",
+        "isGroup": false,
+        "title": "{{i18n.deleteSection}}",
+        "description": "{{i18n.Awv0DeleteSectionCellDesc}}"
+      },
+      "Awv0ApplySectionCell": {
+        "iconId": "cmdCheckmark",
+        "isGroup": false,
+        "title": "{{i18n.apply}}",
+        "description": "{{i18n.Awv0ApplySectionCellDesc}}"
+      },
+      "Awv0QuickMeasure": {
+        "iconId": "cmdMeasureTape",
+        "isGroup": false,
+        "title": "{{i18n.quickMeasure}}",
+        "selected": {
+          "iconId": "cmdMeasureTape",
+          "title": "{{i18n.cancelQuickMeasure}}"
+        },
+        "description": "{{i18n.Awv0QuickMeasureDesc}}"
+      },
+      "Awv0SelectParts": {
+        "iconId": "cmdSelectParts",
+        "isGroup": false,
+        "title": "{{i18n.pickParts}}",
+        "description": "{{i18n.Awv0SelectPartsDesc}}"
+      },
+      "Awv0SelectFeatures": {
+        "iconId": "cmdSelectFeatures",
+        "isGroup": false,
+        "title": "{{i18n.pickFeatures}}",
+        "description": "{{i18n.Awv0SelectFeaturesDesc}}"
+      },
+      "Awv0QuickMeasure_scv": {
+        "iconId": "cmdMeasureTape",
+        "isGroup": false,
+        "title": "{{i18n.quickMeasure}}",
+        "selected": {
+          "iconId": "cmdMeasureTape",
+          "title": "{{i18n.cancelQuickMeasure}}"
+        },
+        "description": "{{i18n.Awv0QuickMeasureDesc}}"
+      },
+      "Awv0SelectParts_scv": {
+        "iconId": "cmdSelectParts",
+        "isGroup": false,
+        "title": "{{i18n.pickParts}}",
+        "description": "{{i18n.Awv0SelectPartsDesc}}"
+      },
+      "Awv0SelectFeatures_scv": {
+        "iconId": "cmdSelectFeatures",
+        "isGroup": false,
+        "title": "{{i18n.pickFeatures}}",
+        "description": "{{i18n.Awv0SelectFeaturesDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "Awv0GeometricAnalysisGroupCommandHandler": {
+        "id": "Awv0GeometricAnalysisGroup",
+        "activeWhen": true
+      },
+      "Awv0GeometricAnalysisMeasureCommandHandler": {
+        "id": "Awv0GeometricAnalysisMeasure",
+        "action": "showAwv0GeometricAnalysisMeasurePanel",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.isGeoToolsViewerRevealedAndInThreeDMode"
+        }
+      },
+      "Awv0GeometricAnalysisMeasureCommandHandler_scv": {
+        "id": "Awv0GeometricAnalysisMeasure_scv",
+        "action": "showAwv0GeometricAnalysisMeasurePanel_scv",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.isGeoToolsViewerRevealedAndInThreeDMode_scv"
+        }
+      },
+      "Awv0GeometricAnalysisQueryCommandHandler": {
+        "id": "Awv0GeometricAnalysisQuery",
+        "action": "showAwv0GeometricAnalysisQueryPanel",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.isGeoToolsViewerRevealedAndInThreeDMode"
+        }
+      },
+      "Awv0GeometricAnalysisQueryCommandHandler_scv": {
+        "id": "Awv0GeometricAnalysisQuery_scv",
+        "action": "showAwv0GeometricAnalysisQueryPanel_scv",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.isGeoToolsViewerRevealedAndInThreeDMode_scv"
+        }
+      },
+      "Awv0GeometricAnalysisSectionCommandHandler": {
+        "id": "Awv0GeometricAnalysisSection",
+        "action": "showAwv0GeometricAnalysisSectionPanel",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.showSectionCommand"
+        }
+      },
+      "Awv0GeometricAnalysisSectionCommandHandler_scv": {
+        "id": "Awv0GeometricAnalysisSection_scv",
+        "action": "showAwv0GeometricAnalysisSectionPanel_scv",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.showSectionCommand_scv"
+        }
+      },
+      "Awv0GeometricAnalysisProximityHandler": {
+        "id": "Awv0GeometricAnalysisProximity",
+        "action": "showAwv0GeometricAnalysisProximityPanelAction",
+        "activeWhen": true,
+        "enableWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.geoToolsViewerSearchCommandVisibilityCondition"
+        }
+      },
+      "Awv0GeometricAnalysisProximityHandler_scv": {
+        "id": "Awv0GeometricAnalysisProximity_scv",
+        "action": "showAwv0GeometricAnalysisProximityPanelAction_scv",
+        "activeWhen": true,
+        "enableWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.geoToolsViewerSearchCommandVisibilityCondition_scv"
+        }
+      },
+      "Awv0GeometricAnalysisVolumeHandler": {
+        "id": "Awv0GeometricAnalysisVolume",
+        "action": "showAwv0GeometricAnalysisVolumePanelAction",
+        "activeWhen": true,
+        "enableWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.geoToolsViewerSearchCommandVisibilityCondition"
+        }
+      },
+      "Awv0GeometricAnalysisVolumeHandler_scv": {
+        "id": "Awv0GeometricAnalysisVolume_scv",
+        "action": "showAwv0GeometricAnalysisVolumePanelAction_scv",
+        "activeWhen": true,
+        "enableWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.geoToolsViewerSearchCommandVisibilityCondition_scv"
+        }
+      },
+      "Awv0ConfirmAllMeasurementDeleteAllCmdHandler": {
+        "id": "Awv0ConfirmAllMeasurementDeleteAllCmd",
+        "action": "awv0ConfirmAllMeasurementDeleteAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Awv0ConfirmSelectedMeasurementDeleteCmdHandler": {
+        "id": "Awv0ConfirmSelectedMeasurementDeleteCmd",
+        "action": "confirmSelectedMeasurementDeleteAction",
+        "activeWhen": {
+          "condition": "conditions.confirmSelectedMeasurementDeleteCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.confirmSelectedMeasurementDeleteCondition"
+        }
+      },
+      "Awv0DeleteAllAnalysisQueryCmdHandler": {
+        "id": "Awv0DeleteAllAnalysisQueryCmd",
+        "action": "awv0AnalysisQueryConfirmAllMeasurementDeleteAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Awv0DeleteAnalysisQueryCmdHandler": {
+        "id": "Awv0DeleteAnalysisQueryCmd",
+        "action": "awv0AnalysisQueryConfirmSelectedMeasurementAction",
+        "activeWhen": {
+          "condition": "conditions.analysisQueryDeleteCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.analysisQueryDeleteCondition"
+        }
+      },
+      "Awv0AnalysisSectionAddCmdHandler": {
+        "id": "Awv0AnalysisSectionAddCmd",
+        "action": "showCreateSectionPanel",
+        "activeWhen": {
+          "condition": "conditions.analysisSectionAddCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.analysisSectionAddCondition"
+        }
+      },
+      "Awv0AnalysisSectionDeleteAllCmdHandler": {
+        "id": "Awv0AnalysisSectionDeleteAllCmd",
+        "action": "deleteAllSectionsEvent",
+        "activeWhen": {
+          "condition": "conditions.analysisSectionDeleteAllCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.analysisSectionDeleteAllCondition"
+        }
+      },
+      "Awv0AnalysisProximityAddCmdHandler": {
+        "id": "Awv0AnalysisProximityAddCmd",
+        "action": "awv0AnalysisProximityAddTarget",
+        "activeWhen": {
+          "condition": "conditions.analysisProximityAddCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.analysisProximityAddCondition"
+        }
+      },
+      "Awv0AnalysisProximityRemoveAllCmdHandler": {
+        "id": "Awv0AnalysisProximityRemoveAllCmd",
+        "action": "removeAllProximityTargets",
+        "activeWhen": {
+          "condition": "conditions.analysisProximityRemoveCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.analysisProximityRemoveCondition"
+        }
+      },
+      "Awv0AnalysisVolumnAddCmdHandler": {
+        "id": "Awv0AnalysisVolumnAddCmd",
+        "action": "Awv0AnalysisVolumnAddTarget",
+        "activeWhen": {
+          "condition": "conditions.analysisVolumnAddCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.analysisVolumnAddCondition"
+        }
+      },
+      "Awv0AnalysisVolumnRemoveAllCmdHandler": {
+        "id": "Awv0AnalysisVolumnRemoveAllCmd",
+        "action": "Awv0AnalysisVolumnRemoveAllTargets",
+        "activeWhen": {
+          "condition": "conditions.analysisVolumnRemoveAllCondition"
+        },
+        "visibleWhen": {
+          "condition": "conditions.analysisVolumnRemoveAllCondition"
+        }
+      },
+      "Awv0VolumeShowObjectCellCmdHandler": {
+        "id": "Awv0VolumeShowObjectCell",
+        "action": "volumeCellShowObject",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Awv0VolumeRemoveTargetCmdHandler": {
+        "id": "Awv0VolumeRemoveTarget",
+        "action": "removeTargetFromVolumeList",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Awv0ProximityShowObjectCellCmdHandler": {
+        "id": "Awv0ProximityShowObjectCell",
+        "action": "proximityCellShowObject",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Awv0ProximityRemoveTargetCmdHandler": {
+        "id": "Awv0ProximityRemoveTarget",
+        "action": "removeTargetFromProximityList",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Awv0DeleteSectionCellCmdHandler": {
+        "id": "Awv0DeleteSectionCell",
+        "action": "deleteSectionCell",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isViewerSectionInNonEditMode"
+        }
+      },
+      "Awv0ApplySectionCmdHandler": {
+        "id": "Awv0ApplySectionCell",
+        "action": "applySectionCell",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isViewerSectionInEditMode"
+        }
+      },
+      "Awv0QuickMeasureCommandHandler": {
+        "id": "Awv0QuickMeasure",
+        "action": "toggleQuickMeasure",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.quickMeasureCommandToggle"
+        },
+        "enableWhen": {
+          "condition": "conditions.quickMeasureCommandVisibility"
+        }
+      },
+      "Awv0QuickMeasureCommandHandler_scv": {
+        "id": "Awv0QuickMeasure_scv",
+        "action": "toggleQuickMeasure_scv",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.quickMeasureCommandToggle_scv"
+        },
+        "enableWhen": {
+          "condition": "conditions.quickMeasureCommandVisibility_scv"
+        }
+      },
+      "Awv0SelectPartsCommandHandler": {
+        "id": "Awv0SelectParts",
+        "action": "setQuickMeasurePickParts",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.quickMeasureFilterCommandVisibility"
+        },
+        "selectWhen": {
+          "condition": "conditions.isQuickMeasurePickParts"
+        }
+      },
+      "Awv0SelectPartsCommandHandler_scv": {
+        "id": "Awv0SelectParts_scv",
+        "action": "setQuickMeasurePickParts_scv",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.quickMeasureFilterCommandVisibility_scv"
+        },
+        "selectWhen": {
+          "condition": "conditions.isQuickMeasurePickParts_scv"
+        }
+      },
+      "Awv0SelectFeaturesCommandHandler": {
+        "id": "Awv0SelectFeatures",
+        "action": "setQuickMeasurePickFeatures",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.quickMeasureFilterCommandVisibility"
+        },
+        "selectWhen": {
+          "condition": "conditions.isQuickMeasurePickFeatures"
+        }
+      },
+      "Awv0SelectFeaturesCommandHandler_scv": {
+        "id": "Awv0SelectFeatures_scv",
+        "action": "setQuickMeasurePickFeatures_scv",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.quickMeasureFilterCommandVisibility_scv"
+        },
+        "selectWhen": {
+          "condition": "conditions.isQuickMeasurePickFeatures_scv"
+        }
+      }
+    },
+    "commandPlacements": {
+      "Awv0GeometricAnalysisMeasureToolsAndInfo-classic": {
+        "id": "Awv0GeometricAnalysisMeasure",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 1,
+        "parentGroupId": "Awv0GeometricAnalysisGroup",
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisMeasureToolsAndInfo": {
+        "id": "Awv0GeometricAnalysisMeasure",
+        "uiAnchor": "aw_3dViewer",
+        "priority": 30,
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisMeasureToolsAndInfo_scv": {
+        "id": "Awv0GeometricAnalysisMeasure_scv",
+        "uiAnchor": "aw_3dViewerRight",
+        "priority": 30,
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisQueryToolsAndInfo-classic": {
+        "id": "Awv0GeometricAnalysisQuery",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 2,
+        "parentGroupId": "Awv0GeometricAnalysisGroup",
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisQueryToolsAndInfo": {
+        "id": "Awv0GeometricAnalysisQuery",
+        "uiAnchor": "aw_3dViewer",
+        "priority": 40,
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisQueryToolsAndInfo_scv": {
+        "id": "Awv0GeometricAnalysisQuery_scv",
+        "uiAnchor": "aw_3dViewerRight",
+        "priority": 40,
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisSectionToolsAndInfo-classic": {
+        "id": "Awv0GeometricAnalysisSection",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 3,
+        "parentGroupId": "Awv0GeometricAnalysisGroup",
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisSectionToolsAndInfo": {
+        "id": "Awv0GeometricAnalysisSection",
+        "uiAnchor": "aw_3dViewer",
+        "priority": 50,
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisSectionToolsAndInfo_scv": {
+        "id": "Awv0GeometricAnalysisSection_scv",
+        "uiAnchor": "aw_3dViewerRight",
+        "priority": 50,
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisProximityToolsAndInfo-classic": {
+        "id": "Awv0GeometricAnalysisProximity",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 4,
+        "parentGroupId": "Awv0GeometricAnalysisGroup",
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisProximityToolsAndInfo": {
+        "id": "Awv0GeometricAnalysisProximity",
+        "uiAnchor": "aw_3dViewer",
+        "priority": 70,
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisProximityToolsAndInfo_scv": {
+        "id": "Awv0GeometricAnalysisProximity_scv",
+        "uiAnchor": "aw_3dViewerRight",
+        "priority": 70,
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisVolumeToolsAndInfo-classic": {
+        "id": "Awv0GeometricAnalysisVolume",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": 5,
+        "parentGroupId": "Awv0GeometricAnalysisGroup",
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisVolumeToolsAndInfo": {
+        "id": "Awv0GeometricAnalysisVolume",
+        "uiAnchor": "aw_3dViewer",
+        "priority": 60,
+        "showGroupSelected": true
+      },
+      "Awv0GeometricAnalysisVolumeToolsAndInfo_scv": {
+        "id": "Awv0GeometricAnalysisVolume_scv",
+        "uiAnchor": "aw_3dViewerRight",
+        "priority": 60,
+        "showGroupSelected": true
+      },
+      "Awv0ConfirmAllMeasurementDeleteAllCmdPlacement": {
+        "id": "Awv0ConfirmAllMeasurementDeleteAllCmd",
+        "uiAnchor": "awv0_measurementCommands",
+        "priority": 1
+      },
+      "Awv0ConfirmAllMeasurementDelCmdPlacement": {
+        "id": "Awv0ConfirmSelectedMeasurementDeleteCmd",
+        "uiAnchor": "awv0_measurementCommands",
+        "priority": 2
+      },
+      "Awv0DeleteAllAnalysisQueryCmdPlacement": {
+        "id": "Awv0DeleteAllAnalysisQueryCmd",
+        "uiAnchor": "awv0_analysisQueryMeasureCommands",
+        "priority": 1
+      },
+      "Awv0DeleteAnalysisQueryCmdPlacement": {
+        "id": "Awv0DeleteAnalysisQueryCmd",
+        "uiAnchor": "awv0_analysisQueryMeasureCommands",
+        "priority": 2
+      },
+      "Awv0AnalysisSectionAddCmdPlacement": {
+        "id": "Awv0AnalysisSectionAddCmd",
+        "uiAnchor": "awv0_sectionCommands",
+        "priority": 2
+      },
+      "Awv0AnalysisSectionDeleteAllCmdPlacement": {
+        "id": "Awv0AnalysisSectionDeleteAllCmd",
+        "uiAnchor": "awv0_sectionCommands",
+        "priority": 1
+      },
+      "Awv0AnalysisProximityAddCmdPlacement": {
+        "id": "Awv0AnalysisProximityAddCmd",
+        "uiAnchor": "awv0_addRemoveCommands",
+        "priority": 1
+      },
+      "Awv0AnalysisProximityRemoveAllCmdPlacement": {
+        "id": "Awv0AnalysisProximityRemoveAllCmd",
+        "uiAnchor": "awv0_addRemoveCommands",
+        "priority": 2
+      },
+      "Awv0AnalysisVolumnAddCmdPlacement": {
+        "id": "Awv0AnalysisVolumnAddCmd",
+        "uiAnchor": "awv0_volumnAddRemovecommands",
+        "priority": 1
+      },
+      "Awv0AnalysisVolumnRemoveAllCmdPlacement": {
+        "id": "Awv0AnalysisVolumnRemoveAllCmd",
+        "uiAnchor": "awv0_volumnAddRemovecommands",
+        "priority": 2
+      },
+      "Awv0VolumeShowObjectCellPlacement": {
+        "id": "Awv0VolumeShowObjectCell",
+        "uiAnchor": "viewer_volume_cell_commands",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Awv0VolumeRemoveTargetPlacement": {
+        "id": "Awv0VolumeRemoveTarget",
+        "uiAnchor": "viewer_volume_cell_commands",
+        "priority": 2,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Awv0ProximityShowObjectCellPlacement": {
+        "id": "Awv0ProximityShowObjectCell",
+        "uiAnchor": "viewer_proximity_cell_commands",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Awv0ProximityRemoveTargetPlacement": {
+        "id": "Awv0ProximityRemoveTarget",
+        "uiAnchor": "viewer_proximity_cell_commands",
+        "priority": 2,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Awv0DeleteSectionCellPlacement": {
+        "id": "Awv0DeleteSectionCell",
+        "uiAnchor": "viewer_section_cell_commands",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Awv0ApplySectionCellPlacement": {
+        "id": "Awv0ApplySectionCell",
+        "uiAnchor": "viewer_section_cell_commands",
+        "priority": 2,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Awv0SelectPartsOneStep-classic": {
+        "id": "Awv0SelectParts",
+        "uiAnchor": "aw_oneStep",
+        "priority": 250,
+        "parentGroupId": "MeasurementFilterGroup",
+        "showGroupSelected": true
+      },
+      "Awv0SelectPartsOneStep": {
+        "id": "Awv0SelectParts",
+        "uiAnchor": "aw_3dViewer",
+        "priority": 22,
+        "parentGroupId": "MeasurementFilterGroup",
+        "showGroupSelected": true
+      },
+      "Awv0SelectFeaturesOneStep-classic": {
+        "id": "Awv0SelectFeatures",
+        "uiAnchor": "aw_oneStep",
+        "priority": 250,
+        "parentGroupId": "MeasurementFilterGroup",
+        "showGroupSelected": true
+      },
+      "Awv0SelectFeaturesOneStep": {
+        "id": "Awv0SelectFeatures",
+        "uiAnchor": "aw_3dViewer",
+        "priority": 21,
+        "parentGroupId": "MeasurementFilterGroup",
+        "showGroupSelected": true
+      },
+      "Awv0QuickMeasureOneStep": {
+        "id": "Awv0QuickMeasure",
+        "uiAnchor": "aw_3dViewer",
+        "priority": 10
+      },
+      "Awv0QuickMeasureOneStep_scv": {
+        "id": "Awv0QuickMeasure_scv",
+        "uiAnchor": "aw_3dViewerRight",
+        "priority": 10
+      },
+      "Awv0SelectPartsOneStep_scv": {
+        "id": "Awv0SelectParts_scv",
+        "uiAnchor": "aw_3dViewerRight",
+        "priority": 22,
+        "parentGroupId": "MeasurementFilterGroup_scv",
+        "showGroupSelected": true
+      },
+      "Awv0SelectFeaturesOneStep_scv": {
+        "id": "Awv0SelectFeatures_scv",
+        "uiAnchor": "aw_3dViewerRight",
+        "priority": 21,
+        "parentGroupId": "MeasurementFilterGroup_scv",
+        "showGroupSelected": true
+      }
+    },
+    "actions": {
+      "showAwv0GeometricAnalysisMeasurePanel": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisMeasure",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awDefaultViewer"
+        }
+      },
+      "showAwv0GeometricAnalysisMeasurePanel_scv": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisMeasure",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awStructureCompareViewer",
+          "closeWhenCommandHidden": false
+        }
+      },
+      "showAwv0GeometricAnalysisQueryPanel": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisQuery",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awDefaultViewer"
+        }
+      },
+      "showAwv0GeometricAnalysisQueryPanel_scv": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisQuery",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awStructureCompareViewer",
+          "closeWhenCommandHidden": false
+        }
+      },
+      "showAwv0GeometricAnalysisSectionPanel": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisSection",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awDefaultViewer"
+        }
+      },
+      "showAwv0GeometricAnalysisSectionPanel_scv": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisSection",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awStructureCompareViewer",
+          "closeWhenCommandHidden": false
+        }
+      },
+      "showAwv0GeometricAnalysisProximityPanelAction": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisProximity",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awDefaultViewer"
+        }
+      },
+      "showAwv0GeometricAnalysisProximityPanelAction_scv": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisProximity",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awStructureCompareViewer"
+        }
+      },
+      "showAwv0GeometricAnalysisVolumePanelAction": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisVolume",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awDefaultViewer"
+        }
+      },
+      "showAwv0GeometricAnalysisVolumePanelAction_scv": {
+        "actionType": "JSFunction",
+        "method": "activateViewerCommandPanel",
+        "deps": "js/viewerContext.service",
+        "inputData": {
+          "commandId": "Awv0GeometricAnalysisVolume",
+          "location": "aw_toolsAndInfo",
+          "viewerCtxNamespace": "awStructureCompareViewer"
+        }
+      },
+      "awv0ConfirmAllMeasurementDeleteAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "viewerMeasurement.deleteAllMeasurementPrompt"
+            }
+          ]
+        }
+      },
+      "confirmSelectedMeasurementDeleteAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "viewerMeasurement.deleteSelectedMeasurementPrompt"
+            }
+          ]
+        }
+      },
+      "awv0AnalysisQueryConfirmSelectedMeasurementAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "viewerMeasurement.analysisQueryDeleteSelectedMeasurementPrompt"
+            }
+          ]
+        }
+      },
+      "awv0AnalysisQueryConfirmAllMeasurementDeleteAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "viewerMeasurement.analysisQueryDeleteAllMeasurementPrompt"
+            }
+          ]
+        }
+      },
+      "confirmSelectedMeasurementAnalysisQueryAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "viewerMeasurement.deleteAnalysisQuerySelectedMeasurementPrompt"
+            }
+          ]
+        }
+      },
+      "deleteAllMeasurement": {
+        "actionType": "JSFunction",
+        "method": "deleteAllMeasurement",
+        "deps": "js/Awv0GeometricAnalysisMeasureService"
+      },
+      "deleteSelectedMeasurement": {
+        "actionType": "JSFunction",
+        "method": "deleteSelectedMeasurement",
+        "deps": "js/Awv0GeometricAnalysisMeasureService"
+      },
+      "analysisQueryDeleteAllMeasurement": {
+        "actionType": "JSFunction",
+        "method": "deleteAllQueries",
+        "deps": "js/Awv0GeometricAnalysisQueryService"
+      },
+      "analysisQueryDeleteSelectedMeasurement": {
+        "actionType": "JSFunction",
+        "method": "deleteSelectedQuery",
+        "deps": "js/Awv0GeometricAnalysisQueryService"
+      },
+      "showCreateSectionPanel": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "geoanalysis.showCreateSectionPanel"
+            }
+          ]
+        }
+      },
+      "deleteAllSectionsEvent": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "geoanalysis.deleteAllSections"
+            }
+          ]
+        }
+      },
+      "deleteAllSections": {
+        "actionType": "JSFunction",
+        "method": "deleteAllSections",
+        "deps": "js/Awv0GeometricAnalysisSectionService"
+      },
+      "awv0AnalysisProximityAddTarget": {
+        "actionType": "JSFunction",
+        "method": "addSelectionsToTargetList",
+        "deps": "js/Awv0GeometricAnalysisProximitySearchService"
+      },
+      "removeAllProximityTargets": {
+        "actionType": "JSFunction",
+        "method": "removeAllProximityTargets",
+        "deps": "js/Awv0GeometricAnalysisProximitySearchService"
+      },
+      "Awv0AnalysisVolumnAddTarget": {
+        "actionType": "JSFunction",
+        "method": "addSelectionsToTargetList",
+        "deps": "js/Awv0GeometricAnalysisVolumeSearchService"
+      },
+      "Awv0AnalysisVolumnRemoveAllTargets": {
+        "actionType": "JSFunction",
+        "method": "removeAllVolumeTargets",
+        "deps": "js/Awv0GeometricAnalysisVolumeSearchService"
+      },
+      "volumeCellShowObject": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": {
+            "$adapt": "{{commandContext.vmo}}",
+            "path": "uid"
+          }
+        }
+      },
+      "removeTargetFromVolumeList": {
+        "actionType": "JSFunction",
+        "method": "removeVolumeTarget",
+        "inputData": {
+          "vmo": "{{commandContext.vmo}}"
+        },
+        "deps": "js/Awv0GeometricAnalysisVolumeSearchService"
+      },
+      "proximityCellShowObject": {
+        "actionType": "Navigate",
+        "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+        "navigationParams": {
+          "uid": {
+            "$adapt": "{{commandContext.vmo}}",
+            "path": "uid"
+          }
+        }
+      },
+      "removeTargetFromProximityList": {
+        "actionType": "JSFunction",
+        "method": "removeProximityTarget",
+        "inputData": {
+          "vmo": "{{commandContext.vmo}}"
+        },
+        "deps": "js/Awv0GeometricAnalysisProximitySearchService"
+      },
+      "deleteSectionCell": {
+        "actionType": "JSFunction",
+        "method": "deleteSelectedSection",
+        "inputData": {
+          "vmo": "{{commandContext.vmo}}"
+        },
+        "deps": "js/Awv0GeometricAnalysisSectionService"
+      },
+      "applySectionCell": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "geoanalysis.sectionOffsetApplied"
+            }
+          ]
+        }
+      },
+      "toggleQuickMeasure": {
+        "actionType": "JSFunction",
+        "method": "toggleQuickMeasurementMode",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "awDefaultViewer"
+        }
+      },
+      "setQuickMeasurePickParts": {
+        "actionType": "JSFunction",
+        "method": "setQuickMeasurementPickFilter",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "awDefaultViewer",
+          "pickFiltersToBeSelected": "PICK_PARTS"
+        }
+      },
+      "setQuickMeasurePickFeatures": {
+        "actionType": "JSFunction",
+        "method": "setQuickMeasurementPickFilter",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "awDefaultViewer",
+          "pickFiltersToBeSelected": "PICK_FEATURES_ALL"
+        }
+      },
+      "toggleQuickMeasure_scv": {
+        "actionType": "JSFunction",
+        "method": "toggleQuickMeasurementMode",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "awStructureCompareViewer"
+        }
+      },
+      "setQuickMeasurePickParts_scv": {
+        "actionType": "JSFunction",
+        "method": "setQuickMeasurementPickFilter",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "awStructureCompareViewer",
+          "pickFiltersToBeSelected": "PICK_PARTS"
+        }
+      },
+      "setQuickMeasurePickFeatures_scv": {
+        "actionType": "JSFunction",
+        "method": "setQuickMeasurementPickFilter",
+        "deps": "js/viewerMeasureService",
+        "inputData": {
+          "viewerContextNamespace": "awStructureCompareViewer",
+          "pickFiltersToBeSelected": "PICK_FEATURES_ALL"
+        }
+      }
+    },
+    "onEvent": [
+      {
+        "eventId": "viewerMeasurement.deleteSelectedMeasurementPrompt",
+        "message": "deleteSelectedMeasurementMessage"
+      },
+      {
+        "eventId": "viewerMeasurement.deleteAllMeasurementPrompt",
+        "message": "deleteAllMeasurementMessage"
+      },
+      {
+        "eventId": "viewerMeasurement.analysisQueryDeleteAllMeasurementPrompt",
+        "message": "analysisQueryDeleteAllMeasurementMessage"
+      },
+      {
+        "eventId": "viewerMeasurement.analysisQueryDeleteSelectedMeasurementPrompt",
+        "message": "analysisQueryDeleteSelectedMeasurementMessage"
+      },
+      {
+        "eventId": "geoanalysis.deleteAllSections",
+        "message": "analysisSectionDeleteAllSectionMessage"
+      }
+    ],
+    "conditions": {
+      "isGeoToolsLogicalBlockSelected": {
+        "expression": "ctx.awDefaultViewer.isLogicalSelected"
+      },
+      "isGeoToolsViewerInThreeDMode": {
+        "expression": "ctx.awDefaultViewer.viewerViewMode === 'VIEWER3D'"
+      },
+      "isGeoToolsViewerRevealed": {
+        "expression": "ctx.awDefaultViewer.isViewerRevealed && ctx.awDefaultViewer.disableGeoAnalysis !== true"
+      },
+      "isGeoToolsViewerRevealedAndInThreeDMode": {
+        "expression": "!conditions.isGeoToolsLogicalBlockSelected && conditions.isGeoToolsViewerInThreeDMode && conditions.isGeoToolsViewerRevealed"
+      },
+      "isGeoToolsInACESublocation": {
+        "expression": "ctx.sublocation.nameToken==='com.siemens.splm.client.occmgmt:OccurrenceManagementSubLocation'"
+      },
+      "isGeoToolsInMBMSublocation": {
+        "expression": "ctx.sublocation.nameToken==='multiBOMManager:taskPageSubLocation'"
+      },
+      "geoToolsViewerSearchCommandVisibilityCondition": {
+        "expression": "conditions.isGeoToolsViewerRevealedAndInThreeDMode && conditions.viewerLicenceMockup && (conditions.isGeoToolsInACESublocation || conditions.isGeoToolsInMBMSublocation)"
+      },
+      "confirmSelectedMeasurementDeleteCondition": {
+        "expression": "commandContext.selectedMeasurementProp !== undefined && commandContext.selectedMeasurementProp.dbValue !== undefined && commandContext.selectedMeasurementProp.dbValue.length > 0"
+      },
+      "analysisQueryDeleteCondition": {
+        "expression": "commandContext.selectedQueryProp !== undefined && commandContext.selectedQueryProp.dbValue !== undefined && commandContext.selectedQueryProp.dbValue.length > 0"
+      },
+      "analysisSectionAddCondition": {
+        "expression": "commandContext.totalFound === undefined || commandContext.totalFound < 6"
+      },
+      "analysisSectionDeleteAllCondition": {
+        "expression": "commandContext.totalFound !== undefined && commandContext.totalFound > 0"
+      },
+      "analysisProximityAddCondition": {
+        "expression": "ctx[ctx.viewer.activeViewerCommandCtx].geoAnalysisProximitySearch.newTargetForList === undefined || ctx[ctx.viewer.activeViewerCommandCtx].geoAnalysisProximitySearch.newTargetForList == true"
+      },
+      "analysisProximityRemoveCondition": {
+        "expression": "commandContext.totalFound !== undefined && commandContext.totalFound > 0 "
+      },
+      "analysisVolumnAddCondition": {
+        "expression": "ctx[ctx.viewer.activeViewerCommandCtx].geoAnalysisVolumeSearch.newTargetForList === undefined || ctx[ctx.viewer.activeViewerCommandCtx].geoAnalysisVolumeSearch.newTargetForList == true"
+      },
+      "analysisVolumnRemoveAllCondition": {
+        "expression": "commandContext.totalFound !== undefined && commandContext.totalFound > 0 "
+      },
+      "isViewerSectionInEditMode": {
+        "expression": "ctx.viewerSectionInEditMode"
+      },
+      "isViewerSectionInNonEditMode": {
+        "expression": "!ctx.viewerSectionInEditMode"
+      },
+      "showSectionCommand": {
+        "expression": "conditions.isGeoToolsViewerRevealedAndInThreeDMode"
+      },
+      "isGeoToolsLogicalBlockSelected_scv": {
+        "expression": "ctx.awStructureCompareViewer.isLogicalSelected"
+      },
+      "isGeoToolsViewerInThreeDMode_scv": {
+        "expression": "ctx.awStructureCompareViewer.viewerViewMode === 'VIEWER3D'"
+      },
+      "isGeoToolsViewerRevealed_scv": {
+        "expression": "ctx.awStructureCompareViewer.isViewerRevealed && ctx.awStructureCompareViewer.disableGeoAnalysis !== true"
+      },
+      "isGeoToolsViewerRevealedAndInThreeDMode_scv": {
+        "expression": "!conditions.isGeoToolsLogicalBlockSelected_scv && conditions.isGeoToolsViewerInThreeDMode_scv && conditions.isGeoToolsViewerRevealed_scv"
+      },
+      "geoToolsViewerSearchCommandVisibilityCondition_scv": {
+        "expression": "conditions.isGeoToolsViewerRevealedAndInThreeDMode_scv && conditions.viewerLicenceMockup && (conditions.isGeoToolsInACESublocation || conditions.isGeoToolsInMBMSublocation)"
+      },
+      "showSectionCommand_scv": {
+        "expression": "conditions.isGeoToolsViewerRevealedAndInThreeDMode_scv"
+      },
+      "quickMeasureCommandVisibility": {
+        "expression": "conditions.isLogicalNotSelected && conditions.isViewerIn3DMode && conditions.isViewerRevealed && (!ctx.awDefaultViewer.viewerMeasurement || !ctx.awDefaultViewer.viewerMeasurement.isMeasurementPanelRevealed || ctx.awDefaultViewer.viewerMeasurement.isMeasurementPanelRevealed === 'false')"
+      },
+      "quickMeasureCommandToggle": {
+        "expression": "ctx.awDefaultViewer.viewerMeasurement.isQuickMeasureModeEnabled === 'true'"
+      },
+      "quickMeasureFilterCommandVisibility": {
+        "expression": "conditions.quickMeasureCommandVisibility && ctx.awDefaultViewer.viewerMeasurement.isQuickMeasureModeEnabled === 'true'"
+      },
+      "quickMeasureCommandVisibility_scv": {
+        "expression": "conditions.isLogicalNotSelected_scv && conditions.isViewerIn3DMode_scv && conditions.isViewerRevealed_scv && (!ctx.awStructureCompareViewer.viewerMeasurement || !ctx.awStructureCompareViewer.viewerMeasurement.isMeasurementPanelRevealed || ctx.awStructureCompareViewer.viewerMeasurement.isMeasurementPanelRevealed === 'false')"
+      },
+      "quickMeasureCommandToggle_scv": {
+        "expression": "ctx.awStructureCompareViewer.viewerMeasurement.isQuickMeasureModeEnabled === 'true'"
+      },
+      "quickMeasureFilterCommandVisibility_scv": {
+        "expression": "conditions.quickMeasureCommandVisibility_scv && ctx.awStructureCompareViewer.viewerMeasurement.isQuickMeasureModeEnabled === 'true'"
+      },
+      "isQuickMeasurePickFeatures": {
+        "expression": "ctx.awDefaultViewer.viewerMeasurement.selectedQuickMeasurementPickFilters[0]==='PICK_FEATURES_ALL'"
+      },
+      "isQuickMeasurePickParts": {
+        "expression": "ctx.awDefaultViewer.viewerMeasurement.selectedQuickMeasurementPickFilters[0]==='PICK_PARTS'"
+      },
+      "isQuickMeasurePickFeatures_scv": {
+        "expression": "ctx.awStructureCompareViewer.viewerMeasurement.selectedQuickMeasurementPickFilters[0]==='PICK_FEATURES_ALL'"
+      },
+      "isQuickMeasurePickParts_scv": {
+        "expression": "ctx.awStructureCompareViewer.viewerMeasurement.selectedQuickMeasurementPickFilters[0]==='PICK_PARTS'"
+      }
+    },
+    "messages": {
+      "deleteAllMeasurementMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.measurementDeleteAllConfirmation}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.delete}}",
+            "action": "deleteAllMeasurement"
+          }
+        ]
+      },
+      "deleteSelectedMeasurementMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.measurementDeleteSelectedConfirmation}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.delete}}",
+            "action": "deleteSelectedMeasurement"
+          }
+        ]
+      },
+      "analysisQueryDeleteAllMeasurementMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.queryDeleteAllConfirmation}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.delete}}",
+            "action": "analysisQueryDeleteAllMeasurement"
+          }
+        ]
+      },
+      "analysisQueryDeleteSelectedMeasurementMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.queryDeleteSelectedConfirmation}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.delete}}",
+            "action": "analysisQueryDeleteSelectedMeasurement"
+          }
+        ]
+      },
+      "analysisSectionDeleteAllSectionMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.sectionDeleteAllConfirmation}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.delete}}",
+            "action": "deleteAllSections"
+          }
+        ]
+      }
+    },
+    "i18n": {
+      "measurementTabText": [
+        "GeometricAnalysisMessages"
+      ],
+      "queryTabText": [
+        "GeometricAnalysisMessages"
+      ],
+      "sectionTabText": [
+        "GeometricAnalysisMessages"
+      ],
+      "toolPanelTitle": [
+        "GeometricAnalysisMessages"
+      ],
+      "proximityTabText": [
+        "GeometricAnalysisMessages"
+      ],
+      "volumeTabText": [
+        "GeometricAnalysisMessages"
+      ],
+      "deleteAllMeasurementLabel": [
+        "GeometricAnalysisMessages"
+      ],
+      "deleteMeasurementLabel": [
+        "GeometricAnalysisMessages"
+      ],
+      "deleteQueryLabel": [
+        "GeometricAnalysisMessages"
+      ],
+      "deleteAllQueriesLabel": [
+        "GeometricAnalysisMessages"
+      ],
+      "queryDeleteAllConfirmation": [
+        "GeometricAnalysisMessages"
+      ],
+      "queryDeleteSelectedConfirmation": [
+        "GeometricAnalysisMessages"
+      ],
+      "cancel": [
+        "GeometricAnalysisMessages"
+      ],
+      "delete": [
+        "GeometricAnalysisMessages"
+      ],
+      "createSection": [
+        "GeometricAnalysisMessages"
+      ],
+      "deleteAllSections": [
+        "GeometricAnalysisMessages"
+      ],
+      "sectionDeleteAllConfirmation": [
+        "GeometricAnalysisMessages"
+      ],
+      "addTarget": [
+        "GeometricAnalysisMessages"
+      ],
+      "removeAllTargets": [
+        "GeometricAnalysisMessages"
+      ],
+      "measurementDeleteAllConfirmation": [
+        "GeometricAnalysisMessages"
+      ],
+      "measurementDeleteSelectedConfirmation": [
+        "GeometricAnalysisMessages"
+      ],
+      "removeTarget": [
+        "GeometricAnalysisMessages"
+      ],
+      "openTarget": [
+        "GeometricAnalysisMessages"
+      ],
+      "deleteSection": [
+        "GeometricAnalysisMessages"
+      ],
+      "apply": [
+        "GeometricAnalysisMessages"
+      ],
+      "awv0_measurementCommands": [
+        "GeometricAnalysisMessages"
+      ],
+      "awv0_analysisQueryMeasureCommands": [
+        "GeometricAnalysisMessages"
+      ],
+      "awv0_sectionCommands": [
+        "GeometricAnalysisMessages"
+      ],
+      "awv0_addRemoveCommands": [
+        "GeometricAnalysisMessages"
+      ],
+      "awv0_volumnAddRemovecommands": [
+        "GeometricAnalysisMessages"
+      ],
+      "viewer_volume_cell_commands": [
+        "GeometricAnalysisMessages"
+      ],
+      "viewer_proximity_cell_commands": [
+        "GeometricAnalysisMessages"
+      ],
+      "viewer_section_cell_commands": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0GeometricAnalysisMeasureDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0GeometricAnalysisQueryDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0GeometricAnalysisSectionDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0GeometricAnalysisProximityDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0GeometricAnalysisVolumeDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0ConfirmAllMeasurementDeleteAllCmdDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0ConfirmSelectedMeasurementDeleteCmdDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0DeleteAllAnalysisQueryCmdDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0DeleteAnalysisQueryCmdDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0AnalysisSectionAddCmdDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0AnalysisSectionDeleteAllCmdDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0AnalysisProximityAddCmdDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0AnalysisProximityRemoveAllCmdDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0AnalysisVolumnAddCmdDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0VolumeShowObjectCellDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0VolumeRemoveTargetDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0DeleteSectionCellDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0ApplySectionCellDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0GeometricAnalysisQuery_scvDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0QuickMeasureDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0SelectPartsDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "Awv0SelectFeaturesDesc": [
+        "GeometricAnalysisMessages"
+      ],
+      "quickMeasure": [
+        "GeometricAnalysisMessages"
+      ],
+      "cancelQuickMeasure": [
+        "GeometricAnalysisMessages"
+      ],
+      "pickFeatures": [
+        "GeometricAnalysisMessages"
+      ],
+      "pickParts": [
+        "GeometricAnalysisMessages"
+      ]
+    }
+  }
+}

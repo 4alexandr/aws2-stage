@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "Copiar",
+    "copyObjectToClipboard": "Se copió {0} en el portapapeles",
+    "copySingleSuccessful": "Se copió \"{0}\" en el portapapeles",
+    "copyMultipleSuccessful": "Se copiaron {0} selecciones en el portapapeles."
+}

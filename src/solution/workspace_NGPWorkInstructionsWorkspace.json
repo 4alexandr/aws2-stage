@@ -1,0 +1,18 @@
+{
+    "schemaVersion": "1.0.0",
+    "workspaceId": "WorkInstructionsWorkspace",
+    "defaultPage": "showHome",
+    "workspaceName": {
+        "source": "/i18/NgpEwiMessages",
+        "key": "ngpEwiWorkspaceName"
+    },
+    "workspaceType": "Exclusive",
+    "includeInSolutions": [
+        "TcAW"
+    ],
+    "availablePages": [
+        "showHome",
+        "com_siemens_splm_client_mfg_ngp_ewi",
+        "processWorkInstructions"
+    ]
+}

@@ -1,0 +1,76 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-bar.directive",
+        "js/exist-when.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-xrt-summary.directive",
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "commandContext": {
+            "cmdObjects": []
+        }
+    },
+    "ports": {
+        "input_ngpInformationDetails": {
+            "onChangeAction": "onInputChange",
+            "syncObject": {}
+        }
+    },
+    "actions": {
+        "onInputChange": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "updateCmdContext"
+                },
+                {
+                    "action": "updateSelectedCtx"
+                }
+            ]
+        },
+        "updateCmdContext": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "object": "{{data.commandContext}}",
+                "key": "cmdObjects",
+                "value": "{{ports.input_ngpInformationDetails.syncObject}}"
+            },
+            "deps": "js/mfeViewModelUtils"
+        },
+        "updateSelectedCtx": {
+            "actionType": "JSFunction",
+            "method": "updateCtx",
+            "inputData": {
+                "name": "selected",
+                "value": "{{ports.input_ngpInformationDetails.syncObject[0]}}"
+            },
+            "deps": "js/appCtxService"
+        },
+        "updateCmdContextInput": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "object": "{{data.commandContext}}",
+                "key": "input",
+                "value": "{{subPanelContext}}"
+            },
+            "deps": "js/mfeViewModelUtils"
+        }
+    },
+    "conditions":{
+        "hadValidContext":{
+            "expression":{
+                "$source":"data.commandContext.cmdObjects.length",
+                "$query":{
+                    "$gt":0
+                }
+            }
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "updateCmdContextInput"
+    }
+}

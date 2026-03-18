@@ -1,0 +1,11 @@
+<aw-row height="5%">
+    <aw-column width="100%">
+            <aw-link class="aw-reports-reportTitle" prop="data.reportlink" action="goToReport"></aw-link>
+        <div class="aw-reports-reportTotalFound"  exist-when="conditions.showtheChart">
+            {{data.totalObjectFound}}
+        </div>
+    </aw-column>
+</aw-row>
+<aw-row height="95%">
+    <aw-chart chart-provider="data.chartProviders.myChartProvider" exist-when="conditions.showtheChart"></aw-chart>
+</aw-row>

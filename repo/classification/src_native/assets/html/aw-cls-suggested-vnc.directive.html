@@ -1,0 +1,44 @@
+<div class="aw-classificationpanelsjs-searchVisualNavigationContent aw-base-scrollPanel">
+    <div class="aw-layout-panelBody">
+        <div class="aw-layout-flexRow aw-viewerjs-elementPosition">
+            <aw-icon-button id="Awp0LeftChevron" class="aw-viewerjs-controlArrow aw-viewerjs-leftArrow"
+                command="data.suggestedCommands.dbValue[0]" exist-when="data.suggestedClasses.length > 1"></aw-icon-button>
+            <ul class="aw-cls-thumbnailRibbonContainer" ng-show="true">
+                <div ng-style="{'margin-left': '-' + data.suggestedRibbonIncr * 21 + '%'}"></div>
+                <li class="aw-widgets-cellListItem aw-widgets-cellTop aw-cls-widgets-cellListItemSelected aw-cls-thumbnailRibbonContent" aw-repeat="item : data.suggestedClasses" ng-click="tileClick(item)"
+                ng-style="{'margin-left': data.suggestedClasses.length === 1 ? '37%' : '0px'}">
+                    <div class="aw-vnc-classname-header">
+                        <div class="aw-widgets-cellListCellContent">
+                            <div class="aw-widgets-cellListCellTitleBlock">
+                                <h3 title="{{item.className}}" class="aw-widgets-cellListCellTitle">{{item.className}}</h3>
+                                <label class="aw-widgets-cellListCellItemType aw-base-small" title="{{item.classPath}}">{{item.classPath}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aw-class-info">
+                        <div class="aw-widgets-cellListCellImage" ng-class="item.iconAvailable ? 'aw-vnc-custom-icon' : 'aw-vnc-default-icon'">
+                            <div class="aw-base-large-thumbnail">
+                                <div class="aw-widgets-modelObjectThumbnailContainer">
+                                    <div class="aw-widgets-modelObjectThumbnail">
+                                        <aw-image class="aw-base-icon" source="imageURL" aw-repeat="imageURL : item.typeIconFileUrl" visible-when="imageURL"></aw-image>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aw-cls-suggestedClassDescription">
+                        <div exist-when="item.classDescription" class="aw-widgets-classDescription">
+                            {{ item.classDescription }}
+                        </div>
+                        <div class="aw-cls-suggested-probability">
+                            {{ item.classProbability }}% <aw-i18n>i18n.match</aw-i18n>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+            <aw-icon-button id="Awp0RightChevron" class="aw-viewerjs-controlArrow aw-viewerjs-rightArrow" command="data.suggestedCommands.dbValue[1]" exist-when="data.suggestedClasses.length > 1"></aw-icon-button>
+        </div>
+    </div>
+</div>

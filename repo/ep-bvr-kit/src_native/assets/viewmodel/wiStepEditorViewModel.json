@@ -1,0 +1,52 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/exist-when.directive",
+        "js/aw-command-bar.directive",
+        "js/aw-panel.directive",
+        "js/aw-class.directive"
+    ],
+    "data": {},
+    "actions": {
+        "initialize": {
+            "actionType": "JSFunction",
+            "method": "onInit",
+            "inputData": {
+                "editorData": "{{subPanelContext.editorData.wiStepData}}",
+                "editorObject": "{{subPanelContext.editorData.wiStepObject}}"
+            },
+            "deps": "js/wiStepEditorService"
+        },
+        "initializeBatchAction": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "initialize"
+                },
+                {
+                    "action": "updateCommandContext"
+                }
+            ]
+        },
+        "updateCommandContext": {
+            "actionType": "JSFunction",
+            "method": "setCommandContext",
+            "inputData": {
+                "tabModel": "{{subPanelContext.editorData}}",
+                "commandContext": {
+                    "inputObject": "{{subPanelContext.editorData.wiStepObject}}",
+                    "selection": [
+                        "{{subPanelContext.editorData.wiStepObject}}"
+                    ],
+                    "connectToObject": "{{subPanelContext.editorData.parentObject}}",
+                    "reloadType": "GetWIData"
+                }
+            },
+            "deps": "js/mfeContentPanelUtil"
+        }
+
+    },
+    "lifecycleHooks": {
+        "onMount": "initializeBatchAction"
+    }
+}

@@ -1,0 +1,8 @@
+<aw-popup-panel2 class="aw-epInstructionsEditor-standardTextPopupPanel">
+    <aw-list-filter prop="data.stxFilterBox" dataprovider="data.dataProviders.performSearch" class="aw-epInstructionsEditor-standardTextFilterList"
+    exist-when="data.isPopupPositionUpdated">
+        <div vmo="item" title="{{item.props.epw0body_cleartext.uiValues[ 0 ]}}">
+            <div class="aw-epInstructionsEditor-standardTextFilterListItem"> {{item.props.object_string.uiValues[ 0 ]}} </div>
+        </div>
+    </aw-list-filter>
+</aw-popup-panel2>

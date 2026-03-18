@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"Löschen",
+    "pertDeleteDesc": "Ausgewählte Knoten löschen",
+    "deleteConfirmationMessage": "Sind Sie sicher, dass Sie die ausgewählten PERT-Knoten permanent löschen möchten?",
+    "missingProcessElements": "Erstellen Sie einen Prozess.",
+    "openPertNodeTitle": "Öffnen",
+    "resetLayoutTitle": "Layout zurücksetzen",
+    "resetLayoutDescription": "Setzen Sie die PERT-Knoten auf das Standard-Layout zurück."
+}

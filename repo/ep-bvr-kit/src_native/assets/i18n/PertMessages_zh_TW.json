@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"刪除",
+    "pertDeleteDesc": "刪除選定節點",
+    "deleteConfirmationMessage": "是否確定要永久刪除選定的 Pert 節點？",
+    "missingProcessElements": "建立流程。",
+    "openPertNodeTitle": "開啟",
+    "resetLayoutTitle": "重設佈局",
+    "resetLayoutDescription": "將 PERT 節點重設為預設佈局。"
+}

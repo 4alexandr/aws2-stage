@@ -1,0 +1,6 @@
+<aw-flex-column height="12" justify="center" align-content="center">
+    <div class="aw-mfe-messageLine" aw-repeat="msg : data.messages">
+        <span exist-when="msg.text">{{msg.text}}</span>
+        <span exist-when="msg.iconId"><aw-icon class="aw-mfe-messageIcon" icon-id="{{msg.iconId}}"></aw-icon></span>
+    </div>
+</aw-flex-column>

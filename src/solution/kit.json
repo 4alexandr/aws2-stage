@@ -1,0 +1,366 @@
+{
+  "name": "tc-aw-solution",
+  "description": "",
+  "modules": [
+    "tc-aw-solution"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "bundles": {
+    "js/base.bundle.js": {
+      "deps": [
+        "js/bootstrap"
+      ],
+      "include": [
+        "js/aw-enter.directive",
+        "js/iconService",
+        "js/ngUtils",
+        "js/NotyModule",
+        "soa/dataManagementService",
+        "soa/kernel/soaService",
+        "soa/preferenceService",
+        "soa/sessionService"
+      ]
+    },
+    "js/tcAuthenticator.js": {
+      "name": "js/tcAuthenticator",
+      "include": [
+        "js/geographyData.service",
+        "js/geographyjs.states",
+        "js/pick.geography.controller",
+        "js/ssoAuthenticator",
+        "js/tcUserPwAuthenticator"
+      ]
+    },
+    "js/decl.bundle.js": {
+      "include": [
+        "js/aw-back-button.directive",
+        "js/aw-base-sublocation.directive",
+        "js/aw-button.directive",
+        "js/aw-column.directive",
+        "js/aw-command-area.directive",
+        "js/aw-command-bar.controller",
+        "js/aw-command-bar.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/aw-command.directive",
+        "js/aw-context-separator.directive",
+        "js/aw-default-cell-content.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-enter-key.directive",
+        "js/aw-file-upload.directive",
+        "js/aw-footer.directive",
+        "js/aw-form.directive",
+        "js/aw-global-toolbar.directive",
+        "js/aw-header-props.directive",
+        "js/aw-header-subtitle.directive",
+        "js/aw-header.directive",
+        "js/aw-html-panel.directive",
+        "js/aw-i18n.directive",
+        "js/aw-icon-button.directive",
+        "js/aw-icon.directive",
+        "js/aw-include.directive",
+        "js/aw-link-with-popup-menu.controller",
+        "js/aw-link-with-popup-menu.directive",
+        "js/aw-link.directive",
+        "js/aw-list-command.directive",
+        "js/aw-list.controller",
+        "js/aw-list.directive",
+        "js/aw-listbox.directive",
+        "js/aw-model-icon.directive",
+        "js/aw-native-sublocation.directive",
+        "js/aw-page.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-panel-header.directive",
+        "js/aw-panel.directive",
+        "js/aw-popup-command-cell.directive",
+        "js/aw-popup-panel.directive",
+        "js/aw-primary-workarea.directive",
+        "js/aw-progress-indicator.directive",
+        "js/aw-property-image.directive",
+        "js/aw-property-label.directive",
+        "js/aw-property-val.directive",
+        "js/aw-repeat.directive",
+        "js/aw-secondary-workarea.directive",
+        "js/aw-showobject-header.directive",
+        "js/aw-showobject-page.directive",
+        "js/aw-splitter.directive",
+        "js/aw-sublocation.directive",
+        "js/aw-tab-container.controller",
+        "js/aw-tab-container.directive",
+        "js/aw-tab-set.directive",
+        "js/aw-tab.controller",
+        "js/aw-tab.directive",
+        "js/aw-textbox.directive",
+        "js/aw-title-link.directive",
+        "js/aw-transclude-replace.directive",
+        "js/aw-transclude.directive",
+        "js/aw-type-cell.directive",
+        "js/aw-type-selector.directive",
+        "js/aw-virtual-repeat.controller",
+        "js/aw-visual-indicator.directive",
+        "js/aw-walker-element.directive",
+        "js/aw-walker-htmlpanel.directive",
+        "js/aw-walker-image.directive",
+        "js/aw-walker-label.directive",
+        "js/aw-walker-namevalueproperty.directive",
+        "js/aw-walker-objectset.directive",
+        "js/aw-walker-property.directive",
+        "js/aw-walker-tableproperty.directive",
+        "js/aw-walker-view.directive",
+        "js/aw-widget.directive",
+        "js/aw-workarea-title.directive",
+        "js/aw-xrt-2.controller",
+        "js/aw-xrt-2.directive",
+        "js/aw-xrt.directive",
+        "js/aw.base.sublocation.controller",
+        "js/aw.default.location.controller",
+        "js/aw.narrowMode.service",
+        "js/aw.native.sublocation.controller",
+        "js/aw.navigateBreadCrumbService",
+        "js/awCustomTooltipService",
+        "js/awLayoutService",
+        "js/awSashUtils",
+        "js/clipboardService",
+        "js/command.service",
+        "js/commandConfiguration.command-provider",
+        "js/commandHandlerService",
+        "js/commandHighlightService",
+        "js/commandPanel.service",
+        "js/commandVisibilityService",
+        "js/conditionService",
+        "js/dataProviderFactory",
+        "js/dataSourceService",
+        "js/dragAndDropService",
+        "js/editHandlerFactory",
+        "js/editHandlerService",
+        "js/enable-when.directive",
+        "js/favoritesService",
+        "js/keyboardService",
+        "js/listBoxService",
+        "js/on-file-change.directive",
+        "js/panelContentService",
+        "js/parsingUtils",
+        "js/pasteFileHandler",
+        "js/selection.service",
+        "js/selectionHelper",
+        "js/showObjectCommandHandler",
+        "js/tabRegistry.service",
+        "js/tcClipboardService",
+        "js/tcCommandVisibilityService",
+        "js/tcDefaultPasteHandler",
+        "js/uwDirectiveBaseUtils",
+        "js/uwPropertyService",
+        "js/uwSupportService",
+        "js/uwUtilService",
+        "js/viewMode.service",
+        "js/viewModelObjectService",
+        "js/viewModelService",
+        "js/visible-when.directive",
+        "js/xrtParser.service"
+      ]
+    },
+    "js/hosting.bundle.js": {
+      "include": [
+        "config/hosting",
+        "js/hosting/bootstrap/services/hostCore_2014_02",
+        "js/hosting/bootstrap/services/hostCore_2014_07",
+        "js/hosting/bootstrap/services/hostLogging_2014_02",
+        "js/hosting/bootstrap/services/hostObjectRef_2014_02",
+        "js/hosting/bootstrap/services/hostObjectRef_2014_07",
+        "js/hosting/bootstrap/services/hostObjectRef_2014_10",
+        "js/hosting/bootstrap/services/hostSoa_2014_02",
+        "js/hosting/hostAuthenticatorService",
+        "js/hosting/hostBaseRefService",
+        "js/hosting/hostBaseSelService",
+        "js/hosting/hostCheckinCheckoutService",
+        "js/hosting/hostConfigService",
+        "js/hosting/hostConst_ConfigKeys",
+        "js/hosting/hostConst_ConfigValues",
+        "js/hosting/hostConst_Services",
+        "js/hosting/hostFactoryService",
+        "js/hosting/hostInteropService",
+        "js/hosting/hostObjectRefService",
+        "js/hosting/hostOpenService",
+        "js/hosting/hostQueryFactoryService",
+        "js/hosting/hostQueryService",
+        "js/hosting/hostRouterService",
+        "js/hosting/hostSelectionService",
+        "js/hosting/hostSupportService",
+        "js/hosting/hostUtils",
+        "js/hosting/inf/services/hostClientInfo_2014_07",
+        "js/hosting/inf/services/hostRefresh_2014_07",
+        "js/hosting/inf/services/hostSelection_2014_02",
+        "js/hosting/inf/services/hostSelection_2014_07",
+        "js/hosting/inf/services/hostSelection_2014_10",
+        "js/hosting/inf/services/hostSession_2014_07",
+        "js/hosting/inf/services/hostTheme_2014_02",
+        "js/hosting/sol/services/hostAppContext_2017_11",
+        "js/hosting/sol/services/hostCheckinCheckout_2016_03",
+        "js/hosting/sol/services/hostComponent_2014_07",
+        "js/hosting/sol/services/hostDragAndDrop_2017_05",
+        "js/hosting/sol/services/hostFeedback_2015_03",
+        "js/hosting/sol/services/hostFileTicket_2014_10",
+        "js/hosting/sol/services/hostFireCommand_2018_07",
+        "js/hosting/sol/services/hostFMSUpload_2015_03",
+        "js/hosting/sol/services/hostObjectInfoComponent_2014_07",
+        "js/hosting/sol/services/hostOpen_2014_02",
+        "js/hosting/sol/services/hostOpen_2015_03",
+        "js/hosting/sol/services/hostOpen_2015_10",
+        "js/hosting/sol/services/hostOpenLocation_2014_02",
+        "js/hosting/sol/services/hostOpenPanel_2019_12",
+        "js/hosting/sol/services/hostOpenNewView_2016_04",
+        "js/hosting/sol/services/hostOpenURL_2014_10",
+        "js/hosting/sol/services/hostPreferences_2017_05",
+        "js/hosting/sol/services/hostQuery_2015_10",
+        "js/hosting/sol/services/hostRemoteClipboard_2014_02",
+        "js/hosting/sol/services/hostRouter_2020_01",
+        "js/hosting/sol/services/hostSearch_2014_02",
+        "js/hosting/sol/services/hostUserMessaging_2017_11",
+        "js/hosting/sol/services/hostUserMessaging_2019_12",
+        "js/hosting/sol/services/hostWorkflowComponent_2015_03"
+      ]
+    },
+    "js/hosting.arch.bundle.js": {
+      "include": [
+        "js/hosting/sol/services/hostArch_2014_10"
+      ]
+    },
+    "js/hosting.issues.bundle.js": {
+      "include": [
+        "js/hosting/sol/services/hostIssues_2016_04"
+      ]
+    },
+    "js/hosting.occ.bundle.js": {
+      "include": [
+        "js/hosting/sol/services/hostOcc_2014_10",
+        "js/hosting/sol/services/hostOcc_2015_10"
+      ]
+    },
+    "js/panel.bundle.js": {
+      "include": [
+        "js/addObjectUtils",
+        "js/aw-add.controller",
+        "js/aw-add.directive",
+        "js/dsmUtils",
+        "js/objectTypesService",
+        "js/removeObjectCellCommandHandler"
+      ]
+    },
+    "js/search.bundle.js": {
+      "include": [
+        "js/aw-global-search.directive",
+        "js/aw-search-box.directive",
+        "js/aw-search-global.directive",
+        "js/aw-search.directive",
+        "js/filterPanelUtils",
+        "js/aw.searchFilter.service",
+        "js/filterPanelService",
+        "js/globalSearchService",
+        "js/search.subLocationKey"
+      ]
+    },
+    "js/showObject.bundle.js": {
+      "include": [
+        "js/aw.objectNav.sublocation.controller",
+        "js/aw.showObject.location.controller2",
+        "js/objectNavigationService"
+      ]
+    },
+    "js/gateway.bundle.js": {
+      "include": [
+        "js/aw-tile-canvas.controller",
+        "js/aw-tile-canvas.directive",
+        "js/aw-tile-group.directive",
+        "js/aw-tile-icon.directive",
+        "js/aw-tile.controller",
+        "js/aw-tile.directive",
+        "js/aw.gateway.location.controller",
+        "js/tileService"
+      ]
+    },
+    "js/inbox.bundle.js": {
+      "include": [
+        "js/aw.inbox.service",
+        "js/aw.inbox.sublocation.controller"
+      ]
+    },
+    "js/occmgmt.bundle.js": {
+      "include": [
+        "js/aceColorDecoratorService",
+        "js/architectureModelerSummary.occMgmtPageKey",
+        "js/aw-occmgmt-cell.controller",
+        "js/aw-occmgmt-cell.directive",
+        "js/aw-occmgmt-secondary-workarea.controller",
+        "js/aw-occmgmt-secondary-workarea.directive",
+        "js/aw-occmgmt-sublocation.directive",
+        "js/aw.occmgmt.sublocation.controller",
+        "js/backgroundWorkingContextService",
+        "js/crossProbingHandler",
+        "js/multiSelectionAttributeForDCP.occMgmtPageKey",
+        "js/multiSelectionPlanPageKey.occMgmtPageKey",
+        "js/multiSelectionSimpleCount.occMgmtPageKey",
+        "js/objectsToPackedOccurrenceCSIDsService",
+        "js/occmgmtGetService",
+        "js/occmgmtListDataService",
+        "js/occmgmtTreeTableDataService",
+        "js/occmgmtVisibility.service",
+        "js/occurrenceManagementServiceManager",
+        "js/declarativeStructureViewerSummary.occMgmtPageKey",
+        "js/declarativePnID3DViewerSummary.occMgmtPageKey",
+        "js/target.subLocationKey"
+      ]
+    },
+    "js/viewer.bundle.js": {
+      "include": [
+        "js/aw-viewer-gallery.directive",
+        "js/Awp0ViewerGalleryUtils",
+        "js/ImgViewer"
+      ]
+    }
+  },
+  "solutionDef": {
+    "solutionId": "TcAW",
+    "solutionName": "Active Workspace",
+    "solutionVersion": "5.1",
+    "browserTitle": "Teamcenter",
+    "brandName": "TEAMCENTER",
+    "companyName": "Siemens Digital Industries Software",
+    "copyrightText": "Copyright © 2020 Siemens",
+    "solutionWar": "awc",
+    "workspaces": [
+      "TCAWWorkspace",
+      "TcAuthorWorkspace",
+      "TcConsumerWorkspace",
+      "TcActiveAdminWorkspace",
+      "TcActiveArchitectWorkspace"
+    ],
+    "defaultWorkspace": "TcAuthorWorkspace",
+    "authenticator": "tcAuthenticator",
+    "clipboard": "tcClipboard",
+    "analytics": "analyticsService",
+    "defaultTheme": "ui-lightTheme",
+    "commandVisibility": "js/tcCommandVisibilityService",
+    "bundler": {
+      "entryFiles": [
+        "tc.html"
+      ]
+    }
+  },
+  "imageRepositoryConfiguration": {
+    "actionType": "GET",
+    "url": "{{baseUrl}}"
+  },
+  "defaultPasteHandlerConfiguration": {
+    "bestTargetFitFinder": "bestTargetFit",
+    "bestSourceFitFinder": "bestSourceFit",
+    "pasteHandler": "tcDefaultPasteHandler",
+    "deps": "js/tcDefaultPasteHandler"
+  },
+  "defaultDragAndDropHandlers": {
+    "dragHandler": "awDefaultDragHandler",
+    "dropHandler": "awDefaultDropHandler"
+  }
+}

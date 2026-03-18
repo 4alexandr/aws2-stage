@@ -1,0 +1,38 @@
+/* Copyright 2019 Siemens Product Lifecycle Management Software Inc. */
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListWidget .aw-widgets-cellListItem {
+    -moz-box-shadow: $drop_shadow_small;
+    -webkit-box-shadow: $drop_shadow_small;
+    box-shadow: $drop_shadow_small;
+}
+
+.aw-classificationpanelsjs-searchVisualNavigationContent .aw-widgets-cellListWidget .aw-widgets-cellListItem:hover {
+    background: $brand_primary_content_background;
+    -moz-box-shadow: $drop_shadow_x_large;
+    -webkit-box-shadow: $drop_shadow_x_large;
+    box-shadow: $drop_shadow_x_large;
+}
+
+
+aw-cls-suggested-vnc .aw-cls-thumbnailRibbonContainer .aw-cls-thumbnailRibbonContent {
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.aw-cls-widgets-cellListItemSelected {
+    background-color: $Siemens_Snow;
+    fill: $Natural_Blue_8;
+}
+
+.aw-cls-block,
+.aw-cls-childHover,
+.aw-cls-cardinalParent .aw-splm-tableContainer {
+    border-color: $brand_primary_content_background;
+}
+
+.aw-cls-parentHover {
+    border-color: $brand_secondary_border;
+}
+
+.aw-cls-childHover {
+    border-color: $brand_secondary_link;
+}

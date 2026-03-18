@@ -1,0 +1,50 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-command-panel.directive",
+        "js/aw-include.directive"
+    ],
+
+    "actions":
+    {
+        "getExistingTraceLinks": {
+            "actionType": "JSFunction",
+            "method": "publishEventToShowExistingTraceLinks",
+            "deps": "js/Arm0CreateTraceLink"
+        }
+      
+    },
+
+    "onEvent":
+    [
+      
+        {
+            "eventId": "Arm0ExistingTraceLinkList.contentLoaded",
+            "action": "getExistingTraceLinks"
+        }
+    ],
+
+    "data":
+    {
+       
+    },
+     "messages":
+    {
+
+    },
+    "functions":
+    {
+    },
+
+    "i18n":
+    {
+        "existingTraceLinkLabel":
+        [
+            "RequirementsCommandPanelsMessages"
+        ]
+    },
+    "dataProviders":
+    {
+    }
+}

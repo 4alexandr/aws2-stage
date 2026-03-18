@@ -1,0 +1,8 @@
+{
+    "delete":"Delete",
+    "discard":"Cancel",
+    "DeleteSingleMessage": "Are you sure you want to delete \"{0}\"?",
+    "DeleteMultipleMessage": "Are you sure you want to delete these {0} objects?",
+    "epCmdDeleteTitle":"Delete",
+    "epCmdDeleteDesc": "Delete the selection."
+}

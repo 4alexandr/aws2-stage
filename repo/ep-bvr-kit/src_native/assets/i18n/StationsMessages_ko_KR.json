@@ -1,0 +1,10 @@
+{
+    "StationWorkInstructionsTitle": "작업 지침",
+    "processTitle": "프로세스",
+    "editorTitle": "편집기",
+    "noAssemblyStructure": "참조되는 어셈블리 구조가 없습니다.",
+    "GraphicVisibilityColumnName": "그래픽 가시성",
+    "syncedToViewer": "뷰어와 동기화되었습니다.  {@msgTxtLink0}",
+    "syncedToEditor": "텍스트 편집기와 동기화되었습니다.  {@msgTxtLink0}",
+    "switchMode": "전환"
+}

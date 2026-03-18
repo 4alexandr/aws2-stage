@@ -1,0 +1,14 @@
+<aw-command-panel caption="i18n.add">
+    <aw-panel-body>
+        <aw-listbox prop="data.vendorRoleName" action="updateAddVendorRolePanelView" list="data.vendorRoleList"></aw-listbox>
+
+        <aw-widget prop="data.vendorStatus" visible-when="data.isVendorStatusDisplay === true"></aw-widget>
+        <aw-widget prop="data.certificationStatus" visible-when="data.isCertificationStatusDisplay === true"></aw-widget>
+   </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button action="addVendorRole">
+            <aw-i18n>i18n.add</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>
+

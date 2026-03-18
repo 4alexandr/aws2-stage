@@ -1,0 +1,32 @@
+// Copyright 2020 Siemens Product Lifecycle Management Software Inc.
+/* begin ckeditor */
+
+.aw-requirementsCkeditor-panel {
+    .aw-requirement-header[selected='true'],
+    .aw-requirement-header:hover {
+        background-color: $cell_list_item_selected;
+    }
+
+    .aw-requirement-content span[contenteditable="true"] {
+        outline-color: $aw_gray_23;
+    }
+
+    .aw-requirement-crossRefLink {
+        color: $AW_Blue;
+    }
+
+    // Consistant style with ckeditor4
+    .ck.ck-content {
+        color: initial;
+    }
+
+    .aw-requirements-readOnly {
+        border-color: $Siemens_Yellow_17  //#FFB900
+    }
+    .aw-requirements-editable {
+        border-color: $Siemens_Yellow_17  //#FFB900
+    }
+    .aw-requirements-masterChanged {
+        border-color: $Siemens_Blue_10  //#197fa2
+    }
+}

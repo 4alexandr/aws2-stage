@@ -1,0 +1,391 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-list.directive",
+        "js/aw-listbox.directive",
+        "js/aw-include.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-list-filter.directive",
+        "js/aw-textbox.directive"
+    ],
+
+    "actions":
+    {
+        "getExistingTraceLinks": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": ""
+                },
+                "inflateProperties": true,
+                "searchInput": {
+                    "maxToLoad": 150,
+                    "maxToReturn": 150,
+                    "providerName": "{{function:getProviderName}}",
+                    "searchCriteria": "{{function:getSearchInputExistingTracelink}}",
+                    "attributesToInflate": [
+                        "awp0CellProperties",
+                        "awp0SelectedObject",
+                        "awp0RelatedObject",
+                        "awp0RelationObject",
+                        "awp0Direction",
+                        "awp0RelationTypeName"
+                    ],
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchFilterMap6": {},
+                    "searchSortCriteria": [],
+                    "startIndex": 0
+                }
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}"
+            },
+            "policy":
+            {
+                "types":
+                [
+                    {
+                        "name": "Awp0TraceLinkProxyObject",
+                        "properties":
+                        [
+                            {
+                                "name": "awp0RelatedObject",
+                                "modifiers": [ {
+                                    "name": "withProperties",
+                                    "Value": "true"
+                                } ]
+                            },
+                            {
+                                "name": "awp0RelationObject"
+                            },
+                            {
+                                "name": "awp0Direction"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "events":
+            {
+                "success":
+                [
+                  {
+                    "name":"createTracelink.initCurrentTracelinkDataACE"
+                   }
+                 ]
+            },
+
+            "deps": "js/Arm0CreateTraceLink"
+        },
+
+        "initCurrentTracelinkDataACE": {
+            "actionType": "JSFunction",
+            "method": "initCurrentTracelinkDataACE",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "CreateTracelink.refreshTracelinkedItemList"
+                } ]
+            },
+            "deps": "js/Arm0CreateTraceLink"
+        },
+
+        "refreshTracelinkedItemList":
+        {
+            "actionType": "dataProvider",
+            "method": "tracelinkedItemList"
+        },
+
+        "openRequirement": {
+            "actionType": "Navigate",
+            "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+            "navigationParams":
+            {
+                "locale" : "{{ctx.userSession.props.fnd0locale.dbValues[0]}}",
+                "pageId": "tc_xrt_Content",
+                "uid": "{{data.selectedCell.id}}",
+                "spageId": "{{i18n.documentationTitle}}",
+                "cmdId": "Awp0FullScreen"
+            },
+            "navigateIn": "newTab"
+        },
+        "tracelinkDeleted":
+        {
+            "actionType": "JSFunction",
+            "method": "tracelinkDeleted",
+            "inputData":
+             {
+                "elementsInDeleteTracelink":"{{data.elementsInDeleteTracelink}}"
+             },
+            "deps": "js/Arm0TraceabilityMatrix"
+        },
+        "selectBookmark":
+        {
+            "actionType": "JSFunction",
+            "method": "selectBookmark",
+            "inputData":
+             {
+                "data":"{{data}}"
+             },
+            "deps": "js/Arm0CreateTraceLink"
+        },
+        "filterAction":
+        {
+            "actionType": "JSFunction",
+            "method": "filterAction",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+
+            "events": {
+                "success": [ {
+                    "name": "CreateTracelink.refreshTracelinkedItemList"
+                } ]
+            },
+
+            "deps": "js/Arm0CreateTraceLink"
+        },
+        "deleteTraceLink":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "deleteObjects",
+           "inputData":
+            {
+                "objects": "{{function:getInputDeleteTraceLink}}"
+            },
+
+            "events":
+            {
+                "success":
+                [
+                    {
+                        "name": "cdm.updated",
+                        "eventData": {
+
+                            "updatedObjects": "{{data.refreshObjects}}"
+                        }
+                    },
+                    {
+                        "name": "primaryWorkarea.reset"
+                    },
+                    {
+                        "name" : "CreateTracelink.loadExistingTracelinks"
+                    },
+                    {
+                        "name": "Arm0CreateTracelink.tracelinkDeleted"
+                    },
+                    {
+                        "name": "requirementDocumentation.deleteTracelinkFromTooltipInAce",
+                        "condition": "deletedTracelinkedObject && deletedTracelinkedObject.length > 0"
+                    },
+                    {
+                        "name": "aceSecondaryWorkArea.refreshTabs",
+                        "condition": "ctx.selected.modelType.typeHierarchyArray.indexOf('Wbs0ConditionalElement') > -1"
+                    },
+                    {
+                        "name": "Arm0CreateTracelink.refreshTracelinkedObjects"
+                    },
+                    {
+                        "name": "Arm0CreateTracelink.showExistingTraceLinks"
+                    }
+
+                ]
+            },
+            "outputData":
+            {
+                "deletedTracelinkedObject": "deleted"
+            },
+
+            "deps": "js/Arm0CreateTraceLink"
+        },
+        "searchAvailableWorkingContext":
+        {
+            "actionType": "JSFunction",
+            "method": "searchAvailableWorkingContext",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+
+            "events": {
+                "success": [ {
+                    "name": "CreateTracelink.searchAvailableWorkingContext"
+                } ]
+            },
+
+            "deps": "js/requirementsTracelinkService"
+        },
+        "refreshTracelinkedObjects":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-01-DataManagement",
+            "method": "refreshObjects",
+            "inputData": {
+                "objects": "{{data.refreshObjects}}"
+            }
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "createTracelink.initCurrentTracelinkDataACE",
+            "action": "initCurrentTracelinkDataACE"
+        },
+        {
+            "eventId": "CreateTracelink.refreshTracelinkedItemList",
+            "action": "refreshTracelinkedItemList"
+        },
+        {
+            "eventId": "Arm0CreateTracelink.tracelinkDeleted",
+            "action" : "tracelinkDeleted"
+        },
+        {
+            "eventId": "Arm0CreateTracelink.showExistingTraceLinks",
+            "action" : "getExistingTraceLinks"
+        },
+        {
+            "eventId": "Arm0CreateTracelink.searchAvailableWorkingContext",
+            "action" : "searchAvailableWorkingContext"
+        },
+        {
+            "eventId": "primaryWorkArea.selectionChangeEvent",
+            "action": "getExistingTraceLinks"
+        },
+        {
+            "eventId": "Arm0CreateTracelink.refreshTracelinkedObjects",
+            "action": "refreshTracelinkedObjects"
+        }
+
+    ],
+
+    "data":
+    {
+        "tracelinkedItems": {
+            "isArray": "true",
+            "dbValue":
+            [
+            ]
+        },
+        "filterBox": {
+            "type": "STRING",
+            "requiredText":"Filter",
+            "dbValue":""
+         },
+        "listofWorkingContext": {
+            "displayName": "Bookmarks",
+            "type": "STRING",
+            "isRequired": false,
+            "hasLov": true,
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+        "listofWorkingContextValues": [
+            {
+            }
+        ]
+    },
+     "messages":
+    {
+
+    },
+    "functions":
+    {
+        "getInputDeleteTraceLink":
+        {
+            "functionName": "getInputDeleteTraceLink",
+            "parameters":
+            [
+                "{{data}}",
+                "{{data.selectedCell}}"
+            ]
+        },
+        "getProviderName": {
+            "functionName": "getProviderName",
+            "parameters": [ "{{ctx}}" ]
+        },
+        "getSearchInputExistingTracelink": {
+            "functionName": "getSearchInputExistingTracelink",
+            "parameters": [  "{{ctx}}" , "{{data}}" ]
+        }
+    },
+
+    "i18n":
+    {
+        "revisionToRevisionTypeTitle":
+        [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "revisionToOccurrenceTypeTitle":
+        [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "occurrenceToRevisionTypeTitle":
+        [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "occurrenceToOccurrenceTypeTitle":
+        [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "complyingTracelinkTitle":
+        [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "definingTracelinkTitle":
+        [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "Remove":
+        [
+            "RequirementsCommandPanelsMessages"
+        ],
+        "Awp0OpenInNewTabTitle":
+        [
+            "RequirementsCommandPanelsMessages"
+        ]
+    },
+    "dataProviders":
+    {
+        "tracelinkedItemList":
+        {
+            "commands":
+            {
+                "delete":
+                {
+                    "id": "cmdDelete",
+                    "title": "{{i18n.Remove}}",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "action":"deleteTraceLink",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                },
+                "open":
+                {
+                    "id": "cmdOpen",
+                    "title": "{{i18n.Awp0OpenInNewTabTitle}}",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "action":"openRequirement",
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "BOTTOM_RIGHT"
+                }
+
+
+            },
+            "response":"{{data.tracelinkedItems.dbValue}}",
+            "noResultsFound": "No results found",
+            "selectionModelMode": "single"
+         }
+
+    }
+}

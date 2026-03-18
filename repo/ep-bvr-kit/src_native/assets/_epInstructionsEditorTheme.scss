@@ -1,0 +1,16 @@
+// Copyright 2020 Siemens Product Lifecycle Management Software Inc.
+
+.aw-epInstructionsEditor-wiEditorContainer {
+    .aw-widgets-cellListItem:hover{
+        .wi-editor-header{
+            background-color: $brand_selection_background_hover;
+        }
+    }
+
+    .aw-widgets-cellListItem:hover{
+        .wi-editor-header-selection{
+            background-color: $brand_selection_background_selected_hover;
+        }
+    }
+}
+

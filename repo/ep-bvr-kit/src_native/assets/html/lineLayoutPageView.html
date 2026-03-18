@@ -1,0 +1,33 @@
+<div class="aw-lineLayout-container afx-default-background">
+    <aw-flex-row exist-when="conditions.isReadOnlyMode">
+        <aw-guidance-message message="{{ctx.mfgReadOnlyMode.readOnlyMessage}}" closable="false" banner-style="false" show-icon="false" show-type="false"></aw-guidance-message>
+    </aw-flex-row>
+
+    <div class="aw-lineLayout-headerContainer">
+        <aw-flex-column justify="center" visible-when="data.loading === false">
+            <div class="aw-lineLayout-headerLineName">{{data.lineNameTitle}}</div>
+        </aw-flex-column>
+
+        <aw-flex-column offset-right="1f">
+            <aw-flex-row align-content="center" justify="right">
+                <div visible-when="data.loading === false">{{data.workPackageNameTitle}}</div>
+                <aw-logo></aw-logo>
+            </aw-flex-row>
+        </aw-flex-column>
+    </div>
+
+    <aw-panel class="aw-lineLayout-imageViewer afx-content-background">
+        <aw-include name="{{ctx.ep.lineLayoutViewerData.fileData.viewer}}" sub-panel-context="ctx.ep.lineLayoutViewerData" class="aw-workinstr-viewerStyle" visible-when="ctx.ep.lineLayoutViewerData" ></aw-include>
+
+        <div class="aw-lineLayout-loadingLabelPanel" visible-when="data.loading === true">
+            <aw-i18n>i18n.headerTitle</aw-i18n>
+        </div>
+
+        <aw-button action="openPopup" class="aw-lineLayout-associatedElementCommandsPanel afx-content-background" title="{{i18n.addLayout}}" enable-when="!conditions.isReadOnlyMode" visible-when="!ctx.ep.lineLayoutViewerData && data.loading === false">
+            <div class="aw-lineLayout-iconLabelContainer">
+                <aw-icon class="aw-commands-svg" icon-id="cmdAdd"></aw-icon>
+                <aw-i18n class="aw-lineLayout-commandsLabel">i18n.addLayout</aw-i18n>
+            </div>
+        </aw-button>
+    </aw-panel>
+</div>

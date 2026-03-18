@@ -1,0 +1,11 @@
+<aw-form name="commandPanelForm">
+    <aw-panel-body aw-init="data.includeTypes='Att0ParamGroup';data.typeOverrideId='Att0ParamGroup';data.maxRecentCount=1">
+        <aw-command-sub-panel panel-id="newTabPageSub"></aw-command-sub-panel>
+    </aw-panel-body>
+</aw-form>
+<aw-panel-footer visible-when="conditions.showFooter">
+     <!-- panel-footer button for New tab -->
+     <aw-button action="startParameterGroupCreation"  enable-when="!ctx.addItemEventProgressing" visible-when="commandPanelForm.$valid&&conditions.isNewTabAddButtonVisible">
+         <aw-i18n>i18n.add</aw-i18n>
+     </aw-button>
+</aw-panel-footer>

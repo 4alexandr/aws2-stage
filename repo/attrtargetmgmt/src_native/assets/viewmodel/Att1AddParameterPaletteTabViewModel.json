@@ -1,0 +1,291 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-section.directive",
+        "js/aw-clipboard.directive",
+        "js/aw-favorite.directive",
+        "js/aw-history.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-i18n.directive",
+        "js/aw-button.directive",
+        "js/aw-panel-footer.directive",
+        "js/enable-when.directive"
+    ],
+    "actions": {
+        "attachParameterSoaCall": {
+            "actionType": "TcSoaService",
+            "serviceName": "AttrTargetMgmtAW-2017-06-AttributeTargetManagement",
+            "method": "attachMeasurableAttributes",
+            "inputData": {
+                "inputs": "{{data.attachParameterSoaInput}}"
+            },
+            "outputData": {
+                "attachMeasurableAttributesSoaOutput": ""
+            },
+            "events": {
+                "success": [ {
+                        "name": "att1AddParameter.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": false
+                        }
+                    },
+                    {
+                        "name": "AttachParameter.refreshParameterTableAfterAttach"
+                    }
+
+                ],
+                "failure": [ {
+                        "name": "att1AddParameter.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": false
+                        }
+                    },
+                    {
+                        "name": "AttachParameter.refreshParameterTableAfterAttach"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [
+                    {
+                        "message": "attachParamFailure"
+                    }
+                ]
+            }
+        },
+        "getSoaInputDataFromRecent": {
+            "actionType": "JSFunction",
+            "method": "getAttachParameterSoaInput",
+            "inputData": {
+                "parentObjForPaste": "{{ctx.selected}}",
+                "attributes": "{{ctx.getRecentObjsProvider.selectedObjects}}",
+                "data":"{{data}}"
+            },
+            "outputData": {
+                "attachParameterSoaInput": ""
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "attachParameterSoaCall"
+                    }
+                ]
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "getSoaInputDataFromClipboard": {
+            "actionType": "JSFunction",
+            "method": "getAttachParameterSoaInput",
+            "inputData": {
+                "parentObjForPaste": "{{ctx.selected}}",
+                "attributes": "{{ctx.getClipboardProvider.selectedObjects}}",
+                "data":"{{data}}"
+            },
+            "outputData": {
+                "attachParameterSoaInput": ""
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "attachParameterSoaCall"
+                    }
+                ]
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "getSoaInputDataFromFavorite": {
+            "actionType": "JSFunction",
+            "method": "getAttachParameterSoaInput",
+            "inputData": {
+                "parentObjForPaste": "{{ctx.selected}}",
+                "attributes": "{{ctx.getFavoriteProvider.selectedObjects}}",
+                "data":"{{data}}"
+            },
+            "outputData": {
+                "attachParameterSoaInput": ""
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "attachParameterSoaCall"
+                    }
+                ]
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "refreshParameterTableAfterAttach":{
+            "actionType": "JSFunction",
+            "method": "refreshParameterTable",
+            "inputData": {
+                "attachMeasurableAttributesSoaOutput": "{{data.attachMeasurableAttributesSoaOutput}}",
+                "source":"attachParameter"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/Att1ParameterMgmtUtilService"
+        },
+        "setItemEventProgressing":{
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "name": "addItemEventProgressing",
+                "value": "{{data.eventMap['att1AddParameter.setItemEventProgressing'].valueToSet}}"
+            },
+            "deps": "js/appCtxService"
+        },
+        "callCreateParamSOA": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                        "name": "att1AddParameter.setItemEventProgressing",
+                        "eventData": {
+                            "valueToSet": true
+                        }
+                    },
+                    {
+                        "name": "getRecentObjsProvider.selected",
+                        "condition": "ctx.getRecentObjsProvider.selectedObjects.length > 0"
+                    },
+                    {
+                        "name": "getClipboardProvider.selected",
+                        "condition": "ctx.getClipboardProvider.selectedObjects.length > 0"
+                    },
+                    {
+                        "name": "getFavoriteProvider.selected",
+                        "condition": "ctx.getFavoriteProvider.selectedObjects.length > 0"
+                    }
+                ]
+            }
+        },
+        "callCreateParamSOAForAddCopy": {
+            "actionType": "JSFunction",
+            "method": "addParameterAsCopy",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "handleDefaultPaletteSelection": {
+            "actionType": "JSFunction",
+            "method": "handleDefaultPaletteSelection",
+            "inputData": {
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "handleClipboardPaletteSelection": {
+            "actionType": "JSFunction",
+            "method": "handlePaletteSelection",
+            "inputData":
+            {
+                "data": "{{ctx}}",
+                "provider": "{{ctx.getClipboardProvider}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "handleFavouritePaletteSelection": {
+            "actionType": "JSFunction",
+            "method": "handlePaletteSelection",
+            "inputData":
+            {
+                "data": "{{ctx}}",
+                "provider": "{{data.dataProviders.getFavoriteProvider}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        },
+        "handleRecentPaletteSelection": {
+            "actionType": "JSFunction",
+            "method": "handlePaletteSelection",
+            "inputData":
+            {
+                "data": "{{ctx}}",
+                "provider": "{{data.dataProviders.getRecentObjsProvider}}"
+            },
+            "deps": "js/addMeasurableAttr"
+        }
+    },
+    "data": {
+        "filterType": "Att0MeasurableAttribute"
+    },
+    "onEvent": [
+        {
+            "eventId": "getRecentObjsProvider.selected",
+            "action": "getSoaInputDataFromRecent"
+        },
+        {
+            "eventId": "getClipboardProvider.selected",
+            "action": "getSoaInputDataFromClipboard"
+        },
+        {
+            "eventId": "getFavoriteProvider.selected",
+            "action": "getSoaInputDataFromFavorite"
+        },
+        {
+            "eventId": "attachParameterSoaCall",
+            "action": "attachParameterSoaCall"
+        },
+        {
+            "eventId": "att1AddParameterAsCopy",
+            "cacheEventData": true,
+            "action": "callCreateParamSOA"
+        },
+        {
+            "eventId": "getClipboardProvider.modelObjectsUpdated",
+            "action": "handleDefaultPaletteSelection"
+        },
+        {
+            "eventId": "getClipboardProvider.selectionChangeEvent",
+            "action": "handleClipboardPaletteSelection"
+        },
+        {
+            "eventId": "getFavoriteProvider.selectionChangeEvent",
+            "action": "handleFavouritePaletteSelection"
+        },
+        {
+            "eventId": "getRecentObjsProvider.selectionChangeEvent",
+            "action": "handleRecentPaletteSelection"
+        },
+        {
+            "eventId":"AttachParameter.refreshParameterTableAfterAttach",
+            "cacheEventData": true,
+            "action":"refreshParameterTableAfterAttach"
+        },
+        {
+            "eventId": "att1AddParameter.setItemEventProgressing",
+            "cacheEventData": true,
+            "action": "setItemEventProgressing"
+        }
+    ],
+    "messages": {
+        "attachParamFailure":{
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    },
+    "conditions": {
+        "isPaletteTab": {
+            "expression": "data.selectedTab.panelId==='Att1AddParameterPaletteTab'"
+        },
+        "showAddPalette": {
+            "expression": "ctx.getRecentObjsProvider.selectedObjects.length > 0 || ctx.getFavoriteProvider.selectedObjects.length > 0 || ctx.getClipboardProvider.selectedObjects.length > 0"
+        },
+        "isTcReleaseAtLeast122": {
+            "expression": "ctx.tcSessionData.tcMajorVersion > 12 || ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion >= 2"
+        }
+    },
+    "i18n": {
+        "add": [
+            "Att1AttrMappingMessages"
+        ],
+        "addAsCopy": [ "Att1AttrMappingMessages" ]
+    }
+}

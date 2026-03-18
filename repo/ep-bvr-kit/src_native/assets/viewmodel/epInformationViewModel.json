@@ -1,0 +1,129 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-xrt-summary.directive",
+        "js/aw-include.directive",
+        "js/aw-xrt.directive",
+        "js/exist-when.directive"
+    ],
+    "ports": {
+        "epInformation_inputObject": {
+            "onChangeAction": "handleInput",
+            "syncObject": {}
+        }
+    },
+    "data": {},
+    "actions": {
+        "handleInput": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "handleNewInputForSingleObject"
+                },
+                {
+                    "action": "setSelection",
+                    "condition": "conditions.isInputObjectUpdated"
+                },
+                {
+                    "action": "updateCommandContext",
+                    "condition": "conditions.isInputObjectUpdated"
+                },
+                {
+                    "action": "updateSelectedCtx",
+                    "condition": "conditions.isInputObjectUpdated"
+                }
+            ]
+        },
+        "handleNewInputForSingleObject": {
+            "actionType": "JSFunction",
+            "method": "handleNewInputForSingleObject",
+            "inputData": {
+                "data": "{{data}}",
+                "input": "{{ports.epInformation_inputObject.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "setSelection": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "object": "{{data}}",
+                "key": "inputForXRT",
+                "value": {
+                    "scopeObject": "{{data.inputObject}}",
+                    "xrtType": "{{subPanelContext.xrtType}}"
+                }
+            },
+            "deps": "js/mfeViewModelUtils"
+        },
+        "updateCommandContext": {
+            "actionType": "JSFunction",
+            "method": "setCommandContext",
+            "inputData": {
+                "tabModel": "{{subPanelContext}}",
+                "commandContext": {
+                    "inputObject": "{{data.inputObject}}"
+                }
+            },
+            "deps": "js/mfeContentPanelUtil"
+        },
+        "updateSelectedCtx": {
+            "actionType": "JSFunction",
+            "method": "updateCtx",
+            "deps": "js/appCtxService",
+            "inputData": {
+                "name": "selected",
+                "value": "{{data.inputObject}}"
+            }
+        },
+        "init": {
+            "actionType": "JSFunction",
+            "method": "setValueInViewModel",
+            "inputData": {
+                "object": "{{data}}",
+                "key": "inputForXRT",
+                "value": {
+                    "scopeObject": "{{subPanelContext.scopeObject}}",
+                    "xrtType": "{{subPanelContext.xrtType}}",
+                    "noElementSelectedMessageForXRT": "{{subPanelContext.noElementSelectedMessageForXRT}}"
+                }
+            },
+            "deps": "js/mfeViewModelUtils"
+        },
+        "cancelEdits": {
+            "actionType": "JSFunction",
+            "method": "cancelEdits",
+            "deps": "js/editHandlerService",
+            "events": {
+                "success": [
+                    {
+                        "name": "updateURLParam"
+                    }
+                ]
+            }
+        }
+    },
+    "conditions": {
+        "isInputObjectUpdated": {
+            "expression": {
+                "$source": "data.isInputObjectUpdated",
+                "$query": {
+                    "$eq": true
+                }
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "editHandlerStateChange",
+            "cacheEventData": true,
+            "action": "cancelEdits",
+            "condition": "state === 'partialSave'"
+        }
+    ],
+    "lifecycleHooks": {
+        "onMount": "init"
+    }
+}

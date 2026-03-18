@@ -1,0 +1,14 @@
+<%  var columnPropertyName = _.get( column, 'propertyName' );
+    var imagePath = basePath + '/image/';
+    switch( columnPropertyName ){
+        case "att1HasVariantFormula":
+            imagePath += "indicatorVariantCondition16.svg"
+            break
+        case "REF(att1SourceAttribute,Att0MeasurableAttribute).REF(att1ContextObject,WorkspaceObject).object_name":
+            imagePath += "indicatorOverridden16.svg"
+            break
+        default:
+            imagePath += ""
+    }%>
+
+    <img class="aw-visual-indicator" src="<%=imagePath%>">

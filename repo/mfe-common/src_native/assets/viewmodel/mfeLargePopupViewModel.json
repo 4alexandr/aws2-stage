@@ -1,0 +1,35 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-header.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-include.directive",
+        "js/aw-icon-button.directive"
+    ],
+    "data": {
+        "closeCommand": {
+            "action": "publishClosePopupWindow",
+            "iconName": "ClosePanel",
+            "tooltip": "{{i18n.close}}"
+        }
+    },
+    "actions": {
+        "publishClosePopupWindow": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "mfeLargePopup.closeRequest"
+                } ]
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "appCtx.register",
+            "condition": "name === 'state' && !ctx.mfeLargePopup.isNewState",
+            "action": "publishClosePopupWindow"
+        }
+    ]
+}

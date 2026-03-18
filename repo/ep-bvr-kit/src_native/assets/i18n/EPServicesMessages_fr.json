@@ -1,0 +1,6 @@
+{
+    "objectDoesNotExist": "L’objet demandé n'existe pas.",
+    "confirmButton": "Oui, Réviser",
+    "cancelButton": "Annuler",
+    "reviseMessage": "Pour terminer l’action, le(s) objets suivants doivent être révisés:\n{0}\nLes réviser maintenant?"
+}

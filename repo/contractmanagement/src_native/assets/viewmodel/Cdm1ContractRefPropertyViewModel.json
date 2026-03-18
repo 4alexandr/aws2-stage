@@ -1,0 +1,37 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/aw-textarea.directive",
+        "js/aw-panel-section.directive"
+    ],
+
+    "data": 
+    {
+        "cdm0ContractReference": 
+        {
+            "type": "STRING",
+            "isEditable": true,
+            "isRequired": true,
+            "dbValue": "",
+            "displayName": "{{i18n.cdm0ContractReference}}",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        }
+    },
+
+    "conditions": 
+    {
+        "isParentObjectOfTypeContractRevision": 
+        {
+            "expression": "!(ctx.selected!== null && ctx.selected.modelType.typeHierarchyArray.indexOf('Cdm0ContractRevision') > -1)"
+        }
+    },
+
+    "i18n": 
+    {
+        "cdm0ContractReference": 
+        [
+            "contractmanagementMessages"
+        ]
+    }
+}

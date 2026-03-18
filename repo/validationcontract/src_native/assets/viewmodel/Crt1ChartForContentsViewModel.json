@@ -1,0 +1,180 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-chart.directive",
+        "js/aw-row.directive",
+        "js/aw-i18n.directive"
+    ],
+
+    "actions": {
+        "resetColumnFilters": {
+            "actionType": "JSFunction",
+            "method": "resetColumnFilters",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1ChartForContentsService"
+        },
+        "checkAndReloadContentsChart": {
+            "actionType": "JSFunction",
+            "method": "checkAndReloadContentsChart",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1ChartForContentsService"
+        },
+        "createPieChartForContents": {
+            "actionType": "JSFunction",
+            "method": "createPieChartForContents",
+            "inputData": {
+                "input": "{{data}}"
+            },
+            "outputData": {
+                "chartProviders.pieChartForContentsProvider.chartPoints": ""
+            },
+            "deps": "js/Crt1ChartForContentsService"
+        },
+        "loadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Att1ContentsAttrTable",
+                    "operationType": "as_configured"
+                },
+                "searchInput": {
+                    "maxToLoad": 10,
+                    "maxToReturn": 10,
+                    "providerName": "Crt1AnalysisRequestInProvider",
+                    "searchCriteria": {
+                        "parentUid": "{{ctx.xrtSummaryContextObject.uid}}"
+                    }
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "searchResults": "searchResults",
+                "ctx.showChartForContentObjects": []
+            },
+            "events": {
+                "success": [
+                 {
+                    "name": "Crt1ChartForContentsViewModel.createChart"
+                 }
+             ]
+            },
+            "deps": "js/Crt1ChartForContentsService"
+        },
+        "setUpdateFlag": {
+            "actionType": "JSFunction",
+            "method": "setUpdateFlag",
+            "inputData": {
+                "input": ""
+            },
+            "deps": "js/Crt1ChartForContentsService"
+        },
+        "filterTable": {
+            "actionType": "JSFunction",
+            "method": "filterTable",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1ChartForContentsService"
+        },
+        "displayAll": {
+            "actionType": "JSFunction",
+            "method": "displayAll",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Crt1ChartForContentsService"
+        }
+    },
+    "functions": {
+        "getUid": {
+            "functionName": "getUid",
+            "parameters": [
+                "{{ctx}}"
+            ]
+        }
+    },
+
+    "data": {
+        "chartProviders" : {
+            "pieChartForContentsProvider": {
+                "chartType": "pie",
+                "chartColorOverrideClass":"aw-verificationManagement-chartStatusColor",
+                "loadDataAction": "createPieChartForContents",
+                "chartConfig": {
+                    "isChartZoomable": true,
+                    "isYAxisLinearOrLogarithmic": "logarithmic",
+                    "xAxisLabel": "",
+                    "yAxisLabel": "",
+                    "isDataLabelOnChartEnabled": true
+                }
+            }
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "Crt1ChartForContentsViewModel.createChart",
+            "action": "createPieChartForContents"
+        },
+        {
+            "eventId": "chart.reloadContentsChart",
+            "action": "createPieChartForContents"
+        },
+        {
+            "eventId": "plTable.editStateChange",
+            "action": "checkAndReloadContentsChart"
+        },
+        {
+            "eventId": "undefined.selected",
+            "cacheEventData": true,
+            "action": "filterTable"
+        },
+        {
+            "eventId": "undefined.unselected",
+            "cacheEventData": true,
+            "action": "displayAll"
+        },
+        {
+            "eventId": "Crt1ChartForContents.contentUnloaded",
+            "cacheEventData": true,
+            "action": "resetColumnFilters"
+        }
+
+    ],
+
+    "i18n": {
+
+        "noContentsToDisplayChart": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "NoResult": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "Fail": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "Pass": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "Contents": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "Parameters": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "Output": [
+            "AnalysisRequestCommandPanelsMessages"
+        ],
+        "output": [
+            "AnalysisRequestCommandPanelsMessages"
+        ]
+    }
+}

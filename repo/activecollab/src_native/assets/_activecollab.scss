@@ -1,0 +1,63 @@
+// Copyright 2020 Siemens Product Lifecycle Management Software Inc.
+.aw-activecollab-shadow > .aw-widgets-cellListContainer > .aw-widgets-cellListOffsetter > .aw-widgets-modelObjectList > .aw-widgets-cellListWidget > .aw-widgets-cellListItem {
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    opacity: 1;
+    margin: 5px 0px;
+    padding-right: 4px;
+}
+
+ul.aw-widgets-cellListWidget .aw-activecollab-nonIndentedList ul {
+    margin-left: 0;
+}
+
+ul.aw-widgets-cellListWidget .aw-activecollab-nonIndentedList .aw-widgets-cellListItem {
+    padding: 2px;
+}
+
+.aw-activecollab-convCreds {
+    font-size: $fontsize_large;
+}
+
+.aw-activecollab-userBold {
+    font-weight: bold;
+}
+
+/* for ckeditor */
+.aw-activecollab-editor {
+    padding: 0;
+    margin-top: 5px;
+}
+
+/* for ckeditor */
+.aw-activecollab-editor .cke_chrome {
+    border: 0 none;
+}
+
+/* separator without excessive margin components */
+.aw-activecollab-convSeparator {
+    display: block;
+    border-bottom: 1px solid;
+    margin: 4px 0;
+    clear: both;
+}
+
+.aw-activecollab-shadow .aw-activecollab-convCellCmd .aw-commands-wrapper {
+    padding: 0;
+}
+
+.aw-activecollab-srcObjChip .aw-widgets-chip {
+    max-width: 70%;
+}
+
+.aw-activecollab-chipList .aw-widgets-chip{
+    align-self: flex-start;
+    flex: 0 0 auto;
+    width: 90%;
+}
+
+.aw-activecollab-shadow .aw-widgets-cellListItemContainer .aw-widgets-cellListItemCell {
+    width: 100%;
+}
+

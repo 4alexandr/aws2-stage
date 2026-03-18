@@ -1,0 +1,13 @@
+<aw-form name="madeFromPanelForm" >
+    <aw-panel-body>
+    <aw-panel-section caption="i18n.dimensionsLabel" visible-when="data.inputParameters.length > 0"> 
+    <aw-widget prop="property" aw-repeat="property : data.inputParameters"></aw-widget>
+    </aw-panel-section>
+        <aw-panel-section>
+            <aw-xrt type="CREATE" object-type="SM0MadeFrom"></aw-xrt>
+        </aw-panel-section>
+    </aw-panel-body>
+</aw-form>    
+<aw-panel-footer>
+    <aw-button action="attachStockMaterial" visible-when="madeFromPanelForm.$valid"><aw-i18n>i18n.add</aw-i18n></aw-button>
+</aw-panel-footer>

@@ -1,0 +1,9 @@
+{
+    "noVisuals": "该元素下没有视觉对象。",
+    "selectElement": "选择元素以查看其视觉对象。",
+    "capture2DImage": "捕捉 2D 图像",
+    "capture2DImagesSuccess": "2D 图像已捕捉并附加到“{0}”。",
+    "epManageProductViewsCommandTitle":"在 Teamcenter Visualization 中管理产品视图",
+    "3DView": "3D 视图",
+    "openInTeamcenterVis":"在 Teamcenter Visualization 中打开"
+}

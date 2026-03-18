@@ -1,0 +1,23 @@
+{
+    "addComment": "コメント",
+    "addQuestion": "質問を投稿",
+    "addAnswer": "回答を投稿",
+    "addRating": "レート",
+    "name": "名前",
+    "postComment": "コメントを投稿",
+    "postQuestion": "質問を投稿",
+    "postAnswer": "回答を投稿",
+    "postRating": "レート",
+    "subscriptionFailed": "\"{0}\"をフォローすることはできません。",
+    "oneStarRating": "1つ星レーティング",
+    "twoStarRating": "2つ星レーティング",
+    "threeStarRating": "3つ星レーティング",
+    "fourStarRating": "4つ星レーティング",
+    "fiveStarRating": "5つ星レーティング",
+    "allRatings": "すべてのレーティング",
+    "reply": "返信",
+    "S2clSCAddCommentNewDesc": "オブジェクトについてのコメントを投函します。",
+    "S2clSCAddQuestionNewDesc": "オブジェクトについての質問をします。",
+    "S2clSCAddAnswerNewDesc": "オブジェクトについての質問に返信します。",
+    "S2clSCAddRatingNewDesc": "レーティングをオブジェクトに追加します。"
+}

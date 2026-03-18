@@ -1,0 +1,13 @@
+{
+    "cancel":"Abbrechen",
+    "creataAndAddMore":"Weitere erstellen und hinzufügen",
+    "create":"Erstellen",
+    "select":"Auswählen",
+    "selectType":"Typ auswählen",
+    "creatingObjectMessage": "Erstellen wird ausgeführt",
+    "next" : "Weiter",
+    "previous" : "Zurück",
+    "createBuildElement":"Build-Element erstellen",
+    "createActivity":"Aktivität erstellen"
+
+}

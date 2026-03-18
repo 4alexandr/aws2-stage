@@ -1,0 +1,23 @@
+{
+    "cancel": "취소",
+    "submit": "제출",
+    "continue": "계속",
+    "reviseCmdTitle": "개정",
+    "workflowTemplatesLabel": "워크플로 템플릿",
+    "workflowNameLabel": "워크플로 이름",
+    "workflowDescriptionLabel": "설명",
+    "noWorkflowTemplatesMsg": "선택한 개체에 대한 워크플로 템플릿을 찾을 수 없습니다.",
+    "submitToWorkflowCmdTitle": "제출할 워크플로",
+    "submitToWorkflowTooltipMsg": "{0}을(를) 워크플로에 제출합니다.",
+    "submitToWorkflowInformationMsg": "{0} 프로세스 삭제가 보류 중입니다. 이 삭제를 포함하여 작업 내용을 릴리스하려면 워크플로 템플릿 \"NGP_ReleasePendingDeletions\"를 사용하는 동안 작업을 워크플로에 제출합니다.",
+    "successfullySubmitToWorkflowSingle": "\"{0}\"이(가) 워크플로에 제출되었습니다.",
+    "successfullySubmitToWorkflowMultiple": "{0} 개체가 워크플로에 제출되었습니다.",
+    "parentAutoReviseSingleConfirmation": "\"{0}\"을(를) 수정하면 \"{1}\"도 수정됩니다. 계속하시겠습니까?",
+    "parentAutoReviseMultipleConfirmation": "선택한 오퍼레이션을 수정하면 \"{0}\"도 수정됩니다. 계속하시겠습니까?",
+    "successfulReviseAction": "\"{0}\"에 대한 새 리비전이 성공적으로 생성되었습니다.",
+    "submitSelectedToWorkflow": "선택한 요소를 워크플로에 제출합니다.",
+    "singleDeleteMessage": "회사를 \"{0}\"?",
+    "multipleDeleteMessage": "이러한 {0} 개체를 삭제하시겠습니까?",
+    "deleteTooltipMsg": "삭제",
+    "deleteSelectedObjectsCmdDescription": "선택한 개체 삭제"    
+}

@@ -1,0 +1,24 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+/*========================================================================*/
+/*============================= MRM Large popup ==============================*/
+/*========================================================================*/
+.aw-mrm-headerTitle {
+    .aw-base-normal a {
+        color: $Siemens_Snow;
+    }
+}
+
+.aw-mrm-largeHeader {
+    color: $aw_secondary_text;
+}
+
+.aw-mrm-largePopup {
+    border-top-color: $aw_secondary_text;
+}

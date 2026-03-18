@@ -1,0 +1,12 @@
+{
+  "name": "stockmaterial",
+  "description": "",
+  "modules": [
+    "stockmaterial"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Sm1.Soa.StockMaterialAW"
+  ]
+}

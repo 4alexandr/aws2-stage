@@ -1,0 +1,229 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        "js/visible-when.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-expandable-search-result-filter.directive",
+        "js/aw-label.directive",
+        "js/aw-break.directive"
+    ],
+   
+   "actions": 
+    {
+      "initiateRelationPanel": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": 
+                        {
+                            "destPanelId": "Mtw0ShowAddObjectRelation",
+                            "title": "{{data.i18n.addPropertiesLabel}}",
+                            "recreatePanel": true,
+                            "supportGoBack": true
+                        }
+                    }
+                ]
+            }
+        },
+      
+      "updateResultKeyWords": 
+        {
+            "actionType": "JSFunction",
+            "method": "updateResultKeyWords",
+            "inputData": 
+            {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/addObjectUtils"
+        },
+        "getSearch": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2016-03-Finder",
+            "method": "performSearch",
+            "inputData": 
+            {
+                "columnConfigInput": 
+                {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Awp0SearchResults",
+                    "columnsToExclude": 
+                    [
+                        
+                    ],
+
+                    "hostingClientName": "",
+                    "operationType": "intersection"
+                },
+
+                "saveColumnConfigData": 
+                {
+                    "columnConfigId": "",
+                    "clientScopeURI": "",
+                    "columns": 
+                    [
+                        
+                    ],
+
+                    "scope": "",
+                    "scopeName": ""
+                },
+
+                "searchInput": 
+                {
+                    "attributesToInflate": 
+                    [
+                        
+                    ],
+
+                    "internalPropertyName": "",
+                    "maxToLoad": 40,
+                    "maxToReturn": 40,
+                    "providerName": "Awp0FullTextSearchProvider",
+                    "searchCriteria": 
+                    {
+                        "searchString": "{{data.searchBox.dbValue}}"
+                    },
+
+                    "searchFilterFieldSortType": "Priority",
+                    "searchFilterMap": "{{data.searchFilterMap}}",
+                    "searchSortCriteria": 
+                    [
+                        
+                    ],
+
+                    "startIndex": "{{data.dataProviders.performSearch.startIndex}}"
+                }
+            },
+
+            "outputData": 
+            {
+                "totalFound": "totalFound",
+                "searchResults": "searchResults",
+                "sourceSearchFilterMap": "searchFilterMap",
+                "categories": "{{function:getCategories}}"
+            },
+          "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "performSearch.modelObjectsUpdated"
+                    }
+                ]
+            },
+
+            "deps": "js/filterPanelService"
+        },
+
+        "filterRemovedAction": 
+        {
+            "actionType": "JSFunction",
+            "method": "updateKeywordFilters",
+            "inputData": 
+            {
+                "data": "{{data}}",
+                "categoryName": "{{data.eventData.prop}}",
+                "filterValue": "{{data.eventData.filterValue}}"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "addPanel.filterChanged"
+                    }
+                ]
+            },
+
+            "deps": "js/addObjectUtils"
+        }
+    },
+    "data": 
+    {
+        "keyWord": 
+        {
+            "displayName": "{{i18n.keywordsLabel}}",
+            "type": "STRING",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        }
+    },
+
+    "onEvent": 
+    [
+        {
+            "eventId": "performSearch.modelObjectsUpdated",
+            "action": "updateResultKeyWords"
+        },
+
+        {
+            "eventId": "addPanel.filterChanged",
+            "action": "performSearch"
+        },
+
+        {
+            "eventId": "searchResultItems.doSearch",
+            "action": "performSearch"
+        },
+
+        {
+            "eventId": "awSearchTab.filtersRemoved",
+            "cacheEventData": true,
+            "action": "filterRemovedAction"
+        },
+        {
+            "eventId": "performSearch.selectionChangeEvent",
+            "action": "initiateRelationPanel"
+        }
+    ],
+
+    "dataProviders": 
+    {
+        "performSearch": 
+        {
+            "action": "getSearch",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single",
+            "commands": {
+                "Awp0ShowObjectCell": {
+                    "id": "cmdOpen",
+                    "title": "Open",
+                    "areas": ["com.siemens.splm.clientfx.ui.modelObjectListActionCommands"],
+                    "priorities": [300],
+                    "dependencies": ["js/showObjectCommandHandler"],
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            }
+        }
+    },
+    "functions": 
+    {
+        "getCategories": 
+        {
+            "functionName": "getCategories",
+            "parameters": 
+            [
+                
+            ]
+        }
+    },
+
+    "i18n": 
+    {
+        "keywordsLabel": [ "awAddDirectiveMessages"],
+        "addPropertiesLabel":["MaterialMgmtMessages"]
+    }
+}

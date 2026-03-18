@@ -1,0 +1,41 @@
+<aw-column class="awLargeTHeader" width="fill" aw-class="['aw-layout-locationPanel', data.locationPanelStyle, data.layoutSummaryOnlyStyle ]">
+    <!-- ROW 1 -->
+    <header class="aw-layout-header">
+        <aw-flex-row height="6.584f" class="aw-layout-header" wrap-style="nowrap">
+
+            <!-- ??? -->
+            <aw-column class="awHeader" width="fill" justify="left" offset="2f">
+                <aw-row align-content="center" class="aw-layout-headerTitleContainer">
+                    <aw-header-title headerVMO="data.headerViewModel" headerTitle="i18n.requirementsManagerDisplayName" headerProperties="data.headerProperties"></aw-header-title>
+                </aw-row>
+            </aw-column>
+            <!-- AW-GLOBAL-SEARCH -->
+            <aw-column width="auto" align-content="end" justify="right">
+                <aw-row height="auto" align-content="center">
+                    <aw-global-search></aw-global-search>
+                    <aw-logo></aw-logo>
+                </aw-row>
+            </aw-column>
+        </aw-flex-row>
+    </header>
+    <div class="aw-requirementsmanager-tiles" >
+    <aw-flex-row class="aw-requirementsmanager-recentRow" height="29f">
+        <aw-panel>
+            <aw-panel-body >                  
+                <aw-command-panel-section class="aw-requirementsmanager-recent" caption="{{i18n.recents}}" anchor="data.recentNext" context="conditions" >
+                    <aw-list class="aw-requirementsmanager-list aw-widget-align-horizontal" visible-when="data.searchResults.objects.length > 0" dataprovider="data.dataProviders.recentDataProvider">
+                        <aw-include name="rmRecentsCell" sub-panel-context="item"></aw-include>
+                    </aw-list>
+                    <aw-icon icon-id="homeNoRecentsYet" visible-when="data.totalFoundRelated.dbValue === -1" ></aw-icon>
+                    <label class="aw-requirementsmanager-noRecent" visible-when="data.totalFoundRelated.dbValue === -1">{{i18n.noRecentReq}}</label>
+                </aw-command-panel-section>
+            </aw-panel-body>
+        </aw-panel>
+    </aw-flex-row>
+    <aw-flex-row offset="4f">
+        <aw-flex-column offset="2f">
+            <aw-tile-canvas tile-groups="data.tileGroups" ></aw-tile-canvas>
+        </aw-flex-column>
+    </aw-flex-row>
+    </div>
+</aw-column>

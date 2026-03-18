@@ -1,0 +1,116 @@
+
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-add.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-form.directive"
+    ],
+    "actions": {
+        "createObject": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2016-09-DataManagement",
+            "method": "createAttachAndSubmitObjects",
+            "inputData": {
+                "inputs": "{{function:getCreateInput}}"
+            },
+            "outputData": {
+                "createdMainObject": "output[0].objects[0]",
+                "createdObject": "{{function:getCreatedObject}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "addLocationsInCreateVendor.objectCreated",
+                        "eventData": {
+                            "selectedObjects": "{{data.sourceObjects}}"
+                        }
+                    },
+                    {
+                        "name": "complete.subPanel",
+                        "eventData": {
+                            "source": "Vm1AddLocationsInCreateVendorSub"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/addObjectUtils"
+        },
+        "assignObject": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "vendorLocations.assignObject",
+                        "eventData": {
+                            "selectedObjects": "{{data.sourceObjects}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "Vm1NavigateToCreateVendorPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": {
+                            "destPanelId": "Vm1CreateNewVendor",
+                            "eventData": "{{data.eventData}}"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "functions": {
+        "getCreateInput": {
+            "functionName": "getCreateInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "conditions": {
+        "isNewTabAddButtonVisible": {
+            "expression": "data.selectedTab.panelId==='newTabPageSub' && data.creationType"
+        },
+        "isPaletteTabAddButtonVisible": {
+            "expression": "data.selectedTab.panelId==='paletteTabPageSub' && (ctx.getClipboardProvider.selectedObjects.length > 0 || ctx.getFavoriteProvider.selectedObjects.length > 0  || ctx.getRecentObjsProvider.selectedObjects.length > 0)"
+        },
+        "isSearchTabAddButtonVisible": {
+            "expression": "data.selectedTab.panelId!='newTabPageSub' && data.selectedTab.panelId!='paletteTabPageSub' && data.dataProviders.performSearch.selectedObjects.length > 0"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "vendorLocations.assignObject",
+            "action": "Vm1NavigateToCreateVendorPanel"
+        },
+        {
+            "eventId": "addLocationsInCreateVendor.objectCreated",
+            "action": "Vm1NavigateToCreateVendorPanel"
+        }
+    ],
+    "i18n": {
+        "ADD_BUTTON_TITLE": [
+            "BaseMessages"
+        ]
+    },
+    "messages": {
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    }
+}

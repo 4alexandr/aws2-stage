@@ -1,0 +1,185 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-label.directive",
+        "js/aw-column.directive",
+        "js/aw-panel.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-link.directive",
+        "js/visible-when.directive"
+    ],
+    "actions": {
+        "selectAndLaunchEffPanel": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "activateEffPanel"
+                },
+                {
+                    "action": "selectHoveredElement"
+                }
+            ]
+        },
+        "selectHoveredElement": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "aceElementsSelectionUpdatedEvent",
+                    "eventData": {
+                        "objectsToSelect": [ "{{subPanelContext.vmoHovered}}" ]
+                    }
+                } ]
+            }
+        },
+        "activateEffPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "activateEffPanel",
+                    "condition": "!ctx.activeToolsAndInfoCommand || ( ctx.activeToolsAndInfoCommand && ctx.activeToolsAndInfoCommand.commandId !== 'Awb0OccurrenceEffectivity')"
+                },
+            {
+                "name":"goBackToDisplayIfAddEffectivtiesActive",
+                "condition":"ctx.activeToolsAndInfoCommand && ctx.activeToolsAndInfoCommand.commandId == 'Awb0OccurrenceEffectivity' && (ctx.panelContext.destPanelId === 'AddEffectivities' || ctx.panelContext.destPanelId === 'EditEffectivities')"
+            } ]
+            }
+        },
+        "launchEffPanel": {
+            "actionType": "JSFunction",
+            "method": "activateCommandPanel",
+            "deps": "js/commandPanel.service",
+            "inputData": {
+                "commandId": "Awb0OccurrenceEffectivity",
+                "location": "aw_toolsAndInfo"
+            }
+        },
+        "reveal": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "fireBalloonEvent"
+                },
+                {
+                    "action": "getElementEffectivities"
+                }
+            ]
+        },
+        "fireBalloonEvent": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "balloonPopup.startcontentLoaded"
+                } ]
+            }
+        },
+        "getElementEffectivities": {
+            "actionType": "dataProvider",
+            "method": "effectivityDataProvider"
+        },
+        "searchAppliedEffectivities": {
+            "actionType": "TcSoaService",
+            "serviceName": "Query-2014-11-Finder",
+            "method": "performSearch",
+            "inputData": {
+
+                "searchInput": {
+                    "maxToLoad": 4,
+                    "maxToReturn": 4,
+                    "providerName": "Awb0EffectivityProvider",
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "startIndex": "{{data.dataProviders.effectivityDataProvider.startIndex}}",
+                    "searchCriteria": {
+                        "elementUid": "{{subPanelContext.vmoHovered.uid}}",
+                        "productContextUid": "{{subPanelContext.vmoHovered.vmoPciUid}}"
+                    },
+
+                    "searchFilterMap": {},
+                    "searchSortCriteria": [],
+                    "attributesToInflate": [],
+                    "internalPropertyName": ""
+                }
+            },
+            "outputData": {
+                "effectivityFound": "searchResults",
+                "effectivityTotalFound": "{{function:populateTotalFound}}"
+            },
+
+            "deps": "js/sharedEffectivityService"
+        },
+        "fireContentLoadedEvent": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "balloonPopup.contentLoaded"
+                } ]
+            }
+        },
+        "goBackToDisplayIfAddEffectivtiesActive":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "awPanel.navigate",
+                    "eventData":{
+                        "destPanelId": "DisplayAndRemoveEffectivities"
+                    }
+                } ]
+            }
+        }
+
+    },
+    "dataProviders": {
+        "effectivityDataProvider": {
+            "action": "searchAppliedEffectivities",
+            "response": "{{data.effectivityFound}}",
+            "totalFound": "{{data.effectivityTotalFound}}",
+            "selectionModelMode": "multiple"
+
+        }
+    },
+    "data": {
+        "effectivityTooltipLabel": {
+            "type": "STRING",
+            "dispValue": ""
+        },
+        "enableMoreLink": {
+            "type": "BOOLEAN",
+            "dbValue": false
+        },
+        "moreEffectivitiesLink":{
+            "type":"STRING",
+            "displayName":""
+        }
+    },
+    "i18n": {
+        "elementEffectivityTooltipTitle": [ "OccurrenceManagementConstants" ],
+        "tooltipLinkText":["OccurrenceManagementConstants"]
+    },
+    "onEvent": [
+        {
+            "eventId": "activateEffPanel",
+            "action": "launchEffPanel"
+        },
+        {
+            "eventId": "effectivityDataProvider.modelObjectsUpdated",
+            "action": "fireContentLoadedEvent"
+        },
+        {
+            "eventId":"goBackToDisplayIfAddEffectivtiesActive",
+            "action":"goBackToDisplayIfAddEffectivtiesActive"
+        }
+
+    ],
+    "functions": {
+        "populateTotalFound": {
+            "functionName": "limitTotalFoundForTooltip",
+            "parameters": [
+                "{{data}}", "{{response}}"
+            ]
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<aw-command-panel caption="i18n.InContextSearchTitle">
+    <aw-panel-body>
+        <aw-panel-section>
+            <div>
+                <aw-column width="1.6f">
+                    <aw-label prop="data.searchByLabel"></aw-label>
+                </aw-column>
+                <aw-column >
+                    <aw-link-with-popup-menu class="abc" prop="data.awb0ContextQuery" dataprovider="data.dataProviders.getAllContextQueries" disable="!ctx[data.navigateContext.dbValue].supportedFeatures.Awb0FindInStructure"></aw-link-with-popup-menu>
+                </aw-column>
+            </div>
+            <div visible-when="data.awb0ContextQuery.uiValue === data.i18n.keyword">
+                <aw-search-box prop="data.searchStringIndexed" action="performIndexedSearch"></aw-search-box>
+            </div>
+            <div visible-when="ctx[data.navigateContext.dbValue].supportedFeatures.Awb0ScopedFindInStructure
+            && ( !ctx[data.navigateContext.dbValue].pwaSelectionModel.multiSelectEnabled && ctx[data.navigateContext.dbValue].pwaSelectionModel.getCurrentSelectedCount() < 2)
+            && data.awb0ContextQuery.uiValue === data.i18n.keyword
+            && conditions.isValidSelection && !conditions.isLeafNode">
+                <aw-checkbox prop="data.searchScope"></aw-checkbox>
+            </div>
+            <br/>
+            <div>
+                <aw-tab-set tabs="data.tabsModel.dbValues"></aw-tab-set>
+            </div>
+        </aw-panel-section>
+    </aw-panel-body>
+</aw-command-panel>

@@ -1,0 +1,12 @@
+{
+  "name": "contractmanagement",
+  "description": "",
+  "modules": [
+    "contractmanagement"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Teamcenter.Soa.BusinessModeler"
+  ]
+}

@@ -1,0 +1,17 @@
+<aw-command-panel caption="i18n.AddObjectToResultCommandTitle">
+    <aw-form name="addObjectForm">
+        <aw-add include-types="Item,ItemRevision,Form,Folder,Dataset" type-filter="Item,ItemRevision,Form,Folder,Dataset"></aw-add>
+    </aw-form>
+    <!-- Panel footer-->
+    <aw-panel-footer visible-when="data.activeView!='assignProjectSub'&&data.activeView!='addTypeReferenceSub'">
+        <!-- panel-footer button for New tab -->
+        <aw-button action="identifyFromWhereAddButtonIsFired" visible-when="addObjectForm.$valid&&conditions.isNewTabAddButtonVisible">
+            <aw-i18n>i18n.AddTitle</aw-i18n>
+        </aw-button>
+        <!-- panel-footer button for Palette and Search tab -->
+        <aw-button action="addObject" visible-when="conditions.isPaletteTabAddButtonVisible || conditions.isSearchTabAddButtonVisible" > 
+            <aw-i18n>i18n.AddTitle</aw-i18n>
+        </aw-button> 
+    </aw-panel-footer>
+    
+</aw-command-panel>

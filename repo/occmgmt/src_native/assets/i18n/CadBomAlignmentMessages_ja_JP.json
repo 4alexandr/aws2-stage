@@ -1,0 +1,17 @@
+{
+    "InvalidObjectsForAlignment": "整列アクションは実行されませんでした。 1つのデザインおよび1つのパートを選択します。",
+    "InvalidPartForAlignment": "\"{0}\"がパートのタイプでないため、整列アクションは実行されませんでした。 1つのデザインおよび1つのパートを選択します。",
+    "InvalidDesignForAlignment": "\"{0}\"がデザインのタイプでないため、整列アクションは実行されませんでした。 1つのデザインおよび1つのパートを選択します。",
+    "SingleDesignPartUnAlignmentConfirmation": "\"{0}\"は、\"{1}\"との整列を解除されます。",
+    "MultipleDesignsSinglePartUnAlignmentConfirmation": "\"{0}\"デザインは、\"{1}\"との整列を解除されます。",
+    "SingleDesignMultiplePartsUnAlignmentConfirmation": "\"{0}\"は、\"{1}\"パートとの整列を解除されます。",
+    "SingleDesignUnAlignmentConfirmation": "\"{0}\"は、すべての整列済みのパートとの整列を解除されます。",
+    "MultipleDesignsUnAlignmentConfirmation": "\"{0}\"デザインは、すべての整列済みのパートとの整列を解除されます。",
+    "SinglePartUnAlignmentConfirmation": "すべての整列済みデザインは、\"{0}\"との整列を解除されます。",
+    "MultiplePartsUnAlignmentConfirmation": "すべての整列済みデザインは、\"{0}\"パートとの整列を解除されます。",
+    "BackgroundAlignmentCheckNotification": "整列チェックは進行中です。 完了時に通知されます。",
+    "InvalidPartEBOMForAlignment":"\"{0}\"はタイプがパートでないため開かれませんでした。",
+    "InvalidDesignDBOMForAlignment":"\"{0}\"はタイプがデザインでないため開かれませんでした。"
+
+}
+    

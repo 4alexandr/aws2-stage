@@ -1,0 +1,214 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+@mixin aw-ngp-mcnTile {
+    border: 1px solid;
+    padding: 10px;
+}
+
+.aw-ngp-activeMcnPopupContent {
+
+    .aw-ngp-mcnHistoryOfChangeList,
+    .aw-ngp-mcnRelatedEcns {
+        width: 100%;
+
+        .aw-widgets-cellListWidget .aw-widgets-cellListItem {
+            margin-bottom: 16px;
+        }
+    }
+
+    .aw-ngp-activeMcnPanel {
+        margin: 16px 0;
+    }
+
+    .aw-ngp-mcnActiveMcnHeader,
+    .aw-ngp-mcnRelatedEcnsHeader {
+        font-size: $fontsize_large;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .aw-ngp-activeMcnTile,
+    .aw-ngp-mcnHistoryOfChangeList,
+    .aw-ngp-mcnRelatedEcns {
+        .aw-widgets-cellListWidget .aw-widgets-cellListItem {
+            @include aw-ngp-mcnTile;
+            width: inherit;
+        }
+    }
+
+    .aw-ngp-historyOfChangeTiles {
+        max-height: 365px;
+    }
+
+    .aw-ngp-relatedEcnTiles {
+        max-height: 216px;
+    }
+
+    .aw-ngp-historyOfChangeTiles,
+    .aw-ngp-relatedEcnTiles {
+        overflow-y: auto;
+        margin-right: -16px;
+        padding-right: 16px;
+    }
+}
+
+.aw-ngp-mcnIndication {
+
+    .aw-base-iconButton {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        &:active {
+            background-color: transparent;
+        }
+    }
+
+    svg {
+        height: 24px;
+        width: 24px;
+    }
+}
+
+.aw-ngp-historyOfChangeContent {
+    .aw-ngp-mcnHistoryOfChangeList {
+        width: calc(100% - 23px);
+
+        .aw-widgets-cellListWidget .aw-widgets-cellListItem {
+            @include aw-ngp-mcnTile;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.aw-ngp-activeMcnTooltip,
+.aw-ngp-nonActiveMcnTooltip {
+    .aw-mfe-tooltipRowMessage {
+        &:first-child {
+            padding-bottom: 10px;
+        }
+
+        &:nth-child(n+3) {
+            display: list-item;
+            list-style-type: disc;
+            list-style-position: outside;
+            margin-left: 18px;
+        }
+    }
+}
+
+.aw-ngp-activeMCNPopup {
+    border-radius: 3px 3px 0 0;
+
+    .aw-ngp-mcnHistoryOfChangeLink {
+        a {
+            text-decoration: underline;
+            float: right;
+        }
+    }
+
+    .aw-ngp-mcnChangeManagementLink {
+        a {
+            text-decoration: underline;
+            margin-bottom: 16px;
+        }
+    }
+}
+
+
+//////////////////////////////////////////////////////////////////////
+/////// CSS the will be gone once we remove the hosted dialog ///////
+//////////////////////////////////////////////////////////////////////
+.aw-layout-popup.aw-layout-popupOverlay.afx-content-background.aw-ngp-impactAnalysisDialog {
+
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+
+    .aw-layout-flexRowContainer {
+        height: inherit;
+    }
+
+    >div {
+        height: 100%;
+
+        >div {
+            height: 100%;
+        }
+    }
+
+    .ngp-mcnHostingView-body {
+        width: 100%;
+        height: calc(100% - 100px);
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .ngp-mcnHostingView-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .aw-layout-summaryContent {
+        width: 100%;
+        height: 100%;
+    }
+
+    .ngp-mcnHostingView-header {
+        height: 100px;
+        padding-left: 15px;
+
+
+        .ngp-mcnHostingView-headerIcon {
+            display: inline;
+            margin-right: 10px;
+
+            aw-icon>svg {
+                width: 64px;
+                height: 64px;
+            }
+        }
+
+        .ngp-mcnHostingView-headerText {
+            display: inline-block;
+        }
+
+        .ngp-mcnHostingView-headerCloseIcon {
+            display: inline-block;
+            right: 45px;
+            position: absolute;
+            cursor: pointer;
+        }
+    }
+
+    .aw-popup-contentContainer {
+        width: 100%;
+        padding: 30px;
+
+        .aw-layout-panelContent {
+            width: 100%;
+            height: 100%;
+            max-height: none;
+            max-width: none;
+        }
+    }
+
+    .ngp-mcnHostingView-subtitletitle {
+        height: 19px;
+        font-size: 19px;
+    }
+
+    .ngp-mcnHostingView-title {
+        font-size: 36px;
+    }
+}

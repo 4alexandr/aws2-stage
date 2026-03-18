@@ -1,0 +1,16 @@
+{
+    "LoadButton": "Načíst aktovku",
+    "loadstatus": "Načítání...",
+    "compare": "Porovnat obsah",
+    "locationClickViewerHeaderTitle": "Prohlížeč",
+    "locationOneClickViewerSubTitle": "Prohlížeč",
+    "pickTOSPanel": "Náhled aktovky",
+    "pickTOSPanelCompare": "Porovnat aktovku",
+    "transferOptionSet": "Vybrat sady možností přenosu",
+    "tosPanelSourceBCZ": "Zdrojová aktovka",
+    "tosPanelTargetBCZ": "Cílová aktovka",
+    "tosSourceLabel": "Zdrojová sada možností přenosu použita",
+    "tosTargetLabel": "Cílová sada možností přenosu použita",
+    "bbrowserCompareViewerDesc": "Zobrazte rozdíly mezi soubory aktovky.",
+    "bbrowserOneClickViewerDesc": "Zkontrolujte obsah souboru aktovky před importem."
+}

@@ -1,0 +1,407 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-form.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-list.directive",
+        "js/aw-type-cell.directive",
+        "js/aw-xrt.directive",
+        "js/aw-widget.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive"
+    ],
+    "data": {
+        "allContactsData": {
+            "displayName": "{{i18n.companyContacts}}",
+            "type": "STRINGARRAY",
+            "isArray": true,
+            "dataProvider": "allContactsDataProvider",
+            "isRequired": "true"
+        },
+        "allLocationsData": {
+            "displayName": "{{i18n.companyLocations}}",
+            "type": "STRINGARRAY",
+            "isArray": true,
+            "dataProvider": "allLocationsDataProvider"
+        }
+    },
+    "actions": {
+        "createObject": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2016-09-DataManagement",
+            "method": "createAttachAndSubmitObjects",
+            "inputData": {
+                "inputs": "{{function:getCreateInput}}"
+            },
+            "outputData": {
+                "createdMainObject": "output[0].objects[0]",
+                "createdObject": "{{function:getCreatedObject}}",
+                "createdContractRevision": "output[0].objects[2]"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "addPartnerContractInCreateVendor.objectCreated",
+                        "eventData": {
+                            "selectedObjects": "{{data.sourceObjects}}"
+                        }
+                    },
+                    {
+                        "name": "vm1.createContract_ContactsRelationEvent"
+                    },
+                    {
+                        "name": "vm1.createContract_LocationsRelationEvent"
+                    },
+                    {
+                        "name": "complete.subPanel",
+                        "eventData": {
+                            "source": "Vm1AddPartnerContractInCreateVendorSub"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/addObjectUtils"
+        },
+        "Vm1NavigateToCreateVendorPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": {
+                            "destPanelId": "Vm1CreateNewVendor",
+                            "eventData": "{{data.eventData}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "validateContractDates": {
+            "actionType": "JSFunction",
+            "method": "validateNewContractDates",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1AddPartnerContactService"
+        },
+        "createPartnerContractAndContactsRelation": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "createRelations",
+            "inputData": {
+                "input": "{{function:getInputForContacts}}"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AddPartnerContactService"
+        },
+        "createPartnerContractAndLocationsRelation": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2006-03-DataManagement",
+            "method": "createRelations",
+            "inputData": {
+                "input": "{{function:getInputForLocations}}"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AddPartnerContactService"
+        },
+        "reveal": {
+            "actionType": "JSFunction",
+            "method": "getContactsAndLocationsListForCreateVendor",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "ClearPCTypeSelection"
+                    },
+                    {
+                        "name": "enablePartnerContractTypesProviderEvent"
+                    },
+                    {
+                        "name": "enableAllContactsDataProviderEvent"
+                    }
+                ]
+            },
+            "deps": "js/Vm1CreateVendorService"
+        },
+        "getCreatablePartnerContractTypeAction": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}"
+                },
+                "searchInput": {
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Awp0TypeSearchProvider",
+                    "searchCriteria": {
+                        "searchString": "*",
+                        "typeSelectorId": "PartnerContractCreate",
+                        "listOfIncludeObjectTypes": "Vm0PrtnrContract",
+                        "loadSubTypes": "true"
+                    },
+                    "attributesToInflate": [
+                        "parent_types",
+                        "type_name",
+                        "object_string"
+                    ],
+                    "startIndex": "{{data.dataProviders.getCreatablePartnerContractTypes.startIndex}}"
+                },
+                "inflateProperties": true
+            },
+            "policy": {
+                "types": [
+                    {
+                        "name": "ImanType",
+                        "properties": [
+                            {
+                                "name": "type_name"
+                            },
+                            {
+                                "name": "fnd0InternalName"
+                            },
+                            {
+                                "name": "object_string"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResponse": "{{json:searchResultsJSON}}"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AddPartnerContactService"
+        },
+        "enablePartnerContractTypesProvider": {
+            "actionType": "dataProvider",
+            "method": "getCreatablePartnerContractTypes"
+        },
+        "enableAllContactsDataProvider": {
+            "actionType": "dataProvider",
+            "method": "allContactsDataProvider"
+        },
+        "handlePCTypeSelection": {
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "path": "isPCTypeNotSelected",
+                "value": false
+            },
+            "deps": "js/appCtxService"
+        },
+        "ClearPCTypeSelection": {
+            "actionType": "JSFunction",
+            "method": "registerCtx",
+            "inputData": {
+                "path": "isPCTypeNotSelected",
+                "value": true
+            },
+            "deps": "js/appCtxService"
+        },
+        "selectIfOnlyOneTypeAction": {
+            "actionType": "JSFunction",
+            "method": "setSelection",
+            "inputData": {
+                "selectionModel": "{{data.dataProviders.getCreatablePartnerContractTypes.selectionModel}}",
+                "newSelection": "{{data.dataProviders.getCreatablePartnerContractTypes.viewModelCollection.loadedVMObjects[0]}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "registerSelectedType"
+                    }
+                ]
+            },
+            "deps": "js/selectionModelFactory"
+        },
+        "checkIfSingleType": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "selectIfOnlyOneTypeEvent",
+                        "condition": "data.dataProviders.getCreatablePartnerContractTypes.viewModelCollection.totalFound === 1"
+                    }
+                ]
+            }
+        },
+        "checkIfSingleContactAvailable": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "selectIfOnlyOneContactEvent",
+                        "condition": "data.dataProviders.allContactsDataProvider.viewModelCollection.totalFound === 1"
+                    }
+                ]
+            }
+        },
+        "selectIfOnlyOneContactAction" :{
+            "actionType": "JSFunction",
+            "method": "selectFirstContactInPC",
+            "inputData": {
+                "data": "{{data}}",
+                "selectedValue": "{{data.dataProviders.allContactsDataProvider.viewModelCollection.loadedVMObjects[0]}}"
+            },
+            "deps": "js/Vm1AddPartnerContactService"
+        }
+    },
+    "functions": {
+        "getCreateInput": {
+            "functionName": "getCreateInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getInputForContacts": {
+            "functionName": "getInputForContacts",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getInputForLocations": {
+            "functionName": "getInputForLocations",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getSelectionModelInput": {
+            "functionName": "getSelectionModelInput",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "vm1.inputsDataValidated",
+            "action": "createObject"
+        },
+        {
+            "eventId": "enablePartnerContractTypesProviderEvent",
+            "action": "enablePartnerContractTypesProvider"
+        },
+        {
+            "eventId": "enableAllContactsDataProviderEvent",
+            "action": "enableAllContactsDataProvider"
+        },
+        {
+            "eventId": "getCreatablePartnerContractTypes.selectionChangeEvent",
+            "action": "handlePCTypeSelection"
+        },
+        {
+            "eventId": "getCreatablePartnerContractTypes.modelObjectsUpdated",
+            "action": "checkIfSingleType"
+        },
+        {
+            "eventId": "allContactsDataProvider.modelObjectsUpdated",
+            "action": "checkIfSingleContactAvailable"
+        },
+        {
+            "eventId": "selectIfOnlyOneContactEvent",
+            "action": "selectIfOnlyOneContactAction"
+        },
+        {
+            "eventId": "selectIfOnlyOneTypeEvent",
+            "action": "selectIfOnlyOneTypeAction"
+        },
+        {
+            "eventId": "registerSelectedType",
+            "action": "handlePCTypeSelection"
+        },
+        {
+            "eventId": "ClearPCTypeSelection",
+            "action": "ClearPCTypeSelection"
+        },
+        {
+            "eventId": "addObjectContract.objectCreated",
+            "action": "Vm1NavigateToCreateVendorPanel"
+        },
+        {
+            "eventId": "vm1.createContract_ContactsRelationEvent",
+            "action": "createPartnerContractAndContactsRelation"
+        },
+        {
+            "eventId": "vm1.createContract_LocationsRelationEvent",
+            "action": "createPartnerContractAndLocationsRelation"
+        },
+        {
+            "eventId": "awPanel.reveal",
+            "criteria": {
+                "panelId": "Vm1AddPartnerContractInCreateVendorSub"
+            },
+            "action": "reveal"
+        }
+    ],
+    "i18n": {
+        "add": [
+            "VendorManagementMessages"
+        ],
+        "companyContacts": [
+            "VendorManagementMessages"
+        ],
+        "companyLocations": [
+            "VendorManagementMessages"
+        ],
+        "invalidStartEndDate": [
+            "VendorManagementMessages"
+        ],
+        "vm1PartnerDetails": [
+            "VendorManagementMessages"
+        ],
+        "objectType": [
+            "VendorManagementMessages"
+        ]
+    },
+    "dataProviders": {
+        "getCreatablePartnerContractTypes": {
+            "action": "getCreatablePartnerContractTypeAction",
+            "response": "{{data.searchResponse}}",
+            "totalFound": "{{data.totalFound}}",
+            "preSelection": false,
+            "selectionModelMode": "single"
+        },
+        "allContactsDataProvider": {
+            "response": "{{data.allContactsList}}",
+            "moreValuesExist": false
+        },
+        "allLocationsDataProvider": {
+            "response": "{{data.allLocationsList}}",
+            "moreValuesExist": false
+        }
+    },
+    "messages": {
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    }
+}

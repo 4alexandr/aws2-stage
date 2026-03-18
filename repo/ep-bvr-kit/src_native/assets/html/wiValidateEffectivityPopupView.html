@@ -1,0 +1,16 @@
+<aw-popup2 class="afx-content-background">
+    <aw-panel-body>
+        <aw-flex-row class="afx-alt-content-background aw-epValidateEffectivity-endItemRow" height="4f" justify="space-between" offset-right="4f">
+            <aw-flex-column width="10" align-content="start">
+                <aw-listbox prop="data.endItemListBox" list="data.endItemListBoxValues.dbValue"
+                    class="aw-epValidateEffectivity-endItemFilterBoxContainer" action="endItemSelectionChange">
+                </aw-listbox>
+            </aw-flex-column>
+            <aw-flex-column width="fill">
+                <aw-button class="aw-epValidateEffectivity-saveButton" action="saveEffectivityAction" enable-when="!!ctx.wiEffectivity.dirty" size="auto">
+                    <aw-i18n>i18n.save</aw-i18n>
+                </aw-button>
+        </aw-flex-row>
+        <aw-include name="wiEffectivityValidator"></aw-include>
+    </aw-panel-body>
+</aw-popup2>

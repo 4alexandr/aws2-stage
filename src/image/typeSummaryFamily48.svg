@@ -1,0 +1,27 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+    <linearGradient id="linear-gradient" x1="7.5" y1="40.5" x2="40.5" y2="7.5" gradientTransform="matrix(1, 0, 0, -1, 0, 48)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.232" stop-color="#fafafa"/>
+      <stop offset="0.496" stop-color="#ededed"/>
+      <stop offset="0.775" stop-color="#d6d6d6"/>
+      <stop offset="1" stop-color="#bebebe"/>
+    </linearGradient>
+    <linearGradient id="Dark_Blue_Grad" data-name="Dark Blue Grad" x1="14.5" y1="10.5" x2="21.5" y2="17.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#73b4c8"/>
+      <stop offset="0.175" stop-color="#6aaec3"/>
+      <stop offset="0.457" stop-color="#529eb5"/>
+      <stop offset="0.809" stop-color="#2c839f"/>
+      <stop offset="1" stop-color="#147391"/>
+    </linearGradient>
+  <polyline points="38 1 47 1 47 47 38 47" fill="none" stroke="#969696" stroke-miterlimit="10" stroke-width="2"/>
+  <polyline points="10 47 1 47 1 1 10 1" fill="none" stroke="#969696" stroke-miterlimit="10" stroke-width="2"/>
+  <rect x="9.5" y="5.5" width="29" height="37" stroke="#464646" stroke-miterlimit="10" fill="url(#linear-gradient)"/>
+  <line x1="25" y1="13.5" x2="34" y2="13.507" fill="none" stroke="#6e6e6e"/>
+  <line x1="25" y1="17.5" x2="34" y2="17.507" fill="none" stroke="#6e6e6e"/>
+  <line x1="14" y1="21.5" x2="34" y2="21.507" fill="none" stroke="#6e6e6e"/>
+  <line x1="14" y1="25.5" x2="34" y2="25.507" fill="none" stroke="#6e6e6e"/>
+  <line x1="14" y1="29.5" x2="34" y2="29.507" fill="none" stroke="#6e6e6e"/>
+  <line x1="14" y1="33.5" x2="34" y2="33.507" fill="none" stroke="#6e6e6e"/>
+  <line x1="14" y1="37.5" x2="34" y2="37.507" fill="none" stroke="#6e6e6e"/>
+  <rect x="14.5" y="10.5" width="7" height="7" stroke="#147391" stroke-miterlimit="10" fill="url(#Dark_Blue_Grad)"/>
+</svg>

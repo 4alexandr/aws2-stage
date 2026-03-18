@@ -1,0 +1,7 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup-panel2.directive",
+        "js/aw-popup-command-list.directive"
+    ]
+}

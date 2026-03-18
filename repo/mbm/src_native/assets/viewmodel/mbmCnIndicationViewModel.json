@@ -1,0 +1,38 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-icon.directive",
+        "js/extended-tooltip.directive",
+        "js/exist-when.directive"
+    ],
+    "data": {
+        "ecnInfo":  {
+            "ecnName":"{{subPanelContext.ecnObject.props.object_string.uiValues[ 0 ]}}",
+            "iconId":"indicatorChipTrackingChanges",
+            "isCNReadonly":"{{subPanelContext.ecnObject.props.is_modifiable.dbValues[0] === '0'}}"
+        }
+    },
+    "actions": {
+        "initilizeClickListner": {
+            "actionType": "JSFunction",
+            "method": "initilizeClickListner",
+            "inputData": {
+                "Data" : "{{data}}"
+            },
+            "deps": "js/mbmCnIndicatorService"
+        }
+    },
+    "onEvent": [ 
+        {
+            "eventId": "mbmCnIndication.contentLoaded",
+            "action": "initilizeClickListner"
+        }
+    ],
+    "conditions": {
+        "isTaskbarFullScreen":{
+            "expression": "ctx.taskbarfullscreen && ctx.taskbarfullscreen === 'true'"
+        }
+    }
+}

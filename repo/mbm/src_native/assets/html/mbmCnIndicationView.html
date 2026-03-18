@@ -1,0 +1,20 @@
+<aw-flex-row>
+    <aw-flex-column width="1.34f" exist-when="!conditions.isTaskbarFullScreen && ctx.taskPageContext.cnObject"></aw-flex-column>
+    <aw-flex-column width = "29.167f" justify="center">
+        <aw-flex-row height="2.67f" exist-when="data.ecnInfo.isCNReadonly === 'false'" aw-click="data.cnIndicatorClickAction(subPanelContext.ecnObject, $event)"  extended-tooltip="mbmActiveCNTooltip" extended-tooltip-context="subPanelContext" justify="left">
+            <aw-flex-column justify="center" width="2.67f" >
+                <aw-flex-row height="2f">
+                    <aw-flex-column width = "2f" >
+                        <aw-icon icon-id="{{data.ecnInfo.iconId}}"></aw-icon>
+                    </aw-flex-column>
+                </aw-flex-row>
+            </aw-flex-column>
+            <aw-flex-column justify="center"  width = "fill">
+                <span class="aw-widgets-checkSelectPanel">{{data.ecnInfo.ecnName}}</span>
+            </aw-flex-column>
+        </aw-flex-row>
+    </aw-flex-column>
+</aw-flex-row>
+
+
+

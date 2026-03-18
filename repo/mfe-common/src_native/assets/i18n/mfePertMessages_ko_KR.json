@@ -1,0 +1,6 @@
+{
+    "moveModeCommandTitle":"이동 모드",
+    "moveModeCommandDescription":"모드가 켜져 있는 동안 클릭한 후 끌어 상자를 이동합니다.",
+    "editModeCommandTitle":"흐름 생성 모드",
+    "editModeCommandDescription":"모드가 켜져 있는 동안 클릭한 후 끌어 프로세스를 계승자 프로세스에 연결합니다."  
+}

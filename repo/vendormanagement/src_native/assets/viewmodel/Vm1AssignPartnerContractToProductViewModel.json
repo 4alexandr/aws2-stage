@@ -1,0 +1,330 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-listbox.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/visible-when.directive",
+        "js/aw-panel-footer.directive"
+    ],
+    "actions": {
+        "reveal": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}"
+                },
+                "searchInput": {
+                    "maxToLoad": -1,
+                    "maxToReturn": -1,
+                    "providerName": "Vm1AssignedObjsDataProvider",
+                    "searchCriteria": {
+                        "getApprovedVendors": "Yes"
+                    },
+                    "searchSortCriteria": [],
+                    "startIndex": 0
+                }
+            },
+            "outputData": {
+                "approvedVendorsInput": "{{json:searchResultsJSON}}",
+                "totalFound": "totalFound"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "vendors.generateList"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            }
+        },
+        "convertToList": {
+            "actionType": "JSFunction",
+            "method": "getApprovedVendorsList",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "contractsToList": {
+            "actionType": "JSFunction",
+            "method": "getActivePartnerContracts",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "selectionChangeOnVendors": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "{{ctx.sublocation.clientScopeURI}}"
+                },
+                "searchInput": {
+                    "maxToLoad": -1,
+                    "maxToReturn": -1,
+                    "providerName": "Vm1AssignedObjsDataProvider",
+                    "searchCriteria": {
+                        "getActiveUnassignedContracts": "Yes",
+                        "Vendor": "{{data.selectedVendor.dbValue.uid}}",
+                        "ItemRevision": "{{function:getSelectedObjectUid}}"
+                    },
+                    "searchSortCriteria": [],
+                    "startIndex": 0
+                }
+            },
+            "outputData": {
+                "partnerContractsOfSelectedVendor": "{{json:searchResultsJSON}}",
+                "totalFound": "totalFound"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "contracts.generateList"
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "selectionChangeOnContracts": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2013-05-LOV",
+            "method": "getInitialLOVValues",
+            "inputData": {
+                "initialData": {
+                    "lov": "",
+                    "lovInput": {
+                        "owningObject": "",
+                        "boName": "Vm0PrtnrAssignmentRow",
+                        "operationName": "Search",
+                        "propertyValues": {}
+                    },
+                    "propertyName": "vm0UsagePreference"
+                }
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "setPreviousSelectedDestinationCountry"
+                    }
+                ]
+            },
+            "outputData": {
+                "listOfPreferredStatus": "{{function:processPreferredStatus}}"
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        },
+        "assignPartnerContractConfirmMessage": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "confirmAssignPartnerContract",
+                        "condition": "(ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'Awb0ConditionalElement' ) > -1) && (ctx.locationContext.modelObject.modelType.typeHierarchyArray.indexOf( 'Awb0ConditionalElement' ) > -1) && ctx.aceActiveContext"
+                    },
+                    {
+                        "name": "assignPartnerContract",
+                        "condition": "(((ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'Awb0ConditionalElement' ) > -1) &&  (ctx.locationContext.modelObject.modelType.typeHierarchyArray.indexOf( 'Awb0SavedBookmark' ) > -1)) || ((ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'Awb0ConditionalElement' ) > -1) &&  (ctx.locationContext.modelObject.modelType.typeHierarchyArray.indexOf( 'Fnd0AppSession' ) > -1))) && ctx.aceActiveContext"
+                    },
+                    {
+                        "name": "confirmAssignPartnerContract",
+                        "condition": "(ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'ItemRevision' ) > -1)"
+                    }
+                ]
+            }
+        },
+        "closePanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        },
+        "AssignPartnerContractToProduct": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-VendorManagementAW-2020-05-VendorManagement",
+            "method": "assignPartnerContractToObject2",
+            "inputData": {
+                "input": "{{function:getAssignPartnerInput}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "refreshLocationFlag": true,
+                            "relations": "",
+                            "relatedModified": [
+                                "{{ctx.mselected[0]}}"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "primaryWorkarea.reset"
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [ {
+                    "message": "soaOperationFailure"
+                } ]
+            },
+            "deps": "js/Vm1AssignPartnerContractService"
+        }
+    },
+    "functions": {
+        "processPreferredStatus": {
+            "functionName": "processPreferredStatus",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getAssignPartnerInput": {
+            "functionName": "getAssignPartnerInput",
+            "parameters": [
+                "{{data}}",
+                "{{ctx}}"
+            ]
+        },
+        "getSelectedObjectUid": {
+            "functionName": "getSelectedObjectUid",
+            "parameters": [
+                "{{ctx}}"
+            ]
+        }
+    },
+    "conditions": {
+        "showAssignButton": {
+            "expression": "data.selectedPartnerContract.dbValue.modelType.typeHierarchyArray.indexOf( 'Vm0PrtnrContractRevision' ) > -1"
+        }
+    },
+    "data": {
+        "selectedVendor": {
+            "displayName": "{{i18n.vm1Vendor}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "selectedPartnerContract": {
+            "displayName": "{{i18n.vm1Partner}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+        "selectedPreferredStatus": {
+            "displayName": "{{i18n.vm1PreferredStatus}}",
+            "type": "STRING",
+            "isRequired": "false",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": ""
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "vendors.generateList",
+            "action": "convertToList"
+        },
+        {
+            "eventId": "contracts.generateList",
+            "action": "contractsToList"
+        },
+        {
+            "eventId": "confirmAssignPartnerContract",
+            "message": "confirmAssignPartnerContractPopup"
+        },
+        {
+            "eventId": "assignPartnerContract",
+            "action": "AssignPartnerContractToProduct"
+        }
+    ],
+    "i18n": {
+        "vm1Assign": [
+            "VendorManagementMessages"
+        ],
+        "vm1Partner": [
+            "VendorManagementMessages"
+        ],
+        "vm1Contract": [
+            "VendorManagementMessages"
+        ],
+        "vm1Vendor": [
+            "VendorManagementMessages"
+        ],
+        "vm1PreferredStatus": [
+            "VendorManagementMessages"
+        ],
+        "assignPartnerContractMessage": [
+            "VendorManagementMessages"
+        ],
+        "cancel": [
+            "VendorManagementMessages"
+        ]
+    },
+    "messages": {
+        "confirmAssignPartnerContractPopup": {
+            "messageType": "WARNING",
+            "messageText": "{{i18n.assignPartnerContractMessage}}",
+            "navigationOptions": [
+                {
+                    "option": "Cancel",
+                    "text": "{{i18n.cancel}}",
+                    "action": "closePanel"
+                },
+                {
+                    "option": "Assign",
+                    "text": "{{i18n.vm1Assign}}",
+                    "action": "AssignPartnerContractToProduct"
+                }
+            ],
+            "messageTextParams": [
+                "{{data.selectedPartnerContract.uiValue}}"
+            ]
+        },
+        "soaOperationFailure": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    }
+}

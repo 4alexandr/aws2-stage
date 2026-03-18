@@ -1,0 +1,55 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive"
+    ],
+    "data": {
+        "noDiscontinuedSubElements": {
+            "extendedTooltip": {
+                "title": "{{i18n.submitToWorkflowCmdTitle}}",
+                "messages": [ {
+                    "text": "{{i18n.submitToWorkflowTooltipMsg}}",
+                    "params": [
+                        "{{subPanelContext.extendedTooltip.scopeObject.modelType.uiDisplayName.lowerCase}}"
+                    ]
+                } ]
+            }
+        },
+        "hasDiscontinuedSubElements": {
+            "extendedTooltip": {
+                "title": "{{i18n.submitToWorkflowCmdTitle}}",
+                "messages": [ {
+                    "text": "{{i18n.submitToWorkflowTooltipMsg}}",
+                    "params": [
+                        "{{subPanelContext.extendedTooltip.scopeObject.modelType.uiDisplayName.lowerCase}}"
+                    ]
+                } ],
+                "information": {
+                    "text": "{{i18n.submitToWorkflowInformationMsg}}",
+                    "params": [
+                        "{{subPanelContext.extendedTooltip.scopeObject.status.amountOfDiscontinuedSubElements}}"
+                    ]
+                },
+                "className": "aw-ngp-submitToWorkflowTooltip"
+            }
+        }
+    },
+    "conditions": {
+        "hasDiscontinuedSubElements": {
+            "expression": {
+                "$source": "subPanelContext.extendedTooltip",
+                "$query": {
+                    "$source": "scopeObject.status.amountOfDiscontinuedSubElements",
+                    "$query": {
+                        "$gt": 0
+                    }
+                }
+            }
+        }
+    },
+    "i18n": {
+        "submitToWorkflowCmdTitle": [ "NgpDataMgmtMessages" ],
+        "submitToWorkflowTooltipMsg": [ "NgpDataMgmtMessages" ],
+        "submitToWorkflowInformationMsg": [ "NgpDataMgmtMessages" ]
+    }
+}

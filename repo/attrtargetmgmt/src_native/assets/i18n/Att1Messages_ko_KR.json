@@ -1,0 +1,14 @@
+{
+    "Map_Title":"맵",
+    "MapButton":"맵",
+    "attributeTitle": "매개변수",
+    "StudyAttributes": "스터디 매개변수",
+    "SelectStudy": "매개변수를 표시할 스터디 선택",
+    "TestEventAttributes": "테스트 이벤트 매개변수",
+    "SelectTestEvent":"테스트 이벤트를 선택하여 매개변수 표시",
+    "StudyAttributesTC124": "시뮬레이션 및 테스트 요청 매개변수",
+    "SelectStudyTC124": "시뮬레이션 또는 테스트 요청을 선택하여 매개변수 표시",
+    "RunAttributes": "실행 매개변수",
+    "SelectRun": "실행을 선택하여 매개변수 표시",
+    "Measurement_File_Title": "값 파일 추가"
+}

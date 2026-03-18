@@ -1,0 +1,271 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+
+        "js/aw-panel-body.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-splitter.directive",
+        "js/aw-sublocation.directive",
+        "js/aw-splm-table.directive",
+        "js/aw-label.directive"
+    ],
+    "data": {
+        "sourceTransferSet": {
+            "displayName": "{{i18n.tosSourceLabel}}",
+            "type": "STRING",
+            "labelPosition": "PROPERTY_LABEL_AT_LEFT"
+        },
+        "targetTransferSet": {
+            "displayName": "{{i18n.tosTargetLabel}}",
+            "type": "STRING",
+            "labelPosition": "PROPERTY_LABEL_AT_LEFT"
+        }
+    },
+    "onEvent": [ 
+        {
+            "eventId": "bbrowserComparePage.contentLoaded",
+            "action": "revealSource"
+        },
+        {
+            "eventId": "bbrowserComparePage.contentLoaded",
+            "action": "revealTarget"
+        },
+        {
+            "eventId": "bbrowserComparePage.contentLoaded",
+            "action": "revealMapping"
+        }
+    ],
+    "actions": {
+        "loadPrimaryTableProperties": {
+        "actionType": "JSFunctionAsync",
+        "method": "loadTreeTableProperties",
+        "inputData": {
+            "propertyLoadInput": "request.propertyLoadInput",
+            "delayTimeProperty": "{{data.delayTimeProperty}}"
+        },
+        "outputData": {},
+        "deps": "js/bbrowserTableDataService"
+        },
+        "loadSecondaryTableProperties": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableProperties",
+            "inputData": {
+                "propertyLoadInput": "request.propertyLoadInput",
+                "delayTimeProperty": "{{data.delayTimeProperty}}"
+            },
+            "outputData": {},
+            "deps": "js/bbrowserTableDataService"
+        },
+
+        "loadPrimaryTableColumns": {
+            "actionType": "JSFunction",
+            "method": "loadTreeTableColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.primaryTableDataProvider}}"
+            },
+            "deps": "js/bbrowserTableDataService"
+        },
+        "loadSecondaryTableColumns": {
+            "actionType": "JSFunction",
+            "method": "loadTreeTableColumns",
+            "inputData": {
+                "dataProvider": "{{data.dataProviders.secondaryTableDataProvider}}"
+            },
+            "deps": "js/bbrowserTableDataService"
+        },
+        "loadTreeData": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableDataPaging",
+            "inputData": {
+                "treeLoadInput": "request.treeLoadInput",
+                "dataProvider": "{{data.dataProviders.primaryTableDataProvider}}",
+                "srcUID": "{{ctx.state.params.src_uid}}",
+                "trgUID": "{{ctx.state.params.trg_uid}}",
+                "SearchedUID": "{{ctx.state.params.src_uid}}",
+                "data": "{{data}}",
+                "gridNameID": "compareSourceTreeView",
+                "srcMapUID": "{{ctx.state.params.src_map_uid}}",
+                "tarMapUID": "{{ctx.state.params.tar_map_uid}}"
+                
+            },
+            "outputData": {
+            },
+            "deps": "js/bbrowserTableDataService"
+        },
+
+        "loadTreePage": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTablePage",
+            "inputData": {
+                "treeLoadInput": "request.treeLoadInput",
+                "srcUID": "{{ctx.state.params.src_uid}}",
+                "trgUID": "{{ctx.state.params.trg_uid}}",
+                "SearchedUID": "{{ctx.state.params.src_uid}}",
+                "srcMapUID": "{{ctx.state.params.src_map_uid}}",
+                "tarMapUID": "{{ctx.state.params.tar_map_uid}}"
+            },
+            "outputData": {
+            },
+            "deps": "js/bbrowserTableDataService"
+        },
+
+        "loadSecondaryTreeData": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTableDataPaging",
+            "inputData": {
+                "treeLoadInput": "request.treeLoadInput",
+                "dataProvider": "{{data.dataProviders.secondaryTableDataProvider}}",
+                "srcUID": "{{ctx.state.params.src_uid}}",
+                "trgUID": "{{ctx.state.params.trg_uid}}",
+                "SearchedUID": "{{ctx.state.params.trg_uid}}",
+                "data": "{{data}}",
+                "gridNameID": "compareTargetTreeView",
+                "srcMapUID": "{{ctx.state.params.src_map_uid}}",
+                "tarMapUID": "{{ctx.state.params.tar_map_uid}}"
+            },
+            "outputData": {
+            },
+            "deps": "js/bbrowserTableDataService"
+        },
+
+        "loadSecondaryTreePage": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadTreeTablePage",
+            "inputData": {
+                "treeLoadInput": "request.treeLoadInput",
+                "srcUID": "{{ctx.state.params.src_uid}}",
+                "trgUID": "{{ctx.state.params.trg_uid}}",
+                "SearchedUID": "{{ctx.state.params.trg_uid}}",
+                "srcMapUID": "{{ctx.state.params.src_map_uid}}",
+                "tarMapUID": "{{ctx.state.params.tar_map_uid}}"
+            },
+            "outputData": {
+            },
+            "deps": "js/bbrowserTableDataService"
+        },
+
+        
+        "getSourceContexts": {
+            "actionType": "JSFunction",
+            "method": "getSourceContexts",
+            "outputData": {
+                "sourceContexts": ""
+            },
+            "deps": "js/bbrowserCompareService"
+        },
+        "getTargetContexts": {
+            "actionType": "JSFunction",
+            "method": "getTargetContexts",
+            "outputData": {
+                "targetContexts": ""
+            },
+
+            "deps": "js/bbrowserCompareService"
+        },
+        "revealSource": {
+            "actionType": "dataProvider",
+            "method": "getSourceContextData"
+        },
+        "revealTarget": {
+            "actionType": "dataProvider",
+            "method": "getTargetContextData"
+        },
+        "revealMapping": {
+            "actionType": "JSFunction",
+            "method": "getMappingContexts",
+            "inputData": {
+                "Data" : "{{data}}"
+            },
+            "deps": "js/bbrowserCompareService"
+        }
+    },
+    "dataProviders": {
+        "primaryTableDataProvider": {
+            "initializeAction": "loadTreeData",
+            "nextAction": "loadTreePage",
+            "previousAction": "loadTreePage",
+            "treeLoadResult": "action.result.treeLoadResult",
+            "selectionModelMode": "single",
+            "inputData": {
+                "accessMode": "tree"
+            }
+        },
+        "primaryTablePropertyProvider": {
+            "action": "loadPrimaryTableProperties",
+            "propertyLoadResult": "action.result.propertyLoadResult"
+        },
+
+        "secondaryTableDataProvider": {
+            "initializeAction": "loadSecondaryTreeData",
+            "nextAction": "loadSecondaryTreePage",
+            "previousAction": "loadSecondaryTreePage",
+            "treeLoadResult": "action.result.treeLoadResult",
+            "selectionModelMode": "single",
+            "inputData": {
+                "accessMode": "tree"
+            }
+        },
+        "secondaryTablePropertyProvider": {
+            "action": "loadSecondaryTableProperties",
+            "propertyLoadResult": "action.result.propertyLoadResult"
+        },
+
+        
+        "getSourceContextData": {
+            "action": "getSourceContexts",
+            "response": "{{data.sourceContexts}}",
+            "selectionModelMode": "single"
+        },
+
+        "getTargetContextData": {
+            "action": "getTargetContexts",
+            "response": "{{data.targetContexts}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "grids": {
+        "compareSourceTreeView": {
+            "dataProvider": "primaryTableDataProvider",
+            "propertyProvider": "primaryTablePropertyProvider",
+            "columnProvider": "primaryTableColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enableGridMenu": false,
+                "enablePinning": true,
+                "enableSorting": false,
+                "maxRowsToShow": 17
+            }
+        },
+        "compareTargetTreeView": {
+            "dataProvider": "secondaryTableDataProvider",
+            "propertyProvider": "secondaryTablePropertyProvider",
+            "columnProvider": "secondaryTableColumnProvider",
+            "addIconColumn": false,
+            "gridOptions": {
+                "enableGridMenu": false,
+                "enablePinning": true,
+                "enableSorting": false,
+                "maxRowsToShow": 17
+            }
+        }
+    },
+    "columnProviders": {
+        "primaryTableColumnProvider": {
+            "loadColumnAction": "loadPrimaryTableColumns",
+            "columns": "{{data.columns}}",
+            "soaEnabled": false,
+            "sortCriteria": []
+        },
+        "secondaryTableColumnProvider": {
+            "loadColumnAction": "loadSecondaryTableColumns",
+            "columns": "{{data.columns}}",
+            "soaEnabled": false,
+            "sortCriteria": []
+        }
+    },
+    "i18n": {
+        "tosSourceLabel" : ["bbrowserMessages"],
+        "tosTargetLabel" : ["bbrowserMessages"]
+    }
+}

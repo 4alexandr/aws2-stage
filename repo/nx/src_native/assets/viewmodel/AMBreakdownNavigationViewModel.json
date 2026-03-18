@@ -1,0 +1,114 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-native-sublocation.directive",
+        "js/aw.objectNav.sublocation.controller",
+        "js/aw.occmgmt.sublocation.controller",
+        "js/aw.AMBreakdownNav.sublocation.controller"
+    ],
+    "actions":
+    {
+        "findImpactedItems1":
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Query-2014-11-Finder",
+            "method": "performSearch",
+            "inputData":
+            {
+                "searchInput":
+                {
+                    "internalPropertyName": "",
+                    "maxToLoad": 50,
+                    "maxToReturn": 50,
+                    "providerName": "Awp0ObjectSetRowProvider",
+                    "startIndex": "{{data.dataProviders.performSearch.startIndex}}",
+                    "searchCriteria":
+                    {
+                        "parentUid": "{{ctx.changeObject.object.uid}}",
+                        "objectSet": "{{ctx.otherSideType.type}}"
+                    },
+                    "searchSortCriteria":
+                    [
+                        {
+                            "fieldName": "object_string",
+                            "sortDirection": "ASC"
+                        }
+                    ]
+                 }
+            },
+            "outputData":
+            {
+                "searchResults": "searchResults",
+                "totalFound": "totalFound",
+                "totalLoaded": "totalLoaded"
+            }
+        }
+    },
+
+    "dataProviders":{},
+
+    "data":
+    {
+        "_sublocation":
+        {
+            "name": "com.siemens.splm.clientfx.tcui.xrt.objectNavigationSubLocation",
+            "label": "AM Breakdown Declarative Navigate",
+            "clientScopeURI": "Awp0ObjectNavigation",
+            "nameToken": "com.siemens.splm.clientfx.tcui.xrt.objectNavigationSubLocation",
+            "context": {
+                "search": {
+                    "provider": "Awp0ObjectSetRowProvider",
+                    "sortType": "Alphabetical"
+                }
+            },
+            "policy": "/policies/AMPropertyPolicy.json",
+            "viewBase": "AMBreakdownNavigation",
+            "breadcrumbConfig" : {
+                "type" : "navigate",
+                "vm" : "objectNavigationBreadcrumb",
+                "chevronDataProvider": "objectNavBreadcrumbChevronDataProvider",
+                "crumbDataProvider": "objectNavBreadcrumbDataProvider",
+                "id": "d_uids",
+                "noUpdate": true,
+                "displayProperty": "object_string"
+            },
+            "viewModes": {
+                "SummaryView": {
+                    "primaryWorkArea": "list",
+                    "secondaryWorkArea": true
+                },
+                "TableSummaryView": {
+                    "primaryWorkArea": "table",
+                    "secondaryWorkArea": true
+                },
+                "ListView": {
+                    "primaryWorkArea": "list",
+                    "secondaryWorkArea": false
+                },
+                "TableView": {
+                    "primaryWorkArea": "table",
+                    "secondaryWorkArea": false
+                },
+                "ImageView": {
+                    "primaryWorkArea": "image",
+                    "secondaryWorkArea": false
+                },
+                "TreeView": {
+                    "primaryWorkArea": "tree",
+                    "secondaryWorkArea": false
+                },
+                "TreeSummaryView": {
+                    "primaryWorkArea": "tree",
+                    "secondaryWorkArea": true
+                }
+            }
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "aw.tableDataLoaded",
+            "action": "findImpactedItems1"
+        }
+    ]
+}

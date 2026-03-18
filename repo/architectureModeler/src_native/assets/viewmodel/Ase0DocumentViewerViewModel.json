@@ -1,0 +1,45 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-column.directive",
+        "js/exist-when.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-include.directive"
+    ],
+    "conditions": {
+        "showCrossSelectionViewer": {
+            "expression": "(ctx.selected.props.awb0UnderlyingObject.dbValues[0] !== ctx.xrtSummaryContextObject.uid) && (ctx.selected.uid !== ctx.xrtSummaryContextObject.uid)"
+        },
+        "showMessage": {
+            "expression": "(ctx.selected.props.awb0UnderlyingObject.dbValues[0] === ctx.xrtSummaryContextObject.uid) || (ctx.selected.uid === ctx.xrtSummaryContextObject.uid)"
+        }
+    },
+    "data": {},
+
+    "actions": {
+
+    },
+
+    "functions": {
+
+    },
+    "dataProviders": {
+
+    },
+
+    "grids": {
+    },
+
+    "onEvent": [
+    ],
+
+    "messages": {
+
+    },
+
+    "i18n": {
+        "selectDocument": [
+            "ArchitectureModelerConstants"
+        ]
+    }
+}

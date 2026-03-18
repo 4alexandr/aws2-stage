@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "Copy",
+    "copyObjectToClipboard": "{0} was copied to the clipboard.",
+    "copySingleSuccessful": "\"{0}\" was copied to the clipboard.",
+    "copyMultipleSuccessful": "{0} selections were copied to the clipboard."
+}

@@ -1,0 +1,17 @@
+<aw-command-panel caption="i18n.add" scrollable="false">
+    <aw-panel-body scrollable="false">
+        <aw-panel-section caption="i18n.vm1VendorPart">
+            <aw-listbox prop="data.selectedProduct" list="ctx.productLOV" action="getVendorParts"></aw-listbox>
+            <aw-break></aw-break>
+            <aw-list-filter prop="data.filterBox" dataprovider="data.dataProviders.VendorPartsToAssign">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list-filter>
+        </aw-panel-section>
+    </aw-panel-body>
+    <aw-panel-footer>
+        <aw-button visible-when="conditions.showAssignButton" action="assignVPtoContract">
+            <aw-i18n>i18n.add</aw-i18n>
+        </aw-button>
+    </aw-panel-footer>
+</aw-command-panel>
+

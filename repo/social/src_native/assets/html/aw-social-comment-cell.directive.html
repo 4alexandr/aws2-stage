@@ -1,0 +1,19 @@
+<div class="aw-layout-flexRow" ng-class="{'aw-social-cellIndentation': vmo.type === 'S2clAnswer' }">
+    <div class="aw-social-cellColumn1">
+        <!-- Cell list image -->
+        <div class="aw-widgets-cellListCellImage">
+            <aw-model-icon vmo="vmo"></aw-model-icon>
+        </div>
+    </div>
+    <div class="aw-social-cellColumn2">
+        <!-- Cell list content -->
+        <div class=" aw-social-cell aw-widgets-cellListCell">
+            <aw-social-comment-cell-content vmo="vmo"></aw-social-comment-cell-content>
+            <div class="aw-social-cellText" ng-style="{'display' : vmo.isFirstInList ? 'block' : 'none'}">
+                <div aw-parse-html="" ng-if="vmo.type === 'S2clCommentary'" display-val="vmo.props.s2clCommentRichText.dbValue" is-rich-text="true"></div>
+                <div aw-parse-html="" ng-if="vmo.type === 'S2clQuestion'" display-val="vmo.props.s2clCommentRichText.dbValue" is-rich-text="true"></div>
+                <div aw-parse-html="" ng-if="vmo.type === 'S2clAnswer'" display-val="vmo.props.s2clCommentRichText.dbValue" is-rich-text="true"></div>
+            </div>
+        </div>
+    </div>
+</div>

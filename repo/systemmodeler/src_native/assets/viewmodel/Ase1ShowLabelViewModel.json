@@ -1,0 +1,107 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel-body.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-command-panel.directive",
+        "js/aw-i18n.directive",
+        "js/aw-button.directive",
+        "js/aw-listbox.directive"
+    ],
+
+    "data": {
+        "labelsList": {
+            "displayName": "{{i18n.label}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "hasLov": "true",
+            "dbValue": "",
+            "dispValue": ""
+        },
+
+        "labelArray": {
+            "type": "STRING",
+            "dbValue": []
+        },
+
+        "listModel": {
+            "propDisplayValue": "",
+            "propInternalValue": "",
+            "propDisplayDescription": "",
+            "hasChildren": false,
+            "children": {},
+            "sel": false
+        }
+    },
+
+    "actions": {
+        "applyLabel": {
+            "actionType": "TcSoaService",
+            "serviceName": "Administration-2012-09-PreferenceManagement",
+            "method": "setPreferences2",
+            "inputData": {
+                "preferenceInput": [ {
+                    "preferenceName": "ASE1_Interfaces_Node_Label_Property",
+                    "values": [ "{{data.labelsList.dbValue}}" ]
+                } ]
+            },
+            "events": {
+                "success": [ {
+                    "name": "Ase1InterfacesPage.updateContext"
+                } ]
+            }
+        },
+
+        "createLabelsList": {
+            "actionType": "JSFunction",
+            "method": "populateLabelList",
+            "inputData": {
+                "data": "{{data}}"
+            },
+
+            "deps": "js/Ase1ShowLabelViewService"
+        },
+
+        "updateContextForLabel": {
+            "actionType": "JSFunction",
+            "method": "updateContextForLabel",
+            "deps": "js/Ase1ShowLabelViewService",
+            "inputData": {
+                "label": "{{data.labelsList.dbValue}}"
+            },
+
+            "events": {
+                "success": [ {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "Ase1InterfacesPage.updateContext",
+            "action": "updateContextForLabel"
+        },
+
+        {
+            "eventId": "Ase1ShowLabel.contentLoaded",
+            "action": "createLabelsList"
+        }
+    ],
+
+    "i18n": {
+        "showLabels": [
+            "SystemModelerConstants"
+        ],
+        "apply": [
+            "SystemModelerConstants"
+        ],
+        "label": [
+            "SystemModelerConstants"
+        ]
+    }
+}

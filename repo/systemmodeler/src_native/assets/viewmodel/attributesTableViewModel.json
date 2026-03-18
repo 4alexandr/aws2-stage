@@ -1,0 +1,304 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-splm-table.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-column.directive",
+        "js/visible-when.directive",
+        "js/aw-am-table-panel.directive",
+        "js/aw-toolbar.directive"
+    ],
+    "actions": {
+        "processInterfaceDefinitionSelection": {
+            "actionType": "JSFunctionAsync",
+            "method": "getAttributeTargetUids",
+            "inputData": {
+                "selectedIDObjects": "{{data.eventData.selectedObjects}}"
+            },
+            "outputData": {
+                "targetUids": "target"
+            },
+
+            "events": {
+                "success": [ {
+                    "name": "attributesTable.plTable.reload"
+                } ]
+            },
+            "deps": "js/attributesTableService"
+        },
+
+        "updateStateForAttributeTable": {
+            "actionType": "JSFunction",
+            "method": "updateState",
+            "inputData": {
+                "input": "{{data.dataProviders.attributeDataProvider}}",
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/attributesTableService"
+        },
+
+        "resetColumnConfig": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2017-06-UiConfig",
+            "method": "getOrResetUIColumnConfigs2",
+            "inputData": {
+                "getOrResetUiConfigsIn": [ {
+                    "scope": "LoginUser",
+                    "scopeName": "",
+                    "clientName": "AWClient",
+                    "resetColumnConfig": false,
+                    "columnConfigQueryInfos": [ {
+                        "clientScopeURI": "Ase1MAPortTable",
+                        "operationType": "",
+                        "typeNames": [ "WorkspaceObject" ],
+                        "columnsToExclude": []
+                    } ],
+                    "businessObjects": [ {} ]
+                } ]
+            },
+            "outputData": {
+                "dataProviders.attributeDataProvider.columnConfig": "columnConfigurations"
+            }
+        },
+
+        "doAttributeGridDataProvider": {
+            "actionType": "dataProvider",
+            "method": "attributeDataProvider"
+        },
+
+        "saveColumnConfigLoadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "operationType": "as_arranged",
+                    "clientScopeURI": "Ase1MAPortTable"
+                },
+                "saveColumnConfigData": {
+                    "clientScopeURI": "Ase1MAPortTable",
+                    "columnConfigId": "{{data.dataProviders.attributeDataProvider.columnConfig.columnConfigId}}",
+                    "columns": "{{data.dataProviders.attributeDataProvider.newColumns}}",
+                    "scope": "LoginUser",
+                    "scopeName": ""
+                },
+                "searchInput": {
+                    "maxToLoad": 15,
+                    "maxToReturn": 15,
+                    "providerName": "Att1MeasurableAttributesProvider",
+                    "searchCriteria": {
+                        "parentUids": "{{ctx.interfaceDetails.targetUids}}"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchSortCriteria": [],
+                    "startIndex": "{{data.dataProviders.attributeDataProvider.startIndex}}"
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.attributeDataProvider.columnConfig": "columnConfig"
+            }
+        },
+
+        "loadData": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-AWS2-2019-06-Finder",
+            "method": "performSearchViewModel4",
+            "inputData": {
+                "columnConfigInput": {
+                    "clientName": "AWClient",
+                    "clientScopeURI": "Ase1MAPortTable",
+                    "columnsToExclude": []
+                },
+                "searchInput": {
+                    "maxToLoad": 15,
+                    "maxToReturn": 15,
+                    "providerName": "Att1MeasurableAttributesProvider",
+                    "searchCriteria": {
+                        "parentUids": "{{ctx.interfaceDetails.targetUids}}"
+                    },
+                    "searchFilterFieldSortType": "Alphabetical",
+                    "searchSortCriteria": [],
+                    "startIndex": 0
+                },
+                "inflateProperties": true
+            },
+            "outputData": {
+                "totalFound": "totalFound",
+                "searchResults": "{{json:searchResultsJSON}}",
+                "dataProviders.attributeDataProvider.columnConfig": "columnConfig"
+            },
+            "events": {
+                "success": [ {
+                    "name": "attributesTable.dataLoaded"
+                } ]
+            }
+        },
+
+        "initializeContext": {
+            "actionType": "JSFunction",
+            "method": "initializeContext",
+            "inputData": {
+                "input": "{{data.dataProviders.attributeDataProvider}}"
+            },
+            "deps": "js/attributesTableService"
+        },
+
+        "deselectMaOnDelete": {
+            "actionType": "JSFunction",
+            "method": "clearTableSelection",
+            "inputData": {
+                "selection": [],
+                "tableGridId": "attributesTable"
+            },
+            "deps": "js/interfaceDefinitionTableService"
+        },
+
+        "processAttributeTableSelection": {
+            "actionType": "JSFunction",
+            "method": "handleTableSelection",
+            "inputData": {
+                "input": "{{data.dataProviders.attributeDataProvider}}",
+                "selection": "{{data.eventData.selectedObjects}}"
+            },
+            "deps": "js/interfaceDefinitionTableService"
+        },
+
+        "resetAttributeDataProvider": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "attributesTable.plTable.reload"
+                } ]
+            }
+        },
+
+        "isAttrItemCreated": {
+            "actionType": "JSFunction",
+            "method": "isAttrItemCreated",
+            "inputData": {
+                "eventMap": "{{data.eventMap}}"
+            },
+            "deps": "js/attrTableUtils"
+        },
+
+        "isAttrItemUpdated": {
+            "actionType": "JSFunction",
+            "method": "isAttrItemUpdated",
+            "inputData": {
+                "eventMap": "{{data.eventMap}}"
+            },
+            "deps": "js/attrTableUtils"
+        }
+    },
+
+    "dataProviders": {
+        "attributeDataProvider": {
+            "action": "loadData",
+            "editContext": "ATTRIBUTE_TABLE_CONTEXT",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "multiple",
+            "commands": {
+                "Awp0ShowObjectCell": {
+                    "id": "cmdOpen",
+                    "title": "Open",
+                    "areas": [ "com.siemens.splm.clientfx.ui.modelObjectListActionCommands" ],
+                    "priorities": [ 300 ],
+                    "dependencies": [ "js/showObjectCommandHandler" ],
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            }
+        }
+    },
+
+    "columnProviders": {
+        "attributeClientScopeUI": {
+            "saveColumnAndLoadAction": "saveColumnConfigLoadData",
+            "resetColumnAction": "resetColumnConfig",
+            "sortCriteria": []
+        }
+    },
+
+    "grids": {
+        "attributesTable": {
+            "dataProvider": "attributeDataProvider",
+            "columnProvider": "attributeClientScopeUI",
+            "addIconColumn": true,
+            "gridOptions": {
+                "enableGridMenu": false,
+                "enableSorting": false
+            }
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "interfaceDefinitionTable.updateAttributeTableOnIDSelection",
+            "cacheEventData": true,
+            "action": "processInterfaceDefinitionSelection"
+        },
+        {
+            "eventId": "attributesTable.loadTable",
+            "action": "doAttributeGridDataProvider"
+        },
+        {
+            "eventId": "interfaceDefinitionDataProvider.modelObjectsUpdated",
+            "condition": "ctx.interfaceDetails.showAttributesTable",
+            "action": "processInterfaceDefinitionSelection"
+        },
+        {
+            "eventId": "attributeDataProvider.modelObjectsUpdated",
+            "condition": "ctx.interfaceDetails.showAttributesTable",
+            "action": "initializeContext"
+        },
+        {
+            "eventId": "editHandlerStateChange",
+            "cacheEventData": true,
+            "action": "updateStateForAttributeTable"
+        },
+        {
+            "eventId": "gwt.AttributeAddedEvent",
+            "action": "doAttributeGridDataProvider"
+        },
+
+        {
+            "eventId": "gwt.AttributesRemovedEvent",
+            "action": "doAttributeGridDataProvider"
+        },
+
+        {
+            "eventId": "interfaceTable.MeasurableAttrDeselectedEvent",
+            "action": "deselectMaOnDelete"
+        },
+
+        {
+            "eventId": "attributesTable.gridSelection",
+            "cacheEventData": true,
+            "action": "processAttributeTableSelection"
+        },
+
+        {
+            "eventId": "cdm.updated",
+            "cacheEventData": true,
+            "action": "isAttrItemUpdated"
+        },
+        {
+            "eventId": "cdm.created",
+            "cacheEventData": true,
+            "action": "isAttrItemCreated"
+        },
+        {
+            "eventId": "Att1ShowMappedAttribute.refreshTable",
+            "action": "resetAttributeDataProvider"
+        }
+
+    ],
+    "i18n": {
+        "attributes": [ "SystemModelerConstants" ]
+    }
+}

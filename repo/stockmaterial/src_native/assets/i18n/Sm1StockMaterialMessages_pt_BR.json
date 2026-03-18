@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "Resultados",
+     "filterTabTitle" : "Filtros",
+     "searchTabTitle" :"Pesquisar",
+     "paletteTabTitle" :"Paleta",
+     "addStockMaterialTitle" : "Adicionar",
+     "properties" : "Propriedades",
+     "add" : "Adicionar",
+     "madeFromFailureMakeFromPrefTrue": "\"{0}\" foi adicionado, mas não é preferencial em \"{1}\".",
+     "madeFromFailureMakeFromPrefFalse": "\"{0}\" não foi adicionado porque não é preferencial em \"{1}\".",     
+     "dimensionsLabel": "Cotas",
+     "Sm1AddStdPartDesc": "Anexe uma peça padrão ao objeto.",
+     "Sm1AddStockMaterialDesc": "Adicione um material de estoque à peça.",
+     "addPropertiesLabel" : "Adicionar propriedades"
+}

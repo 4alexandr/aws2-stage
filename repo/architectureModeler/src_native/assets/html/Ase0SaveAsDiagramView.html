@@ -1,0 +1,12 @@
+<aw-command-panel caption="i18n.saveasDiagramTitle">
+ <aw-form name="createInputs">
+   <aw-panel-body aw-init="data.includeTypes='Ase0Diagram';data.typeOverrideId='Ase0Diagram';data.maxRecentCount=0">
+     <aw-command-sub-panel panel-id="newTabPageSub"></aw-command-sub-panel>
+   </aw-panel-body>
+ </aw-form>
+ <aw-panel-footer visible-when="conditions.isSaveAsButtonVisible">
+   <aw-button action="saveAsDiagram" visible-when="createInputs.$valid && conditions.isSaveAsButtonVisible">
+     <aw-i18n>i18n.saveas</aw-i18n>
+   </aw-button>
+ </aw-panel-footer>
+</aw-command-panel>

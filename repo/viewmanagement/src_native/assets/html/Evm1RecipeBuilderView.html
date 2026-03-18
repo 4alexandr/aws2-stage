@@ -1,0 +1,51 @@
+<aw-flex-column width="fill">
+    <aw-flex-row width="fill">
+        <aw-flex-column id="seedsTree" width="8" offset-right="1f">
+            <aw-panel-section class="aw-viewmanagement-viewSeedSection" caption="i18n.evm1Seeds" collapsed="false">
+                <aw-flex-row class="aw-viewmanagement-seedCommandsRow" width="fill">
+                    <aw-icon-button class="aw-layout-right" command="data.addSeedSelection" exist-when="conditions.hasViewManagementLicense" visible-when="ctx.recipeCtx.inEditMode"></aw-icon-button>
+                    <aw-icon-button class="aw-layout-right" command="data.removeSeedSelection" exist-when="conditions.hasViewManagementLicense" visible-when="data.childSeedSelectedInTree && ctx.recipeCtx.inEditMode"></aw-icon-button>
+                </aw-flex-row>
+                <aw-splm-table gridid="seedTreeGrid" class="aw-viewmanagement-seedsTree" use-tree="true" show-decorators="true" exist-when="data.showSeedsTree"></aw-splm-table>
+            </aw-panel-section>
+        </aw-flex-column>
+        <aw-flex-column id="closureRule">
+            <aw-panel-section class="aw-viewmanagement-viewQuerySection" caption="i18n.inclusionRule" collapsed="false">
+                <aw-flex-row class="aw-viewmanagement-configurationRow" width="fill" exist-when="data.showConfig">
+                    <aw-flex-column>
+                        <aw-label prop="data.configPanelLabel"></aw-label>
+                    </aw-flex-column>
+                    <aw-flex-column width="3f" align-content="end">
+                        <aw-icon-button command="data.configurationPanel" exist-when="conditions.hasViewManagementLicense" visible-when="ctx.recipeCtx.inEditMode"></aw-icon-button>
+                    </aw-flex-column>
+                </aw-flex-row>
+                <aw-panel-section class="aw-viewmanagement-recipeConfigSection" exist-when="data.showConfig">
+                    <aw-label prop="data.revisionRule"></aw-label>
+                    <aw-label prop="data.effecDate" exist-when="ctx.recipeCtx.productContextInfo"></aw-label>
+                    <aw-label prop="data.effecUnits" exist-when="ctx.recipeCtx.productContextInfo"></aw-label>
+                    <aw-label prop="data.variantRule" exist-when="ctx.recipeCtx.productContextInfo"></aw-label>
+                </aw-panel-section>
+                <aw-label class="aw-viewmanagement-closureRuleLabel" prop="data.closureRuleValuesLabel"></aw-label>
+                <aw-widget class="aw-viewmanagement-closureRuleDisplayStyle" prop="data.closureRuleValues" max-row-count="5" labeldisplay="Headless"></aw-widget>
+            </aw-panel-section>
+        </aw-flex-column>
+    </aw-flex-row>
+    <aw-flex-row width="auto" justify="center" align-content="center">
+        <aw-flex-column width="auto" justify="center" align-content="end" offset-right="1f">
+            <aw-checkbox class="aw-viewmanagement-bomCheckBoxStyle" prop="data.inContext" exist-when="conditions.isInScopeNavCheckboxVisible"></aw-checkbox>
+        </aw-flex-column>
+        <aw-flex-column width="auto" justify="center" align-content="start">
+            <aw-button action="generateShowResultTable" exist-when="conditions.hasViewManagementLicense && !conditions.isRecipeExecuting">
+                <aw-i18n>i18n.showResults</aw-i18n>
+            </aw-button>
+            <aw-button button-type="disabled" exist-when="!conditions.hasViewManagementLicense || conditions.isRecipeExecuting">
+                <aw-i18n>i18n.showResults</aw-i18n>
+            </aw-button>
+        </aw-flex-column>
+    </aw-flex-row>
+    <aw-flex-row width="fill" >
+        <aw-panel-section caption="i18n.results" class="aw-viewmanagement-resultsSection" collapsed="false">
+            <aw-include name="Evm1RecipeTable"></aw-include>
+        </aw-panel-section>
+    </aw-flex-row>
+</aw-flex-column>

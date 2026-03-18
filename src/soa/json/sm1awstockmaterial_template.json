@@ -1,0 +1,299 @@
+{
+  "Date": "Thu Aug 30 12:32:12 AM 2018",
+  "Library": [
+    {
+      "createRelease": "Awp03.4.0",
+      "description": "Sm1SoaStockMaterialAW",
+      "isThirdParty": "false",
+      "name": "Sm1SoaStockMaterialAW",
+      "namespace": "Sm1::Soa::StockMaterialAW",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "Library for Stock Material in Active Workspace",
+      "isThirdParty": "false",
+      "name": "sm1awstockmaterial",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "Represents list of input <b>SM0StockMaterial</b> objects.",
+          "parameterName": "inputObjects"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Sm1awstockmaterial",
+      "createRelease": "Awp03.4.0",
+      "dependencies": "",
+      "description": "This operation returns information used by the client to render the user interface while adding <b>SM0StockMaterial</b> object to <b>Part Revision</b> object. The information returned includes meta data information of relation properties  like display name, type, initial value and data for dimension used field.The information populated is based on the business logic which checks if the input <b>SM0StockMaterial</b> object is classified or not.If input object is classified and that class has attributes which are defined in Preference &quot;SM1StockMaterial_Classification_attribute&quot;,the operation &lsquo;getInputCutDimensionData&rsquo; populates meta information of cut dimensions like &lsquo;Cut Width&rsquo;, &rsquo;Cut Height&rsquo;, &lsquo;Cut Length&rsquo; and &lsquo;Cut Thickness&rsquo; based on the values of classification attributes.<br />For example if value of classification attribute 'Has Cut Width' is 1, the meta information isEditable, isRequired for the cut dimension &lsquo;Cut Width&rsquo; is populated with value as true along with other information else if value of attribute is 0 , meta information is populated with value as false. Based on this meta information &lsquo;Cut Width&rsquo; dimension field is rendered as editable or non-editable in user interface.",
+      "exceptionCondition": "",
+      "id": "getInputCutDimensionData#const,std::vector<Teamcenter::BusinessObject>,&",
+      "interface": "Sm1::Soa::StockMaterialAW::StockMaterial",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "getInputCutDimensionData",
+      "opTemplate": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial::GetInputCutDimensionDataResponse#Sm1::Soa::StockMaterialAW::StockMaterial::getInputCutDimensionData#const,std::vector<Teamcenter::BusinessObject>,&",
+      "returnDescription": "Returns the data structure containing the information used by client to render user interface. Any failure will be returned with error message in the ServiceData. The following partial errors <br />may be returned:<br /><br />356002 - Invalid input object.",
+      "useCase": "Displaying the user interface while associating  <b>SM0StockMaterial</b>  object to <b>Part Revision</b> object using the relation <b>SM0MadeFrom</b>."
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::BusinessObject",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Represents list of input <b>SM0StockMaterial</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "inputObjects"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial::GetInputCutDimensionDataResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.4.0",
+      "description": "This operation returns information used by the client to render the user interface while adding <b>SM0StockMaterial</b> object to <b>Part Revision</b> object. The information returned includes meta data information of relation properties  like display name, type, initial value and data for dimension used field.The information populated is based on the business logic which checks if the input <b>SM0StockMaterial</b> object is classified or not.If input object is classified and that class has attributes which are defined in Preference &quot;SM1StockMaterial_Classification_attribute&quot;,the operation &lsquo;getInputCutDimensionData&rsquo; populates meta information of cut dimensions like &lsquo;Cut Width&rsquo;, &rsquo;Cut Height&rsquo;, &lsquo;Cut Length&rsquo; and &lsquo;Cut Thickness&rsquo; based on the values of classification attributes.<br />For example if value of classification attribute 'Has Cut Width' is 1, the meta information isEditable, isRequired for the cut dimension &lsquo;Cut Width&rsquo; is populated with value as true along with other information else if value of attribute is 0 , meta information is populated with value as false. Based on this meta information &lsquo;Cut Width&rsquo; dimension field is rendered as editable or non-editable in user interface.",
+      "id": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial::GetInputCutDimensionDataResponse#Sm1::Soa::StockMaterialAW::StockMaterial::getInputCutDimensionData#const,std::vector<Teamcenter::BusinessObject>,&",
+      "name": "Sm1::Soa::StockMaterialAW::StockMaterial::getInputCutDimensionData",
+      "returnConst": "false",
+      "returnDescription": "Returns the data structure containing the information used by client to render user interface. Any failure will be returned with error message in the ServiceData. The following partial errors <br />may be returned:<br /><br />356002 - Invalid input object.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp03.4.0",
+      "dependencies": "",
+      "description": "The Stock Material service exposes operations that are used to accomplish Stock Matrial related functionalities in Active Workspace.",
+      "libraryName": "Sm1SoaStockMaterialAW",
+      "name": "StockMaterial",
+      "namespace": "Sm1::Soa::StockMaterialAW",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial::DimensionUsed"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of dimension used values.",
+          "name": "dimensionsUsed"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial::CutDimensionProperty"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "List of <b>SM0MadeFrom</b> Relation property to be displayed in user interface.",
+          "name": "cutDimesionPropeties"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::BusinessObject"
+            }
+          ],
+          "description": "Represents input object.",
+          "name": "businessObject"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "The data structure containing the list of <b>SM0MadeFrom</b> relation properties and list of dimension used for the given <b>SM0StockMaterial</b>.",
+      "isPublished": "false",
+      "name": "CutDimensionData",
+      "namespace": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial",
+      "scope": "Sm1::Soa::StockMaterialAW::StockMaterial"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Type of property.",
+          "name": "type"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Display name of property.",
+          "name": "displayName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Initial Value of property.",
+          "name": "initValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of the property.",
+          "name": "propName"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, property is editable; otherwise, not.",
+          "name": "isEditable"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, property is enabled; otherwise, not.",
+          "name": "isEnabled"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "bool"
+            }
+          ],
+          "description": "If true, the for property is required.",
+          "name": "isRequired"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "The data structure contains the meta information of relation property to be displayed in user interface.",
+      "isPublished": "false",
+      "name": "CutDimensionProperty",
+      "namespace": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial",
+      "scope": "Sm1::Soa::StockMaterialAW::StockMaterial"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Represents internal value of dimension.",
+          "name": "internalValue"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Represents display value of dimension.",
+          "name": "displayValue"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "The data structure represents the information of dimension used.",
+      "isPublished": "false",
+      "name": "DimensionUsed",
+      "namespace": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial",
+      "scope": "Sm1::Soa::StockMaterialAW::StockMaterial"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial::CutDimensionData"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The list of structure containing the information of list of dimension used and list of<b> SM0MadeFrom</b> relation properties.",
+          "name": "cutDimensionsData"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Service Data including partial errors.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp03.4.0",
+      "description": "This data structure contains the  information of CutDimensionData  for the given Stock Material (<b>SM0StockMaterial</b>) object.",
+      "isPublished": "false",
+      "name": "GetInputCutDimensionDataResponse",
+      "namespace": "Sm1::Soa::Internal::StockMaterialAW::_2017_12::StockMaterial",
+      "scope": "Sm1::Soa::StockMaterialAW::StockMaterial"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

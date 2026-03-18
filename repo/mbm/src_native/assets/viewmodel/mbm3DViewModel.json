@@ -1,0 +1,30 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":[
+        "js/aw-flex-column.directive",
+        "js/exist-when.directive",
+        "js/aw-click.directive",
+        "js/aw-include.directive"
+    ],
+
+    "actions":{
+        "mbmInitializeClickListener": {
+            "actionType": "JSFunction",
+            "method": "mbmInitialize3DViewerClickListener",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/mbm3DViewerUtils"
+        }
+
+            },
+    "data":{
+        "contextKey":"{{subPanelContext.contextKey}}"
+    },
+    "onEvent":[
+        {
+            "eventId": "mbm3D.contentLoaded",
+            "action": "mbmInitializeClickListener"
+        }
+    ]
+}

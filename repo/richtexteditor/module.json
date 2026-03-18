@@ -1,0 +1,2787 @@
+{
+  "name": "richtexteditor",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "bootstrap": {
+    "config": {
+      "paths": {
+        "mathJax": "lib/mathJax/MathJax",
+        "d3": "lib/d3/d3"
+      }
+    }
+  },
+  "themeExtensions": [
+    "requirementsCkeditorTheme",
+    "requirementsmanagerTheme",
+    "richtexteditorTheme"
+  ],
+  "commandsViewModel": {
+    "commands": {
+      "popupCloseCommand": {
+        "iconId": "cmdClosePanel",
+        "isGroup": false,
+        "title": "Close"
+      },
+      "Awp0ExportGroup": {
+        "iconId": "cmdExport",
+        "isGroup": true,
+        "title": "{{i18n.exportTitle}}"
+      },
+      "Arm1PasteObjectCmdGroup": {
+        "iconId": "cmdPaste",
+        "isGroup": true,
+        "title": "{{i18n.arm1PasteObjects}}",
+        "description": "{{i18n.Arm1PasteObjectCmdGroupDesc}}"
+      },
+      "Arm1PasteObjectAsChildCmd": {
+        "iconId": "cmdPaste",
+        "isGroup": false,
+        "title": "{{i18n.arm1PasteObjectAsChild}}",
+        "description": "{{i18n.Arm1PasteObjectAsChildCmdDesc}}"
+      },
+      "Arm1PasteObjectAsSiblingCmd": {
+        "iconId": "cmdPaste",
+        "isGroup": false,
+        "title": "{{i18n.arm1PasteObjectAsSibling}}",
+        "description": "{{i18n.Arm1PasteObjectAsSiblingCmdDesc}}"
+      },
+      "Arm1Reorder": {
+        "iconId": "cmdEditParagraphNumber",
+        "title": "{{i18n.reorderTitle}}",
+        "description": "{{i18n.Arm1ReorderDesc}}"
+      },
+      "arm0MatrixCellPropViewCloseCmd": {
+        "iconId": "cmdClose",
+        "isGroup": false,
+        "title": "{{i18n.Close}}",
+        "description": "{{i18n.arm0MatrixCellPropViewCloseCmdDesc}}"
+      },
+      "Arm0SaveEdits": {
+        "iconId": "cmdSave",
+        "title": "{{i18n.saveEditsTitle}}",
+        "description": "{{i18n.cmdSaveEditsDesc}}"
+      },
+      "Arm0CancelEdits": {
+        "iconId": "cmdCancelEdit",
+        "isGroup": false,
+        "title": "{{i18n.cancelEditsTitle}}",
+        "description": "{{i18n.Arm0CancelEditsDesc}}"
+      },
+      "Arm0ShowSplitPanel": {
+        "iconId": "cmdShow",
+        "title": "{{i18n.showParameters}}",
+        "description": "{{i18n.Arm0ShowSplitPanelDesc}}"
+      },
+      "Arm0ShowReqQualityDataCmdGroup": {
+        "iconId": "cmdAssessQualityCompliance",
+        "isGroup": true,
+        "title": "{{i18n.assessQualityCompliance}}"
+      },
+      "Arm0ShowReqQualityData": {
+        "iconId": "cmdValidate",
+        "title": "{{i18n.assessQualityCompliance}}"
+      },
+      "Arm0DownloadReqQualityData": {
+        "iconId": "cmdDownloadSpecification",
+        "title": "{{i18n.downloadQualityReport}}"
+      },
+      "Arm0HeatmapGrp": {
+        "iconId": "cmdViewCountOrHeatmap",
+        "title": "{{i18n.showColor}}",
+        "isRibbon": true
+      },
+      "Arm0Heatmap": {
+        "title": "{{i18n.heatmap}}"
+      },
+      "Arm0Count": {
+        "title": "{{i18n.count}}"
+      },
+      "Arm0ResetTraceMatrix": {
+        "iconId": "cmdReset",
+        "title": "{{i18n.reset}}"
+      },
+      "Arm0printTracelinkMatrix": {
+        "iconId": "cmdPrint",
+        "title": "{{i18n.printTraceabilityMatrix}}"
+      },
+      "Arm0EyeballGroup": {
+        "iconId": "cmdShow",
+        "isRibbon": true,
+        "title": "{{i18n.eyeball}}"
+      },
+      "Arm025items": {
+        "isGroup": false,
+        "title": "{{i18n.25items}}"
+      },
+      "Arm050items": {
+        "isGroup": false,
+        "title": "{{i18n.50items}}"
+      },
+      "Arm0100items": {
+        "isGroup": false,
+        "title": "{{i18n.100items}}"
+      },
+      "Arm0FunnelPopUp": {
+        "iconId": "cmdfilter",
+        "title": "{{i18n.funnel}}"
+      },
+      "Arm0ReplaceStructure": {
+        "iconId": "cmdReplace",
+        "title": "{{i18n.replaceStructure}}"
+      },
+      "Arm0saveTraceabilityMatrix": {
+        "iconId": "cmdSave",
+        "title": "{{i18n.saveTraceabilityMatrix}}"
+      },
+      "Arm0MatrixCreateTracelink": {
+        "iconId": "cmdCreateTraceLink",
+        "title": "{{i18n.createTraceLink}}"
+      },
+      "Arm0refreshTraceabilityMatrix": {
+        "iconId": "cmdRefreshMatrix",
+        "title": "{{i18n.refreshTraceabilityMatrix}}"
+      },
+      "Arm0TraceabilityMatrixSettings": {
+        "iconId": "cmdSettings",
+        "title": "{{i18n.traceabilityMatrixSettings}}"
+      },
+      "Arm0tlmGrp": {
+        "title": "{{i18n.tlm_mode}}",
+        "isShuttle": true
+      },
+      "Arm0tlmList": {
+        "iconId": "cmdListView",
+        "title": "{{i18n.tlmListMode}}"
+      },
+      "Arm0tlmTree": {
+        "iconId": "cmdTreeView",
+        "title": "{{i18n.tlmTreeMode}}"
+      },
+      "Arm0HideEmpty": {
+        "iconId": "cmdShowEmptyCells",
+        "title": "{{i18n.hideempty}}"
+      },
+      "Arm0ShowAll": {
+        "iconId": "cmdShowEmptyCells",
+        "title": "{{i18n.showall}}"
+      },
+      "Arm0ShowCommentPanel": {
+        "iconId": "cmdShowMarkupPanel",
+        "title": "{{i18n.showCommentsPanel}}",
+        "description": "{{i18n.showCommentsPanelDesc}}"
+      },
+      "Arm0CommentHighlight": {
+        "iconId": "cmdHighlight",
+        "title": "{{i18n.newComment}}",
+        "description": "{{i18n.newCommentDesc}}"
+      },
+      "Arm0CommentEdit": {
+        "iconId": "cmdEdit",
+        "title": "{{i18n.edit}}",
+        "description": "{{i18n.Arm0CommentEditDesc}}"
+      },
+      "Arm0CommentReply": {
+        "iconId": "cmdReply",
+        "title": "{{i18n.reply}}",
+        "description": "{{i18n.Arm0CommentReplyDesc}}"
+      },
+      "Arm0CommentDelete": {
+        "iconId": "cmdDelete",
+        "title": "{{i18n.del}}",
+        "description": "{{i18n.Arm0CommentDeleteDesc}}"
+      },
+      "Arm0StartEditSummaryTable": {
+        "iconId": "cmdEdit",
+        "isGroup": false,
+        "title": "{{i18n.startEdit}}",
+        "description": "{{i18n.Awp0StartEditTableDesc}}"
+      },
+      "Arm0CloseWidePanelPopup": {
+        "iconId": "cmdClosePanel",
+        "isGroup": false,
+        "title": "{{i18n.closeTitle}}"
+      },
+      "Arm0SaveEditSummaryTable": {
+        "iconId": "cmdSave",
+        "isGroup": false,
+        "title": "{{i18n.saveEditsTitle}}",
+        "description": "{{i18n.Awp0SaveEditsDesc}}"
+      },
+      "Arm0CancelEditSummaryTable": {
+        "iconId": "cmdCancelEdit",
+        "isGroup": false,
+        "title": "{{i18n.cancelEditsTitle}}",
+        "description": "{{i18n.Awp0CancelEditsPWADesc}}"
+      },
+      "Arm0RecentPrevCmd": {
+        "iconId": "miscChevronLeft",
+        "isGroup": false,
+        "title": "{{i18n.Arm0RecentPrevCmdDesc}}",
+        "description": "{{i18n.Arm0RecentPrevCmdDesc}}"
+      },
+      "Arm0RecentNextCmd": {
+        "iconId": "miscChevronRight",
+        "isGroup": false,
+        "title": "{{i18n.Arm0RecentNextCmdDesc}}",
+        "description": "{{i18n.Arm0RecentNextCmdDesc}}"
+      },
+      "Arm0SummaryTableExportImport": {
+        "iconId": "cmdImportExportExcel",
+        "isGroup": true,
+        "title": "{{i18n.exportImportCmdTitle}}",
+        "description": "{{i18n.Arm0ExportImportDesc}}"
+      },
+      "Arm0SummaryTableExport": {
+        "iconId": "cmdExport",
+        "isGroup": false,
+        "title": "{{i18n.exportCmdTitle}}",
+        "description": "{{i18n.Arm0ExportDesc}}"
+      },
+      "Arm0SummaryTableImportExcel": {
+        "iconId": "cmdImport",
+        "isGroup": false,
+        "title": "{{i18n.importCmdTitle}}",
+        "description": "{{i18n.Arm0ImportExcelDesc}}"
+      },
+      "Arm0EnableMultiSelectObjectSet": {
+        "iconId": "cmdMultiSelect",
+        "title": "{{i18n.selectionMode}}",
+        "description": "{{i18n.summaryTableMultiSelectDesc}}"
+      },
+      "Arm0DisableMultiSelectObjectSet": {
+        "iconId": "cmdMultiSelect",
+        "title": "{{i18n.selectionMode}}",
+        "description": "{{i18n.summaryTableMultiSelectDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "insertLevelCmdHandlerForReq": {
+        "id": "Awb0InsertParentElement",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.isRootTypeReq"
+        },
+        "visibleWhen": false
+      },
+      "insertLevelCtxMenuCmdHandlerForReq": {
+        "id": "Awb0InsertParentElementCtxMenu",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.isRootTypeReq"
+        },
+        "visibleWhen": false
+      },
+      "removeLevelCommandHandlerForReq": {
+        "id": "Awb0RemoveLevel",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.isRootTypeReq"
+        },
+        "visibleWhen": false
+      },
+      "markupCommandHandlerForReq": {
+        "id": "Awb0ShowMarkup",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.isMarkupCommandVisible"
+        },
+        "visibleWhen": false
+      },
+      "removeLevelCtxMenuCommandHandlerForReq": {
+        "id": "Awb0RemoveLevelCtxMenu",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.isRootTypeReq"
+        },
+        "visibleWhen": false
+      },
+      "popupCloseCommandHandler": {
+        "id": "popupCloseCommand",
+        "action": "popupCloseAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "exportGroupCommandHandler": {
+        "id": "Awp0ExportGroup",
+        "activeWhen": true
+      },
+      "Arm1PasteObjectCmdGroupCommandHandler": {
+        "id": "Arm1PasteObjectCmdGroup",
+        "activeWhen": true
+      },
+      "Arm1PasteObjectAsChildCmdHandler": {
+        "id": "Arm1PasteObjectAsChildCmd",
+        "action": "arm1PasteObjectAsChildAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isArm1PasteObjectAsChildCmdVisible"
+        },
+        "enableWhen": {
+          "condition": "conditions.isPasteObjectAsChildCmdEnable"
+        }
+      },
+      "Arm1PasteObjectAsSiblingCmdHandler": {
+        "id": "Arm1PasteObjectAsSiblingCmd",
+        "action": "arm1PasteObjectAsSiblingAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isArm1PasteObjectAsSiblingCmdVisible"
+        },
+        "enableWhen": {
+          "condition": "conditions.isPasteObjectAsSiblingCmdEnable"
+        }
+      },
+      "Arm1PasteCommandHandler": {
+        "id": "Awp0Paste",
+        "activeWhen": {
+          "condition": "conditions.isPasteCommandHandlerActive"
+        },
+        "visibleWhen": false
+      },
+      "Arm1PasteCtxMenuCommandHandler": {
+        "id": "Awp0PasteContextMenu",
+        "activeWhen": {
+          "condition": "conditions.isPasteCommandHandlerActive"
+        },
+        "visibleWhen": false
+      },
+      "reorderCommandHandler": {
+        "id": "Arm1Reorder",
+        "action": "Reorder",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.visibleReorderCommand"
+        }
+      },
+      "Arm0MatrixCellPropViewCloseCmdHandler": {
+        "id": "arm0MatrixCellPropViewCloseCmd",
+        "action": "arm0MatrixCellPropViewCloseCmdAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "saveEditsCommandHandler": {
+        "id": "Arm0SaveEdits",
+        "action": "saveEditsDocumentationsAce",
+        "activeWhen": {
+          "condition": "conditions.saveEditsCommandActiveDoc"
+        },
+        "visibleWhen": {
+          "condition": "conditions.saveEditsCommandActiveDoc"
+        },
+        "enableWhen": {
+          "condition": "conditions.saveEditsCommandEnable"
+        }
+      },
+      "cancelEditsCommandHandler": {
+        "id": "Arm0CancelEdits",
+        "action": "cancelEditsDocumentationsAce",
+        "activeWhen": {
+          "condition": "conditions.cancelEditsCommandActiveDoc"
+        },
+        "visibleWhen": {
+          "condition": "conditions.cancelEditsCommandActiveDoc"
+        },
+        "enableWhen": {
+          "condition": "conditions.cancelEditsCommandEnable"
+        }
+      },
+      "arm0ShowSplitPanelCommandHandler": {
+        "id": "Arm0ShowSplitPanel",
+        "action": "showParameters",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.isShowSplitPanelActive"
+        }
+      },
+      "Arm0ShowReqQualityDataCmdGroupCommandHandler": {
+        "id": "Arm0ShowReqQualityDataCmdGroup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isShowQualityCommand"
+        }
+      },
+      "arm0ShowReqQualityDataCommandHandler": {
+        "id": "Arm0ShowReqQualityData",
+        "action": "showReqQualityData",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.isReqQualityDataPanelActive"
+        }
+      },
+      "arm0DownloadReqQualityDataCommandHandler": {
+        "id": "Arm0DownloadReqQualityData",
+        "action": "downloadReqQualityData",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "arm0HeatmapCommandHandler": {
+        "id": "Arm0HeatmapGrp",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isMatrixView"
+        }
+      },
+      "arm0HeatmapHandler": {
+        "id": "Arm0Heatmap",
+        "action": "showHeatmap",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.highlightshowHeatmap"
+        }
+      },
+      "Arm0CountHandler": {
+        "id": "Arm0Count",
+        "action": "showCount",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.highlightshowCount"
+        }
+      },
+      "Arm0ResetMatrixHandler": {
+        "id": "Arm0ResetTraceMatrix",
+        "action": "resetTraceMatrix",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Arm0printTracelinkMatrixHandler": {
+        "id": "Arm0printTracelinkMatrix",
+        "action": "printTracelinkMatrix",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Arm0EyeballGroupHandler": {
+        "id": "Arm0EyeballGroup",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isEyeballGroupVisible"
+        },
+        "enableWhen": true
+      },
+      "Arm025itemsHandler": {
+        "id": "Arm025items",
+        "action": "show25items",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.highlightshow25items"
+        }
+      },
+      "Arm050itemsHandler": {
+        "id": "Arm050items",
+        "action": "show50items",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.highlightshow50items"
+        }
+      },
+      "Arm0100itemsHandler": {
+        "id": "Arm0100items",
+        "action": "show100items",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.highlightshow100items"
+        }
+      },
+      "Arm0FunnelPopUpHandler": {
+        "id": "Arm0FunnelPopUp",
+        "action": "funnelPopUp",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isMatrixView"
+        }
+      },
+      "Arm0ReplaceStructureHandler": {
+        "id": "Arm0ReplaceStructure",
+        "action": "replace",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.matrixTypeIsQuickMode"
+        }
+      },
+      "Arm0saveTraceabilityMatrixHandler": {
+        "id": "Arm0saveTraceabilityMatrix",
+        "action": "saveTraceabilityMatrix",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Arm0MatrixCreateTracelinkCommandHandler": {
+        "id": "Arm0MatrixCreateTracelink",
+        "action": "createTracelink",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.matrixCellSelected"
+        }
+      },
+      "Arm0refreshTraceabilityMatrixHandler": {
+        "id": "Arm0refreshTraceabilityMatrix",
+        "action": "refreshTracelinkMatrixObject",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isThisASavedMatrixObject"
+        }
+      },
+      "Arm0Awp0CheckoutCommandHandler": {
+        "id": "Awp0Checkout",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.arm0ReserveCommandVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Arm0Awp0CancelCheckoutCommandHandler": {
+        "id": "Awp0CancelCheckout",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.arm0ReserveCommandVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Arm0Awp0CheckinCommandHandler": {
+        "id": "Awp0Checkin",
+        "action": "",
+        "activeWhen": {
+          "condition": "conditions.arm0ReserveCommandVisibility"
+        },
+        "visibleWhen": false
+      },
+      "Arm0TraceabilityMatrixSettingsHandler": {
+        "id": "Arm0TraceabilityMatrixSettings",
+        "action": "openArm0TraceabilityMatrixSettings",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showMatrixSettings"
+        }
+      },
+      "Arm0tlmGrpCommandHandler": {
+        "id": "Arm0tlmGrp",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Arm0tlmListHandler": {
+        "id": "Arm0tlmList",
+        "action": "showTlmList",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.matrixTypeIsQuickMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.istlmListMode"
+        }
+      },
+      "Arm0tlmTreeHandler": {
+        "id": "Arm0tlmTree",
+        "action": "showTlmTree",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.matrixTypeIsQuickMode"
+        },
+        "selectWhen": {
+          "condition": "conditions.istlmTreeMode"
+        }
+      },
+      "Arm0HideEmptyHandler": {
+        "id": "Arm0HideEmpty",
+        "action": "showEmptyRowsAndColsAction",
+        "activeWhen": {
+          "condition": "ctx.showEmpty"
+        },
+        "visibleWhen": {
+          "condition": "ctx.showEmpty"
+        }
+      },
+      "Arm0ShowAllHandler": {
+        "id": "Arm0ShowAll",
+        "action": "showEmptyRowsAndColsAction",
+        "activeWhen": {
+          "condition": "ctx.unshowEmpty"
+        },
+        "visibleWhen": {
+          "condition": "ctx.unshowEmpty"
+        }
+      },
+      "Arm0CommentCommandHandler": {
+        "id": "Arm0ShowCommentPanel",
+        "action": "activateCommentPanelForRequirements",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.commentVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.commentShowPanelSelected"
+        },
+        "enableWhen": true
+      },
+      "Arm0CommentHighlightCommandHandler": {
+        "id": "Arm0CommentHighlight",
+        "action": "showCommentsForRequirements",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.commentVisible"
+        },
+        "selectWhen": {
+          "condition": "conditions.markupHighlightSelected"
+        },
+        "enableWhen": {
+          "condition": "conditions.newCommentCmdCondition"
+        }
+      },
+      "Arm0CommentEditCommandHandler": {
+        "id": "Arm0CommentEdit",
+        "action": "editRequirementComment",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.commentEditable"
+        }
+      },
+      "Arm0CommentReplyCommandHandler": {
+        "id": "Arm0CommentReply",
+        "action": "replyRequirementComment",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.commentReplyable"
+        }
+      },
+      "Arm0CommentDeleteCommandHandler": {
+        "id": "Arm0CommentDelete",
+        "action": "deleteRequirementComment",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.commentDeletable"
+        }
+      },
+      "Arm0StartEditSummaryTableCommandHandler": {
+        "id": "Arm0StartEditSummaryTable",
+        "action": "startEditSummary",
+        "activeWhen": {
+          "condition": "conditions.checkEditOffReqSummaryTable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditOffReqSummaryTable"
+        }
+      },
+      "Arm0CloseWidePanelPopupHandler": {
+        "id": "Arm0CloseWidePanelPopup",
+        "action": "closeWidePanelPopupAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Arm0SaveEditSummaryTableCommandHandler": {
+        "id": "Arm0SaveEditSummaryTable",
+        "action": "saveEdits",
+        "activeWhen": {
+          "condition": "conditions.checkEditOnForReqSummaryTable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditOnForReqSummaryTable"
+        }
+      },
+      "Arm0CancelEditSummaryTableCommandHandler": {
+        "id": "Arm0CancelEditSummaryTable",
+        "action": "isDirtyOnCancelEdits",
+        "activeWhen": {
+          "condition": "conditions.checkEditOnForReqSummaryTable"
+        },
+        "visibleWhen": {
+          "condition": "conditions.checkEditOnForReqSummaryTable"
+        }
+      },
+      "Arm0RecentPrevCmdHandler": {
+        "id": "Arm0RecentPrevCmd",
+        "action": "Arm0RecentPrevCmdAction",
+        "visibleWhen": true,
+        "activeWhen": {
+          "condition": "conditions.visiblePrev"
+        },
+        "enableWhen": {
+          "condition": "conditions.enablePrev"
+        }
+      },
+      "Arm0RecentNextCmdHandler": {
+        "id": "Arm0RecentNextCmd",
+        "action": "Arm0RecentNextCmdAction",
+        "visibleWhen": true,
+        "activeWhen": {
+          "condition": "conditions.enableNext"
+        },
+        "enableWhen": {
+          "condition": "conditions.enableNext"
+        }
+      },
+      "Arm0OverridecreateTracelinkPopupCommandHandler": {
+        "id": "Arm0CreateTraceLink",
+        "activeWhen": {
+          "condition": "conditions.isCreateTracelinkCommandVisibleRMWorkspace"
+        },
+        "visibleWhen": false
+      },
+      "Arm0OverridecreateTracelinkCommandHandler": {
+        "id": "Arm0ExistingTraceLink",
+        "activeWhen": {
+          "condition": "conditions.isCreateTracelinkCommandVisibleRMWorkspace"
+        },
+        "visibleWhen": false
+      },
+      "Arm0OverridegenerateTraceabilityMatrixCommandHandler": {
+        "id": "Arm0GenerateTraceabilityMatrix",
+        "activeWhen": {
+          "condition": "conditions.visibleGenerateTraceabilityMatrixRMWorkspace"
+        },
+        "visibleWhen": false
+      },
+      "Arm0OverridesaveAndSuspectCommandHandler": {
+        "id": "Arm0MarkAndSuspect",
+        "activeWhen": {
+          "condition": "conditions.isMarkAsSuspectCommandVisibleRMWorkspace"
+        },
+        "visibleWhen": false
+      },
+      "Arm0OverrideArm0ExportToReqIFCommonCmdHandler": {
+        "id": "Arm0ExportToReqIFCommonCmd",
+        "activeWhen": {
+          "condition": "conditions.isReqIfExportSupportedRMWorkspace"
+        },
+        "visibleWhen": false
+      },
+      "Arm0SummaryTableExportHandler": {
+        "id": "Arm0SummaryTableExport",
+        "action": "Arm0ActivateExportToRoundTripExcelPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.exportSummaryTableExcelCommandCondition"
+        }
+      },
+      "Arm0SummaryTableImportHandler": {
+        "id": "Arm0SummaryTableImportExcel",
+        "action": "Arm0ActivateImportPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.exportSummaryTableExcelCommandCondition"
+        }
+      },
+      "Arm0EnableMultiSelectObjectSetHandler": {
+        "id": "Arm0EnableMultiSelectObjectSet",
+        "action": "Arm0EnableMultiSelectObjectSetCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.arm0MultiSelectObjectSetEnableCondition"
+        }
+      },
+      "Arm0DisableMultiSelectObjectSetHandler": {
+        "id": "Arm0DisableMultiSelectObjectSet",
+        "action": "Arm0DisableMultiSelectObjectSetCommandAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.arm0MultiSelectObjectSetDisableCondition"
+        },
+        "selectWhen": true
+      }
+    },
+    "commandPlacements": {
+      "Arm0MatrixCreateTracelinkCommandPlacement": {
+        "id": "Arm0MatrixCreateTracelink",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 90
+      },
+      "Arm0HideEmptyHandlerPlacement": {
+        "id": "Arm0HideEmpty",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 20
+      },
+      "Arm0ShowAllHandlerPlacement": {
+        "id": "Arm0ShowAll",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 20
+      },
+      "Arm0tlmGrpCommandPlacement": {
+        "id": "Arm0tlmGrp",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 2
+      },
+      "Arm0tlmListCommandPlacement": {
+        "id": "Arm0tlmList",
+        "priority": 2,
+        "parentGroupId": "Arm0tlmGrp"
+      },
+      "Arm0tlmTreeCommandPlacement": {
+        "id": "Arm0tlmTree",
+        "priority": 1,
+        "parentGroupId": "Arm0tlmGrp"
+      },
+      "popupCloseCommandPlacement": {
+        "id": "popupCloseCommand",
+        "uiAnchor": "closePopupAnchor",
+        "priority": 300
+      },
+      "pasteObjectAsChildCmdPlacement-classic": {
+        "id": "Arm1PasteObjectAsChildCmd",
+        "uiAnchor": "aw_oneStep",
+        "parentGroupId": "Arm1PasteObjectCmdGroup",
+        "priority": 1
+      },
+      "pasteObjectAsChildCmdPlacement": {
+        "id": "Arm1PasteObjectAsChildCmd",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0PasteGroup",
+        "priority": 20
+      },
+      "pasteObjectAsSiblingCmdPlacement-classic": {
+        "id": "Arm1PasteObjectAsSiblingCmd",
+        "uiAnchor": "aw_oneStep",
+        "parentGroupId": "Arm1PasteObjectCmdGroup",
+        "priority": 2
+      },
+      "pasteObjectAsSiblingCmdPlacement": {
+        "id": "Arm1PasteObjectAsSiblingCmd",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0PasteGroup",
+        "priority": 30
+      },
+      "reorderCommandPlacement": {
+        "id": "Arm1Reorder",
+        "uiAnchor": "aw_primaryWorkArea",
+        "relativeTo": "Awp0StartEdit",
+        "priority": 1
+      },
+      "arm0MatrixCellPropViewCloseCmdPlacement": {
+        "id": "arm0MatrixCellPropViewCloseCmd",
+        "uiAnchor": "armTraceMatrixTableCommandbar",
+        "priority": 10
+      },
+      "SaveEditsPlacement": {
+        "id": "Arm0SaveEdits",
+        "uiAnchor": "aw_requirementsViewer",
+        "priority": 100
+      },
+      "CancelEditsPlacement": {
+        "id": "Arm0CancelEdits",
+        "uiAnchor": "aw_requirementsViewer",
+        "priority": 110
+      },
+      "arm0ShowSplitPanelCommandPlacement": {
+        "id": "Arm0ShowSplitPanel",
+        "uiAnchor": "aw_requirementsViewer",
+        "priority": 160
+      },
+      "arm0ShowReqQualityDataCmdGroupCommandPlacement": {
+        "id": "Arm0ShowReqQualityDataCmdGroup",
+        "uiAnchor": "aw_requirementsViewer",
+        "priority": 170
+      },
+      "arm0ShowReqQualityDataCommandPlacement": {
+        "id": "Arm0ShowReqQualityData",
+        "uiAnchor": "aw_requirementsViewer",
+        "priority": 1,
+        "parentGroupId": "Arm0ShowReqQualityDataCmdGroup"
+      },
+      "arm0DownloadReqQualityDataCommandPlacement": {
+        "id": "Arm0DownloadReqQualityData",
+        "uiAnchor": "aw_requirementsViewer",
+        "priority": 2,
+        "parentGroupId": "Arm0ShowReqQualityDataCmdGroup"
+      },
+      "arm0CountCommandPlacement": {
+        "id": "Arm0Count",
+        "priority": 1,
+        "parentGroupId": "Arm0HeatmapGrp"
+      },
+      "Arm025itemsCmdPlacement": {
+        "id": "Arm025items",
+        "uiAnchor": "null",
+        "priority": 1,
+        "parentGroupId": "Arm0EyeballGroup"
+      },
+      "arm0HeatmapCommandPlacement": {
+        "id": "Arm0Heatmap",
+        "priority": 2,
+        "parentGroupId": "Arm0HeatmapGrp"
+      },
+      "Arm050itemsCmdPlacement": {
+        "id": "Arm050items",
+        "uiAnchor": "null",
+        "priority": 2,
+        "parentGroupId": "Arm0EyeballGroup"
+      },
+      "Arm0100itemsCmdPlacement": {
+        "id": "Arm0100items",
+        "uiAnchor": "null",
+        "priority": 3,
+        "parentGroupId": "Arm0EyeballGroup"
+      },
+      "arm0HeatmapGrpCommandPlacement": {
+        "id": "Arm0HeatmapGrp",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 30
+      },
+      "Arm0FunnelPopUpCommandPlacement": {
+        "id": "Arm0FunnelPopUp",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 10
+      },
+      "Arm0EyeballGroupCommandPlacement": {
+        "id": "Arm0EyeballGroup",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 20
+      },
+      "arm0ResetMatrixPlacement": {
+        "id": "Arm0ResetTraceMatrix",
+        "priority": 40,
+        "parentGroupId": "aw_relationshipMatrixViewer"
+      },
+      "Arm0ReplaceStructureCommandPlacement": {
+        "id": "Arm0ReplaceStructure",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 60
+      },
+      "Arm0saveTraceabilityMatrixCommandPlacement": {
+        "id": "Arm0saveTraceabilityMatrix",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 70
+      },
+      "Arm0Arm0refreshTraceabilityMatrixCommandPlacement": {
+        "id": "Arm0refreshTraceabilityMatrix",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 70
+      },
+      "Arm0printTracelinkMatrixPlacement": {
+        "id": "Arm0printTracelinkMatrix",
+        "priority": 80,
+        "parentGroupId": "aw_relationshipMatrixViewer"
+      },
+      "Arm0TraceabilityMatrixSettingsPlacement": {
+        "id": "Arm0TraceabilityMatrixSettings",
+        "uiAnchor": "aw_relationshipMatrixViewer",
+        "priority": 80
+      },
+      "Arm0CommentReqCommandPlacement": {
+        "id": "Arm0ShowCommentPanel",
+        "uiAnchor": "aw_requirementsViewer",
+        "priority": 161
+      },
+      "Arm0CommentHighlightReqCommandPlacement": {
+        "id": "Arm0CommentHighlight",
+        "uiAnchor": "aw_requirementsViewer",
+        "priority": 162
+      },
+      "Arm0CommentEditCommandPlacement": {
+        "id": "Arm0CommentEdit",
+        "uiAnchor": "arm0_aw_comment_cell_commands",
+        "priority": 1,
+        "cellDisplay": {
+          "hover": false,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Arm0CommentReplyCommandPlacement": {
+        "id": "Arm0CommentReply",
+        "uiAnchor": "arm0_aw_comment_cell_commands",
+        "priority": 2,
+        "cellDisplay": {
+          "hover": false,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Arm0CommentDeleteCommandPlacement": {
+        "id": "Arm0CommentDelete",
+        "uiAnchor": "arm0_aw_comment_cell_commands",
+        "priority": 3,
+        "cellDisplay": {
+          "hover": false,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Arm0SummaryStartEditCommandPlacement": {
+        "id": "Arm0StartEditSummaryTable",
+        "uiAnchor": "aw_reqSummaryCommandbar",
+        "priority": 60
+      },
+      "closeWidePanelPopupPlacement": {
+        "id": "Arm0CloseWidePanelPopup",
+        "uiAnchor": "arm0_single_req_popup",
+        "priority": 100
+      },
+      "Arm0SummarySaveEditCommandPlacement": {
+        "id": "Arm0SaveEditSummaryTable",
+        "uiAnchor": "aw_reqSummaryCommandbar",
+        "priority": 40
+      },
+      "Arm0SummaryCancelEditCommandPlacement": {
+        "id": "Arm0CancelEditSummaryTable",
+        "uiAnchor": "aw_reqSummaryCommandbar",
+        "priority": 60
+      },
+      "Arm0RecentPrevCmdPlacement": {
+        "id": "Arm0RecentPrevCmd",
+        "uiAnchor": "arm0_recentNext",
+        "priority": -10
+      },
+      "Arm0RecentNextCmdPlacement": {
+        "id": "Arm0RecentNextCmd",
+        "uiAnchor": "arm0_recentNext",
+        "priority": 101
+      },
+      "Arm0SummaryTableExportImportPlacement": {
+        "id": "Arm0SummaryTableExportImport",
+        "uiAnchor": "aw_reqSummaryCommandbar",
+        "priority": 100
+      },
+      "Arm0SummaryTableExportPlacement": {
+        "id": "Arm0SummaryTableExport",
+        "uiAnchor": "aw_reqSummaryCommandbar",
+        "priority": 1,
+        "parentGroupId": "Arm0SummaryTableExportImport"
+      },
+      "Arm0SummaryTableImportPlacement": {
+        "id": "Arm0SummaryTableImportExcel",
+        "uiAnchor": "aw_reqSummaryCommandbar",
+        "priority": 2,
+        "parentGroupId": "Arm0SummaryTableExportImport"
+      },
+      "Arm0SummaryTableEnableMultiselectPlacement": {
+        "id": "Arm0EnableMultiSelectObjectSet",
+        "uiAnchor": "aw_reqSummaryCommandbar",
+        "priority": 3
+      },
+      "Arm0SummaryTableDisableMultiselectPlacement": {
+        "id": "Arm0DisableMultiSelectObjectSet",
+        "uiAnchor": "aw_reqSummaryCommandbar",
+        "priority": 3
+      }
+    },
+    "actions": {
+      "popupCloseAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "aw.closePopup"
+            }
+          ]
+        }
+      },
+      "showEmptyRowsAndColsAction": {
+        "actionType": "JSFunction",
+        "method": "showEmptyRowsAndColsAction",
+        "inputData": {
+          "data": "{{data}}",
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "arm1PasteObjectAsChildAction": {
+        "actionType": "JSFunction",
+        "method": "pasteObjectAsChild",
+        "inputData": {},
+        "outputData": {},
+        "actionMessages": {},
+        "deps": "js/Arm1PasteOperationService",
+        "events": {
+          "success": [
+            {
+              "name": "ace.pasteSuccessful"
+            }
+          ]
+        }
+      },
+      "arm1PasteObjectAsSiblingAction": {
+        "actionType": "JSFunction",
+        "method": "pasteObjectAsSibling",
+        "inputData": {},
+        "outputData": {},
+        "actionMessages": {},
+        "deps": "js/Arm1PasteOperationService",
+        "events": {
+          "success": [
+            {
+              "name": "ace.pasteSuccessful"
+            }
+          ]
+        }
+      },
+      "Reorder": {
+        "actionType": "JSFunction",
+        "method": "setParagraphNumEdit",
+        "deps": "js/editParagraphNumber",
+        "inputData": {
+          "data": "{{data}}"
+        }
+      },
+      "arm0MatrixCellPropViewCloseCmdAction": {
+        "actionType": "JSFunction",
+        "method": "closeMatrixTablePropView",
+        "inputData": {},
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "saveEditsDocumentationsAce": {
+        "actionType": "JSFunction",
+        "method": "updateMarkups",
+        "deps": "js/Arm0RequirementDocumentationACEEditor",
+        "events": {
+          "success": [
+            {
+              "name": "requirements.createUpdateContents"
+            }
+          ]
+        }
+      },
+      "createUpdateContents": {
+        "actionType": "JSFunction",
+        "method": "createUpdateContents",
+        "deps": "js/Arm0RequirementDocumentationACEEditor",
+        "events": {
+          "success": [
+            {
+              "name": "requirementDocumentation.updateLocallyOrRefreshDocTab"
+            }
+          ]
+        }
+      },
+      "cancelEditsDocumentationsAce": {
+        "actionType": "JSFunction",
+        "method": "cancelEdits",
+        "deps": "js/Arm0RequirementDocumentationACEEditor"
+      },
+      "showParameters": {
+        "actionType": "JSFunction",
+        "method": "changePanelLocation",
+        "inputData": {
+          "location": "bottom"
+        },
+        "deps": "js/Arm0SplitPanelService"
+      },
+      "showReqQualityData": {
+        "actionType": "JSFunction",
+        "method": "prePopulateDataForReuseAPI",
+        "inputData": {
+          "data": "{{data}}",
+          "option": "Requirement"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "progress.start",
+              "condition": "!data.ReuseSessionId"
+            },
+            {
+              "name": "Arm0ShowQualityMetricData.connectToReuseAPI",
+              "condition": "!data.ReuseSessionId"
+            },
+            {
+              "name": "Arm0ShowQualityMetricData.showReqQualityPanel",
+              "condition": "data.ReuseSessionId"
+            }
+          ]
+        },
+        "deps": "js/Arm0RequirementQualityService"
+      },
+      "downloadReqQualityData": {
+        "actionType": "JSFunction",
+        "method": "prePopulateDataForReuseAPI",
+        "inputData": {
+          "data": "{{data}}",
+          "option": "Specification"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "progress.start"
+            },
+            {
+              "name": "Arm0ShowQualityMetricData.connectToReuseAPI",
+              "condition": " !data.ReuseSessionId"
+            },
+            {
+              "name": "Arm0ShowQualityMetricData.downloadReqQualityReport",
+              "condition": "data.ReuseSessionId"
+            }
+          ]
+        },
+        "deps": "js/Arm0RequirementQualityService"
+      },
+      "unregisterShowReqQualityDataFlag": {
+        "actionType": "JSFunction",
+        "method": "unRegisterCtx",
+        "deps": "js/appCtxService",
+        "inputData": {
+          "name": "showRequirementQualityData"
+        },
+        "outputData": {
+          "ReuseSessionId": ""
+        }
+      },
+      "connectToReuseAPI": {
+        "actionType": "RESTService",
+        "method": "POST",
+        "inputData": {
+          "request": {
+            "method": "POST",
+            "withCredentials": false,
+            "url": "{{data.ConnectWebServicePath}}",
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": {
+              "userName": "{{data.LoginInfo.userName}}",
+              "userCode": "{{data.LoginInfo.userCode}}",
+              "companyName": "{{data.LoginInfo.companyName}}",
+              "companyCode": "{{data.LoginInfo.companyCode}}"
+            }
+          }
+        },
+        "outputData": {
+          "ReuseSessionId": "data.d.SessionId",
+          "ReuseSessionSuccess": "data.d.Success"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "Arm0ShowQualityMetricData.InitProject",
+              "condition": "data.ReuseSessionId && data.ReuseSessionSuccess"
+            },
+            {
+              "name": "Arm0ShowQualityMetricData.errorWhileConnectingToReuseAPI",
+              "condition": "!data.ReuseSessionId || !data.ReuseSessionSuccess"
+            }
+          ],
+          "failure": [
+            {
+              "name": "Arm0ShowQualityMetricData.errorWhileConnectingToReuseAPI"
+            }
+          ]
+        }
+      },
+      "errorWhileConnectingToReuseAPI": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "progress.end"
+            },
+            {
+              "name": "Arm0ShowQualityMetricData.unregisterShowReqQualityDataFlag"
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "reuseAPICallFailedError"
+            }
+          ]
+        }
+      },
+      "InitProject": {
+        "actionType": "RESTService",
+        "method": "POST",
+        "inputData": {
+          "request": {
+            "method": "POST",
+            "withCredentials": false,
+            "url": "{{data.InitProjectWebServicePath}}",
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": {
+              "sessionId": "{{data.ReuseSessionId}}",
+              "rms": 0,
+              "rmsLogin": "Administrator",
+              "databaseServer": "localhost",
+              "databaseName": "name",
+              "projectLocation": "{{data.ProductInfo.projectLocation}}",
+              "projectName": "{{data.ProductInfo.projectName}}",
+              "projectCode": "{{data.ProductInfo.projectCode}}"
+            }
+          }
+        },
+        "outputData": {
+          "InitProjectResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "Arm0ShowQualityMetricData.InitBlock"
+            }
+          ],
+          "failure": [
+            {
+              "name": "Arm0ShowQualityMetricData.errorWhileConnectingToReuseAPI"
+            }
+          ]
+        }
+      },
+      "InitBlock": {
+        "actionType": "RESTService",
+        "method": "POST",
+        "inputData": {
+          "request": {
+            "method": "POST",
+            "withCredentials": false,
+            "url": "{{data.InitBlockWebServicePath}}",
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": {
+              "sessionId": "{{data.ReuseSessionId}}",
+              "blockCode": "{{data.ProductInfo.blockCode}}",
+              "blockName": "{{data.ProductInfo.blockName}}",
+              "blockLocation": "{{data.ProductInfo.blockLocation}}",
+              "blockDescription": "",
+              "blockUrl": ""
+            }
+          }
+        },
+        "outputData": {
+          "InitBlockResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "Arm0ShowQualityMetricData.InitRequirement",
+              "condition": "data.InitBlockResponse.data.d.Success !== true"
+            },
+            {
+              "name": "Arm0ShowQualityMetricData.GetMetricsTemplateBlock"
+            }
+          ],
+          "failure": [
+            {
+              "name": "Arm0ShowQualityMetricData.errorWhileConnectingToReuseAPI"
+            }
+          ]
+        }
+      },
+      "GetMetricsTemplateBlock": {
+        "actionType": "RESTService",
+        "method": "POST",
+        "inputData": {
+          "request": {
+            "method": "POST",
+            "withCredentials": false,
+            "url": "{{data.GetMetricsTemplateBlockWebServicePath}}",
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": {
+              "sessionId": "{{data.ReuseSessionId}}"
+            }
+          }
+        },
+        "outputData": {
+          "GetMetricsTemplateBlockResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "Arm0ShowQualityMetricData.SetMetricsTemplateBlock"
+            }
+          ],
+          "failure": [
+            {
+              "name": "Arm0ShowQualityMetricData.errorWhileConnectingToReuseAPI"
+            }
+          ]
+        }
+      },
+      "SetMetricsTemplateBlock": {
+        "actionType": "RESTService",
+        "method": "POST",
+        "inputData": {
+          "request": {
+            "method": "POST",
+            "withCredentials": false,
+            "url": "{{data.SetMetricsTemplateBlockWebServicePath}}",
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": "{{function:SetMetricsTemplateBlock}}"
+          }
+        },
+        "outputData": {
+          "SetMetricsTemplateBlockResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "Arm0ShowQualityMetricData.InitRequirement"
+            }
+          ],
+          "failure": [
+            {
+              "name": "Arm0ShowQualityMetricData.errorWhileConnectingToReuseAPI"
+            }
+          ]
+        },
+        "deps": "js/Arm0RequirementQualityService"
+      },
+      "InitRequirement": {
+        "actionType": "RESTService",
+        "method": "POST",
+        "inputData": {
+          "request": {
+            "method": "POST",
+            "withCredentials": false,
+            "url": "{{data.InitRequirementWebServicePath}}",
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": {
+              "sessionId": "{{data.ReuseSessionId}}",
+              "absoluteNumber": "{{data.ProductInfo.absoluteNumber}}",
+              "header": "",
+              "description": "",
+              "url": "{{data.ProductInfo.url}}",
+              "authorName": "",
+              "userName": "",
+              "lastModificationUser": "",
+              "level": 0,
+              "code": "",
+              "versionCount": 0,
+              "numOleObjects": 0,
+              "moduleVolatilityCount": 0,
+              "authorEmailAddress": ""
+            }
+          }
+        },
+        "outputData": {
+          "InitRequirementResponse": ""
+        },
+        "events": {
+          "success": [
+            {
+              "name": "Arm0ShowQualityMetricData.showReqQualityPanel",
+              "condition": "data.CALCULATE_QUALITY"
+            },
+            {
+              "name": "Arm0ShowQualityMetricData.downloadReqQualityReport",
+              "condition": "!data.CALCULATE_QUALITY"
+            },
+            {
+              "name": "Arm0ShowQualityMetricData.addReuseSessionInLocalStorage"
+            }
+          ],
+          "failure": [
+            {
+              "name": "Arm0ShowQualityMetricData.errorWhileConnectingToReuseAPI"
+            }
+          ]
+        }
+      },
+      "showReqQualityPanel": {
+        "actionType": "JSFunction",
+        "method": "showReqQualityData",
+        "inputData": {
+          "data": "{{data}}"
+        },
+        "deps": "js/Arm0RequirementQualityService"
+      },
+      "downloadReqQualityReport": {
+        "actionType": "JSFunction",
+        "method": "downloadReqQualityReport",
+        "inputData": {
+          "data": "{{data}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "progress.end"
+            }
+          ],
+          "failure": [
+            {
+              "name": "progress.end"
+            }
+          ]
+        },
+        "deps": "js/Arm0RequirementQualityService"
+      },
+      "addReuseSessionInLocalStorage": {
+        "actionType": "JSFunction",
+        "method": "addReuseSessionInLocalStorage",
+        "inputData": {
+          "data": "{{data}}"
+        },
+        "deps": "js/Arm0RequirementQualityService"
+      },
+      "showCount": {
+        "actionType": "JSFunction",
+        "method": "toggleHeatMap",
+        "inputData": {
+          "data": "count",
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "showHeatmap": {
+        "actionType": "JSFunction",
+        "method": "toggleHeatMap",
+        "inputData": {
+          "data": "heat",
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "resetTraceMatrix": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "Arm0TraceabilityMatrix.reset"
+            }
+          ]
+        }
+      },
+      "printTracelinkMatrix": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "Arm0TraceabilityMatrix.print"
+            }
+          ]
+        }
+      },
+      "show25items": {
+        "actionType": "JSFunction",
+        "method": "setPageSize",
+        "inputData": {
+          "data": 25,
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "show50items": {
+        "actionType": "JSFunction",
+        "method": "setPageSize",
+        "inputData": {
+          "data": 50,
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "show100items": {
+        "actionType": "JSFunction",
+        "method": "setPageSize",
+        "inputData": {
+          "data": 100,
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "funnelPopUp": {
+        "actionType": "popup",
+        "inputData": {
+          "view": "Arm0FunnelPopupMenuPanel"
+        }
+      },
+      "replace": {
+        "actionType": "JSFunction",
+        "method": "openReplacePanel",
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "saveTraceabilityMatrix": {
+        "actionType": "JSFunction",
+        "method": "openCloseSaveTracelinkMatrixObjectPanel",
+        "events": {
+          "success": [
+            {
+              "name": "Arm0TracelinkMatrixObject.loadTMOproperties"
+            }
+          ]
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "loadTMOproperties": {
+        "actionType": "JSFunction",
+        "method": "loadTMOproperties",
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "createTracelink": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "Arm0Traceability.OpenCloseCreateTracelinkPanel",
+              "data": "{{data}}"
+            }
+          ]
+        }
+      },
+      "refreshTracelinkMatrixObject": {
+        "actionType": "JSFunction",
+        "method": "refreshTracelinkMatrixObject",
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "openArm0TraceabilityMatrixSettings": {
+        "actionType": "JSFunction",
+        "method": "openArm0TraceabilityMatrixSettings",
+        "inputData": {
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "showTlmList": {
+        "actionType": "JSFunction",
+        "method": "toggleTlmView",
+        "inputData": {
+          "data": "list",
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "showTlmTree": {
+        "actionType": "JSFunction",
+        "method": "toggleTlmView",
+        "inputData": {
+          "data": "tree",
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/Arm0TraceabilityMatrix"
+      },
+      "activateCommentPanelForRequirements": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "inputData": {
+          "commandId": "Arm0MarkupMain",
+          "location": "aw_toolsAndInfo",
+          "context": null,
+          "push": true
+        },
+        "deps": "js/commandPanel.service"
+      },
+      "showCommentsForRequirements": {
+        "actionType": "JSFunction",
+        "method": "showMarkups",
+        "deps": "js/Arm0MarkupService",
+        "events": {
+          "success": [
+            {
+              "name": "Arm0MarkupService.newHighlightCommentForRequirements"
+            }
+          ]
+        }
+      },
+      "newHighlightCommentForRequirements": {
+        "actionType": "JSFunction",
+        "method": "selectTool",
+        "inputData": {
+          "tool": "highlight"
+        },
+        "deps": "js/Arm0MarkupService"
+      },
+      "editRequirementComment": {
+        "actionType": "JSFunction",
+        "method": "editMarkup",
+        "deps": "js/Arm0MarkupService"
+      },
+      "replyRequirementComment": {
+        "actionType": "JSFunction",
+        "method": "replyMarkup",
+        "deps": "js/Arm0MarkupService"
+      },
+      "deleteRequirementComment": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "Arm0Markup.confirmDelete"
+            }
+          ]
+        }
+      },
+      "deleteComment": {
+        "actionType": "JSFunction",
+        "method": "deleteMarkup",
+        "deps": "js/ckeditorOperations"
+      },
+      "Arm0RecentPrevCmdAction": {
+        "actionType": "JSFunction",
+        "method": "callPreviousRecentObjectsEvent",
+        "deps": "js/requirementsManager"
+      },
+      "Arm0RecentNextCmdAction": {
+        "actionType": "JSFunction",
+        "method": "callNextRecentObjectsEvent",
+        "deps": "js/requirementsManager"
+      },
+      "closeWidePanelPopupAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "Arm0SingleRequirementWidePanelEditor.checkAndCloseWidePanel"
+            }
+          ]
+        }
+      },
+      "Arm0EnableMultiSelectObjectSetCommandAction": {
+        "actionType": "JSFunction",
+        "method": "dataProviderEnableMultiSelect",
+        "deps": "js/dataProviderFactory",
+        "inputData": {
+          "dataProvider": "{{commandContext}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "Arm0SummaryTable.refreshTable",
+              "eventData": {
+                "dataProvider": "{{commandContext.name}}"
+              }
+            }
+          ]
+        }
+      },
+      "Arm0DisableMultiSelectObjectSetCommandAction": {
+        "actionType": "JSFunction",
+        "method": "dataProviderDisableMultiSelect",
+        "deps": "js/dataProviderFactory",
+        "inputData": {
+          "dataProvider": "{{commandContext}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "Arm0SummaryTable.refreshTable",
+              "eventData": {
+                "dataProvider": "{{commandContext.name}}"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "onEvent": [
+      {
+        "eventId": "requirements.createUpdateContents",
+        "action": "createUpdateContents"
+      },
+      {
+        "eventId": "Arm0TracelinkMatrixObject.loadTMOproperties",
+        "action": "loadTMOproperties"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.showReqQualityPanel",
+        "action": "showReqQualityPanel"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.unregisterShowReqQualityDataFlag",
+        "action": "unregisterShowReqQualityDataFlag"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.connectToReuseAPI",
+        "action": "connectToReuseAPI"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.InitProject",
+        "action": "InitProject"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.InitBlock",
+        "action": "InitBlock"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.GetMetricsTemplateBlock",
+        "action": "GetMetricsTemplateBlock"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.SetMetricsTemplateBlock",
+        "action": "SetMetricsTemplateBlock"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.InitRequirement",
+        "action": "InitRequirement"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.errorWhileConnectingToReuseAPI",
+        "action": "errorWhileConnectingToReuseAPI"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.unregisterShowReqQualityDataFlag",
+        "action": "unregisterShowReqQualityDataFlag"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.downloadReqQualityReport",
+        "action": "downloadReqQualityReport"
+      },
+      {
+        "eventId": "Arm0ShowQualityMetricData.addReuseSessionInLocalStorage",
+        "action": "addReuseSessionInLocalStorage"
+      },
+      {
+        "eventId": "Arm0Markup.confirmDelete",
+        "message": "confirmRequirementDeleteMarkup"
+      },
+      {
+        "eventId": "Arm0MarkupService.newHighlightCommentForRequirements",
+        "action": "newHighlightCommentForRequirements"
+      }
+    ],
+    "conditions": {
+      "isRootTypeReq": {
+        "expression": "ctx.aceActiveContext.context.openedElement.modelType.typeHierarchyArray.indexOf('Arm0RequirementElement') > -1 || ctx.aceActiveContext.context.openedElement.modelType.typeHierarchyArray.indexOf('Arm0RequirementSpecElement') > -1 || ctx.aceActiveContext.context.openedElement.modelType.typeHierarchyArray.indexOf('Arm0ParagraphElement') > -1"
+      },
+      "isMarkupCommandVisible": {
+        "expression": "ctx.aceActiveContext.context.rootElement.type === 'Arm0RequirementSpecElement' || ctx.aceActiveContext.context.rootElement.type === 'Arm0RequirementElement'"
+      },
+      "isToplineElementSelected": {
+        "expression": "ctx.occmgmtContext.openedElement.uid == ctx.selected.uid"
+      },
+      "hasParentElementForSelected": {
+        "expression": "ctx.selected.props && ctx.selected.props.awb0Parent && ctx.selected.props.awb0Parent.dbValues[0]"
+      },
+      "isArm1PasteObjectAsSiblingCmdVisible": {
+        "expression": "ctx.visibleServerCommands.Arm1PasteObjectAsSiblingCmd && ctx.occmgmtContext && ctx.awClipBoardProvider.length > 0 && !conditions.isToplineElementSelected && !conditions.arm0PasteToObjectSetActiveCondition"
+      },
+      "isArm1PasteObjectAsChildCmdVisible": {
+        "expression": "ctx.visibleServerCommands.Arm1PasteObjectAsChildCmd && ctx.occmgmtContext && ctx.awClipBoardProvider.length > 0 && !conditions.arm0PasteToObjectSetActiveCondition"
+      },
+      "isTestMethodOpened": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf('IAV0TestRequestRevision') > -1"
+      },
+      "isTestProcedureOpened": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf('IAV0TestProcedurRevision') > -1"
+      },
+      "isTestEventOpened": {
+        "expression": "ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf('IAV0TestEventRevision') > -1"
+      },
+      "arm0PasteToObjectSetActiveCondition": {
+        "expression": "commandContext.objectSetSource !== null && commandContext.objectSetSource !== undefined"
+      },
+      "isPasteObjectAsChildCmdEnable": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isArm1PasteObjectAsChildCmdVisible",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isVRSpecificCopiedObject",
+              "$query": {
+                "$eq": false
+              }
+            },
+            {
+              "$source": "ctx.awClipBoardProvider",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": "{{ctx.selectedModelTypeRelations}}"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "isPasteObjectAsChildCmdActive": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isArm1PasteObjectAsChildCmdVisible",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isVRSpecificCopiedObject",
+              "$query": {
+                "$eq": false
+              }
+            }
+          ]
+        }
+      },
+      "isPasteObjectAsSiblingCmdEnable": {
+        "expression": {
+          "$and": [
+            {
+              "$source": "conditions.isArm1PasteObjectAsSiblingCmdVisible",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "ctx.awClipBoardProvider",
+              "$query": {
+                "$source": "modelType.typeHierarchyArray",
+                "$query": {
+                  "$in": "{{ctx.selectedModelTypeRelations}}"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "isPasteCommandHandlerActive": {
+        "expression": {
+          "$or": [
+            {
+              "$source": "conditions.isPasteObjectAsChildCmdActive",
+              "$query": {
+                "$eq": true
+              }
+            },
+            {
+              "$source": "conditions.isArm1PasteObjectAsSiblingCmdVisible",
+              "$query": {
+                "$eq": true
+              }
+            }
+          ]
+        }
+      },
+      "isVRSpecificCopiedObject": {
+        "expression": {
+          "$or": [
+            {
+              "$and": [
+                {
+                  "$source": "conditions.isTestMethodOpened",
+                  "$query": {
+                    "$eq": true
+                  }
+                },
+                {
+                  "$source": "ctx.awClipBoardProvider",
+                  "$query": {
+                    "$source": "modelType.typeHierarchyArray",
+                    "$query": {
+                      "$in": [
+                        "IAV0TestProcedurRevision",
+                        "Awb0SavedBookmark"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "$source": "conditions.isTestProcedureOpened",
+                  "$query": {
+                    "$eq": true
+                  }
+                },
+                {
+                  "$source": "ctx.awClipBoardProvider",
+                  "$query": {
+                    "$source": "modelType.typeHierarchyArray",
+                    "$query": {
+                      "$in": [
+                        "IAV0TestEventRevision",
+                        "IAV0TestRequestRevision",
+                        "Awb0SavedBookmark",
+                        "IAV0TestProcedurRevision"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$and": [
+                {
+                  "$source": "conditions.isTestEventOpened",
+                  "$query": {
+                    "$eq": true
+                  }
+                },
+                {
+                  "$source": "ctx.awClipBoardProvider",
+                  "$query": {
+                    "$source": "modelType.typeHierarchyArray",
+                    "$query": {
+                      "$in": [
+                        "Awb0SavedBookmark",
+                        "IAV0TestProcedurRevision"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "visibleReorderCommand": {
+        "expression": "ctx.visibleServerCommands.Arm1Reorder && ctx.occmgmtContext && !ctx.occmgmtContext.supportedFeatures.Awb0FlatStructureFeature  && (ctx.ViewModeContext.ViewModeContext === 'TreeView' || ctx.ViewModeContext.ViewModeContext === 'TreeSummaryView') && conditions.canTreeEditStart && !conditions.isTreeEditInProgress"
+      },
+      "isTreeEditInProgress": {
+        "expression": "ctx['NONE'].editInProgress() || ctx['occDataProvider'].editInProgress() || ctx['occDataProvider2'].editInProgress()"
+      },
+      "canTreeEditStart": {
+        "expression": "ctx[ 'occDataProvider' ].canStartEdit() || ctx[ 'occDataProvider2' ].canStartEdit()"
+      },
+      "saveEditsCommandActiveDoc": {
+        "expression": "conditions.isACEDocumentationTabActive"
+      },
+      "saveEditsCommandEnable": {
+        "expression": "ctx.requirementEditorContentChanged"
+      },
+      "cancelEditsCommandActiveDoc": {
+        "expression": "conditions.isACEDocumentationTabActive"
+      },
+      "cancelEditsCommandEnable": {
+        "expression": "ctx.requirementEditorContentChanged"
+      },
+      "isACEDocumentationTabActive": {
+        "expression": "ctx.isACEDocumentationTabActive"
+      },
+      "requirementMarkupEditable": {
+        "expression": "commandContext.vmo.isEditable"
+      },
+      "requirementMarkupReplyable": {
+        "expression": "commandContext.vmo.isReplyable"
+      },
+      "requirementMarkupDeletable": {
+        "expression": "commandContext.vmo.isDeletable"
+      },
+      "isShowSplitPanelActive": {
+        "expression": "ctx.requirementCtx.splitPanelLocation === 'bottom'"
+      },
+      "isReuseQualityAPIInstalled": {
+        "expression": "ctx.preferences.AWC_REQ_Reuse_URL[0]"
+      },
+      "isReuseTemplateInstalled": {
+        "expression": "ctx.preferences.REQ_TRC_Installed && ctx.preferences.REQ_TRC_Installed[0]==='true'"
+      },
+      "isShowQualityCommand": {
+        "expression": "conditions.isReuseQualityAPIInstalled && conditions.isReuseTemplateInstalled"
+      },
+      "isReqQualityDataPanelActive": {
+        "expression": "ctx.showRequirementQualityData"
+      },
+      "isMatrixView": {
+        "expression": "ctx.MatrixContext"
+      },
+      "matrixCellSelected": {
+        "expression": "ctx.matrixCellSelected===true"
+      },
+      "arm0ReserveCommandVisibility": {
+        "expression": "conditions.isACEDocumentationTabActive && ctx.preferences.REQ_enable_implicit_reserve[0]==='true'"
+      },
+      "isThisMatrixSaved": {
+        "expression": "ctx.MatrixContext.isMatrixSaved===false"
+      },
+      "isThisASavedMatrixObject": {
+        "expression": "ctx.MatrixContext.isMatrixSaved===true"
+      },
+      "highlightshow25items": {
+        "expression": "ctx.highlightshow25items===true"
+      },
+      "highlightshow50items": {
+        "expression": "ctx.highlightshow50items===true"
+      },
+      "highlightshow100items": {
+        "expression": "ctx.highlightshow100items===true"
+      },
+      "highlightshowCount": {
+        "expression": "ctx.highlightshowHeatmap===false"
+      },
+      "highlightshowHeatmap": {
+        "expression": "ctx.highlightshowHeatmap===true"
+      },
+      "enableTracelinkDirection": {
+        "expression": "ctx.highlightshowHeatmap===false"
+      },
+      "istlmListMode": {
+        "expression": "ctx.tlmTreeMode===false"
+      },
+      "istlmTreeMode": {
+        "expression": "ctx.tlmTreeMode===true"
+      },
+      "showEmpty": {
+        "expression": "ctx.showEmpty===true && ctx.tlmTreeMode===false"
+      },
+      "unshowEmpty": {
+        "expression": "ctx.showEmpty===false && ctx.tlmTreeMode===false"
+      },
+      "isEyeballGroupVisible": {
+        "expression": "ctx.MatrixContext && ctx.tlmTreeMode===false"
+      },
+      "matrixTypeIsQuickMode": {
+        "expression": "ctx.matrixType === 'Quick Matrix'"
+      },
+      "commentVisible": {
+        "expression": "ctx.viewerContext.type=='aw-pdf-viewer' || ctx.viewerContext.type=='aw-2d-viewer' || ctx.viewerContext.type=='aw-image-viewer' || ctx.viewerContext.type=='aw-text-viewer' || ctx.viewerContext.type=='aw-html-viewer' ||  ctx.reqMarkupCtx.viewerType=='aw-requirement-ckeditor' || ctx.markup.keep"
+      },
+      "markupShowMarkupsSelected": {
+        "expression": "ctx.markup.showMarkups"
+      },
+      "commentShowPanelSelected": {
+        "expression": "ctx.markup.showPanel"
+      },
+      "markupHighlightEnabled": {
+        "expression": "!ctx.markup.currentEdit && ctx.markup.supportedTools.highlight"
+      },
+      "commentEditable": {
+        "expression": "ctx.reqMarkupCtx.markupCellCommands.isEditable"
+      },
+      "commentReplyable": {
+        "expression": "ctx.reqMarkupCtx.markupCellCommands.isReplyable"
+      },
+      "commentDeletable": {
+        "expression": "ctx.reqMarkupCtx.markupCellCommands.isDeletable"
+      },
+      "newCommentCmdCondition": {
+        "expression": "ctx.enableNewCommentCmd && ctx.enableNewCommentCmd === true"
+      },
+      "showMatrixSettings": {
+        "expression": "ctx.matrixType === 'Quick Matrix' || ctx.matrixType === 'Dynamic Matrix'"
+      },
+      "checkEditOffReqSummaryTable": {
+        "expression": "conditions.isNoneContextActive"
+      },
+      "checkEditOnForReqSummaryTable": {
+        "expression": "conditions.isNoneContextNotActive"
+      },
+      "visiblePrev": {
+        "expression": "commandContext.isPreviousCmdVisible || commandContext.isNextCmdVisible"
+      },
+      "enablePrev": {
+        "expression": "commandContext.isPreviousCmdVisible"
+      },
+      "enableNext": {
+        "expression": "commandContext.isNextCmdVisible"
+      },
+      "isRMWorkspace": {
+        "expression": "ctx.workspace.workspaceId === 'TcRMWorkspace'"
+      },
+      "exportSummaryTableExcelCommandCondition": {
+        "expression": "ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_summary_table' && conditions.isRMWorkspace"
+      },
+      "isCreateTracelinkCommandVisibleRMWorkspace": {
+        "expression": "conditions.isCreateTracelinkCommandVisible && conditions.isRMWorkspace"
+      },
+      "visibleGenerateTraceabilityMatrixRMWorkspace": {
+        "expression": "conditions.visibleGenerateTraceabilityMatrix && conditions.isRMWorkspace"
+      },
+      "isMarkAsSuspectCommandVisibleRMWorkspace": {
+        "expression": "conditions.isMarkAsSuspectCommandVisible && conditions.isRMWorkspace"
+      },
+      "isReqIfExportSupportedRMWorkspace": {
+        "expression": "conditions.isReqIfExportSupported && conditions.isRMWorkspace"
+      },
+      "arm0MultiSelectObjectSetEnableCondition": {
+        "expression": "commandContext.viewModelCollection.loadedVMObjects.length > 0 && !commandContext.selectionModel.isMultiSelectionEnabled()"
+      },
+      "arm0MultiSelectObjectSetDisableCondition": {
+        "expression": "commandContext.viewModelCollection.loadedVMObjects.length > 0 && commandContext.selectionModel.isMultiSelectionEnabled()"
+      }
+    },
+    "messages": {
+      "saveTracelinkMatrixObjectSaveMsg": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.saveTracelinkMatrixObjectSaveMsg}}",
+        "messageTextParams": [
+          "{{ctx.selected.props.object_name.dbValues[0]}}"
+        ]
+      },
+      "reuseAPICallFailedError": {
+        "messageType": "ERROR",
+        "messageText": "{{i18n.reuseAPICallFailedError}}"
+      },
+      "confirmRequirementDeleteMarkup": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.confirmDeleteMarkup}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}"
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.del}}",
+            "action": "deleteComment"
+          }
+        ]
+      }
+    },
+    "preferences": [
+      "AWC_REQ_Reuse_URL"
+    ],
+    "functions": {
+      "SetMetricsTemplateBlock": {
+        "functionName": "getSetMetricsTemplateBlockInput",
+        "parameters": [
+          "{{data}}",
+          "{{ctx}}"
+        ]
+      }
+    },
+    "i18n": {
+      "exportTitle": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "arm1PasteObjects": [
+        "AWReqMgmtSECommandPanelsMessages"
+      ],
+      "arm1PasteObjectAsChild": [
+        "AWReqMgmtSECommandPanelsMessages"
+      ],
+      "arm1PasteObjectAsSibling": [
+        "AWReqMgmtSECommandPanelsMessages"
+      ],
+      "reorderTitle": [
+        "AWReqMgmtSECommandPanelsMessages"
+      ],
+      "noParagraphNumberColumnPresentError": [
+        "AWReqMgmtSECommandPanelsMessages"
+      ],
+      "showCommentsPanel": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "showCommentsPanelDesc": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "newCommentDesc": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "showMarkups": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "newComment": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "edit": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "reply": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "del": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "cancel": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "confirmDeleteMarkup": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "armTraceMatrixTableCommandbar": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "aw_requirements_markup_cell_commands": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "showParameters": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "reuseAPICallFailedError": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "assessQualityCompliance": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "downloadQualityReport": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "showMarkup": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "hideComments": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "showColor": [
+        "MatrixMessages"
+      ],
+      "count": [
+        "MatrixMessages"
+      ],
+      "heatmap": [
+        "MatrixMessages"
+      ],
+      "reset": [
+        "MatrixMessages"
+      ],
+      "eyeball": [
+        "MatrixMessages"
+      ],
+      "25items": [
+        "MatrixMessages"
+      ],
+      "50items": [
+        "MatrixMessages"
+      ],
+      "100items": [
+        "MatrixMessages"
+      ],
+      "funnel": [
+        "MatrixMessages"
+      ],
+      "replaceStructure": [
+        "MatrixMessages"
+      ],
+      "saveTraceabilityMatrix": [
+        "MatrixMessages"
+      ],
+      "createTraceLink": [
+        "MatrixMessages"
+      ],
+      "printTraceabilityMatrix": [
+        "MatrixMessages"
+      ],
+      "refreshTraceabilityMatrix": [
+        "MatrixMessages"
+      ],
+      "traceabilityMatrixSettings": [
+        "MatrixMessages"
+      ],
+      "tlm_mode": [
+        "MatrixMessages"
+      ],
+      "tlmListMode": [
+        "MatrixMessages"
+      ],
+      "tlmTreeMode": [
+        "MatrixMessages"
+      ],
+      "hideEmptyRowsAndCols": [
+        "MatrixMessages"
+      ],
+      "hideempty": [
+        "MatrixMessages"
+      ],
+      "showall": [
+        "MatrixMessages"
+      ],
+      "Arm1PasteObjectCmdGroupDesc": [
+        "AWReqMgmtSECommandPanelsMessages"
+      ],
+      "Arm1PasteObjectAsChildCmdDesc": [
+        "AWReqMgmtSECommandPanelsMessages"
+      ],
+      "Arm1PasteObjectAsSiblingCmdDesc": [
+        "AWReqMgmtSECommandPanelsMessages"
+      ],
+      "Arm1ReorderDesc": [
+        "AWReqMgmtSECommandPanelsMessages"
+      ],
+      "Arm0ShowSplitPanelDesc": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "Arm0CancelEditsDesc": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "cmdSaveEditsDesc": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "arm0MatrixCellPropViewCloseCmdDesc": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "showCommentsCmdTitle": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "showCommentPanelCmdTitle": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "newHighlightCommentCmdTitle": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "Arm0CommentEditDesc": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "Arm0CommentReplyDesc": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "Arm0CommentDeleteDesc": [
+        "RichTextEditorCommandPanelsMessages"
+      ],
+      "Awp0StartEditTitle": [
+        "ZeroCompileCommandMessages"
+      ],
+      "saveEditsTitle": [
+        "ZeroCompileCommandMessages"
+      ],
+      "cancelEditsTitle": [
+        "ZeroCompileCommandMessages"
+      ],
+      "Awp0SaveEditsDesc": [
+        "ZeroCompileCommandMessages"
+      ],
+      "Awp0StartEditTableDesc": [
+        "ZeroCompileCommandMessages"
+      ],
+      "Awp0CancelEditsPWADesc": [
+        "ZeroCompileCommandMessages"
+      ],
+      "arm0_recentCommands": [
+        "RequirementsManagerMessages"
+      ],
+      "arm0_recentNext": [
+        "RequirementsManagerMessages"
+      ],
+      "arm0_recentPrev": [
+        "RequirementsManagerMessages"
+      ],
+      "Arm0RecentNextCmdDesc": [
+        "RequirementsManagerMessages"
+      ],
+      "Arm0RecentPrevCmdDesc": [
+        "RequirementsManagerMessages"
+      ],
+      "selectionMode": [
+        "RequirementsManagerMessages"
+      ],
+      "summaryTableMultiSelectDesc": [
+        "RequirementsManagerMessages"
+      ]
+    }
+  },
+  "contributions": {
+    "occMgmtPageKey": [
+      "js/declarativeRequirementManagement.occMgmtPageKey"
+    ]
+  },
+  "propertyRendererTemplates": {
+    "qualityCorrectness_rendering_prop": {
+      "grids": [],
+      "columns": [
+        "qualityCorrectness"
+      ],
+      "template": "",
+      "templateUrl": "",
+      "renderFunction": "generateCorrectnessRendererFn",
+      "deps": "propRenderTemplates/generateQualityStatusProperty",
+      "dependentServices": []
+    },
+    "awb0IsSuspect_rendering_prop": {
+      "grids": [],
+      "columns": [
+        "awb0IsSuspect"
+      ],
+      "template": "",
+      "templateUrl": "",
+      "renderFunction": "generateIsSuspectFlagRendererFn",
+      "deps": "propRenderTemplates/generateRmIsSuspectProperty",
+      "dependentServices": []
+    },
+    "awb0BodyText_rendering_prop": {
+      "grids": [
+        "showReqSummaryTable"
+      ],
+      "columns": [
+        "arm0ClearText"
+      ],
+      "template": "",
+      "templateUrl": "",
+      "renderFunction": "generateRmBodyClearTextRendererFn",
+      "deps": "propRenderTemplates/generateRmBodyClearTextProperty",
+      "dependentServices": []
+    },
+    "awb0ArchetypeRevName_rendering_prop": {
+      "grids": [
+        "showReqSummaryTable"
+      ],
+      "columns": [
+        "awb0ArchetypeRevName"
+      ],
+      "template": "",
+      "templateUrl": "",
+      "renderFunction": "generateRmArchetypeRevNameRendererFn",
+      "deps": "propRenderTemplates/generateRmRevisionNameProperty",
+      "dependentServices": []
+    }
+  },
+  "saveHandlers": [
+    {
+      "conditions": {
+        "$and": [
+          {
+            "NONE._editing": {
+              "$eq": true
+            }
+          },
+          {
+            "selected.modelType.typeHierarchyArray": {
+              "$notin": [
+                "Awb0Element"
+              ]
+            }
+          },
+          {
+            "$or": [
+              {
+                "isRMDocumentationTabActive": {
+                  "$eq": true
+                }
+              },
+              {
+                "xrtPageContext.secondaryXrtPageID": {
+                  "$eq": "tc_xrt_notetext"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "target": {
+        "method": "getSaveHandler",
+        "deps": "js/Arm0RequirementDocumentation"
+      }
+    },
+    {
+      "conditions": {
+        "INFO_PANEL_CONTEXT.INFO_EDIT": {
+          "$eq": true
+        }
+      },
+      "target": {
+        "method": "getSaveHandler",
+        "deps": "js/Arm0RequirementDocumentationInfo"
+      }
+    },
+    {
+      "conditions": {
+        "$and": [
+          {
+            "xrtPageContext.primaryXrtPageID": {
+              "$eq": "tc_xrt_notetext"
+            }
+          }
+        ]
+      },
+      "target": {
+        "method": "getSaveHandler",
+        "deps": "js/Arm0RequirementDocumentation"
+      }
+    },
+    {
+      "conditions": {
+        "$and": [
+          {
+            "isRMDocumentationTabActive": {
+              "$eq": true
+            }
+          },
+          {
+            "NONE._editing": {
+              "$eq": true
+            }
+          }
+        ]
+      },
+      "target": {
+        "method": "getSaveHandler",
+        "deps": "js/Arm0RequirementDocumentation"
+      }
+    },
+    {
+      "conditions": {
+        "editParaNumberSaveHandler": {
+          "$eq": true
+        }
+      },
+      "target": {
+        "method": "getSaveHandler",
+        "deps": "js/editParagraphNumber"
+      }
+    },
+    {
+      "conditions": {
+        "$and": [
+          {
+            "xrtPageContext.primaryXrtPageID": {
+              "$eq": "tc_xrt_Content"
+            }
+          },
+          {
+            "NONE._editing": {
+              "$eq": true
+            }
+          },
+          {
+            "isRMDocumentationTabActive": {
+              "$eq": true
+            }
+          },
+          {
+            "selected.modelType.typeHierarchyArray": {
+              "$in": [
+                "Awb0Connection",
+                "Ase0LogicalElement",
+                "Ase0FunctionalElement"
+              ]
+            }
+          }
+        ]
+      },
+      "target": {
+        "method": "getSaveHandler",
+        "deps": "js/Arm0RequirementDocumentation"
+      }
+    }
+  ],
+  "typeProperties": {
+    "typeProperties": {
+      "Awb0ConditionalElement": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "awb0Archetype"
+          }
+        ]
+      },
+      "Arm0RequirementSpecElement": {
+        "additionalProperties": [
+          {
+            "name": "awb0IsSuspect"
+          }
+        ]
+      },
+      "Arm0RequirementElement": {
+        "additionalProperties": [
+          {
+            "name": "awb0IsSuspect"
+          }
+        ]
+      },
+      "Arm0ParagraphElement": {
+        "additionalProperties": [
+          {
+            "name": "awb0IsSuspect"
+          }
+        ]
+      },
+      "FullText": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "content_type"
+          }
+        ]
+      },
+      "RequirementSpec_Revision": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "has_trace_link"
+          }
+        ]
+      },
+      "SpecElementRevision": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "has_trace_link"
+          },
+          {
+            "name": "awp0IsSuspect"
+          }
+        ]
+      },
+      "Awp0TraceabilityMatrix": {
+        "additionalProperties": [
+          {
+            "name": "awp0AttachedMatrix"
+          }
+        ]
+      },
+      "Arm0SummaryTableProxy": {
+        "displayProperty": "object_string",
+        "additionalProperties": [
+          {
+            "name": "arm0UnderlyingObject"
+          },
+          {
+            "name": "arm0SourceElement"
+          },
+          {
+            "name": "awb0UnderlyingObject"
+          }
+        ]
+      }
+    }
+  },
+  "states": {
+    "requirementsLocation": {
+      "data": {
+        "browserSubTitle": {
+          "source": "/i18n/RequirementsManagerMessages",
+          "key": "requirementsManagerDisplayName"
+        },
+        "headerTitle": {
+          "source": "/i18n/RequirementsManagerMessages",
+          "key": "requirementsManagerDisplayName"
+        }
+      },
+      "nameToken": "requirementsLocation",
+      "view": "requirementsManager",
+      "parent": "root",
+      "type": "location"
+    },
+    "requirementsManager": {
+      "data": {
+        "priority": 0,
+        "label": {
+          "source": "/i18n/RequirementsManagerMessages",
+          "key": "requirementsManagerDisplayName"
+        },
+        "headerTitle": {
+          "source": "/i18n/RequirementsManagerMessages",
+          "key": "requirementsManagerDisplayName"
+        },
+        "clientScopeURI": "Arm0RequirementsManager",
+        "nameToken": "requirementsManagerSubLocation",
+        "context": {
+          "search": {
+            "provider": "Awp0FavoritesProvider",
+            "sortType": "Priority",
+            "criteria": {
+              "search": ""
+            }
+          }
+        },
+        "viewBase": "requirementsManager"
+      },
+      "parent": "requirementsLocation",
+      "type": "subLocation",
+      "url": "/requirementsManager"
+    }
+  },
+  "typeIconsRegistry": [
+    {
+      "type": {
+        "names": [
+          "Arm0SummaryTableProxy"
+        ],
+        "prop": {
+          "names": [
+            "arm0UnderlyingObject"
+          ],
+          "type": {
+            "names": [
+              "BusinessObject"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

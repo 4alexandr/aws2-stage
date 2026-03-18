@@ -1,0 +1,15 @@
+<aw-popup2>
+    <aw-panel>
+        <aw-panel-body>
+            <aw-panel>
+                <aw-row height="30f" justify="bottom">
+                    <aw-splm-table gridid="epAssignWorkAreaTree" use-tree="true"></aw-splm-table>
+                </aw-row>
+            </aw-panel>
+        </aw-panel-body>
+        <aw-panel-footer>
+            <aw-button enable-when="conditions.hasSelection" action="epAssignWorkarea" size="auto">{{i18n.assign}}</aw-button>
+            <aw-button button-type="base" action="closePopupWindow" size="auto">{{i18n.cancel}}</aw-button>
+        </aw-panel-footer>
+    </aw-panel>
+</aw-popup2>

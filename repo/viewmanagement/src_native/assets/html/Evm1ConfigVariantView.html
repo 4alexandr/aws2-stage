@@ -1,0 +1,10 @@
+<aw-panel-section caption="i18n.configPanelSavedVariantTitle">
+    <aw-property-non-edit-val prop="data.savedVariant" class="aw-occmgmt-effectivityUnitLabel">
+    </aw-property-non-edit-val>
+    <aw-list dataprovider="data.dataProviders.getConfiguredSVROwningItems">
+        <aw-default-cell vmo="item"></aw-default-cell>
+    </aw-list>
+    <!-- keep this since LWQ can possibly come back
+         <aw-ace-variant-rule data="data" dataprovider="data.dataProviders.getAllVariantRulesProvider" filterbox="data.variantRuleFilterBox"></aw-ace-variant-rule> -->
+    <aw-widget prop="data.variantRuleList"></aw-widget>
+</aw-panel-section>

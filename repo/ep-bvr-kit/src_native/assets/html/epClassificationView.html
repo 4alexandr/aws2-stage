@@ -1,0 +1,23 @@
+<aw-flex-column width="12">
+    <aw-flex-row height="3f">
+        <aw-include exist-when="data.isLoading == true" name="mfeLoadingMessage"></aw-include>
+    </aw-flex-row>
+    <aw-flex-row height="8">
+        <aw-flex-column width="3">
+            <aw-include name="Awp0ClassificationSearchNavigate"></aw-include>
+        </aw-flex-column>
+        <aw-flex-column width="2f"></aw-flex-column>
+        <aw-flex-column width="fill">
+            <aw-flex-row height="45f">
+                <aw-include exist-when="!conditions.hasInput" name="mfeMessage" sub-panel-context="data.messages.noElementSelected"></aw-include>
+                <aw-include exist-when="conditions.hasInput" name="epClassificationResult"></aw-include>
+            </aw-flex-row>
+        </aw-flex-column>
+    </aw-flex-row>
+    <aw-flex-row height="3f"></aw-flex-row>
+    <aw-flex-row height="fill">
+        <aw-flex-column align-content="end">
+            <aw-button action="cmdAssignButtonCommandAction" size="auto" exist-when="conditions.isToolSelected">{{i18n.assign}}</aw-button>
+        </aw-flex-column>
+    </aw-flex-row>
+</aw-flex-column>

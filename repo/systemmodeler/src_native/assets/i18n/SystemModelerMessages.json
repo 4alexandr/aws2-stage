@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "\"{0}\" and corresponding attribute mappings will be deleted.",
+    "removeSingleElementConfirmation": "\"{0}\" will be removed.",
+    "removeMultipleElementsConfirmation": "{0} selections will be removed.",
+    "removeMeasurableAttributeMessage": "\"{0}\" will be deleted.",
+    "syncSingleConectionMessage": "\"{0}\" is being synchronized, and Interactions are being updated. You will be notified when it is complete.",
+    "syncMultipleConectionsMessage": "\"{0}\" selections are being synchronized, and Interactions are being updated. You will be notified when it is complete.",
+    "exportInterfaceTitle": "Export Interface",
+    "aw_interfaceTableCommandbar": "Interface table Command Bar",
+    "aw_interactionTableCommandbar": "Interaction Table Command Bar",
+    "aw_attributesTableCommandbar": "Attributes Table Command Bar",
+    "aw_interfacesViewer": "Interfaces Viewer",
+    "table_cell_commands": "Table Cell Commands",
+    "Ase1ExportInterfaceElementDesc": "Export the selected interface details."
+}

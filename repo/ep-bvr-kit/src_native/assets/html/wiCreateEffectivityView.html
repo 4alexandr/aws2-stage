@@ -1,0 +1,29 @@
+<aw-popup2>
+    <aw-form name="configureBOPbyEffectivityForm">
+        <aw-panel-body>
+            <aw-textbox prop="data.units"></aw-textbox>
+            <h4>{{data.endItemLable.propertyDisplayName}}</h4>
+            <aw-search-box prop="data.endItemSearchBox" placeholder="data.endItemSearchBoxPlaceHolder"
+                action="searchEndItem">
+            </aw-search-box>
+            <aw-flex-row offset="1f">
+                <div class="aw-epMaturity-configurePlanSearchResultArea">
+                    <aw-flex-row align-content="center" offset="1" justify="left">
+                        <aw-flex-column justify="center" align-content="start">
+                            <span exist-when="conditions.showSearchingLabel"
+                                class="aw-epMaturity-configurePlanLoadingLabel">{{data.loadingLable.dbValue}}</span>
+                        </aw-flex-column>
+                    </aw-flex-row>
+                    <aw-list dataprovider="data.dataProviders.performSearchForEndItem">
+                        <aw-default-cell vmo="item"></aw-default-cell>
+                    </aw-list>
+                </div>
+            </aw-flex-row>
+        </aw-panel-body>
+        <aw-panel-footer>
+            <aw-button size="auto" enable-when="conditions.enableCreateEffectivityButton" action="createEffectivity">
+                <aw-i18n>i18n.done</aw-i18n>
+            </aw-button>
+        </aw-panel-footer>
+    </aw-form>
+</aw-popup2>

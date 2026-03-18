@@ -1,0 +1,2158 @@
+{
+  "name": "programPlanning",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "themeExtensions": [
+    "programPlanningTheme"
+  ],
+  "saveAsRevise": {
+    "Prg0AbsPlan": {
+      "ReviseHidden": "true"
+    }
+  },
+  "aliasRegistry": {
+    "typeEvent48": [
+      "Prg0Event"
+    ],
+    "typePlanningProgram48": [
+      "Prg0ProgramPlan"
+    ],
+    "typePlanningProject48": [
+      "Prg0ProjectPlan"
+    ],
+    "typeSubProject48": [
+      "Prg0SubProjectPlan"
+    ],
+    "typeEventCriteria48": [
+      "Prg0Criteria"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "Pgp0SetPin": {
+        "iconId": "cmdPin",
+        "isGroup": false,
+        "title": "{{i18n.Pgp0PinButtonToolTip}}",
+        "description": "{{i18n.panelPinButtonDesc}}"
+      },
+      "Pgp0SetUnPin": {
+        "iconId": "cmdUnpin",
+        "isGroup": false,
+        "title": "{{i18n.Pgp0UnpinButtonToolTip}}",
+        "description": "{{i18n.panelUnPinButtonDesc}}"
+      },
+      "Pgp0DeleteCriteria": {
+        "iconId": "cmdDelete",
+        "title": "{{i18n.deleteCriteriaCommandTitle}}",
+        "description": "{{i18n.Pgp0DeleteCriteriaDesc}}"
+      },
+      "Pgp0SaveAs": {
+        "iconId": "cmdSaveAs",
+        "title": "{{i18n.saveAs}}",
+        "description": "{{i18n.Pgp0SaveAsDesc}}"
+      },
+      "Pgp0AddPlanLevel": {
+        "iconId": "cmdAddProjectPlan",
+        "isGroup": false,
+        "title": "{{i18n.addPlanLevelCommandTitle}}",
+        "description": "{{i18n.Pgp0AddPlanLevelDesc}}"
+      },
+      "Pgp0AddEventOnTimeline": {
+        "iconId": "cmdAddEvent",
+        "isGroup": false,
+        "title": "{{i18n.addEventCommandTitle}}",
+        "description": "{{i18n.Pgp0AddEventDesc}}"
+      },
+      "Pgp0AddPlanObjectsCommands": {
+        "iconId": "cmdAdd",
+        "isGroup": true,
+        "title": "{{i18n.addButtonCommandTitle}}",
+        "description": "{{i18n.Pgp0AddPlanLevelDesc}}"
+      },
+      "Pgp0DeletePlanOnTimeline": {
+        "iconId": "cmdDelete",
+        "isGroup": false,
+        "title": "{{i18n.DeleteCommandTitle}}",
+        "description": "{{i18n.Pgp0DeletePlanOnTimelineDesc}}"
+      },
+      "Pgp0DeleteEventOnTimeline": {
+        "iconId": "cmdDelete",
+        "isGroup": false,
+        "title": "{{i18n.DeleteCommandTitle}}",
+        "description": "{{i18n.Pgp0DeleteEventOnTimelineDesc}}"
+      },
+      "Pgp0ProjectSectionAddCmd": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.projectsSectionTitle}}",
+        "description": "{{i18n.Pgp0ProjectSectionAddCmdDesc}}"
+      },
+      "Pgp0AddEvent": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.addEventCommandTitle}}",
+        "description": "{{i18n.Pgp0AddEventDesc}}"
+      },
+      "Pgp0AddCriteria": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.addCriteriaCommandTitle}}",
+        "description": "{{i18n.Pgp0AddCriteriaDesc}}"
+      },
+      "Pgp0AddResponsibleUser": {
+        "iconId": "cmdAssignTask",
+        "isGroup": false,
+        "title": "{{i18n.pgp0AssignResponsibleUser}}",
+        "description": "{{i18n.Pgp0AddResponsibleUserDesc}}"
+      },
+      "Pgp0CloseCommand": {
+        "iconId": "cmdClosePanel",
+        "isGroup": false,
+        "title": "{{i18n.pgp0CloseCommandTitle}}",
+        "description": "{{i18n.Pgp0CloseCommandDesc}}"
+      },
+      "Pgp0TimelineZoomLevelGroup": {
+        "iconId": "cmdZoom",
+        "isGroup": true,
+        "title": "{{i18n.Pgp0TimelineSetZoom}}",
+        "description": "{{i18n.Pgp0SetZoomTimelineGrp}}"
+      },
+      "Pgp0TimelineAddPlan": {
+        "iconId": "cmdAddProjectPlan",
+        "isGroup": false,
+        "title": "{{i18n.timelineAddPlanLevelCommandTitle}}",
+        "description": "{{i18n.timelineAddPlanDesc}}"
+      },
+      "Pgp0TimelineAddEvent": {
+        "iconId": "cmdAddEvent",
+        "isGroup": false,
+        "title": "{{i18n.timelineQuickAddPlan}}",
+        "description": "{{i18n.timelineAddEventDesc}}"
+      },
+      "Pgp0TimelineDelete": {
+        "iconId": "cmdDelete",
+        "isGroup": false,
+        "title": "{{i18n.DeleteCommandTitle}}",
+        "description": "{{i18n.timelineDeleteDesc}}"
+      },
+      "Pgp0TimelineZoomLevelDay": {
+        "iconId": "cmdZoomToDay",
+        "isGroup": false,
+        "title": "{{i18n.Pgp0TimelineZoomLevelDay}}",
+        "description": "{{i18n.Pgp0SetZoomTimelineDay}}"
+      },
+      "Pgp0TimelineZoomLevelWeek": {
+        "iconId": "cmdZoomToWeek",
+        "isGroup": false,
+        "title": "{{i18n.Pgp0TimelineZoomLevelWeek}}",
+        "description": "{{i18n.Pgp0SetZoomTimelineWeek}}"
+      },
+      "Pgp0TimelineZoomLevelMonth": {
+        "iconId": "cmdZoomToMonth",
+        "isGroup": false,
+        "title": "{{i18n.Pgp0TimelineZoomLevelMonth}}",
+        "description": "{{i18n.Pgp0SetZoomTimelineMonth}}"
+      },
+      "Pgp0ShowTimelineSummaryView": {
+        "iconId": "cmdShowTable",
+        "isGroup": false,
+        "title": "{{i18n.Pgp0TimelineSummaryView}}",
+        "description": "{{i18n.Pgp0TimelineSummaryViewDesc}}"
+      },
+      "Pgp0ShowEventProperties": {
+        "iconId": "cmdShowTimeline",
+        "isGroup": false,
+        "title": "{{i18n.Pgp0ShowEventProperties}}",
+        "description": "{{i18n.Pgp0ShowEventPropertiesDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "Pgp0TimelineAddPlanCommandHandler": {
+        "id": "Pgp0TimelineAddPlan",
+        "action": "getNRPlanObject",
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.quickAddPlanOnTimelineCmdVisibility"
+        },
+        "visibleWhen": true
+      },
+      "Pgp0TimelineAddEventCommandHandler": {
+        "id": "Pgp0TimelineAddEvent",
+        "action": "getNREventObject",
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.quickAddEventOnTimelineCmdVisibility"
+        },
+        "visibleWhen": true
+      },
+      "Pgp0TimelineDeleteCommandHandler": {
+        "id": "Pgp0TimelineDelete",
+        "action": "timelineActionForConfirmationMessage",
+        "activeWhen": true,
+        "enableWhen": {
+          "condition": "conditions.timelineDeletePlanItemsCmdVisibility"
+        },
+        "visibleWhen": true
+      },
+      "Pgp0TimelineDeleteEventCommandHandler": {
+        "id": "Pgp0TimelineDelete",
+        "action": "timelinecheckStateOfEventsBeforeDeletion",
+        "activeWhen": {
+          "condition": "conditions.timelineDeleteEventCmdVisibility"
+        },
+        "enableWhen": {
+          "condition": "conditions.timelineDeleteEventCmdVisibility"
+        },
+        "visibleWhen": true
+      },
+      "cutCriteriaDisableDelegateCommandHandler": {
+        "id": "Awp0Cut",
+        "activeWhen": {
+          "condition": "conditions.cutCriteriaDisableDelegate"
+        },
+        "enableWhen": false
+      },
+      "cutCtxMenuCriteriaDisableDelegateCommandHandler": {
+        "id": "Awp0CutContextMenu",
+        "activeWhen": {
+          "condition": "conditions.cutCriteriaDisableDelegate"
+        },
+        "visibleWhen": false
+      },
+      "cutEventsDisableDelegateCommandHandler": {
+        "id": "Awp0Cut",
+        "activeWhen": {
+          "condition": "conditions.cutEventsDisableDelegate"
+        },
+        "enableWhen": false
+      },
+      "cutCtxMenuEventsDisableDelegateCommandHandler": {
+        "id": "Awp0CutContextMenu",
+        "activeWhen": {
+          "condition": "conditions.cutEventsDisableDelegate"
+        },
+        "visibleWhen": false
+      },
+      "OOTBSaveAsCommandHandler": {
+        "id": "Pgp0SaveAs",
+        "action": "saveAsorReviseContext",
+        "activeWhen": {
+          "condition": "conditions.OOTBSaveAsCommandVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.OOTBSaveAsCommandVisibility"
+        }
+      },
+      "pgp0SetPinCommandHandler": {
+        "id": "Pgp0SetPin",
+        "action": "pgp0SetPin",
+        "activeWhen": {
+          "condition": "conditions.isPgp0PanelPinned"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isPgp0PanelPinned"
+        }
+      },
+      "pgp0SetUnPinCommandHandler": {
+        "id": "Pgp0SetUnPin",
+        "action": "pgp0SetUnPin",
+        "activeWhen": {
+          "condition": "conditions.isPgp0PanelUnPinned"
+        },
+        "visibleWhen": {
+          "condition": "conditions.isPgp0PanelUnPinned"
+        }
+      },
+      "deleteCriteriaOperation": {
+        "id": "Pgp0DeleteCriteria",
+        "action": "getConfirmationForDeleteCriteria",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.deleteCriteriaVisibility"
+        }
+      },
+      "SaveAsCommandHandler": {
+        "id": "Pgp0SaveAs",
+        "action": "saveAsOperation",
+        "activeWhen": {
+          "condition": "conditions.pgp0SaveAsVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.pgp0SaveAsVisibility"
+        }
+      },
+      "Pgp0AddPlanLevelCommandHandler": {
+        "id": "Pgp0AddPlanLevel",
+        "action": "addProjectAction",
+        "activeWhen": {
+          "condition": "conditions.addProjectOnTimelineCmdVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.addProjectOnTimelineCmdVisibility"
+        }
+      },
+      "Pgp0AddEventOnTimelineCommandHandler": {
+        "id": "Pgp0AddEventOnTimeline",
+        "action": "addEventAction",
+        "activeWhen": {
+          "condition": "conditions.addEventOnTimelineCmdVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.addEventOnTimelineCmdVisibility"
+        }
+      },
+      "Pgp0AddPlanObjectsCommandsHandler": {
+        "id": "Pgp0AddPlanObjectsCommands",
+        "activeWhen": true
+      },
+      "deletePlanItemsOnTimelineCommandHandler": {
+        "id": "Pgp0DeletePlanOnTimeline",
+        "action": "actionForConfirmationMessage",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.deletePlanItemsOnTimelineCmdVisibility"
+        }
+      },
+      "deleteEventOnTimelineCommandHandler": {
+        "id": "Pgp0DeleteEventOnTimeline",
+        "action": "checkStateOfEventsBeforeDeletion",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.deleteEventOnTimelineCmdVisibility"
+        }
+      },
+      "pgp0ProjectSectionAddCmdHandler": {
+        "id": "Pgp0ProjectSectionAddCmd",
+        "action": "Pgp0ProjectSectionAddCmdPanelAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "pgp0CreateProjectSectionAddCmdHandler": {
+        "id": "Pgp0CreateProjectSectionAddCmd",
+        "action": "Pgp0ProjectSectionAddCmdPanelAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Pgp0AddEventCommandHandler": {
+        "id": "Pgp0AddEvent",
+        "action": "addEventActionOnEventTab",
+        "activeWhen": {
+          "condition": "conditions.addEventCmdVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.addEventCmdVisibility"
+        }
+      },
+      "Pgp0AddCriteriaCommandHandler": {
+        "id": "Pgp0AddCriteria",
+        "action": "addCriteriaAction",
+        "activeWhen": {
+          "condition": "conditions.addCriteriaCmdVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.addCriteriaCmdVisibility"
+        }
+      },
+      "Pgp0AddResponsibleUserCommandHandler": {
+        "id": "Pgp0AddResponsibleUser",
+        "action": "addResponsibleUser",
+        "activeWhen": {
+          "condition": "conditions.addResponsibleUserCmdVisibility"
+        },
+        "visibleWhen": {
+          "condition": "conditions.addResponsibleUserCmdVisibility"
+        }
+      },
+      "Pgp0CloseCommandPanelHandler": {
+        "id": "Pgp0CloseCommand",
+        "action": "pgp0CloseCommandAction",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Pgp0TimelineZoomLevelDayCommandHandler": {
+        "id": "Pgp0TimelineZoomLevelDay",
+        "action": "setTimelineZoomToDay",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.isTimelineDaySelected"
+        }
+      },
+      "Pgp0TimelineZoomLevelWeekCommandHandler": {
+        "id": "Pgp0TimelineZoomLevelWeek",
+        "action": "setTimelineZoomToWeek",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.isTimelineWeekSelected"
+        }
+      },
+      "Pgp0TimelineZoomLevelMonthCommandHandler": {
+        "id": "Pgp0TimelineZoomLevelMonth",
+        "action": "setTimelineZoomToMonth",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "selectWhen": {
+          "condition": "conditions.isTimelineMonthSelected"
+        }
+      },
+      "Pgp0TimelineSummaryViewCommandHandler": {
+        "id": "Pgp0ShowTimelineSummaryView",
+        "action": "timelineSummaryAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.pgp0TimelineSummaryViewCommandVisibility"
+        },
+        "selectWhen": {
+          "condition": "conditions.pgp0IsSplitXrtActive"
+        }
+      },
+      "Pgp0ShowEventPropertiesCommandHandler": {
+        "id": "Pgp0ShowEventProperties",
+        "action": "showEventProperties",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": {
+          "condition": "conditions.isShowEventPropertiesEnabled"
+        },
+        "selectWhen": {
+          "condition": "conditions.isShowEventPropertiesSelected"
+        }
+      }
+    },
+    "commandPlacements": {
+      "Pgp0CloseCommandPanelPlacement": {
+        "id": "Pgp0CloseCommand",
+        "uiAnchor": "rightSlot",
+        "priority": 500
+      },
+      "pgp0SetPinPlacement": {
+        "id": "Pgp0SetPin",
+        "uiAnchor": "pgp0_oneStepPinCommands",
+        "priority": 100
+      },
+      "pgp0SetUnPinPlacement": {
+        "id": "Pgp0SetUnPin",
+        "uiAnchor": "pgp0_oneStepPinCommands",
+        "priority": 100
+      },
+      "Pgp0DeleteCriteria": {
+        "id": "Pgp0DeleteCriteria",
+        "uiAnchor": "aw_rightWall",
+        "priority": 520,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "Pgp0SaveAs": {
+        "id": "Pgp0SaveAs",
+        "uiAnchor": "aw_rightWall",
+        "priority": 620,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "Pgp0AddPlanLevel-classic": {
+        "id": "Pgp0AddPlanLevel",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": -1,
+        "parentGroupId": "Pgp0AddPlanObjectsCommands"
+      },
+      "Pgp0AddPlanLevel": {
+        "id": "Pgp0AddPlanLevel",
+        "uiAnchor": "aw_rightWall",
+        "priority": 600,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "Pgp0AddEventOnTimeline-classic": {
+        "id": "Pgp0AddEventOnTimeline",
+        "uiAnchor": "aw_toolsAndInfo",
+        "priority": -1,
+        "parentGroupId": "Pgp0AddPlanObjectsCommands"
+      },
+      "Pgp0AddEventOnTimeline": {
+        "id": "Pgp0AddEventOnTimeline",
+        "uiAnchor": "aw_rightWall",
+        "priority": 510,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "Pgp0DeletePlanOnTimeline": {
+        "id": "Pgp0DeletePlanOnTimeline",
+        "uiAnchor": "aw_rightWall",
+        "priority": 500,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "Pgp0DeleteEventOnTimeline": {
+        "id": "Pgp0DeleteEventOnTimeline",
+        "uiAnchor": "aw_rightWall",
+        "priority": 500,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "Pgp0ProjectSectionAddCmdPlacement": {
+        "id": "Pgp0ProjectSectionAddCmd",
+        "uiAnchor": "prg0_projectSectionCommands",
+        "priority": 20
+      },
+      "Pgp0CreateProjectSectionAddCmdPlacement": {
+        "id": "Pgp0CreateProjectSectionAddCmd",
+        "uiAnchor": "prg0_createProjectSectionCommands",
+        "priority": 20
+      },
+      "Pgp0AddResponsibleUserPlacement": {
+        "id": "Pgp0AddResponsibleUser",
+        "uiAnchor": "aw_rightWall",
+        "priority": 90,
+        "parentGroupId": "Awp0ManageGroup"
+      },
+      "Pgp0TimelineZoomLevelGroupCommandPlacement": {
+        "id": "Pgp0TimelineZoomLevelGroup",
+        "uiAnchor": "aw_timelineViewer",
+        "priority": 30,
+        "showGroupSelected": false
+      },
+      "Pgp0TimelineAddPlanCommandPlacement": {
+        "id": "Pgp0TimelineAddPlan",
+        "uiAnchor": "aw_timelineViewer",
+        "priority": 40
+      },
+      "Pgp0TimelineAddEventCommandPlacement": {
+        "id": "Pgp0TimelineAddEvent",
+        "uiAnchor": "aw_timelineViewer",
+        "priority": 50
+      },
+      "Pgp0TimelineDeleteCommandPlacement": {
+        "id": "Pgp0TimelineDelete",
+        "uiAnchor": "aw_timelineViewer",
+        "priority": 60
+      },
+      "Pgp0TimelineZoomLevelDayCommandPlacement": {
+        "id": "Pgp0TimelineZoomLevelDay",
+        "uiAnchor": "aw_timelineViewer",
+        "priority": 300,
+        "parentGroupId": "Pgp0TimelineZoomLevelGroup",
+        "showGroupSelected": false
+      },
+      "Pgp0TimelineZoomLevelWeekCommandPlacement": {
+        "id": "Pgp0TimelineZoomLevelWeek",
+        "uiAnchor": "aw_timelineViewer",
+        "priority": 310,
+        "parentGroupId": "Pgp0TimelineZoomLevelGroup",
+        "showGroupSelected": false
+      },
+      "Pgp0TimelineZoomLevelMonthCommandPlacement": {
+        "id": "Pgp0TimelineZoomLevelMonth",
+        "uiAnchor": "aw_timelineViewer",
+        "priority": 320,
+        "parentGroupId": "Pgp0TimelineZoomLevelGroup",
+        "showGroupSelected": false
+      },
+      "Pgp0TimelineSummaryViewCommandPlacement": {
+        "id": "Pgp0ShowTimelineSummaryView",
+        "uiAnchor": "aw_timelineViewer",
+        "priority": 10
+      },
+      "Pgp0ShowEventPropertiesCommandPlacement": {
+        "id": "Pgp0ShowEventProperties",
+        "uiAnchor": "aw_timelineViewer",
+        "priority": 20
+      }
+    },
+    "actions": {
+      "timelineActionForConfirmationMessage": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "timelineConfirmationMessage"
+            }
+          ]
+        }
+      },
+      "timelineDeletePlanItemsAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteObjects",
+        "inputData": {
+          "objects": [
+            "{{ctx.timelineContext.selected}}"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "deleteConfirmationMessageEvent"
+            },
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "condition": "( ctx.timelineContext.selected.modelType.typeHierarchyArray.indexOf( 'Prg0Event' ) > -1 )",
+              "message": "multiEventDeleteOperationSuccess"
+            }
+          ],
+          "failure": [
+            {
+              "message": "deleteFailureMessage"
+            }
+          ]
+        },
+        "deps": "js/pgp0UserListService"
+      },
+      "timelineConfirmationMessageForDeletionAction": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.pgp0DeleteConfirmationMessage}}",
+        "messageTextParams": [],
+        "navigationOptions": [
+          {
+            "option": "No",
+            "text": "{{i18n.noOptionText}}",
+            "action": ""
+          },
+          {
+            "option": "Yes",
+            "text": "{{i18n.yesOptionText}}",
+            "action": "timelineDeletePlanItemsAction"
+          }
+        ]
+      },
+      "timelinecheckStateOfEventsBeforeDeletion": {
+        "actionType": "JSFunction",
+        "method": "timelinecheckStateOfEventForDeletion",
+        "deps": "js/pgp0UserListService",
+        "inputData": {
+          "data": "{{data}}"
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "condition": "data.eventStateFlag === true && !( ctx.mselected.length > 1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Prg0Event' ) > -1 )",
+              "message": "confirmationMessageAction"
+            },
+            {
+              "condition": "data.eventStateFlag === true && ( ctx.mselected.length > 1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Prg0Event' ) > -1 )",
+              "message": "confirmationMsgForMultiEventsAction"
+            },
+            {
+              "condition": "data.eventStateFlag === false",
+              "message": "timelineConfirmationMessageForDeletionAction"
+            }
+          ]
+        }
+      },
+      "setTimelineZoomToDay": {
+        "actionType": "JSFunction",
+        "method": "setTimelineZoomLevel",
+        "deps": "js/Timeline/uiTimelineUtils",
+        "inputData": {
+          "viewType": "day",
+          "flag": true
+        },
+        "events": {
+          "success": [
+            {
+              "name": "callSetPreferenceForTimelineEvent",
+              "eventData": {
+                "viewType": "day"
+              }
+            }
+          ]
+        }
+      },
+      "setTimelineZoomToWeek": {
+        "actionType": "JSFunction",
+        "method": "setTimelineZoomLevel",
+        "deps": "js/Timeline/uiTimelineUtils",
+        "inputData": {
+          "viewType": "week",
+          "flag": true
+        },
+        "events": {
+          "success": [
+            {
+              "name": "callSetPreferenceForTimelineEvent",
+              "eventData": {
+                "viewType": "week"
+              }
+            }
+          ]
+        }
+      },
+      "setTimelineZoomToMonth": {
+        "actionType": "JSFunction",
+        "method": "setTimelineZoomLevel",
+        "deps": "js/Timeline/uiTimelineUtils",
+        "inputData": {
+          "viewType": "month",
+          "flag": true
+        },
+        "events": {
+          "success": [
+            {
+              "name": "callSetPreferenceForTimelineEvent",
+              "eventData": {
+                "viewType": "month"
+              }
+            }
+          ]
+        }
+      },
+      "updatePreferenceForTimelineZoomAction": {
+        "actionType": "JSFunction",
+        "method": "updatePreferenceForTimelineZoom",
+        "deps": "js/Timeline/uiTimelineUtils",
+        "inputData": {
+          "data": "{{data}}"
+        }
+      },
+      "setPreferenceForTimelineAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Administration-2012-09-PreferenceManagement",
+        "method": "setPreferences2",
+        "inputData": {
+          "preferenceInput": [
+            {
+              "preferenceName": "AWC_Timeline_Zoom_Level",
+              "values": [
+                "{{data.eventData.viewType}}"
+              ]
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "updatePreferenceForTimelineZoomEvent"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "addFailureMessage"
+            }
+          ]
+        }
+      },
+      "pgp0CloseCommandAction": {
+        "actionType": "JSFunction",
+        "method": "closeProgramBoard",
+        "inputData": {
+          "ctx": "{{ctx}}"
+        },
+        "deps": "js/TimelineProgramBoardHelper"
+      },
+      "pgp0SetPin": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "addCriteria.pgp0SetPin",
+              "eventData": {
+                "data": "{{commandContext}}"
+              }
+            }
+          ]
+        }
+      },
+      "pgp0SetUnPin": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "addCriteria.pgp0SetUnPin",
+              "eventData": {
+                "data": "{{commandContext}}"
+              }
+            }
+          ]
+        }
+      },
+      "getConfirmationForDeleteCriteria": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {}
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "deleteCriterionMessage",
+              "condition": "( ctx.mselected.length === 1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Prg0AbsCriteria' ) > -1 )"
+            },
+            {
+              "message": "deleteCriteriaMessage",
+              "condition": "( ctx.mselected.length > 1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Prg0AbsCriteria' ) > -1 )"
+            }
+          ]
+        }
+      },
+      "deleteCriteriaOperation": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteObjects",
+        "inputData": {
+          "objects": "{{function:getDeleteObjectsInput}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "deleteFailureMessage"
+            }
+          ]
+        },
+        "deps": "js/pgp0UserListService"
+      },
+      "saveAsOperation": {
+        "actionType": "JSFunction",
+        "method": "getSaveAsPanel",
+        "deps": "js/SaveAsService",
+        "inputData": {
+          "commandId": "Pgp0SaveAs",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "getNREventObject": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2008-06-DataManagement",
+        "method": "getNRPatternsWithCounters",
+        "inputData": {
+          "vAttachInfo": [
+            {
+              "typeName": "{{function:getEventBOName}}",
+              "propName": "prg0EventId"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "generateEventIdEvent"
+            }
+          ]
+        },
+        "outputData": {
+          "pattern": "{{function:getNRObject}}"
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "addFailureMessage"
+            }
+          ]
+        },
+        "deps": "js/addPlanObjectUtils"
+      },
+      "generateEventIdAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2013-05-DataManagement",
+        "method": "generateNextValues",
+        "inputData": {
+          "generateNextValuesIn": [
+            {
+              "clientId": "prg0EventId",
+              "businessObjectName": "{{function:getEventBOName}}",
+              "operationType": 1,
+              "propertyNameWithSelectedPattern": {
+                "prg0EventId": "{{ctx.timelineContext.timelineNRPattern}}"
+              }
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "timelineAddEventQuickEvent"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "addFailureMessage"
+            }
+          ]
+        },
+        "outputData": {
+          "prg0EventId": "generatedValues[0].generatedValues.prg0EventId.nextValue"
+        },
+        "deps": "js/addPlanObjectUtils"
+      },
+      "timelineAddEventQuickAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Internal-Core-2012-10-DataManagement",
+        "method": "createRelateAndSubmitObjects",
+        "inputData": {
+          "inputs": "{{function:getCreateInputQuickEvent}}"
+        },
+        "outputData": {
+          "createdMainObject": "output[0].objects[0]",
+          "createdObject": "{{function:getCreatedObject}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "assignProjects",
+              "condition": "data.dataProviders.getAssignedProjectsProvider.viewModelCollection.loadedVMObjects.length>0"
+            },
+            {
+              "name": "refresh",
+              "condition": "data.eventRefresh.dbValue==='Prg0Event'",
+              "eventData": {
+                "source": "toolAndInfoPanel",
+                "selectedObject": "{{ctx.programPlanningContext.parent}}"
+              }
+            },
+            {
+              "name": "cdm.relatedModified",
+              "condition": "ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Events' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Events' || ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Criteria' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Criteria'",
+              "eventData": {
+                "refreshLocationFlag": false,
+                "relations": "",
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ]
+              }
+            },
+            {
+              "name": "complete",
+              "condition": "data.pinnedToForm.dbValue",
+              "eventData": {
+                "source": "toolAndInfoPanel"
+              }
+            },
+            {
+              "name": "awPanel.loadNextValues",
+              "condition": "data.unpinnedToForm.dbValue"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "addFailureMessage"
+            }
+          ]
+        },
+        "deps": "js/addPlanObjectUtils"
+      },
+      "getNRPlanObject": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2008-06-DataManagement",
+        "method": "getNRPatternsWithCounters",
+        "inputData": {
+          "vAttachInfo": [
+            {
+              "typeName": "{{function:getPlanBOName}}",
+              "propName": "prg0PlanId"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "generatePlanIdEvent"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "addFailureMessage"
+            }
+          ]
+        },
+        "outputData": {
+          "pattern": "{{function:getNRObject}}"
+        },
+        "deps": "js/addPlanObjectUtils"
+      },
+      "generatePlanId": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2013-05-DataManagement",
+        "method": "generateNextValues",
+        "inputData": {
+          "generateNextValuesIn": [
+            {
+              "clientId": "prg0PlanId",
+              "businessObjectName": "{{function:getPlanBOName}}",
+              "operationType": 1,
+              "propertyNameWithSelectedPattern": {
+                "prg0PlanId": "{{ctx.timelineContext.timelineNRPattern}}"
+              }
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "timelineAddPlanEvent"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "addFailureMessage"
+            }
+          ]
+        },
+        "outputData": {
+          "prg0PlanId": "generatedValues[0].generatedValues.prg0PlanId.nextValue"
+        },
+        "deps": "js/addPlanObjectUtils"
+      },
+      "timelineAddPlanAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Internal-Core-2012-10-DataManagement",
+        "method": "createRelateAndSubmitObjects",
+        "inputData": {
+          "inputs": "{{function:getCreateInputQuickPlan}}"
+        },
+        "outputData": {
+          "createdMainObject": "output[0].objects[0]",
+          "createdObject": "{{function:getCreatedObject}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "addObjectToRecentList"
+            },
+            {
+              "name": "assignProjects",
+              "condition": "data.dataProviders.getAssignedProjectsProvider.viewModelCollection.loadedVMObjects.length>0"
+            },
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "refreshLocationFlag": false,
+                "isPinnedFlag": false,
+                "relations": "",
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ],
+                "createdObjects": "{{data.createdMainObject.createdObjects}}"
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "addFailureMessage"
+            }
+          ]
+        },
+        "deps": "js/addPlanObjectUtils"
+      },
+      "addProjectAction": {
+        "actionType": "JSFunction",
+        "method": "getAddProjectPanel",
+        "deps": "js/AddProjectPanel",
+        "inputData": {
+          "commandId": "Pgp0AddPlanLevel",
+          "location": "aw_toolsAndInfo",
+          "ctx": "{{ctx}}"
+        }
+      },
+      "addEventAction": {
+        "actionType": "JSFunction",
+        "method": "getAddEventPanel",
+        "deps": "js/AddProjectPanel",
+        "inputData": {
+          "commandId": "Pgp0AddEventOnTimeline",
+          "location": "aw_toolsAndInfo",
+          "ctx": "{{ctx}}"
+        }
+      },
+      "addEventActionOnEventTab": {
+        "actionType": "JSFunction",
+        "method": "getAddEventPanelOnEventTab",
+        "deps": "js/AddProjectPanel",
+        "inputData": {
+          "commandId": "Pgp0AddEvent",
+          "location": "aw_toolsAndInfo",
+          "ctx": "{{ctx}}"
+        }
+      },
+      "addCriteriaAction": {
+        "actionType": "JSFunction",
+        "method": "getAddCriteria",
+        "deps": "js/AddProjectPanel",
+        "inputData": {
+          "commandId": "Pgp0AddCriteria",
+          "location": "aw_toolsAndInfo",
+          "ctx": "{{ctx}}"
+        }
+      },
+      "addResponsibleUser": {
+        "actionType": "JSFunction",
+        "method": "getAddResponsibleUser",
+        "deps": "js/AddProjectPanel",
+        "inputData": {
+          "commandId": "Pgp0AddResponsibleUser",
+          "location": "aw_toolsAndInfo",
+          "ctx": "{{ctx}}"
+        }
+      },
+      "actionForConfirmationMessage": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "confirmationMessage"
+            }
+          ]
+        }
+      },
+      "checkStateOfEventsBeforeDeletion": {
+        "actionType": "JSFunction",
+        "method": "checkStateOfEventForDeletion",
+        "deps": "js/pgp0UserListService",
+        "inputData": {
+          "data": "{{data}}"
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "condition": "data.eventStateFlag === true && !( ctx.mselected.length > 1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Prg0Event' ) > -1 )",
+              "message": "confirmationMessageAction"
+            },
+            {
+              "condition": "data.eventStateFlag === true && ( ctx.mselected.length > 1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Prg0Event' ) > -1 )",
+              "message": "confirmationMsgForMultiEventsAction"
+            },
+            {
+              "condition": "data.eventStateFlag === false",
+              "message": "confirmationMessageForDeletionAction"
+            }
+          ]
+        }
+      },
+      "deletePlanItemsAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteObjects",
+        "inputData": {
+          "objects": "{{function:getDeleteObjectsInput}}"
+        },
+        "events": {
+          "success": [
+            {
+              "condition": "!( ctx.mselected.length > 1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Prg0Event' ) > -1 )",
+              "name": "deleteConfirmationMessageEvent"
+            },
+            {
+              "name": "cdm.relatedModified",
+              "condition": "( ctx.mselected.length > 1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Prg0Event' ) > -1 )",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "condition": "( ctx.mselected.length > 1 && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Prg0Event' ) > -1 )",
+              "message": "multiEventDeleteOperationSuccess"
+            }
+          ],
+          "failure": [
+            {
+              "message": "deleteFailureMessage"
+            }
+          ]
+        },
+        "deps": "js/pgp0UserListService"
+      },
+      "getNameOfDeletedObject": {
+        "actionType": "JSFunction",
+        "method": "getNameOfDeletedObject",
+        "outputData": {
+          "nameOfDeletedObject": ""
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "deleteOperationSuccess"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "condition": "ctx.state.params.pageId === 'tc_xrt_Events'",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        },
+        "deps": "js/pgp0UserListService"
+      },
+      "Pgp0ProjectSectionAddCmdPanelAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "awPanel.navigate",
+              "eventData": {
+                "destPanelId": "assignProjectSub",
+                "title": "{{i18n.projectsSectionTitle}}",
+                "recreatePanel": true,
+                "supportGoBack": true
+              }
+            }
+          ]
+        }
+      },
+      "timelineSummaryAction": {
+        "actionType": "JSFunction",
+        "method": "toggleTimelineSummary",
+        "deps": "js/TimelineDataSourceService"
+      },
+      "showEventProperties": {
+        "actionType": "JSFunction",
+        "method": "showEventProperties",
+        "deps": "js/TimelineDataSourceService"
+      }
+    },
+    "preferences": [
+      "AWC_Timeline_Zoom_Level",
+      "PP_Quick_Create_Plan_Types",
+      "PP_Quick_Create_Event_Types"
+    ],
+    "messages": {
+      "timelineConfirmationMessageAction": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.pgp0DeleteMessageConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.timelineContext.selected.props.object_name.dbValues}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancelOptionText}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.DeleteCommandTitle}}",
+            "action": "timelineDeletePlanItemsAction"
+          }
+        ]
+      },
+      "deleteCriterionMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.deleteCriterionConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.mselected[0].props.object_string.dbValues[0]}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancelOptionText}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.DeleteCommandTitle}}",
+            "action": "deleteCriteriaOperation"
+          }
+        ]
+      },
+      "deleteCriteriaMessage": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.deleteCriteriaConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancelOptionText}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.DeleteCommandTitle}}",
+            "action": "deleteCriteriaOperation"
+          }
+        ]
+      },
+      "confirmationMessageAction": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.pgp0DeleteMessageConfirmation}}",
+        "messageTextParams": [
+          "{{ctx.selected.props.object_name.dbValues}}"
+        ],
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancelOptionText}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.DeleteCommandTitle}}",
+            "action": "deletePlanItemsAction"
+          }
+        ]
+      },
+      "confirmationMsgForMultiEventsAction": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.pgp0MultiEventDeleteMessageConfirmation}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancelOptionText}}",
+            "action": ""
+          },
+          {
+            "option": "Delete",
+            "text": "{{i18n.DeleteCommandTitle}}",
+            "action": "deletePlanItemsAction"
+          }
+        ]
+      },
+      "confirmationMessageForDeletionAction": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.pgp0DeleteConfirmationMessage}}",
+        "messageTextParams": [],
+        "navigationOptions": [
+          {
+            "option": "No",
+            "text": "{{i18n.noOptionText}}",
+            "action": ""
+          },
+          {
+            "option": "Yes",
+            "text": "{{i18n.yesOptionText}}",
+            "action": "deletePlanItemsAction"
+          }
+        ]
+      },
+      "deleteOperationSuccess": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.pgp0DeleteSuccessful}}",
+        "messageTextParams": [
+          "{{data.nameOfDeletedObject}}"
+        ]
+      },
+      "multiEventDeleteOperationSuccess": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.pgp0MultiEventDeleteSuccessful}}",
+        "messageTextParams": []
+      },
+      "deleteFailureMessage": {
+        "messageType": "ERROR",
+        "messageText": "{{errorCode}}"
+      },
+      "addFailureMessage": {
+        "messageType": "ERROR",
+        "messageText": "{{errorCode}}"
+      }
+    },
+    "functions": {
+      "getDeleteObjectsInput": {
+        "functionName": "getDeleteObjectsInput",
+        "parameters": [
+          "{{data}}"
+        ]
+      },
+      "getNameOfDeletedObject": {
+        "functionName": "getNameOfDeletedObject",
+        "parameters": []
+      },
+      "getCreateInputQuickPlan": {
+        "functionName": "getCreateInputQuickPlan",
+        "parameters": [
+          "{{data}}"
+        ]
+      },
+      "getCreateInputQuickEvent": {
+        "functionName": "getCreateInputQuickEvent",
+        "parameters": [
+          "{{data}}"
+        ]
+      },
+      "getPlanBOName": {
+        "functionName": "getBOName",
+        "parameters": [
+          "{{data.preferences.PP_Quick_Create_Plan_Types}}"
+        ]
+      },
+      "getEventBOName": {
+        "functionName": "getBOName",
+        "parameters": [
+          "{{data.preferences.PP_Quick_Create_Event_Types}}"
+        ]
+      },
+      "getNRObject": {
+        "functionName": "getNRObject",
+        "parameters": [
+          "{{data}}"
+        ]
+      }
+    },
+    "conditions": {
+      "isShowEventPropertiesEnabled": {
+        "expression": "ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline'"
+      },
+      "isShowEventPropertiesSelected": {
+        "expression": "ctx.showEventProperties === true"
+      },
+      "isTimelineDaySelected": {
+        "expression": "( ctx.timelineZoomLevel === 'day' || (ctx.preferences.AWC_Timeline_Zoom_Level[0] === 'day')  )"
+      },
+      "isTimelineWeekSelected": {
+        "expression": "( ctx.timelineZoomLevel === 'week' || ctx.preferences.AWC_Timeline_Zoom_Level[0] === 'week')"
+      },
+      "isTimelineMonthSelected": {
+        "expression": "(ctx.timelineZoomLevel === 'month' ||  ctx.preferences.AWC_Timeline_Zoom_Level[0] === 'month' || ( !ctx.preferences.AWC_Timeline_Zoom_Level[0] && !ctx.timelineZoomLevel) )"
+      },
+      "cutCriteriaDisableDelegate": {
+        "expression": "(ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Criteria' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Criteria' ) && ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsCriteria') > -1"
+      },
+      "cutEventsDisableDelegate": {
+        "expression": "(ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Events' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Events' ) && ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsEvent') > -1"
+      },
+      "isPgp0PanelPinned": {
+        "expression": "commandContext.pinnedToForm.dbValue"
+      },
+      "isPgp0PanelUnPinned": {
+        "expression": "commandContext.unpinnedToForm.dbValue"
+      },
+      "deleteCriteriaVisibility": {
+        "expression": "( ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Criteria' || ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' ) && ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsCriteria') > 0"
+      },
+      "getServerConditionsForsaveAs": {
+        "expression": "(ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline') && ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0SubProjectPlan') < 0 && ctx.visibleServerCommands.Pgp0SaveAs"
+      },
+      "addProjectOnTimelineCmdVisibility": {
+        "expression": "ctx.mselected.length === 1 && ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsPlan') > -1 && ctx.selected.props.prg0AllowsChildren.dbValues[0] === '1' && (ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline')"
+      },
+      "quickAddPlanOnTimelineCmdVisibility": {
+        "expression": "ctx.timelineContext.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsPlan') > -1 && ctx.timelineContext.selected.props.prg0AllowsChildren.dbValues[0] === '1' && (ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline') && ctx.timelineContext.planQuickCreateObjects.indexOf(ctx.timelineContext.selected.type) > -1 "
+      },
+      "addEventOnTimelineCmdVisibility": {
+        "expression": "ctx.mselected.length === 1 && ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsPlan') > -1 && (ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline')"
+      },
+      "quickAddEventOnTimelineCmdVisibility": {
+        "expression": "ctx.timelineContext.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsPlan') > -1 && (ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline') && ctx.timelineContext.eventQuickCreateObjects.indexOf(ctx.timelineContext.selected.type) > -1 "
+      },
+      "deletePlanItemsOnTimelineCmdVisibility": {
+        "expression": "ctx.visibleServerCommands.Pgp0DeletePlanOnTimeline && ctx.locationContext.modelObject.uid !== ctx.selected.uid && ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline'"
+      },
+      "timelineDeletePlanItemsCmdVisibility": {
+        "expression": "ctx.timelineContext.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsProgramPlan') < 0 && (ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline')"
+      },
+      "deleteEventOnTimelineCmdVisibility": {
+        "expression": "(ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsEvent') > -1) && (ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.state.params.pageId === 'tc_xrt_Events')"
+      },
+      "timelineDeleteEventCmdVisibility": {
+        "expression": "(ctx.timelineContext.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsEvent') > -1) && (ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline' || ctx.state.params.pageId === 'tc_xrt_Events')"
+      },
+      "addEventCmdVisibility": {
+        "expression": "(ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Events' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Events') && ctx.mselected.length === 1"
+      },
+      "addCriteriaCmdVisibility": {
+        "expression": "( ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Criteria' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Criteria' || ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline' ) && ctx.mselected.length === 1 && (ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsEvent') > -1)"
+      },
+      "addResponsibleUserCmdVisibility": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0Criteria') > -1 && ( ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Overview' || ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Overview' || ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Criteria' || ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline')"
+      },
+      "pgp0IsTCVersion123OrLater": {
+        "expression": "(ctx.tcSessionData.tcMajorVersion > 12 || (ctx.tcSessionData.tcMajorVersion === 12 && ctx.tcSessionData.tcMinorVersion >= 3))"
+      },
+      "pgp0PageContext": {
+        "expression": "(ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline') && ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsPlan') > 0 "
+      },
+      "pgp0SaveAsVisibility": {
+        "expression": "!conditions.pgp0IsTCVersion123OrLater && conditions.getServerConditionsForsaveAs"
+      },
+      "OOTBSaveAsCommandVisibility": {
+        "expression": "conditions.pgp0IsTCVersion123OrLater && conditions.pgp0PageContext "
+      },
+      "pgp0IsSplitXrtActive": {
+        "expression": "ctx.activeSplit === true"
+      },
+      "pgp0TimelineSummaryViewCommandVisibility": {
+        "expression": "ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline'"
+      },
+      "timelineDeleteCmdVisibility": {
+        "expression": "( ctx.xrtPageContext.primaryXrtPageID === 'tc_xrt_Timeline' || ctx.xrtPageContext.secondaryXrtPageID === 'tc_xrt_Timeline') && (ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsProjectPlan') > 0 || ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsProjectPlan') > 0 || ctx.selected.modelType.typeHierarchyArray.indexOf('Prg0AbsEvent') > 0 )"
+      }
+    },
+    "onEvent": [
+      {
+        "eventId": "timelineConfirmationMessage",
+        "message": "timelineConfirmationMessageAction"
+      },
+      {
+        "eventId": "generatePlanIdEvent",
+        "action": "generatePlanId"
+      },
+      {
+        "eventId": "timelineAddEventQuickEvent",
+        "action": "timelineAddEventQuickAction"
+      },
+      {
+        "eventId": "generateEventIdEvent",
+        "action": "generateEventIdAction"
+      },
+      {
+        "eventId": "timelineAddPlanEvent",
+        "action": "timelineAddPlanAction"
+      },
+      {
+        "eventId": "callSetPreferenceForTimelineEvent",
+        "cacheEventData": true,
+        "action": "setPreferenceForTimelineAction"
+      },
+      {
+        "eventId": "updatePreferenceForTimelineZoomEvent",
+        "action": "updatePreferenceForTimelineZoomAction"
+      },
+      {
+        "eventId": "confirmationMessage",
+        "message": "confirmationMessageAction"
+      },
+      {
+        "eventId": "deleteConfirmationMessageEvent",
+        "action": "getNameOfDeletedObject"
+      }
+    ],
+    "i18n": {
+      "Pgp0TimelineSetZoom": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0TimelineZoomLevelDay": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0TimelineZoomLevelWeek": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0TimelineZoomLevelMonth": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0SetZoomTimelineGrp": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0SetZoomTimelineDay": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0SetZoomTimelineWeek": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0SetZoomTimelineMonth": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "deleteCriteriaCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "aw_timelineViewer": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "saveAs": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "timeline": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "addPlanLevelCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "addEventOnTimelineCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "addButtonCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "DeleteCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "deleteCriteriaConfirmation": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "deleteCriterionConfirmation": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "pgp0DeleteMessageConfirmation": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "cancelOptionText": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "pgp0DeleteSuccessful": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "projectsSectionTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "addEventCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "addCriteriaCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "pgp0AssignResponsibleUser": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "pgp0DeleteConfirmationMessage": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "pgp0MultiEventDeleteSuccessful": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "pgp0MultiEventDeleteMessageConfirmation": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "pgp0CloseCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0PinButtonToolTip": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0UnpinButtonToolTip": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "prg0_projectSectionCommands": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "prg0_createProjectSectionCommands": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "replaceRevisionCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "replaceLatestRevisionCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0DeleteCriteriaDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0SaveAsDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0AddPlanLevelDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0DeletePlanOnTimelineDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0DeleteEventOnTimelineDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0ProjectSectionAddCmdDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0AddEventDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0AddCriteriaDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0AddResponsibleUserDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0CloseCommandDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "noOptionText": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "yesOptionText": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0TimelineSummaryView": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0TimelineSummaryViewDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0ShowEventProperties": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "Pgp0ShowEventPropertiesDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "timelineAddPlanLevelCommandTitle": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "timelineAddPlanDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "timelineAddEventDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "timelineDeleteDesc": [
+        "ProgramPlanningCommandPanelsMessages"
+      ],
+      "timelineQuickAddPlan": [
+        "ProgramPlanningCommandPanelsMessages"
+      ]
+    }
+  },
+  "indicators": {
+    "Prg0AbsCriteria_Indicator_New": {
+      "iconName": "FlagWhite",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "fnd0State"
+        ]
+      },
+      "conditions": {
+        "fnd0State": {
+          "$eq": "New"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsCriteria"
+      ]
+    },
+    "Prg0AbsCriteria_Indicator_Open": {
+      "iconName": "FlagBlue",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "fnd0State"
+        ]
+      },
+      "conditions": {
+        "fnd0State": {
+          "$eq": "Open"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsCriteria"
+      ]
+    },
+    "Prg0AbsCriteria_Indicator_Ready": {
+      "iconName": "FlagGreen",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "fnd0State"
+        ]
+      },
+      "conditions": {
+        "fnd0State": {
+          "$eq": "Ready"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsCriteria"
+      ]
+    },
+    "Prg0AbsCriteria_Indicator_InProcess": {
+      "iconName": "ReleasedPending",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "fnd0State"
+        ]
+      },
+      "conditions": {
+        "fnd0State": {
+          "$eq": "In Process"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsCriteria"
+      ]
+    },
+    "Prg0AbsCriteria_Indicator_Pass": {
+      "iconName": "ReleasedApproved",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "fnd0State"
+        ]
+      },
+      "conditions": {
+        "fnd0State": {
+          "$eq": "Pass"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsCriteria"
+      ]
+    },
+    "Prg0AbsCriteria_Indicator_Fail": {
+      "iconName": "ReleasedRejected",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "fnd0State"
+        ]
+      },
+      "conditions": {
+        "fnd0State": {
+          "$eq": "Fail"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsCriteria"
+      ]
+    },
+    "Prg0AbsEvent_Indicator_NotStarted": {
+      "iconName": "FlagWhite",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "prg0State"
+        ]
+      },
+      "conditions": {
+        "prg0State": {
+          "$eq": "Not Started"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsEvent"
+      ]
+    },
+    "Prg0AbsEvent_Indicator_InProgress": {
+      "iconName": "ReleasedPending",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "prg0State"
+        ]
+      },
+      "conditions": {
+        "prg0State": {
+          "$eq": "In Progress"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsEvent"
+      ]
+    },
+    "Prg0AbsEvent_Indicator_Complete": {
+      "iconName": "ReleasedApproved",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "prg0State"
+        ]
+      },
+      "conditions": {
+        "prg0State": {
+          "$eq": "Complete"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsEvent"
+      ]
+    },
+    "Prg0AbsEvent_Indicator_Closed": {
+      "iconName": "FlagGreen",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "prg0State"
+        ]
+      },
+      "conditions": {
+        "prg0State": {
+          "$eq": "Closed"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsEvent"
+      ]
+    },
+    "Prg0AbsPlan_Indicator_NotStarted": {
+      "iconName": "FlagWhite",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "prg0State"
+        ]
+      },
+      "conditions": {
+        "prg0State": {
+          "$eq": "Not Started"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsPlan"
+      ]
+    },
+    "Prg0AbsPlan_Indicator_InProgress": {
+      "iconName": "ReleasedPending",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "prg0State"
+        ]
+      },
+      "conditions": {
+        "prg0State": {
+          "$eq": "In Progress"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsPlan"
+      ]
+    },
+    "Prg0AbsPlan_Indicator_Complete": {
+      "iconName": "ReleasedApproved",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "prg0State"
+        ]
+      },
+      "conditions": {
+        "prg0State": {
+          "$eq": "Complete"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsPlan"
+      ]
+    },
+    "Prg0AbsPlan_Indicator_Closed": {
+      "iconName": "FlagGreen",
+      "tooltip": {
+        "showPropDisplayName": true,
+        "propNames": [
+          "prg0State"
+        ]
+      },
+      "conditions": {
+        "prg0State": {
+          "$eq": "Closed"
+        }
+      },
+      "modelTypes": [
+        "Prg0AbsPlan"
+      ]
+    }
+  },
+  "propertyRendererTemplates": {
+    "prg_state_template": {
+      "grids": [],
+      "columns": [
+        "prg0State",
+        "fnd0State"
+      ],
+      "template": "",
+      "templateUrl": "",
+      "renderFunction": "pgpStateRendererFn",
+      "deps": "propRenderTemplates/pgp0GenerateState",
+      "dependentServices": []
+    }
+  },
+  "typeProperties": {
+    "typeProperties": {
+      "Prg0AbsPlan": {
+        "additionalProperties": [
+          {
+            "name": "object_name"
+          },
+          {
+            "name": "object_type"
+          },
+          {
+            "name": "object_desc"
+          },
+          {
+            "name": "release_status_list",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          },
+          {
+            "name": "prg0State"
+          },
+          {
+            "name": "prg0plan_id"
+          },
+          {
+            "name": "prg0Classification"
+          },
+          {
+            "name": "prg0ParentPlan"
+          },
+          {
+            "name": "prg0AllowsChildren"
+          },
+          {
+            "name": "prg0AllowedChildTypes"
+          },
+          {
+            "name": "prg0IsTemplate"
+          }
+        ]
+      },
+      "Prg0AbsEvent": {
+        "additionalProperties": [
+          {
+            "name": "object_name"
+          },
+          {
+            "name": "object_type"
+          },
+          {
+            "name": "object_desc"
+          },
+          {
+            "name": "release_status_list",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          },
+          {
+            "name": "prg0State"
+          },
+          {
+            "name": "prg0plan_id"
+          },
+          {
+            "name": "prg0Classification"
+          },
+          {
+            "name": "prg0ActualDate"
+          },
+          {
+            "name": "prg0ForecastDate"
+          },
+          {
+            "name": "prg0PlannedDate"
+          },
+          {
+            "name": "prg0PlanObject"
+          },
+          {
+            "name": "pgp0EventColor"
+          },
+          {
+            "name": "prg0EventCode"
+          }
+        ]
+      },
+      "Prg0AbsCriteria": {
+        "additionalProperties": [
+          {
+            "name": "fnd0State"
+          },
+          {
+            "name": "release_status_list",
+            "modifiers": [
+              {
+                "name": "withProperties",
+                "Value": "true"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "bootstrap": {
+    "minOnly": [
+      "dhtmlxgantt",
+      "dhtmlxgantt_smart_rendering",
+      "dhtmlxgantt_multiselect",
+      "dhtmlxgantt_marker",
+      "dhtmlxgantt_tooltip",
+      "dhtmlxgantt_keyboard"
+    ],
+    "config": {
+      "paths": {
+        "dhtmlxgantt": "lib/dhtmlxgantt/dhtmlxgantt.min",
+        "dhtmlxgantt_smart_rendering": "lib/dhtmlxgantt/ext/dhtmlxgantt_smart_rendering.min",
+        "dhtmlxgantt_multiselect": "lib/dhtmlxgantt/ext/dhtmlxgantt_multiselect.min",
+        "dhtmlxgantt_marker": "lib/dhtmlxgantt/ext/dhtmlxgantt_marker.min",
+        "dhtmlxgantt_tooltip": "lib/dhtmlxgantt/ext/dhtmlxgantt_tooltip.min",
+        "dhtmlxgantt_keyboard": "lib/dhtmlxgantt/ext/dhtmlxgantt_keyboard_navigation.min"
+      },
+      "shim": {
+        "dhtmlxgantt": {
+          "deps": [
+            "angular"
+          ],
+          "exports": "gantt"
+        },
+        "dhtmlxgantt_smart_rendering": {
+          "deps": [
+            "dhtmlxgantt"
+          ],
+          "exports": "gantt"
+        },
+        "dhtmlxgantt_multiselect": {
+          "deps": [
+            "dhtmlxgantt"
+          ],
+          "exports": "gantt"
+        },
+        "dhtmlxgantt_marker": {
+          "deps": [
+            "dhtmlxgantt"
+          ],
+          "exports": "gantt"
+        },
+        "dhtmlxgantt_tooltip": {
+          "deps": [
+            "dhtmlxgantt"
+          ],
+          "exports": "gantt"
+        },
+        "dhtmlxgantt_keyboard": {
+          "deps": [
+            "dhtmlxgantt"
+          ],
+          "exports": "gantt"
+        }
+      }
+    }
+  }
+}

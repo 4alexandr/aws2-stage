@@ -1,0 +1,170 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/exist-when.directive",
+        "js/aw-include.directive",
+        "js/aw-panel-section.directive"
+    ],
+    "data": {},
+
+    "actions": {
+        "resetSuid": {
+            "actionType": "JSFunction",
+            "method": "resetSuid",
+            "deps": "js/Ase0ShowDiagramService"
+        },
+
+        "handleDiagramsTabLoad": {
+            "actionType": "JSFunction",
+            "method": "handleDiagramsTabLoad",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "events": {
+                "success": [ {
+                    "name": "Ase0ShowDiagram.contextset"
+                }]
+            },
+            "deps": "js/Ase0ShowDiagramService"
+        },
+        "checkForAdvancedFeaturesLicenses": {
+            "actionType": "JSFunction",
+            "method": "checkForAdvancedFeaturesLicenses",
+            "deps": "js/Ase0ShowDiagramService",
+            "events": {
+                "success": [ {
+                "name": "Ase0ShowDiagram.s_uidreset",
+                "condition": "ctx.aceActiveContext && ctx.state.params.s_uid"
+            } ]
+            }
+        },
+        "updateDiagramViewOnCreate": {
+            "actionType": "JSFunction",
+            "method": "updateDiagramViewOnCreate",
+            "inputData": {
+                "toOpenDiagram":"{{data.eventMap['CreateDiagramSub.CreateDiagramProcessSuccess'].toOpen}}",
+                "diagramUid" : "{{data.eventMap['CreateDiagramSub.CreateDiagramProcessSuccess'].diagramUid}}"
+            },
+            "deps": "js/Ase0ShowDiagramService"
+        },
+
+        "updateDiagramViewOnMarkupCreation": {
+            "actionType": "JSFunction",
+            "method": "updateDiagramViewOnMarkupCreation",
+            "inputData": {
+                "modelObjects": "{{data.eventMap['cdm.updated'].updatedObjects}}"
+            },
+            "deps": "js/Ase0ShowDiagramService"
+        },
+
+        "openDiagram": {
+            "actionType": "Navigate",
+            "navigateTo": "com_siemens_splm_clientfx_tcui_xrt_showObject",
+            "navigationParams": {
+                "uid": "{{data.eventMap['Ase0ShowDiagram.OpenDiagram'].diagramUid}}",
+                "spageId": "{{data.i18n.architectureModelerPageTitle}}"
+            }
+        },
+
+        "updatePanelSize": {
+            "actionType": "JSFunction",
+            "method": "updatePanelSize",
+            "inputData": {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase0ShowDiagramService"
+
+        }
+
+    },
+
+    "onEvent": [ {
+            "eventId": "Ase0ShowDiagram.contentLoaded",
+            "action": "handleDiagramsTabLoad"
+        },
+        {
+            "eventId": "Ase0ShowDiagram.contextset",
+            "action": "checkForAdvancedFeaturesLicenses"
+        },
+        {
+            "eventId": "Ase0ShowDiagram.s_uidreset",
+            "action": "resetSuid"
+        },
+        {
+            "eventId": "CreateDiagramSub.CreateDiagramProcessSuccess",
+            "cacheEventData":true,
+            "action":"updateDiagramViewOnCreate"
+        },
+        {
+            "eventId":"Ase0ShowDiagram.OpenDiagram",
+            "cacheEventData": true,
+            "action":"openDiagram"
+        },
+        {
+            "eventId": "aw-splitter-update",
+            "action": "updatePanelSize",
+            "cacheEventData": true
+        },
+        {
+            "eventId": "cdm.updated",
+            "cacheEventData": true,
+            "condition": "ctx.diagramsCtx.isDiagramsTabActive && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Ase0AssocRelationProxy' ) > -1",
+            "action":"updateDiagramViewOnMarkupCreation"
+        }
+    ],
+
+    "conditions": {
+        "canSkipNavigateToDiagram": {
+            "expression": "data.createdObject.modelType.typeHierarchyArray.indexOf( 'Ase0Diagram' ) > -1 && ctx.architectureCtx.isModelerActive"
+        },
+        "showCrossSelectionViewer": {
+            "expression": "(ctx.selected.props.awb0UnderlyingObject.dbValues[0] !== ctx.xrtSummaryContextObject.uid) && (ctx.selected.uid !== ctx.xrtSummaryContextObject.uid)"
+        },
+        "showMessage": {
+            "expression": "(ctx.selected.props.awb0UnderlyingObject.dbValues[0] === ctx.xrtSummaryContextObject.uid) || (ctx.selected.uid === ctx.xrtSummaryContextObject.uid)"
+        }
+    },
+
+    "messages": {
+
+    },
+
+    "i18n": {
+        "diagramSingleDeleteConfirmMsg": [
+            "ArchitectureModelerMessages"
+        ],
+        "diagramMultiDeleteConfirmMsg": [
+            "ArchitectureModelerMessages"
+        ],
+        "cancel": [
+            "ArchitectureModelerConstants"
+        ],
+        "delete": [
+            "ArchitectureModelerConstants"
+        ],
+        "TwistieTooltipCollapsedArc": [
+            "ArchitectureModelerConstants"
+        ],
+        "TwistieTooltipExpandedArc": [
+            "ArchitectureModelerConstants"
+        ],
+        "previewTitle": [
+            "ArchitectureModelerConstants"
+        ],
+        "selectionSummaryTitle": [
+            "ArchitectureModelerConstants"
+        ],
+        "itemsSelected": [
+            "ArchitectureModelerConstants"
+        ],
+        "contentTitle": [
+            "ArchitectureModelerConstants"
+        ],
+        "selectDiagram": [
+            "ArchitectureModelerConstants"
+        ],
+        "architectureModelerPageTitle": [
+            "ArchitectureModelerConstants"
+        ]
+    }
+}

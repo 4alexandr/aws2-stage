@@ -1,0 +1,35 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/exist-when.directive"
+    ],
+    "data":{
+    },
+    "onEvent": [
+        {
+            "eventId": "mfe.scopeObjectChanged",
+            "cacheEventData": true,
+            "action": "init"
+        }
+     ],
+    "actions": {
+        "init": {
+            "actionType": "JSFunction",
+            "method": "setInputObject",
+            "inputData": {
+                "data": "{{data}}",
+                "value": {
+                    "scopeObject": "{{ctx.ep.scopeObject}}",
+                    "xrtType": "SUMMARY"
+                }
+            },
+            "deps": "js/mfeSyncUtils"
+        }
+
+
+    },
+    "lifecycleHooks":{
+        "onMount":"init"
+    }
+}

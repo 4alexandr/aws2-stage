@@ -1,0 +1,8 @@
+<div id="aw-jt-viewer" class="aw-viewer-viewer">
+    <div class="aw-viewerjs-header">
+        <aw-toolbar ng-if="!displayImageCapture" first-anchor="aw_3dViewer" second-anchor="aw_viewerRightSide" orientation="HORIZONTAL"></aw-toolbar>
+        <aw-toolbar ng-if="displayImageCapture" first-anchor="aw_2dViewer" second-anchor="aw_viewerRightSide" orientation="HORIZONTAL"></aw-toolbar>
+    </div>
+    <div ng-if="loading"  class="aw-jswidgets-text">{{$parent.loadingMsg}}</div>
+    <aw-3d-viewer data="contextObject" ng-if="!loading"></aw-3d-viewer>
+</div>

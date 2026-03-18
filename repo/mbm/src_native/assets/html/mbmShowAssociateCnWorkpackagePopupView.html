@@ -1,0 +1,37 @@
+<aw-popup2>
+    <aw-flex-column>
+        <aw-panel>
+            <aw-flex-column aw-class="['aw-mbm-showOpenWorkpackagePanel']" exist-when="conditions.isDataPrepared">
+                <aw-flex-row height="3f">
+                    {{data.mbmAssociateCnWorkpackageOpenDesc}}
+                </aw-flex-row>
+                <aw-radiobutton prop="data.mbmOpenWithCnOption" list="data.mbmOpenWithCnOptionValues.dbValue" action="mbmOpenWithCnOptionSelection"></aw-radiobutton>
+                <aw-flex-column width="28f" align-content="end">
+                    <aw-flex-column  width="26f">
+                        <aw-widget prop="data.mbmCnListBox"  enable-when="conditions.isCnWithTrackOptionSelected"></aw-widget>
+                        <aw-guidance-message message="mbmReadOnlyMessage"  banner-style="true" show-icon="false" show-type="false" exist-when="conditions.isSelectedCnReadOnly">
+                    </aw-flex-column>
+                </aw-flex-column>
+                <aw-break></aw-break>
+                <aw-radiobutton prop="data.mbmOpenWithoutCnOption" list="data.mbmOpenWithoutCnOptionValues.dbValue" action="mbmOpenWithoutCnOptionSelection" ></aw-radiobutton>
+            </aw-flex-column>
+        </aw-panel>
+        <aw-flex-row justify="right" offset-bottom="1f">
+            <aw-flex-column width="14f" offset="1f" offset-right="1f">
+                <aw-flex-row  justify="space-between">
+                    <aw-flex-column width="6.66f">
+                        <aw-button button-type="base" action="mbmCancelPopup">
+                            <aw-i18n>i18n.mbmCancel</aw-i18n>
+                        </aw-button>
+                    </aw-flex-column>
+                    <aw-flex-column width="6.66f">
+                        <aw-button default="true" action="mbmProcessNavigation" enable-when="conditions.isCnWithoutTrackOptionSelected || conditions.isCnSelected">
+                            <aw-i18n>i18n.mbmContinue</aw-i18n>
+                        </aw-button>
+                    </aw-flex-column>
+                </aw-flex-row>
+            </aw-flex-column>
+        </aw-flex-row>
+    </aw-flex-column>
+
+</aw-popup2>

@@ -1,0 +1,21 @@
+<div class="aw-widgets-cellListLargeIcon" ng-if="hasThumbnail")>
+    <div id="CellThumbnail" class="aw-base-large-thumbnail">
+        <div class="aw-widgets-modelObjectThumbnail">
+            <img class="aw-base-icon" ng-src="{{thumbnailUrl}}" alt=""/>
+        </div>
+         <div class="aw-widgets-modelObjectTypeIconOverlay">
+             <img class="aw-base-icon" ng-src="{{typeIconFileUrl}}" draggable="false" ondragstart="return false;" alt=""/>
+         </div>
+    </div>
+</div>
+<div class="aw-widgets-cellListCellImage" ng-if="!hasThumbnail">
+    <div id="CellThumbnail" class="aw-base-large-thumbnail">
+        <img class="aw-base-icon" ng-src="{{typeIconFileUrl}}" draggable="false" ondragstart="return false;" alt=""/>
+    </div>
+</div>
+
+<!-- Cell list content -->
+<div class="aw-widgets-cellListCellContent">
+    <aw-inbox-cell-content vmo="vmo"></aw-inbox-cell-content>
+    <aw-visual-indicator vmo="vmo"></aw-visual-indicator>
+</div>

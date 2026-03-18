@@ -1,0 +1,17 @@
+{
+    "InvalidObjectsForAlignment": "No se implementó la acción Alinear. Seleccione un diseño y una pieza.",
+    "InvalidPartForAlignment": "No se implementó la acción Alinear porque \"{0}\" no es una pieza tipo. Seleccione un diseño y una pieza.",
+    "InvalidDesignForAlignment": "No se implementó la acción Alinear porque \"{0}\" no es un diseño tipo.  Seleccione un diseño y una pieza.",
+    "SingleDesignPartUnAlignmentConfirmation": "\"{0}\" estará desalineado con \"{1}\".",
+    "MultipleDesignsSinglePartUnAlignmentConfirmation": "\"{0}\" diseños estarán desalineados con \"{1}\".",
+    "SingleDesignMultiplePartsUnAlignmentConfirmation": "\"{0}\" estarán desalineados con \"{1}\" piezas.",
+    "SingleDesignUnAlignmentConfirmation": "\"{0}\" estarán desalineados con todas las piezas alineadas.",
+    "MultipleDesignsUnAlignmentConfirmation": "\"{0}\" diseños estarán desalineados con todas las piezas alineadas.",
+    "SinglePartUnAlignmentConfirmation": "Se alinearán todos los diseños alineados con \"{0}\".",
+    "MultiplePartsUnAlignmentConfirmation": "Se desalinearán todos los diseños alineados con \"{0}\" piezas.",
+    "BackgroundAlignmentCheckNotification": "La verificación de la alineación se encuentra en curso. Será notificado una vez que se complete la misma.",
+    "InvalidPartEBOMForAlignment":"No se abrió \"{0}\" porque no es de tipo Pieza.",
+    "InvalidDesignDBOMForAlignment":"No se abrió \"{0}\" porque no es de tipo Diseño."
+
+}
+    

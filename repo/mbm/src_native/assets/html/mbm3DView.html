@@ -1,0 +1,4 @@
+<aw-flex-column aw-click="data.mbm3DViewerClickEvent(subPanelContext.contextKey)">
+    <aw-include name="Awv0StructureViewerPage" exist-when="subPanelContext.contextKey==='ebomContext' && ctx.ebomContext.productContextInfo" sub-panel-context="subPanelContext"></aw-include>
+    <aw-include name="Awv0StructureViewerPage" exist-when="subPanelContext.contextKey==='mbomContext' && ctx.mbomContext.productContextInfo" sub-panel-context="subPanelContext"></aw-include>
+</aw-flex-column>

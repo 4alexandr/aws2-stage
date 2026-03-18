@@ -1,0 +1,106 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/mfe-bom-panel.directive",
+        "js/aw-splitter.directive",
+        "js/aw-sublocation.directive",
+        "js/aw-include.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-flex-column.directive",
+        "js/aw-class.directive"
+    ],
+    "data": {
+        "_ebomSublocation":
+        {
+            "viewKey": "ebomContext",
+            "name": "multiBOMManager:taskPageSubLocation",
+            "clientScopeURI": "Mbm0EbomManagement",
+            "nameToken": "multiBOMManager:taskPageSubLocation",
+            "policy": "/policies/mbmPropertyPolicy.json",
+            "viewBase": "ebom",
+            "selectionQueryParamKey": "c_uid",
+            "openMode":"ebom_only",
+            "contextKey":"ebomContext",
+            "showTopNode":true,
+            "showXrt":false,
+            "breadcrumbConfig" : {
+                "type" : "navigate",
+                "vm" : "ebomBreadcrum",
+                "chevronDataProvider": "ebomChevronDataProvider",
+                "crumbDataProvider": "ebomBreadCrumbDataProvider",
+                "noUpdate": true,
+                "popuplist": "/html/occMgmtBreadcrumblist.html",
+                "id": "ebomContext",
+                "displayProperty": "object_string"
+            },
+            "viewModes": {
+                "TreeView": {
+                    "primaryWorkArea": "tree",
+                    "secondaryWorkArea": false
+                }
+            },
+            "defaultDisplayMode": "TreeView"
+        },
+        "_mbomSublocation":
+        {
+            "viewKey": "mbomContext",
+            "name": "multiBOMManager:taskPageSubLocation",
+            "clientScopeURI": "Mbm0MbomManagement",
+            "nameToken": "multiBOMManager:taskPageSubLocation",
+            "policy": "/policies/mbmPropertyPolicy.json",
+            "viewBase": "mbom",
+            "selectionQueryParamKey": "c_uid",
+            "openMode":"mbom_only",
+            "contextKey":"mbomContext",
+            "showTopNode":true,
+            "showXrt":false,
+            "breadcrumbConfig" : {
+                "type" : "navigate",
+                "vm" : "mbomBreadcrum",
+                "chevronDataProvider": "mbomChevronDataProvider",
+                "crumbDataProvider": "mbomBreadCrumbDataProvider",
+                "noUpdate": true,
+                "popuplist": "/html/occMgmtBreadcrumblist.html",
+                "id": "mbomContext",
+                "displayProperty": "object_string"
+            },
+            "viewModes": {
+                "TreeView": {
+                    "primaryWorkArea": "tree",
+                    "secondaryWorkArea": false
+                }
+            },
+            "defaultDisplayMode": "TreeView"
+        }
+    },
+    "actions": {
+        "mbmInitializeClickListener": {
+            "actionType": "JSFunction",
+            "method": "mbmInitializeContextViewerClickListener",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/mbmViewUtils"
+        },
+        "resetFullScreen":{
+            "actionType": "JSFunction",
+            "method": "updatePartialCtx",
+            "inputData": {
+
+                "path": "fullscreenDisabled",
+                "value":false
+            },
+            "deps": "js/appCtxService"
+        }
+
+    },
+    "onEvent": [
+        {
+            "eventId": "mbm.contentLoaded",
+            "action": "mbmInitializeClickListener"
+        }
+    ],
+    "lifecycleHooks": {
+        "onUnmount": "resetFullScreen"
+    }
+}

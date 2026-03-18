@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "Wyniki",
+     "filterTabTitle" : "Filtry",
+     "searchTabTitle" :"Szukaj",
+     "paletteTabTitle" :"Paleta",
+     "addStockMaterialTitle" : "Dodaj",
+     "properties" : "Właściwości",
+     "add" : "Dodaj",
+     "madeFromFailureMakeFromPrefTrue": "Dodano \"{0}\", jednak nie jest to element preferowany w \"{1}\".",
+     "madeFromFailureMakeFromPrefFalse": "Nie dodano \"{0}\", ponieważ nie jest to element preferowany w \"{1}\".",     
+     "dimensionsLabel": "Wymiary",
+     "Sm1AddStdPartDesc": "Dołącz część standardową do części.",
+     "Sm1AddStockMaterialDesc": "Dodaj materiał naddatku do części.",
+     "addPropertiesLabel" : "Dodaj właściwości"
+}

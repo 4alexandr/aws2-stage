@@ -1,0 +1,67 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-label.directive"
+    ],
+    "ports": {
+        "wiScopeLabel_inputObject": {
+            "onChangeAction": "publishInputChangeAndUpdateInputObjectName",
+            "syncObject": {}
+        }
+    },
+    "data": {
+        "inputObject": "{{ports.wiScopeLabel_inputObject.syncObject}}",
+        "inputObjectName": {
+            "displayName": "{{i18n.selected}}",
+            "type": "STRING"
+        }
+    },
+
+    "conditions": {},
+
+    "actions": {
+        "publishInputChangeAndUpdateInputObjectName": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "handleNewInputForSingleObject"
+                },
+                {
+                    "action": "updateInputObjectName"
+                },
+                {
+                    "action": "publishInputChange"
+                }
+            ]
+        },
+        "handleNewInputForSingleObject": {
+            "actionType": "JSFunction",
+            "method": "handleNewInputForSingleObject",
+            "inputData": {
+                "data": "{{data}}",
+                "newInput": "{{ports.wiScopeLabel_inputObject.syncObject}}"
+            },
+            "deps": "js/mfeSyncUtils"
+        },
+        "publishInputChange": {
+            "actionType": "Sync",
+            "inputData": {
+                "port": "wiScopeLabel_inputObject",
+                "syncObject": "{{data.inputObject}}"
+            }
+        },
+        "updateInputObjectName": {
+            "actionType": "JSFunction",
+            "method": "setWidgetDisplayValue",
+            "inputData": {
+                "vmProp": "{{data.inputObjectName}}",
+                "displayValues": "{{data.inputObject.props.object_string.displayValues}}"
+            },
+            "deps": "js/uwPropertyService"
+        }
+    },
+    "i18n": {
+        "selected": [
+            "InstructionsMessages"
+        ]
+    }
+}

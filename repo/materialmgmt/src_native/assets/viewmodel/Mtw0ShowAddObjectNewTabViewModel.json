@@ -1,0 +1,190 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": 
+    [
+        
+        "js/aw-panel-section.directive",
+        "js/aw-xrt.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-form.directive",
+        "js/visible-when.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive"
+    ],
+
+    "actions": 
+    {
+         "prepareDataOnEachXrtLoad":
+        {
+            "actionType": "JSFunction",
+            "method": "prepareDataOnEachXrtLoad",  
+             "inputData":
+            {              
+                "data":"{{data}}",
+                "ctx":"{{ctx}}"
+            },
+            "deps": "js/Mtw0ShowAddObjectService"
+        },
+        
+        "createRelateAndSubmitSOA": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-Core-2012-10-DataManagement",
+            "method": "createRelateAndSubmitObjects",
+            "inputData": 
+            {
+                "inputs": "{{function:getSecondaryObjectCreateInput}}"
+            },
+
+            "outputData": 
+            {
+                "createdMainObject": "output[0].objects[0]",
+                "createdObject": "{{function:getCreatedSecondaryObject}}"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    {
+                        "name": "showAddObject.initiateCreateAndRelate"
+                    }
+                ]
+            },
+
+            "deps": "js/Mtw0ShowAddObjectService"
+        },
+       "initiateRelationPanel": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": 
+                        {
+                            "destPanelId": "Mtw0ShowAddObjectRelation",
+                            "title": "{{i18n.addPropertiesLabel}}",
+                            "recreatePanel": true,
+                            "supportGoBack": true
+                        }
+                    }
+                ]
+            }
+        },
+      "initiateRelateOperation": 
+        {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2008-06-DataManagement",
+            "method": "createObjects",
+            "inputData": 
+            {
+                "input": "{{function:getInputForCreateObjectSOA}}"
+            },
+
+            "outputData": 
+            {
+                "createdObjectUid": "output[0].objects[0].uid",
+                "createdObject": "output[0].objects[0]"
+            },
+
+            "events": 
+            {
+                "success": 
+                [
+                    
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": 
+                        {
+                            "relatedModified": 
+                            [
+                                "{{ctx.selected}}"
+                            ],
+
+                            "refreshLocationFlag": true
+                        }
+                    },
+
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+
+            "deps": "js/Mtw0ShowAddObjectService"
+        },
+        "closePanel": 
+        {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": 
+            {
+                "events": 
+                [
+                    {
+                        "name": "complete",
+                        "eventData": 
+                        {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "functions": 
+    {
+        "getSecondaryObjectCreateInput": 
+        {
+            "functionName": "getSecondaryObjectCreateInput",
+            "parameters": 
+            [
+                "{{data}}"
+            ]
+        },
+        "getInputForCreateObjectSOA": 
+        {
+            "functionName": "getInputForCreateObjectSOA",
+            "parameters": 
+            [
+                "{{data}}",
+                "{{ctx}}"
+            ]
+        }
+    },
+    "data": 
+    {
+       "addRelationObject":"aw_addRelationObject"
+    },
+    "onEvent": 
+    [
+        {
+            "eventId": "showAddObject.initiateCreateAndRelate",
+            "action": "initiateRelateOperation"
+        },
+        {
+            "eventId": "gwt.SubLocationContentSelectionChangeEvent",
+            "action": "closePanel"
+        },
+        {
+            "eventId": "awXRT.contentLoaded",
+            "action": "prepareDataOnEachXrtLoad"
+        }
+    ],
+    "i18n": 
+    {
+        "addButtonTitle": ["MaterialMgmtMessages"],
+        "addLabel": ["MaterialMgmtMessages"]
+    }
+    
+}

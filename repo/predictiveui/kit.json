@@ -1,0 +1,16 @@
+{
+  "name": "predictiveui",
+  "description": "",
+  "modules": [
+    "predictiveui"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "configuration": {
+    "predictiveui": {
+      "output": "javascript",
+      "definition": "module",
+      "uniqueDepth": 1
+    }
+  }
+}

@@ -1,0 +1,349 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-tab-set.directive",
+        "js/aw-panel-header.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-search-box.directive",
+        "js/aw-list.directive",
+        "js/aw-textbox.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-command-panel-section.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-numeric.directive",
+        "js/aw-form.directive"
+    ],
+    "actions": {
+        "callDataProvider": {
+            "actionType": "dataProvider",
+            "method": "performSearch"
+        },
+        "associateSiteToExistingVendor": {
+            "actionType": "TcSoaService",
+            "serviceName": "Core-2007-01-DataManagement",
+            "method": "setProperties",
+            "inputData": {
+                "objects": "{{ctx.mselected}}",
+                "attributes": {
+                    "sc0SiteRef": {
+                        "stringVec": [
+                            "{{data.dataProviders.performSearch.selectedObjects[0].uid}}"
+                        ]
+                    }
+                }
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "cdm.relatedModified",
+                        "eventData": {
+                            "refreshLocationFlag": true,
+                            "relations": "",
+                            "relatedModified": [
+                                "{{ctx.selected}}"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "actionMessages": {
+                "failure": [
+                    {
+                        "message": "SOAError"
+                    }
+                ]
+            }
+        },
+        "createAndAssociateSite": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-SupplierCollaboration-2017-11-SupplierCollaboration",
+            "method": "associateSiteToVendor",
+            "inputData":
+            {
+               "inputObject":{
+                   "type":"{{ctx.selected.type}}",
+                   "uid":"{{ctx.selected.uid}}"
+               },
+               "siteProperties":"{{function:getSiteProperties}}"
+            },
+            "outputData":{
+
+               "finalResponse":"response"
+            },
+            "events": {
+               "success": [
+                   {
+                       "name": "cdm.relatedModified",
+                       "eventData": {
+                           "refreshLocationFlag": true,
+                           "relations": "",
+                           "relatedModified": [
+                               "{{ctx.selected}}"
+                           ]
+                       }
+                   },
+                   {
+                       "name": "complete",
+                       "eventData": {
+                           "source": "toolAndInfoPanel"
+                       }
+                   }
+               ],
+               "failure": [
+
+                   {
+                       "name": "complete",
+                       "eventData": {
+                           "source": "toolAndInfoPanel"
+                       }
+                   }
+               ]
+           },
+           "actionMessages":
+           {
+               "failure":
+               [
+                   {
+                       "message": "failedToCreateSiteMessage",
+                       "condition": "errorCode.code === 515106"
+                   },
+                   {
+                    "message": "SOAError",
+                    "condition": "errorCode.code !== 515106"
+                   }
+               ]
+           },
+           "deps": "js/Vm1AssociateSiteService"
+        },
+        "performSiteSearch": {
+            "actionType": "JSFunction",
+            "method": "performSiteSearch",
+            "inputData": {
+                "ctx": "{{ctx}}",
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "searchResults": "searchResults",
+                "totalFound": "totalFound",
+                "totalLoaded": "totalLoaded"
+            },
+            "deps": "js/Vm1AssociateSiteService"
+        },
+        "associateSearchedSiteToNewVendor": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "siteReferences.assignObject",
+                        "eventData": {
+                            "selectedObjects": "{{data.dataProviders.performSearch.selectedObjects}}"
+                        }
+                    }
+                ]
+            }
+        },
+        "createAndAssociateSiteToNewVendor": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-SupplierCollaboration-2017-11-SupplierCollaboration",
+            "method": "associateSiteToVendor",
+            "inputData": {
+                "inputObject": {
+                    "type": "",
+                    "uid": ""
+                },
+                "siteProperties": "{{function:getSiteProperties}}"
+            },
+            "outputData": {
+                "siteObject": "{{function:getSiteObject}}"
+            },
+            "events": {},
+            "actionMessages": {
+                "failure": [
+                    {
+                        "message": "failedToCreateSiteForNewVendorMessage",
+                        "condition": "errorCode.code === 515106"
+                    },
+                    {
+                        "message": "SOAError",
+                        "condition": "errorCode.code !== 515106"
+                    }
+                ]
+            },
+            "policy": {
+                "types": [
+                    {
+                        "name": "POM_imc",
+                        "properties": [
+                            {
+                                "name": "site_id"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "deps": "js/Vm1AssociateSiteService"
+        },
+        "navigateToCreateVendorPanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "awPanel.navigate",
+                        "eventData": {
+                            "destPanelId": "Vm1CreateNewVendor",
+                            "eventData": "{{data.eventData}}"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "functions": {
+        "getSiteProperties": {
+            "functionName": "getSiteProperties",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getSiteObject": {
+            "functionName": "getSiteObject",
+            "parameters": [
+                "{{response}}"
+            ]
+        }
+    },
+    "dataProviders": {
+        "performSearch": {
+            "action": "performSiteSearch",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single",
+            "commands": {
+                "Awp0ShowObjectCell": {
+                    "id": "cmdOpen",
+                    "title": "Open",
+                    "areas": [
+                        "com.siemens.splm.clientfx.ui.modelObjectListActionCommands"
+                    ],
+                    "priorities": [
+                        300
+                    ],
+                    "dependencies": [
+                        "js/showObjectCommandHandler"
+                    ],
+                    "displayOption": "ON_HOVER_AND_SELECTION",
+                    "position": "TOP_RIGHT"
+                }
+            }
+        }
+    },
+    "messages": {
+        "failedToCreateSiteMessage": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.siteCreationFailureMessage}}",
+            "messageTextParams": [
+                "{{data.siteID.dbValue}}",
+                "{{ctx.selected.props.object_name.uiValues[0]}}"
+            ]
+        },
+        "failedToCreateSiteForNewVendorMessage": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.siteCreationFailureForNewVendorMessage}}",
+            "messageTextParams": [
+                "{{data.siteID.dbValue}}"
+            ]
+        },
+        "SOAError": {
+            "messageType": "ERROR",
+            "messageText": "{{errorCode}}"
+        }
+    },
+    "i18n": {
+        "vm1Assign": [
+            "VendorManagementMessages"
+        ],
+        "vm1AssociateSiteCommandTitle": [
+            "VendorManagementMessages"
+        ],
+        "search": [
+            "VendorManagementMessages"
+        ],
+        "vm1NewTabTitle": [
+            "VendorManagementMessages"
+        ],
+        "vm1Name": [
+            "VendorManagementMessages"
+        ],
+        "vm1SiteID": [
+            "VendorManagementMessages"
+        ],
+        "siteCreationFailureMessage": [
+            "VendorManagementMessages"
+        ],
+        "siteCreationFailureForNewVendorMessage": [
+            "VendorManagementMessages"
+        ]
+    },
+    "data": {
+        "associateSitePanelTabModels": {
+            "isArray": "true",
+            "dbValue": [
+                {
+                    "tabKey": "vm1NewTab",
+                    "name": "{{i18n.vm1NewTabTitle}}"
+                },
+                {
+                    "tabKey": "vm1SearchTab",
+                    "name": "{{i18n.search}}"
+                }
+            ]
+        },
+        "name": {
+            "displayName": "{{i18n.vm1Name}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "dbValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+        "siteID": {
+            "displayName": "{{i18n.vm1SiteID}}",
+            "type": "INTEGER",
+            "isRequired": "true",
+            "dbValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_TOP"
+        },
+        "searchBox": {
+            "type": "STRING",
+            "isEnabled": true,
+            "autofocus": true
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "createAndAssociateSite",
+            "action": "createAndAssociateSite"
+        },
+        {
+            "eventId": "siteReferences.assignObject",
+            "action": "navigateToCreateVendorPanel"
+        },
+        {
+            "eventId": "associateSiteObjectToNewVendor",
+            "action": "navigateToCreateVendorPanel"
+        },
+        {
+            "eventId": "createAndAssociateSiteToNewVendor",
+            "action": "createAndAssociateSiteToNewVendor"
+        }
+    ]
+}

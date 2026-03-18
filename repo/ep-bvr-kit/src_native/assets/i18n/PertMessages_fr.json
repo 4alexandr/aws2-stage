@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle":"Détruire",
+    "pertDeleteDesc": "Détruire les noeuds sélectionnés",
+    "deleteConfirmationMessage": "Confirmez-vous de détruire définitivement les noeuds PERT sélectionnés?",
+    "missingProcessElements": "Créer un processus.",
+    "openPertNodeTitle": "Ouvrir",
+    "resetLayoutTitle": "Réinitialiser la disposition",
+    "resetLayoutDescription": "Rétablir les noeuds PERT à la disposition par défaut."
+}

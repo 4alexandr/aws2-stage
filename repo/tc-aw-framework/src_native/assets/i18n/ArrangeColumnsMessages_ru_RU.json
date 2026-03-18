@@ -1,0 +1,15 @@
+{
+    "arrangeTitle": "Расположить",
+    "arrangeButtonTitle": "Расположить",
+    "arrangeAdminTitle": "Администратор",
+    "arrangeNoColumnConfigs": "Нет сохраненных размещений",
+    "arrangeConfigNameTitle": "Размещение",
+    "arrangeNewConfigNameTitle": "Имя",
+    "arrangeNewConfigNameTitleRequired": "Назвать свое размещение",
+    "arrangeNewConfigTitle": "Сохранить как новое размещение",
+    "arrangeAndSaveButtonTitle": "Сохранить и расположить",
+    "arrangeAndCreateButtonTitle": "Сохранить и расположить",
+    "defaultNewColumnConfigName": "Новое размещение столбцов",
+    "availableColumnsTitle": "Доступные столбцы",
+    "tableColumnsTitle": "Столбцы таблицы"
+}

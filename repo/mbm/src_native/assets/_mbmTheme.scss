@@ -1,0 +1,125 @@
+/*
+   @<COPYRIGHT>@
+   ==================================================
+   Copyright 2019.
+   Siemens Product Lifecycle Management Software Inc.
+   All Rights Reserved.
+   ==================================================
+   @<COPYRIGHT>@
+*/
+@import 'mixins/mixins';
+
+$handleTile_status: rgba($Siemens_Status_Green, .1);
+$handleTile_status_hover: rgba($Siemens_Status_Green, .2);
+$handleTile_status_selected: rgba($Siemens_Status_Green, .25);
+$changeType_border: $brand_secondary_border;
+$changeTypeHandled_border: rgba($Siemens_Status_Green, .2);
+
+.aw-mbm-largeHeaderTitle{
+    color: $Siemens_Blue_7;
+}
+
+.aw-mbm-toolbarTitle{
+    color:$brand_secondary_accent_text;
+}
+
+
+.aw-mbm-changeSummaryHeaderContainer{
+    box-shadow: $horizontal_tool_bar_drop_shadow;
+}
+
+.aw-mbm-changeSummaryTile,
+.aw-mbm-changeTypeIndicationPanel,
+.aw-mbm-changeSummarySubTilesHeaderContent{
+    border-color: $brand_secondary_border;
+    box-shadow: $drop_shadow_small;
+}
+.aw-mbm-changeTypeSeparator{
+    border-color: $changeType_border;
+}
+.aw-mbm-changeTypeHandledSeparator{
+    border-color: $changeTypeHandled_border;
+}
+
+.aw-mbm-changeSummaryTilesSeparator{
+    border-color: $brand_secondary_border;
+}
+
+.aw-mbm-changeSummarySubTile {
+    :hover {
+        background-color: $cell_list_item_hover;
+
+        .aw-theme-iconOutline {
+            fill: $brand_selection_text_hover;
+        }
+    }
+
+    &.aw-mbm-changeSummarySubTileSelected {
+        background-color: $cell_list_item_selected;
+
+        .aw-theme-iconOutline {
+            fill: $brand_selection_text_selected;
+        }
+
+        &:hover {
+            background-color: $cell_list_item_selected_hover;
+        }
+    }
+}
+
+.aw-mbm-changeSummarySubTileHandled {
+    background-color: $handleTile_status;
+    &:hover {
+        background-color: $handleTile_status_hover;
+
+        .aw-theme-iconOutline {
+            fill: $brand_selection_text_hover;
+        }
+    }
+
+    &.aw-mbm-changeSummarySubTileSelected {
+        background-color: $handleTile_status_selected;
+
+        .aw-theme-iconOutline {
+            fill: $brand_selection_text_selected;
+        }
+
+        &:hover {
+            background-color: $handleTile_status_hover;
+        }
+    }
+}
+.aw-mbm-changeIndicationAdd,
+.aw-mbm-changeTriangleIndicationAdd{
+    background-color:$Siemens_Blue_7;
+}
+.aw-mbm-changeIndicationMissing,
+.aw-mbm-changeTriangleIndicationMissing{
+    background-color:$Siemens_Status_Red;
+}
+
+.aw-mbm-changeIndicationMismatch,
+.aw-mbm-changeTriangleIndicationMismatch{
+    background-color:$Siemens_Yellow_13;
+}
+
+.aw-mbm-changeSummaryHandled{
+    background-color: $handleTile_status;
+}
+
+.aw-mbm-tileButtonContainer{
+    background-color:$Siemens_Blue_7 ;
+}
+
+.aw-mbm-changeText{
+    color: $AW_Green;
+}
+.aw-mbm-oldText{
+    color: $Siemens_Status_Red;
+}
+
+.aw-mbm-gridContent{
+    .aw-splm-table{
+        background-color: $Siemens_Snow;
+    }
+}

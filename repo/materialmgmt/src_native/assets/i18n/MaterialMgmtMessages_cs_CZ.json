@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "Přidat k",
+    "addButtonTitle": "Přidat",
+    "addLabel": "Přidat k",
+    "newShowAddObjectPresenterBtn": "Nový",
+    "paletteShowAddObjectPresenterBtn": "Paleta",
+    "searchShowAddObjectPresenterBtn": "Hledat",
+    "errorInGettingSubtypesofEndItem": "Výsledky hledání nebyly filtrovány kvůli interní chybě.",
+    "FrequentlyUsedSectionTitle": "Často používané",
+    "addPropertiesLabel": "Přidat vlastnosti",
+    "resultsTabTitle": "Výsledky",
+    "filterTabTitle": "Filtr",
+    "Mtw0ShowAddObjectDesc": "Přiřaďte látku k materiálu.",
+    "view": "Pohled",
+    "billOfMaterials": "Rozpiska",
+    "billOfSubstances" : "Rozpis látek"
+}

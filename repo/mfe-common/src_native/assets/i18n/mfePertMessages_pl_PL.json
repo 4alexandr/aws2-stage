@@ -1,0 +1,6 @@
+{
+    "moveModeCommandTitle":"Tryb ruchu",
+    "moveModeCommandDescription":"Gdy ten tryb jest włączony, kliknij i przeciągnij, aby przenieść pole.",
+    "editModeCommandTitle":"Tryb tworzenia przepływu",
+    "editModeCommandDescription":"Gdy ten tryb jest włączony, kliknij i przeciągnij, aby połączyć proces z procesem następcy."  
+}

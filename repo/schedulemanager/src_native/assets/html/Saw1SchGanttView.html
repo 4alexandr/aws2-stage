@@ -1,0 +1,10 @@
+<aw-flex-column width="fill" height="fill">
+    <aw-flex-column>
+        <aw-toolbar class="aw-schedulemanager-prgView-toolbar" first-anchor="aw_ganttViewer" second-anchor="aw_ganttViewerRightSide" orientation="HORIZONTAL"></aw-toolbar>
+        <aw-gantt ganttid="ScheduleGantt" class="aw-schedulemanager-gantt"> </aw-gantt>
+    </aw-flex-column>
+    <aw-splitter direction="HORIZONTAL" visible-when="ctx.activeSplit===true"> </aw-splitter>
+    <aw-flex-row visible-when="ctx.activeSplit===true">
+        <aw-xrt-summary id="splitGantt" model-object="ctx.splitXrtViewModel" visible-when="ctx.activeSplit===true"> </aw-xrt-summary>
+    </aw-flex-row>
+</aw-flex-column>

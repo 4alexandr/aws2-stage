@@ -1,0 +1,42 @@
+{
+    "schemaVersion" : "1.0.0",
+"imports":
+    [
+        "js/aw-panel-body.directive",
+        "js/aw-column.directive",
+        "js/aw-command-sub-panel.directive",
+        "js/exist-when.directive",
+        "js/aw-row.directive",
+        "js/aw-splitter.directive"
+    ],
+
+    "actions":
+    {
+       "onInterfaceDetailsPanelReveal": {
+            "actionType": "JSFunction",
+            "method": "onInterfaceDetailsPanelReveal",
+            "inputData": {
+            },
+            "deps": "js/Ase1InterfaceDetailsService"
+        },
+
+        "processSelectionChangeEvent": {
+            "actionType": "JSFunction",
+            "method": "processSelectionChangeEvent",
+            "inputData": {
+                "eventData": "{{data}}"
+            },
+            "deps": "js/Ase1InterfaceDetailsService"
+        }
+    },
+
+    "onEvent": [{
+        "eventId": "interfaceDetails.contentLoaded",
+        "action": "onInterfaceDetailsPanelReveal"
+    },
+    {
+        "eventId": "AM.PrimarySelectionChangeEvent",
+        "action": "processSelectionChangeEvent",
+        "cacheEventData": true
+    }]
+}

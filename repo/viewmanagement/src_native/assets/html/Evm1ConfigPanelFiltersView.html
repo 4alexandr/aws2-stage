@@ -1,0 +1,11 @@
+<aw-panel-body>
+    <aw-include name="Evm1ConfigRevRule" sub-panel-context="data"></aw-include>
+    <aw-include name="Evm1ConfigDateEffectivity" exist-when="ctx.recipeCtx.productContextInfo" sub-panel-context="data"></aw-include>
+    <aw-include name="Evm1ConfigUnitEffectivity" exist-when="ctx.recipeCtx.productContextInfo" sub-panel-context="data"></aw-include>
+    <aw-include name="Evm1ConfigVariant" exist-when="ctx.recipeCtx.productContextInfo" sub-panel-context="data"></aw-include>
+</aw-panel-body>
+<aw-panel-footer>
+    <aw-button action="addConfigOnRecipeBuilderAction" visible-when="awPanelBody.$valid">
+        <aw-i18n>i18n.add</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

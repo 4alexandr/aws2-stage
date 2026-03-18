@@ -1,0 +1,22 @@
+{
+    "UseTransparencyOnTitle": "Anzeigemodus für transparente Auswahl aktivieren",
+    "UseTransparencyOffTitle": "Anzeigemodus für transparente Auswahl deaktivieren",
+    "NavigationRotateTitle": "Rotieren",
+    "NavigationPanTitle": "Verschieben",
+    "NavigationZoomTitle": "Zoomen",
+    "GeometricAnalysisPanelTitle": "Geometrieanalyse",
+    "GeometricAnalysisMeasurementTitle": "Messung",
+    "GeometricAnalysisSectionTitle": "Schnitt",
+    "GeometricAnalysisQueryTitle": "Abfrage",
+    "GeometricAnalysisVolumeTitle": "Volumen",
+    "GeometricAnalysisProximityTitle": "Nähe",
+    "LoadingViewer": "Laden...",
+    "MMVSessionWarning": "Sitzungen können Schnappschüsse von MMV-Daten noch nicht beibehalten.",
+    "Checkout": "Sie arbeiten nicht mehr an der aktuellen Version dieser Sitzung. Möchten Sie eine neue Sitzung erstellen?",
+    "InternalError": "Visualisierungsdaten wurden nicht in der Sitzung gespeichert.",
+    "Cancel":"Abbrechen",
+    "Create":"Erstellen",
+    "OwningModel":"Eigentümermodell",
+    "OwningUser":"Eigentümerbenutzer",
+    "modelViewProxyListPanelTitle":"Offengelegte Modellansichten"
+}

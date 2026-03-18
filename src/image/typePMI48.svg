@@ -1,0 +1,28 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="linear-gradient" x1="17.5" y1="7.5" x2="46.5" y2="7.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#bebebe"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="17.505" y1="23.5" x2="46.495" y2="23.5" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="17.505" y1="39.5" x2="46.495" y2="39.5" xlink:href="#linear-gradient"/>
+  </defs>
+  <circle cx="3.585" cy="7.5" r="2.093" fill="none" stroke="#464646" stroke-miterlimit="10"/>
+  <line x1="6.027" y1="7.5" x2="17.492" y2="7.5" fill="none" stroke="#464646" stroke-miterlimit="10"/>
+  <rect x="17.5" y="1.5" width="29" height="12" stroke="#464646" stroke-miterlimit="10" fill="url(#linear-gradient)"/>
+  <circle cx="3.592" cy="23.5" r="2.093" fill="none" stroke="#464646" stroke-miterlimit="10"/>
+  <line x1="6.033" y1="23.5" x2="17.494" y2="23.5" fill="none" stroke="#464646" stroke-miterlimit="10"/>
+  <rect x="17.505" y="17.5" width="28.99" height="12" stroke="#464646" stroke-miterlimit="10" fill="url(#linear-gradient-2)"/>
+  <circle cx="3.592" cy="39.5" r="2.093" fill="none" stroke="#464646" stroke-miterlimit="10"/>
+  <line x1="6.033" y1="39.5" x2="17.494" y2="39.5" fill="none" stroke="#464646" stroke-miterlimit="10"/>
+  <rect x="17.505" y="33.5" width="28.99" height="12" stroke="#464646" stroke-miterlimit="10" fill="url(#linear-gradient-3)"/>
+  <line x1="21.021" y1="4.489" x2="43.021" y2="4.489" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+  <line x1="21.021" y1="7.5" x2="43.021" y2="7.5" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+  <line x1="21.021" y1="10.489" x2="33.855" y2="10.489" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+  <line x1="21.021" y1="36.489" x2="43.021" y2="36.489" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+  <line x1="21.021" y1="39.5" x2="43.021" y2="39.5" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+  <line x1="21.021" y1="42.489" x2="33.855" y2="42.489" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+  <line x1="21.021" y1="20.489" x2="43.021" y2="20.489" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+  <line x1="21.021" y1="23.5" x2="43.021" y2="23.5" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+  <line x1="21.021" y1="26.489" x2="33.855" y2="26.489" fill="none" stroke="#6e6e6e" stroke-miterlimit="10"/>
+</svg>

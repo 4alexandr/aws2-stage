@@ -1,0 +1,32 @@
+<aw-panel-body class="aw-clsadmin-nodes">
+    <aw-flex-row height="fill" visible-when="ctx.clsAdmin.isCSTNode === true && ctx.clsAdmin.isGroupNode === false">
+        <aw-column width="100%">
+            <aw-panel-section caption="i18n.classProperties" collapsed="false">
+                <aw-widget prop="item" aw-repeat="item : ctx.clsAdmin.nodeClassProperties"></aw-widget>
+            </aw-panel-section>
+            <aw-flex-row height="fill">
+                <aw-column width="100%" visible-when="data.hasBlocks === true">
+                    <aw-panel-section class="aw-cls-propertyGroupSection" caption="i18n.propertyGroups"
+                        collapsed="false">
+                        <aw-cls-fullview-classheader expansionstate="true" keyword="true"
+                            class="aw-cls-propGroupsHeaderContainer">
+                            <aw-cls-property-group-tree-section class="aw-cls-fullview-properties" nodes="data.attr_anno">
+                            </aw-cls-property-group-tree-section>
+                        </aw-cls-fullview-classheader>
+                    </aw-panel-section>
+                </aw-column>
+                <aw-column width="100%" class="aw-clsadmin-float" visible-when="data.attr_anno.length > 0">
+                    <aw-cls-fullview-properties data="data"></aw-cls-fullview-properties>
+                </aw-column>
+                <aw-column width="100%" visible-when="ctx.attributeProperties.length > 0">
+                    <aw-panel-section caption="{{i18n.attrProp}}" visible-when="ctx.attributeProperties.length > 0"
+                        collapsed="false">
+                        <aw-widget prop="item" aw-repeat="item : ctx.attributeProperties"></aw-widget>
+                    </aw-panel-section>
+                </aw-column>
+            </aw-flex-row>
+        </aw-column>
+    </aw-flex-row>
+    <aw-i18n visible-when="ctx.clsAdmin.isCSTNode === false">i18n.SMLRAC</aw-i18n>
+    <aw-i18n visible-when="ctx.clsAdmin.isGroupNode === true">i18n.GRPNODE</aw-i18n>
+</aw-panel-body>

@@ -1,0 +1,81 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-row.directive",
+        "js/aw-chart.directive",
+        "js/aw-link.directive",
+        "js/aw-column.directive"
+    ],
+    "actions": {
+        "tileRevealed": {
+            "actionType": "JSFunctionAsync",
+            "method": "dashboardTileRevealed",
+            "inputData": {
+                "subPanelContext": "{{subPanelContext}}",
+                "data": "{{data}}"
+            },
+            "outputData": {},
+            "deps": "js/myDashboardTileService"
+        },
+        "getChartDataAction": {
+            "actionType": "JSFunction",
+            "method": "getChartDataAction",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "chartProviders.myChartProvider.chartPoints": ""
+            },
+            "deps": "js/myDashboardTileService"
+        },
+        "goToReport": {
+            "actionType": "Navigate",
+            "navigateTo": "showReport",
+            "navigationParams": {
+                "uid": "{{data.tileReportObject.uid}}",
+                "reportId": "{{data.tileReportObject.props.rd_id.dbValues[0]}}",
+                "title": "{{data.tileReportObject.props.rd_name.dbValues[0]}}",
+                "configure": false
+            },
+            "options": {
+                "inherit": false
+            }
+        }
+    },
+    "chartProviders": {
+        "myChartProvider": {
+            "title": "",
+            "chartType": "line",
+            "loadDataAction": "getChartDataAction",
+            "chartConfig": {
+                "isChartZoomable": true,
+                "isYAxisLinearOrLogarithmic": "logarithmic",
+                "xAxisLabel": "",
+                "yAxisLabel": "{{i18n.objectCount}}",
+                "isDataLabelOnChartEnabled": true
+            }
+        }
+    },
+    "data": {
+        "chartConfig": {},
+        "displayChart": false,
+        "reportlink": {
+            "displayName": "{{subPanelContext.props.rd_name.dbValues[0]}}",
+            "type": "STRING",
+            "isRequired": "false"
+        }
+    },
+    "lifecycleHooks": {
+        "onMount": "tileRevealed"
+    },
+    "conditions": {
+        "showtheChart": {
+            "expression": "data.displayChart"
+        }
+    },
+    "i18n": {
+        "viewReport": [ "ReportChartStrings" ],
+        "totalObjectFound":["ReportChartStrings"],
+        "objectCount":["ReportChartStrings"]
+    }
+}

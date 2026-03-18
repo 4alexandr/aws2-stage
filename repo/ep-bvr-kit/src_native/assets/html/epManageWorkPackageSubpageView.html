@@ -1,0 +1,8 @@
+<aw-flex-column class="aw-mfe-manageWpXrtContainer" width="4">
+    <aw-include class="aw-mfe-manageWpXRT" name="epInformation" exist-when="ctx.ep && ctx.ep.scopeObject" sub-panel-context="{scopeObject:ctx.ep.scopeObject,xrtType:'INFO'}"></aw-include>
+</aw-flex-column>
+<aw-flex-column exist-when="ctx.epPageContext && ctx.epPageContext.collaborationContext" class="afx-content-background" width="fill">
+    <aw-include name="epManageTilesArea"></aw-include>
+</aw-flex-column>    
+
+                    

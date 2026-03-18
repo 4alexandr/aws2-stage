@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "\"{0}\" und entsprechende Attributzuordnungen werden gelöscht.",
+    "removeSingleElementConfirmation": "\"{0}\" wird entfernt.",
+    "removeMultipleElementsConfirmation": "{0} Auswahlen werden entfernt.",
+    "removeMeasurableAttributeMessage": "\"{0}\" wird gelöscht.",
+    "syncSingleConectionMessage": "\"{0}\" wird synchronisiert, und Interaktionen werden aktualisiert. Sie werden benachrichtigt, wenn der Vorgang abgeschlossen ist.",
+    "syncMultipleConectionsMessage": "\"{0}\" Auswahlen werden synchronisiert, und Interaktionen werden aktualisiert. Sie werden benachrichtigt, wenn der Vorgang abgeschlossen ist.",
+    "exportInterfaceTitle": "Schnittstelle exportieren",
+    "aw_interfaceTableCommandbar": "Schnittstellentabellen-Befehlsleiste",
+    "aw_interactionTableCommandbar": "Interaktionstabellen-Befehlsleiste",
+    "aw_attributesTableCommandbar": "Attributtabellen-Befehlsleiste",
+    "aw_interfacesViewer": "Schnittstellen-Viewer",
+    "table_cell_commands": "Tabellen-Zellenbefehle",
+    "Ase1ExportInterfaceElementDesc": "Ausgewählte Schnittstellendetails exportieren."
+}

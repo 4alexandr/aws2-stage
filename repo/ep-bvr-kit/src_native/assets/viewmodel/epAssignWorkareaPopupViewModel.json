@@ -1,0 +1,185 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-row.directive",
+        "js/aw-splm-table.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-popup2.directive",
+        "js/enable-when.directive"
+    ],
+
+    "data": {
+        "preferenceName":  "EP_AssignedWorkareaTabColumnConfiguration"
+    },
+
+    "actions": {
+        "createColumns": {
+            "actionType": "JSFunction",
+            "method": "createColumns",
+            "inputData": {
+                "preferenceName": "{{data.preferenceName}}",
+                "dataProvider": "{{data.dataProviders.epAssignWorkAreaTreeDataProvider}}",
+                "columnProvider": {},
+                "additionalPolicyObjects": {
+                    "types": [{
+                        "name": "Mfg0BvrWorkarea",
+                        "properties": [{
+                            "name": "bl_has_children"
+                        }]
+                    }]
+                }
+            },
+            "deps": "js/mfeTableService"
+        },
+
+        "loadTreeTableData": {
+            "actionType": "JSFunction",
+            "method": "loadTreeTableData",
+            "inputData":
+            {
+                "treeLoadInput": "{{data.treeLoadInput}}",
+                "topNodeUid": "{{ctx.epPageContext.rootPlant.uid}}",
+                "isTopNode": true,
+                "rootLoadInputData": {
+                    "loadType": "Plant",
+                    "propertiesToLoad": ["Mfg0sub_elements"]
+                },
+                "childLoadInputData": {
+                    "loadType": "Plant",
+                    "propertiesToLoad": ["Mfg0sub_elements"]
+                },
+                "dataProvider": "{{data.dataProviders.epAssignWorkAreaTreeDataProvider}}",
+                "treeNavigationColumnIndex": 0,
+                "isLeafProperty": "bl_has_children"
+            },
+            "outputData": {
+                "treeLoadResult": "treeLoadResult"
+            },
+            "deps": "js/epTableService"
+        },
+
+        "epAssignWorkarea": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "doAssignWorkarea"
+                },
+                {
+                    "action": "closePopupWindow"
+                }
+            ]
+        },
+
+        "doAssignWorkarea": {
+            "actionType": "JSFunction",
+            "method": "removeOrAddObjects",
+            "inputData": {
+                "actionType": "Add",
+                "inputObj": "{{subPanelContext.scopeObject}}",
+                "selectedObjects": "{{data.dataProviders.epAssignWorkAreaTreeDataProvider.selectedObjects}}",
+                "entryName": "AssignedTools",
+                "relationType": "MEWorkArea"
+            },
+            "deps": "js/epTableService"
+        },
+
+        "closePopupWindow": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "deps": "js/popupService"
+        },
+
+        "saveResizedColumnsWidth": {
+            "actionType": "JSFunction",
+            "method": "saveResizedColumnsWidth",
+            "inputData": {
+                "preferenceName": "{{data.preferenceName}}",
+                "columns": "{{data.eventData.columns}}"
+            },
+            "deps": "js/mfeTableService"
+        },
+        "createColumnsAndRegisterPolicy": {
+            "actionType": "batchJob",
+            "steps": [{
+                    "action": "createColumns"
+                },
+                {
+                    "action": "registerPolicy"
+                }
+            ]
+        },
+        "registerPolicy": {
+            "actionType": "JSFunction",
+            "method": "register",
+            "inputData": {
+                "name": "epAssignWorkAreaTree",
+                "policyObj": "{{data.dataProviders.epAssignWorkAreaTreeDataProvider.policy}}"
+            },
+            "deps": "js/mfePolicyService"
+        },
+        "unregisterPolicy": {
+            "actionType": "JSFunction",
+            "method": "unregister",
+            "inputData": {
+                "name": "epAssignWorkAreaTree"
+            },
+            "deps": "js/mfePolicyService"
+        }
+    },
+
+    "dataProviders": {
+        "epAssignWorkAreaTreeDataProvider": {
+            "initializeAction": "loadTreeTableData",
+            "nextAction": "loadTreeTableData",
+            "previousAction": "loadTreeTableData",
+            "focusAction": "loadTreeTableData",
+            "treeLoadResult": "{{data.treeLoadResult}}",
+            "selectionModelMode": "multiple",
+            "inputData": {
+                "accessMode": "tree",
+                "topNodeUid": "{{ctx.epPageContext.rootPlant.uid}}"
+            }
+        }
+    },
+    "columnProviders": {
+        "epAssignWorkAreaTreeColumnProvider": {
+            "loadColumnAction": "createColumnsAndRegisterPolicy"
+        }
+    },
+    "grids": {
+        "epAssignWorkAreaTree": {
+            "dataProvider": "epAssignWorkAreaTreeDataProvider",
+            "columnProvider": "epAssignWorkAreaTreeColumnProvider",
+            "addIconColumn": false
+        }
+    },
+
+    "conditions": {
+        "hasSelection": {
+            "expression": "data.dataProviders.epAssignWorkAreaTreeDataProvider.selectedObjects.length > 0"
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "columnArrange",
+            "cacheEventData": true,
+            "action": "saveResizedColumnsWidth",
+            "criteria":
+            {
+                "name": "epAssignWorkAreaTree"
+            }
+        }
+    ],
+
+    "i18n": {
+        "assign": [ "EPMessages" ],
+        "cancel": [ "EPMessages" ]
+    },
+
+    "lifecycleHooks": {
+        "onUnmount": "unregisterPolicy"
+    }
+}

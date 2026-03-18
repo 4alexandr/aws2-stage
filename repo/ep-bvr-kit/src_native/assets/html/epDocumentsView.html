@@ -1,0 +1,20 @@
+<aw-include exist-when="!conditions.hasInput" name="mfeMessage" sub-panel-context="data.messages.noInput"></aw-include>
+<aw-include exist-when="conditions.hasInput && !conditions.hasItems" name="mfeMessage" sub-panel-context="data.messages.noItems"></aw-include>
+<aw-flex-row exist-when="conditions.hasInput && conditions.hasItems">
+    <aw-flex-column width="3">
+        <aw-scrollpanel>
+            <aw-list dataprovider="data.dataProviders.documentItemsList">
+                <aw-flex-row align-content="center">
+                    <img src="{{item.typeIconURL}}" class="aw-epDetails-fileIcon">
+                    <div>
+                        <strong>{{item.props.object_string.dbValues[0]}}</strong>
+                    </div>
+                </aw-flex-row>
+            </aw-list>
+        </aw-scrollpanel>
+    </aw-flex-column>
+    <aw-separator is-vertical="true"></aw-separator>
+    <aw-flex-column>
+        <aw-include name="epInformation" sub-panel-context="data.subPanelContextForInformation"></aw-include>
+    </aw-flex-column>
+</aw-flex-row>

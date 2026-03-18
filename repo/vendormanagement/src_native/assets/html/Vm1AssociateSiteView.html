@@ -1,0 +1,40 @@
+<aw-form name="associateSiteForm">
+    <aw-panel-body>
+        <aw-command-panel-section caption="i18n.vm1AssociateSiteCommandTitle"
+            visible-when="data.vm1PanelId==='Vm1CreateVendor'"></aw-command-panel-section>
+        <aw-panel-header>
+            <aw-tab-set tabs="data.associateSitePanelTabModels.dbValue"></aw-tab-set>
+        </aw-panel-header>
+        <aw-panel-body visible-when="data.selectedTab.tabKey==='vm1NewTab'">
+            <aw-textbox prop="data.name"></aw-textbox>
+            <aw-numeric prop="data.siteID"></aw-numeric>
+        </aw-panel-body>
+
+        <aw-panel-body visible-when="data.selectedTab.tabKey==='vm1SearchTab'">
+            <aw-search-box prop="data.searchBox" placeholder="Required" action="callDataProvider"></aw-search-box>
+            <aw-list dataprovider="data.dataProviders.performSearch">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+        </aw-panel-body>
+    </aw-panel-body>
+</aw-form>
+<aw-panel-footer exist-when="associateSiteForm.$valid || data.selectedTab.tabKey==='vm1SearchTab'">
+    <!-- Buttons for New, Search Tab of Assign Site Of Existing Vendor-->
+    <aw-button action="createAndAssociateSite"
+        visible-when="data.vm1PanelId!=='Vm1CreateVendor' && data.name.dbValue!=='' && data.siteID.dbValue!=='' && data.selectedTab.tabKey==='vm1NewTab'">
+        <aw-i18n>i18n.vm1Assign</aw-i18n>
+    </aw-button>
+    <aw-button action="associateSiteToExistingVendor"
+        visible-when="data.vm1PanelId!=='Vm1CreateVendor' && data.dataProviders.performSearch.selectedObjects.length>0 && data.selectedTab.tabKey==='vm1SearchTab'">
+        <aw-i18n>i18n.vm1Assign</aw-i18n>
+    </aw-button>
+    <!-- Buttons for New, Search Tab of Assign Site in create vendor-->
+    <aw-button action="createAndAssociateSiteToNewVendor"
+        visible-when="data.vm1PanelId==='Vm1CreateVendor' && data.name.dbValue!=='' && data.siteID.dbValue!=='' && data.selectedTab.tabKey==='vm1NewTab'">
+        <aw-i18n>i18n.vm1Assign</aw-i18n>
+    </aw-button>
+    <aw-button action="associateSearchedSiteToNewVendor"
+        visible-when="data.vm1PanelId==='Vm1CreateVendor' && data.dataProviders.performSearch.selectedObjects.length>0 && data.selectedTab.tabKey==='vm1SearchTab'">
+        <aw-i18n>i18n.vm1Assign</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

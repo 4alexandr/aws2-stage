@@ -1,0 +1,10 @@
+{
+    "StationWorkInstructionsTitle": "Рабочие инструкции",
+    "processTitle": "Процесс",
+    "editorTitle": "Редактор",
+    "noAssemblyStructure": "Нет ссылок на структуру сборки.",
+    "GraphicVisibilityColumnName": "Видимость графики",
+    "syncedToViewer": "Синхронизировано с программой просмотра. {@msgTxtLink0}",
+    "syncedToEditor": "Синхронизировано с текстовым редактором. {@msgTxtLink0}",
+    "switchMode": "Переключить"
+}

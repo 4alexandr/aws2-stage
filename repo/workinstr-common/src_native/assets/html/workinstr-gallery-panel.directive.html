@@ -1,0 +1,10 @@
+<div class="aw-layout-sublocationContainer aw-workinstr-viewerStyle">   
+    <div ng-class="{'aw-workinstr-documentGalleryContentPanel': activeTab.tab.viewMode.showThumbnails !== 'false', 'aw-workinstr-documentGalleryContentPanelNoSlider': activeTab.tab.viewMode.showThumbnails === 'false' }">
+        <aw-include name="{{viewerData.fileData.viewer}}" sub-panel-context="viewerData" ng-if="viewerData" class="aw-workinstr-viewerStyle"></aw-include>
+    </div>
+    <div class="aw-workinstr-documentGallerySliderPanel" ng-hide="activeTab.tab.viewMode.showThumbnails === 'false' ">
+        <workinstr-gallery-list dataprovider="data.dataProviders.galleryDataProvider" class="aw-widgets-horizontalListMainPanel">
+            <workinstr-gallery-cell vmo="item"></workinstr-gallery-cell>
+        </workinstr-gallery-list>
+   </div>
+</div>

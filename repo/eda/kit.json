@@ -1,0 +1,12 @@
+{
+  "name": "eda",
+  "description": "",
+  "modules": [
+    "eda"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": [
+    "Eda0.Soa.EDMDCollab"
+  ]
+}

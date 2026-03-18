@@ -1,0 +1,13 @@
+<table>
+    <tr aw-repeat="ratingProp : data.ratingProps">
+        <td class="aw-social-summaryRatingCell" ng-class="{'aw-social-totalRatings': ratingProp.propertyName =='s2clTotalRatingsFromSummary'}">
+            <aw-link prop="ratingProp" ng-click="filterRatings( ratingProp );"></aw-link>
+        </td>
+        <td>
+            <aw-social-rating-percent value="ratingProp" total="data.totalRatingProp" ng-if="ratingProp.propertyName != 's2clTotalRatingsFromSummary'"
+                action="filterCommentsForRatingStar"></aw-link>
+        </td>
+    </tr>
+</table>
+
+

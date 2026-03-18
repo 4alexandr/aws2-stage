@@ -1,0 +1,39 @@
+<div>
+    <br />
+    <aw-radiobutton prop="data.dateOrUnitEffectivityTypeRadioButton" ng-click="setOrClearDateOrUnitEffectivity()"></aw-radiobutton>
+    <aw-checkbox prop="data.isShared"></aw-checkbox>
+    <aw-textbox prop="data.nameBox" exist-when="data.isShared.dbValue"></aw-textbox>
+</div>
+
+<div exist-when="data.dateOrUnitEffectivityTypeRadioButton.dbValue">
+    <div ng-init="prop=data.startDate">
+        <aw-property-error aw-ace-effectivity-validator="{{flag}}_DATE" ng-model="prop.dbValue" ng-class="{'aw-widgets-propertyError': errorApi.errorMsg, 'changed': prop.dirty}" class="aw-widgets-propertyEditValue" ng-model-options="{ allowInvalid: true }" ng-keydown="evalKey($event)">
+            <aw-date prop="data.startDate" exist-when="!data.isTimeEnabled"></aw-date>
+            <aw-datetime prop="data.startDate" exist-when="data.isTimeEnabled"></aw-datetime>
+        </aw-property-error>
+    </div>
+    <div>
+        <aw-listbox ng-click="clearEndDate()" prop="data.endDateOptions" list="data.endDateList.dbValue"></aw-listbox>
+        <div aw-ace-effectivity-validator="{{flag}}_DATE" ng-model="data.endDate.dbValue" ng-class="{'aw-widgets-propertyError': errorApi.errorMsg, 'changed': prop.dirty}" class="aw-widgets-propertyEditValue" ng-model-options="{ allowInvalid: true }" ng-keydown="evalKey($event)">
+            <aw-date prop="data.endDate" exist-when="data.endDateOptions.dbValue=='Date' && !data.isTimeEnabled" class="aw-endDate-authorEffectivityPanel"></aw-date>
+            <aw-datetime prop="data.endDate" exist-when="data.endDateOptions.dbValue=='Date' && data.isTimeEnabled" class="aw-endDate-authorEffectivityPanel"></aw-datetime>
+        </div>
+    </div>
+</div>
+
+<div exist-when="!data.dateOrUnitEffectivityTypeRadioButton.dbValue">
+    <div ng-init="prop=data.unitRangeText">
+        <aw-property-error aw-ace-effectivity-validator="AUTHOR_UNIT" ng-model="prop.dbValue" ng-class="{'aw-widgets-propertyError': errorApi.errorMsg, 'changed': prop.dirty}" class="aw-widgets-propertyEditValue" ng-model-options="{ allowInvalid: true }" ng-keydown="evalKey($event)">
+            <aw-textbox title="{{data.i18n.dateEffectivityPlaceholder}}" prop="data.unitRangeText" exist-when="!data.dateOrUnitEffectivityTypeRadioButton.dbValue"></aw-textbox>
+        </aw-property-error>
+    </div>
+</div>
+
+<br />
+<aw-row height="5f" exist-when="!data.dateOrUnitEffectivityTypeRadioButton.dbValue">
+    <aw-label prop="data.endItemLabel"></aw-label>
+    <aw-property-non-edit-val prop="data.endItemVal"></aw-property-non-edit-val>
+    <button title="{{data.i18n.replaceElementBtn}}" ng-click="navigateToEndItemPanel()" class="aw-commands-commandIconButton aw-jswidgets-rmButton">
+        <aw-property-image name="cmdReplace" ></aw-property-image>
+    </button>
+</aw-row>

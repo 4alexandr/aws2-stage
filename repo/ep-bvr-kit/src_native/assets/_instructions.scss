@@ -1,0 +1,53 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+/*=========================================================================*/
+/*========================== EP work instructions =========================*/
+/*=========================================================================*/
+
+.aw-ep-wiNavigationArea {
+    width: 24%
+}
+
+.aw-ep-wiEditorArea,
+.aw-ep-wiGraphicsArea {
+    width: 50%
+}
+
+.aw-ep-wiGraphicsArea {
+    padding-right: 16px;
+}
+
+
+.aw-ep-toggleSyncMessage {
+    .aw-guidance-container{
+        flex-direction: row-reverse;
+    }
+    .aw-guidanceText-container{
+        margin: 8px;
+    }
+}
+
+.aw-ep-toggleSyncIcon {
+    .aw-base-icon{
+        height: 16px;
+        width: 16px;
+    }
+
+    margin-left: 16px;
+    margin-right: -16px;
+}
+
+.aw-ep-wiScopeLabel {
+    .aw-widgets-propertyLabelTopValueContainer {
+        @include flex(0 0 auto);
+        .aw-widgets-propertyNonEditValue{
+            font-weight: $bold_font_weight;
+        }
+    }
+}

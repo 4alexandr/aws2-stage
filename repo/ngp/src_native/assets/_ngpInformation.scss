@@ -1,0 +1,46 @@
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2020.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+
+.aw-ngp-informationDetailsTitle {
+    font-size: $fontsize_2x_large;
+    font-weight: $bold_font_weight;
+}
+
+.aw-ngp-attachmentsPanel {
+    padding: 8px;
+
+    .aw-layout-panelSection{
+        margin-bottom:8px;
+
+        .aw-layout-panelSectionContent{
+            padding-top: 8px;
+        }
+    }
+
+    .aw-ngp-attachmentsPanelOverview{
+        .aw-widgets-modelObjectList{
+            margin-bottom:8px;
+        }
+
+        li{
+            @include flexbox();
+            @include flex-direction(row);
+            padding-left: 35px;
+            width: auto;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: $fontsize_normal;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    }
+}
+
+

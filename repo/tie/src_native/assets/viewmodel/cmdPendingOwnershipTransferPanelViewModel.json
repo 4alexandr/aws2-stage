@@ -1,0 +1,194 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-listbox.directive",
+        "js/aw-list.directive",
+        "js/aw-default-cell.directive",
+        "js/aw-scrollpanel.directive",
+        "js/aw-break.directive",
+        "js/aw-toolbar.directive"
+    ],
+    "actions": {
+        "queryPendingOwnershipTransferInfo": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-GlobalMultiSite-2020-01-Briefcase",
+            "method": "queryMarkOT",
+            "inputData": {
+                "objects": [],
+                "userId": "{{ctx.user.props.userid.dbValue}}",
+                "targetSiteId": 0,
+                "needHelperObjects": false,
+                "appId": "BC"
+            },
+            "outputData": {
+                "targetSitesListBoxValues": "{{function:getTargetSitesWithMarkOT}}"
+            },
+            "deps": "js/briefcaseMarkOT"
+        },
+        "targetSiteSelectionChange": {
+            "actionType": "dataProvider",
+            "method": "listDataProvider"
+        },
+        "loadListData": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadListData",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+            "outputData": {
+                "markedOTObjs": ""
+            },
+            "deps": "js/briefcaseMarkOT"
+        },
+        "toggleListSelectAll": {
+            "actionType": "JSFunction",
+            "method": "toggleListSelectAll",
+            "inputData": {
+                "data": "{{data.dataProviders.listDataProvider}}"
+            },
+            "deps": "js/briefcaseMarkOT"
+        },
+        "toggleListSelectionMode": {
+            "actionType": "JSFunction",
+            "method": "toggleListMultipleSelectionMode",
+            "deps": "js/briefcaseMarkOT",
+            "inputData": {
+                "data": "{{data.dataProviders.listDataProvider}}"
+            }
+        },
+        "performCancelTransferOwnership": {
+            "actionType": "TcSoaService",
+            "serviceName": "Internal-GlobalMultiSite-2020-01-Briefcase",
+            "method": "removeMarkOTForCurrentUser",
+            "inputData": {
+                "objects": "{{function:getCancelTransferOwnershipObjectList}}",
+                "appId": "BC"
+            },
+            "outputData": {
+                "errors": "{{function:processCancelTransferOwnershipPartialErrors}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "pendingOwnershipTransfer.reloadData"
+                    }
+                ]
+            },
+            "deps": "js/briefcaseMarkOT"
+        },
+        "panelCleanup": {
+            "actionType": "JSFunction",
+            "method": "panelCleanup",
+            "deps": "js/briefcaseMarkOT"
+        },
+        "registerPendingOwnershipTransferPanelContext": {
+            "actionType": "JSFunction",
+            "method": "registerPendingOwnershipTransferPanelContext",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/briefcaseMarkOT"
+        },
+        "updateListSelectionWithCtx": {
+            "actionType": "JSFunction",
+            "method": "updateListSelectionWithCtx",
+            "inputData": {
+                "data": "{{data}}",
+                "ctx": "{{ctx}}"
+            },
+            "deps": "js/briefcaseMarkOT"
+        }
+    },
+    
+    "onEvent": [           
+        {
+            "eventId": "pendingOwnershipTransfer.reloadData",
+            "action": "queryPendingOwnershipTransferInfo"
+        },
+        {
+            "eventId": "targetSite.default",
+            "action": "targetSiteSelectionChange"
+        },
+        {
+            "eventId": "pendingOwnershipTransfer.toggleListSelectionMode",
+            "action": "toggleListSelectionMode"
+        },
+        {
+            "eventId": "pendingOwnershipTransfer.toggleListSelectAll",
+            "action": "toggleListSelectAll"
+        },
+        {
+            "eventId": "pendingOwnershipTransfer.cancelTransferOwnership",
+            "action": "performCancelTransferOwnership"            
+        },
+        {
+            "eventId": "listDataProvider.modelObjectsUpdated",
+            "action": "updateListSelectionWithCtx"
+        }
+    ],
+
+    "lifecycleHooks": {
+        "onInit": "registerPendingOwnershipTransferPanelContext",
+        "onMount": "queryPendingOwnershipTransferInfo",
+        "onUnmount": "panelCleanup"
+    },
+
+    "dataProviders": {
+        "listDataProvider": {
+            "action": "loadListData",
+            "response": "{{data.markedOTObjs}}",
+            "selectionModelMode": "multiple",
+            "commandsAnchor": "com.siemens.splm.clientfx.tcui.commands.modelObjectCellListActionCommands"
+        }
+    },
+    "messages": {},
+    "functions": {
+        "getTargetSitesWithMarkOT": {
+            "functionName": "getTargetSitesWithMarkOT",
+            "parameters": [
+                "{{data}}"
+            ]
+        },
+        "getCancelTransferOwnershipObjectList": {
+            "functionName": "getCancelTransferOwnershipObjectList",
+            "parameters": [
+                "{{data.dataProviders.listDataProvider}}"
+            ]
+        },
+        "processCancelTransferOwnershipPartialErrors": {
+            "functionName": "processCancelTransferOwnershipPartialErrors",
+            "parameters": [
+                "{{data}}"
+            ]
+        }
+    },
+    "data": {
+        "targetSitesListBox": {
+            "displayName": "{{i18n.targetSites}}",
+            "type": "STRING",
+            "hasLov": true,
+            "dbValue": "",
+            "dispValue": "",
+            "isRequired": "false"
+        }
+    },
+    "conditions": {
+        "isTargetSiteSelected": {
+            "expression": "data.targetSitesListBox.dbValue && data.targetSitesListBox.uiValue.length > 0"
+        }
+    },
+    "i18n": {
+        "cmdViewOwnershipTransfer": [
+            "tieMessages"
+        ],
+        "targetSites": [
+            "tieMessages"
+        ],
+        "pendingOwnershipTransferSiteLabel": [
+            "tieMessages"
+        ]
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "cancel": "取消",
+    "submit": "提交",
+    "continue": "繼續",
+    "reviseCmdTitle": "修訂",
+    "workflowTemplatesLabel": "工作流程範本",
+    "workflowNameLabel": "工作流程名稱",
+    "workflowDescriptionLabel": "敘述",
+    "noWorkflowTemplatesMsg": "沒有為選定物件找到工作流程範本。",
+    "submitToWorkflowCmdTitle": "提交至工作流程",
+    "submitToWorkflowTooltipMsg": "將 {0} 提交至工作流程。",
+    "submitToWorkflowInformationMsg": "正待刪除 {0} 個工藝。要發佈包含此刪除作業在內的活動內容，使用工作流程範本 \"NGP_ReleasePendingDeletions\" 將此使用中提交至工作流程。",
+    "successfullySubmitToWorkflowSingle": "「{0}」已提交至工作流程。",
+    "successfullySubmitToWorkflowMultiple": "{0} 個物件已提交至工作流程。",
+    "parentAutoReviseSingleConfirmation": "修訂「{0}」也會修訂「{1}」。要繼續嗎？",
+    "parentAutoReviseMultipleConfirmation": "修訂所選工序也會修訂「{0}」。要繼續嗎？",
+    "successfulReviseAction": "已為「{0}」成功建立了新的版本。",
+    "submitSelectedToWorkflow": "將選定元素提交到工作流程。",
+    "singleDeleteMessage": "確定要刪除 \"{0}\" 嗎？",
+    "multipleDeleteMessage": "確定要刪除這 {0} 個物件嗎？",
+    "deleteTooltipMsg": "刪除",
+    "deleteSelectedObjectsCmdDescription": "刪除選定物件"    
+}

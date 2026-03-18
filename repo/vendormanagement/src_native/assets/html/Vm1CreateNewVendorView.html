@@ -1,0 +1,63 @@
+<aw-form name="createVendorPanelForm">
+    <!--Show Types and Sub types of Vendor to create-->
+    <aw-panel-body visible-when="conditions.isTypeSelected">
+        <aw-panel-section caption="i18n.objectType" ></aw-panel-section>
+        <aw-list dataprovider="data.dataProviders.getCreatableVendorTypes">
+            <aw-type-cell vmo="item"></aw-type-cell>
+        </aw-list>
+    </aw-panel-body>
+    <!--Type is selected for creation-->
+    <aw-panel-body exist-when="!conditions.isTypeSelected">
+        <aw-panel-header>
+            <aw-back-button title="{{data.dataProviders.getCreatableVendorTypes.selectedObjects[0].cellHeader1}}"
+                action="clearSelectedType" exist-when="!conditions.isTypeSelected"></aw-back-button>
+        </aw-panel-header>
+        <aw-panel-section>
+            <aw-xrt type="CREATE" object-type="{{data.selectedType.dbValue}}"></aw-xrt>
+        </aw-panel-section>
+        <!-- Contacts Section -->
+        <aw-command-panel-section caption="i18n.companyContacts" anchor="data.addContactsInCreateVendorCommands"
+            context="data">
+            <aw-list dataprovider="data.dataProviders.getVendorContactsList">
+                <aw-default-cell vmo="item"> </aw-default-cell>
+            </aw-list>
+        </aw-command-panel-section>
+
+        <!-- Locations Section -->
+        <aw-command-panel-section caption="i18n.companyLocations" anchor="data.addLocationsInCreateVendorCommands"
+            context="data">
+            <aw-list dataprovider="data.dataProviders.getVendorLocationsList">
+                <aw-default-cell vmo="item"> </aw-default-cell>
+            </aw-list>
+        </aw-command-panel-section>
+
+        <!-- Partner Contracts Section -->
+        <aw-command-panel-section caption="i18n.contractPartners" anchor="data.addPartnerContractInCreateVendorCommands"
+            context="data" visible-when="conditions.isPartnerContractExists">
+            <aw-list dataprovider="data.dataProviders.getPartnerContractList">
+                <aw-default-cell vmo="item"> </aw-default-cell>
+            </aw-list>
+        </aw-command-panel-section>
+
+        <!-- Assign Projects-->
+        <aw-command-panel-section caption="i18n.vm1AssignProjectCommandTitle" anchor="data.assignProjectAnchor"
+            context="data">
+            <aw-list dataprovider="data.dataProviders.getProjectsList">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+        </aw-command-panel-section>
+
+        <!-- Assign Site-->
+        <aw-command-panel-section caption="i18n.vm1Site" anchor="data.associateSiteAnchor" context="data"
+            visible-when="conditions.isSupplierCollPrefExists">
+            <aw-list dataprovider="data.dataProviders.vm1SiteRef">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+        </aw-command-panel-section>
+    </aw-panel-body>
+</aw-form>
+<aw-panel-footer exist-when="createVendorPanelForm.$valid && !conditions.isTypeSelected">
+    <aw-button action="createVendorObject">
+        <aw-i18n>i18n.createVendor</aw-i18n>
+    </aw-button>
+</aw-panel-footer>

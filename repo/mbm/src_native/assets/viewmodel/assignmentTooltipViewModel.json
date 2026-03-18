@@ -1,0 +1,163 @@
+{
+    "schemaVersion": "1.0.0",
+    "data":{
+        "2":{
+            "title":"{{i18n.assignedTitle}}",
+            "description":{
+                "text":"{{i18n.assignedDesc}}"
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}"
+        },
+        "4":{
+            "title":"{{i18n.assignedTitle}}",
+            "description":{
+                "text":"{{i18n.assignedDesc}}"
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}"
+        },
+        "5":{
+            "title": "{{i18n.multipleAssignedTitle}}",
+            "description":{
+                "text":"{{i18n.multipleAssignedDesc}}"
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}"
+        },
+        "6":{
+            "title": "{{i18n.multipleAssignedTitle}}",
+            "description":{
+                "text":"{{i18n.multipleAssignedDesc}}"
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}"
+        },
+        "51":{
+            "title": "{{i18n.partiallyAssignedAssemblyTitle}}",
+            "description":{
+                "text":"{{i18n.partiallyAssignedAssemblyDesc}}"
+            }
+        },
+        "52":{
+            "title": "{{i18n.partiallyAssignedAssemblyTitle}}",
+            "description":{
+                "text":"{{i18n.partiallyAssignedAssemblyDesc}}"
+            }
+        },
+        "53":{
+            "title": "{{i18n.completelyAssignedTitle}}",
+            "description":{
+                "text":"{{i18n.completelyAssignedDesc}}"
+            }
+        },
+        "54":{
+            "title": "{{i18n.completelyAssignedTitle}}",
+            "description":{
+                "text":"{{i18n.completelyAssignedDesc}}"
+            }
+        },
+        "57":{
+            "title": "{{i18n.partiallyAssignedTitle}}",
+            "description":{
+                "text":{
+                    "text":"{{i18n.partiallyAssignedDesc}}",
+                    "params":["{{subPanelContext.contextObject.quantityInfo.assignedQuantity}}","{{subPanelContext.contextObject.quantityInfo.totalQuantity}}"]
+                }
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}"
+        },
+        "58":{
+            "title": "{{i18n.partiallyAssignedTitle}}",
+            "description":{
+                "text":"{{i18n.partiallyAssignedDesc}}"
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}"
+        },
+        "59":{
+            "title": "{{i18n.mbmPackUnassignOverassignOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackUnassignOverassignOccDesc}}"
+            },
+            "subDescription":"{{i18n.mbmHandleOccurrenceDesc}}"
+        },
+        "60":{
+            "title": "{{i18n.mbmPackUnassignOverassignOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackUnassignOverassignOccDesc}}"
+            },
+            "subDescription":"{{i18n.mbmHandleOccurrenceDesc}}"
+        },
+        "61":{
+            "title": "{{i18n.mbmPackUnassignOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackUnassignOccDesc}}"
+            },
+            "subDescription":"{{i18n.mbmHandleOccurrenceDesc}}"
+        },
+        "62":{
+            "title": "{{i18n.mbmPackOverassignOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackOverassignOccDesc}}"
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}",
+            "subDescription":"{{i18n.mbmHandleOccurrenceDesc}}"
+        },
+        "63":{
+            "title": "{{i18n.mbmPackAssignOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackAssignOccDesc}}"
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}",
+            "subDescription":"{{i18n.mbmHandleOccurrenceDesc}}"
+        },
+        "64":{
+            "title": "{{i18n.mbmPackOverassignOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackOverassignOccDesc}}"
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}",
+            "subDescription":"{{i18n.mbmHandleOccurrenceDesc}}"
+        },
+        "65":{
+            "title": "{{i18n.mbmPackUnassignOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackUnassignOccDesc}}"
+            },
+            "subDescription":"{{i18n.mbmHandleOccurrenceDesc}}"
+        },
+        "66":{
+            "title": "{{i18n.mbmPackAssignOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackAssignOccDesc}}"
+            },
+            "clickDescription":"{{i18n.assignedClickDesc}}",
+            "subDescription":"{{i18n.mbmHandleOccurrenceDesc}}"
+        },
+        "70":{
+            "title": "{{i18n.mbmPackUnassignOccTitle}}",
+            "description":{
+                "text":"{{i18n.mbmPackUnassignOccDesc}}"
+            },
+            "subDescription":"{{i18n.mbmHandleOccurrenceDesc}}"
+        }
+    },
+    "i18n": {
+        "assignedTitle": ["mbmMessages"],
+        "assignedDesc": ["mbmMessages"],
+        "multipleAssignedTitle":["mbmMessages"],
+        "multipleAssignedDesc":["mbmMessages"],
+        "assignedClickDesc":["mbmMessages"],
+        "partiallyAssignedAssemblyTitle":["mbmMessages"],
+        "partiallyAssignedAssemblyDesc":["mbmMessages"],
+        "completelyAssignedTitle":["mbmMessages"],
+        "completelyAssignedDesc":["mbmMessages"],
+        "partiallyAssignedTitle":["mbmMessages"],
+        "partiallyAssignedDesc":["mbmMessages"],
+        "mbmPackAssignOccTitle":["mbmMessages"],
+        "mbmPackAssignOccDesc":["mbmMessages"],
+        "mbmPackUnassignOverassignOccTitle":["mbmMessages"],
+        "mbmPackUnassignOverassignOccDesc":["mbmMessages"],
+        "mbmPackUnassignOccTitle":["mbmMessages"],
+        "mbmPackUnassignOccDesc":["mbmMessages"],
+        "mbmPackOverassignOccTitle":["mbmMessages"],
+        "mbmPackOverassignOccDesc":["mbmMessages"],
+        "mbmHandleOccurrenceDesc":["mbmMessages"]
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "defaultWorkspaceName": "Par défaut",
+    "tcAuthorWorkspaceName": "Auteur",
+    "tcConsumerWorkspaceName": "Consommateur",
+    "tcActiveAdminWorkspaceName": "Active Admin",
+    "tcActiveArchitectWorkspaceName": "Active Architect",
+    "mbmWorkspaceName":"Gestionnaire Multi-Nomenclature"
+}

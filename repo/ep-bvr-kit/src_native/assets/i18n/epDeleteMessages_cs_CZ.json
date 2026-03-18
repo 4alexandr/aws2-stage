@@ -1,0 +1,8 @@
+{
+    "delete":"Odstranit",
+    "discard":"Storno",
+    "DeleteSingleMessage": "Opravdu chcete odstranit \"{0}\"?",
+    "DeleteMultipleMessage": "Chcete odstranit tyto objekty {0}?",
+    "epCmdDeleteTitle":"Odstranit",
+    "epCmdDeleteDesc": "Odstranit výběr."
+}

@@ -1,0 +1,106 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-button.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-i18n.directive",
+        "js/aw-flex-row.directive",
+        "js/aw-scrollpanel.directive",
+        "js/aw-checkbox.directive",
+        "js/aw-action-section.directive",
+        "js/aw-panel-section.directive"
+    ],
+    "actions": {
+        "getViewerSettings": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "getConfigurations"
+                },
+                {
+                    "action": "updateVMO"
+                }
+            ]
+        },
+        "getConfigurations": {
+            "actionType": "JSFunction",
+            "method": "getConfigurations",
+            "inputData": {
+                "id": "{{data.visContext.id}}"
+            },
+            "outputData": {
+                "configs": "configs"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "updateVMO": {
+            "actionType": "JSFunction",
+            "method": "updateVMO",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/viewerSettingsPanelService"
+        },
+        "saveAndClose": {
+            "actionType": "batchJob",
+            "steps": [ {
+                    "action": "getUpdatesFromVMO"
+                },
+                {
+                    "action": "saveConfiguration"
+                },
+                {
+                    "action": "closePanel"
+                }
+            ]
+        },
+        "getUpdatesFromVMO": {
+            "actionType": "JSFunction",
+            "method": "getUpdatesFromVMO",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "deps": "js/viewerSettingsPanelService"
+        },
+        "saveConfiguration": {
+            "actionType": "JSFunction",
+            "method": "saveConfiguration",
+            "inputData": {
+                "id": "{{data.visContext.id}}",
+                "configs": "{{data.configs}}"
+            },
+            "deps": "js/visViewerIntService"
+        },
+        "closePanel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [ {
+                    "name": "awsidenav.openClose"
+                } ]
+            }
+        }
+    },
+    "data": {
+        "viewerSettingsPanelCaption_close_anchor": "viewerSettingsPanelCaption_close_anchor",
+        "enableCulling": {
+            "displayName": "Enable Culling",
+            "type": "BOOLEAN",
+            "isRequired": "false",
+            "isEditable": "true",
+            "dbValue": "",
+            "dispValue": "culling.enabled",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        }
+    },
+    "i18n": {
+        "viewerSettingsPanelCaption": "Viewer Options",
+        "close": "Close",
+        "save": "Save",
+        "performanceSectionCaption": "Performance"
+    },
+    "lifecycleHooks": {
+        "onMount": "getViewerSettings"
+    }
+}

@@ -1,0 +1,2219 @@
+{
+  "BusinessObjectInterface": [
+    {
+      "createRelease": "Awp03.4.0",
+      "description": "Interface Name for Business Object Psi0AbsRIO",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0AbsRIO",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0AbsRIO"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0AutoGenTransaction.",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0AutoGenTransaction",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0AutoGenTransaction"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0PrgDel",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0PrgDel",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0PrgDel"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0PrgDelRevision",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0PrgDelRevision",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0PrgDelRevision"
+    },
+    {
+      "createRelease": "Awp04.1.0",
+      "description": "Interface Name for Business Object Psi0PrgObjsSearchProvider",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0PrgObjsSearchProvider",
+      "namespace": "psi0ppsminterface",
+      "primaryInterface": "true",
+      "typeName": "Psi0PrgObjsSearchProvider"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0SchTemplateAttributeMap",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0SchTemplateAttributeMap",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0SchTemplateAttributeMap"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0SchTemplateValueMap",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0SchTemplateValueMap",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0SchTemplateValueMap"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0ScheduleSearchProvider",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0ScheduleSearchProvider",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0ScheduleSearchProvider"
+    },
+    {
+      "createRelease": "Awp03.3.0",
+      "description": "Interface Name for Business Object Psi0WorkElement",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0WorkElement",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0WorkElement"
+    },
+    {
+      "createRelease": "Awp03.3.0",
+      "description": "Interface Name for Business Object Psi0WorkElementPDI",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0WorkElementPDI",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0WorkElementPDI"
+    },
+    {
+      "createRelease": "Awp03.3.0",
+      "description": "Interface Name for Business Object Psi0WorkElementRevision",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0WorkElementRevision",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0WorkElementRevision"
+    },
+    {
+      "createRelease": "Awp04.0.0",
+      "description": "Interface Name for Business Object Psi0Checklist",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0Checklist",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0Checklist"
+    },
+    {
+      "createRelease": "Awp04.0.0",
+      "description": "Interface Name for Business Object Psi0ChecklistQuestion",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0ChecklistQuestion",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0ChecklistQuestion"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0EventPrgDel",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0EventPrgDel",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0EventPrgDel"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0EventScheduleRelation",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0EventScheduleRelation",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0EventScheduleRelation"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0PlanItemSchRelation",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0PlanItemSchRelation",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0PlanItemSchRelation"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0PlanPrgDel",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0PlanPrgDel",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0PlanPrgDel"
+    },
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "Interface Name for Business Object Psi0PlanSchedule",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0PlanSchedule",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0PlanSchedule"
+    },
+    {
+      "createRelease": "Awp03.3.0",
+      "description": "Interface Name for Business Object Psi0PredecessorWorkElement",
+      "libraryName": "Psi0ppsminterface",
+      "name": "Psi0PredecessorWorkElement",
+      "namespace": "Teamcenter",
+      "primaryInterface": "true",
+      "typeName": "Psi0PredecessorWorkElement"
+    }
+  ],
+  "Date": "Wed Dec 19 08:16:44 PM 2018",
+  "Library": [
+    {
+      "createRelease": "Awp03.1.0",
+      "description": "This service provides operations for creating and maintaining AutoGenTransactions.",
+      "isThirdParty": "false",
+      "name": "Psi0SoaPPSMInterfaceAw",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw",
+      "serviceLibrary": "true"
+    },
+    {
+      "DependentOn": [
+        {
+          "name": "metaframework"
+        },
+        {
+          "name": "tccore"
+        },
+        {
+          "name": "tc"
+        },
+        {
+          "name": "cxpom"
+        }
+      ],
+      "createRelease": "Awp03.1.0",
+      "description": "Library for Psi0ppsminterface.",
+      "isThirdParty": "false",
+      "name": "Psi0ppsminterface",
+      "namespace": "",
+      "serviceLibrary": "false"
+    }
+  ],
+  "Operation": [
+    {
+      "ParameterInfo": [
+        {
+          "description": "Contains information required to generate the <b>Schedule</b> objects.",
+          "parameterName": "autoGenScheduleInfo"
+        },
+        {
+          "description": "If true, performs the operation in background mode in a separate asynchronous server session; otherwise, performs the operation synchronously.",
+          "parameterName": "runInBackground"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp03.3.0",
+      "dependencies": "",
+      "description": "This operation generates <b>Schedule</b> objects for a <b>Prg0AbsEvent</b>. The <b>Schedule</b> objects will be generated based on the source objects of the packages in a <b>Prg0AbsEvent</b> which are provided as input to this operation.",
+      "exceptionCondition": "",
+      "id": "autoGenerateSchedules#const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::AutoGenScheduleInput,&$bool",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "autoGenerateSchedules",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::autoGenerateSchedules#const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::AutoGenScheduleInput,&$bool",
+      "returnDescription": "The newly created <b>Psi0AutoGenTransaction</b> objects and the auto generated <b>Schedule</b> objects are returned in the Created list of the Service Data. The lists will be empty in case of asynchronous mode.<br /><br />The following partial errors may be returned:<br />330003: The source object type is not supported. Please refer to Psi0AffectedItemsLov for valid types.<br />330004: The specified selection type is not valid. Please refer to Psi0Selection LOV for valid values.<br />330005: The specified cardinality is not valid. Please refer to Psi0Selection LOV for valid values.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Contains information required to generate the <b>Schedule</b> objects.",
+          "parameterName": "autoGenScheduleInfo"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp03.3.0",
+      "dependencies": "",
+      "description": "This operation generates <b>Schedule</b> objects for a <b>Prg0AbsEvent</b>. The <b>Schedule</b> objects will be generated based on the source objects of the packages in a <b>Prg0AbsEvent</b> which are provided as input to this operation. This operation runs asynchronously in its own server in the background.",
+      "exceptionCondition": "",
+      "id": "autoGenerateSchedulesAsync#const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::AutoGenScheduleInput,&",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "autoGenerateSchedulesAsync",
+      "opTemplate": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::autoGenerateSchedulesAsync#const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::AutoGenScheduleInput,&",
+      "returnDescription": "There are no specific business errors returned.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of structures containing information to propagate users.",
+          "parameterName": "propagateUsersInput"
+        },
+        {
+          "description": "If true, the operation is performed in background mode in a separate asynchronous server session; otherwise, perform the operation synchronously.",
+          "parameterName": "runInBackground"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "This operation performs the user propagation by assigning a responsible user based on the <b>TcProject</b> object and <b>ResourcePool</b> object related to a target object. The target objects are provided as input to the operation. If not provided, the objects related to the input Plan or Event object will be used as target objects. <br /><br />Propagation is performed by finding and assigning a user from the <b>GroupMember</b> objects in a <b>TcProject</b> object that matches the <b>ResourcePool</b> object assigned to the target object<br />If more than one <b>TcProject</b> objects are related to a target object, the propagation will not be performed. <br />If more than one matching <b>GroupMember</b> objects are found or if no matching <b>GroupMember</b> object is found, the propagation will not be performed. <br /><br />In case of background mode, this operation files an asynchronous request to propagate the user and releases the client immediately so that the user can perform other operation.",
+      "exceptionCondition": "",
+      "id": "propagateUsers#const,std::vector<Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface::PropagateUsersInput>,&$bool",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "propagateUsers",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::propagateUsers#const,std::vector<Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface::PropagateUsersInput>,&$bool",
+      "returnDescription": "The target objects for which the users are propagated are returned in the updated list of the ServiceData. The ServiceData will be empty in case of asynchronous mode.<br /><br />Following partial errors may be returned:<br />330013 The parent object is not a Plan or Event type.<br />330014 The given UID does not represent a valid Tc Project.<br />330015 The given target object is not a Program Deliverable Revision.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list of structures containing information to propagate user.",
+          "parameterName": "propagateUsersInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp05.0.0",
+      "dependencies": "",
+      "description": "This operation performs the user propagation by assigning a responsible user based on the <b>TcProject</b> object and <b>ResourcePool</b> object related to a target object. The target objects are provided as input to the operation. If not provided, the objects related to the input Plan or Event object will be used as target objects. <br /><br />Propagation is performed by finding and assigning a user from the <b>GroupMember</b> objects in a <b>TcProject</b> object that matches the <b>ResourcePool</b> object assigned to the target object<br />If more than one <b>TcProject</b> objects are related to a target object, the propagation will not be performed. <br />If more than one matching <b>GroupMember</b> objects are found or if no matching <b>GroupMember</b> object is found, the propagation will not be performed.<br /><br />This operation runs asynchronously in its own server in the background.",
+      "exceptionCondition": "",
+      "id": "propagateUsersAsync#const,std::vector<Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface::PropagateUsersInput>,&",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "propagateUsersAsync",
+      "opTemplate": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::propagateUsersAsync#const,std::vector<Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface::PropagateUsersInput>,&",
+      "returnDescription": "None",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "True/False based on ContentSecurity of event object",
+          "parameterName": "isContentSecurityFlag"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "Awp04.0.0",
+      "dependencies": "",
+      "description": "",
+      "exceptionCondition": "",
+      "id": "psi0IsContentSecurityEnabled#bool,*",
+      "interface": "Teamcenter::Psi0Checklist",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "psi0IsContentSecurityEnabled",
+      "opTemplate": "int#Teamcenter::Psi0Checklist::psi0IsContentSecurityEnabled#bool,*",
+      "returnDescription": "",
+      "useCase": ""
+    },    
+    {
+      "ParameterInfo": [
+        {
+          "description": "True/False based on ContentSecurity of Plan or event object.",
+          "parameterName": "isContentSecurityFlag"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "Awp04.0.0",
+      "dependencies": "",
+      "description": "This operation retrun True/False based on ContentSecurity of Plan object.",
+      "exceptionCondition": "",
+      "id": "psi0IsContentSecurityEnabled#bool,*",
+      "interface": "Teamcenter::Psi0PrgDelRevision",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "false",
+      "name": "psi0IsContentSecurityEnabled",
+      "opTemplate": "int#Teamcenter::Psi0PrgDelRevision::psi0IsContentSecurityEnabled#bool,*",
+      "returnDescription": "",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The <b>Prg0AbsEvent</b> for which the sequence of program deliverable revisions need to be recalculated.",
+          "parameterName": "eventObject"
+        },
+        {
+          "description": "If true, perform the operation in background mode in a separate asynchronous server session; otherwise, perform the operation synchronously.",
+          "parameterName": "runInBackground"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp04.2.0",
+      "dependencies": "",
+      "description": "This operation calculates and updates the sequence of program deliverable revisions based on the order of dependencies i.e. predecessor, successor or concurrent. The order is determined based on <b>Psi0BeforeDependency</b> and <b>Psi0ConcurretDependency</b> relations. A <b>Psi0PrgDelRevision</b> that is a primary object of the <b>Psi0BeforeDependency</b> is assigned a highest sequence number, followed by the secondary object of the <b>Psi0BeforeDependency</b>. The objects that are related by <b>Psi0ConcurretDependency</b> is assigned a sequence based on the due date i.e. the object a latest due date is assigned a highest sequence number. If the due dates are same, the same sequence number is assigned to both the objects.",
+      "exceptionCondition": "",
+      "id": "recalculatePrgDeliverableSeq#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$bool",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "recalculatePrgDeliverableSeq",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::recalculatePrgDeliverableSeq#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$bool",
+      "returnDescription": "The ServiceData of the recalculate program deliverable sequence operation contains updated <b>Psi0PrgDelRevision</b> and the <b>Prg0AbsEvent</b>.<br /><br />The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">515024:  The input object is not a valid <b>WorkspaceObject</b>. </li><li type=\"disc\">330009 : The recalculate program deliverable sequence operation has failed because the program deliverable dependencies contains circular dependency.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The <b>Prg0AbsEvent</b> for which the sequence of program deliverable revisions need to be recalculated.",
+          "parameterName": "eventObject"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp04.2.0",
+      "dependencies": "",
+      "description": "This operation calculates and updates the sequence of program deliverable revisions based on the order of dependencies i.e. predecessor, successor or concurrent. The order is determined based on <b>Psi0BeforeDependency</b> and <b>Psi0ConcurretDependency</b> relations. A <b>Psi0PrgDelRevision</b> that is a primary object of the <b>Psi0BeforeDependency</b> is assigned a highest sequence number, followed by the secondary object of the <b>Psi0BeforeDependency</b>. The objects that are related by <b>Psi0ConcurretDependency</b> is assigned a sequence based on the due date i.e. the object a latest due date is assigned a highest sequence number. If the due dates are same, the same sequence number is assigned to both the objects. This operation runs asynchronously in its own server in the background.",
+      "exceptionCondition": "",
+      "id": "recalculatePrgDeliverableSeqAsync#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "recalculatePrgDeliverableSeqAsync",
+      "opTemplate": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::recalculatePrgDeliverableSeqAsync#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&",
+      "returnDescription": "There are no specific business errors returned.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Specifies the information needed to create AutoGenTransaction.",
+          "parameterName": "createContainer"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp03.1.0",
+      "dependencies": "",
+      "description": "This operation creates new AutoGenTransaction based on the information from CreateAGOcontainer structure.",
+      "exceptionCondition": "",
+      "id": "createAutoGenTransactions#const,Psi0::Soa::PPSMInterfaceAw::_2016_03::PPSMInterface::CreateAGTContainer,&",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createAutoGenTransactions",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::createAutoGenTransactions#const,Psi0::Soa::PPSMInterfaceAw::_2016_03::PPSMInterface::CreateAGTContainer,&",
+      "returnDescription": "The newly created AutoGenTransactions are returned in the created list of the ServiceData. The newly created AutoGenTransactions are returned in the created list of the ServiceData. The following are the partial errors that are returned by the operation in case of failures. 930001-Unable to create AutoGenTransaction object. 930003-Unable to find the affected item to create the AutoGenTransaction.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The <b>Prg0AbsEvent</b> object from which <b>WorkElement</b> objects are found to create <b>ScheduleTask</b> objects that are added to a new <b>Schedule</b> object.",
+          "parameterName": "eventObject"
+        },
+        {
+          "description": "The name for <b>Schedule</b> object to create.",
+          "parameterName": "name"
+        },
+        {
+          "description": "The description for <b>Schedule</b> object to create.",
+          "parameterName": "description"
+        },
+        {
+          "description": "The planned start date for <b>Schedule</b> object to create.",
+          "parameterName": "plannedStartDate"
+        },
+        {
+          "description": "The planned finish date for <b>Schedule</b> object to create.",
+          "parameterName": "plannedFinishDate"
+        },
+        {
+          "description": "A map (string, string) containing the options for <b>Schedule</b> object to create and its values.",
+          "parameterName": "scheduleOptions"
+        },
+        {
+          "description": "If true, perform the operation in background mode in a separate asynchronous server session; otherewise, perform the operation synchronously.",
+          "parameterName": "runInBackground"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp03.3.0",
+      "dependencies": "",
+      "description": "This operation finds <b>WorkElement</b> objects associated with the input <b>Event</b> and creates a <b>ScheduleTask</b> for each <b>WorkElement</b> object. The newly created <b>ScheduleTask</b> will be related to <b>WorkElement</b>. A new Schedule object is created for the newly created <b>ScheduleTask</b> objects and are added to the <b>Schedule</b> object. For each <b>Psi0Predecessor</b> relation that relates two <b>WorkElement</b> objects, a new <b>TaskDependency</b> relation is created to relate the two respective <b>ScheduleTask</b> objects.",
+      "exceptionCondition": "",
+      "id": "createIntegratedSchedule#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$const,std::string,&$const,std::string,&$const,Teamcenter::DateTime,&$const,Teamcenter::DateTime,&$const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap,&$bool",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createIntegratedSchedule",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::createIntegratedSchedule#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$const,std::string,&$const,std::string,&$const,Teamcenter::DateTime,&$const,Teamcenter::DateTime,&$const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap,&$bool",
+      "returnDescription": "The newly created Schedule is added to the created list of the ServiceData. The list will be empty in case of asynchronous mode.<br /><br />The following partial errors may be returned:<br /><br />&bull;330003 : User does not have the correct access privileges to delete one or more objects.<br />&bull;147168 : The Tasks cannot be linked, because it would create a circular dependency.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The <b>Prg0AbsEvent</b> object from which <b>WorkElement</b> objects will be found to create <b>ScheduleTask</b> objects and added to the <b>Schedule</b> object.",
+          "parameterName": "eventObject"
+        },
+        {
+          "description": "The name for <b>Schedule</b> object to create",
+          "parameterName": "name"
+        },
+        {
+          "description": "The description for <b>Schedule</b> object to create.",
+          "parameterName": "description"
+        },
+        {
+          "description": "The planned start date for <b>Schedule</b> object to create.",
+          "parameterName": "plannedStartDate"
+        },
+        {
+          "description": "The planned finish date for <b>Schedule</b> object to create.",
+          "parameterName": "plannedFinishDate"
+        },
+        {
+          "description": "A map (string, string) containing the options for <b>Schedule</b> object to create and its values.",
+          "parameterName": "scheduleOptions"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp03.3.0",
+      "dependencies": "",
+      "description": "This operation finds the <b>WorkElement</b> objects associated with the input <b>Event</b>, and creates a <b>ScheduleTask</b> for each <b>WorkElement</b> object. The newly created <b>ScheduleTask</b> will be related to the <b>WorkElement</b>. A new <b>Schedule</b> object is created for the newly created <b>ScheduleTask</b> objects and are added to the <b>Schedule</b> object. For each <b>Psi0Predecessor</b> relation that relates two <b>WorkElement</b> objects, a new <b>TaskDependency</b> relation is created to relate the two respective <b>ScheduleTask</b> objects. This operation runs asynchronously in its own server in the background.",
+      "exceptionCondition": "",
+      "id": "createIntegratedScheduleAsync#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$const,std::string,&$const,std::string,&$const,Teamcenter::DateTime,&$const,Teamcenter::DateTime,&$const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap,&",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "createIntegratedScheduleAsync",
+      "opTemplate": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::createIntegratedScheduleAsync#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$const,std::string,&$const,std::string,&$const,Teamcenter::DateTime,&$const,Teamcenter::DateTime,&$const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap,&",
+      "returnDescription": "There are no specific business errors returned.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The <b>Prg0AbsEvent</b>  for which <b>Psi0AutoGenTransaction</b> objects will be processed to generate <b>Schedule</b> objects.",
+          "parameterName": "eventObject"
+        },
+        {
+          "description": "If true perform the operation in background mode in a separate asynchronous server session. False to perform the operation synchronously.",
+          "parameterName": "runInBackground"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp03.1.0",
+      "dependencies": "",
+      "description": "Generates new <b>Schedule</b> objects for the Event based on the <b>Psi0AutoGenTransaction</b> objects to be processed.",
+      "exceptionCondition": "",
+      "id": "generateSchedulesForEvent#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$bool",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "generateSchedulesForEvent",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::generateSchedulesForEvent#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$bool",
+      "returnDescription": "The <b>Psi0AutoGenTransaction</b> objects affected by the operation in the Updated list and the newly created <b>Schedule</b> objects in the Created list. The lists will be empty in case of asynchronous mode. The following partial errors may be returned:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;230045  You do not have the correct access privileges to modify one or more objects.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;930004  The Event to generate Schedules is not valid.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "The <b>Prg0AbsEvent</b> for which <b>Psi0AutoGenTransaction</b> objects will be processed to generate <b>Schedule</b> objects.",
+          "parameterName": "eventObject"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp03.1.0",
+      "dependencies": "",
+      "description": "Generates <b>Schedule</b> objects for the <b>Prg0AbsEvent</b> based on the <b>Psi0AutoGenTransaction</b> objects to be processed. This operation runs asynchronously in its own server in the background.",
+      "exceptionCondition": "",
+      "id": "generateSchedulesForEventAsync#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "generateSchedulesForEventAsync",
+      "opTemplate": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::generateSchedulesForEventAsync#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&",
+      "returnDescription": "There are no specific business errors returned.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "A list contains information about the context Program object and relation type for which the related objects would be returned.",
+          "parameterName": "getRelatedObjectsInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp04.2.0",
+      "dependencies": "",
+      "description": "Loads the related objects for the context Program object based on the information provided in the &lsquo;GetProgramRelatedObjectsInput&rsquo; inputs. The related objects are determined by the relation type provided in input structure.",
+      "exceptionCondition": "",
+      "id": "getProgramRelatedObjects#const,std::vector<Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::GetProgramRelatedObjsInput>,&",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "getProgramRelatedObjects",
+      "opTemplate": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::GetProgramRelatedObjectsResponse#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::getProgramRelatedObjects#const,std::vector<Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::GetProgramRelatedObjsInput>,&",
+      "returnDescription": "Response containing the information about the list of related objects. The ServiceData will contain the plain objects populated with the loaded objects related to the context object. <br />Below are the partial errors   which may be returned through the ServiceData.<br /><br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;330012: The input object is not a valid Program object <br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;515001: The access is denied.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;515111: The instance is not loaded.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;350003: The provided Relation type is invalid.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;350004: No Relation type is provided.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Input information to load the network graph.",
+          "parameterName": "input"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp03.3.0",
+      "dependencies": "",
+      "description": "This operation loads a graph of data corresponding to the input parameters. The graph nodes represents Workspace Objects and the graph edges represents the relation between the Workspace Objects.",
+      "exceptionCondition": "",
+      "id": "loadNetworkGraph#const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::LoadNetworkInput,&",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "loadNetworkGraph",
+      "opTemplate": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::LoadNetworkResponse#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::loadNetworkGraph#const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::LoadNetworkInput,&",
+      "returnDescription": "The response containing the nework graph and the ServiceData containing the nodes and edges in the plain object list.<br />The following partial errors may be returned in the ServiceData:<br />330003(error):    The root object to load the network is not valid.<br />330004(error):    The reference object to load the network is not valid.",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "Information required to create and delete the program deliverable dependencies.",
+          "parameterName": "managePrgDeliverableDepsInput"
+        }
+      ],
+      "canOverride": "false",
+      "component": "Psi0ppsminterface",
+      "createRelease": "Awp04.2.0",
+      "dependencies": "",
+      "description": "This operation manages creation and deletion of the program deliverable dependencies.",
+      "exceptionCondition": "",
+      "id": "managePrgDeliverableDependencies#const,Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::ManagePrgDeliverableDepsInput,&",
+      "interface": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "managePrgDeliverableDependencies",
+      "opTemplate": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::managePrgDeliverableDependencies#const,Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::ManagePrgDeliverableDepsInput,&",
+      "returnDescription": "The ServiceData containing created, updated and deleted program deliverable dependencies i.e. <b>Psi0BeforeDependency</b>, <b>Psi0ConcurrentDependency</b> and <b>Prg0AbsEvent</b>. In addition, if the <i>manageOptions</i> contains 'recalculateSequence=true', the updated <b>Psi0PrgDelRevision</b> will also be returned.<br /><br />The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">515024: The input object is not a valid <b>WorkspaceObject</b>.</li><li type=\"disc\">330010: The operation has failed because the input successors, predecessors or concurrent creates the circular dependency.</li><li type=\"disc\">330011: The program deliverable dependency that is to be created already exists.</li></ul></ul>",
+      "useCase": ""
+    },
+    {
+      "ParameterInfo": [
+        {
+          "description": "True/False based on ContentSecurity of event object",
+          "parameterName": "isContentSecurityFlag"
+        }
+      ],
+      "canOverride": "false",
+      "component": "",
+      "createRelease": "Awp04.0.0",
+      "dependencies": "",
+      "description": "",
+      "exceptionCondition": "",
+      "id": "psi0IsContentSecurityEnabled#bool,*",
+      "interface": "Teamcenter::Psi0Checklist",
+      "isPostActionAllowed": "false",
+      "isPreActionAllowed": "false",
+      "isPreConditionAllowed": "false",
+      "isPublished": "true",
+      "name": "psi0IsContentSecurityEnabled",
+      "opTemplate": "int#Teamcenter::Psi0Checklist::psi0IsContentSecurityEnabled#bool,*",
+      "returnDescription": "",
+      "useCase": ""
+    }
+  ],
+  "OperationTemplate": [
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::AutoGenScheduleInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Contains information required to generate the <b>Schedule</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "autoGenScheduleInfo"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": ""
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "If true, performs the operation in background mode in a separate asynchronous server session; otherwise, performs the operation synchronously.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "runInBackground"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.3.0",
+      "description": "This operation generates <b>Schedule</b> objects for a <b>Prg0AbsEvent</b>. The <b>Schedule</b> objects will be generated based on the source objects of the packages in a <b>Prg0AbsEvent</b> which are provided as input to this operation.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::autoGenerateSchedules#const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::AutoGenScheduleInput,&$bool",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::autoGenerateSchedules",
+      "returnConst": "false",
+      "returnDescription": "The newly created <b>Psi0AutoGenTransaction</b> objects and the auto generated <b>Schedule</b> objects are returned in the Created list of the Service Data. The lists will be empty in case of asynchronous mode.<br /><br />The following partial errors may be returned:<br />330003: The source object type is not supported. Please refer to Psi0AffectedItemsLov for valid types.<br />330004: The specified selection type is not valid. Please refer to Psi0Selection LOV for valid values.<br />330005: The specified cardinality is not valid. Please refer to Psi0Selection LOV for valid values.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::AutoGenScheduleInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Contains information required to generate the <b>Schedule</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "autoGenScheduleInfo"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "void",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.3.0",
+      "description": "This operation generates <b>Schedule</b> objects for a <b>Prg0AbsEvent</b>. The <b>Schedule</b> objects will be generated based on the source objects of the packages in a <b>Prg0AbsEvent</b> which are provided as input to this operation. This operation runs asynchronously in its own server in the background.",
+      "id": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::autoGenerateSchedulesAsync#const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::AutoGenScheduleInput,&",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::autoGenerateSchedulesAsync",
+      "returnConst": "false",
+      "returnDescription": "There are no specific business errors returned.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface::PropagateUsersInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of structures containing information to propagate users.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "propagateUsersInput"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": ""
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "If true, the operation is performed in background mode in a separate asynchronous server session; otherwise, perform the operation synchronously.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "runInBackground"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "This operation performs the user propagation by assigning a responsible user based on the <b>TcProject</b> object and <b>ResourcePool</b> object related to a target object. The target objects are provided as input to the operation. If not provided, the objects related to the input Plan or Event object will be used as target objects. <br /><br />Propagation is performed by finding and assigning a user from the <b>GroupMember</b> objects in a <b>TcProject</b> object that matches the <b>ResourcePool</b> object assigned to the target object<br />If more than one <b>TcProject</b> objects are related to a target object, the propagation will not be performed. <br />If more than one matching <b>GroupMember</b> objects are found or if no matching <b>GroupMember</b> object is found, the propagation will not be performed. <br /><br />In case of background mode, this operation files an asynchronous request to propagate the user and releases the client immediately so that the user can perform other operation.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::propagateUsers#const,std::vector<Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface::PropagateUsersInput>,&$bool",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::propagateUsers",
+      "returnConst": "false",
+      "returnDescription": "The target objects for which the users are propagated are returned in the updated list of the ServiceData. The ServiceData will be empty in case of asynchronous mode.<br /><br />Following partial errors may be returned:<br />330013 The parent object is not a Plan or Event type.<br />330014 The given UID does not represent a valid Tc Project.<br />330015 The given target object is not a Program Deliverable Revision.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface::PropagateUsersInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list of structures containing information to propagate user.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "propagateUsersInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "void",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp05.0.0",
+      "description": "This operation performs the user propagation by assigning a responsible user based on the <b>TcProject</b> object and <b>ResourcePool</b> object related to a target object. The target objects are provided as input to the operation. If not provided, the objects related to the input Plan or Event object will be used as target objects. <br /><br />Propagation is performed by finding and assigning a user from the <b>GroupMember</b> objects in a <b>TcProject</b> object that matches the <b>ResourcePool</b> object assigned to the target object<br />If more than one <b>TcProject</b> objects are related to a target object, the propagation will not be performed. <br />If more than one matching <b>GroupMember</b> objects are found or if no matching <b>GroupMember</b> object is found, the propagation will not be performed.<br /><br />This operation runs asynchronously in its own server in the background.",
+      "id": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::propagateUsersAsync#const,std::vector<Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface::PropagateUsersInput>,&",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::propagateUsersAsync",
+      "returnConst": "false",
+      "returnDescription": "None",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },        
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The <b>Prg0AbsEvent</b> for which the sequence of program deliverable revisions need to be recalculated.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "eventObject"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "void",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.2.0",
+      "description": "This operation calculates and updates the sequence of program deliverable revisions based on the order of dependencies i.e. predecessor, successor or concurrent. The order is determined based on <b>Psi0BeforeDependency</b> and <b>Psi0ConcurretDependency</b> relations. A <b>Psi0PrgDelRevision</b> that is a primary object of the <b>Psi0BeforeDependency</b> is assigned a highest sequence number, followed by the secondary object of the <b>Psi0BeforeDependency</b>. The objects that are related by <b>Psi0ConcurretDependency</b> is assigned a sequence based on the due date i.e. the object a latest due date is assigned a highest sequence number. If the due dates are same, the same sequence number is assigned to both the objects. This operation runs asynchronously in its own server in the background.",
+      "id": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::recalculatePrgDeliverableSeqAsync#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::recalculatePrgDeliverableSeqAsync",
+      "returnConst": "false",
+      "returnDescription": "There are no specific business errors returned.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "True/False based on ContentSecurity of event object",
+          "freeOutputMemory": "false",
+          "inputOutput": "Output",
+          "name": "isContentSecurityFlag"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.0.0",
+      "description": "This operation retrun True/False based on ContentSecurity of Event object.",
+      "id": "int#Teamcenter::Psi0Checklist::psi0IsContentSecurityEnabled#bool,*",
+      "name": "Teamcenter::Psi0Checklist::psi0IsContentSecurityEnabled",
+      "returnConst": "false",
+      "returnDescription": "",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": "*"
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "True/False based on ContentSecurity of Plan or event object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Output",
+          "name": "isContentSecurityFlag"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "int",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.0.0",
+      "description": "This operation retrun True/False based on ContentSecurity of Plan object.",
+      "id": "int#Teamcenter::Psi0PrgDelRevision::psi0IsContentSecurityEnabled#bool,*",
+      "name": "Teamcenter::Psi0PrgDelRevision::psi0IsContentSecurityEnabled",
+      "returnConst": "false",
+      "returnDescription": "",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2016_03::PPSMInterface::CreateAGTContainer",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Specifies the information needed to create AutoGenTransaction.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "createContainer"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.1.0",
+      "description": "This operation creates new AutoGenTransaction based on the information from CreateAGOcontainer structure.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::createAutoGenTransactions#const,Psi0::Soa::PPSMInterfaceAw::_2016_03::PPSMInterface::CreateAGTContainer,&",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::createAutoGenTransactions",
+      "returnConst": "false",
+      "returnDescription": "The newly created AutoGenTransactions are returned in the created list of the ServiceData. The newly created AutoGenTransactions are returned in the created list of the ServiceData. The following are the partial errors that are returned by the operation in case of failures. 930001-Unable to create AutoGenTransaction object. 930003-Unable to find the affected item to create the AutoGenTransaction.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The <b>Prg0AbsEvent</b> object from which <b>WorkElement</b> objects are found to create <b>ScheduleTask</b> objects that are added to a new <b>Schedule</b> object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "eventObject"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The name for <b>Schedule</b> object to create.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "name"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The description for <b>Schedule</b> object to create.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "description"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::DateTime",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The planned start date for <b>Schedule</b> object to create.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "plannedStartDate"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::DateTime",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The planned finish date for <b>Schedule</b> object to create.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "plannedFinishDate"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A map (string, string) containing the options for <b>Schedule</b> object to create and its values.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "scheduleOptions"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": ""
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "If true, perform the operation in background mode in a separate asynchronous server session; otherewise, perform the operation synchronously.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "runInBackground"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.3.0",
+      "description": "This operation finds <b>WorkElement</b> objects associated with the input <b>Event</b> and creates a <b>ScheduleTask</b> for each <b>WorkElement</b> object. The newly created <b>ScheduleTask</b> will be related to <b>WorkElement</b>. A new Schedule object is created for the newly created <b>ScheduleTask</b> objects and are added to the <b>Schedule</b> object. For each <b>Psi0Predecessor</b> relation that relates two <b>WorkElement</b> objects, a new <b>TaskDependency</b> relation is created to relate the two respective <b>ScheduleTask</b> objects.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::createIntegratedSchedule#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$const,std::string,&$const,std::string,&$const,Teamcenter::DateTime,&$const,Teamcenter::DateTime,&$const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap,&$bool",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::createIntegratedSchedule",
+      "returnConst": "false",
+      "returnDescription": "The newly created Schedule is added to the created list of the ServiceData. The list will be empty in case of asynchronous mode.<br /><br />The following partial errors may be returned:<br /><br />&bull;330003 : User does not have the correct access privileges to delete one or more objects.<br />&bull;147168 : The Tasks cannot be linked, because it would create a circular dependency.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The <b>Prg0AbsEvent</b> object from which <b>WorkElement</b> objects will be found to create <b>ScheduleTask</b> objects and added to the <b>Schedule</b> object.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "eventObject"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The name for <b>Schedule</b> object to create",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "name"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "std::string",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The description for <b>Schedule</b> object to create.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "description"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::DateTime",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The planned start date for <b>Schedule</b> object to create.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "plannedStartDate"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::DateTime",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The planned finish date for <b>Schedule</b> object to create.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "plannedFinishDate"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A map (string, string) containing the options for <b>Schedule</b> object to create and its values.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "scheduleOptions"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "void",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.3.0",
+      "description": "This operation finds the <b>WorkElement</b> objects associated with the input <b>Event</b>, and creates a <b>ScheduleTask</b> for each <b>WorkElement</b> object. The newly created <b>ScheduleTask</b> will be related to the <b>WorkElement</b>. A new <b>Schedule</b> object is created for the newly created <b>ScheduleTask</b> objects and are added to the <b>Schedule</b> object. For each <b>Psi0Predecessor</b> relation that relates two <b>WorkElement</b> objects, a new <b>TaskDependency</b> relation is created to relate the two respective <b>ScheduleTask</b> objects. This operation runs asynchronously in its own server in the background.",
+      "id": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::createIntegratedScheduleAsync#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$const,std::string,&$const,std::string,&$const,Teamcenter::DateTime,&$const,Teamcenter::DateTime,&$const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap,&",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::createIntegratedScheduleAsync",
+      "returnConst": "false",
+      "returnDescription": "There are no specific business errors returned.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The <b>Prg0AbsEvent</b>  for which <b>Psi0AutoGenTransaction</b> objects will be processed to generate <b>Schedule</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "eventObject"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": ""
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "If true perform the operation in background mode in a separate asynchronous server session. False to perform the operation synchronously.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "runInBackground"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.1.0",
+      "description": "Generates new <b>Schedule</b> objects for the Event based on the <b>Psi0AutoGenTransaction</b> objects to be processed.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::generateSchedulesForEvent#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$bool",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::generateSchedulesForEvent",
+      "returnConst": "false",
+      "returnDescription": "The <b>Psi0AutoGenTransaction</b> objects affected by the operation in the Updated list and the newly created <b>Schedule</b> objects in the Created list. The lists will be empty in case of asynchronous mode. The following partial errors may be returned:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;230045  You do not have the correct access privileges to modify one or more objects.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;930004  The Event to generate Schedules is not valid.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The <b>Prg0AbsEvent</b> for which <b>Psi0AutoGenTransaction</b> objects will be processed to generate <b>Schedule</b> objects.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "eventObject"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "void",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.1.0",
+      "description": "Generates <b>Schedule</b> objects for the <b>Prg0AbsEvent</b> based on the <b>Psi0AutoGenTransaction</b> objects to be processed. This operation runs asynchronously in its own server in the background.",
+      "id": "void#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::generateSchedulesForEventAsync#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::generateSchedulesForEventAsync",
+      "returnConst": "false",
+      "returnDescription": "There are no specific business errors returned.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::GetProgramRelatedObjsInput",
+                  "qualifier": ""
+                }
+              ],
+              "dataType": "std::vector",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "A list contains information about the context Program object and relation type for which the related objects would be returned.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "getRelatedObjectsInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::GetProgramRelatedObjectsResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.2.0",
+      "description": "Loads the related objects for the context Program object based on the information provided in the &lsquo;GetProgramRelatedObjectsInput&rsquo; inputs. The related objects are determined by the relation type provided in input structure.",
+      "id": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::GetProgramRelatedObjectsResponse#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::getProgramRelatedObjects#const,std::vector<Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::GetProgramRelatedObjsInput>,&",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::getProgramRelatedObjects",
+      "returnConst": "false",
+      "returnDescription": "Response containing the information about the list of related objects. The ServiceData will contain the plain objects populated with the loaded objects related to the context object. <br />Below are the partial errors   which may be returned through the ServiceData.<br /><br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;330012: The input object is not a valid Program object <br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;515001: The access is denied.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;515111: The instance is not loaded.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;350003: The provided Relation type is invalid.<br />&#61607;&nbsp;&nbsp;&nbsp;&nbsp;350004: No Relation type is provided.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::LoadNetworkInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Input information to load the network graph.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "input"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::LoadNetworkResponse",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp03.3.0",
+      "description": "This operation loads a graph of data corresponding to the input parameters. The graph nodes represents Workspace Objects and the graph edges represents the relation between the Workspace Objects.",
+      "id": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::LoadNetworkResponse#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::loadNetworkGraph#const,Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::LoadNetworkInput,&",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::loadNetworkGraph",
+      "returnConst": "false",
+      "returnDescription": "The response containing the nework graph and the ServiceData containing the nodes and edges in the plain object list.<br />The following partial errors may be returned in the ServiceData:<br />330003(error): The root object to load the network is not valid.<br />330004(error): The reference object to load the network is not valid.",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::ManagePrgDeliverableDepsInput",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "Information required to create and delete the program deliverable dependencies.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "managePrgDeliverableDepsInput"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.2.0",
+      "description": "This operation manages creation and deletion of the program deliverable dependencies.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::managePrgDeliverableDependencies#const,Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::ManagePrgDeliverableDepsInput,&",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::managePrgDeliverableDependencies",
+      "returnConst": "false",
+      "returnDescription": "The ServiceData containing created, updated and deleted program deliverable dependencies i.e. <b>Psi0BeforeDependency</b>, <b>Psi0ConcurrentDependency</b> and <b>Prg0AbsEvent</b>. In addition, if the <i>manageOptions</i> contains 'recalculateSequence=true', the updated <b>Psi0PrgDelRevision</b> will also be returned.<br /><br />The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">515024: The input object is not a valid <b>WorkspaceObject</b>.</li><li type=\"disc\">330010: The operation has failed because the input successors, predecessors or concurrent creates the circular dependency.</li><li type=\"disc\">330011: The program deliverable dependency that is to be created already exists.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    },
+    {
+      "OperationParameter": [
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent",
+              "qualifier": "&"
+            }
+          ],
+          "const": "true",
+          "defaultValue": "",
+          "description": "The <b>Prg0AbsEvent</b> for which the sequence of program deliverable revisions need to be recalculated.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "eventObject"
+        },
+        {
+          "OperationParameterDataTypeRef": [
+            {
+              "dataType": "bool",
+              "qualifier": ""
+            }
+          ],
+          "const": "false",
+          "defaultValue": "",
+          "description": "If true, perform the operation in background mode in a separate asynchronous server session; otherwise, perform the operation synchronously.",
+          "freeOutputMemory": "false",
+          "inputOutput": "Input",
+          "name": "runInBackground"
+        }
+      ],
+      "OperationReturnDataTypeRef": [
+        {
+          "dataType": "Teamcenter::Soa::Server::ServiceData",
+          "qualifier": ""
+        }
+      ],
+      "accessControl": "false",
+      "const": "false",
+      "createRelease": "Awp04.2.0",
+      "description": "This operation calculates and updates the sequence of program deliverable revisions based on the order of dependencies i.e. predecessor, successor or concurrent. The order is determined based on <b>Psi0BeforeDependency</b> and <b>Psi0ConcurretDependency</b> relations. A <b>Psi0PrgDelRevision</b> that is a primary object of the <b>Psi0BeforeDependency</b> is assigned a highest sequence number, followed by the secondary object of the <b>Psi0BeforeDependency</b>. The objects that are related by <b>Psi0ConcurretDependency</b> is assigned a sequence based on the due date i.e. the object a latest due date is assigned a highest sequence number. If the due dates are same, the same sequence number is assigned to both the objects.",
+      "id": "Teamcenter::Soa::Server::ServiceData#Psi0::Soa::PPSMInterfaceAw::PPSMInterface::recalculatePrgDeliverableSeq#const,Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent,&$bool",
+      "name": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface::recalculatePrgDeliverableSeq",
+      "returnConst": "false",
+      "returnDescription": "The ServiceData of the recalculate program deliverable sequence operation contains updated <b>Psi0PrgDelRevision</b> and the <b>Prg0AbsEvent</b>.<br /><br />The following partial errors may be returned:<br /><ul><ul><li type=\"disc\">515024:  The input object is not a valid <b>WorkspaceObject</b>. </li><li type=\"disc\">330009 : The recalculate program deliverable sequence operation has failed because the program deliverable dependencies contains circular dependency.</li></ul></ul>",
+      "returnFreeMemory": "false",
+      "static": "false"
+    }
+  ],
+  "ServiceInterface": [
+    {
+      "createRelease": "Awp03.1.0",
+      "dependencies": "",
+      "description": "The PPSMInterface service provides a wide variety of operations for program planning schedule management.",
+      "libraryName": "Psi0SoaPPSMInterfaceAw",
+      "name": "PPSMInterface",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw",
+      "serviceLibraryRef": ""
+    }
+  ],
+  "Struct": [
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent"
+            }
+          ],
+          "description": "The <b>Prg0AbsEvent</b> for which <b>Schedule</b> objects will be generated.",
+          "name": "eventObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::WorkspaceObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of packages related to the <b>Prg0AbsEvent</b>. The source objects in the packages will be used to generate the <b>Schedule</b> objects. Valid package types are <b>ChangeItemRevision</b> and <b>Psi0PrgDelRevision</b>, which are related to the <b>Prg0AbsEvent</b> by <b>Pec0EventChangeRelation</b> and <b>Psi0DelInstances</b> relations respectively.",
+          "name": "packages"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Specifies the type of source objects in the package for which the <b>Schedule</b> objects should be generated. Please refer to <b>Psi0AffectedItemsLov</b> LOV for valid types.",
+          "name": "sourceObjectType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Specifies whether to generate <b>Schedule</b> objects for all or specific affected items. Please refer to <b>Psi0Selection</b> LOV for valid values.",
+          "name": "selection"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Specifies the association between the source objects and generated <b>Schedule</b> objects. Please refer to <b>Psi0Cardinality</b> LOV for valid values.",
+          "name": "cardinality"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Specifies whether to generate a start date based <b>Schedule</b> or finish date based <b>Schedule</b>. Please refer to <b>Psi0ScheduleMethod</b> LOV for valid values.",
+          "name": "scheduleMethod"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::DateTime"
+            }
+          ],
+          "description": "Specifes the start date or finish date of the <b>Schedule</b>.",
+          "name": "scheduleDate"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Contains information required to auto generate <b>Schedule</b> objects based on the source objects of packages in a <b>Prg0AbsEvent</b>.",
+      "isPublished": "true",
+      "name": "AutoGenScheduleInput",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent"
+            }
+          ],
+          "description": "The event on which the AutoGenTransaction will be created.",
+          "name": "eventObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The package for which the AutoGenTransaction will be created. Valid WorkspaceObject types are: ChangeNotice, SchDeliverable and SchTaskDeliverable.",
+          "name": "packageObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The affected items of the package. Valid values are:  0 - Impacted Items, 1 - Solution Items, 2 - Impacted and Solution Items.",
+          "name": "sourceObjectType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Specifies whether to create AutoGenTransctions for all or specific affected items. Valid values are: 0 - All, 1 - Specific items.",
+          "name": "selection"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Specifies the association between source object and generated schedule. Valid values are: 0 - One schedule per source object, 1 - One schedule for all source objects.",
+          "name": "cardinality"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "Specifies whether to create a start date based Schedule or finish date based Schedule. Valid values are:  0 - start date, 1 - finish date.",
+          "name": "schedulingMethod"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::DateTime"
+            }
+          ],
+          "description": "Specifes the start date or finish date of the schedule.",
+          "name": "scheduleDate"
+        }
+      ],
+      "createRelease": "Awp03.1.0",
+      "description": "The createAGTContainer structure holds information needed to create AutoGenTransaction objects.",
+      "isPublished": "true",
+      "name": "CreateAGTContainer",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2016_03::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The UID of the Workspace object represented by this node.",
+          "name": "nodeId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of node.",
+          "name": "name"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The underlying Workspace object.",
+          "name": "metaObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap"
+            }
+          ],
+          "description": "A map of property name (key) and property values (values) in string format.",
+          "name": "properties"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "This structure represents a Workspace object in the network graph.",
+      "isPublished": "true",
+      "name": "Node",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },    
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The context Program object.",
+          "name": "contextObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The number of related objects found for context Program object.",
+          "name": "nFoundObjects"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::WorkspaceObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of loaded related objects. Valid related objects are: &ldquo;<b>Psi0PrgDelRevision</b>&rdquo;, &ldquo;<b>Psi0ProgramIssue</b>&rdquo;, &ldquo;<b>Psi0ProgramOpp</b>&rdquo;, &ldquo;<b>Psi0ProgramRisk</b>&rdquo;, &ldquo;<b>Psi0Checklist</b>&rdquo;.",
+          "name": "loadedObjects"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "std::string"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of UIDs of the  related objects found. This will be populated only if the loadOptions contains: &quot;populateRelatedObjectUIDs = true&quot;. Object UIDs of: &ldquo;<b>Psi0PrgDelRevision</b>&rdquo;, &ldquo;<b>Psi0ProgramIssue</b>&rdquo;, &ldquo;<b>Psi0ProgramOpp</b>&rdquo;, &ldquo;<b>Psi0ProgramRisk</b>&rdquo;, &ldquo;<b>Psi0Checklist</b>&rdquo;.",
+          "name": "foundObjects"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "Contains information of related objects for context Program object.",
+      "isPublished": "true",
+      "name": "ProgramRelatedObjectOutput",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The parent of the <i>targetObjects</i> object. The TcProject of the <i>parentObject</i> will be used, if any of the <i>targetObjects</i> is not associated to a TcProject. <br />If <i>targetObjects</i> are not provided, the objects related to the <i>parentObject</i> will be used as <i>targetObjects</i>. Valid relation types to fetch the target objects are <b>Psi0PlanPrgDel</b> and <b>Psi0EventPrgDel</b>.",
+          "name": "parentObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::WorkspaceObject"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of objects for which the users should be propagated. Valid object type is <b>Psi0PrgDelRevision</b>.",
+          "name": "targetObjects"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface::NameValueStringPair"
+            }
+          ],
+          "description": "Specifies the propagate options for <i>targetObjects</i>.<br />Valid option (key : value) are:<br />TcProject : &lt;UID of TcProject&gt;",
+          "name": "propagateOptions"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "The input information required to perform propagation of user based on the given target and parent objects.",
+      "isPublished": "true",
+      "name": "PropagateUsersInput",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },    
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The UID of the primary object of the relation.",
+          "name": "leftNodeId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The UID of the secondary object of the relation.",
+          "name": "rightNodeId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The display name of the relation object type.",
+          "name": "relationType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ImanRelation"
+            }
+          ],
+          "description": "The underlying relation object.",
+          "name": "metaObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap"
+            }
+          ],
+          "description": "A map of property name (key) and property values (values) in string format.",
+          "name": "properties"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "This structure represents a relation object in the network graph.",
+      "isPublished": "true",
+      "name": "Edge",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+     {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::ProgramRelatedObjectOutput"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of structures containing information about the related objects for context Program objects.",
+          "name": "relatedObjects"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "The ServiceData will contain the plain objects populated with the related object for the context Program object.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "Response containing the information about the list of related objects for the context Program object. The ServiceData will contain the plain objects populated with the loaded related objects for the context Program object.",
+      "isPublished": "true",
+      "name": "GetProgramRelatedObjectsResponse",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The UID of context Program object.",
+          "name": "contextObjectUID"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The type of the relation  between the Program object and related objects. <br />Valid relation types values are: &ldquo;<b>Psi0PlanPrgDel</b>&rdquo;, &ldquo;<b>Psi0PlanIssueRelation</b>&rdquo;, &ldquo;<b>Psi0PlanRiskRelation</b>&rdquo;, &ldquo;<b>Psi0PlanOpportunityRelation</b>&rdquo;, &ldquo;<b>Psi0EventPrgDel</b>&rdquo;, &ldquo;<b>Psi0EventIssueRelation</b>&rdquo;, &ldquo;<b>Psi0EventRiskRelation</b>&rdquo;, &ldquo;<b>Psi0EventOppRelation</b>&rdquo;, &ldquo;<b>Psi0EventChecklistRelation</b>&rdquo;.",
+          "name": "relationType"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The start index to load the related objects from the results found.",
+          "name": "startIndex"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "int"
+            }
+          ],
+          "description": "The maximum number of related objects to be loaded.",
+          "name": "maxToLoad"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::StringToStringMap"
+            }
+          ],
+          "description": "A map (string, string) that specifies the load options for the related objects. Valid options are: isContextSecondary = &ldquo;true&rdquo; or &ldquo;false&rdquo;&rdquo; (if &lsquo;true&rsquo; means that the context object is secondary. If undefined or &lsquo;false&rsquo; means that the context objects is primary), populateRelatedObjectUIDs = &ldquo;true&rdquo; or &ldquo;false&rdquo;( if 'true' -&lsquo;foundObjects&rsquo; will be populated in output, If 'false' &ndash; &lsquo;foundObjects&rsquo; will not be populated.).",
+          "name": "loadOptions"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "This contains information about the context Program object and relation type for which the related objects would be returned.",
+      "isPublished": "true",
+      "name": "GetProgramRelatedObjsInput",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::vector<std::string>"
+            }
+          ],
+          "description": "The list of UIDs of the Workspace objects used to load the network graph.",
+          "name": "rootIds"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::Node"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The list of nodes in the loaded network graph.",
+          "name": "nodes"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::Edge"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "The list of edges in the loaded network graph.",
+          "name": "edges"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Structure of network graph data in the form of nodes, edges and the root ids.",
+      "isPublished": "true",
+      "name": "Graph",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::vector<std::string>"
+            }
+          ],
+          "description": "A list of Workspace Object UIDs to load the network.",
+          "name": "rootIds"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap"
+            }
+          ],
+          "description": "A map (string, string) containing the load parameters and values.",
+          "name": "loadParameters"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "This structure contains the Unique Immutable Identifiers(UIDs) of the Workspace Objects and any optional parameters required to load the newtwork graph.",
+      "isPublished": "true",
+      "name": "LoadNetworkInput",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::Graph"
+            }
+          ],
+          "description": "Network graph prepared based on the input root ids.",
+          "name": "graph"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Soa::Server::ServiceData"
+            }
+          ],
+          "description": "Service data containing the nodes and edges in the plain object list and any the partial errors encountered during the load network operation.",
+          "name": "serviceData"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "Response of the load network operation contating the network graph and the service data.",
+      "isPublished": "true",
+      "name": "LoadNetworkResponse",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::ProgramInfra::prg0programinfra::Prg0AbsEvent"
+            }
+          ],
+          "description": "The <b>Prg0AbsEvent</b> to which the context Psi0PrgDelRevision belongs.",
+          "name": "eventObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::Psi0PrgDelRevision"
+            }
+          ],
+          "description": "The context <b>Psi0PrgDelRevision</b> to which dependencies are to be created.",
+          "name": "contextObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Psi0PrgDelRevision"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of all succeeding <b>Psi0PrgDelRevision</b>.",
+          "name": "successors"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Psi0PrgDelRevision"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of all preceding <b>Psi0PrgDelRevision</b>.",
+          "name": "predecessors"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Psi0PrgDelRevision"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of all concurrent <b>Psi0PrgDelRevision</b>.",
+          "name": "concurrent"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "DataTypeRefParam": [
+                {
+                  "dataType": "Teamcenter::Psi0PrgDelRevision"
+                }
+              ],
+              "dataType": "std::vector"
+            }
+          ],
+          "description": "A list of all <b>Psi0PrgDelRevision</b> to be detached from the context object by deleting the dependencies.",
+          "name": "detachDeliverables"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface::StringToStringMap"
+            }
+          ],
+          "description": "A map (string, string) that specifies the options for managing dependencies.<br />Valid options are:<br />&ldquo;recalculateSequence&rdquo; : &ldquo;true&rdquo; or &ldquo;false&rdquo; (Set true to recalculate the program deliverable sequence; otherwise, false.) See the <i>recalculatePrgDeliverableSeq</i> service operation for more detail.",
+          "name": "manageOptions"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "Contains information required to create and delete the program deliverable dependencies for the <b>Psi0PrgDelRevision</b>.",
+      "isPublished": "true",
+      "name": "ManagePrgDeliverableDepsInput",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The name of key in Pair.",
+          "name": "name"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The value of key in Pair.",
+          "name": "keyValue"
+        }
+      ],
+      "createRelease": "Awp05.0.0",
+      "description": "Structure containing a pair (string, string) of name and value respectively.",
+      "isPublished": "true",
+      "name": "NameValueStringPair",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2020_05::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "StructElement": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "The UID of the Workspace object represented by this node.",
+          "name": "nodeId"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "description": "Name of node.",
+          "name": "name"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Teamcenter::WorkspaceObject"
+            }
+          ],
+          "description": "The underlying Workspace object.",
+          "name": "metaObject"
+        },
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface::StringPropertyMap"
+            }
+          ],
+          "description": "A map of property name (key) and property values (values) in string format.",
+          "name": "properties"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "This structure represents a Workspace object in the network graph.",
+      "isPublished": "true",
+      "name": "Node",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    }
+  ],
+  "TcVersion": "tc12000.0.0",
+  "Typedef": [
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp03.3.0",
+      "description": "StringPropertyMap is a map of property name (key) and property values (values) in string format.",
+      "isPublished": "true",
+      "name": "StringPropertyMap",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2017_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    },
+    {
+      "DataTypeRefParam": [
+        {
+          "DataTypeRefParam": [
+            {
+              "dataType": "std::string"
+            },
+            {
+              "dataType": "std::string"
+            }
+          ],
+          "dataType": "std::map"
+        }
+      ],
+      "createRelease": "Awp04.2.0",
+      "description": "Map (string, string) containg a key value pair of string type.",
+      "isPublished": "true",
+      "name": "StringToStringMap",
+      "namespace": "Psi0::Soa::PPSMInterfaceAw::_2019_06::PPSMInterface",
+      "scope": "Psi0::Soa::PPSMInterfaceAw::PPSMInterface"
+    }
+  ],
+  "xmlns": "http://teamcenter.com/BusinessModel/TcBusinessData"
+}

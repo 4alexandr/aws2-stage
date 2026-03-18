@@ -1,0 +1,4 @@
+<div class="aw-ngp-mcnIndication" id="{{conditions.isActiveMcn ? 'ngpActiveMcnChip' : 'ngpNotTrackedByMcn' }}">
+    <aw-icon-button command="data.activeMcnIconCmd" exist-when="conditions.isActiveMcn" extended-tooltip="ngpActiveMcnTooltip"></aw-icon-button>
+    <aw-icon-button command="data.notTrackedByMcnIconCmd" exist-when="conditions.notTrackedByMcn" extended-tooltip="ngpNonActiveMcnTooltip"></aw-icon-button>
+</div>

@@ -1,0 +1,28 @@
+<form class="geography-picker-form aw-layout-mainView" name="myForm">
+    <div class="aw-geography-pickerView">
+        <h1 class="aw-layout-locationTitle">{{brandName}}</h1>
+                    
+        <div class="aw-layout-panelSection aw-geography-section ">
+            <div class="aw-layout-panelSectionTitle aw-geography-geographySectionTitle">{{geographySectionTitle}}</div>
+            <div class="aw-widgets-propertyLabel aw-geography-selectLocationLabel">{{geographySectionPrompt}}</div>
+            <select ng-model="selectedGeography" ng-options="item.name for item in geographyList" ng-change="listpickChange()">
+            </select>
+        </div>
+        
+        <div class="aw-layout-panelSection" ng-show="displayConfidentialSection">
+            <div class="aw-layout-panelSectionTitle aw-geography-confidentialSectionTitle">{{confidentialSectionTitle}}</div>
+            <div class="aw-widgets-propertyLabel aw-base-scrollPanel aw-geography-confidentialStatement">{{confidentialStatementText}}</div>
+            <div class="aw-geography-confidentialCheck">        
+                <input type="checkbox" id="agreeCkbox" ng-model="checkboxModel.confidentialCheckMarkState"  ng-change="checkBoxClick()" class="aw-jswidgets-checkboxButton" />
+                <label class="aw-jswidgets-checkboxLabel" for="agreeCkbox">{{confidentialCheckBoxLabel}}</label>
+            </div>
+        </div>
+        <div class="aw-layout-panelFooter aw-geography-section">
+            <div class="aw-geography-footer" >
+                <button type="button" class="aw-base-blk-button" ng-click="continueOn()" ng-show="continueBtnVisibility">{{continueBtnText}}</button>
+                <button type="button" class="aw-base-blk-button" ng-click="signOut()">{{signOutBtnText}}</button>
+            </div>      
+        </div>
+        
+    </div>
+</form>

@@ -1,0 +1,41 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-include.directive",
+        "js/exist-when.directive"
+    ],
+
+    "actions": {
+        "handleArchitectureSecondaryPanelLoad": {
+            "actionType": "JSFunction",
+            "method": "handleArchitectureSecondaryPanelLoad",
+            "inputData": {},
+
+            "deps": "js/Ase0ArchitectureSecondaryViewService"
+        },
+
+        "updateSplitPanelContent": {
+            "actionType": "JSFunction",
+            "method": "updateSplitPanelContent",
+            "inputData": {},
+            "deps": "js/Ase0ArchitectureSecondaryViewService"
+        }
+    },
+
+    "onEvent": [ {
+            "eventId": "Ase0ArchitectureSecondary.contentLoaded",
+            "action": "handleArchitectureSecondaryPanelLoad"
+        },
+        {
+            "eventId": "AM.PrimarySelectionChangeEvent",
+            "action": "updateSplitPanelContent"
+        },
+        {
+            "eventId": "appCtx.update",
+            "criteria": {
+                "name": "selected"
+            },
+            "action": "updateSplitPanelContent"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "arrangeTitle": "Anordnen",
+    "arrangeButtonTitle": "Anordnen",
+    "arrangeAdminTitle": "Administration",
+    "arrangeNoColumnConfigs": "Keine gespeicherten Anordnungen",
+    "arrangeConfigNameTitle": "Anordnung",
+    "arrangeNewConfigNameTitle": "Name",
+    "arrangeNewConfigNameTitleRequired": "Anordnung benennen",
+    "arrangeNewConfigTitle": "Als neue Anordnung speichern",
+    "arrangeAndSaveButtonTitle": "Speichern und anordnen",
+    "arrangeAndCreateButtonTitle": "Speichern und anordnen",
+    "defaultNewColumnConfigName": "Neue Spaltenanordnung",
+    "availableColumnsTitle": "Verfügbare Spalten",
+    "tableColumnsTitle": "Tabellenspalten"
+}

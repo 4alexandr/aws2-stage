@@ -1,0 +1,13 @@
+{
+    "schemaVersion": "1.0.0",
+
+    "data":{
+        "mbmReadOnlyChipTitle":"{{i18n.mbmReadOnlyChipTooltipTitle}}",
+        "mbmReadOnlyChipDescription":"{{i18n.mbmReadOnlyChipTooltipDescription}}"
+    },
+
+    "i18n": {
+        "mbmReadOnlyChipTooltipTitle":["mbmMessages"],
+        "mbmReadOnlyChipTooltipDescription":["mbmMessages"]
+    }
+}

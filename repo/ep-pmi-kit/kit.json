@@ -1,0 +1,12 @@
+{
+  "name": "ep-pmi-kit",
+  "description": "",
+  "modules": [
+    "ep-pmi-kit"
+  ],
+  "version": "5.1.0",
+  "OOTB": true,
+  "extraDeps": [
+    "js/epGraphicsServiceProxy"
+  ]
+}

@@ -1,0 +1,12 @@
+<aw-panel-body aw-cls-fullview-icocss="">
+    <aw-list dataprovider="data.dataProviders.performSearch" has-floating-cell-commands="false">
+        <aw-default-cell  vmo="item" hideoverlay="true" extended-tooltip-context="item" extended-tooltip="data.cellTooltip"></aw-default-cell>
+    </aw-list>
+    <div visible-when="data.icoCells === 'undefined' || data.icoCells && data.icoCells.length === 0" class="aw-cls-noClassifiedMsg">
+        <aw-i18n>i18n.noClassifiedObjects</aw-i18n>
+        <div></div>
+    </div>
+</aw-panel-body>
+<aw-panel-footer>
+    <aw-button action="setCreateMode" visible-when="data.panelMode === -1 && data.isClassify" size="stretched"><aw-i18n>i18n.Add</aw-i18n></aw-button>
+</aw-panel-footer>

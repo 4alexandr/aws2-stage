@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "Risultati",
+     "filterTabTitle" : "Filtri",
+     "searchTabTitle" :"Ricerca",
+     "paletteTabTitle" :"Tavolozza",
+     "addStockMaterialTitle" : "Aggiungi",
+     "properties" : "Proprietà",
+     "add" : "Aggiungi",
+     "madeFromFailureMakeFromPrefTrue": "\"{0}\" è stato aggiunto, ma non è indicato come preferito in \"{1}\".",
+     "madeFromFailureMakeFromPrefFalse": "Impossibile aggiungere \"{0}\" perché non è indicato come preferito in \"{1}\".",     
+     "dimensionsLabel": "Quote",
+     "Sm1AddStdPartDesc": "Associare una parte standard alla parte.",
+     "Sm1AddStockMaterialDesc": "Aggiungere un materiale di magazzino alla parte.",
+     "addPropertiesLabel" : "Aggiungi proprietà"
+}

@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "ローカリゼーションを編集",
+    "editLocalizationSingleDesc": "プロパティに対して、値を異なる言語に翻訳します",
+    "masterValue": "マスタ値",
+    "translationLanguages": "翻訳言語",
+    "addorRemoveLocales": "言語を追加または除去",
+    "addorRemoveLocalesDesc": "翻訳する言語のリストから選択",
+    "removeLocale": "言語を除去",
+    "removeLocaleDesc": "翻訳言語を除去",
+    "propertiesTranslated": "翻訳可能なプロパティ",
+    "status": "ステータス",
+    "saveTranslationsError": "保存しようとしている間にイシューが発生しました。 {0}",
+    "property": "プロパティ"
+}

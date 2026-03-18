@@ -1,0 +1,37 @@
+<aw-panel-body>
+    <aw-panel-section>
+        <aw-file-upload type-filter=".bcz" is-required="true" file-change-action="populateXferOption"></aw-file-upload>
+         <aw-listbox has-floating-cell-commands=false prop="data.transferOptionSetListBox" list="data.transferOptionSetListBoxValues"   action="transferOptionChanged"></aw-listbox>
+          <aw-radiobutton prop="data.validateRadio" visible-when="conditions.isLLImport" action="validateOptChanged"></aw-radiobutton>
+        <aw-command-panel-section caption="{{i18n.optionOverrides}}" collapsed="false" anchor="data.TOSCommandAnchor"
+            name="tosSection" visible-when="conditions.isTransferOptionSetSelected">
+            <div aw-repeat="overrides : ctx.overrideOptions">
+                <aw-flex-row align-content="center" height="3f">
+                    <aw-flex-column width="1.2f" justify="center">
+                        <aw-icon icon-id="miscComplianceFail" visible-when="!overrides.checkboxprops.dbValue"></aw-icon>
+                        <aw-icon icon-id="miscCompliancePass" visible-when="overrides.checkboxprops.dbValue"></aw-icon>
+                            </aw-flex-column>
+                            <aw-flex-column width="1.4f" justify="center">
+                            </aw-flex-column>
+                            <aw-flex-column width="16f" justify="center">
+                                <label>{{overrides.option_displayname}}</label>
+                            </aw-flex-column>
+                            <aw-flex-column width="2.5f" justify="center">
+                                <aw-icon-button command="data.removeOptCommand" id="{{overrides.option_realname}}"></aw-icon-button>
+                            </aw-flex-column>
+                </aw-flex-row>
+            </div>
+        </aw-command-panel-section>
+    </aw-panel-section>
+</aw-panel-body>
+
+<aw-panel-footer>
+
+    <aw-button visible-when="conditions.isValidateYes"  action="validateBriefcase">
+        <aw-i18n>i18n.cmdValidateButton</aw-i18n>
+    </aw-button>
+    <aw-button visible-when="conditions.enableImport"   action="importBriefcase">
+        <aw-i18n>i18n.cmdImportButton</aw-i18n>
+    </aw-button>
+
+</aw-panel-footer>

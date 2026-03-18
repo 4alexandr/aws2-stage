@@ -1,0 +1,34 @@
+<aw-form name="addMeasurableAttrForm">
+    <aw-panel-body exist-when="!data.attributeDefinition">
+
+         <aw-panel-section caption="i18n.attributeDefinition">
+         <aw-panel-section caption="i18n.recent">
+            <div exist-when="!data.recentUsedTypes"><aw-i18n>i18n.loadingRecent</aw-i18n></div>
+            <aw-list dataprovider="data.dataProviders.getRecentTypesProvider">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list>
+         </aw-panel-section>
+
+         <aw-panel-section caption="i18n.other">
+            <div exist-when="!data.searchResults && data.totalFound===undefined"><aw-i18n>i18n.loadingOther</aw-i18n></div>
+            <aw-list-filter prop="data.filterBox" dataprovider="data.dataProviders.performSearchForParamDef">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list-filter>
+            <div exist-when="!data.searchResults && data.totalFound===0"><aw-i18n>i18n.noResultsFound</aw-i18n></div>
+        </aw-panel-section>
+        </aw-panel-section>
+    </aw-panel-body>
+
+    <aw-panel-body exist-when="data.attributeDefinition && data.xrtTypeToLoad">
+        <aw-title-link prop="data.objName" action="clearSelectedType"></aw-title-link>
+        <aw-xrt type="CREATE" object-type="{{data.xrtTypeToLoad}}"></aw-xrt>
+    </aw-panel-body>
+</aw-form>
+
+<aw-panel-footer>
+    <aw-button action="createAttributeInput" visible-when="addMeasurableAttrForm.$valid && data.attributeDefinition">
+        <aw-i18n>i18n.add</aw-i18n>
+    </aw-button>
+</aw-panel-footer>
+
+

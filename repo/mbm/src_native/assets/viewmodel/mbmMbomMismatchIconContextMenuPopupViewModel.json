@@ -1,0 +1,229 @@
+{
+
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-popup-panel2.directive",
+        "js/aw-panel.directive",
+        "js/aw-list.directive",
+        "js/aw-icon.directive",
+        "js/aw-flex-row.directive"
+    ],
+
+    "data":{
+        "contextMenuObjects":[
+            {
+                "dispalyName":"{{i18n.mbmCompareToEbom}}",
+                "internalName":"compare",
+                "icon":"cmdCompareRevisions24.svg"
+            },
+            {
+                "dispalyName":"{{i18n.mbmUpdateInMbom}}",
+                "internalName":"propagate",
+                "icon":"cmdUpdateAssignedRevision24.svg"
+            }
+        ]
+    },
+
+    "dataProviders": {
+        "contextMenuDataProvider": {
+            "dataProviderType": "Static",
+            "response": "{{data.contextMenuObjects}}",
+            "totalFound": 2
+        }
+    },
+
+    "actions": {
+        "contextMenuProvider":{
+            "actionType": "dataProvider",
+            "method": "contextMenuDataProvider"
+        },
+
+        "evaluateContextMenu": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "mbm.propagateChangesEvent",
+                        "condition":"data.dataProviders.contextMenuDataProvider.selectedObjects[0].internalName === 'propagate'"
+                    },
+                    {
+                        "name": "mbm.compareSelectedEvent",
+                        "condition":"data.dataProviders.contextMenuDataProvider.selectedObjects[0].internalName === 'compare'"
+                    }
+                ]
+            }
+        },
+
+        "evaluatePropagateChanges":{
+            "actionType": "JSFunction",
+            "method": "evaluatePropagateChanges",
+            "inputData": {
+                "selectedObjects":["{{subPanelContext.selectedObject}}"],
+                "contextKey":"mbomContext",
+                "isPullPropagate":true
+            },
+            "outputData": {
+                "evaluatedObject":""
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "message": "mbmPropagateOverAssignedConfirmMessage",
+                        "condition": "data.evaluatedObject.hasOverAssigned"
+                    }
+                ]
+            },
+            "events": {
+                "success":[
+                    {
+                        "name": "mbm.evaluatePropagateChangesCompleteEvent",
+                        "condition": "!data.evaluatedObject.hasOverAssigned"
+                    },
+                    {
+                        "name": "mbm.closePopup",
+                        "condition": "!data.evaluatedObject.hasOverAssigned"
+                    }
+                ]
+            },
+            "deps":"js/mbmComparePopupService"
+        },
+
+        "performPropagateChange":{
+            "actionType": "JSFunctionAsync",
+            "method": "pushPropagateChanges",
+            "inputData": {
+                "param":"{{data.evaluatedObject.objectsToPropagate}}"
+            },
+            "deps":"js/mbmPropagateService"
+        },
+
+        "propagateAllConfirmation":{
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "mbm.evaluatePropagateChangesCompleteEvent"
+                    },
+                    {
+                        "name": "mbm.closePopup"
+                    }
+                ]
+            }
+        },
+
+        "mbmEvaluateComparePopupTitle":{
+            "actionType": "JSFunction",
+            "method": "getComparePopupTitle",
+            "inputData": {
+                "selectedObject":"{{subPanelContext.selectedObject}}",
+                 "title": "{{i18n.mbmComparePopupTitle}}"
+            },
+            "outputData": {
+                "popupTitle":""
+            },
+            "events": {
+                "success":[
+                    {
+                        "name": "mbm.evaluateComparePopupTitleCompleteEvent"
+                    },
+                    {
+                        "name": "mbm.closePopup"
+                    }
+                ]
+            },
+            "deps":"js/mbmComparePopupService"
+        },
+
+        "showComparePopup":{
+            "actionType": "JSFunction",
+            "method": "show",
+            "inputData": {
+                "data": {
+                    "declView": "mbmComparePopup",
+                    "subPanelContext":{
+                        "selectedObject":"{{subPanelContext.selectedObject}}"
+                    },
+                    "locals":{
+                        "caption":"{{data.popupTitle}}"
+                    }
+                }
+            },
+            "outputData": {
+                "popupId":"id"
+            },
+            "deps": "js/popupService"
+        },
+
+        "closePopup": {
+            "actionType": "JSFunction",
+            "method": "hide",
+            "inputData": {
+                "popupEl": "{{data.popupId}}"
+            },
+            "deps": "js/popupService"
+        }
+    },
+
+    "lifecycleHooks":{
+        "onInit":"contextMenuProvider"
+    },
+
+    "messages": {
+        "mbmPropagateOverAssignedConfirmMessage": {
+          "messageType": "WARNING",
+          "messageText": "{{i18n.mbmOverAssignedAdditionalPropagateMessage}}",
+          "messageTextParams": [
+            "{{subPanelContext.selectedObject.props.awb0Archetype.displayValues[0]}}"
+          ],
+          "navigationOptions": [
+            {
+              "option": "Cancel",
+              "text": "{{i18n.mbmCancel}}"
+            },
+            {
+              "option": "propagateAll",
+              "text": "{{i18n.mbmPropagateAll}}",
+              "action": "propagateAllConfirmation"
+            }
+          ]
+        }
+    },
+
+    "onEvent": [
+        {
+            "eventId": "contextMenuDataProvider.selectionChangeEvent",
+            "action": "evaluateContextMenu"
+        },
+        {
+            "eventId":"mbm.propagateChangesEvent",
+            "action":"evaluatePropagateChanges"
+        },
+        {
+            "eventId":"mbm.evaluatePropagateChangesCompleteEvent",
+            "action":"performPropagateChange"
+        },
+        {
+            "eventId":"mbm.compareSelectedEvent",
+            "action":"mbmEvaluateComparePopupTitle"
+        },
+        {
+            "eventId":"mbm.evaluateComparePopupTitleCompleteEvent",
+            "action":"showComparePopup"
+        },
+        {
+            "eventId": "mbm.closePopup",
+            "action": "closePopup"
+        }
+    ],
+
+    "i18n": {
+        "mbmUpdateInMbom":["mbmMessages"],
+        "mbmCompareToEbom":["mbmMessages"],
+        "mbmComparePopupTitle":["mbmMessages"],
+        "mbmOverAssignedAdditionalPropagateMessage":["mbmMessages"],
+        "mbmPropagateAll":["mbmMessages"],
+        "mbmCancel":["mbmMessages"]
+    }
+}

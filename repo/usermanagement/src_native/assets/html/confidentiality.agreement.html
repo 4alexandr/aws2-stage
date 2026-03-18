@@ -1,0 +1,19 @@
+<form class="confidentiality-agreement-form1 aw-layout-mainView" name="myForm">
+    <div class="aw-confidentialityAgreement-view">
+         <h1 class="aw-layout-locationTitle">{{brandName}}</h1>                    
+        <div class="aw-layout-panelSection">
+            <div class="aw-confidentialityAgreement-confidentialCheck">
+                 <div class="aw-layout-panelSectionTitle aw-confidentialityAgreement-SectionTitle">{{confidentialSectionTitle}}</div>
+                 <div class="aw-widgets-propertyLabel aw-base-scrollPanel aw-confidentialityAgreement-confidentialStatement">{{confidentialStatementText}}</div>    
+                <input type="checkbox" id="agreeCkbox" ng-model="checkboxModel.confidentialCheckMarkState"  ng-change="checkBoxClick()" class="aw-jswidgets-checkboxButton" />
+                <label class="aw-jswidgets-checkboxLabel" for="agreeCkbox">{{confidentialCheckBoxLabel}}</label>
+            </div>
+        </div>
+        <div class="aw-layout-panelFooter">
+            <div class="aw-confidentialityAgreement-footer" >
+                <button type="button" class="aw-base-blk-button" ng-click="continueOn()" ng-show="continueBtnVisibility">{{continueBtnText}}</button>
+                <button type="button" class="aw-base-blk-button" ng-click="signOut()">{{signOutBtnText}}</button>
+            </div>   
+        </div>        
+    </div>
+</form>

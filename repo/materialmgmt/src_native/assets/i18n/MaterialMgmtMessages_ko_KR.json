@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "추가 대상",
+    "addButtonTitle": "추가",
+    "addLabel": "추가 대상",
+    "newShowAddObjectPresenterBtn": "새로 만들기",
+    "paletteShowAddObjectPresenterBtn": "팔레트",
+    "searchShowAddObjectPresenterBtn": "검색",
+    "errorInGettingSubtypesofEndItem": "내부 오류로 인해 검색 결과가 필터링되지 않았습니다.",
+    "FrequentlyUsedSectionTitle": "자주 사용됨",
+    "addPropertiesLabel": "속성 추가",
+    "resultsTabTitle": "결과",
+    "filterTabTitle": "필터",
+    "Mtw0ShowAddObjectDesc": "재료에 물질을 할당합니다.",
+    "view": "뷰",
+    "billOfMaterials": "BOM",
+    "billOfSubstances" : "BOS(Bill of Substance)"
+}

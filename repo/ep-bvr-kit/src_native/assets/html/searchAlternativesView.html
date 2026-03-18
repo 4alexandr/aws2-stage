@@ -1,0 +1,14 @@
+<aw-popup2 caption="{{i18n.searchPartialAlternatives}}">
+    <aw-panel-body>
+        <aw-flex-column width="12">
+            <aw-list-filter prop="data.filterBox" dataprovider="data.dataProviders.performSearch">
+                <aw-default-cell vmo="item"></aw-default-cell>
+            </aw-list-filter>
+            <aw-panel-section visible-when="conditions.isAlternativeExist">
+                <aw-list dataprovider="data.dataProviders.setAllAltList">
+                    <aw-default-cell vmo="item"></aw-default-cell>
+                </aw-list>
+            </aw-panel-section>
+        </aw-flex-column>
+    </aw-panel-body>
+</aw-popup2>

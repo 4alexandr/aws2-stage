@@ -1,0 +1,9 @@
+{
+    "noVisuals": "No hay ningún elemento visual bajo este elemento.",
+    "selectElement": "Seleccione un elemento para ver la información visual.",
+    "capture2DImage": "Captar la imagen 2D",
+    "capture2DImagesSuccess": "Se ha captado correctamente la imagen 2D y se la ha adjuntado a \"{0}\".",
+    "epManageProductViewsCommandTitle":"Gestionar las vistas del producto en Teamcenter Visualization",
+    "3DView": "Vista 3D",
+    "openInTeamcenterVis":"Abrir en Teamcenter Visualization"
+}

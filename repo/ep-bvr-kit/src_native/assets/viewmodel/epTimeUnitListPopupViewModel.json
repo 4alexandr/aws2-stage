@@ -1,0 +1,18 @@
+{
+    "schemaVersion": "1.0.0", 
+    "imports":[
+        "js/aw-popup-panel2.directive",
+        "js/aw-include.directive"
+    ],
+    "dataProviders": {},
+    "i18n": {},
+    "actions": {},
+    "onEvent": [],
+    "data" : {},
+    "messages": {},
+    "conditions": {},
+    "grids": {},
+    "dataParseDefinitions": {},
+    "functions": {},
+    "columnProviders": {}
+}

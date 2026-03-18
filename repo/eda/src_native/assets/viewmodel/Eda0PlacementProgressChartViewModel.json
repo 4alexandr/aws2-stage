@@ -1,0 +1,49 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-chart.directive",
+        "js/aw-row.directive"
+    ],
+    "actions": {
+        "placementChartProgress": {
+            "actionType": "JSFunction",
+            "method": "createPlacementPieChart",
+            "inputData": {
+                "data": "{{data}}"
+            },
+            "outputData": {
+                "chartProviders.placementChartProvider.chartPoints": ""
+            },
+            "deps": "js/Eda0EdmViewerService"
+        }
+    },
+    "chartProviders": {
+        "placementChartProvider": {
+            "chartType": "pie",
+            "loadDataAction": "placementChartProgress",
+            "chartConfig": {
+                "isChartZoomable": true,
+                "isYAxisLinearOrLogarithmic": "logarithmic",
+                "xAxisLabel": "",
+                "yAxisLabel": "",
+                "isDataLabelOnChartEnabled": true
+            }
+        }
+    },
+    "i18n": {
+        "pieSelectedMessage": [
+            "EdaMessages"
+        ],
+        "pieUnselectedMessage": [
+            "EdaMessages"
+        ],
+        "placed" : [
+            "EdaMessages"
+        ],
+        "unplaced" : [
+            "EdaMessages"
+        ]
+    }
+}

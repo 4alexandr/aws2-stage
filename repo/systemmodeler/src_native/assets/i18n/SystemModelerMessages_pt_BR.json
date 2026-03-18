@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "\"{0}\" e os mapeamentos de atributo correspondentes serão excluídos.",
+    "removeSingleElementConfirmation": "\"{0}\" será removido.",
+    "removeMultipleElementsConfirmation": "{0} seleções serão removidas.",
+    "removeMeasurableAttributeMessage": "\"{0}\" serão excluídos.",
+    "syncSingleConectionMessage": "\"{0}\" está sendo sincronizado, e as interações estão sendo atualizadas. Você será notificado quando o processo terminar.",
+    "syncMultipleConectionsMessage": "\"{0}\" seleções estão sendo sincronizadas, e as interações estão sendo atualizadas. Você será notificado quando o processo terminar.",
+    "exportInterfaceTitle": "Exportar interface",
+    "aw_interfaceTableCommandbar": "Barra de comandos de tabela de interface",
+    "aw_interactionTableCommandbar": "Barra de comandos de tabela de interações",
+    "aw_attributesTableCommandbar": "Barra de comandos de tabela de atributos",
+    "aw_interfacesViewer": "Visualizador de interfaces",
+    "table_cell_commands": "Comandos de célula de tabela",
+    "Ase1ExportInterfaceElementDesc": "Exporte os detalhes da interface selecionada."
+}

@@ -1,0 +1,15 @@
+{
+    "assemblyPmiTitle": "Hladina sestavy PMI",
+    "assemblyPmiTitleWithSelection": "Hladina sestavy PMI pro {0}",
+    "assignedPmiTitle": "PMI",
+    "name": "Název",
+    "id": "ID",
+    "nominalValue": "Nominální hodnota",
+    "uom": "UOM",
+    "selectProcessOrOperation": "Vyberte proces nebo operaci.",
+    "selectProcessOrOperationForPMIs": "Vyberte proces nebo operaci a zobrazte jeho přiřazená PMI.",
+    "noAssociatedPMIs": "Vybraný proces\/operace nemá asociovaná PMI.",
+    "noAssignedPMIs": "Nejsou přiřazena žádná PMI.",
+    "connectedParts" : "Připojené součásti",
+    "more" : "Další"
+}

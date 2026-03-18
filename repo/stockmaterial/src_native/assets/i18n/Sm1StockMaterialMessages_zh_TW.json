@@ -1,0 +1,15 @@
+{
+     "resultTabTitle" : "結果",
+     "filterTabTitle" : "篩選器",
+     "searchTabTitle" :"搜尋",
+     "paletteTabTitle" :"資源板",
+     "addStockMaterialTitle" : "新增",
+     "properties" : "屬性",
+     "add" : "新增",
+     "madeFromFailureMakeFromPrefTrue": "「{0}」已新增，但它在「{1}」中並非喜好設定。",
+     "madeFromFailureMakeFromPrefFalse": "「{0}」尚未新增，因為它在「{1}」中並非喜好設定。",     
+     "dimensionsLabel": "尺寸",
+     "Sm1AddStdPartDesc": "將標準零件附加到零件。",
+     "Sm1AddStockMaterialDesc": "將庫存材質新增到零件。",
+     "addPropertiesLabel" : "新增屬性"
+}

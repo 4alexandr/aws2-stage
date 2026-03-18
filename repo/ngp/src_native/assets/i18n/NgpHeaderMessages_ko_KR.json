@@ -1,0 +1,21 @@
+{
+    "loading": "로드 중...",
+    "rootClassLibraryObjectMsg": "클래스에 대한 제조 라이브러리",
+    "addToFavoritesCommandTitle": "즐겨찾기에 추가",
+    "removeFromFavoritesCommandTitle": "즐겨찾기에서 제거",
+    "pinObjectCommandTitle": "홈에 고정",
+    "unPinObjectCommandTitle": "홈에서 고정 해제",
+    "pinnedToHome": "\"{0}\"이(가) 홈에 추가되었습니다.",
+    "unpinnedFromHome": "\"{0}\"이(가) 홈에서 제거되었습니다.",
+    "addedToFavorites": "\"{0}\"이(가) 즐겨찾기에 추가되었습니다.",
+    "removedFromFavorites": "\"{0}\"이(가) 즐겨찾기에서 제거되었습니다.",
+    "moreActionsCmdTooltip": "{0}에 대한 추가 작업",
+    "checkInCmdTitle": "체크인",
+    "checkOutCmdTitle": "체크아웃",
+    "checkoutSuccessful": "개체 \"{0}\"에서 체크아웃 성공",
+    "checkinSuccessful": "개체 \"{0}\"에서 체크인 성공",
+    "noChildrenFound": "요소 없음",
+    "effectivityTooltip": "단위 = {0}",
+    "discontinuedSubElementsTooltipTitle": "Pending Deletions",
+    "discontinuedSubElementsTooltipMessage": "Deletion of {0} processes is pending. To release the activity content, including this deletion, submit the activity to workflow while using workflow template \"NGP_ReleasePendingDeletions\"."
+}

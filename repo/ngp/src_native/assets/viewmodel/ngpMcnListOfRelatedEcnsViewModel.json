@@ -1,0 +1,36 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-default-cell.directive",
+        "js/aw-list.directive"
+    ],
+    "actions": {
+        "initEcnsDataProvider": {
+            "actionType": "dataProvider",
+            "method": "ecnsDataProvider"
+        },
+        "loadRelatedEcns": {
+            "actionType": "JSFunctionAsync",
+            "method": "loadRelatedEcns",
+            "inputData": {
+                "activeMcnUid": "{{subPanelContext.activeMcnUid}}"
+            },
+            "outputData": {
+                "relatedEcns": ""
+            },
+            "deps": "js/services/ngpChangeManagementService"
+        }
+    },
+    "dataProviders": {
+        "ecnsDataProvider": {
+            "action": "loadRelatedEcns",
+            "response": "{{data.relatedEcns}}",
+            "totalFound": "{{data.relatedEcns.length}}",
+            "commandsAnchor": "ngp_changeManagementTile",
+            "selectionModelMode": "none"
+        }
+    },
+    "lifecycleHooks": {
+        "onInit": "initEcnsDataProvider"
+    }
+}

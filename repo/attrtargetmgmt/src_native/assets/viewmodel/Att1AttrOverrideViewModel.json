@@ -1,0 +1,51 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+    ],
+
+    "actions":
+    {
+        "isAttrOpenedAndOverridden":
+        {
+            "actionType": "JSFunction",
+            "method": "isAttrOpenedAndOverridden",
+            "deps": "js/Att1MeasurableAttributeService",
+            "inputData":
+            {
+                 "eventMap": "{{data.eventMap}}"
+            }
+        },
+
+        "openNewAttribute":
+        {
+            "actionType": "JSFunction",
+            "method": "execute",
+            "inputData":
+            {
+                "vmo": "{{data.eventMap.Att1AttrOverridden.newAttrObj}}",
+                "dataCtxNode": null,
+                "openInEditMode": false
+            },
+            "deps": "js/showObjectCommandHandler"
+        }
+    },
+
+    "onEvent":
+    [
+        {
+            "eventId": "cdm.updated",
+            "cacheEventData": true,
+            "action": "isAttrOpenedAndOverridden"
+        },
+        {
+            "eventId": "Att1AttrOverridden",
+            "cacheEventData": true,
+            "action": "openNewAttribute"
+        }
+    ],
+
+    "i18n":
+    {
+    }
+}

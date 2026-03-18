@@ -1,0 +1,5 @@
+{
+    "sendToViewMakerCmdTitle": "マニュファクチャリングビューマーカを開く",
+    "sendToViewMakerTooltipMsg": "マニュファクチャリングビューマーカで、モデルビューを作成および管理できます。",
+    "sendToViewMakerDisabledTooltipMsg": "The command is available for processes that either have assignments, or have predecessors or background processes."
+}

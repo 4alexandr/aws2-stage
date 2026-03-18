@@ -1,0 +1,8 @@
+<aw-panel>
+    <aw-list dataprovider="data.dataProviders.tracelinkedItemList" visible-when="data.showCleartextObject == null">
+        <aw-requirements-tooltip-cell vmo="item" ></aw-requirements-tooltip-cell>
+    </aw-list>
+    <div class="aw-requirement-tooltipMore" visible-when="data.showMoreTracelinkOption">
+        <a ng-click="moreTracelinkClicked(data.selectedTooltipObject)"><aw-i18n>i18n.more</aw-i18n></a>
+    </div>
+</aw-panel>

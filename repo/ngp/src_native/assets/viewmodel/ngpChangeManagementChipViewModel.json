@@ -1,0 +1,200 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/exist-when.directive",
+        "js/extended-tooltip.directive",
+        "js/aw-icon-button.directive"
+    ],
+    "data": {
+        "popupId": "",
+        "isPopupOpened": false,
+        "mcnTypeIsValid": false,
+        "activeMcnIconCmd": {
+            "action": "handleActiveMcnChipClick",
+            "iconName": "indicatorChipTrackingChanges"
+        },
+        "notTrackedByMcnIconCmd": {
+            "action": "handleNotTrackedByMcnChipClick",
+            "iconName": "indicatorChipNotTrackingChanges"
+        }
+    },
+    "actions": {
+        "displayActiveMcnPopup": {
+            "actionType": "JSFunctionAsync",
+            "method": "show",
+            "inputData": {
+                "data": {
+                    "declView": "ngpActiveChangeManagementPopup",
+                    "options": {
+                        "customClass": "aw-ngp-activeMCNPopup",
+                        "height": "475",
+                        "width": "556",
+                        "isModal": false,
+                        "reference": "ngpActiveMcnChip",
+                        "clickOutsideToClose": true
+                    },
+                    "subPanelContext": {
+                        "activeMcnUid": "{{data.activeMcnUid}}",
+                        "previousMcnUids": "{{data.previousMcnUids}}"
+                    }
+                }
+            },
+            "outputData": {
+                "popupId": "id"
+            },
+            "deps": "js/popupService"
+        },
+        "closePopupWindow": {
+            "actionType": "JSFunctionAsync",
+            "method": "hide",
+            "inputData": {
+                "popupId": "{{data.popupId}}"
+            },
+            "outputData": {
+                "popupId": "id"
+            },
+            "deps": "js/popupService"
+        },
+        "isActiveMcnPopupOpened": {
+            "actionType": "JSFunction",
+            "method": "isActiveMcnPopupOpened",
+            "outputData": {
+                "isPopupOpened": ""
+            },
+            "deps": "js/services/ngpChangeManagementService"
+        },
+        "getActiveMcnUid": {
+            "actionType": "JSFunction",
+            "method": "getActiveMcnUid",
+            "inputData": {
+                "modelObject": "{{ctx.ngp.scopeObject}}"
+            },
+            "outputData": {
+                "activeMcnUid": ""
+            },
+            "deps": "js/services/ngpChangeManagementService"
+        },
+        "getPreviousMcnUids": {
+            "actionType": "JSFunction",
+            "method": "getPreviousMcnUids",
+            "inputData": {
+                "modelObject": "{{ctx.ngp.scopeObject}}"
+            },
+            "outputData": {
+                "previousMcnUids": ""
+            },
+            "deps": "js/services/ngpChangeManagementService"
+        },
+        "handleActiveMcnChipClick": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "isActiveMcnPopupOpened"
+                },
+                {
+                    "action": "getActiveMcnUid",
+                    "condition": "conditions.canShowPopup"
+                },
+                {
+                    "action": "getPreviousMcnUids",
+                    "condition": "conditions.canShowPopup"
+                },
+                {
+                    "action": "displayActiveMcnPopup",
+                    "condition": "conditions.canShowPopup"
+                },
+                {
+                    "action": "closePopupWindow",
+                    "condition": "conditions.canHidePopup"
+                }
+            ]
+        },
+        "displayCreateMcnPopup": {
+            "actionType": "JSFunction",
+            "method": "show",
+            "inputData": {
+                "data": {
+                    "declView": "ngpCreateMcn",
+                    "options": {
+                        "height": "475",
+                        "width": "400"
+                    }
+                }
+            },
+            "deps": "js/popupService"
+        },
+        "handleNotTrackedByMcnChipClick": {
+            "actionType": "batchJob",
+            "steps": [
+                {
+                    "action": "mcnTypeToCreateValidation"
+                },
+                {
+                    "action": "displayCreateMcnPopup",
+                    "condition": "conditions.mcnTypeIsValid"
+                }
+            ]
+        },
+        "mcnTypeToCreateValidation": {
+            "actionType": "JSFunctionAsync",
+            "method": "mcnTypeToCreateValidation",
+            "inputData": {
+                "mcnPreferenceName": "{{data.preferences.NGPMCNTypeToCreate[0]}}"
+            },
+            "outputData": {
+                "mcnTypeIsValid": ""
+            },
+            "actionMessages": {
+                "success": [
+                    {
+                        "message": "createMcnPreferenceNotValid",
+                        "condition": "!data.mcnTypeIsValid"
+                    }
+                ]
+            },
+            "deps": "js/services/ngpChangeManagementService"
+        }
+    },
+    "onEvent": [
+        {
+            "eventId": "ngp.closeActiveMcnPopup",
+            "action": "closePopupWindow"
+        }
+    ],
+    "preferences": [
+        "NGPMCNTypeToCreate"
+    ],
+    "conditions": {
+        "isActiveMcn": {
+            "expression": "ctx.ngp.scopeObject.props.mpc0activeMCN && ctx.ngp.scopeObject.props.mpc0activeMCN.dbValues[0] !== ''"
+        },
+        "notTrackedByMcn": {
+            "expression": "ctx.ngp.scopeObject.props.mpc0activeMCN && ctx.ngp.scopeObject.props.mpc0activeMCN.dbValues[0] === ''"
+        },
+        "canShowPopup": {
+            "expression": "(data.popupId === '' || data.popupId === undefined) || data.isPopupOpened === false "
+        },
+        "canHidePopup": {
+            "expression": {
+                "$source": "conditions.canShowPopup",
+                "$query": {
+                    "$eq": false
+                }
+            }
+        },
+        "mcnTypeIsValid": {
+            "expression": "data.mcnTypeIsValid"
+        }
+    },
+    "messages": {
+        "createMcnPreferenceNotValid": {
+            "messageType": "ERROR",
+            "messageText": "{{i18n.createMcnPreferenceNotValid}}"
+        }
+    },
+    "i18n": {
+        "createMcnPreferenceNotValid": [
+            "NgpChangeMgmtMessages"
+        ]
+    }
+}

@@ -1,0 +1,23 @@
+/* Copyright 2020 Siemens Product Lifecycle Management Software Inc. */
+
+.aw-requirementsmanager-list li{
+    background: $PL_Black_25;
+    color: $PL_Black;
+    border-color: $PL_Black_25;
+}
+
+.aw-requirementsmanager-recent label, .aw-requirementsmanager-recent .aw-commands-showIconLabel{
+    color: $PL_Black;
+}
+
+.aw-requirementsmanager-tiles{
+    background: $Siemens_Snow; 
+}
+
+.aw-requirementsmanager-recent .aw-theme-iconHomeOutline{
+    fill: $PL_Black;
+}
+
+.aw-requirementsmanager-recent .aw-theme-iconOutline{
+    fill: $PL_Black;
+}

@@ -1,0 +1,177 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports":
+    [
+        "js/aw-matrix.directive",
+        "js/aw-column.directive",
+        "js/aw-toolbar.directive"
+    ],
+    "i18n":
+    {
+
+    },
+    "preferences":
+    [
+        "AWC_Connection_Type_Categories"
+    ],
+    "data":
+    {
+      "displayProp": "object_string"
+    },
+    "actions":
+    {
+        "loadData":
+        {
+           "actionType": "JSFunction",
+            "method": "loadDataForConnectionMatrix",
+            "inputData":
+            {
+                "data": "{{data}}"
+            },
+            "outputData":
+            {
+                "totalFound": "totalFound",
+                "searchResults": "searchResults",
+                "columns": "columns"
+            },
+            "deps": "js/Ase0MatrixTableService"
+        },
+        "loadColumns":
+        {
+           "actionType": "JSFunction",
+            "method": "getColumnInfos",
+            "inputData":
+            {
+                "dataProvider": "{{data.dataProviders.interactionMatrixDataProvider}}",
+                "data": "{{data}}"
+            },
+            "deps": "js/Ase0MatrixTableService"
+        },
+        "doGridDataProvider":
+        {
+            "actionType": "dataProvider",
+            "method": "interactionMatrixDataProvider"
+        },
+        "processMatrixCellSelection":
+        {
+            "actionType": "JSFunction",
+            "method": "setCellSelection",
+            "inputData":
+            {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase0MatrixTableService"
+        },
+        "processMatrixCellDeSelection":
+        {
+            "actionType": "JSFunction",
+            "method": "setCellDeSelection",
+            "inputData":
+            {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase0MatrixTableService"
+        },
+        "processMatrixRowSingleClick":
+        {
+            "actionType": "JSFunction",
+            "method": "executeRowSingleClick",
+            "inputData":
+            {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase0MatrixTableService"
+        },
+        "processMatrixColSingleClick":
+        {
+            "actionType": "JSFunction",
+            "method": "executeColSingleClick",
+            "inputData":
+            {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase0MatrixTableService"
+        },
+        "processMatrixRowColSelection":
+        {
+            "actionType": "JSFunction",
+            "method": "executeRowColSelection",
+            "inputData":
+            {
+                "eventData": "{{data.eventData}}"
+            },
+            "deps": "js/Ase0MatrixTableService"
+        }
+    },
+    "dataProviders":
+    {
+        "interactionMatrixDataProvider":
+        {
+            "action": "loadData",
+            "editContext": "TABLE_CONTEXT",
+            "response": "{{data.searchResults}}",
+            "totalFound": "{{data.totalFound}}",
+            "selectionModelMode": "single"
+        }
+    },
+    "columnProviders":
+    {
+        "clientScopeUI":
+        {
+            "loadColumnAction": "loadColumns",
+            "columns": "{{data.columns}}",
+            "sortCriteria":
+            [
+
+            ]
+        }
+    },
+    "grids":
+    {
+        "Ase0MatrixTable":
+        {
+            "dataProvider": "interactionMatrixDataProvider",
+            "columnProvider": "clientScopeUI",
+            "addIconColumn": false,
+            "enableArrangeMenu": false,
+            "gridOptions":
+            {
+                "enableGridMenu": false,
+                "enableFiltering": false,
+                "enableHorizontalScrollbar": true,
+                "enableVerticalScrollbar": true,
+                "enablePinning": true,
+                "enableRowSelection": false,
+                "rowHeight": 48
+            }
+        }
+    },
+    "onEvent":
+    [
+        {
+            "eventId": "Ase0MatrixTable.gridCellSelection",
+            "cacheEventData": true,
+            "action": "processMatrixCellSelection"
+        },
+        {
+            "eventId": "Ase0MatrixTable.rowSingleClick",
+            "cacheEventData": true,
+            "action": "processMatrixRowSingleClick"
+        },
+        {
+            "eventId": "Ase0MatrixTable.colSingleClick",
+            "cacheEventData": true,
+            "action": "processMatrixColSingleClick"
+        },
+        {
+            "eventId": "Ase0MatrixTable.gridCellDeSelection",
+            "cacheEventData": true,
+            "action": "processMatrixCellDeSelection"
+        },
+        {
+            "eventId": "Ase0MatrixTable.rowColSelection",
+            "cacheEventData": true,
+            "action": "processMatrixRowColSelection"
+        }
+    ]
+}

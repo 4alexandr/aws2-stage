@@ -1,0 +1,45 @@
+{
+    "schemaVersion" : "1.0.0",
+    "imports":
+    [
+        "js/aw-tab-set.directive"
+    ],
+   "data":
+    {
+        "addParameterTabsModel":
+        {
+            "isArray": "true",
+            "dbValue":
+            [
+                {
+                    "tabKey": "new",
+                    "panelId": "Att1AddParameterNewTab",
+                    "name": "{{i18n.newTabTitle}}",
+                    "recreatePanel": true,
+                    "isolateMode": true
+                },
+                {
+                    "tabKey": "palette",
+                    "panelId": "Att1AddParameterPaletteTab",
+                    "name": "{{i18n.paletteTabTitle}}",
+                    "recreatePanel": true,
+                    "isolateMode": true
+                },
+                {
+                    "tabKey": "search",
+                    "panelId": "Att1AddParameterSearchTab",
+                    "name": "{{i18n.searchTabTitle}}",
+                    "isolateMode": true,
+                    "recreatePanel": true
+                }
+            ]
+        }
+    },
+
+    "i18n":
+    {
+        "newTabTitle":["Att1AttrMappingMessages"],
+        "paletteTabTitle": [ "Att1AttrMappingMessages"],
+        "searchTabTitle": [ "Att1AttrMappingMessages"]
+    }
+}

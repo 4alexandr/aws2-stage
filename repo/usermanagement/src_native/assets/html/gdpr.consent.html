@@ -1,0 +1,18 @@
+<form class="gdpr-consent-form aw-layout-mainView afx-default-background" name="myForm">
+    <div class="aw-gdprConsent-view">
+         <h1 class="aw-layout-locationTitle">{{brandName}}</h1>
+        <div class="aw-layout-panelSection" ng-show="displayGDPRSection">
+            <div class="aw-gdprConsent-check">
+                 <div id="ConsentStatement" class="aw-widgets-propertyLabel aw-base-scrollPanel aw-gdprConsent-consentStatement"></div>
+                <input type="checkbox" id="agreeCkbox" ng-model="checkboxModel.gdprCheckMarkState"  ng-change="checkBoxClick()" class="aw-jswidgets-checkboxButton" />
+                <label class="aw-jswidgets-checkboxLabel" for="agreeCkbox">{{gdprCheckBoxLabel}}</label>
+            </div>
+        </div>
+        <div class="aw-layout-panelFooter">
+            <div class="aw-gdprConsent-footer" >
+                <button type="button" class="aw-base-blk-button" ng-click="continueOn()" ng-show="continueBtnVisibility">{{continueBtnText}}</button>
+                <button type="button" class="aw-base-blk-button" ng-click="signOut()">{{signOutBtnText}}</button>
+            </div>
+        </div>
+    </div>
+</form>

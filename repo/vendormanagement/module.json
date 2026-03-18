@@ -1,0 +1,2008 @@
+{
+  "name": "vendormanagement",
+  "description": "",
+  "type": [
+    "native"
+  ],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "Siemens Product Lifecycle Management Software Inc.",
+  "saveAsRevise": {
+    "Vm0PrtnrContractRevision": {
+      "ReviseHidden": "false",
+      "SaveAsHidden": "true"
+    }
+  },
+  "aliasRegistry": {
+    "typeCommercialPartRevision48": [
+      "CommercialPart Revision"
+    ],
+    "typeVendorPart48": [
+      "ManufacturerPart"
+    ],
+    "typeVendorPartRevision48": [
+      "ManufacturerPart Revision"
+    ],
+    "typePartnerContract48": [
+      "Vm0PrtnrContract"
+    ],
+    "typePartnerContractRevision48": [
+      "Vm0PrtnrContractRevision"
+    ]
+  },
+  "commandsViewModel": {
+    "commands": {
+      "Vm1AddVendorLocation": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AddVendorLocationDesc}}"
+      },
+      "Vm1DeleteVendorLocation": {
+        "iconId": "cmdRemove",
+        "isGroup": false,
+        "title": "{{i18n.delete}}",
+        "description": "{{i18n.Vm1DeleteVendorLocationDesc}}"
+      },
+      "Vm1VendorChange": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.changeVendor}}",
+        "description": "{{i18n.Vm1VendorChangeDesc}}"
+      },
+      "Vm1CreateVendor": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.createVendor}}",
+        "description": "{{i18n.Vm1CreateVendorDesc}}"
+      },
+      "Vm1AddContract": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AddContractDesc}}"
+      },
+      "Vm1AddPartnerContractsInCreateVendor": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AddContractDesc}}"
+      },
+      "Vm1RemovePartnerContractsInCreateVendor": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.vm1Remove}}",
+        "description": "{{i18n.Vm1RemovePartnerContractsInCreateVendorDesc}}"
+      },
+      "Vm1AddContactsInCreateVendorCommand": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AddContactsInCreateVendorCommandDesc}}"
+      },
+      "Vm1RemoveContactsInCreateVendorCommand": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.vm1Remove}}",
+        "description": "{{i18n.Vm1RemoveContactsInCreateVendorCommandDesc}}"
+      },
+      "Vm1AddLocationsInCreateVendorCommand": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AddVendorLocationDesc}}"
+      },
+      "Vm1RemoveLocationsInCreateVendorCommand": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.vm1Remove}}",
+        "description": "{{i18n.Vm1DeleteVendorLocationDesc}}"
+      },
+      "Vm1AssignProjectInCreateVendor": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AssignProjectInCreateVendorDesc}}"
+      },
+      "Vm1RemoveProjectsInCreateVendor": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.removeProjectsInCreateVendor}}",
+        "description": "{{i18n.Vm1RemoveProjectsInCreateVendorDesc}}"
+      },
+      "Vm1RemoveVm1SiteCellCommand": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.vm1RemoveSiteCommandTitle}}",
+        "description": "{{i18n.Vm1RemoveVm1SiteCellCommandDesc}}"
+      },
+      "Vm1AssociateSiteToExistingVendor": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.vm1AssociateSiteCommandTitle}}",
+        "description": "{{i18n.Vm1AssociateSiteToExistingVendorDesc}}"
+      },
+      "Vm1AssociateSiteToNewVendor": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AssociateSiteToExistingVendorDesc}}"
+      },
+      "Vm1AddContactsToContract": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AddContactsToContractDesc}}"
+      },
+      "Vm1AddLocationsToContract": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AddLocationsToContractDesc}}"
+      },
+      "Vm1AddVendorRole": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.add}}",
+        "description": "{{i18n.Vm1AddVendorRoleDesc}}"
+      },
+      "Vm1RemoveVendorRole": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.removeVendorRole}}",
+        "description": "{{i18n.Vm1RemoveVendorRoleDesc}}"
+      },
+      "Vm1AddUserToContact": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.Vm1AddUserToContact}}",
+        "description": "{{i18n.Vm1AddUserToContactDesc}}"
+      },
+      "Vm1RemoveUserFromContact": {
+        "iconId": "cmdRemove",
+        "isGroup": false,
+        "title": "{{i18n.Vm1RemoveUserFromContact}}",
+        "description": "{{i18n.Vm1RemoveUserFromContactDesc}}"
+      },
+      "Vm1RemoveContactsFromPartnerContract": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.vm1Remove}}",
+        "description": "{{i18n.Vm1RemoveContactsFromPartnerContractDesc}}"
+      },
+      "Vm1RemoveLocationsFromPartnerContract": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.vm1Remove}}",
+        "description": "{{i18n.Vm1RemoveLocationsFromPartnerContractDesc}}"
+      },
+      "Vm1AssignPartnerContractToProduct": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.vm1Assign}}",
+        "description": "{{i18n.Vm1AssignPartnerContractToProductDesc}}"
+      },
+      "Vm1AssignPartnerContractToVendorPartACE": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.vm1AssignPartnerContracts}}",
+        "description": "{{i18n.Vm1AssignPartnerContractToProductDesc}}"
+      },
+      "Vm1AssignPartnerContractToVendorPart": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.vm1Assign}}",
+        "description": "{{i18n.Vm1AssignPartnerContractToProductDesc}}"
+      },
+      "Vm1RemoveVendorPartsFromContract": {
+        "iconId": "cmdRemove",
+        "title": "{{i18n.vm1Remove}}",
+        "description": "{{i18n.Vm1RemoveVendorPartsFromContractDesc}}"
+      },
+      "Vm1RemovePartnerContractFromProduct": {
+        "iconId": "cmdRemove",
+        "isGroup": false,
+        "title": "{{i18n.vm1Remove}}",
+        "description": "{{i18n.Vm1RemovePartnerContractsInCreateVendorDesc}}"
+      },
+      "Vm1AssignVendorPartsToPartnerContract": {
+        "iconId": "cmdAdd",
+        "title": "{{i18n.addTo}}",
+        "description": "{{i18n.Vm1AssignVendorPartsToPartnerContractDesc}}"
+      },
+      "vm1EditPreferredStatus": {
+        "iconId": "cmdEdit",
+        "isGroup": false,
+        "title": "{{i18n.vm1Edit}}",
+        "description": "{{i18n.vm1EditPreferredStatusDesc}}"
+      },
+      "vm1CancelEdit": {
+        "iconId": "cmdCancelEdit",
+        "isGroup": false,
+        "title": "{{i18n.cancel}}",
+        "description": "{{i18n.vm1CancelEditDesc}}"
+      },
+      "Vm1SaveEdits": {
+        "iconId": "cmdSave",
+        "isGroup": false,
+        "title": "{{i18n.Save}}",
+        "description": "{{i18n.Vm1SAveEditsDesc}}"
+      },
+      "Vm1RemovePartnerContractFromVendorPart": {
+        "iconId": "cmdRemove",
+        "isGroup": false,
+        "title": "{{i18n.vm1Remove}}",
+        "description": "{{i18n.Vm1RemovePartnerContractsInCreateVendorDesc}}"
+      },
+      "Vm1AddVendorPart": {
+        "iconId": "cmdAdd",
+        "isGroup": false,
+        "title": "{{i18n.addTo}}",
+        "description": "{{i18n.Vm1AddVendorPartDesc}}"
+      }
+    },
+    "commandHandlers": {
+      "Vm1AddVendorLocationCommandHandler": {
+        "id": "Vm1AddVendorLocation",
+        "action": "activateAddVendorLocationPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isVm1AddVendorLocationCmdVisible"
+        }
+      },
+      "Vm1DeleteVendorLocationCommandHandler": {
+        "id": "Vm1DeleteVendorLocation",
+        "action": "performDeleteOperation",
+        "visibleWhen": {
+          "condition": "conditions.isVm1DeleteVendorLocationCmdVisible"
+        },
+        "activeWhen": true
+      },
+      "cutCommandHandler": {
+        "id": "Awp0Cut",
+        "visibleWhen": false,
+        "activeWhen": {
+          "condition": "conditions.showCutForVendorLocation"
+        }
+      },
+      "cutCtxMenuCommandHandler": {
+        "id": "Awp0CutContextMenu",
+        "visibleWhen": false,
+        "activeWhen": {
+          "condition": "conditions.showCutForVendorLocation"
+        }
+      },
+      "pasteCommandHandler": {
+        "id": "Awp0Paste",
+        "activeWhen": {
+          "condition": "conditions.showPaste"
+        },
+        "enableWhen": false
+      },
+      "pasteContextMenuCommandHandler": {
+        "id": "Awp0PasteContextMenu",
+        "activeWhen": {
+          "condition": "conditions.showPaste"
+        },
+        "visibleWhen": false
+      },
+      "Vm1ChangeVendorCommandHandler": {
+        "id": "Vm1VendorChange",
+        "action": "activateChangeVendorOperation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isVm1ChangeVendorVisible"
+        }
+      },
+      "Vm1AddPartnerContractsInCreateVendorHandler": {
+        "id": "Vm1AddPartnerContractsInCreateVendor",
+        "action": "openAddPartnerContractPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Vm1ShowCommandsInCreateVendor"
+        }
+      },
+      "Vm1RemovePartnerContractsInCreateVendorHandler": {
+        "id": "Vm1RemovePartnerContractsInCreateVendor",
+        "action": "removePartnerContract",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Vm1CreateVendorHandler": {
+        "id": "Vm1CreateVendor",
+        "action": "vm1ActivateCreateVendorPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Vm1FolderSelected"
+        }
+      },
+      "Vm1AddContractCommandHandler": {
+        "id": "Vm1AddContract",
+        "action": "activateAddContractPanel",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Vm1RemoveContactsInCreateVendorCommandHandler": {
+        "id": "Vm1RemoveContactsInCreateVendorCommand",
+        "action": "removeContact",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Vm1AddContactsInCreateVendorCommandHandler": {
+        "id": "Vm1AddContactsInCreateVendorCommand",
+        "action": "openAddContactPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Vm1ShowCommandsInCreateVendor"
+        }
+      },
+      "Vm1AddLocationsInCreateVendorCommandHandler": {
+        "id": "Vm1AddLocationsInCreateVendorCommand",
+        "action": "openAddLocationPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.Vm1ShowCommandsInCreateVendor"
+        }
+      },
+      "Vm1RemoveLocationsInCreateVendorCommandHandler": {
+        "id": "Vm1RemoveLocationsInCreateVendorCommand",
+        "action": "removeLocation",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Vm1AssignProjectInCreateVendorHandler": {
+        "id": "Vm1AssignProjectInCreateVendor",
+        "action": "activateAssigningProjectPanel",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Vm1RemoveProjectInCreateVendorCommandHandler": {
+        "id": "Vm1RemoveProjectsInCreateVendor",
+        "action": "removeProject",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Vm1RemoveVm1SiteCellCommandHandler": {
+        "id": "Vm1RemoveVm1SiteCellCommand",
+        "action": "removeVm1SiteCellCommand",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Vm1AssociateSiteToExistingVendorHandler": {
+        "id": "Vm1AssociateSiteToExistingVendor",
+        "action": "activateAssociateSiteOperation",
+        "activeWhen": {
+          "condition": "conditions.Vm1AssociateSiteToExistingVendorCmdCond"
+        },
+        "visibleWhen": {
+          "condition": "conditions.Vm1AssociateSiteToExistingVendorCmdCond"
+        }
+      },
+      "Vm1AssociateSiteToNewVendorHandler": {
+        "id": "Vm1AssociateSiteToNewVendor",
+        "action": "activateCreateVendorAndAssociateSiteOperation",
+        "activeWhen": true,
+        "visibleWhen": true
+      },
+      "Vm1AddContactsToContractHandler": {
+        "id": "Vm1AddContactsToContract",
+        "action": "activateAddContactToContractPanelPreAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isPcRevSelected"
+        }
+      },
+      "Vm1AddLocationsToContractHandler": {
+        "id": "Vm1AddLocationsToContract",
+        "action": "activateAddLocationToContractPanelPreAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isPcRevSelected"
+        }
+      },
+      "Vm1AddVendorRoleCommandHandler": {
+        "id": "Vm1AddVendorRole",
+        "action": "activateAddVendorRoleOperation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isVm1AddVendorRoleCmdVisible"
+        }
+      },
+      "Vm1RemoveVendorRoleCommandHandler": {
+        "id": "Vm1RemoveVendorRole",
+        "action": "activateRemoveVendorRoleOperation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isVm1RemoveVendorRoleCmdVisible"
+        }
+      },
+      "Vm1AddUserToContactHandler": {
+        "id": "Vm1AddUserToContact",
+        "action": "activateAddUserToContactPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isAddPartnerUserCmdVisible"
+        }
+      },
+      "Vm1RemoveUserFromContactHandler": {
+        "id": "Vm1RemoveUserFromContact",
+        "action": "confirmationForRemoveAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isRemovePartnerUserCmdVisible"
+        }
+      },
+      "Vm1RemoveContactsFromPartnerContractCommandHandler": {
+        "id": "Vm1RemoveContactsFromPartnerContract",
+        "action": "removeContactsFromPartnerContratRevision",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isVm1RemoveContactsFromPartnerContractVisible"
+        }
+      },
+      "Vm1RemoveLocationsFromPartnerContractCommandHandler": {
+        "id": "Vm1RemoveLocationsFromPartnerContract",
+        "action": "removeLocationsFromPartnerContratRevision",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isVm1RemoveLocationsFromPartnerContractVisible"
+        }
+      },
+      "Vm1AssignPartnerContractToProductCommandHandler": {
+        "id": "Vm1AssignPartnerContractToProduct",
+        "action": "activateAssignPartnerContractPanel",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showProductAssignCommand"
+        }
+      },
+      "Vm1AssignPartnerContractToVendorPartACECommandHandler": {
+        "id": "Vm1AssignPartnerContractToVendorPartACE",
+        "action": "activateAssignPartnerContractToVendorPartOperation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isAssignPCtoVendorPartACECmdVisible"
+        }
+      },
+      "Vm1AssignPartnerContractToVendorPartCommandHandler": {
+        "id": "Vm1AssignPartnerContractToVendorPart",
+        "action": "activateAssignPartnerContractToVendorPartOperation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isAssignPCtoVendorPartCmdVisible"
+        }
+      },
+      "Vm1RemoveVendorPartsFromContractCommandHandler": {
+        "id": "Vm1RemoveVendorPartsFromContract",
+        "action": "removeLicenseFromVendorParts",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.isVm1RemoveVendorPartsFromContractVisible"
+        }
+      },
+      "Vm1RemovePartnerContractFromProductCommandHandler": {
+        "id": "Vm1RemovePartnerContractFromProduct",
+        "action": "removePartnerConfirmMessage",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showRemovePartnerContractCommand"
+        }
+      },
+      "Vm1AssignVendorPartsToPartnerContractCommandHandler": {
+        "id": "Vm1AssignVendorPartsToPartnerContract",
+        "action": "activateVm1AssignVendorPartsToPartnerContract",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showAssignVPtoPCCommand"
+        }
+      },
+      "vm1EditPreferredStatusCommandHandler": {
+        "id": "vm1EditPreferredStatus",
+        "action": "vm1StartEdit",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showEditPartnerContractCommand"
+        }
+      },
+      "vm1CancelEditPreferredStatusHandler": {
+        "id": "vm1CancelEdit",
+        "action": "Vm1cancelEditOperation",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showCancelEditCommand"
+        }
+      },
+      "Vm1SaveEditsPreferredStatusHandler": {
+        "id": "Vm1SaveEdits",
+        "action": "Vm1SaveEditsAction",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.ShowSaveCmdForSplmTable"
+        }
+      },
+      "Vm1RemovePartnerContractFromVendorPartCommandHandler": {
+        "id": "Vm1RemovePartnerContractFromVendorPart",
+        "action": "removePartneFromVendorPartConfirmMessage",
+        "activeWhen": true,
+        "visibleWhen": {
+          "condition": "conditions.showRemovePartnerContractFromVendorPartCommand"
+        }
+      },
+      "Vm1AddVendorPartCommandHandler": {
+        "id": "Vm1AddVendorPart",
+        "action": "activateAddVendorPartPanel",
+        "activeWhen": true,
+        "visibleWhen": true
+      }
+    },
+    "commandPlacements": {
+      "Vm1DeleteVendorLocationCmdPlacement": {
+        "id": "Vm1DeleteVendorLocation",
+        "uiAnchor": "aw_rightWall",
+        "priority": 500,
+        "parentGroupId": "Awp0EditGroup"
+      },
+      "Vm1ChangeVendorCommandPlacement": {
+        "id": "Vm1VendorChange",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0ManageGroup",
+        "priority": 500
+      },
+      "Vm1CreateVendor_toolsAndInfo": {
+        "id": "Vm1CreateVendor",
+        "uiAnchor": "aw_rightWall",
+        "priority": 470,
+        "parentGroupId": "Awp0NewGroup"
+      },
+      "Vm1AddPartnerContractsInCreateVendorPlacement": {
+        "id": "Vm1AddPartnerContractsInCreateVendor",
+        "uiAnchor": "vm1_addPartnerContractCommands",
+        "priority": 100
+      },
+      "Vm1RemovePartnerContractsInCreateVendorPlacement": {
+        "id": "Vm1RemovePartnerContractsInCreateVendor",
+        "uiAnchor": "vm1_removePartnerContractCommands",
+        "priority": 10,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Vm1AddContactsInCreateVendorCommandPlacement": {
+        "id": "Vm1AddContactsInCreateVendorCommand",
+        "uiAnchor": "vm1_addContactsCommands",
+        "priority": 100
+      },
+      "Vm1RemoveContactsInCreateVendorCommandPlacement": {
+        "id": "Vm1RemoveContactsInCreateVendorCommand",
+        "uiAnchor": "vm1_removeContactsCommands",
+        "priority": 10,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Vm1AddLocationsInCreateVendorCommandPlacement": {
+        "id": "Vm1AddLocationsInCreateVendorCommand",
+        "uiAnchor": "vm1_addLocationsCommands",
+        "priority": 100
+      },
+      "Vm1RemoveLocationsInCreateVendorCommandPlacement": {
+        "id": "Vm1RemoveLocationsInCreateVendorCommand",
+        "uiAnchor": "vm1_removeLocationsCommands",
+        "priority": 10,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Vm1AssignProjectInCreateVendorCmdPlacement": {
+        "id": "Vm1AssignProjectInCreateVendor",
+        "uiAnchor": "vm1_assignProject",
+        "priority": 500
+      },
+      "Vm1RemoveProjectInCreateVendorCmdPlacement": {
+        "id": "Vm1RemoveProjectsInCreateVendor",
+        "uiAnchor": "vm1_removeProjectsCommands",
+        "priority": 10,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Vm1RemoveVm1SiteCellCommandPlacement": {
+        "id": "Vm1RemoveVm1SiteCellCommand",
+        "uiAnchor": "aw_removeVm1SiteCellCommand",
+        "priority": 10,
+        "cellDisplay": {
+          "hover": true,
+          "position": "TOP_RIGHT",
+          "selected": true
+        }
+      },
+      "Vm1AssociateSiteToExistingVendorCmdPlacement": {
+        "id": "Vm1AssociateSiteToExistingVendor",
+        "uiAnchor": "aw_rightWall",
+        "priority": 100,
+        "parentGroupId": "Awp0ManageGroup"
+      },
+      "Vm1AssociateSiteToNewVendorCmdPlacement": {
+        "id": "Vm1AssociateSiteToNewVendor",
+        "uiAnchor": "associate_site",
+        "priority": 500
+      },
+      "Vm1RemoveVendorRoleCommandPlacement": {
+        "id": "Vm1RemoveVendorRole",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0EditGroup",
+        "priority": 500
+      },
+      "vm1AddUserToContactCommandPlacement": {
+        "id": "Vm1AddUserToContact",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0ManageGroup",
+        "priority": 500
+      },
+      "vm1RemoveUserFromContactCommandPlacement": {
+        "id": "Vm1RemoveUserFromContact",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0ManageGroup",
+        "priority": 500
+      },
+      "Vm1RemoveContactsFromPartnerContractCommandPlacement": {
+        "id": "Vm1RemoveContactsFromPartnerContract",
+        "uiAnchor": "remove_contactFromPartnerContract",
+        "priority": 500
+      },
+      "Vm1RemoveLocationsFromPartnerContractCommandPlacement": {
+        "id": "Vm1RemoveLocationsFromPartnerContract",
+        "uiAnchor": "remove_LocationFromPartnerContract",
+        "priority": 500
+      },
+      "Vm1AssignPartnerContractToProductCmdPlacement": {
+        "id": "Vm1AssignPartnerContractToProduct",
+        "uiAnchor": "aw_partnersTableCmdbar",
+        "priority": 500
+      },
+      "Vm1AssignPartnerContractToVendorPartACECommandPlacement": {
+        "id": "Vm1AssignPartnerContractToVendorPartACE",
+        "uiAnchor": "aw_rightWall",
+        "parentGroupId": "Awp0ManageGroup",
+        "priority": 500
+      },
+      "Vm1AssignPartnerContractToVendorPartCommandPlacement": {
+        "id": "Vm1AssignPartnerContractToVendorPart",
+        "uiAnchor": "aw_partnersTableCmdbar",
+        "priority": 500
+      },
+      "Vm1RemoveVendorPartsFromContractCommandPlacement": {
+        "id": "Vm1RemoveVendorPartsFromContract",
+        "uiAnchor": "remove_VendorPartsFromPartnerContract",
+        "priority": 500
+      },
+      "Vm1RemovePartnerContractFromProductCmdPlacement": {
+        "id": "Vm1RemovePartnerContractFromProduct",
+        "uiAnchor": "aw_partnersTableCmdbar",
+        "priority": 500
+      },
+      "Vm1AssignVendorPartsToPartnerContractCmdPlacement": {
+        "id": "Vm1AssignVendorPartsToPartnerContract",
+        "uiAnchor": "assign_VendorPartsFromPartnerContract",
+        "priority": 500
+      },
+      "vm1EditPreferredStatusCmdPlacement": {
+        "id": "vm1EditPreferredStatus",
+        "uiAnchor": "aw_EditSPLMTableCommandAnchor",
+        "priority": 500
+      },
+      "vm1CancelEditCommandPlacement": {
+        "id": "vm1CancelEdit",
+        "uiAnchor": "aw_EditSPLMTableCommandAnchor",
+        "priority": 500
+      },
+      "Vm1SaveEditsCommandPlacement": {
+        "id": "Vm1SaveEdits",
+        "uiAnchor": "aw_EditSPLMTableCommandAnchor",
+        "priority": 500
+      },
+      "Vm1RemovePartnerContractFromVendorPartCmdPlacement": {
+        "id": "Vm1RemovePartnerContractFromVendorPart",
+        "uiAnchor": "aw_partnersTableCmdbar",
+        "priority": 500
+      }
+    },
+    "actions": {
+      "activateAddVendorLocationPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AddVendorLocation",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "performDeleteOperation": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2014-10-DataManagement",
+        "method": "removeChildren",
+        "deps": "js/cutUtils",
+        "inputData": {
+          "inputData": "{{function:cutInputs}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": "{{function:adaptedRelatedModifiedCutInput}}",
+                "createdObjects": "",
+                "childObjects": "{{ctx.mselected}}"
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        }
+      },
+      "activateChangeVendorOperation": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1VendorChange",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "vm1ActivateCreateVendorPanel": {
+        "actionType": "JSFunction",
+        "method": "vm1ActivateCreateVendorPanel",
+        "deps": "js/Vm1CreateVendorService",
+        "inputData": {
+          "ctx": "{{ctx}}",
+          "data": "{{data}}"
+        }
+      },
+      "activateAddContractPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AddPartnerContract",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "openAddPartnerContractPanel": {
+        "actionType": "JSFunction",
+        "method": "addSubPanelPage",
+        "inputData": {
+          "destPanelId": "Vm1AddPartnerContractInCreateVendorSub",
+          "titleLabel": "{{data.i18n.addPartnerContract}}"
+        },
+        "deps": "js/Vm1CreateVendorService"
+      },
+      "removePartnerContract": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/Vm1RemovePartnerContractCommandHandler",
+        "inputData": {
+          "selectedCell": "{{commandContext.vmo}}"
+        }
+      },
+      "openAddContactPanel": {
+        "actionType": "JSFunction",
+        "method": "addSubPanelPage",
+        "inputData": {
+          "destPanelId": "Vm1AddContactsInCreateVendorSub",
+          "titleLabel": "{{data.i18n.add}}"
+        },
+        "deps": "js/Vm1CreateVendorService"
+      },
+      "removeContact": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/Vm1RemoveContactCommandHandler",
+        "inputData": {
+          "selectedCell": "{{commandContext.vmo}}"
+        }
+      },
+      "removeLocation": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/Vm1RemoveLocationCommandHandler",
+        "inputData": {
+          "selectedCell": "{{commandContext.vmo}}"
+        }
+      },
+      "removeProject": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/Vm1RemoveProjectCommandHandler",
+        "inputData": {
+          "selectedCell": "{{commandContext.vmo}}"
+        }
+      },
+      "openAddLocationPanel": {
+        "actionType": "JSFunction",
+        "method": "addSubPanelPage",
+        "inputData": {
+          "destPanelId": "Vm1AddLocationsInCreateVendorSub",
+          "titleLabel": "{{data.i18n.add}}"
+        },
+        "deps": "js/Vm1CreateVendorService"
+      },
+      "activateAssigningProjectPanel": {
+        "actionType": "JSFunction",
+        "method": "addSubPanelPage",
+        "inputData": {
+          "destPanelId": "Vm1AssignProject",
+          "titleLabel": "{{data.i18n.vm1AddProject}}"
+        },
+        "deps": "js/Vm1CreateVendorService"
+      },
+      "removeVm1SiteCellCommand": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/Vm1RemoveSiteCommandHandler",
+        "inputData": {
+          "selectedCell": "{{commandContext.vmo}}"
+        }
+      },
+      "activateAssociateSiteOperation": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AssociateSiteContainer",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateCreateVendorAndAssociateSiteOperation": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "events": [
+            {
+              "name": "awPanel.navigate",
+              "eventData": {
+                "destPanelId": "Vm1AssociateSite",
+                "title": "Associate Site",
+                "recreatePanel": true,
+                "supportGoBack": true
+              }
+            }
+          ]
+        }
+      },
+      "activateAddContactToContractPanelPreAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "getProperties",
+        "inputData": {
+          "attributes": [
+            "Vm0ContractContacts"
+          ],
+          "objects": [
+            {
+              "uid": "{{ctx.selected.uid}}",
+              "type": "Vm0PrtnrContractRevision"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "activateAddContactToContractPanel"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        }
+      },
+      "activateAddContactToContractPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AddContactsToContract",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateAddLocationToContractPanelPreAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "getProperties",
+        "inputData": {
+          "attributes": [
+            "Vm0ContractLocations"
+          ],
+          "objects": [
+            {
+              "uid": "{{ctx.selected.uid}}",
+              "type": "Vm0PrtnrContractRevision"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "activateAddLocationToContractPanel"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        }
+      },
+      "activateAddLocationToContractPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AddLocationsToContract",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateAddVendorRoleOperation": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AddVendorRole",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateRemoveVendorRoleOperation": {
+        "actionType": "TcSoaService",
+        "serviceName": "Vendormanagement-2012-09-VendorManagement",
+        "method": "addRemoveVendorRoles",
+        "inputData": {
+          "vendorRoles": "{{function:getInputRemoveVendorRole}}",
+          "vendorRevRef": {
+            "uid": "{{ctx.pselected.uid}}",
+            "type": "{{ctx.pselected.type}}"
+          }
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ],
+                "refreshLocationFlag": false
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "removeVendorRoleMessage",
+              "condition": "ctx.selectionCount === 1"
+            },
+            {
+              "message": "multipleSelectionRemovalMessage",
+              "condition": "ctx.selectionCount !== 1"
+            }
+          ],
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        },
+        "deps": "js/Vm1VendorRoleService"
+      },
+      "activateAddUserToContactPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AddUserToContact",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateRemoveUserFromContact": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteRelations",
+        "inputData": {
+          "input": [
+            {
+              "clientId": "",
+              "primaryObject": {
+                "uid": "{{ctx.selected.uid}}",
+                "type": "{{ctx.selected.type}}"
+              },
+              "secondaryObject": {
+                "uid": "{{ctx.selected.props.Vm0PartnerUser.dbValues[0]}}",
+                "type": "User"
+              },
+              "relationType": "Vm0PartnerUser"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "refreshLocationFlag": true,
+                "relations": "",
+                "relatedModified": [
+                  "{{ctx.selected}}"
+                ]
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        }
+      },
+      "getIPLicenseToUserAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "getProperties",
+        "inputData": {
+          "objects": [
+            "{{ctx.selected}}"
+          ],
+          "attributes": [
+            "license_list"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "removeLicenseForUser"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        }
+      },
+      "removeLicenseForUserAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "AuthorizedDataAccess-2018-06-LicenseManagement",
+        "method": "createOrUpdateLicense",
+        "inputData": {
+          "licenseInfo": "{{function:createOrUpdateSoaInputFn}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "deleteRelationsForUser"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        },
+        "deps": "js/Vm1IPLicenseService"
+      },
+      "removeContactsFromPartnerContratRevision": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteRelations",
+        "inputData": {
+          "input": "{{function:getRemoveContactsFromPartnerContractInput}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "getIPLicenseFromPartnerContractAndCallRemoveLicensesEvent"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        },
+        "deps": "js/Vm1RemoveContactsLocationsService"
+      },
+      "removeLocationsFromPartnerContratRevision": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "deleteRelations",
+        "inputData": {
+          "input": "{{function:getRemoveLocationsFromPartnerContractInput}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "getIPLicenseFromPartnerContractAndCallRemoveLicensesEvent"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        },
+        "deps": "js/Vm1RemoveContactsLocationsService"
+      },
+      "removeLicenseForContactsOrLocations": {
+        "actionType": "TcSoaService",
+        "serviceName": "AuthorizedDataAccess-2007-06-LicenseManagement",
+        "method": "removeLicenses",
+        "inputData": {
+          "removeLicense": [
+            {
+              "selectedLicenses": "{{function:getRemoveIdsForRemoveLicense}}",
+              "objects": "{{ctx.mselected}}"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        },
+        "deps": "js/Vm1RemoveContactsLocationsService"
+      },
+      "getIPLicenseFromPartnerContractAndCallRemoveLicenses": {
+        "actionType": "TcSoaService",
+        "serviceName": "Core-2006-03-DataManagement",
+        "method": "getProperties",
+        "inputData": {
+          "objects": [
+            "{{ctx.pselected}}"
+          ],
+          "attributes": [
+            "license_list"
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "vm1RemoveLicenseFromContactsOrLocations"
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        }
+      },
+      "confirmationForRemoveAction": {
+        "actionType": "Event",
+        "method": "Event",
+        "deps": "js/Vm1IPLicenseService",
+        "inputData": {
+          "ctx": "{{ctx}}",
+          "input": "{{data}}",
+          "events": [
+            {
+              "name": "Vm1confirmCancelMessage"
+            }
+          ]
+        }
+      },
+      "activateAssignPartnerContractPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AssignPartnerContractToProduct",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "activateAssignPartnerContractToVendorPartOperation": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AssignPartnerContractToVendorPartACE",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "removeLicenseFromVendorParts": {
+        "actionType": "TcSoaService",
+        "serviceName": "AuthorizedDataAccess-2007-06-LicenseManagement",
+        "method": "removeLicenses",
+        "inputData": {
+          "removeLicense": [
+            {
+              "selectedLicenses": "{{function:getRemoveIdsForRemoveLicense}}",
+              "objects": "{{ctx.mselected}}"
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "relatedModified": [
+                  "{{ctx.pselected}}"
+                ]
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successSingleRemoval",
+              "condition": "ctx.mselected.length==1"
+            },
+            {
+              "message": "successMultipleRemoval",
+              "condition": "ctx.mselected.length > 1"
+            }
+          ],
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        },
+        "deps": "js/Vm1RemoveContactsLocationsService"
+      },
+      "removePartnerConfirmMessage": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "ctx": "{{ctx}}",
+          "input": "{{data}}",
+          "events": [
+            {
+              "name": "Vm1ConfirmRemovePartnerContractMessage"
+            }
+          ]
+        }
+      },
+      "removePartnerContractAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "Internal-VendorManagementAW-2020-05-VendorManagement",
+        "method": "removePartnerContractFromObject2",
+        "inputData": {
+          "input": "{{function:getRemoveInput}}"
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "refreshLocationFlag": true,
+                "relations": "",
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ]
+              }
+            },
+            {
+              "name": "primaryWorkarea.reset"
+            }
+          ],
+          "failure": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "refreshLocationFlag": true,
+                "relations": "",
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ]
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        },
+        "deps": "js/Vm1AssignPartnerContractService"
+      },
+      "activateVm1AssignVendorPartsToPartnerContract": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AssignVendorPartsToPartnerContract",
+          "location": "aw_toolsAndInfo"
+        }
+      },
+      "vm1StartEdit": {
+        "actionType": "JSFunction",
+        "method": "execute",
+        "deps": "js/Vm1AssignPartnerContractService",
+        "inputData": {
+          "handleContext": "TABLE_CONTEXT"
+        }
+      },
+      "Vm1cancelEditOperation": {
+        "actionType": "JSFunction",
+        "method": "processCancelEdit",
+        "inputData": {
+          "data": "{{data}}"
+        },
+        "deps": "js/Vm1AssignPartnerContractService"
+      },
+      "Vm1SaveEditsAction": {
+        "actionType": "JSFunction",
+        "method": "savePreferredStatus",
+        "deps": "js/Vm1AssignPartnerContractService",
+        "inputData": {
+          "handleContext": "TABLE_CONTEXT"
+        }
+      },
+      "removePartneFromVendorPartConfirmMessage": {
+        "actionType": "Event",
+        "method": "Event",
+        "inputData": {
+          "ctx": "{{ctx}}",
+          "input": "{{data}}",
+          "events": [
+            {
+              "name": "Vm1ConfirmRemovePartnerContractFromVendorPartMessage"
+            }
+          ]
+        }
+      },
+      "removePartnerContractFromVendorPartAction": {
+        "actionType": "TcSoaService",
+        "serviceName": "AuthorizedDataAccess-2007-06-LicenseManagement",
+        "method": "removeLicenses",
+        "inputData": {
+          "removeLicense": [
+            {
+              "selectedLicenses": "{{function:getLicenseIdsFromSelectedPartnerContract}}",
+              "objects": [
+                {
+                  "uid": "{{ctx.pselected.uid}}",
+                  "type": "{{ctx.pselected.type}}"
+                }
+              ]
+            }
+          ]
+        },
+        "events": {
+          "success": [
+            {
+              "name": "cdm.relatedModified",
+              "eventData": {
+                "refreshLocationFlag": true,
+                "relations": "",
+                "relatedModified": [
+                  "{{ctx.xrtSummaryContextObject}}"
+                ]
+              }
+            }
+          ]
+        },
+        "actionMessages": {
+          "success": [
+            {
+              "message": "successSingleRemoval",
+              "condition": "ctx.mselected.length==1"
+            },
+            {
+              "message": "successMultipleRemoval",
+              "condition": "ctx.mselected.length > 1"
+            }
+          ],
+          "failure": [
+            {
+              "message": "soaOperationFailure"
+            }
+          ]
+        },
+        "deps": "js/Vm1AssignPartnerContractService"
+      },
+      "activateAddVendorPartPanel": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "deps": "js/commandPanel.service",
+        "inputData": {
+          "commandId": "Vm1AddVendorPart",
+          "location": "aw_toolsAndInfo"
+        }
+      }
+    },
+    "onEvent": [
+      {
+        "eventId": "removeLicenseForUser",
+        "action": "removeLicenseForUserAction"
+      },
+      {
+        "eventId": "getIPLicenseList",
+        "action": "getIPLicenseToUserAction",
+        "cacheEventData": true
+      },
+      {
+        "eventId": "deleteRelationsForUser",
+        "action": "activateRemoveUserFromContact"
+      },
+      {
+        "eventId": "activateAddContactToContractPanel",
+        "action": "activateAddContactToContractPanel"
+      },
+      {
+        "eventId": "activateAddLocationToContractPanel",
+        "action": "activateAddLocationToContractPanel"
+      },
+      {
+        "eventId": "getIPLicenseFromPartnerContractAndCallRemoveLicensesEvent",
+        "action": "getIPLicenseFromPartnerContractAndCallRemoveLicenses"
+      },
+      {
+        "eventId": "vm1RemoveLicenseFromContactsOrLocations",
+        "action": "removeLicenseForContactsOrLocations"
+      },
+      {
+        "eventId": "Vm1confirmCancelMessage",
+        "message": "Vm1RemoveUserConfirmPopup"
+      },
+      {
+        "eventId": "Vm1RemovelMessage",
+        "message": "Vm1RemoveUserConfirmPopup"
+      },
+      {
+        "eventId": "Vm1ConfirmRemovePartnerContractMessage",
+        "message": "Vm1RemovePartnerContractConfirmPopup"
+      },
+      {
+        "eventId": "Vm1ConfirmRemovePartnerContractFromVendorPartMessage",
+        "message": "Vm1RemovePartnerContractFromVendorPartConfirmPopup"
+      }
+    ],
+    "conditions": {
+      "isVm1AddVendorLocationCmdVisible": {
+        "expression": "commandContext.objectSetSource === 'vm0company_location.CompanyLocation' && ctx.selected.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1 "
+      },
+      "isVm1DeleteVendorLocationCmdVisible": {
+        "expression": "ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'CompanyLocation' ) > -1 && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1 "
+      },
+      "showCutForVendorLocation": {
+        "expression": "(ctx.pselected.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1 && ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'CompanyLocation' ) > -1)"
+      },
+      "showPaste": {
+        "expression": "ctx.awClipBoardProvider[0].type ==='CompanyLocation'  &&( ctx.selected.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1 || conditions.isVm1DeleteVendorLocationCmdVisible)"
+      },
+      "isVm1ChangeVendorVisible": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1 || (ctx.selected.modelType.typeHierarchyArray.indexOf( 'Vendor' ) > -1 && ctx.mselected.length === 1 )"
+      },
+      "Vm1FolderSelected": {
+        "expression": "ctx.visibleServerCommands.Vm1CreateVendor && ctx.selected.modelType.typeHierarchyArray.indexOf( 'Folder' ) > -1 && ctx.sublocation.nameToken === 'com.siemens.splm.clientfx.tcui.xrt.objectNavigationSubLocation' && ctx.mselected.length === 1"
+      },
+      "Vm1ShowCommandsInCreateVendor": {
+        "expression": "ctx.panelName === 'Vm1CreateVendor' "
+      },
+      "Vm1AssociateSiteToExistingVendorCmdCond": {
+        "expression": "(ctx.selected.modelType.typeHierarchyArray.indexOf('Vendor') > -1 || ctx.pselected.modelType.typeHierarchyArray.indexOf('Vendor') > -1) && (ctx.selected.props.sc0SiteRef.dbValues[0] === null || ctx.pselected.props.sc0SiteRef.dbValues[0] === null)"
+      },
+      "Vm1AssociateSiteToNewVendorCmdCond": {
+        "expression": "ctx.siteReferenceValue === '' "
+      },
+      "isVm1AddVendorRoleCmdVisible": {
+        "expression": "ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'VendorRevision' ) > -1"
+      },
+      "isVm1RemoveVendorRoleCmdVisible": {
+        "expression": "ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'VendorRole' ) > -1 && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'VendorRevision' ) > -1 "
+      },
+      "isAddPartnerUserCmdVisible": {
+        "expression": "ctx.selected.props.Vm0PartnerUser.dbValues.length < 1 "
+      },
+      "isRemovePartnerUserCmdVisible": {
+        "expression": "ctx.selected.props.Vm0PartnerUser.dbValues.length >= 1"
+      },
+      "isVm1RemoveContactsFromPartnerContractVisible": {
+        "expression": "ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'CompanyContact' ) > -1 && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'Vm0PrtnrContractRevision' ) > -1"
+      },
+      "isVm1RemoveLocationsFromPartnerContractVisible": {
+        "expression": "ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'CompanyLocation' ) > -1 && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'Vm0PrtnrContractRevision' ) > -1"
+      },
+      "showProductAssignCommand": {
+        "expression": "(conditions.assignPartnerContractServerCondition) && (!ctx.vm1IsGroupExternal) && (( ctx.selected.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) && ctx.aceActiveContext) || ((ctx.selected.modelType.typeHierarchyArray.indexOf( 'ItemRevision' ) > -1) )) && !(ctx.selected.modelType.typeHierarchyArray.indexOf( 'Vm0PrtnrContractRevision' ) > -1 && (ctx.aceActiveContext || ctx.ViewModeContext.ViewModeContext==='SummaryView'|| ctx.ViewModeContext.ViewModeContext==='None'))"
+      },
+      "isAssignPCtoVendorPartACECmdVisible": {
+        "expression": "(conditions.assignPartnerContractServerCondition) && (!ctx.visibleServerCommands.Vm1AssignPartnerContractToVendorPartACE) && (ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1) && (ctx.occmgmtContext)"
+      },
+      "isAssignPCtoVendorPartCmdVisible": {
+        "expression": "(conditions.assignPartnerContractServerCondition) && (!ctx.vm1IsGroupExternal) && (ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1) && (ctx.mselected[0].props.commercialparts.dbValues.length > 0 )"
+      },
+      "isVm1RemoveVendorPartsFromContractVisible": {
+        "expression": "(conditions.assignPartnerContractServerCondition) && ctx.pselected.modelType.typeHierarchyArray.indexOf( 'Vm0PrtnrContractRevision' ) > -1 && ctx.mselected[0].modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1"
+      },
+      "showRemovePartnerContractCommand": {
+        "expression": "(conditions.assignPartnerContractServerCondition) && (!ctx.vm1IsGroupExternal) && (ctx.selected.modelType.typeHierarchyArray.indexOf( 'Vm0PrtnrContractRevision' ) > -1) && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1)"
+      },
+      "showAssignVPtoPCCommand": {
+        "expression": "(conditions.assignPartnerContractServerCondition) && (!ctx.vm1IsGroupExternal) && (ctx.selected.modelType.typeHierarchyArray.indexOf( 'Vm0PrtnrContractRevision' ) > -1)"
+      },
+      "showEditPartnerContractCommand": {
+        "expression": "(!ctx.vm1IsGroupExternal) && (!ctx.editInProgress) && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1)"
+      },
+      "showCancelEditCommand": {
+        "expression": "(!(conditions.showEditPartnerContractCommand) && (!ctx.vm1IsGroupExternal) ) && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1)"
+      },
+      "ShowSaveCmdForSplmTable": {
+        "expression": "(!(conditions.showEditPartnerContractCommand) && (!ctx.vm1IsGroupExternal) ) && !(ctx.xrtSummaryContextObject.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1)"
+      },
+      "showRemovePartnerContractFromVendorPartCommand": {
+        "expression": "(conditions.assignPartnerContractServerCondition) && (!ctx.vm1IsGroupExternal) && (ctx.selected.modelType.typeHierarchyArray.indexOf( 'Vm0PrtnrContractRevision' ) > -1) && (ctx.pselected.modelType.typeHierarchyArray.indexOf( 'ManufacturerPart' ) > -1)"
+      },
+      "assignPartnerContractServerCondition": {
+        "expression": "ctx.visibleServerCommands.Vm1AssignPartnerContract"
+      },
+      "isPcRevSelected": {
+        "expression": "ctx.selected.modelType.typeHierarchyArray.indexOf( 'Vm0PrtnrContractRevision' ) > -1"
+      }
+    },
+    "i18n": {
+      "add": [
+        "VendorManagementMessages"
+      ],
+      "delete": [
+        "VendorManagementMessages"
+      ],
+      "changeVendor": [
+        "VendorManagementMessages"
+      ],
+      "createVendor": [
+        "VendorManagementMessages"
+      ],
+      "vm1_removeContactsCommands": [
+        "VendorManagementMessages"
+      ],
+      "vm1_removeLocationsCommands": [
+        "VendorManagementMessages"
+      ],
+      "vm1CancelEditDesc": [
+        "VendorManagementMessages"
+      ],
+      "vm1_removeProjectsCommands": [
+        "VendorManagementMessages"
+      ],
+      "vm1AddProject": [
+        "VendorManagementMessages"
+      ],
+      "vm1AssignProjectCommandTitle": [
+        "VendorManagementMessages"
+      ],
+      "vm1AssociateSiteCommandTitle": [
+        "VendorManagementMessages"
+      ],
+      "vm1RemoveSiteCommandTitle": [
+        "VendorManagementMessages"
+      ],
+      "associate_site": [
+        "VendorManagementMessages"
+      ],
+      "removeProjectsInCreateVendor": [
+        "VendorManagementMessages"
+      ],
+      "vm1Remove": [
+        "VendorManagementMessages"
+      ],
+      "removeVendorRole": [
+        "VendorManagementMessages"
+      ],
+      "singleSelectionRemovalMsg": [
+        "VendorManagementMessages"
+      ],
+      "multipleSelectionRemovalMsg": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AddUserToContact": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemoveUserFromContact": [
+        "VendorManagementMessages"
+      ],
+      "Vm1ConfirmationMessage": [
+        "VendorManagementMessages"
+      ],
+      "addPartnerContract": [
+        "VendorManagementMessages"
+      ],
+      "vm1Assign": [
+        "VendorManagementMessages"
+      ],
+      "Vm1SaveEditsDesc": [
+        "VendorManagementMessages"
+      ],
+      "vm1AssignPartnerContracts": [
+        "VendorManagementMessages"
+      ],
+      "vm1RemovePartnerContractConfirmMessage": [
+        "VendorManagementMessages"
+      ],
+      "addTo": [
+        "VendorManagementMessages"
+      ],
+      "vm1Edit": [
+        "VendorManagementMessages"
+      ],
+      "Save": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AddVendorLocationDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1DeleteVendorLocationDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1VendorChangeDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1CreateVendorDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AddContractDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AddContactsInCreateVendorCommandDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemoveContactsInCreateVendorCommandDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AssignProjectInCreateVendorDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemoveProjectsInCreateVendorDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemoveVm1SiteCellCommandDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AssociateSiteToExistingVendorDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemovePartnerContractsInCreateVendorDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AddContactsToContractDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AddLocationsToContractDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AddVendorRoleDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemoveVendorRoleDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AddUserToContactDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemoveUserFromContactDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemoveContactsFromPartnerContractDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemoveLocationsFromPartnerContractDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AssignPartnerContractToProductDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1RemoveVendorPartsFromContractDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AssignVendorPartsToPartnerContractDesc": [
+        "VendorManagementMessages"
+      ],
+      "vm1EditPreferredStatusDesc": [
+        "VendorManagementMessages"
+      ],
+      "Vm1AddVendorPartDesc": [
+        "VendorManagementMessages"
+      ]
+    },
+    "functions": {
+      "getRemoveInput": {
+        "functionName": "getRemoveInput",
+        "parameters": []
+      },
+      "getInputRemoveVendorRole": {
+        "functionName": "getInputRemoveVendorRole",
+        "parameters": []
+      },
+      "getRemoveUserLicenseInput": {
+        "functionName": "getRemoveUserLicenseInput",
+        "parameters": [
+          "{{ctx}}"
+        ]
+      },
+      "getLicenseListInput": {
+        "functionName": "getLicenseListInputFunction",
+        "parameters": [
+          "{{ctx}}"
+        ]
+      },
+      "getRemoveContactsFromPartnerContractInput": {
+        "functionName": "getRemoveContactsFromPartnerContractInput",
+        "parameters": []
+      },
+      "getRemoveLocationsFromPartnerContractInput": {
+        "functionName": "getRemoveLocationsFromPartnerContractInput",
+        "parameters": []
+      },
+      "getRemoveIdsForRemoveLicense": {
+        "functionName": "getLicenseIdsForRemoveLicenseInput",
+        "parameters": [
+          "{{ctx}}"
+        ]
+      },
+      "getLicenseIdsFromSelectedPartnerContract": {
+        "functionName": "getLicenseIdsFromSelectedPartnerContract",
+        "parameters": [
+          "{{ctx}}"
+        ]
+      },
+      "createOrUpdateSoaInputFn": {
+        "functionName": "createOrUpdateSoaInput",
+        "parameters": [
+          "{{ctx}}",
+          "{{data}}",
+          "remove"
+        ]
+      }
+    },
+    "messages": {
+      "Vm1RemoveUserConfirmPopup": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.Vm1ConfirmationMessage}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Remove",
+            "text": "{{i18n.vm1Remove}}",
+            "action": "removeLicenseForUserAction"
+          }
+        ],
+        "messageTextParams": [
+          "{{ctx.selected.props.Vm0PartnerUser.uiValues[0]}}"
+        ]
+      },
+      "removeVendorRoleMessage": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.singleSelectionRemovalMsg}}",
+        "messageTextParams": [
+          "{{ctx.selectedVendorRole}}"
+        ]
+      },
+      "multipleSelectionRemovalMessage": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.multipleSelectionRemovalMsg}}",
+        "messageTextParams": [
+          "{{ctx.selectionCount}}"
+        ]
+      },
+      "Vm1RemovePartnerContractConfirmPopup": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.vm1RemovePartnerContractConfirmMessage}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Remove",
+            "text": "{{i18n.vm1Remove}}",
+            "action": "removePartnerContractAction"
+          }
+        ],
+        "messageTextParams": [
+          "{{ctx.selected.props.object_name.dbValues[0]}}",
+          "{{ctx.pselected.props.object_string.uiValues[0]}}"
+        ]
+      },
+      "successSingleRemoval": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.singleSelectionRemovalMsg}}",
+        "messageTextParams": [
+          "{{ctx.mselected[0].props.object_string.uiValues[0]}}"
+        ]
+      },
+      "successMultipleRemoval": {
+        "messageType": "INFO",
+        "messageText": "{{i18n.multipleSelectionRemovalMsg}}",
+        "messageTextParams": [
+          "{{ctx.mselected.length}}"
+        ]
+      },
+      "Vm1RemovePartnerContractFromVendorPartConfirmPopup": {
+        "messageType": "WARNING",
+        "messageText": "{{i18n.vm1RemovePartnerContractConfirmMessage}}",
+        "navigationOptions": [
+          {
+            "option": "Cancel",
+            "text": "{{i18n.cancel}}",
+            "action": ""
+          },
+          {
+            "option": "Remove",
+            "text": "{{i18n.vm1Remove}}",
+            "action": "removePartnerContractFromVendorPartAction"
+          }
+        ],
+        "messageTextParams": [
+          "{{ctx.selected.props.object_name.dbValues[0]}}",
+          "{{ctx.pselected.props.object_string.uiValues[0]}}"
+        ]
+      },
+      "soaOperationFailure": {
+        "messageType": "ERROR",
+        "messageText": "{{errorCode}}"
+      }
+    }
+  },
+  "saveHandlers": [
+    {
+      "conditions": {
+        "$or": [
+          {
+            "xrtPageContext.primaryXrtPageID": {
+              "$eq": "tc_xrt_PartnerContracts"
+            }
+          },
+          {
+            "xrtPageContext.secondaryXrtPageID": {
+              "$eq": "tc_xrt_PartnerContracts"
+            }
+          }
+        ]
+      },
+      "target": {
+        "method": "getSaveHandler",
+        "deps": "js/Vm1AssignPartnerContractService"
+      }
+    }
+  ],
+  "typeProperties": {
+    "typeProperties": {
+      "CompanyLocation": {
+        "additionalProperties": [
+          {
+            "name": "object_name"
+          },
+          {
+            "name": "city"
+          },
+          {
+            "name": "country"
+          },
+          {
+            "name": "vm0DUNSNumber"
+          },
+          {
+            "name": "state_province"
+          }
+        ]
+      },
+      "ManufacturerPart": {
+        "additionalProperties": [
+          {
+            "name": "object_name"
+          },
+          {
+            "name": "vm0vendor_ref"
+          },
+          {
+            "name": "vm0company_location"
+          },
+          {
+            "name": "TC_vendor_part_rel"
+          },
+          {
+            "name": "commercialparts"
+          },
+          {
+            "name": "license_list"
+          }
+        ]
+      },
+      "Vendor": {
+        "additionalProperties": [
+          {
+            "name": "VMRepresents"
+          },
+          {
+            "name": "TC_vendor_part_rel"
+          },
+          {
+            "name": "Vm0UsesPrtnrContract"
+          },
+          {
+            "name": "LocationInCompany"
+          },
+          {
+            "name": "ContactInCompany"
+          },
+          {
+            "name": "vm0RegistrationStatus"
+          }
+        ]
+      },
+      "VendorRevision": {
+        "additionalProperties": [
+          {
+            "name": "vendor_role_list"
+          }
+        ]
+      },
+      "CompanyContact": {
+        "additionalProperties": [
+          {
+            "name": "license_list"
+          },
+          {
+            "name": "Vm0PartnerUser"
+          }
+        ]
+      },
+      "User": {
+        "additionalProperties": [
+          {
+            "name": "userid"
+          }
+        ]
+      },
+      "Vm0PrtnrContractRevision": {
+        "additionalProperties": [
+          {
+            "name": "license_list"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "UseTransparencyOnTitle": "Zapnout režim průhledného zobrazení výběru",
+    "UseTransparencyOffTitle": "Vypnout režim průhledného zobrazení výběru",
+    "NavigationRotateTitle": "Otočit",
+    "NavigationPanTitle": "Posunout",
+    "NavigationZoomTitle": "Zoom",
+    "GeometricAnalysisPanelTitle": "Analýza geometrie",
+    "GeometricAnalysisMeasurementTitle": "Změřit",
+    "GeometricAnalysisSectionTitle": "Oddíl",
+    "GeometricAnalysisQueryTitle": "Dotaz",
+    "GeometricAnalysisVolumeTitle": "Svazek",
+    "GeometricAnalysisProximityTitle": "Proximitní",
+    "LoadingViewer": "Načítání...",
+    "MMVSessionWarning": "Relace zatím nemohou zachovat snímky dat MMV.",
+    "Checkout": "Již nepracujete na poslední verzi této relace. Chcete vytvořit novou relaci?",
+    "InternalError": "Data vizualizace nebyla v relaci uložena.",
+    "Cancel":"Storno",
+    "Create":"Vytvořit",
+    "OwningModel":"Vlastnící model",
+    "OwningUser":"Vlastněno uživatelem",
+    "modelViewProxyListPanelTitle":"Oznámené pohledy modelu"
+}

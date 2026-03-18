@@ -1,0 +1,51 @@
+/* Copyright 2019 Siemens Product Lifecycle Management Software Inc. */
+
+.aw-requirements-importPanelBody .aw-widgets-propertyRule:hover {
+    background-color: $brand_selection_background_hover;
+}
+
+.previewElement {
+    .diff-html-added span,
+    .diff-html-added h1,
+    .diff-html-added h2,
+    .diff-html-added h3,
+    .diff-html-added h4 {
+        background-color: $PL_Green_18;
+    }
+
+    .diff-html-removed span,
+    .diff-html-removed h1,
+    .diff-html-removed h2,
+    .diff-html-removed h3,
+    .diff-html-removed h3 {
+        background-color: $PL_Red_21;
+    }
+
+    .diff-html-changed {
+        background-color: $AW_LightBlue;
+    }
+
+    
+    .aw-requirements-discardUpdate.diff-html-added,
+    diffreport span.diff-html-removed {
+        background-color: $PL_Red_21;
+    }
+
+    diffreport span.diff-html-added {
+        background-color: $PL_Green_18;
+    }
+
+    .aw-requirements-discardUpdate.diff-html-removed,
+    .aw-requirements-discardUpdate.diff-html-changed {
+        background-color: $PL_Black_25;
+    }
+
+    .aw-requirements-unfreezedReqIndicator,
+    .aw-requirements-freezedReqIndicator {
+        border-color: $Siemens_Yellow_19;
+    }
+
+    .aw-requirements-freezedChangedReqIndicator {
+        border-color: $Siemens_Blue_10;
+    }
+}

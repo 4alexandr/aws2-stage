@@ -1,0 +1,4 @@
+{
+    "invalidObjectWarning": "\"{0}\" 不是对象集“{1}”的有效文件。新建对象将不会显示在对象集中。",
+    "addedObjectIsNotUnique": "对象“{1}-{0}”未保存，因为 \"ID = {1}\" 不唯一。"
+}

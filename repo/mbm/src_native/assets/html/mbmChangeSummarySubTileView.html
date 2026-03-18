@@ -1,0 +1,35 @@
+<aw-flex-column  aw-class="[{'aw-mbm-changeSummarySubTile':!subPanelContext.isHandle}, {'aw-mbm-changeSummarySubTileHandled':subPanelContext.isHandle}, {'aw-mbm-changeSummarySubTileSelected': data.selectedObject.uid===subPanelContext.uid}]" aw-click="data.onClickChangeRecordContent(subPanelContext, $event)" extended-tooltip-context="subPanelContext" extended-tooltip="mbmChangeSummarySubtileTooltip" extended-tooltip-options="{placement : ['right']}">
+    <aw-flex-column aw-class="['aw-mbm-changeSummarySubTileContent']">
+        <div exist-when="subPanelContext.displayName && subPanelContext.context === 'mBomContextSubParts'" aw-class="['aw-widgets-cellListCellTitleBlock','aw-mbm-changeSummaryTileInfoSubHeader']">
+            <h3 aw-class="['aw-widgets-cellListCellTitle']">{{subPanelContext.displayName}}</h3>
+        </div>
+        <aw-flex-row align-content="center" justify="left">
+            <div exist-when="(subPanelContext.changeType ==='MBMBOM_Added' || subPanelContext.changeType ==='MBMBOM_Removed') && data.subTileIndicator[subPanelContext.compareStatus]" class="aw-mbm-changeSummarySubTileIndication">
+                <aw-icon icon-id="{{data.subTileIndicator[subPanelContext.compareStatus]}}"></aw-icon>
+            </div>
+
+            <div exist-when="subPanelContext.compareStatus !== '3' && (subPanelContext.changeType ==='MBMBOM_Updated' || subPanelContext.changeType ==='MBMBOM_Occurrence_Updated') && data.subTileIndicator[subPanelContext.compareStatus]" class="aw-mbm-changeSummarySubTileIndication">
+                <aw-icon icon-id="{{data.subTileIndicator[subPanelContext.compareStatus]}}"></aw-icon>
+            </div>
+            <!-- bread crumb-->
+            <aw-flex-row align-content="center"  justify="left">
+                <div aw-repeat="crumb: subPanelContext.breadCrumb" aw-class="['aw-layout-eachCrumb','aw-layout-flexRow']"  justify="left" align-content="center">
+                    <span >{{crumb.displayName}}</span>
+                    <span exist-when="crumb.showArrow">
+                        <aw-property-image  aw-class="['aw-mbm-changeSummarySubTileArrow','aw-jswidget-controlArrow']" name="miscChevronRight" ></aw-property-image>
+                    </span>
+                </div>
+            </aw-flex-row>
+        </aw-flex-row>
+        <aw-flex-row exist-when="data.subTileStatus[subPanelContext.subTileStatus]" justify="right" aw-class="['aw-mbm-changeSummarySubTileStatusPanel',{'aw-mbm-bold-text aw-notification-cell-title-low':subPanelContext.subTileStatus==='mbmNotAssigned'}, {'aw-jswidgets-change':subPanelContext.subTileStatus!=='mbmNotAssigned'}]">
+            {{data.subTileStatus[subPanelContext.subTileStatus]}}
+        </aw-flex-row>
+        <aw-flex-row justify="right" height="3f" align-content="end" exist-when="!subPanelContext.isHandle && subPanelContext.changeType !=='MBMBOM_Added'" aw-class="['aw-mbm-changeSummarySubTileButtonPanel']">
+            <aw-flex-column width="6.2f" justify="bottom">
+                <aw-button exist-when="subPanelContext.changeType ==='MBMBOM_Updated' || subPanelContext.changeType ==='MBMBOM_Occurrence_Updated'" button-type="base" action="propagateAction"><aw-i18n>i18n.mbmPropagate</aw-i18n></aw-button>
+                <aw-button exist-when="subPanelContext.changeType ==='MBMBOM_Removed'" button-type="base" action="removeAction"><aw-i18n>i18n.mbmRemove</aw-i18n></aw-button>
+            </aw-flex-column>
+        </aw-flex-row>
+    </aw-flex-column>
+    <div exist-when="subPanelContext.showSeparator" aw-class="['aw-mbm-changeSummaryTilesSeparator']"></div>
+</aw-flex-column>

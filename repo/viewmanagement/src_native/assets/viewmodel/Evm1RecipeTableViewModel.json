@@ -1,0 +1,51 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/exist-when.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-i18n.directive",
+        "js/aw-include.directive",
+        "js/aw-toolbar.directive"
+    ],
+    "actions": {
+        "showTable": 
+        {
+            "actionType": "JSFunction",
+            "method": "showTable",
+            "inputData": {
+                "data":"{{data}}"
+            },
+            "deps": "js/Evm1RecipeTableService"
+        },
+        "hideRecipeResultTable": 
+        {
+            "actionType": "JSFunction",
+            "method": "hideRecipeResultTable",
+            "inputData": {
+                "data":"{{data}}"
+            },
+            "deps": "js/Evm1RecipeTableService"
+        }        
+    },
+    "data": { 
+        "showTable":false,
+        "totalFound":"",
+        "currentDisplay":"tableView" 
+    },
+    "dataProviders": {},
+    "columnProviders": {},
+    "grids": {},
+    "onEvent": [ 
+        {
+            "eventId": "view.ReciepContextUpdated",
+            "action": "showTable"
+        },
+        {
+            "eventId": "view.hideRecipeResultTable",
+            "action": "hideRecipeResultTable"
+        }
+    ],
+    "i18n": {
+        "NoResults": [ "RecipeCommandPanelsMessages" ]
+    }
+}

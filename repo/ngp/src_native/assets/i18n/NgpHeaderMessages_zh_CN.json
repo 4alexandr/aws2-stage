@@ -1,0 +1,21 @@
+{
+    "loading": "正在加载...",
+    "rootClassLibraryObjectMsg": "类的加工库",
+    "addToFavoritesCommandTitle": "添加到收藏夹",
+    "removeFromFavoritesCommandTitle": "从收藏夹中移除",
+    "pinObjectCommandTitle": "固定到主页",
+    "unPinObjectCommandTitle": "从主页取消固定",
+    "pinnedToHome": "“{0}”已添加到主页。",
+    "unpinnedFromHome": "“{0}”已从主页移除。",
+    "addedToFavorites": "“{0}”已添加到收藏夹。",
+    "removedFromFavorites": "“{0}”已从收藏夹移除。",
+    "moreActionsCmdTooltip": "对于 {0} 的更多操作",
+    "checkInCmdTitle": "签入",
+    "checkOutCmdTitle": "签出",
+    "checkoutSuccessful": "成功签出对象“{0}”",
+    "checkinSuccessful": "成功签入对象“{0}”",
+    "noChildrenFound": "没有元素",
+    "effectivityTooltip": "单元 = {0}",
+    "discontinuedSubElementsTooltipTitle": "Pending Deletions",
+    "discontinuedSubElementsTooltipMessage": "Deletion of {0} processes is pending. To release the activity content, including this deletion, submit the activity to workflow while using workflow template \"NGP_ReleasePendingDeletions\"."
+}

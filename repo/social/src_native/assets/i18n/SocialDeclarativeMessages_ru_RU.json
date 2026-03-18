@@ -1,0 +1,23 @@
+{
+    "addComment": "Комментарий",
+    "addQuestion": "Задать вопрос",
+    "addAnswer": "Написать ответ",
+    "addRating": "Оценить",
+    "name": "Имя",
+    "postComment": "Написать комментарий",
+    "postQuestion": "Задать вопрос",
+    "postAnswer": "Написать ответ",
+    "postRating": "Оценить",
+    "subscriptionFailed": "За \"{0}\" не может следовать:",
+    "oneStarRating": "1 звезда",
+    "twoStarRating": "2 звезды",
+    "threeStarRating": "3 звезды",
+    "fourStarRating": "4 звезды",
+    "fiveStarRating": "5 звезд",
+    "allRatings": "Все оценки",
+    "reply": "Ответить",
+    "S2clSCAddCommentNewDesc": "Напишите комментарий об объекте.",
+    "S2clSCAddQuestionNewDesc": "Задайте вопрос об объекте.",
+    "S2clSCAddAnswerNewDesc": "Ответьте на вопрос об объекте.",
+    "S2clSCAddRatingNewDesc": "Добавьте свою оценку к объекту."
+}
