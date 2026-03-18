@@ -1,0 +1,75 @@
+{
+    "schemaVersion": "1.0.0",
+    "imports": [
+        "js/aw-command-panel.directive",
+        "js/aw-panel-body.directive",
+        "js/aw-panel-section.directive",
+        "js/aw-panel-footer.directive",
+        "js/aw-button.directive",
+        "js/aw-i18n.directive",
+        "js/aw-textbox.directive"
+    ],
+
+    "data": {
+        "identifier": {
+            "displayName": "{{i18n.identifier}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        },
+        "title": {
+            "displayName": "{{i18n.title}}",
+            "type": "STRING",
+            "isRequired": "true",
+            "isEditable": "true",
+            "dbValue": "",
+            "labelPosition": "PROPERTY_LABEL_AT_SIDE"
+        }
+    },
+
+    "actions": {
+        "createDoc": {
+            "actionType": "JSFunction",
+            "method": "createDoc",
+            "inputData": {
+                "identifier": "{{data.identifier.dbValue}}",
+                "title": "{{data.title.dbValue}}"
+            },
+            "events": {
+                "success": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            },
+            "deps": "js/createDocService"
+        },
+        "cancel": {
+            "actionType": "Event",
+            "method": "Event",
+            "inputData": {
+                "events": [
+                    {
+                        "name": "complete",
+                        "eventData": {
+                            "source": "toolAndInfoPanel"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "i18n": {
+        "AnCreateDocTitle": ["AnCreateDocMessages"],
+        "identifier": ["AnCreateDocMessages"],
+        "title": ["AnCreateDocMessages"],
+        "create": ["AnCreateDocMessages"],
+        "cancel": ["AnCreateDocMessages"]
+    }
+}

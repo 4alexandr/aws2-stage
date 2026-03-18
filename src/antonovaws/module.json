@@ -35,6 +35,12 @@
         "isGroup": false,
         "title": "create change",
         "description": "Create change"
+      },
+      "AnCreateDocCommand": {
+        "iconId": "cmdCreate",
+        "isGroup": false,
+        "title": "Create eng change",
+        "description": "Create new document"
       }
     },
     "commandHandlers": {
@@ -57,6 +63,13 @@
         "enableWhen": {
           "condition": "conditiobn.isPrintGantCommandAvailable"
         }
+      },
+      "AnCreateDocCommandHandler": {
+        "id": "AnCreateDocCommand",
+        "action": "openAnCreateDocPanelAction",
+        "activeWhen": true,
+        "visibleWhen": true,
+        "enableWhen": true
       }
     },
     "commandPlacements": {
@@ -71,6 +84,12 @@
         "uiAnchor": "aw_ganttViewer",
         "priority": 160,
         "relatedTo": "cmdShow"
+      },
+      "AnCreateDocCommandPlacement": {
+        "id": "AnCreateDocCommand",
+        "uiAnchor": "aw_rightWall",
+        "priority": 350,
+        "parentGroupId": "Awp0NewGroup"
       }
     },
     "actions": {
@@ -90,6 +109,15 @@
           "ctx": "{{ctx}}"
         },
         "deps": "js/printGantService"
+      },
+      "openAnCreateDocPanelAction": {
+        "actionType": "JSFunction",
+        "method": "activateCommandPanel",
+        "inputData": {
+          "commandId": "AnCreateDocCommand",
+          "location": "aw_toolsAndInfo"
+        },
+        "deps": "js/commandPanel.service"
       }
     }
   }
