@@ -1,0 +1,10 @@
+{
+    "AlertCmdTitle": "Сповіщення",
+    "subManAppLabel": "Стрічка новин",
+    "clear": "Очистити",
+    "noNotificationMsg": "Нових сповіщень немає",
+    "multipleObjectsMsg": "\"{0}\" та \"{1}\" ще",
+    "aw_globalToolbar": "Глобальна панель інструментів",
+    "Awp0ShowAlertWithBubbleDesc": "Переглянути нові сповіщення.",
+    "Awp0ShowAlertWithoutBubbleDesc": "Переглянути сповіщення."
+}

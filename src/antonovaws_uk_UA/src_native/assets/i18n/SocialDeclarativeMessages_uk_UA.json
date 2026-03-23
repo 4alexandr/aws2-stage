@@ -1,0 +1,23 @@
+{
+    "addComment": "Коментар",
+    "addQuestion": "Поставити запитання",
+    "addAnswer": "Опублікувати відповідь",
+    "addRating": "Оцінити",
+    "name": "Ім'я",
+    "postComment": "Опублікувати коментар",
+    "postQuestion": "Поставити запитання",
+    "postAnswer": "Опублікувати відповідь",
+    "postRating": "Оцінити",
+    "subscriptionFailed": "Неможливо стежити за \"{0}\".",
+    "oneStarRating": "Оцінка 1 зірка",
+    "twoStarRating": "Оцінка 2 зірки",
+    "threeStarRating": "Оцінка 3 зірки",
+    "fourStarRating": "Оцінка 4 зірки",
+    "fiveStarRating": "Оцінка 5 зірок",
+    "allRatings": "Всі оцінки",
+    "reply": "Відповісти",
+    "S2clSCAddCommentNewDesc": "Опублікувати коментар про об'єкт.",
+    "S2clSCAddQuestionNewDesc": "Поставити запитання про об'єкт.",
+    "S2clSCAddAnswerNewDesc": "Відповісти на запитання про об'єкт.",
+    "S2clSCAddRatingNewDesc": "Додати оцінку до об'єкта."
+}

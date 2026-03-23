@@ -1,0 +1,15 @@
+{
+    "TeamcenterTitle": "Teamcenter",
+    "fullHomeBrowserSubTitle": "Домашня сторінка",
+    "pinObjectCommandTitle": "Закріпити на домашній сторінці",
+    "unPinObjectCommandTitle": "Відкріпити з домашньої сторінки",
+    "pinObjectFailed": "Не вдалося закріпити.",
+    "unPinObjectFailed": "Не вдалося відкріпити.",
+    "tileUpdateFailedMsg": "Не вдалося оновити плитку.",
+    "pinObjectFailedNoGateway": "Виникла проблема з доступом до вашої домашньої сторінки.",
+    "pinObjectMultipleObjectError": "Одночасно можна закріпити лише один об'єкт. Додаткові об'єкти будуть проігноровані.",
+    "unpinTileFailed": "Не вдалося відкріпити.",
+    "homeFolderTitle": "Папки",
+    "Awp0ShowHomeFolderDesc": "Відкрити домашню папку.",
+    "Awp0PinObjectDesc": "Додати виділення на домашню сторінку у вигляді плитки."
+}

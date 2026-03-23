@@ -1,0 +1,6 @@
+{
+    "syncBOE": "Синхронізувати",
+    "syncPlantDesc": "Синхронізувати Plant з пов'язаним Plant BOP.",
+    "syncPlantBOPDesc": "Синхронізувати Plant BOP з пов'язаним Plant.",
+    "syncSuccessful": "\"{0}\" було синхронізовано з пов'язаною структурою."
+}

@@ -1,0 +1,15 @@
+{
+    "assemblyPmiTitle": "Рівень збірки PMI",
+    "assemblyPmiTitleWithSelection": "Рівень збірки PMI для {0}",
+    "assignedPmiTitle": "PMI",
+    "name": "Назва",
+    "id": "Ідентифікатор",
+    "nominalValue": "Номінальне значення",
+    "uom": "Одиниця виміру",
+    "selectProcessOrOperation": "Будь ласка, виберіть процес або операцію.",
+    "selectProcessOrOperationForPMIs": "Виберіть процес або операцію для перегляду призначених PMI.",
+    "noAssociatedPMIs": "Вибраний процес/операція не має пов'язаних PMI.",
+    "noAssignedPMIs": "Призначених PMI немає.",
+    "connectedParts": "Пов'язані деталі",
+    "more": "Більше"
+}

@@ -1,0 +1,15 @@
+{
+    "InvalidObjectsForAlignment": "Дію вирівнювання не виконано. Виберіть одне конструктивне рішення та одну деталь.",
+    "InvalidPartForAlignment": "Дію вирівнювання не виконано, оскільки \"{0}\" не є типом «Деталь». Виберіть одне конструктивне рішення та одну деталь.",
+    "InvalidDesignForAlignment": "Дію вирівнювання не виконано, оскільки \"{0}\" не є типом «Конструктивне рішення». Виберіть одне конструктивне рішення та одну деталь.",
+    "SingleDesignPartUnAlignmentConfirmation": "\"{0}\" буде роз'єднано з \"{1}\".",
+    "MultipleDesignsSinglePartUnAlignmentConfirmation": "{0} конструктивних рішень буде роз'єднано з \"{1}\".",
+    "SingleDesignMultiplePartsUnAlignmentConfirmation": "\"{0}\" буде роз'єднано з {1} деталями.",
+    "SingleDesignUnAlignmentConfirmation": "\"{0}\" буде роз'єднано з усіма вирівняними деталями.",
+    "MultipleDesignsUnAlignmentConfirmation": "{0} конструктивних рішень буде роз'єднано з усіма вирівняними деталями.",
+    "SinglePartUnAlignmentConfirmation": "Усі вирівняні конструктивні рішення будуть роз'єднані з \"{0}\".",
+    "MultiplePartsUnAlignmentConfirmation": "Усі вирівняні конструктивні рішення будуть роз'єднані з {0} деталями.",
+    "BackgroundAlignmentCheckNotification": "Перевірка вирівнювання виконується. Ви отримаєте сповіщення після завершення.",
+    "InvalidPartEBOMForAlignment": "\"{0}\" не відкрито, оскільки воно не є типом «Деталь».",
+    "InvalidDesignDBOMForAlignment": "\"{0}\" не відкрито, оскільки воно не є типом «Конструктивне рішення»."
+}

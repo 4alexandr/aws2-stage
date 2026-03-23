@@ -1,0 +1,19 @@
+{
+    "CancelText": "Скасувати",
+    "RemoveText": "Видалити",
+    "openInEdmViewCommandTitle": "Відкрити в EDM",
+    "preferenceNotConfigured": "Параметр EDA_EDMHosting.URL не налаштовано",
+    "submitToDesignExchange": "Додати проект",
+    "newCollaborationCommand": "Створити спільний проект",
+    "designsTitle": "Проекти",
+    "addToCollaboration": "Додати",
+    "routed": "Трасовано",
+    "unrouted": "Не трасовано",
+    "placed": "Розміщено",
+    "unplaced": "Не розміщено",
+    "designAddedToCollaboration": "Проект \"{0}\" додано до спільного проекту.",
+    "openIncrement": "Відкрити приріст",
+    "openObject": "Відкрити",
+    "removeDesign": "Видалити проект",
+    "removeDesignFromCollaboration": "\"{0}\" та пов'язані зміни будуть видалені."
+}

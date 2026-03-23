@@ -1,0 +1,23 @@
+{
+    "cancel": "Скасувати",
+    "submit": "Надіслати",
+    "continue": "Продовжити",
+    "reviseCmdTitle": "Переглянути",
+    "workflowTemplatesLabel": "Шаблон робочого процесу",
+    "workflowNameLabel": "Назва робочого процесу",
+    "workflowDescriptionLabel": "Опис",
+    "noWorkflowTemplatesMsg": "Для вибраних об'єктів не знайдено шаблонів робочих процесів.",
+    "submitToWorkflowCmdTitle": "Надіслати до робочого процесу",
+    "submitToWorkflowTooltipMsg": "Надіслати {0} до робочого процесу.",
+    "submitToWorkflowInformationMsg": "Видалення {0} процесів очікує на обробку. Щоб випустити вміст операції, включаючи це видалення, надішліть операцію до робочого процесу, використовуючи шаблон \"NGP_ReleasePendingDeletions\".",
+    "successfullySubmitToWorkflowSingle": "\"{0}\" надіслано до робочого процесу.",
+    "successfullySubmitToWorkflowMultiple": "{0} об'єктів надіслано до робочого процесу.",
+    "parentAutoReviseSingleConfirmation": "Перегляд \"{0}\" також призведе до перегляду \"{1}\". Бажаєте продовжити?",
+    "parentAutoReviseMultipleConfirmation": "Перегляд вибраних операцій також призведе до перегляду \"{0}\". Бажаєте продовжити?",
+    "successfulReviseAction": "Нову ревізію для \"{0}\" успішно створено.",
+    "submitSelectedToWorkflow": "Надіслати вибрані елементи до робочого процесу.",
+    "singleDeleteMessage": "Ви впевнені, що хочете видалити \"{0}\"?",
+    "multipleDeleteMessage": "Ви впевнені, що хочете видалити ці {0} об'єктів?",
+    "deleteTooltipMsg": "Видалити",
+    "deleteSelectedObjectsCmdDescription": "Видалити вибрані об'єкти"
+}

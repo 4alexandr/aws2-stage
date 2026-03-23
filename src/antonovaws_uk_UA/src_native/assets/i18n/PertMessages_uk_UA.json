@@ -1,0 +1,9 @@
+{
+    "pertDeleteTitle": "Видалити",
+    "pertDeleteDesc": "Видалити вибрані вузли",
+    "deleteConfirmationMessage": "Ви впевнені, що хочете остаточно видалити вибрані вузли PERT?",
+    "missingProcessElements": "Створіть процес.",
+    "openPertNodeTitle": "Відкрити",
+    "resetLayoutTitle": "Скинути компонування",
+    "resetLayoutDescription": "Скинути вузли PERT до стандартного компонування."
+}

@@ -1,0 +1,7 @@
+{
+    "fileAttachTitle": "Вкладені файли",
+    "dropHere": "Перетягніть сюди",
+    "chooseFile": "Вибрати файл",
+    "removeFileBtnTooltip": "Видалити файл",
+    "failureToAttachFiles": "Файл \"{0}\" не додано, оскільки цей тип файлів не дозволено як вкладення."
+}

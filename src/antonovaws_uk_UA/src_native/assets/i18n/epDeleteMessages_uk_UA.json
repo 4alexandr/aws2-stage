@@ -1,0 +1,8 @@
+{
+    "delete": "Видалити",
+    "discard": "Скасувати",
+    "DeleteSingleMessage": "Ви впевнені, що хочете видалити \"{0}\"?",
+    "DeleteMultipleMessage": "Ви впевнені, що хочете видалити ці {0} об'єктів?",
+    "epCmdDeleteTitle": "Видалити",
+    "epCmdDeleteDesc": "Видалити вибране."
+}

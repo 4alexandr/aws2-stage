@@ -1,0 +1,9 @@
+{
+    "RemoveChangeCommandTitle": "Видалити зміну",
+    "RelateChangeTitle": "Додати зміну",
+    "Pec0PinButtonToolTip": "Закріпити панель",
+    "Pec0UnpinButtonToolTip": "Відкріпити панель",
+    "Pec0AddEventChangeCommandDesc": "Додати існуючу зміну до події.",
+    "Pec0RemoveChangeDesc": "Видалити вибрану зміну з програми, проекту, підпроекту або події.",
+    "Pec0RelateChangeDesc": "Додати існуючу зміну до програми, проекту, підпроекту або події."
+}

@@ -1,0 +1,11 @@
+{
+    "addElementBtn": "Додати",
+    "addRevision": "Додати",
+    "addRevisionTitle": "Додати деталь",
+    "objectType": "Тип",
+    "part": "Деталь",
+    "removeRevision": "Видалити",
+    "toTitle": "До",
+    "Awb0AddRevisionDesc": "Додати дочірню деталь до вибраного.",
+    "Awb0RemoveRevisionDesc": "Видалити вибрану деталь."
+}

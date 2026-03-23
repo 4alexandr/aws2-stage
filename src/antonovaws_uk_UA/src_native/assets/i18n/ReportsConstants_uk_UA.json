@@ -1,0 +1,23 @@
+{
+    "appDisplayName": "Звіти",
+    "allSubLocation": "Всі",
+    "reportBuilderSubLocation": "Шаблони",
+    "runReportTitle": "Генерувати звіт",
+    "runReportOperationName": "Запустити звіт",
+    "doWorkOperationName": "Запустити",
+    "execution": "Виконання",
+    "criteria": "Критерії",
+    "stylesheet": "Таблиця стилів",
+    "dataset": "Зберегти у файл",
+    "myreportsSubLocation": "Мої звіти",
+    "loadingMsg": "Завантаження...",
+    "zeroSearchResults": "Результатів не знайдено",
+    "reportResultsChartTitle": "Фільтрувати результати за:",
+    "AddSnapshot": "Знімки",
+    "AddNew": "Новий",
+    "doQueueOperation": "Додати до черги",
+    "runTcraReport": "Запустити",
+    "dosnapShotViewOperation": "Переглянути",
+    "myDashboard": "Моя панель управління",
+    "inOpenRptCommand": "Відкрити"
+}

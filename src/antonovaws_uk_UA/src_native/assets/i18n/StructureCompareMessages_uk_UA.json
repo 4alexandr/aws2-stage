@@ -1,0 +1,7 @@
+{
+    "incompatibleTypesForCompare": "\"{0}\" та \"{1}\" не можна порівняти, оскільки \"{2}\" не є версією.",
+    "messageForBackgroundCompare": "\"{0}\" та \"{1}\" порівнюються. Ви отримаєте сповіщення після завершення.",
+    "cannotPerformCompareOneEmptyStructure": "\"{0}\" та \"{1}\" не можна порівняти, оскільки \"{2}\" не має дочірніх елементів.",
+    "cannotPerformCompareEmptyStructures": "\"{0}\" та \"{1}\" не можна порівняти, оскільки \"{2}\" та \"{3}\" не мають дочірніх елементів.",
+    "messageForBackgroundCompareResult": "Відображаються останні відмінності від {0}."
+}

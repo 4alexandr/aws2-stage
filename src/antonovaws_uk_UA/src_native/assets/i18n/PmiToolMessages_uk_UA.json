@@ -1,0 +1,19 @@
+{
+    "Awv0PmiCommandTitle": "PMI",
+    "operationName": "Показати панель PMI",
+    "modelViewsTabTitle": "Вигляди моделі",
+    "pmiEntitiesTabTitle": "Типи",
+    "PmiPanelTitle": "PMI",
+    "stepThroughLabel": "Покроковий перегляд",
+    "reorientText": "Переорієнтувати текст",
+    "stepThroughNext": "Далі",
+    "stepThroughPrev": "Назад",
+    "toolPanelTitle": "PMI",
+    "showingPmiFor": "Відображається PMI для:",
+    "notCurrentlyVisible": "{0} не повністю видимий.",
+    "hasNoPmi": "{0} не має PMI. Будь ласка, виберіть інший елемент у структурі.",
+    "pmiStepCmdsAnchor": "Прив'язка покрокових команд",
+    "Awv0PmiToolDesc": "Показати та приховати конкретні PMI або застосувати вигляди моделі.",
+    "PmiStepThroughPrevCommandDesc": "Перейти до попереднього елемента списку.",
+    "PmiStepThroughNextCommandDesc": "Перейти до наступного елемента списку."
+}

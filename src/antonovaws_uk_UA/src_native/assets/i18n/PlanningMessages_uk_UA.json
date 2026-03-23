@@ -1,0 +1,14 @@
+{
+    "PlanningTitle": "Планування",
+    "StationOperationsTitle": "Операції",
+    "ProductScopeTitle": "Область продукту",
+    "DeclPlanningTitle": "Планування області процесу",
+    "graphicsViewerTitle": "Графіка",
+    "AvailablePartsPanelTitle": "Продукт",
+    "plantLayoutPanelTitle": "Послідовність процесу",
+    "scopingTitle": "Цільові складання",
+    "selectProcess": "Виберіть елемент для перегляду призначених цільових складань.",
+    "targetAssemblies": "цільові складання",
+    "scopingSuccessMsg": "Складання \"{0}\" успішно пов'язано з \"{1}\".",
+    "removeScope": "Видалити цільове складання"
+}

@@ -1,0 +1,15 @@
+{
+    "arrangeTitle": "Упорядкувати",
+    "arrangeButtonTitle": "Упорядкувати",
+    "arrangeAdminTitle": "Адміністратор",
+    "arrangeNoColumnConfigs": "Збережених компонувань немає",
+    "arrangeConfigNameTitle": "Компонування",
+    "arrangeNewConfigNameTitle": "Назва",
+    "arrangeNewConfigNameTitleRequired": "Назвіть своє компонування",
+    "arrangeNewConfigTitle": "Зберегти як нове компонування",
+    "arrangeAndSaveButtonTitle": "Зберегти та впорядкувати",
+    "arrangeAndCreateButtonTitle": "Зберегти та впорядкувати",
+    "defaultNewColumnConfigName": "Нове компонування стовпців",
+    "availableColumnsTitle": "Доступні стовпці",
+    "tableColumnsTitle": "Стовпці таблиці"
+}

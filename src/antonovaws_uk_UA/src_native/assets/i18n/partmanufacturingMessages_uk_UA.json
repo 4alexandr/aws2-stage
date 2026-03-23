@@ -1,0 +1,23 @@
+{
+    "PartManufacturingLocationHeaderTitle": "Виготовлення деталей",
+    "PartManufacturingLocationBrowserTitle": "Виготовлення деталей",
+    "PartManufacturingLocationBrowserSubTitle": "Виготовлення деталей",
+    "activitiesTitle": "Дії",
+    "attachmentsTitle": "Вкладення",
+    "resourcesTitle": "Ресурси",
+    "partMfgTitle": "Виготовлення деталей",
+    "Pm1DatasetTypeFiltersTitle": "Фільтр",
+    "Pm1OccTypeFiltersTitle": "Фільтр",
+    "Pm1DatasetTypeFilterDesc": "Показати або приховати параметри фільтра.",
+    "Pm1AddResourceTitle": "Додати ресурс",
+    "Pm1AddResourceTooltip": "Додає ресурс до операції виготовлення деталі.",
+    "Pm1ElementAddSuccessful": "\"{0}\" додано до \"{1}\".",
+    "Pm1MultipleElementAddSuccessful": "{0} елементів додано до \"{1}\".",
+    "Pm1AddElementBtn": "Додати",
+    "Pm1AddElementCopyButtonText": "Додати копію",
+    "Pm1NumberOfElements": "Кількість елементів",
+    "Pm1ToTitle": "До",
+    "Pm1_oneStepPinCommands": "Команди закріплення одним кроком",
+    "Pm1PinButtonToolTip": "Закріпити панель",
+    "Pm1UnpinButtonToolTip": "Відкріпити панель"
+}

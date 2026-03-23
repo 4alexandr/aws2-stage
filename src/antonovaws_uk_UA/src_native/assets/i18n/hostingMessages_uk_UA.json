@@ -1,0 +1,10 @@
+{
+    "addToCommandTitle": "Додати до {0}",
+    "revRuleNotAvailable": "Вибране правило ревізії недоступне серед завантажених правил ревізії",
+    "revRuleChangeFailed": "Зміна правила ревізії не вдалася",
+    "revRuleChangeSucess": "Правило ревізії змінено",
+    "sendToCommandTitle": "Відкрити в {0}",
+    "sendToNewViewCommandTitle": "Відкрити у новому поданні {0}",
+    "Awp0AddComponentHostedDesc": "Додати вибраний компонент до активної робочої деталі.",
+    "Awp0OpenHostedDesc": "Відкрити вибране. "
+}

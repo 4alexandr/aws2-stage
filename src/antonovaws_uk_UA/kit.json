@@ -1,0 +1,8 @@
+{
+  "name": "antonovaws_uk_UA",
+  "description": "Ukrainian (uk_UA) locale translations",
+  "modules": ["antonovaws_uk_UA"],
+  "version": "5.1.0",
+  "OOTB": true,
+  "soaDeps": []
+}

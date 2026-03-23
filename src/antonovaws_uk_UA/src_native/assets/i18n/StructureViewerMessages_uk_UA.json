@@ -1,0 +1,22 @@
+{
+    "UseTransparencyOnTitle": "Увімкнути режим прозорого відображення вибраного",
+    "UseTransparencyOffTitle": "Вимкнути режим прозорого відображення вибраного",
+    "NavigationRotateTitle": "Обертання",
+    "NavigationPanTitle": "Панорамування",
+    "NavigationZoomTitle": "Масштабування",
+    "GeometricAnalysisPanelTitle": "Геометричний аналіз",
+    "GeometricAnalysisMeasurementTitle": "Вимірювання",
+    "GeometricAnalysisSectionTitle": "Перетин",
+    "GeometricAnalysisQueryTitle": "Запит",
+    "GeometricAnalysisVolumeTitle": "Об'єм",
+    "GeometricAnalysisProximityTitle": "Наближеність",
+    "LoadingViewer": "Завантаження...",
+    "MMVSessionWarning": "Сеанси ще не можуть зберігати знімки даних MMV.",
+    "Checkout": "Ви більше не працюєте з останньою версією цього сеансу. Бажаєте створити новий сеанс?",
+    "InternalError": "Дані візуалізації не збережено у сеансі.",
+    "Cancel": "Скасувати",
+    "Create": "Створити",
+    "OwningModel": "Модель-власник",
+    "OwningUser": "Користувач-власник",
+    "modelViewProxyListPanelTitle": "Розкриті вигляди моделі"
+}

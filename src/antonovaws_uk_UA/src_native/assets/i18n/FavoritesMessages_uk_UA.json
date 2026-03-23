@@ -1,0 +1,13 @@
+{
+    "favoritesAppDisplayName": "Вибране",
+    "myFavorites": "Моє вибране",
+    "myRecentViewedObjects": "Нещодавні",
+    "addToFavoritesCommandTitle": "Додати до вибраного",
+    "addToFavoritesConfirmation": "Вибраний(і) об'єкт(и) успішно додано до вибраного",
+    "addToFavoritesFailed": "Не вдалося додати до вибраного",
+    "removeFromFavoritesCommandTitle": "Видалити з вибраного",
+    "removeFromFavoritesConfirmation": "Вибраний(і) об'єкт(и) успішно видалено з вибраного",
+    "removeFromFavoritesFailed": "Не вдалося додати до вибраного",
+    "Awp0AddToFavoritesDesc": "Додати виділення до списку вибраного.",
+    "Awp0RemoveFromFavoritesDesc": "Видалити виділення зі списку вибраного."
+}

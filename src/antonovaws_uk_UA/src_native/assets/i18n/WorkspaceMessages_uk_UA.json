@@ -1,0 +1,8 @@
+{
+    "defaultWorkspaceName": "Стандартний",
+    "tcAuthorWorkspaceName": "Автор",
+    "tcConsumerWorkspaceName": "Споживач",
+    "tcActiveAdminWorkspaceName": "Active Admin",
+    "tcActiveArchitectWorkspaceName": "Active Architect",
+    "mbmWorkspaceName": "Multi-BOM Manager"
+}

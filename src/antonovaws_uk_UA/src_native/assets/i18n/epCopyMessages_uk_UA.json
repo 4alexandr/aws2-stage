@@ -1,0 +1,6 @@
+{
+    "epCmdCopyTitle": "Копіювати",
+    "copyObjectToClipboard": "{0} скопійовано до буфера обміну.",
+    "copySingleSuccessful": "\"{0}\" скопійовано до буфера обміну.",
+    "copyMultipleSuccessful": "{0} вибраних елементів скопійовано до буфера обміну."
+}

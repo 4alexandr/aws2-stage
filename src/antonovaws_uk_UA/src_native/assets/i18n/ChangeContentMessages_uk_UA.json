@@ -1,0 +1,19 @@
+{
+    "propagateCC": "Поширити",
+    "rollupCC": "Згорнути",
+    "propagateOperationPassedSingleContent": "{0} вмістів було поширено з \"{1}\" до \"{2}\".",
+    "rollupOperationPassedSingleContent": "{0} вмістів було згорнуто з \"{1}\" до \"{2}\".",
+    "propagateOperationPassedMultipleContent": "{0} та {1} вмістів було поширено з \"{2}\" до \"{3}\".",
+    "rollupOperationPassedMultipleContent": "{0} та {1} вмістів було згорнуто з \"{2}\" до \"{3}\".",
+    "noContentPropagateMessage": "Вміст не було поширено з \"{0}\" до \"{1}\".",
+    "noContentRollupMessage": "Вміст не було згорнуто з \"{0}\" до \"{1}\".",
+    "problemContent": "Проблема",
+    "impactedContent": "Зачеплене",
+    "solutionContent": "Рішення",
+    "referenceContent": "Посилання",
+    "ObjectSet_5,aw_objectSet_right": "Набір об'єктів праворуч",
+    "Cm1AddPlanItemDesc": "Створити та додати розклад. Виберіть із списку шаблонів або створіть власний розклад.",
+    "Csi1RollupChangeContentDesc": "Зафіксувати зв'язки завдань розкладу від вибраного пункту плану до повідомлення про технічну зміну.",
+    "Csi1PropagateChangeContentDesc": "Пов'язати елементи, пов'язані з об'єктом зміни (проблемні, зачеплені, вирішальні та довідкові елементи), із завданнями розкладу, асоційованими зі зміною.",
+    "Csi1CreateScheduleInPlanItemsDesc": "Створити новий ситуативний розклад або розклад на основі шаблону для запиту на технічну зміну або повідомлення про технічну зміну."
+}
