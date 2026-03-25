@@ -4,15 +4,18 @@ import soaSvc from 'soa/kernel/soaService';
 var exports = {};
 
 export let createDoc = function( identifier, title ) {
-    return soaSvc.post( 'Core-2008-06-DataManagement', 'createObjects', {
-        input: [ {
-            boName: 'EngineeringChange',
-            propertyNameValues: {
-                item_id: [ identifier ],
-                object_name: [ title ],
-                ec_type: [ 'ANC5_II' ]
-            }
-        } ]
+    return soaSvc.post( 'Internal-Core-2011-06-ICT', 'invokeICTMethod', {
+        className: 'ICCTEngineeringChange',
+        methodName: 'create',
+        args: [
+            { val: 'EngineeringChange' },
+            { val: 'TYPE::EngineeringChange::ImanRelation::ImanRelation' },
+            { val: identifier },
+            { val: '0' },
+            { val: title },
+            { val: 'ANC5_II' },
+            { val: '', args: [ { val: 'true' }, { val: '' } ] }
+        ]
     } );
 };
 
