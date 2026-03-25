@@ -1,5 +1,7 @@
 {
     "srcPaths": [
+        "repo/tc-aw-solution/@(kit|module).json",
+        "repo/tc-aw-framework/@(kit|module).json",
         "src/**",
         "src/*/@(kit|module).json"
     ],
