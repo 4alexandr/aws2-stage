@@ -14,7 +14,7 @@ export let createDoc = function( identifier, title ) {
             { val: '0' },
             { val: title },
             { val: 'ANC5_II' },
-            { val: '', args: [ { val: 'true' }, { val: '' } ] }
+            { val: '', structure: [ { args: [ { val: 'true' }, { val: '' } ] } ] }
         ]
     } );
 };
