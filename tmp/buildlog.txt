@@ -1,0 +1,131 @@
+>npm run build
+
+> active-workspace@5.1.0 build D:\Projects\gantrr\stage
+> gulp build
+
+[13:34:54] Using gulpfile D:\Projects\gantrr\stage\gulpfile.js
+[13:34:54] Starting 'build'...
+[13:34:54] Starting 'site_stage'...
+[13:34:56] verbose: site/stage: Processing stage site.json
+[13:34:56] verbose: site/stage:  type=site output=out/site/
+[13:36:10] verbose: site/stage:  ... including 2d-viewer kit.json
+[13:36:10] verbose: site/stage:  ... including activecollab kit.json
+[13:36:10] verbose: site/stage:  ... including apscore kit.json
+[13:36:10] verbose: site/stage:  ... including afx-vis-viewer kit.json
+[13:36:10] verbose: site/stage:  ... including attrtargetmgmt kit.json
+[13:36:10] verbose: site/stage:  ... including architectureModeler kit.json
+[13:36:10] verbose: site/stage:  ... including audit kit.json
+[13:36:10] verbose: site/stage:  ... including bbrowser kit.json
+[13:36:10] verbose: site/stage:  ... including capturetool kit.json
+[13:36:10] verbose: site/stage:  ... including change kit.json
+[13:36:10] verbose: site/stage:  ... including classification kit.json
+[13:36:10] verbose: site/stage:  ... including contractmanagement kit.json
+[13:36:10] verbose: site/stage:  ... including contentmgmt kit.json
+[13:36:10] verbose: site/stage:  ... including csi kit.json
+[13:36:10] verbose: site/stage:  ... including digitalsignature kit.json
+[13:36:10] verbose: site/stage:  ... including docmgmt kit.json
+[13:36:10] verbose: site/stage:  ... including eda kit.json
+[13:36:10] verbose: site/stage:  ... including dpv kit.json
+[13:36:10] verbose: site/stage:  ... including ep-bvr-kit kit.json
+[13:36:10] verbose: site/stage:  ... including ep-configurator-kit kit.json
+[13:36:10] verbose: site/stage:  ... including ep-electronics kit.json
+[13:36:10] verbose: site/stage:  ... including ep-ppp kit.json
+[13:36:10] verbose: site/stage:  ... including ep-pmi-kit kit.json
+[13:36:10] verbose: site/stage:  ... including geometrictool kit.json
+[13:36:10] verbose: site/stage:  ... including ep-wia kit.json
+[13:36:10] verbose: site/stage:  ... including iavverificationmanagement kit.json
+[13:36:10] verbose: site/stage:  ... including hosted-mentor kit.json
+[13:36:10] verbose: site/stage:  ... including librarymgmt kit.json
+[13:36:10] verbose: site/stage:  ... including logicalobject kit.json
+[13:36:10] verbose: site/stage:  ... including markup kit.json
+[13:36:10] verbose: site/stage:  ... including massupdate kit.json
+[13:36:10] verbose: site/stage:  ... including materialmgmt kit.json
+[13:36:10] verbose: site/stage:  ... including mbm kit.json
+[13:36:10] verbose: site/stage:  ... including mfe-common kit.json
+[13:36:10] verbose: site/stage:  ... including nx kit.json
+[13:36:10] verbose: site/stage:  ... including occmgmt kit.json
+[13:36:10] verbose: site/stage:  ... including ngp kit.json
+[13:36:10] verbose: site/stage:  ... including partmanufacturing kit.json
+[13:36:10] verbose: site/stage:  ... including parametertable kit.json
+[13:36:10] verbose: site/stage:  ... including pkgmgmt kit.json
+[13:36:10] verbose: site/stage:  ... including pmitool kit.json
+[13:36:10] verbose: site/stage:  ... including predictiveui kit.json
+[13:36:10] verbose: site/stage:  ... including preferences kit.json
+[13:36:10] verbose: site/stage:  ... including prgschedulemanager kit.json
+[13:36:10] verbose: site/stage:  ... including prgplanningeventchange kit.json
+[13:36:10] verbose: site/stage:  ... including programPlanning kit.json
+[13:36:10] verbose: site/stage:  ... including projmgmt kit.json
+[13:36:10] verbose: site/stage:  ... including programchange kit.json
+[13:36:10] verbose: site/stage:  ... including reactivelogging kit.json
+[13:36:10] verbose: site/stage:  ... including relations kit.json
+[13:36:10] verbose: site/stage:  ... including ps kit.json
+[13:36:10] verbose: site/stage:  ... including relationshipbrowser kit.json
+[13:36:10] verbose: site/stage:  ... including reports kit.json
+[13:36:10] verbose: site/stage:  ... including requirements kit.json
+[13:36:10] verbose: site/stage:  ... including resourcemanager kit.json
+[13:36:10] verbose: site/stage:  ... including richtexteditor kit.json
+[13:36:10] verbose: site/stage:  ... including schedulemanager kit.json
+[13:36:10] verbose: site/stage:  ... including search kit.json
+[13:36:10] verbose: site/stage:  ... including social kit.json
+[13:36:10] verbose: site/stage:  ... including security kit.json
+[13:36:10] verbose: site/stage:  ... including stockmaterial kit.json
+[13:36:10] verbose: site/stage:  ... including structureviewer kit.json
+[13:36:10] verbose: site/stage:  ... including subscription kit.json
+[13:36:10] verbose: site/stage:  ... including structurecompare kit.json
+[13:36:10] verbose: site/stage:  ... including systemmodeler kit.json
+[13:36:10] verbose: site/stage:  ... including tc-aw-framework kit.json
+[13:36:10] verbose: site/stage:  ... including tie kit.json
+[13:36:10] verbose: site/stage:  ... including uibuilder kit.json
+[13:36:10] verbose: site/stage:  ... including usermanagement kit.json
+[13:36:10] verbose: site/stage:  ... including vendormanagement kit.json
+[13:36:10] verbose: site/stage:  ... including validationcontract kit.json
+[13:36:10] verbose: site/stage:  ... including vieweradmin kit.json
+[13:36:10] verbose: site/stage:  ... including viewersnapshot kit.json
+[13:36:10] verbose: site/stage:  ... including viewertool kit.json
+[13:36:10] verbose: site/stage:  ... including viewmanagement kit.json
+[13:36:10] verbose: site/stage:  ... including workflow kit.json
+[13:36:10] verbose: site/stage:  ... including workinstr-common kit.json
+[13:36:10] verbose: site/stage:  ... including antonovaws kit.json
+[13:36:10] verbose: site/stage:  ... including antonovaws_uk_UA kit.json
+[13:36:10] verbose: site/stage:  ... including tc-aw-solution kit.json
+[13:36:11] verbose: iconUtils/buildSvgCache:  ... built icon definition cache (1.11 s)
+[13:36:12] verbose: site/stage:  ... extracted native zips (133 ms)
+[13:39:37] verbose: site/stage:  ... copied native roots (3.43 min)
+[13:39:38] warn: site/stage: clientScopeURI is null for state compareBriefcase
+[13:39:38] warn: site/stage: clientScopeURI is null for state changeDashboard
+[13:39:38] warn: site/stage: com_siemens_splm_classificationLocation is using DefaultLocationCtrl but is not a location
+[13:39:38] warn: site/stage: com_siemens_splm_classificationManagerLocation is using DefaultLocationCtrl but is not a location
+[13:39:38] warn: site/stage: clientScopeURI is null for state ProcessAreaPlanning
+[13:39:38] warn: site/stage: clientScopeURI is null for state revRuleAdmin
+[13:39:38] warn: site/stage: com_siemens_splm_client_search_SearchLocation is using DefaultLocationCtrl but is not a location
+[13:39:38] warn: site/stage: clientScopeURI is null for state downloadFile
+[13:39:38] warn: site/stage: clientScopeURI is null for state com_siemens_splm_client_vieweradmin_showViewerAdmin
+[13:39:39] verbose: site/stage:  ... generated OOTB verification lists (660 ms)
+[13:39:39] verbose: viewModelsConcat:  ... bundled View Model files (module wise) in assets/config (813 ms)
+[13:39:39] verbose: site/stage:  ... generated all configuration data, custom elements and services templates (1.26 s)
+[13:39:39] verbose: generateOSSAttributionInfoJSON:  ... generated OSS Attribution Info (761 ms)
+[13:39:39] verbose: site/stage:  ... copied schema files (994 ms)
+[13:39:41] verbose: site/stage:  ... generated module SCSS (3.12 s)
+[13:39:41] verbose: site/stage:  ... generated module (consumer-themes) SCSS (13 ms)
+[13:39:43] verbose: site/stage:  ... generated angular HTML template cache (5.39 s)
+[13:39:44] verbose: site/stage:  ... compiled SASS (2.49 s)
+[13:39:45] verbose: processL10n:  ... concatenated l10n files (6.79 s)
+[13:39:50] verbose: site/stage:  ... copied image files (13 s)
+[13:39:52] verbose: site/stage:  ... deleted consumed files (1.63 s)
+[13:39:52] verbose: site/stage:  ... webpack starting
+[13:39:52] warn: site/stage: The dependency 'js/Caw0RemoveSymptomDefectCommandHandler' could not be found at 'D:\Projects\gantrr\stage/out/site//assets1774438496070/js/Caw0RemoveSymptomDefectCommandHandler.js'.
+[13:39:52] warn: site/stage: The dependency 'js/Ldf0DialogUtils' could not be found at 'D:\Projects\gantrr\stage/out/site//assets1774438496070/js/Ldf0DialogUtils.js'.
+[13:39:52] warn: site/stage: The dependency 'js/hostVisQueryService' could not be found at 'D:\Projects\gantrr\stage/out/site//assets1774438496070/js/hostVisQueryService.js'.
+[13:39:52] warn: site/stage: The dependency 'js/hostShapeSearchQueryService' could not be found at 'D:\Projects\gantrr\stage/out/site//assets1774438496070/js/hostShapeSearchQueryService.js'.
+[13:39:52] warn: site/stage: The dependency 'js/declarativePnID3DViewerSummary.occMgmtPageKey' could not be found at 'D:\Projects\gantrr\stage/out/site//assets1774438496070/js/declarativePnID3DViewerSummary.occMgmtPageKey.js'.
+[13:39:52] warn: site/stage: The dependency 'js/target.subLocationKey' could not be found at 'D:\Projects\gantrr\stage/out/site//assets1774438496070/js/target.subLocationKey.js'.
+[13:40:00] error: site/stage: Browserslist: caniuse-lite is outdated. Please run:
+[13:40:00] error: site/stage: npx browserslist@latest --update-db
+[13:40:00] error: site/stage:
+[13:40:00] error: site/stage: Why you should do it regularly:
+[13:40:00] error: site/stage: https://github.com/browserslist/browserslist#browsers-data-updating
+[13:40:34] info: site/stage:  ... Imported darsi data (43 s)
+[13:43:15] verbose: site/stage:  ... webpack completed (3.38 min)
+[13:43:15] info:   site/stage: Build ready @ out/site/ (8.35 min)
+[13:43:15] Finished 'site_stage' after 8.35 min
+[13:43:15] Finished 'build' after 8.35 min

@@ -1,7 +1,6 @@
 .idea/
 .vscode/
 bin/
-build/
 conf/
 lib/
 node_modules/
