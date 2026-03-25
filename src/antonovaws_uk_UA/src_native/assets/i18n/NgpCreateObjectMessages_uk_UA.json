@@ -1,0 +1,12 @@
+{
+    "cancel": "Скасувати",
+    "creataAndAddMore": "Створити та додати ще",
+    "create": "Створити",
+    "select": "Вибрати",
+    "selectType": "Вибрати тип",
+    "creatingObjectMessage": "Створення",
+    "next": "Далі",
+    "previous": "Назад",
+    "createBuildElement": "Створити елемент збірки",
+    "createActivity": "Створити операцію"
+}

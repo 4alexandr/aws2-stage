@@ -1,0 +1,16 @@
+{
+    "LoadButton": "Завантажити Briefcase",
+    "loadstatus": "Завантаження...",
+    "compare": "Порівняти вміст",
+    "locationClickViewerHeaderTitle": "Переглядач",
+    "locationOneClickViewerSubTitle": "Переглядач",
+    "pickTOSPanel": "Переглянути Briefcase",
+    "pickTOSPanelCompare": "Порівняти Briefcase",
+    "transferOptionSet": "Вибрати набір параметрів передачі",
+    "tosPanelSourceBCZ": "Вихідний Briefcase",
+    "tosPanelTargetBCZ": "Цільовий Briefcase",
+    "tosSourceLabel": "Застосований вихідний набір параметрів передачі",
+    "tosTargetLabel": "Застосований цільовий набір параметрів передачі",
+    "bbrowserCompareViewerDesc": "Переглянути відмінності між файлами Briefcase.",
+    "bbrowserOneClickViewerDesc": "Переглянути вміст файлу Briefcase перед його імпортом."
+}

@@ -1,0 +1,14 @@
+{
+    "editLocalizationSingle": "Редагувати локалізацію",
+    "editLocalizationSingleDesc": "Перекласти значення властивості різними мовами",
+    "masterValue": "Основне значення",
+    "translationLanguages": "Мови перекладу",
+    "addorRemoveLocales": "Додати або видалити мови",
+    "addorRemoveLocalesDesc": "Вибрати зі списку мов для перекладу",
+    "removeLocale": "Видалити мову",
+    "removeLocaleDesc": "Видалити мову перекладу",
+    "propertiesTranslated": "Властивості, що підлягають перекладу",
+    "status": "Статус",
+    "saveTranslationsError": "Під час збереження виникли помилки. {0}",
+    "property": "Властивість"
+}

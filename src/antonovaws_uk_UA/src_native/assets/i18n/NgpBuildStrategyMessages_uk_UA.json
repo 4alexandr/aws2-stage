@@ -1,0 +1,13 @@
+{
+    "noBuildElementsOrActivities": "У \"{0}\" немає елементів збірки або операцій.",
+    "noProcesses": "У \"{0}\" немає процесів.",
+    "whereToCreateProcesses": "Процеси можна створити на сторінці Робочого підрозділу.",
+    "moveCandidateCmdTitle": "Перемістити до",
+    "moveCandidateCmdDescription": "Позначає об'єкти для переміщення",
+    "successfullySetSingleMoveCandidate": "\"{0}\" позначено для переміщення. Оберіть ціль та натисніть кнопку «Перемістити сюди».",
+    "successfullySetMultipleMoveCandidates": "{0} об'єктів позначено для переміщення. Оберіть ціль та натисніть кнопку «Перемістити сюди».",
+    "moveHereTooltipTitle": "Перемістити сюди",
+    "moveHereTooltipMsg": "Переміщує ці об'єкти до зазначеної цілі:",
+    "createBuildElementAfter": "Створити елемент збірки після",
+    "createBuildElementAsChild": "Створити елемент збірки як дочірній"
+}

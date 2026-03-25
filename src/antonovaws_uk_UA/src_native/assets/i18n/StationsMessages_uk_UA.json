@@ -1,0 +1,10 @@
+{
+    "StationWorkInstructionsTitle": "Робочі інструкції",
+    "processTitle": "Процес",
+    "editorTitle": "Редактор",
+    "noAssemblyStructure": "Структура складання не вказана.",
+    "GraphicVisibilityColumnName": "Видимість графіки",
+    "syncedToViewer": "Синхронізовано з переглядачем.  {@msgTxtLink0}",
+    "syncedToEditor": "Синхронізовано з текстовим редактором.  {@msgTxtLink0}",
+    "switchMode": "Перемкнути"
+}

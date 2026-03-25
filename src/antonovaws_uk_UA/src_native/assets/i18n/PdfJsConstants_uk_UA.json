@@ -1,0 +1,7 @@
+{
+    "ShowPdfFileTitle": "Переглядач PDF-файлів",
+    "ShowStreamErrorMessage": "Потік повинен містити дані",
+    "LoadingPDFfile": "Завантаження файлу...",
+    "LoadingFileSuccess": "Файл успішно завантажено...",
+    "LoadingFileFailed": "Помилка завантаження файлу!"
+}

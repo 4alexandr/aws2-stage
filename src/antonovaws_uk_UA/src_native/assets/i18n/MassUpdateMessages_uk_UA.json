@@ -1,0 +1,5 @@
+{
+    "confirmRemoveProblemItem": "У вас є незмінені пропозиції.",
+    "probItemAlreadyExistsUnderSomeECN": "\"{0}\" не додано, оскільки вже використовується в \"{1}\".",
+    "probItemAlreadyExistsUnderMultipleECNs": "\"{0}\" не додано, оскільки вже використовується в інших повідомленнях про зміни."
+}

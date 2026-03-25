@@ -1,0 +1,10 @@
+{
+ "Awp0ChangeOwner" : "Змінити власника",
+ "change" : "Змінити",
+ "user" : "Користувач",
+ "EmailAddress" : "Адреса електронної пошти:",
+ "PhoneNumber" : "Номер телефону:",
+ "singleObjectChangeOwnershipSuccess": "Об'єкт \"{0}\" змінено.",
+ "multipleObjectsChangeOwnershipSuccess": "{0} з {1} вибраних елементів змінено.",
+ "changeOwnershipForObjectFailure": "Об'єкт \"{0}\" не було змінено, оскільки у вас немає дозволу."
+}

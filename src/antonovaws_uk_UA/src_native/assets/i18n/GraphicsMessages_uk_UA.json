@@ -1,0 +1,9 @@
+{
+    "noVisuals": "Під цим елементом немає візуальних матеріалів.",
+    "selectElement": "Виберіть елемент для перегляду його візуальних матеріалів.",
+    "capture2DImage": "Зробити знімок 2D-зображення",
+    "capture2DImagesSuccess": "2D-зображення зроблено та прикріплено до \"{0}\".",
+    "epManageProductViewsCommandTitle": "Керувати видами виробу в Teamcenter Visualization",
+    "3DView": "3D-вид",
+    "openInTeamcenterVis": "Відкрити в Teamcenter Visualization"
+}

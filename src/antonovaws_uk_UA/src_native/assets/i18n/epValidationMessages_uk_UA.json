@@ -1,0 +1,14 @@
+{
+    "openValidationsPanelCommandTitle": "Відкрити перевірки валідації",
+    "closeValidationsPanelCommandTitle": "Закрити перевірки валідації",
+    "runValidationsCommandTitle": "Запустити перевірки валідації",
+    "runValidationsMessage": "Виберіть область та запустіть перевірки валідації за допомогою такої піктограми:",
+    "resultTableTitle": "Результати валідації для:",
+    "detailTableTitle": "Деталі для:",
+    "messageTitle": "Перевірки валідації для:",
+    "validationDetailTestNameColumn": "Назва тесту",
+    "validationDetailMessageTypeColumn": "Тип повідомлення",
+    "validationDetailMessageColumn": "Повідомлення",
+    "validationResultBomlineColumn": "Рядок BOM",
+    "validationResultSummaryColumn": "Підсумок"
+}

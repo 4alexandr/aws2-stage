@@ -1,0 +1,11 @@
+{
+    "interfaceExportPanelTitle": "Експорт",
+    "interfacePanelName": "Інтерфейс",
+    "exportButton": "Експортувати",
+    "exportOperation": "ExportInterface",
+    "exportNameLabel": "Ім'я",
+    "exportScopeLabel": "Область",
+    "internalOnly": "Внутрішні системи",
+    "internalAndExternal": "Внутрішні та зовнішні системи",
+    "exportStartedNotify": "\"{0}\" експортується."
+}

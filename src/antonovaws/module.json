@@ -30,14 +30,8 @@
         "title": "Print Gant",
         "description": "Print Gant diagram"
       },
-      "CreateChDocCommand": {
-        "iconId": "cmdPrint",
-        "isGroup": false,
-        "title": "create change",
-        "description": "Create change"
-      },
       "AnCreateDocCommand": {
-        "iconId": "cmdCreate",
+        "iconId": "cmdCreateChange",
         "isGroup": false,
         "title": "Create eng change",
         "description": "Create new document"

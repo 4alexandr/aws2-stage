@@ -1,0 +1,11 @@
+{
+  "name": "antonovaws_uk_UA",
+  "description": "Ukrainian (uk_UA) locale translations",
+  "type": ["native"],
+  "srcDir": "src_native",
+  "pathOffset": ".",
+  "skipAudit": true,
+  "skipTest": true,
+  "version": "5.1.0",
+  "author": "JSC Antonov"
+}

@@ -1,0 +1,7 @@
+{
+    "navigationConfirmationSingle": "\"{0}\" містить незбережені зміни.",
+    "navigationConfirmationMultiple": "Є незбережені зміни.",
+    "discard": "Скасувати",
+    "save": "Зберегти",
+    "validationError": "Є помилки перевірки. Будь ласка, виправте ці помилки та збережіть знову."
+}

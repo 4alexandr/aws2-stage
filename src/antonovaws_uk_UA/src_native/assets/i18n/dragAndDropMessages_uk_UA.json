@@ -1,0 +1,5 @@
+{
+    "dropCompleted": "\"{0}\" файлів додано до \"{1}\".",
+    "dropCompletedDocument": "\"{0}\" додано до \"{1}\" з {2} вкладеннями.",
+    "dropFolderFailureDocument": "Перетягування \"{0}\" є недійсним."
+}

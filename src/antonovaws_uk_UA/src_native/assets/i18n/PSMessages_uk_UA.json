@@ -1,0 +1,7 @@
+{
+    "addAlternateMultipleFailureMessage": "{0} з {1} додано.<BR/>{2}",
+    "removeAlternateMultipleFailureMessage": "{0} з {1} видалено.<BR/>{2}",
+    "errorInGettingSubtypesOfEndItem": "Результати пошуку не були відфільтровані через внутрішню помилку.",
+    "invalidDateRangeError": "Дата початку має передувати даті завершення",
+    "invalidUnitRange": "Недійсний діапазон одиниць"
+}

@@ -1,0 +1,14 @@
+{
+    "selectType": "Вибрати тип",
+    "CreateButtonTitle": "Створити",
+    "CreateAndAddMoreObjectButtonTitle": "Створити та додати ще",
+    "CancelButtonTitle": "Скасувати",
+    "createOperationCmdTitle": "Створити операцію",
+    "createProcessAreaCmdTitle": "Створити область процесу",
+    "gotoPreviousPageCmdTitle": "Назад",
+    "assignProjectCmdTitle": "Призначити проекти",
+    "SearchPanelTitle": "Пошук",
+    "projectsPanelCaption": "Проект",
+    "loading": "Завантаження",
+    "addProjectHeaderTitle": "Додати проект"
+}

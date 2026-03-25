@@ -1,0 +1,18 @@
+{
+    "requirementsManagerDisplayName": "Requirements Manager",
+    "RequirementsManager": "Requirements Manager",
+    "recents": "Нещодавні",
+    "getStarted": "Початок роботи",
+    "TcRMWorkspaceName": "Requirements Manager",
+    "arm0_recentCommands": "Нещодавні підкоманди",
+    "Arm0RecentPrevCmdDesc": "Попередня",
+    "Arm0RecentNextCmdDesc": "Наступна",
+    "creationDate": "Дата створення",
+    "lastModDate": "Дата останньої зміни",
+    "noRecentReq": "Нещодавні відсутні",
+    "arm0_recentNext": "Наступна команда",
+    "arm0_recentPrev": "Попередня команда",
+    "summaryTable": "Зведена таблиця",
+    "selectionMode": "Режим виділення",
+    "summaryTableMultiSelectDesc": "Увімкнути або вимкнути режим виділення для множинного вибору. Вимкнення режиму виділення очистить вибір."
+}

@@ -1,0 +1,19 @@
+{
+    "processDisplayName": "процес",
+    "processesDisplayName": "процеси",
+    "processDisplayNameCapital": "Процес",
+    "activityDisplayName": "операція",
+    "activitiesDisplayName": "операції",
+    "activityDisplayNameCapital": "Операція",
+    "operationDisplayName": "операція",
+    "operationsDisplayName": "операції",
+    "operationDisplayNameCapital": "Операція",
+    "beDisplayName": "елемент збірки",
+    "besDisplayName": "елементи збірки",
+    "beDisplayNameCapital": "Елемент збірки",
+    "meDisplayName": "виробничий елемент",
+    "mesDisplayName": "виробничі елементи",
+    "meDisplayNameCapital": "Виробничий елемент",
+    "ngpWorkspaceName": "Планувальник нового покоління",
+    "ngp": "Планування нового покоління"
+}

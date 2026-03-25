@@ -1,0 +1,18 @@
+{
+    "peopleTitle": "Люди",
+    "organizationTitle": "Організація",
+    "groupTitle": "Групи",
+    "roleTitle": "Ролі",
+    "userTitle": "Користувачі",
+    "RevokeConsentTitle": "Відкликати згоду",
+    "revokeGDPRConsentLabel": "Відкликати згоду користувача",
+    "revokeConsentConfirmationMessage": "Відкликання вашої згоди призведе до виходу з Teamcenter",
+    "Group": "Група",
+    "DefaultRole": "Роль за замовчуванням",
+    "DefaultGroup": "Група за замовчуванням",
+    "cancel": "Скасувати",
+    "revoke": "Відкликати",
+    "group": "Група",
+    "role": "Роль",
+    "userMembershipTitle": "Членства користувача"
+}

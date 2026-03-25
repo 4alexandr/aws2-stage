@@ -1,0 +1,22 @@
+{
+    "manageTitle": "Управління",
+    "createWorkPackageHeaderTitle": "Новий робочий пакет",
+    "manageTitleDecl": "Управління робочим пакетом",
+    "epOpenWPTitle": "Відкрити",
+    "epOpenWPDesc": "Відкрити робочий пакет",
+    "ebomTileTitle": "EBOM",
+    "mbomTileTitle": "MBOM",
+    "add": "Додати",
+    "noEbomSelectedMessage": "Виберіть EBOM перед вибором MBOM.",
+    "addEbomCmdToolTipTitle": "Додати EBOM",
+    "addEbomCmdToolTipDescription": "Виберіть структуру EBOM і додайте її до робочого пакету.",
+    "addMbomCmdToolTipTitle": "Додати MBOM",
+    "addMbomCmdToolTipDescription": "Створіть нову структуру MBOM або виберіть існуючу, і додайте її до робочого пакету.",
+    "manageWPRightAreaTitle": "Вміст",
+    "addProduct": "Додати продукт",
+    "productSearchPlaceHolder": "Введіть назву продукту",
+    "useExistingMbom": "Використати існуючий MBOM",
+    "createNewMbom": "Створити новий MBOM",
+    "revisionRule": "Правило перегляду",
+    "createProductHeaderTitle": "Створити продукт"
+}

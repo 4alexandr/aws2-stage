@@ -1,0 +1,12 @@
+{
+    "arm1PasteObjects": "Вставити",
+    "arm1PasteObjectAsChild": "Дочірній",
+    "arm1PasteObjectAsSibling": "Сусідній",
+    "reorderTitle": "Змінити порядок",
+    "noParagraphNumberColumnPresentError": "Номер абзацу не вдалося відредагувати, оскільки стовпець не відображається.",
+    "ShowCrossReferenceAs": "Показати перехресне посилання як:",
+    "Arm1PasteObjectCmdGroupDesc": "Додати вибраний вміст.",
+    "Arm1PasteObjectAsChildCmdDesc": "Додати виділення як дочірній елемент. ",
+    "Arm1PasteObjectAsSiblingCmdDesc": "Додати об'єкт із буфера обміну на тому самому рівні (як сусідній).",
+    "Arm1ReorderDesc": " Змінити порядок вимог у дереві, змінивши номер абзацу."
+}

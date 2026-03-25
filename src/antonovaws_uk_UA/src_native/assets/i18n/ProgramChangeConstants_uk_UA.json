@@ -1,0 +1,9 @@
+{
+    "RelateChangeTitle": "Додати зміну",
+    "RemoveChangeCommandTitle": "Видалити зміну",
+    "Pch0PinButtonToolTip": "Закріпити панель",
+    "Pch0UnpinButtonToolTip": "Відкріпити панель",
+    "Pch0RemoveChangeDesc": "Видалити вибрану зміну з програми, проекту, підпроекту або події.",
+    "Pch0AddChangeDesc": "Додати існуючу зміну до програми, проекту, підпроекту або події.",
+    "Pch0AddPlanDesc": "Додати новий рівень плану до існуючої програми."
+}

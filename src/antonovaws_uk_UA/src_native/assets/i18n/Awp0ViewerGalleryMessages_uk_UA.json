@@ -1,0 +1,18 @@
+{
+    "uvCheckoutTitle": "Вилучення",
+    "uvCheckinTitle": "Повернення",
+    "uvCancelCheckoutTitle": "Скасувати вилучення",
+    "previousButtonTitle": "Назад",
+    "nextButtonTitle": "Далі",
+    "noObjectSelectionMessage": "Виберіть об'єкт для перегляду.",
+    "fullViewModeTitle": "Повний екран",
+    "uvWordWrapTitle": "Перенесення слів",
+    "exitFullViewModeTitle": "Вийти з повноекранного режиму",
+    "aw_viewerRightSide": "Права панель переглядача",
+    "aw_universalViewerLink": "Посилання універсального переглядача",
+    "uvCheckoutDesc": "Зарезервуйте виділений об'єкт, щоб інші користувачі не могли вносити зміни.",
+    "fullViewModeDesc": "Перейти до повноекранного режиму.",
+    "uvWordWrapDesc": "Переносити довгий текст на кілька рядків.",
+    "Awp0ShowObjectForUVpDesc": "Відкрити цей файл у поточному вікні.",
+    "Awp0ViewFileForUVDesc": "Завантажити файл."
+}

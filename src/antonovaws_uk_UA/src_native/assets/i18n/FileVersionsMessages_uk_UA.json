@@ -1,0 +1,10 @@
+{
+    "VersionsSectionHeader": "Версії",
+    "FileVersionsPanelHeader": "Версії набору даних",
+    "DownloadVersionButton": "Завантажити версію",
+    "RestoreVersionButton": "Відновити версію",
+    "RestoreFailureMessage": "Не вдалося відновити попередню версію набору даних.",
+    "UnsavedEditWarning": "{0} має незбережені зміни. Відновлення попередньої версії набору даних призведе до видалення ваших поточних змін.",
+    "ConfirmButtonLabel": "Продовжити",
+    "CancelButtonLabel": "Скасувати"
+}

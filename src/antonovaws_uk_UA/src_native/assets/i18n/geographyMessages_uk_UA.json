@@ -1,0 +1,11 @@
+{
+    "BRAND_NAME": "Teamcenter",
+    "SIGN_OUT_TEXT": "Вийти",
+    "CONTINUE_TEXT": "Продовжити",
+    "GEOGRAPHY_SECTION_TITLE": "Географія",
+    "GEOGRAPHY_SECTION_PROMPT": "Введіть ваше поточне робоче місцезнаходження:",
+    "CONFIDENTIAL_SECTION_TITLE": "Угода про конфіденційність",
+    "CONFIDENTIAL_CHECKBOX_LABEL": "Я погоджуюсь",
+    "GDPR_CHECKBOX_LABEL": "Я погоджуюсь",
+    "INITIAL_LIST_VALUE": "Обов'язково..."
+}

@@ -1,0 +1,16 @@
+{
+    "searchString": "Пошук кінцевого виробу",
+    "loadingLable": "Пошук...",
+    "noResultFound": "Результатів не знайдено. Будь ласка, змініть критерії пошуку та повторіть спробу.",
+    "revisionRuleLabel": "Правило редакції",
+    "configurePlanToDateLabel": "Налаштувати план за датою",
+    "endItemLable": "Кінцевий виріб",
+    "configurePlanUnitLabel": "Налаштувати план за одиницею",
+    "closeBtnText": "Закрити",
+    "configurePlanBtnText": "Відкрити налаштований план",
+    "configureBOPByEffectivityTitle": "Налаштувати BOP за ефективністю",
+    "epConfigureBOPbyEffectivityPopupHeaderCaption": "Переглянути план в іншій конфігурації",
+    "checkOutTooltip": "Вилучити",
+    "checkInTooltip": "Повернути",
+    "checkInConfirmation": "'{0}' вилучено як частину ієрархії '{1}'.\nЦя дія поверне всі об'єкти в ієрархії '{1}'.\nБажаєте продовжити?"
+}

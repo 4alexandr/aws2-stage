@@ -1,0 +1,21 @@
+{
+    "loading": "Завантаження...",
+    "rootClassLibraryObjectMsg": "Виробнича бібліотека класів",
+    "addToFavoritesCommandTitle": "Додати до вибраного",
+    "removeFromFavoritesCommandTitle": "Видалити з вибраного",
+    "pinObjectCommandTitle": "Закріпити на головній",
+    "unPinObjectCommandTitle": "Відкріпити від головної",
+    "pinnedToHome": "\"{0}\" додано на головну сторінку.",
+    "unpinnedFromHome": "\"{0}\" видалено з головної сторінки.",
+    "addedToFavorites": "\"{0}\" додано до вибраного.",
+    "removedFromFavorites": "\"{0}\" видалено з вибраного.",
+    "moreActionsCmdTooltip": "Більше дій для {0}",
+    "checkInCmdTitle": "Зареєструвати",
+    "checkOutCmdTitle": "Отримати",
+    "checkoutSuccessful": "Об'єкт \"{0}\" успішно отримано",
+    "checkinSuccessful": "Об'єкт \"{0}\" успішно зареєстровано",
+    "noChildrenFound": "Немає елементів",
+    "effectivityTooltip": "Одиниця = {0}",
+    "discontinuedSubElementsTooltipTitle": "Очікуючі видалення",
+    "discontinuedSubElementsTooltipMessage": "Видалення {0} процесів очікує на обробку. Щоб випустити вміст операції, включаючи це видалення, надішліть операцію до робочого процесу, використовуючи шаблон \"NGP_ReleasePendingDeletions\"."
+}

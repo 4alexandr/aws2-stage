@@ -1,0 +1,10 @@
+{
+    "structureViewerPageTitle": "3D",
+    "showResultsInViewer": "Показати лише результати у переглядачі",
+    "Awb0ShowInViewerCommandDesc": "Відображати лише результати пошуку у переглядачі. Видимість усіх інших компонентів вимкнено.",
+    "saveSessionConfirmPopupMsg": "{0}",
+    "CancelText": "Скасувати",
+    "OverwriteText": "Перезаписати",
+    "SaveAsAppSessionCmd": "Зберегти як",
+    "ShowModelViewPalette": "Вигляди моделі"
+}

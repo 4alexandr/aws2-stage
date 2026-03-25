@@ -1,0 +1,15 @@
+{
+    "submitToWorkflowTitle": "Надіслати до робочого процесу",
+    "submitToWorkflowDescription": "Надіслати вибране до робочого процесу.",
+    "submit": "Надіслати",
+    "workflowName": "Назва робочого процесу",
+    "workflowDescription": "Опис",
+    "cancel": "Скасувати",
+    "InWorkflowTooltip": "Шаблон робочого процесу:",
+    "inWorkflowPropertyTitle": "У робочому процесі",
+    "ReleasedStatusTooltip": "Статус випуску:",
+    "ReleasedStatusTitle": "Випущено",
+    "submittedToWorkflowInfo": "\"{0}\" надіслано до робочого процесу.",
+    "all": "Усі",
+    "assigned": "Призначено"
+}

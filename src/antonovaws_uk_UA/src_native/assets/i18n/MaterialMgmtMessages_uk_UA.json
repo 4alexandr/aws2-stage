@@ -1,0 +1,17 @@
+{
+    "AddToTitle": "Додати до",
+    "addButtonTitle": "Додати",
+    "addLabel": "Додати до",
+    "newShowAddObjectPresenterBtn": "Новий",
+    "paletteShowAddObjectPresenterBtn": "Палітра",
+    "searchShowAddObjectPresenterBtn": "Пошук",
+    "errorInGettingSubtypesofEndItem": "Результати пошуку не відфільтровано через внутрішню помилку.",
+    "FrequentlyUsedSectionTitle": "Часто використовувані",
+    "addPropertiesLabel": "Додати властивості",
+    "resultsTabTitle": "Результати",
+    "filterTabTitle": "Фільтр",
+    "Mtw0ShowAddObjectDesc": "Призначити речовину до матеріалу.",
+    "view": "Перегляд",
+    "billOfMaterials": "Специфікація матеріалів",
+    "billOfSubstances": "Специфікація речовин"
+}

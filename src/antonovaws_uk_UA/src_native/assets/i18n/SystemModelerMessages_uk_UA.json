@@ -1,0 +1,15 @@
+{
+    "deleteSingleInteractionConfirmation": "\"{0}\" та відповідні відображення атрибутів буде видалено.",
+    "removeSingleElementConfirmation": "\"{0}\" буде видалено.",
+    "removeMultipleElementsConfirmation": "{0} вибраних буде видалено.",
+    "removeMeasurableAttributeMessage": "\"{0}\" буде видалено.",
+    "syncSingleConectionMessage": "\"{0}\" синхронізується, взаємодії оновлюються. Ви отримаєте сповіщення після завершення.",
+    "syncMultipleConectionsMessage": "{0} вибраних синхронізуються, взаємодії оновлюються. Ви отримаєте сповіщення після завершення.",
+    "exportInterfaceTitle": "Експортувати інтерфейс",
+    "aw_interfaceTableCommandbar": "Панель команд таблиці інтерфейсів",
+    "aw_interactionTableCommandbar": "Панель команд таблиці взаємодій",
+    "aw_attributesTableCommandbar": "Панель команд таблиці атрибутів",
+    "aw_interfacesViewer": "Переглядач інтерфейсів",
+    "table_cell_commands": "Команди клітинки таблиці",
+    "Ase1ExportInterfaceElementDesc": "Експортувати деталі вибраного інтерфейсу."
+}

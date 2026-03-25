@@ -1,0 +1,15 @@
+{
+    "resultTabTitle": "Результати",
+    "filterTabTitle": "Фільтри",
+    "searchTabTitle": "Пошук",
+    "paletteTabTitle": "Палітра",
+    "addStockMaterialTitle": "Додати",
+    "properties": "Властивості",
+    "add": "Додати",
+    "madeFromFailureMakeFromPrefTrue": "\"{0}\" додано, але не є рекомендованим у \"{1}\".",
+    "madeFromFailureMakeFromPrefFalse": "\"{0}\" не додано, оскільки не є рекомендованим у \"{1}\".",
+    "dimensionsLabel": "Розміри",
+    "Sm1AddStdPartDesc": "Прикріпити стандартну деталь до деталі.",
+    "Sm1AddStockMaterialDesc": "Додати матеріал заготовки до деталі.",
+    "addPropertiesLabel": "Додати властивості"
+}

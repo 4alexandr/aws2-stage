@@ -1,0 +1,10 @@
+{
+    "compareTitle": "Порівняння",
+    "contentCompareMsmTitle": "Порівняння вмісту",
+    "contentComparePWATitle": "Вміст",
+    "RevisionRule": "Версія",
+    "Awb0CompareDesc": "Змінити параметри порівняння або вибрати рівень порівняння.",
+    "Awb0ContentCompareMsmDesc": "Розділити вікно для порівняння властивостей вибраних об'єктів.",
+    "emptyCompareResults": "Результатів для вибраних критеріїв порівняння не знайдено.",
+    "Awb0CompareGrpDesc": "Порівняти структури на основі вказаних параметрів порівняння."
+}

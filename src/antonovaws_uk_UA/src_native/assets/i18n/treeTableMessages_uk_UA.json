@@ -1,0 +1,14 @@
+{
+    "TwistieTooltipCollapsed": "Показати дочірні елементи",
+    "TwistieTooltipExpanded": "Приховати дочірні елементи",
+    "freezeMenu": "Заморозити",
+    "unfreezeMenu": "Розморозити",
+    "visibilityControlsTitle": "Показати/Приховати",
+    "arrangeMenu": "Упорядкувати",
+    "sortAscending": "Сортувати за зростанням",
+    "sortDescending": "Сортувати за спаданням",
+    "removeSort": "Без сортування",
+    "removeAllFilters": "Очистити всі фільтри",
+    "hideColumn": "Приховати стовпець",
+    "gridMenu": "Параметри"
+}
