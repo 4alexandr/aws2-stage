@@ -2,7 +2,7 @@
 .vscode/
 bin/
 conf/
-lib/
+repo/**/lib
 node_modules/
 out/
 xsd/
