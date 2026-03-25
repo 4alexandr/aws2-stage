@@ -1,0 +1,7 @@
+{
+    "srcPaths": [
+        "src/**",
+        "src/*/@(kit|module).json"
+    ],
+    "schemaPaths": [ "xsd/*.xsd" ]
+}

@@ -59,6 +59,7 @@ const {
  * Build configuration
  */
 const buildJson = require( './build.json' );
+const buildDevJson = require( './build.dev.json' );
 
 /**
  * Output folder
@@ -85,6 +86,11 @@ const temConfig = temFile.split( '\n' )
  * Shared promise containing the result of createCache
  */
 let createCachePromise;
+
+/**
+ * Shared promise containing the result of createDevCache
+ */
+let createDevCachePromise;
 
 /** ************************** Active Workspace Build Scripts ************************** **/
 
@@ -265,6 +271,104 @@ async function createCache() {
 }
 
 /**
+ * Load only src/ kits into a cache (for dev builds)
+ */
+async function createDevCache() {
+    const cache = {
+        filePath2moduleJson: {},
+        name2moduleJson: {},
+        audit: {
+            xsd: {}
+        }
+    };
+
+    const kitJsons = [];
+
+    const siteJson = {
+        name: 'stage',
+        kits: [],
+        locale: temConfig.locale && temConfig.locale.split( ',' ) || [],
+        siteDir: `${outDir}/site/`
+    };
+
+    function addModule( file ) {
+        const moduleJson = JSON.parse( file.contents );
+        cache.name2moduleJson[ moduleJson.name ] = moduleJson;
+        cache.filePath2moduleJson[ file.path ] = moduleJson;
+
+        if( !moduleJson.type ) {
+            moduleJson.type = [ 'native' ];
+        }
+
+        moduleJson.moduleDir = normalizePath( dirname( file.path ) );
+        if( !moduleJson.dependencies ) {
+            moduleJson.dependencies = [];
+        }
+        if( moduleJson.type.includes( 'native' ) || moduleJson.type.includes( 'repo' ) ) {
+            // eslint-disable-next-line no-prototype-builtins
+            const hasSrcDir = moduleJson.hasOwnProperty( 'srcDir' );
+            if( !hasSrcDir ) {
+                if( moduleJson.nativeRoots ) {
+                    moduleJson.srcDir = `${moduleJson.moduleDir}/${moduleJson.nativeRoots[ 0 ]}`;
+                } else {
+                    moduleJson.srcDir = `${moduleJson.moduleDir}/src`;
+                }
+            } else {
+                moduleJson.srcDir = `${moduleJson.moduleDir}/${moduleJson.srcDir}`;
+            }
+        }
+        moduleJson.srcZip = `${moduleJson.moduleDir}/${moduleJson.name}_native.zip`;
+    }
+
+    function addKit( file ) {
+        const kitJson = JSON.parse( file.contents );
+        kitJsons.push( kitJson );
+        siteJson.kits.push( kitJson.name );
+    }
+
+    createDevCachePromise = createDevCachePromise || stream2Promise( gulp.src( buildDevJson.srcPaths, { allowEmpty: true } )
+        .pipe( tapBlock( function( file ) {
+            const filePath = file.path;
+            trace( pathColor( filePath ), MSG_PREFIX );
+            if( /module\.json$/.test( filePath ) ) {
+                addModule( file );
+            } else if( /kit\.json$/.test( filePath ) ) {
+                addKit( file );
+            }
+        } ) ) ).then( () => {
+        cache.sca = require( './conf/staticCodeAnalysis.json' );
+        return {
+            cache: cache,
+            kitJsons: kitJsons,
+            siteJson: siteJson
+        };
+    } );
+
+    return createDevCachePromise;
+}
+
+/**
+ * Quick dev site build — only processes src/ kits, leaves repo/ kit files intact in out/site/
+ */
+async function buildDevSite() {
+    process.env.DRAFT = 'true';
+    const locals = await createDevCache();
+    const siteJson = locals.siteJson;
+    trace( JSON.stringify( siteJson, null, 2 ), MSG_PREFIX );
+    await site( siteJson, locals.kitJsons, locals.cache.name2moduleJson, siteJson.siteDir, 'site', buildDevJson );
+    return locals;
+}
+
+/**
+ * Quick dev deployment — only rebuilds src/ kits
+ */
+async function buildDevDeployment() {
+    const stopwatch = new Stopwatch();
+    const locals = await buildDevSite();
+    success( `Dev build ready @ ${shortenPath( pathColor( locals.siteJson.siteDir ) )}${stopwatch.end()}`, `  site/${locals.siteJson.name}: ` );
+}
+
+/**
  * Audit
  */
 async function audit() {
@@ -403,6 +507,12 @@ gulp.task( 'site_stage', buildDeployment );
  */
 gulp.task( 'refresh', () => buildSite( true )
     .catch( pipeErrorHandler ) );
+
+/**
+ * Dev build — only rebuilds src/ kits, skips all 75 repo/ kits and webpack.
+ * Requires a full build to have been run at least once so out/site/ exists.
+ */
+gulp.task( 'devRefresh', () => buildDevDeployment().catch( pipeErrorHandler ) );
 
 /**
  * Generate a viewing tool with example SOA inputs and outputs

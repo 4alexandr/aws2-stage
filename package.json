@@ -15,6 +15,7 @@
         "genSoaApi": "gulp genSoaApi",
         "gulp": "gulp",
         "publish": "node build/js/publishToGateway.js",
+        "dev": "gulp devRefresh",
         "refresh": "gulp refresh",
         "devServer": "node build/js/devServer.js"
     },
